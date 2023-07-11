@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "./types",
+    "noEmit": true,
+    "jsx": "react-jsx"
+  },
+  "include": [
+    "src/lib"
+  ]
+}

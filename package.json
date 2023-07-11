@@ -4,8 +4,24 @@
   "description": "Avatar creation module for AVAMOP",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "vite dev",
+    "build": "vite build && tsc",
+    "test": "vitest"
   },
   "author": "",
-  "license": "MPL-2.0"
+  "license": "MPL-2.0",
+  "dependencies": {
+    "happy-dom": "^10.0.3",
+    "jimp": "^0.22.8",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@vitejs/plugin-react": "^1.3.2",
+    "typescript": "^4.6.3",
+    "vite": "^2.9.16",
+    "vitest": "0.33.0"
+  }
 }
