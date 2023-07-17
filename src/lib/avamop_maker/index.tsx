@@ -1,13 +1,14 @@
-import Canvas from './components/Canvas'
+import MakerCanvas from './components/MakerCanvas'
 // https://reactjs.org/docs/react-dom-client.html
 import * as ReactDOM from 'react-dom/client';
-import React from 'react'
-const root = () => (
-  ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-    <React.StrictMode>
-      <Canvas />
-    </React.StrictMode>
-  )
-);
+import * as React from 'react'
+import { ChakraProvider } from '@chakra-ui/react'
 
-export default root;
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+  <React.StrictMode>
+    <ChakraProvider>
+      <MakerCanvas />
+    </ChakraProvider>
+  </React.StrictMode>
+)
+
