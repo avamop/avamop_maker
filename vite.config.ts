@@ -18,7 +18,7 @@ export default defineConfig({
       fileName: (format) => `avamop_maker.${format}.js`,
     },
     rollupOptions: {
-      external: ['react', 'react-dom',],
+      external: ['react', 'react-dom'],
       output: {
         globals: {
           react: 'react-jsx',
