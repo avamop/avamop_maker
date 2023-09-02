@@ -4,12 +4,15 @@ import MakerPartsButton from './MakerPartsButton';
 
 interface ObjectStructure {
   [category: string]: {
-    [partName: string]: string;
+    [item: string]: {
+      partName: string
+    };
   };
 }
 
 interface MakerMenuProps {
   objectStructure: ObjectStructure;
+  path: String;
 }
 
 const MakerManu: React.FC<MakerMenuProps> = ({ objectStructure, path }) => {
@@ -40,7 +43,7 @@ const MakerManu: React.FC<MakerMenuProps> = ({ objectStructure, path }) => {
             <MakerPartsButton
               key={item}
               content={item}
-              imageSrc={categoryContents[item]} // 画像のパスを渡す
+              imageSrc={path + categoryContents[item]} // 画像のパスを渡す
             />
           ))}
         </ul>
