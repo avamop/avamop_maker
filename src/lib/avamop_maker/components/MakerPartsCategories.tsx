@@ -1,4 +1,4 @@
-import MakerPartsButton from './MakerPartsButton';
+import MakerPartsButton from "./MakerPartsButton";
 
 interface MakerPartsCategoriesProps {
   category: string;
@@ -6,25 +6,43 @@ interface MakerPartsCategoriesProps {
   onClick: () => void;
   imageSrc: string;
   path: string;
-  categoryItems: categoryItems;
+  categoryItems: CategoryItems;
+  updateCategoryItem: (category: string, key: string[], value: string) => void;
+  selectedParts: ViewStatus;
 }
 
-const MakerPartsCategories: React.FC<MakerPartsCategoriesProps> = ({ path, imageSrc, category, isSelected, onClick, }) => {
+const MakerPartsCategories: React.FC<MakerPartsCategoriesProps> = ({
+  path,
+  imageSrc,
+  category,
+  isSelected,
+  onClick,
+  updateCategoryItem,
+  categoryItems,
+  selectedParts,
+}) => {
   return (
-    <li
-      onClick={onClick}
-      className={isSelected ? 'selected' : ''}
-    >
+    <li onClick={onClick} className={isSelected ? "selected" : ""}>
       <img src={imageSrc} alt={category} /> {category}
       {isSelected && (
-          <ul>
-          {Object.keys{categoryContents}.map((item) => (
-           <MakerPartsButton itemKey={item} imageSrc=[path + categoryContents[item] />   
-           ))}
+        <ul>
+          {Object.keys(categoryItems).map((item) => (
+            <MakerPartsButton
+              item={item}
+              imageSrc={path + categoryItems[item]}
+              onClick={() =>
+                updateCategoryItem(
+                  category,
+                  Object.keys(selectedParts[category]),
+                  item,
+                )
+              }
+            />
+          ))}
         </ul>
       )}
     </li>
   );
-}
+};
 
-export default MakerPartsCategories
+export default MakerPartsCategories;
