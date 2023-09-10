@@ -1,11 +1,11 @@
 interface MakerPartsButtonProps {
-  content: string;
+  item: string;
   imageSrc: string;
 }
 
-const MakerPartsButton: React.FC<MakerPartsButtonProps> = ({ imageSrc, content }) => {
+const MakerPartsButton: React.FC<MakerPartsButtonProps> = ({ item, imageSrc }) => {
   return (
-    <li>
+    <li key={item}>
       <img src={imageSrc} /> {content}
     </li>
   )

@@ -1,18 +1,9 @@
 import { useState } from 'react';
 import MakerPartsCategories from './MakerPartsCategories';
-import MakerPartsButton from './MakerPartsButton';
-
-interface ObjectStructure {
-  [category: string]: {
-    [item: string]: {
-      partName: string
-    };
-  };
-}
 
 interface MakerMenuProps {
   objectStructure: ObjectStructure;
-  path: String;
+  path: string;
 }
 
 const MakerManu: React.FC<MakerMenuProps> = ({ objectStructure, path }) => {
@@ -29,38 +20,17 @@ const MakerManu: React.FC<MakerMenuProps> = ({ objectStructure, path }) => {
         category={category}
         isSelected={selectedCategory === category}
         onClick={() => handleCategoryClick(category)}
-        imageSrc={path + objectStructure[category][Object.keys(objectStructure[category])[0]]} // 画像のパスを渡す
+        path={path}
+        imageSrc={path + objectStructure[category][Object.keys(objectStructure[category])[0]]}
+        categoryItems={objectStructure[category]}
       />
     ));
   };
 
-  const renderCategoryContents = () => {
-    if (selectedCategory) {
-      const categoryContents = objectStructure[selectedCategory];
-      return (
-        <ul>
-          {Object.keys(categoryContents).map((item) => (
-            <MakerPartsButton
-              key={item}
-              content={item}
-              imageSrc={path + categoryContents[item]} // 画像のパスを渡す
-            />
-          ))}
-        </ul>
-      );
-    }
-    return null;
-  };
 
   return (
-    <div className="menu">
-      <div className="category-list">
-        <ul>{renderCategories()}</ul>
-      </div>
-      <div className="category-contents">
-        {renderCategoryContents()}
-      </div>
-    </div>
+    <div></div>
+
   );
 };
 
