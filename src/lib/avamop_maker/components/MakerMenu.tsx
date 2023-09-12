@@ -18,7 +18,7 @@ const MakerManu: React.FC<MakerMenuProps> = ({ objectStructure, path }) => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedParts, setSelectedParts] = useState(viewStatus);
 
-  const updateCategoryItem = (category, key, value) => {
+  const updateCategoryItem = (category: string, key: string, value: string) => {
     const updateAvaters = {
       ...selectedParts,
       [category]: {
@@ -27,7 +27,6 @@ const MakerManu: React.FC<MakerMenuProps> = ({ objectStructure, path }) => {
       },
     };
     setSelectedParts(updateAvaters);
-    console.log("%o", viewStatus);
   };
 
   const handleCategoryClick = (category: string) => {
@@ -48,7 +47,7 @@ const MakerManu: React.FC<MakerMenuProps> = ({ objectStructure, path }) => {
           path +
           objectStructure[category][Object.keys(objectStructure[category])[0]]
         }
-        categoryItems={objectStructure[category]}
+        categoryItems={objectStructure[category].items}
       />
     ));
   };
@@ -56,6 +55,7 @@ const MakerManu: React.FC<MakerMenuProps> = ({ objectStructure, path }) => {
   return (
     <div>
       <ul>{renderCategories()}</ul>
+      <button onClick={() => console.log("%o", selectedParts)}>button</button>
     </div>
   );
 };

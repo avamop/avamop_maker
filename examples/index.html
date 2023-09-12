@@ -9,7 +9,19 @@
 
 <body>
   <div id="root"></div>
-  <script type="module" src="../src/lib/avamop_maker/index.tsx"></script>
+  <script type="module">
+    import React from 'react';
+    import ReactDOM from 'react-dom';
+    import {useContext} from 'react'
+    import {AvamopMaker} from '../src/lib/avamop_maker/AvamopMaker.tsx';
+    import MakerPartsdataImporter from './MakerPartsDataImporter.tsx'
+
+    ReactDOM.render(
+      <AvamopMaker path="../assets/parts/" objectStructure={useContext(MakerPartsDataImporter)} />,
+      document.getElementById('root')
+    );
+
+  </script>
 </body>
 
 </html>

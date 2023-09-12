@@ -1,7 +1,12 @@
 interface ObjectStructure {
   [category: string]: {
-    [item: string]: {
-      partName: string;
+    partCount: number;
+    partChain: string | null;
+    partOrder: number;
+    items: {
+      [item: string]: {
+        partName: string;
+      };
     };
   };
 }
@@ -12,6 +17,9 @@ interface CategoryItems {
 
 interface ViewStatus {
   [category: string]: {
+    partCount: number;
+    partChain: string | null;
+    partOrder: number;
     partName: string;
   };
 }
