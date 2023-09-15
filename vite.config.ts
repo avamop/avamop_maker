@@ -12,7 +12,7 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: resolve(__dirname, 'src/lib/avamop_maker/index.tsx'),
+      entry: resolve(__dirname, 'src/lib/avamop_maker/AvamopMaker.tsx'),
       formats: ['es', 'cjs'],
       name: 'avamop_maker',
       fileName: (format) => `avamop_maker.${format}.js`,

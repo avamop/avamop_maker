@@ -1,8 +1,8 @@
 {
   "backhairfront": {
     "partCount": 1,
-    "partChain": "backhairfront",
-    "partOrder": 0,
+    "partChain": "backhair",
+    "partOrder": 8,
     "items": {
       "backhairfront1": {
         "partName": "backhairfront/backhairfront1.png"
@@ -14,8 +14,8 @@
   },
   "backhairunder": {
     "partCount": 1,
-    "partChain": "backhairunder",
-    "partOrder": 1,
+    "partChain": "backhair",
+    "partOrder": 0,
     "items": {
       "backhairunder1": {
         "partName": "backhairunder/backhairunder1.png"
@@ -28,7 +28,7 @@
   "body": {
     "partCount": 1,
     "partChain": "body",
-    "partOrder": 2,
+    "partOrder": 1,
     "items": {
       "body1": {
         "partName": "body/body1.png"
@@ -54,7 +54,7 @@
   "eye": {
     "partCount": 1,
     "partChain": "eye",
-    "partOrder": 4,
+    "partOrder": 6,
     "items": {
       "eye1": {
         "partName": "eye/eye1.png"
@@ -67,7 +67,7 @@
   "eyebrows": {
     "partCount": 1,
     "partChain": "eyebrows",
-    "partOrder": 5,
+    "partOrder": 7,
     "items": {
       "eyebrows1": {
         "partName": "eyebrows/eyebrows1.png"
@@ -80,7 +80,7 @@
   "fronthair": {
     "partCount": 1,
     "partChain": "fronthair",
-    "partOrder": 6,
+    "partOrder": 10,
     "items": {
       "fronthair1": {
         "partName": "fronthair/fronthair1.png"
@@ -93,7 +93,7 @@
   "frontsidehair": {
     "partCount": 1,
     "partChain": "frontsidehair",
-    "partOrder": 7,
+    "partOrder": 9,
     "items": {
       "frontsidehair1": {
         "partName": "frontsidehair/frontsidehair1.png"
@@ -106,7 +106,7 @@
   "head": {
     "partCount": 1,
     "partChain": "head",
-    "partOrder": 8,
+    "partOrder": 2,
     "items": {
       "head1": {
         "partName": "head/head1.png"
@@ -119,7 +119,7 @@
   "mouth": {
     "partCount": 1,
     "partChain": "mouth",
-    "partOrder": 9,
+    "partOrder": 4,
     "items": {
       "mouth1": {
         "partName": "mouth/mouth1.png"
@@ -132,7 +132,7 @@
   "nose": {
     "partCount": 1,
     "partChain": "nose",
-    "partOrder": 10,
+    "partOrder": 5,
     "items": {
       "nose1": {
         "partName": "nose/nose1.png"

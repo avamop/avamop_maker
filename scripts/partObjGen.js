@@ -1,46 +1,56 @@
-const fs = require('fs');
-const path = require('path');
 
-// ディレクトリのパスを指定
+// カレントディレクトリをルートパスとする
 const rootDirectoryPath = process.cwd();
 
-const objectStructure = {};
+// JSONオブジェクトを生成する関数
+function generatePartObject(directoryPath, partChain) {
+  const partObject = {};
 
-// ルートディレクトリ内のサブディレクトリを取得
-const subdirectories = fs.readdirSync(rootDirectoryPath, { withFileTypes: true })
-  .filter(dirent => dirent.isDirectory())
-  .map(dirent => dirent.name);
+  const categories = fs.readdirSync(directoryPath, { withFileTypes: true })
+    .filter((dirent) => dirent.isDirectory())
+    .map((dirent) => dirent.name);
 
-// partOrderの初期値
-let partOrder = 0;
+  let partOrder = 0;
 
-// 各サブディレクトリを処理
-for (const category of subdirectories) {
-  const categoryPath = path.join(rootDirectoryPath, category);
-  const items = fs.readdirSync(categoryPath);
+  for (const category of categories) {
+    partOrder++;
+    const categoryPath = path.join(directoryPath, category);
+    const categoryPartChain = partChain ? `${partChain}/${category}` : category;
 
-  objectStructure[category] = {
-    partCount: 1,
-    partChain: category,
-    partOrder,
-    items: {},
-  };
-
-  // 各ファイルを処理
-  // 各ファイルを処理
-  for (const item of items) {
-    const itemName = path.basename(item, path.extname(item)); // 拡張子を削除
-    const relativePath = path.relative(rootDirectoryPath, path.join(categoryPath, item));
-    objectStructure[category].items[itemName] = {
-      partName: relativePath,
+    partObject[category] = {
+      partCount: 1,
+      partChain: categoryPartChain,
+      partOrder,
+      items: {},
     };
+
+    const items = fs.readdirSync(categoryPath, { withFileTypes: true })
+      .filter((dirent) => dirent.isDirectory())
+      .map((dirent) => dirent.name);
+
+    for (const item of items) {
+      const itemPath = path.join(categoryPath, item);
+      const faces = fs.readdirSync(itemPath, { withFileTypes: true })
+        .filter((dirent) => dirent.isFile() && dirent.name.endsWith('.png'))
+        .map((dirent) => dirent.name);
+
+      partObject[category].items[item] = {};
+
+      for (const face of faces) {
+        const faceName = path.basename(face, path.extname(face));
+        const facePath = path.join(categoryPartChain, item, face);
+        partObject[category].items[item][faceName] = {
+          facePath,
+        };
+      }
+    }
   }
-  partOrder++;
+
+  return partObject;
 }
 
-// JSONオブジェクトを出力
-const jsonOutput = JSON.stringify(objectStructure, null, 2);
-console.log(jsonOutput);
+// カレントディレクトリからJSONオブジェクトを生成
+const partObject = generatePartObject(rootDirectoryPath, null);
 
-// ファイルに保存する場合
-fs.writeFileSync('output.json', jsonOutput);
+// 生成したJSONオブジェクトをコンソールに出力
+console.log(JSON.stringify(partObject, null, 2));

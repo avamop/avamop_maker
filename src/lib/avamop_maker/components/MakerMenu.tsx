@@ -2,16 +2,16 @@ import { useState } from "react";
 import MakerPartsCategories from "./MakerPartsCategories";
 
 interface MakerMenuProps {
-  objectStructure: ObjectStructure;
   path: string;
+  partObject: PartObject;
 }
 
-const MakerManu: React.FC<MakerMenuProps> = ({ objectStructure, path }) => {
+const MakerManu: React.FC<MakerMenuProps> = ({ path, partObject }) => {
   const viewStatus = {};
-  for (const category in objectStructure) {
-    const keys = Object.keys(objectStructure[category]);
+  for (const category in partObject) {
+    const keys = Object.keys(partObject[category]);
     if (keys.length > 0) {
-      viewStatus[category] = { [keys[0]]: objectStructure[category][keys[0]] };
+      viewStatus[category] = { [keys[0]]: partObject[category][keys[0]] };
     }
   }
 
@@ -22,7 +22,7 @@ const MakerManu: React.FC<MakerMenuProps> = ({ objectStructure, path }) => {
     const updateAvaters = {
       ...selectedParts,
       [category]: {
-        ...selectedParts[category],
+        ...selectedParts[category].keys(partObject[category].items),
         [key]: value,
       },
     };
@@ -34,7 +34,7 @@ const MakerManu: React.FC<MakerMenuProps> = ({ objectStructure, path }) => {
   };
 
   const renderCategories = () => {
-    return Object.keys(objectStructure).map((category) => (
+    return Object.keys(partObject).map((category) => (
       <MakerPartsCategories
         key={category}
         category={category}
@@ -45,9 +45,11 @@ const MakerManu: React.FC<MakerMenuProps> = ({ objectStructure, path }) => {
         selectedParts={selectedParts}
         imageSrc={
           path +
-          objectStructure[category][Object.keys(objectStructure[category])[0]]
+          partObject[category].items[Object.keys(partObject[category].items)[0]].partName
         }
-        categoryItems={objectStructure[category].items}
+        categoryItems={partObject[category].items}
+
+
       />
     ));
   };

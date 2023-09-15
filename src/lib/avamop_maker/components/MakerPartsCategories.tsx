@@ -6,7 +6,7 @@ interface MakerPartsCategoriesProps {
   onClick: () => void;
   imageSrc: string;
   path: string;
-  categoryItems: CategoryItems;
+  categoryItems: Items;
   updateCategoryItem: (category: string, key: string, value: string) => void;
   selectedParts: ViewStatus;
 }
@@ -31,12 +31,12 @@ const MakerPartsCategories: React.FC<MakerPartsCategoriesProps> = ({
               key={item}
               item={item}
               path={path}
-              imageSrc={categoryItems[item].toString()}
+              imageSrc={categoryItems[item].partName}
               onClick={() =>
                 updateCategoryItem(
                   category,
                   Object.keys(selectedParts[category])[0],
-                  categoryItems[item].toString(),
+                  categoryItems[item].partName,
                 )
               }
             />
