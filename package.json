@@ -14,9 +14,10 @@
     "@chakra-ui/react": "^2.7.1",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@jimp/types": "^0.22.10",
     "framer-motion": "^10.12.21",
     "happy-dom": "^10.0.3",
-    "jimp": "^0.22.8",
+    "jimp": "^0.22.10",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },

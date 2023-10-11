@@ -1,4 +1,5 @@
 import MakerPartsButton from "./MakerPartsButton";
+import { useState, useEffect } from "react";
 
 interface MakerPartsCategoriesProps {
   category: string;
@@ -6,9 +7,8 @@ interface MakerPartsCategoriesProps {
   onClick: () => void;
   imageSrc: string;
   path: string;
-  categoryItems: Items;
+  categoryItems: Items | Items[];
   updateCategoryItem: (category: string, key: string, value: string) => void;
-  selectedParts: ViewStatus;
 }
 
 const MakerPartsCategories: React.FC<MakerPartsCategoriesProps> = ({
@@ -19,7 +19,6 @@ const MakerPartsCategories: React.FC<MakerPartsCategoriesProps> = ({
   onClick,
   updateCategoryItem,
   categoryItems,
-  selectedParts,
 }) => {
   return (
     <li className={isSelected ? "selected" : ""}>
@@ -31,13 +30,9 @@ const MakerPartsCategories: React.FC<MakerPartsCategoriesProps> = ({
               key={item}
               item={item}
               path={path}
-              imageSrc={categoryItems[item].partName}
+              imageSrc={categoryItems[item].normal.facePath}
               onClick={() =>
-                updateCategoryItem(
-                  category,
-                  Object.keys(selectedParts[category])[0],
-                  categoryItems[item].partName,
-                )
+                updateCategoryItem(category, "partName", item.toString())
               }
             />
           ))}

@@ -9,7 +9,7 @@ const MakerPartsButton: React.FC<MakerPartsButtonProps> = ({
   onClick,
   item,
   imageSrc,
-  path
+  path,
 }) => {
   return (
     <li onClick={onClick}>

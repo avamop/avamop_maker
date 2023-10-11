@@ -4,6 +4,7 @@
     "declarationDir": "./types",
     "noEmit": true,
     "jsx": "react-jsx",
+    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "traceResolution": true
   },

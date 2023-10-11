@@ -1,28 +1,30 @@
 import { useState } from "react";
 import MakerPartsCategories from "./MakerPartsCategories";
-
+import Jimp from "jimp";
 interface MakerMenuProps {
   path: string;
-  partObject: PartObject;
+  partObject: PartObjectMerged;
 }
 
-const MakerManu: React.FC<MakerMenuProps> = ({ path, partObject }) => {
-  const viewStatus = {};
+const MakerMenu: React.FC<MakerMenuProps> = ({ path, partObject }) => {
+  const viewStatus: ViewStatus = {};
   for (const category in partObject) {
-    const keys = Object.keys(partObject[category]);
-    if (keys.length > 0) {
-      viewStatus[category] = { [keys[0]]: partObject[category][keys[0]] };
+    if (partObject.hasOwnProperty(category)) {
+      for (viewStatus[category].length)
+        viewStatus[category] = {
+
+        };
     }
   }
-
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedParts, setSelectedParts] = useState(viewStatus);
+  const [selectedFace, setSelectedFace] = useState<string>("normal");
 
   const updateCategoryItem = (category: string, key: string, value: string) => {
     const updateAvaters = {
       ...selectedParts,
       [category]: {
-        ...selectedParts[category].keys(partObject[category].items),
+        ...selectedParts[category],
         [key]: value,
       },
     };
@@ -42,14 +44,13 @@ const MakerManu: React.FC<MakerMenuProps> = ({ path, partObject }) => {
         onClick={() => handleCategoryClick(category)}
         updateCategoryItem={updateCategoryItem}
         path={path}
-        selectedParts={selectedParts}
         imageSrc={
           path +
-          partObject[category].items[Object.keys(partObject[category].items)[0]].partName
+          partObject.category[category].items[
+            Object.keys(partObject.category[category].items)[0]
+          ].normal.facePath
         }
-        categoryItems={partObject[category].items}
-
-
+        categoryItems={partObject.category[category].items}
       />
     ));
   };
@@ -62,4 +63,4 @@ const MakerManu: React.FC<MakerMenuProps> = ({ path, partObject }) => {
   );
 };
 
-export default MakerManu;
+export default MakerMenu;

@@ -4,11 +4,15 @@
     "partChain": "backhair",
     "partOrder": 8,
     "items": {
-      "backhairfront1": {
-        "partName": "backhairfront/backhairfront1.png"
+      "backhair1": {
+        "normal": {
+          "facePath": "backhairfront/backhaairfront1/normal.png"
+        }
       },
-      "backhairfront2": {
-        "partName": "backhairfront/backhairfront2.png"
+      "backhair2": {
+        "normal": {
+          "facePath": "backhairfront/backhairfront2/normal.png"
+        }
       }
     }
   },
@@ -17,11 +21,15 @@
     "partChain": "backhair",
     "partOrder": 0,
     "items": {
-      "backhairunder1": {
-        "partName": "backhairunder/backhairunder1.png"
+      "backhair1": {
+        "normal": {
+          "facePath": "backhairunder/backhairunder1/normal.png"
+        }
       },
-      "backhairunder2": {
-        "partName": "backhairunder/backhairunder2.png"
+      "backhair2": {
+        "normal": {
+          "facePath": "backhairunder/backhairunder2/normal.png"
+        }
       }
     }
   },
@@ -31,10 +39,14 @@
     "partOrder": 1,
     "items": {
       "body1": {
-        "partName": "body/body1.png"
+        "normal": {
+          "facePath": "body/body1/normal.png"
+        }
       },
       "body2": {
-        "partName": "body/body2.png"
+        "normal": {
+          "facePath": "body/body2/normal.png"
+        }
       }
     }
   },
@@ -44,10 +56,14 @@
     "partOrder": 3,
     "items": {
       "ear1": {
-        "partName": "ear/ear1.png"
+        "normal": {
+          "facePath": "ear/ear1/normal.png"
+        }
       },
       "ear2": {
-        "partName": "ear/ear2.png"
+        "normal": {
+          "facePath": "ear/ear2/normal.png"
+        }
       }
     }
   },
@@ -57,10 +73,20 @@
     "partOrder": 6,
     "items": {
       "eye1": {
-        "partName": "eye/eye1.png"
+        "angry": {
+          "facePath": "eye/eye1/angry.png"
+        },
+        "normal": {
+          "facePath": "eye/eye1/normal.png"
+        }
       },
       "eye2": {
-        "partName": "eye/eye2.png"
+        "angry": {
+          "facePath": "eye/eye2/angry.png"
+        },
+        "normal": {
+          "facePath": "eye/eye2/normal.png"
+        }
       }
     }
   },
@@ -70,10 +96,20 @@
     "partOrder": 7,
     "items": {
       "eyebrows1": {
-        "partName": "eyebrows/eyebrows1.png"
+        "angry": {
+          "facePath": "eyebrows/eyebrows1/angry.png"
+        },
+        "normal": {
+          "facePath": "eyebrows/eyebrows1/normal.png"
+        }
       },
       "eyebrows2": {
-        "partName": "eyebrows/eyebrows2.png"
+        "angry": {
+          "facePath": "eyebrows/eyebrows2/angry.png"
+        },
+        "normal": {
+          "facePath": "eyebrows/eyebrows2/normal.png"
+        }
       }
     }
   },
@@ -83,10 +119,14 @@
     "partOrder": 10,
     "items": {
       "fronthair1": {
-        "partName": "fronthair/fronthair1.png"
+        "normal": {
+          "facePath": "fronthair/fronthair1/normal.png"
+        }
       },
       "fronthair2": {
-        "partName": "fronthair/fronthair2.png"
+        "normal": {
+          "facePath": "fronthair/fronthair2/normal.png"
+        }
       }
     }
   },
@@ -95,11 +135,15 @@
     "partChain": "frontsidehair",
     "partOrder": 9,
     "items": {
-      "frontsidehair1": {
-        "partName": "frontsidehair/frontsidehair1.png"
+      "frontsitehair1": {
+        "normal": {
+          "facePath": "frontsidehair/frontsitehair1/normal.png"
+        }
       },
-      "frontsidehair2": {
-        "partName": "frontsidehair/frontsidehair2.png"
+      "frontsitehair2": {
+        "normal": {
+          "facePath": "frontsidehair/frontsitehair2/normal.png"
+        }
       }
     }
   },
@@ -109,10 +153,14 @@
     "partOrder": 2,
     "items": {
       "head1": {
-        "partName": "head/head1.png"
+        "normal": {
+          "facePath": "head/head1/normal.png"
+        }
       },
       "head2": {
-        "partName": "head/head2.png"
+        "normal": {
+          "facePath": "head/head2/normal.png"
+        }
       }
     }
   },
@@ -122,10 +170,20 @@
     "partOrder": 4,
     "items": {
       "mouth1": {
-        "partName": "mouth/mouth1.png"
+        "angry": {
+          "facePath": "mouth/mouth1/angry.png"
+        },
+        "normal": {
+          "facePath": "mouth/mouth1/normal.png"
+        }
       },
       "mouth2": {
-        "partName": "mouth/mouth2.png"
+        "angry": {
+          "facePath": "mouth/mouth2/angry.png"
+        },
+        "normal": {
+          "facePath": "mouth/mouth2/normal.png"
+        }
       }
     }
   },
@@ -135,10 +193,20 @@
     "partOrder": 5,
     "items": {
       "nose1": {
-        "partName": "nose/nose1.png"
+        "angry": {
+          "facePath": "nose/nose1/angry.png"
+        },
+        "normal": {
+          "facePath": "nose/nose1/normal.png"
+        }
       },
       "nose2": {
-        "partName": "nose/nose2.png"
+        "angry": {
+          "facePath": "nose/nose2/angry.png"
+        },
+        "normal": {
+          "facePath": "nose/nose2/normal.png"
+        }
       }
     }
   }

@@ -1,12 +1,16 @@
+const fs = require("fs");
+const path = require("path");
 
 // カレントディレクトリをルートパスとする
 const rootDirectoryPath = process.cwd();
 
+// 型定義
+const partObject = {};
+
 // JSONオブジェクトを生成する関数
 function generatePartObject(directoryPath, partChain) {
-  const partObject = {};
-
-  const categories = fs.readdirSync(directoryPath, { withFileTypes: true })
+  const categories = fs
+    .readdirSync(directoryPath, { withFileTypes: true })
     .filter((dirent) => dirent.isDirectory())
     .map((dirent) => dirent.name);
 
@@ -24,14 +28,16 @@ function generatePartObject(directoryPath, partChain) {
       items: {},
     };
 
-    const items = fs.readdirSync(categoryPath, { withFileTypes: true })
+    const items = fs
+      .readdirSync(categoryPath, { withFileTypes: true })
       .filter((dirent) => dirent.isDirectory())
       .map((dirent) => dirent.name);
 
     for (const item of items) {
       const itemPath = path.join(categoryPath, item);
-      const faces = fs.readdirSync(itemPath, { withFileTypes: true })
-        .filter((dirent) => dirent.isFile() && dirent.name.endsWith('.png'))
+      const faces = fs
+        .readdirSync(itemPath, { withFileTypes: true })
+        .filter((dirent) => dirent.isFile() && dirent.name.endsWith(".png"))
         .map((dirent) => dirent.name);
 
       partObject[category].items[item] = {};
@@ -45,12 +51,15 @@ function generatePartObject(directoryPath, partChain) {
       }
     }
   }
-
-  return partObject;
 }
 
 // カレントディレクトリからJSONオブジェクトを生成
-const partObject = generatePartObject(rootDirectoryPath, null);
+generatePartObject(rootDirectoryPath, null);
 
-// 生成したJSONオブジェクトをコンソールに出力
-console.log(JSON.stringify(partObject, null, 2));
+// 生成したJSONオブジェクトをファイルに保存
+const outputFilePath = "output.json";
+const jsonOutput = JSON.stringify(partObject, null, 2);
+
+fs.writeFileSync(outputFilePath, jsonOutput);
+
+console.log(`JSONオブジェクトを ${outputFilePath} に保存しました。`);
