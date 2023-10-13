@@ -39,15 +39,23 @@ function generatePartObject(directoryPath, partChain) {
         .readdirSync(itemPath, { withFileTypes: true })
         .filter((dirent) => dirent.isFile() && dirent.name.endsWith(".png"))
         .map((dirent) => dirent.name);
-
-      partObject[category].items[item] = {};
+      partObject[category].items[item] = {
+        body: 0,
+        faces: {}
+      };
 
       for (const face of faces) {
         const faceName = path.basename(face, path.extname(face));
         const facePath = path.join(categoryPartChain, item, face);
-        partObject[category].items[item][faceName] = {
-          facePath,
+
+        if (!partObject[category].items[item].faces) {
+          partObject[category].items[item].faces = {};
+        }
+
+        partObject[category].items[item].faces[faceName] = {
+          facePath: facePath,
         };
+
       }
     }
   }
