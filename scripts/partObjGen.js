@@ -65,7 +65,7 @@ function generatePartObject(directoryPath, partChain) {
 generatePartObject(rootDirectoryPath, null);
 
 // 生成したJSONオブジェクトをファイルに保存
-const outputFilePath = "output.json";
+const outputFilePath = "partList.json";
 const jsonOutput = JSON.stringify(partObject, null, 2);
 
 fs.writeFileSync(outputFilePath, jsonOutput);

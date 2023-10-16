@@ -1,0 +1,41 @@
+{
+  "backhair": {
+    "pathUrl": "backhair/index.png"
+  },
+  "body": {
+    "pathUrl": "body/index.png"
+  },
+  "bottoms": {
+    "pathUrl": "bottoms/index.png"
+  },
+  "ear": {
+    "pathUrl": "ear/index.png"
+  },
+  "eye": {
+    "pathUrl": "eye/index.png"
+  },
+  "eyebrows": {
+    "pathUrl": "eyebrows/index.png"
+  },
+  "fronthair": {
+    "pathUrl": "fronthair/index.png"
+  },
+  "head": {
+    "pathUrl": "head/index.png"
+  },
+  "mouth": {
+    "pathUrl": "mouth/index.png"
+  },
+  "nose": {
+    "pathUrl": "nose/index.png"
+  },
+  "shoes": {
+    "pathUrl": "shoes/index.png"
+  },
+  "socks": {
+    "pathUrl": "socks/index.png"
+  },
+  "tops": {
+    "pathUrl": "tops/index.png"
+  }
+}

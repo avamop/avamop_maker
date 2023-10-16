@@ -33,15 +33,27 @@ interface PartObjectMerged {
 interface CategoryMerged {
   [partSplit: string]: {
     partOrder: number;
-    items: Items;
+    items: ItemsMerged;
   };
 }
 
+interface ItemsMerged {
+  [item: string]: {
+    body: Category["partChain"] extends "body" ? number : number[];
+    faces: Faces;
+  };
+}
+
+
 interface ViewStatus {
   [category: string]: {
-    partCount: number;
-    partChain: string;
-    partOrder: number;
     partName: string;
+    partBody: ViewStatus["category"] extends "body" ? number : number[];
   };
+}
+
+interface MenuThumbnail {
+  [category: string]: {
+    pathUrl: string;
+  }
 }

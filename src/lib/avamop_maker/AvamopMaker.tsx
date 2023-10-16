@@ -9,6 +9,7 @@ interface AvamopMakerProps {
 function mergeCategories(data: PartObject): PartObjectMerged {
   const mergedCategories: PartObjectMerged = {};
 
+  //partChainが一致するカテゴリを一纏めにする
   for (const category in data) {
     const currentCategory = data[category];
     const partChain = currentCategory.partChain;
@@ -47,18 +48,8 @@ function mergeCategories(data: PartObject): PartObjectMerged {
 }
 
 const AvamopMaker: React.FC<AvamopMakerProps> = ({ path, partObject }) => {
-  let partObjectSorted = {};
 
-  let partObjectSortedKeys = Object.keys(partObject).sort(
-    (a, b) => partObject[a].partOrder - partObject[b].partOrder,
-  );
-
-  partObjectSortedKeys.forEach((key) => {
-    partObjectSorted[key] = partObject[key];
-  });
-
-  const mergedData: PartObjectMerged = mergeCategories(partObjectSorted);
-  console.log(mergedData);
+  const mergedData: PartObjectMerged = mergeCategories(partObject);
   console.log("%o", mergedData);
 
   return (

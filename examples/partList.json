@@ -1,27 +1,4 @@
 {
-  "backhair": {
-    "partCount": 1,
-    "partChain": "backhair",
-    "partOrder": 0,
-    "items": {
-      "femaleStraightLong": {
-        "body": 0,
-        "faces": {
-          "normal": {
-            "facePath": "backhair/femaleStraightLong/normal.png"
-          }
-        }
-      },
-      "maleSpikyLord": {
-        "body": 0,
-        "faces": {
-          "normal": {
-            "facePath": "backhair/maleSpikyLord/normal.png"
-          }
-        }
-      }
-    }
-  },
   "body": {
     "partCount": 1,
     "partChain": "body",
@@ -45,16 +22,62 @@
       }
     }
   },
-  "bottoms": {
+  "head": {
     "partCount": 1,
-    "partChain": "bottoms",
-    "partOrder": 5,
+    "partChain": "head",
+    "partOrder": 6,
     "items": {
-      "femaleSkirtPleated": {
-        "body": 1,
+      "headStandard": {
+        "body": 0,
         "faces": {
           "normal": {
-            "facePath": "bottoms/femaleSkirtPleated/normal.png"
+            "facePath": "head/headStandard/normal.png"
+          }
+        }
+      }
+    }
+  },
+  "fronthair": {
+    "partCount": 1,
+    "partChain": "fronthair",
+    "partOrder": 12,
+    "items": {
+      "femaleBluntBangs": {
+        "body": 0,
+        "faces": {
+          "normal": {
+            "facePath": "fronthair/femaleBluntBangs/normal.png"
+          }
+        }
+      },
+      "maleSpikyLord": {
+        "body": 0,
+        "faces": {
+          "normal": {
+            "facePath": "fronthair/maleSpikyLord/normal.png"
+          }
+        }
+      }
+    }
+  },
+  "backhair": {
+    "partCount": 1,
+    "partChain": "backhair",
+    "partOrder": 0,
+    "items": {
+      "femaleStraightLong": {
+        "body": 0,
+        "faces": {
+          "normal": {
+            "facePath": "backhair/femaleStraightLong/normal.png"
+          }
+        }
+      },
+      "maleSpikyLord": {
+        "body": 0,
+        "faces": {
+          "normal": {
+            "facePath": "backhair/maleSpikyLord/normal.png"
           }
         }
       }
@@ -78,35 +101,6 @@
         "faces": {
           "normal": {
             "facePath": "ear/humanStandard/normal.png"
-          }
-        }
-      }
-    }
-  },
-  "eye": {
-    "partCount": 1,
-    "partChain": "eye",
-    "partOrder": 10,
-    "items": {
-      "femaleRounded": {
-        "body": 0,
-        "faces": {
-          "angry": {
-            "facePath": "eye/femaleRounded/angry.png"
-          },
-          "normal": {
-            "facePath": "eye/femaleRounded/normal.png"
-          }
-        }
-      },
-      "maleGallant": {
-        "body": 0,
-        "faces": {
-          "angry": {
-            "facePath": "eye/maleGallant/angry.png"
-          },
-          "normal": {
-            "facePath": "eye/maleGallant/normal.png"
           }
         }
       }
@@ -141,68 +135,30 @@
       }
     }
   },
-  "fronthair": {
+  "eye": {
     "partCount": 1,
-    "partChain": "fronthair",
-    "partOrder": 12,
+    "partChain": "eye",
+    "partOrder": 10,
     "items": {
-      "femaleBluntBangs": {
-        "body": 0,
-        "faces": {
-          "normal": {
-            "facePath": "fronthair/femaleBluntBangs/normal.png"
-          }
-        }
-      },
-      "maleSpikyLord": {
-        "body": 0,
-        "faces": {
-          "normal": {
-            "facePath": "fronthair/maleSpikyLord/normal.png"
-          }
-        }
-      }
-    }
-  },
-  "head": {
-    "partCount": 1,
-    "partChain": "head",
-    "partOrder": 6,
-    "items": {
-      "head1": {
-        "body": 0,
-        "faces": {
-          "normal": {
-            "facePath": "head/head1/normal.png"
-          }
-        }
-      }
-    }
-  },
-  "mouth": {
-    "partCount": 1,
-    "partChain": "mouth",
-    "partOrder": 8,
-    "items": {
-      "mouth1": {
+      "femaleRounded": {
         "body": 0,
         "faces": {
           "angry": {
-            "facePath": "mouth/mouth1/angry.png"
+            "facePath": "eye/femaleRounded/angry.png"
           },
           "normal": {
-            "facePath": "mouth/mouth1/normal.png"
+            "facePath": "eye/femaleRounded/normal.png"
           }
         }
       },
-      "mouth2": {
+      "maleGallant": {
         "body": 0,
         "faces": {
           "angry": {
-            "facePath": "mouth/mouth2/angry.png"
+            "facePath": "eye/maleGallant/angry.png"
           },
           "normal": {
-            "facePath": "mouth/mouth2/normal.png"
+            "facePath": "eye/maleGallant/normal.png"
           }
         }
       }
@@ -237,31 +193,30 @@
       }
     }
   },
-  "shoes": {
+  "mouth": {
     "partCount": 1,
-    "partChain": "shoes",
-    "partOrder": 3,
+    "partChain": "mouth",
+    "partOrder": 8,
     "items": {
-      "femaleSneakersLine": {
-        "body": 1,
+      "mouthMeh": {
+        "body": 0,
         "faces": {
+          "angry": {
+            "facePath": "mouth/mouthMeh/angry.png"
+          },
           "normal": {
-            "facePath": "shoes/femaleSneakersLine/normal.png"
+            "facePath": "mouth/mouthMeh/normal.png"
           }
         }
-      }
-    }
-  },
-  "socks": {
-    "partCount": 1,
-    "partChain": "socks",
-    "partOrder": 2,
-    "items": {
-      "femaleSocksShortSimple": {
-        "body": 1,
+      },
+      "mouthSmile": {
+        "body": 0,
         "faces": {
+          "angry": {
+            "facePath": "mouth/mouthSmile/angry.png"
+          },
           "normal": {
-            "facePath": "socks/femaleSocksShortSimple/normal.png"
+            "facePath": "mouth/mouthSmile/normal.png"
           }
         }
       }
@@ -285,6 +240,51 @@
         "faces": {
           "normal": {
             "facePath": "tops/maleShirtStandard/normal.png"
+          }
+        }
+      }
+    }
+  },
+  "bottoms": {
+    "partCount": 1,
+    "partChain": "bottoms",
+    "partOrder": 5,
+    "items": {
+      "femaleSkirtPleated": {
+        "body": 1,
+        "faces": {
+          "normal": {
+            "facePath": "bottoms/femaleSkirtPleated/normal.png"
+          }
+        }
+      }
+    }
+  },
+  "socks": {
+    "partCount": 1,
+    "partChain": "socks",
+    "partOrder": 2,
+    "items": {
+      "femaleSocksShortSimple": {
+        "body": 1,
+        "faces": {
+          "normal": {
+            "facePath": "socks/femaleSocksShortSimple/normal.png"
+          }
+        }
+      }
+    }
+  },
+  "shoes": {
+    "partCount": 1,
+    "partChain": "shoes",
+    "partOrder": 3,
+    "items": {
+      "femaleSneakersLine": {
+        "body": 1,
+        "faces": {
+          "normal": {
+            "facePath": "shoes/femaleSneakersLine/normal.png"
           }
         }
       }
