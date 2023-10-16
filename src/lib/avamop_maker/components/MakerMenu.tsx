@@ -1,29 +1,30 @@
 import { useState } from "react";
 import MakerPartsCategories from "./MakerPartsCategories";
-import Jimp from "jimp";
 interface MakerMenuProps {
-  path: string;
+  partPath: string;
   partObject: PartObjectMerged;
+  thumbnailPath: string;
+  thumbnailObject: MenuThumbnail;
 }
 
-const convertToViewStatus = (partObjectMerged: PartObjectMerged): ViewStatus => {
+const convertToViewStatus = (partObject: PartObjectMerged): ViewStatus => {
   const viewStatus: ViewStatus = {};
 
-  for (const category in partObjectMerged) {
-    const { partList, partCount } = partObjectMerged[category];
+  for (const category in partObject) {
+    const { partList, partCount } = partObject[category];
     const partSplits = Object.keys(partList);
 
     for (let i = 0; i < partCount; i++) {
       const partSplit = partSplits[0];
-      const partName = partObjectMerged[category].partCount === 1 ? Object.keys(partObjectMerged[category].partList[partSplit].items)[0] : Object.keys(partObjectMerged[category].partList[partSplit].items)[0];
-      const partBody = partObjectMerged[category].partCount === 1 ? partObjectMerged[category].partList[partSplit].items[Object.keys(partObjectMerged[category].partList[partSplit].items)[0]].body : partObjectMerged[category].partList[partSplit].items[Object.keys(partObjectMerged[category].partList[partSplit].items)[0]].body;
+      const partName = partObject[category].partCount === 1 ? Object.keys(partObject[category].partList[partSplit].items)[0] : Object.keys(partObject[category].partList[partSplit].items)[0];
+      const partBody = partObject[category].partCount === 1 ? partObject[category].partList[partSplit].items[Object.keys(partObject[category].partList[partSplit].items)[0]].body : partObject[category].partList[partSplit].items[Object.keys(partObject[category].partList[partSplit].items)[0]].body;
       viewStatus[`${category}_${i + 1}`] = { partName, partBody };
     }
   }
 
   return viewStatus;
 }
-const MakerMenu: React.FC<MakerMenuProps> = ({ path, partObject }) => {
+const MakerMenu: React.FC<MakerMenuProps> = ({ partPath, partObject, thumbnailPath, thumbnailObject }) => {
 
   const viewStatus: ViewStatus = convertToViewStatus(partObject)
 
@@ -47,18 +48,6 @@ const MakerMenu: React.FC<MakerMenuProps> = ({ path, partObject }) => {
   };
 
   const renderCategories = () => {
-    const menuThumbnail: MenuThumbnail = {}
-    for (const category in partObject) {
-      const { partList, partCount } = partObjectMerged[category];
-      const partSplits = Object.keys(partList);
-      for (let i = 0; i < partCount; i++) {
-        const partSplit = partSplits[0];
-        const partName = partObjectMerged[category].partCount === 1 ? Object.keys(partObjectMerged[category].partList[partSplit].items)[0] : Object.keys(partObjectMerged[category].partList[partSplit].items)[0];
-        const partBody = partObjectMerged[category].partCount === 1 ? partObjectMerged[category].partList[partSplit].items[Object.keys(partObjectMerged[category].partList[partSplit].items)[0]].body : partObjectMerged[category].partList[partSplit].items[Object.keys(partObjectMerged[category].partList[partSplit].items)[0]].body;
-        viewStatus[`${category}_${i + 1}`] = { partName, partBody };
-      }
-
-    }
     return Object.keys(viewStatus).map((category) => (
       <MakerPartsCategories
         key={category}
@@ -66,15 +55,9 @@ const MakerMenu: React.FC<MakerMenuProps> = ({ path, partObject }) => {
         isSelected={selectedCategory === category}
         onClick={() => handleCategoryClick(category)}
         updateCategoryItem={updateCategoryItem}
-        path={path}
-        imageSrc={
-          path +
-          partObject.category[category.replace(/_\d+$/, '')].items[
-            Object.keys(partObject.category[category].items)[0]
-          ].normal.facePath
-        }
-        categoryItems={partObject.category[category].items}
-      />
+        path={partPath}
+        imageSrc={thumbnailPath + thumbnailObject[category.replace(/_\d+$/, '')].pathUrl}
+        categoryItems={partObject.category[category.replace(/_\d+$/, '')].partList} />
     ));
   };
 

@@ -2,8 +2,10 @@ import { Box } from "@chakra-ui/react";
 import MakerMenu from "./components/MakerMenu";
 
 interface AvamopMakerProps {
-  path: string;
+  partPath: string;
   partObject: PartObject;
+  thumbnailPath: string;
+  thumbnailObject: MenuThumbnail;
 }
 
 function mergeCategories(data: PartObject): PartObjectMerged {
@@ -47,14 +49,14 @@ function mergeCategories(data: PartObject): PartObjectMerged {
   return mergedCategories;
 }
 
-const AvamopMaker: React.FC<AvamopMakerProps> = ({ path, partObject }) => {
+const AvamopMaker: React.FC<AvamopMakerProps> = ({ partPath, partObject, thumbnailPath, thumbnailObject }) => {
 
   const mergedData: PartObjectMerged = mergeCategories(partObject);
   console.log("%o", mergedData);
 
   return (
     <Box bg="gray.50">
-      <MakerMenu path={path} partObject={mergedData} />
+      <MakerMenu partPath={partPath} partObject={mergedData} thumbnailPath={thumbnailPath} thumbnailObject={thumbnailObject} />
     </Box>
   );
 };
