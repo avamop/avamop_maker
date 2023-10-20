@@ -17,7 +17,7 @@ interface Items {
 }
 
 interface Faces {
-  [face: string]: {
+  [face: 'normal' | string]: {
     facePath: string;
   };
 }

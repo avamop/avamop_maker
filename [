@@ -1,8 +1,6 @@
-import React from 'react'
-import { useEffect, useState } from 'react'
+import MakerPartsButton from "./MakerPartsButton";
 import 'jimp/browser/lib/jimp.js'
 import type { Jimp } from 'jimp/browser/lib/jimp';
-const MakerPartsButton = React.lazy(() => import("./MakerPartsButton"));
 
 interface MakerPartsCategoriesProps {
   category: string;
@@ -20,6 +18,7 @@ interface CombinePart {
   }
 }
 
+
 interface CombinePartBase64 {
   [key: string]: {
     part: string;
@@ -36,6 +35,7 @@ const MakerPartsCategories: React.FC<MakerPartsCategoriesProps> = ({
   categoryItems,
 }) => {
   const SplitCombine = async (categoryItems: CategoryMerged): Promise<CombinePartBase64> => {
+    // console.log(categoryItems)
     let combinePart: CombinePart = {}
     let combinePartBase64: CombinePartBase64 = {}
     for (const partSplit in categoryItems) {
@@ -52,47 +52,26 @@ const MakerPartsCategories: React.FC<MakerPartsCategoriesProps> = ({
     for (const key in combinePart) {
       combinePartBase64[key] = { part: await combinePart[key].part.getBase64Async(Jimp.MIME_PNG) };
     }
-    console.log('%o', combinePartBase64)
     return combinePartBase64
   }
-
-  const [menuPartIcon, setMenuPartIcon] = useState<CombinePartBase64 | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await SplitCombine(categoryItems);
-        setMenuPartIcon(result);
-        setIsLoading(false); // データの読み込みが完了
-      } catch (error) {
-        // エラーハンドリング
-        console.error(error);
-      }
-    };
-
-    fetchData();
-  }, [categoryItems]);
-
+  const menuPartIcon: Promise<CombinePartBase64> = SplitCombine(categoryItems);
+  console.log('%o', menuPartIcon)
   return (
     <li className={isSelected ? "selected" : ""}>
       <img onClick={onClick} src={imageSrc} alt={category} /> {category}
-      {(isSelected && (
-        <React.Suspense fallback={<div>Loading...</div>}>
-          <ul>
-            {Object.keys(Object.values(categoryItems)[0].items).map((item) => (
-              <MakerPartsButton
-                key={item}
-                item={item}
-                imageSrc={menuPartIcon ? menuPartIcon[item].part : ''}
-                onClick={() =>
-                  updateCategoryItem(category, "partName", item.toString())
-                }
-              />
-            ))}
-          </ul>
-        </React.Suspense>
-      )
+      {isSelected && (
+        <ul>
+          {Object.keys(Object.values(categoryItems)[0].items).map((item) => (
+            <MakerPartsButton
+              key={item}
+              item={item}
+              imageSrc={menuPartIcon[item].part}
+              onClick={() =>
+                updateCategoryItem(category, "partName", item.toString())
+              }
+            />
+          ))}
+        </ul>
       )}
     </li>
   );

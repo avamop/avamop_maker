@@ -16,9 +16,9 @@ const convertToViewStatus = (partObject: PartObjectMerged): ViewStatus => {
 
     for (let i = 0; i < partCount; i++) {
       const partSplit = partSplits[0];
-      const partName = partObject[category].partCount === 1 ? Object.keys(partObject[category].partList[partSplit].items)[0] : Object.keys(partObject[category].partList[partSplit].items)[0];
-      const partBody = partObject[category].partCount === 1 ? partObject[category].partList[partSplit].items[Object.keys(partObject[category].partList[partSplit].items)[0]].body : partObject[category].partList[partSplit].items[Object.keys(partObject[category].partList[partSplit].items)[0]].body;
-      viewStatus[`${category}_${i + 1}`] = { partName, partBody };
+      const partName = Object.keys(partObject[category].partList[partSplit].items)[0]
+      const partBody = partObject[category].partList[partSplit].items[Object.keys(partObject[category].partList[partSplit].items)[0]].body;
+      partObject[category].partCount === 1 ? viewStatus[category] = { partName, partBody } : viewStatus[`${category}_${i + 1}`] = { partName, partBody };
     }
   }
 
@@ -49,6 +49,7 @@ const MakerMenu: React.FC<MakerMenuProps> = ({ partPath, partObject, thumbnailPa
 
   const renderCategories = () => {
     return Object.keys(viewStatus).map((category) => (
+
       <MakerPartsCategories
         key={category}
         category={category}
@@ -57,7 +58,7 @@ const MakerMenu: React.FC<MakerMenuProps> = ({ partPath, partObject, thumbnailPa
         updateCategoryItem={updateCategoryItem}
         path={partPath}
         imageSrc={thumbnailPath + thumbnailObject[category.replace(/_\d+$/, '')].pathUrl}
-        categoryItems={partObject.category[category.replace(/_\d+$/, '')].partList} />
+        categoryItems={partObject[category.replace(/_\d+$/, '')].partList} />
     ));
   };
 

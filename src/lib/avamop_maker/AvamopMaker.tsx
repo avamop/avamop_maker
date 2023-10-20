@@ -52,7 +52,7 @@ function mergeCategories(data: PartObject): PartObjectMerged {
 const AvamopMaker: React.FC<AvamopMakerProps> = ({ partPath, partObject, thumbnailPath, thumbnailObject }) => {
 
   const mergedData: PartObjectMerged = mergeCategories(partObject);
-  console.log("%o", mergedData);
+  // console.log("%o", mergedData);
 
   return (
     <Box bg="gray.50">
