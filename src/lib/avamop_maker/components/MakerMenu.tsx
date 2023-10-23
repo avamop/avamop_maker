@@ -1,10 +1,14 @@
 import { useState } from "react";
 import MakerPartsCategories from "./MakerPartsCategories";
 interface MakerMenuProps {
-  partPath: string;
+  path: string;
   partObject: PartObjectMerged;
-  thumbnailPath: string;
   thumbnailObject: MenuThumbnail;
+}
+
+
+const renderFaces = () => {
+
 }
 
 const convertToViewStatus = (partObject: PartObjectMerged): ViewStatus => {
@@ -24,7 +28,7 @@ const convertToViewStatus = (partObject: PartObjectMerged): ViewStatus => {
 
   return viewStatus;
 }
-const MakerMenu: React.FC<MakerMenuProps> = ({ partPath, partObject, thumbnailPath, thumbnailObject }) => {
+const MakerMenu: React.FC<MakerMenuProps> = ({ path, partObject, thumbnailObject }) => {
 
   const viewStatus: ViewStatus = convertToViewStatus(partObject)
 
@@ -49,15 +53,14 @@ const MakerMenu: React.FC<MakerMenuProps> = ({ partPath, partObject, thumbnailPa
 
   const renderCategories = () => {
     return Object.keys(viewStatus).map((category) => (
-
       <MakerPartsCategories
         key={category}
         category={category}
         isSelected={selectedCategory === category}
         onClick={() => handleCategoryClick(category)}
         updateCategoryItem={updateCategoryItem}
-        path={partPath}
-        imageSrc={thumbnailPath + thumbnailObject[category.replace(/_\d+$/, '')].pathUrl}
+        path={path + "parts/"}
+        imageSrc={path + "thumbnails/" + thumbnailObject[category.replace(/_\d+$/, '')].pathUrl}
         categoryItems={partObject[category.replace(/_\d+$/, '')].partList} />
     ));
   };

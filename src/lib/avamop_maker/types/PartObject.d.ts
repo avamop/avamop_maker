@@ -16,12 +16,6 @@ interface Items {
   };
 }
 
-interface Faces {
-  [face: 'normal' | string]: {
-    facePath: string;
-  };
-}
-
 interface PartObjectMerged {
   [category: string]: {
     partList: CategoryMerged;
@@ -44,6 +38,24 @@ interface ItemsMerged {
   };
 }
 
+interface CategoryItemsCombined {
+  [item: string]: {
+    body: Category["partChain"] extends "body" ? number : number[];
+    peace: PeaceCombined
+  }
+}
+
+interface PeaceCombined {
+  [peace: string]: {
+    faces: Faces;
+  }
+}
+
+interface Faces {
+  [face: 'normal' | string]: {
+    facePath: string;
+  };
+}
 
 interface ViewStatus {
   [category: string]: {

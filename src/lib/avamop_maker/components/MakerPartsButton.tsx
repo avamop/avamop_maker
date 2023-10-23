@@ -1,13 +1,13 @@
 interface MakerPartsButtonProps {
   item: string;
-  imageSrc: string;
+  buttonImage: string;
   onClick: () => void;
 }
 
 const MakerPartsButton: React.FC<MakerPartsButtonProps> = ({
   onClick,
   item,
-  imageSrc,
+  buttonImage,
 }) => {
   return (
     <li onClick={onClick}>

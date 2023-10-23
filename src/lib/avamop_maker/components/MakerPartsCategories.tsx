@@ -26,6 +26,25 @@ interface CombinePartBase64 {
   }
 }
 
+const convertPartList = (categoryItems: CategoryMerged): CategoryItemsCombined => {
+  const categoryItemsCombined: CategoryItemsCombined = {};
+  for (const partSplit in categoryItems) {
+    const partData = categoryItems[partSplit];
+    for (const item in partData.items) {
+      if (!categoryItemsCombined[item]) {
+        categoryItemsCombined[item] = {
+          body: partData.items[item].body,
+          peace: {},
+        };
+      }
+      categoryItemsCombined[item].peace[partSplit] = {
+        faces: partData.items[item].faces,
+      };
+    }
+  }
+  return categoryItemsCombined;
+}
+
 const MakerPartsCategories: React.FC<MakerPartsCategoriesProps> = ({
   path,
   imageSrc,
@@ -35,45 +54,45 @@ const MakerPartsCategories: React.FC<MakerPartsCategoriesProps> = ({
   updateCategoryItem,
   categoryItems,
 }) => {
-  const SplitCombine = async (categoryItems: CategoryMerged): Promise<CombinePartBase64> => {
-    let combinePart: CombinePart = {}
-    let combinePartBase64: CombinePartBase64 = {}
-    for (const partSplit in categoryItems) {
-      for (const partKey in categoryItems[partSplit].items) {
-        const part = categoryItems[partSplit].items[partKey];
-        const image = await Jimp.read(path + part.faces.normal.facePath);
-        if (combinePart.hasOwnProperty(partKey)) {
-          combinePart[partKey].part.composite(image, 0, 0);
-        } else {
-          combinePart[partKey] = { part: image };
-        }
-      }
-    }
-    for (const key in combinePart) {
-      combinePartBase64[key] = { part: await combinePart[key].part.getBase64Async(Jimp.MIME_PNG) };
-    }
-    // console.log('%o', combinePartBase64)
-    return combinePartBase64
-  }
-
-  const [menuPartIcon, setMenuPartIcon] = useState<CombinePartBase64 | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await SplitCombine(categoryItems);
-        setMenuPartIcon(result);
-        setIsLoading(false); // データの読み込みが完了
-      } catch (error) {
-        // エラーハンドリング
-        console.error(error);
-      }
-    };
-
-    fetchData();
-  }, [categoryItems]);
-
+  // const SplitCombine = async (categoryItems: CategoryMerged): Promise<CombinePartBase64> => {
+  //   let combinePart: CombinePart = {}
+  //   let combinePartBase64: CombinePartBase64 = {}
+  //   for (const partSplit in categoryItems) {
+  //     for (const partKey in categoryItems[partSplit].items) {
+  //       const part = categoryItems[partSplit].items[partKey];
+  //       const image = await Jimp.read(path + part.faces.normal.facePath);
+  //       if (combinePart.hasOwnProperty(partKey)) {
+  //         combinePart[partKey].part.composite(image, 0, 0);
+  //       } else {
+  //         combinePart[partKey] = { part: image };
+  //       }
+  //     }
+  //   }
+  //   for (const key in combinePart) {
+  //     combinePartBase64[key] = { part: await combinePart[key].part.getBase64Async(Jimp.MIME_PNG) };
+  //   }
+  //   // console.log('%o', combinePartBase64)
+  //   return combinePartBase64
+  // }
+  //
+  // const [menuPartIcon, setMenuPartIcon] = useState<CombinePartBase64 | null>(null);
+  // const [isLoading, setIsLoading] = useState(true);
+  //
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const result = await SplitCombine(categoryItems);
+  //       setMenuPartIcon(result);
+  //       setIsLoading(false); // データの読み込みが完了
+  //     } catch (error) {
+  //       // エラーハンドリング
+  //       console.error(error);
+  //     }
+  //   };
+  //
+  //   fetchData();
+  // }, [categoryItems]);
+  //
   return (
     <li className={isSelected ? "selected" : ""}>
       <img onClick={onClick} src={imageSrc} alt={category} /> {category}
@@ -84,7 +103,7 @@ const MakerPartsCategories: React.FC<MakerPartsCategoriesProps> = ({
               <MakerPartsButton
                 key={item}
                 item={item}
-                imageSrc={menuPartIcon ? menuPartIcon[item].part : ''}
+                buttonImage={categoryItems}
                 onClick={() =>
                   updateCategoryItem(category, "partName", item.toString())
                 }

@@ -1,6 +1,14 @@
 const fs = require("fs");
 const path = require("path");
 
+if (process.argv.length < 4) {
+  console.error("Usage: node script.js inputDirectory outputFilePath");
+  process.exit(1);
+}
+
+const inputDirectory = process.argv[2];
+const outputFilePath = process.argv[3];
+
 // カレントディレクトリをルートパスとする
 const rootDirectoryPath = process.cwd();
 
@@ -61,13 +69,12 @@ function generatePartObject(directoryPath, partChain) {
   }
 }
 
-// カレントディレクトリからJSONオブジェクトを生成
-generatePartObject(rootDirectoryPath, null);
+// 指定されたディレクトリからJSONオブジェクトを生成
+generatePartObject(inputDirectory, null);
 
 // 生成したJSONオブジェクトをファイルに保存
-const outputFilePath = "partList.json";
 const jsonOutput = JSON.stringify(partObject, null, 2);
 
 fs.writeFileSync(outputFilePath, jsonOutput);
 
-console.log(`JSONオブジェクトを ${outputFilePath} に保存しました。`);
+console.log(`File tree JSON data has been written to ${outputFilePath}`);
