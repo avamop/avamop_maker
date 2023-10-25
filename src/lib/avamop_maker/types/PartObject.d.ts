@@ -41,7 +41,7 @@ interface ItemsMerged {
 interface CategoryItemsCombined {
   [item: string]: {
     body: Category["partChain"] extends "body" ? number : number[];
-    peace: PeaceCombined
+    peaces: PeaceCombined
   }
 }
 

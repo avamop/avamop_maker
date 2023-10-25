@@ -59,6 +59,7 @@ const MakerMenu: React.FC<MakerMenuProps> = ({ path, partObject, thumbnailObject
         isSelected={selectedCategory === category}
         onClick={() => handleCategoryClick(category)}
         updateCategoryItem={updateCategoryItem}
+        faces="normal"
         path={path + "parts/"}
         imageSrc={path + "thumbnails/" + thumbnailObject[category.replace(/_\d+$/, '')].pathUrl}
         categoryItems={partObject[category.replace(/_\d+$/, '')].partList} />
