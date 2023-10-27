@@ -26,6 +26,9 @@ const convertPartList = (categoryItems: CategoryMerged): CategoryItemsCombined =
       } else {
         categoryItemsCombined[item].body = partData.items[item].body;
       }
+      if (!categoryItemsCombined[item].peaces) {
+        categoryItemsCombined[item].peaces = {};
+      }
       categoryItemsCombined[item].peaces[partSplit] = {
         faces: partData.items[item].faces,
       };
@@ -45,12 +48,13 @@ const MakerPartsCategories: React.FC<MakerPartsCategoriesProps> = ({
   categoryItems,
 }) => {
   const buttonImageList: CategoryItemsCombined = convertPartList(categoryItems)
+  // console.log(buttonImageList)
   return (
     <li className={isSelected ? "selected" : ""}>
       <img onClick={onClick} src={imageSrc} alt={category} /> {category}
       {(isSelected && (
         <ul>
-          {Object.keys(Object.values(buttonImageList)).map((item) => (
+          {Object.keys(buttonImageList).map((item) => (
             <MakerPartsButton
               path={path}
               key={item}

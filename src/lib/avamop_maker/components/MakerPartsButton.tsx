@@ -1,7 +1,6 @@
 import 'jimp/browser/lib/jimp.js'
-import React from 'react'
+import React, { Suspense, lazy, useState, useEffect } from 'react';
 import type { Jimp } from 'jimp/browser/lib/jimp';
-import { useEffect, useState } from 'react'
 
 interface MakerPartsButtonProps {
   path: string;
@@ -10,6 +9,7 @@ interface MakerPartsButtonProps {
   buttonImages: PeaceCombined;
   onClick: () => void;
 }
+
 interface CombineParts {
   [faces: string]: {
     part: Jimp;
@@ -21,6 +21,41 @@ interface CombinePartsBase64 {
   }
 }
 
+const SplitCombine = async (buttonImages: PeaceCombined, path: string): Promise<CombinePartsBase64> => {
+  const combineParts: CombineParts = {};
+
+  // 各peace内の画像を合成
+  for (const peace in buttonImages) {
+    const faces = buttonImages[peace].faces;
+    for (const face in faces) {
+      const facePath = path + faces[face].facePath;
+
+      // 画像を読み込む
+      const image = await Jimp.read(facePath);
+
+      // combineParts に face 毎の Jimp インスタンスを格納
+      if (!combineParts[face]) {
+        combineParts[face] = {
+          part: image.clone(),
+        };
+      } else {
+        combineParts[face].part.composite(image, 0, 0);
+      }
+    }
+  }
+
+  // combineParts を base64 形式に変換
+  const combinePartsBase64: CombinePartsBase64 = {};
+  for (const face in combineParts) {
+    const base64Image = await combineParts[face].part.getBase64Async(Jimp.MIME_PNG);
+    combinePartsBase64[face] = {
+      part: base64Image,
+    };
+  }
+
+  return combinePartsBase64;
+}
+
 const MakerPartsButton: React.FC<MakerPartsButtonProps> = ({
   path,
   onClick,
@@ -28,49 +63,29 @@ const MakerPartsButton: React.FC<MakerPartsButtonProps> = ({
   faces,
   buttonImages
 }) => {
-  const SplitCombine = async (buttonImages: PeaceCombined): Promise<CombinePartsBase64> => {
-    let combineParts: CombineParts = {}
-    let combinePartsBase64: CombinePartsBase64 = {}
-    for (const partSplit in buttonImages.peaces) {
-      for (const faces in buttonImages.peaces[partSplit]) {
-        const part = buttonImages.peaces[partSplit].faces[faces];
-        const image = await Jimp.read(path + part.faces[faces].facePath);
-        if (combineParts.hasOwnProperty(faces)) {
-          combineParts[faces].part.composite(image, 0, 0);
-        } else {
-          combineParts[faces] = { part: image };
-        }
-      }
-      for (const faces in combineParts) {
-        combinePartsBase64[faces] = { part: await combineParts[faces].part.getBase64Async(Jimp.MIME_PNG) };
-      }
-      // console.log('%o', combinePartBase64)
-      return combinePartsBase64
-    }
-  }
   const [menuPartIcon, setMenuPartIcon] = useState<CombinePartsBase64 | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchMenuPartIcon = async () => {
       try {
-        const result: CombinePartsBase64 = await SplitCombine(buttonImages);
+        const result = await SplitCombine(buttonImages, path);
         setMenuPartIcon(result);
-        setIsLoading(false); // データの読み込みが完了
+        setIsLoading(false);
       } catch (error) {
-        // エラーハンドリング
-        console.error(error);
+        console.error("パーツデータ読み込みエラー:" + error);
+        setIsLoading(false);
       }
-    };
+    }
+    fetchMenuPartIcon();
+  }, [buttonImages, path]);
 
-    fetchData();
-  }, [buttonImages]);
   return (
-    <React.Suspense fallback={<div>Loading...</div>}>
-      <li onClick={onClick}>
-        <img src={menuPartIcon[faces ? faces : "normal"].part} /> {item}
-      </li>
-    </React.Suspense>
+    <li onClick={onClick}>
+      {isLoading ? (<div>Loading...</div>) : (
+        <>
+          <img src={menuPartIcon ? menuPartIcon[faces ? faces : "normal"].part : ""} alt={item} />
+          {item}</>)}
+    </li>
   );
 };
 
