@@ -6,7 +6,8 @@
   "scripts": {
     "start": "vite dev",
     "build": "vite build && tsc",
-    "test": "vitest"
+    "test": "vitest",
+    "clear": "vite clear"
   },
   "author": "",
   "license": "MPL-2.0",
@@ -15,11 +16,15 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@jimp/types": "^0.22.10",
+    "@types/jimp": "^0.2.28",
+    "create-vite": "^4.4.1",
     "framer-motion": "^10.16.4",
+    "fs": "^0.0.1-security",
     "happy-dom": "^12.9.1",
     "jimp": "^0.22.10",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "require": "^2.4.20"
   },
   "devDependencies": {
     "@types/react": "^18.2.28",

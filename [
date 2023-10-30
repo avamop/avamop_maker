@@ -63,6 +63,13 @@ interface PartObjectBase64 {
 }
 interface CategoryItemsBase64 {
   [item: string]: {
+    body: Category["partChain"] extends "body" ? number : number[];
+    peaces: PeaceBase64
+  }
+}
+
+interface PeaceBase64 {
+  [peace: string]: {
     faces: CombinePartsBase64;
   }
 }

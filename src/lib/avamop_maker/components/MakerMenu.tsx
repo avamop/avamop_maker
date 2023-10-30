@@ -1,41 +1,29 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MakerPartsCategories from "./MakerPartsCategories";
+import { MakerViewStatusGen } from "./MakerViewStatusGen"
+import { MakerConvertPartList } from './MakerConvertPartList';
+import { MakerSplitCombine } from './MakerSplitCombine';
+import MakerPartsButton from "./MakerPartsButton";
+
 interface MakerMenuProps {
   path: string;
   partObject: PartObjectMerged;
   thumbnailObject: MenuThumbnail;
 }
 
-
 const renderFaces = () => {
 
 }
 
-const convertToViewStatus = (partObject: PartObjectMerged): ViewStatus => {
-  const viewStatus: ViewStatus = {};
-
-  for (const category in partObject) {
-    const { partList, partCount } = partObject[category];
-    const partSplits = Object.keys(partList);
-
-    for (let i = 0; i < partCount; i++) {
-      const partSplit = partSplits[0];
-      const partName = Object.keys(partObject[category].partList[partSplit].items)[0]
-      const partBody = partObject[category].partList[partSplit].items[Object.keys(partObject[category].partList[partSplit].items)[0]].body;
-      partObject[category].partCount === 1 ? viewStatus[category] = { partName, partBody } : viewStatus[`${category}_${i + 1}`] = { partName, partBody };
-    }
-  }
-
-  return viewStatus;
-}
 const MakerMenu: React.FC<MakerMenuProps> = ({ path, partObject, thumbnailObject }) => {
 
-  const viewStatus: ViewStatus = convertToViewStatus(partObject)
+  const viewStatus: ViewStatus = MakerViewStatusGen(partObject)
 
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [selectedParts, setSelectedParts] = useState(viewStatus);
+  const [selectedParts, setSelectedParts] = useState<ViewStatus>(viewStatus);
   const [selectedFace, setSelectedFace] = useState<string>("normal");
-
+  const [menuPartIconCache, setMenuPartIconCache] = useState<PartObjectBase64 | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const updateCategoryItem = (category: string, key: string, value: string) => {
     const updateAvaters = {
       ...selectedParts,
@@ -51,27 +39,71 @@ const MakerMenu: React.FC<MakerMenuProps> = ({ path, partObject, thumbnailObject
     setSelectedCategory(category === selectedCategory ? null : category);
   };
 
-  const renderCategories = () => {
-    return Object.keys(viewStatus).map((category) => (
-      <MakerPartsCategories
-        key={category}
-        category={category}
-        isSelected={selectedCategory === category}
-        onClick={() => handleCategoryClick(category)}
-        updateCategoryItem={updateCategoryItem}
-        faces="normal"
-        path={path + "parts/"}
-        imageSrc={path + "thumbnails/" + thumbnailObject[category.replace(/_\d+$/, '')].pathUrl}
-        categoryItems={partObject[category.replace(/_\d+$/, '')].partList} />
-    ));
-  };
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const convertPartObject = {};
+        for (const category in partObject) {
+          convertPartObject[category] = {
+            partList: MakerConvertPartList(partObject[category].partList),
+          };
+        }
+        const newMenuPartIconCache = {};
+        for (const category in convertPartObject) {
+          newMenuPartIconCache[category] = { partList: {} };
+          for (const item in convertPartObject[category].partList) {
+            newMenuPartIconCache[category].partList[item] = { faces: {} };
+            const result = await MakerSplitCombine(
+              convertPartObject[category].partList[item].peaces,
+              path + "parts/"
+            );
+            newMenuPartIconCache[category].partList[item] = {
+              faces: result,
+            };
+          }
+        }
+
+        setMenuPartIconCache(newMenuPartIconCache);
+        setIsLoading(false); // データの読み込みが完了したらisLoadingをfalseに設定
+      } catch (error) {
+        console.log("データ読み込みエラー:", error);
+        setIsLoading(false); // エラーが発生した場合もisLoadingをfalseに設定
+      }
+    }
+
+    fetchData();
+  }, []); // 空の依存リストを指定して初回のみ実行されるように
 
   return (
     <div>
-      <ul>{renderCategories()}</ul>
+      <ul>{isLoading ? (
+        <div>Loading...</div>
+      ) : (
+        Object.keys(viewStatus).map((category) => (
+          <MakerPartsCategories
+            key={category}
+            category={category}
+            isSelected={selectedCategory === category}
+            onClick={() => handleCategoryClick(category)}
+            imageSrc={path + "thumbnails/" + thumbnailObject[category.replace(/_\d+$/, '')].pathUrl}
+          >
+            {Object.keys(menuPartIconCache[category.replace(/_\d+$/, '')].partList).map((item) => (
+              <MakerPartsButton
+                key={item}
+                item={item}
+                buttonImage={menuPartIconCache[category.replace(/_\d+$/, '')].partList[item].faces[selectedFace ?? "normal"].part}
+                onClick={() =>
+                  updateCategoryItem(category, "partName", item.toString())
+                }
+              />
+            ))
+            }
+          </MakerPartsCategories>
+        )))
+      }      </ul>
       <button onClick={() => console.log("%o", selectedParts)}>button</button>
     </div>
   );
 };
 
-export default MakerMenu;
+export default React.memo(MakerMenu);
