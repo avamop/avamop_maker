@@ -13,7 +13,7 @@ interface Items {
   [item: string]: {
     body: Category["partChain"] extends "body" ? number : number[];
     faces: Faces;
-  }
+  };
 }
 
 interface PartObjectMerged {
@@ -21,74 +21,77 @@ interface PartObjectMerged {
     partList: CategoryMerged;
     partCount: number;
     partChain: string;
-  }
+  };
 }
 
 interface CategoryMerged {
   [partSplit: string]: {
     partOrder: number;
     items: ItemsMerged;
-  }
+  };
 }
 
 interface ItemsMerged {
   [item: string]: {
     body: Category["partChain"] extends "body" ? number : number[];
     faces: Faces;
-  }
+  };
 }
 
 interface ConvertPartObject {
   [category: string]: {
-    partList: CategoryItemsCombined
-  }
+    partList: CategoryItemsCombined;
+  };
 }
 interface CategoryItemsCombined {
   [item: string]: {
     body: Category["partChain"] extends "body" ? number : number[];
-    peaces: PeaceCombined
-  }
+    peaces: PeaceCombined;
+  };
 }
 
 interface PeaceCombined {
   [peace: string]: {
     faces: Faces;
-  }
+  };
 }
 
 interface PartObjectBase64 {
   [category: string]: {
-    partList: CategoryItemsBase64
-  }
+    partList: CategoryItemsBase64;
+  };
 }
 interface CategoryItemsBase64 {
   [item: string]: {
     faces: CombinePartsBase64;
-  }
+  };
 }
 
 interface CombinePartsBase64 {
-  [face: 'normal' | string]: {
+  [face: "normal" | string]: {
     part: string;
-  }
+  };
 }
 
 interface Faces {
-  [face: 'normal' | string]: {
+  [face: "normal" | string]: {
     facePath: string;
-  }
+  };
 }
 
 interface ViewStatus {
   [category: string]: {
     partName: string;
     partBody: ViewStatus["category"] extends "body" ? number : number[];
-  }
+  };
 }
 
 interface MenuThumbnail {
   [category: string]: {
     pathUrl: string;
-  }
+  };
 }
 
+interface FaceList {
+  face: string;
+}

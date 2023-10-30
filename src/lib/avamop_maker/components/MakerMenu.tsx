@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import MakerPartsCategories from "./MakerPartsCategories";
-import { MakerViewStatusGen } from "./MakerViewStatusGen"
-import { MakerConvertPartList } from './MakerConvertPartList';
-import { MakerSplitCombine } from './MakerSplitCombine';
+import { MakerViewStatusGen } from "./MakerViewStatusGen";
+import { MakerConvertPartList } from "./MakerConvertPartList";
+import { MakerSplitCombine } from "./MakerSplitCombine";
+// import { MakerFaceGen } from "./MakerFaceGen";
+// import { MakerFaceMenu } from "./MakerFaceMenu";
 import MakerPartsButton from "./MakerPartsButton";
 
 interface MakerMenuProps {
@@ -11,18 +13,18 @@ interface MakerMenuProps {
   thumbnailObject: MenuThumbnail;
 }
 
-const renderFaces = () => {
-
-}
-
-const MakerMenu: React.FC<MakerMenuProps> = ({ path, partObject, thumbnailObject }) => {
-
-  const viewStatus: ViewStatus = MakerViewStatusGen(partObject)
-
+const MakerMenu: React.FC<MakerMenuProps> = ({
+  path,
+  partObject,
+  thumbnailObject,
+}) => {
+  const viewStatus: ViewStatus = MakerViewStatusGen(partObject);
+  // const faceList: FaceList = MakerFaceGen(partObject);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedParts, setSelectedParts] = useState<ViewStatus>(viewStatus);
   const [selectedFace, setSelectedFace] = useState<string>("normal");
-  const [menuPartIconCache, setMenuPartIconCache] = useState<PartObjectBase64 | null>(null);
+  const [menuPartIconCache, setMenuPartIconCache] =
+    useState<PartObjectBase64 | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const updateCategoryItem = (category: string, key: string, value: string) => {
     const updateAvaters = {
@@ -55,7 +57,7 @@ const MakerMenu: React.FC<MakerMenuProps> = ({ path, partObject, thumbnailObject
             newMenuPartIconCache[category].partList[item] = { faces: {} };
             const result = await MakerSplitCombine(
               convertPartObject[category].partList[item].peaces,
-              path + "parts/"
+              path + "parts/",
             );
             newMenuPartIconCache[category].partList[item] = {
               faces: result,
@@ -76,31 +78,42 @@ const MakerMenu: React.FC<MakerMenuProps> = ({ path, partObject, thumbnailObject
 
   return (
     <div>
-      <ul>{isLoading ? (
-        <div>Loading...</div>
-      ) : (
-        Object.keys(viewStatus).map((category) => (
-          <MakerPartsCategories
-            key={category}
-            category={category}
-            isSelected={selectedCategory === category}
-            onClick={() => handleCategoryClick(category)}
-            imageSrc={path + "thumbnails/" + thumbnailObject[category.replace(/_\d+$/, '')].pathUrl}
-          >
-            {Object.keys(menuPartIconCache[category.replace(/_\d+$/, '')].partList).map((item) => (
-              <MakerPartsButton
-                key={item}
-                item={item}
-                buttonImage={menuPartIconCache[category.replace(/_\d+$/, '')].partList[item].faces[selectedFace ?? "normal"].part}
-                onClick={() =>
-                  updateCategoryItem(category, "partName", item.toString())
-                }
-              />
-            ))
-            }
-          </MakerPartsCategories>
-        )))
-      }      </ul>
+      <ul>
+        {isLoading ? (
+          <div>Loading...</div>
+        ) : (
+          Object.keys(viewStatus).map((category) => (
+            <MakerPartsCategories
+              key={category}
+              category={category}
+              isSelected={selectedCategory === category}
+              onClick={() => handleCategoryClick(category)}
+              imageSrc={
+                path +
+                "thumbnails/" +
+                thumbnailObject[category.replace(/_\d+$/, "")].pathUrl
+              }
+            >
+              {Object.keys(
+                menuPartIconCache[category.replace(/_\d+$/, "")].partList,
+              ).map((item) => (
+                <MakerPartsButton
+                  key={item}
+                  item={item}
+                  buttonImage={
+                    menuPartIconCache[category.replace(/_\d+$/, "")].partList[
+                      item
+                    ].faces[selectedFace ?? "normal"].part
+                  }
+                  onClick={() =>
+                    updateCategoryItem(category, "partName", item.toString())
+                  }
+                />
+              ))}
+            </MakerPartsCategories>
+          ))
+        )}{" "}
+      </ul>
       <button onClick={() => console.log("%o", selectedParts)}>button</button>
     </div>
   );
