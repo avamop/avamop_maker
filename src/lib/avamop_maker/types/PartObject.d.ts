@@ -91,7 +91,3 @@ interface MenuThumbnail {
     pathUrl: string;
   };
 }
-
-interface FaceList {
-  face: string;
-}

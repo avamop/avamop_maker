@@ -16,23 +16,22 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@jimp/types": "^0.22.10",
-    "@types/jimp": "^0.2.28",
     "create-vite": "^4.4.1",
     "framer-motion": "^10.16.4",
     "fs": "^0.0.1-security",
-    "happy-dom": "^12.9.1",
+    "happy-dom": "^12.10.3",
     "jimp": "^0.22.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "require": "^2.4.20"
   },
   "devDependencies": {
-    "@types/react": "^18.2.28",
-    "@types/react-dom": "^18.2.13",
+    "@types/react": "^18.2.34",
+    "@types/react-dom": "^18.2.14",
     "@vitejs/plugin-react": "^4.1.0",
     "@vitest/ui": "^0.34.6",
     "typescript": "^5.2.2",
-    "vite": "^4.4.11",
+    "vite": "^4.5.0",
     "vitest": "0.34.6"
   }
 }

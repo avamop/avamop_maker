@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import MakerPartsCategories from "./MakerPartsCategories";
-import { MakerViewStatusGen } from "./MakerViewStatusGen";
-import { MakerConvertPartList } from "./MakerConvertPartList";
-import { MakerSplitCombine } from "./MakerSplitCombine";
-// import { MakerFaceGen } from "./MakerFaceGen";
-// import { MakerFaceMenu } from "./MakerFaceMenu";
+import { MakerViewStatusGen } from "./functions/MakerViewStatusGen";
+import { MakerConvertPartList } from "./functions/MakerConvertPartList";
+import { MakerSplitCombine } from "./functions/MakerSplitCombine";
+import { MakerFaceGen } from "./functions/MakerFaceGen";
+import MakerFaceMenu from "./MakerFaceMenu";
 import MakerPartsButton from "./MakerPartsButton";
-
 interface MakerMenuProps {
   path: string;
   partObject: PartObjectMerged;
@@ -19,14 +18,14 @@ const MakerMenu: React.FC<MakerMenuProps> = ({
   thumbnailObject,
 }) => {
   const viewStatus: ViewStatus = MakerViewStatusGen(partObject);
-  // const faceList: FaceList = MakerFaceGen(partObject);
+  const faceList: string[] = MakerFaceGen(partObject);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedParts, setSelectedParts] = useState<ViewStatus>(viewStatus);
   const [selectedFace, setSelectedFace] = useState<string>("normal");
   const [menuPartIconCache, setMenuPartIconCache] =
     useState<PartObjectBase64 | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const updateCategoryItem = (category: string, key: string, value: string) => {
+  const changePart = (category: string, key: string, value: string) => {
     const updateAvaters = {
       ...selectedParts,
       [category]: {
@@ -35,6 +34,10 @@ const MakerMenu: React.FC<MakerMenuProps> = ({
       },
     };
     setSelectedParts(updateAvaters);
+  };
+
+  const changeFace = (face: string) => {
+    setSelectedFace(face);
   };
 
   const handleCategoryClick = (category: string) => {
@@ -57,7 +60,7 @@ const MakerMenu: React.FC<MakerMenuProps> = ({
             newMenuPartIconCache[category].partList[item] = { faces: {} };
             const result = await MakerSplitCombine(
               convertPartObject[category].partList[item].peaces,
-              path + "parts/",
+              path + "parts/"
             );
             newMenuPartIconCache[category].partList[item] = {
               faces: result,
@@ -82,6 +85,19 @@ const MakerMenu: React.FC<MakerMenuProps> = ({
         {isLoading ? (
           <div>Loading...</div>
         ) : (
+          faceList.map((face) => (
+            <MakerFaceMenu
+              key={face}
+              face={face}
+              onClick={() => changeFace(face)}
+            />
+          ))
+        )}
+      </ul>
+      <ul>
+        {isLoading ? (
+          <div>Loading...</div>
+        ) : (
           Object.keys(viewStatus).map((category) => (
             <MakerPartsCategories
               key={category}
@@ -95,7 +111,7 @@ const MakerMenu: React.FC<MakerMenuProps> = ({
               }
             >
               {Object.keys(
-                menuPartIconCache[category.replace(/_\d+$/, "")].partList,
+                menuPartIconCache[category.replace(/_\d+$/, "")].partList
               ).map((item) => (
                 <MakerPartsButton
                   key={item}
@@ -103,10 +119,14 @@ const MakerMenu: React.FC<MakerMenuProps> = ({
                   buttonImage={
                     menuPartIconCache[category.replace(/_\d+$/, "")].partList[
                       item
-                    ].faces[selectedFace ?? "normal"].part
+                    ].faces[selectedFace]
+                      ? menuPartIconCache[category.replace(/_\d+$/, "")]
+                          .partList[item].faces[selectedFace].part
+                      : menuPartIconCache[category.replace(/_\d+$/, "")]
+                          .partList[item].faces["normal"].part
                   }
                   onClick={() =>
-                    updateCategoryItem(category, "partName", item.toString())
+                    changePart(category, "partName", item.toString())
                   }
                 />
               ))}
