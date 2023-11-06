@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import MakerPartsCategories from "./MakerPartsCategories";
 import { MakerViewStatusGen } from "./functions/MakerViewStatusGen";
 import { MakerConvertPartList } from "./functions/MakerConvertPartList";
 import { MakerSplitCombine } from "./functions/MakerSplitCombine";
 import { MakerFaceGen } from "./functions/MakerFaceGen";
+import MakerPartsMenu from "./MakerPartsMenu";
 import MakerFaceMenu from "./MakerFaceMenu";
-import MakerPartsButton from "./MakerPartsButton";
 interface MakerMenuProps {
   path: string;
   partObject: PartObjectMerged;
@@ -81,59 +80,22 @@ const MakerMenu: React.FC<MakerMenuProps> = ({
 
   return (
     <div>
-      <ul>
-        {isLoading ? (
-          <div>Loading...</div>
-        ) : (
-          faceList.map((face) => (
-            <MakerFaceMenu
-              key={face}
-              face={face}
-              onClick={() => changeFace(face)}
-            />
-          ))
-        )}
-      </ul>
-      <ul>
-        {isLoading ? (
-          <div>Loading...</div>
-        ) : (
-          Object.keys(viewStatus).map((category) => (
-            <MakerPartsCategories
-              key={category}
-              category={category}
-              isSelected={selectedCategory === category}
-              onClick={() => handleCategoryClick(category)}
-              imageSrc={
-                path +
-                "thumbnails/" +
-                thumbnailObject[category.replace(/_\d+$/, "")].pathUrl
-              }
-            >
-              {Object.keys(
-                menuPartIconCache[category.replace(/_\d+$/, "")].partList
-              ).map((item) => (
-                <MakerPartsButton
-                  key={item}
-                  item={item}
-                  buttonImage={
-                    menuPartIconCache[category.replace(/_\d+$/, "")].partList[
-                      item
-                    ].faces[selectedFace]
-                      ? menuPartIconCache[category.replace(/_\d+$/, "")]
-                          .partList[item].faces[selectedFace].part
-                      : menuPartIconCache[category.replace(/_\d+$/, "")]
-                          .partList[item].faces["normal"].part
-                  }
-                  onClick={() =>
-                    changePart(category, "partName", item.toString())
-                  }
-                />
-              ))}
-            </MakerPartsCategories>
-          ))
-        )}{" "}
-      </ul>
+      <MakerFaceMenu
+        faceList={faceList}
+        isLoading={isLoading}
+        changeFace={changeFace}
+      />
+      <MakerPartsMenu
+        isLoading={isLoading}
+        path={path}
+        thumbnailObject={thumbnailObject}
+        viewStatus={selectedParts}
+        selectedCategory={selectedCategory}
+        selectedFace={selectedFace}
+        handleCategoryClick={handleCategoryClick}
+        changePart={changePart}
+        menuPartIconCache={menuPartIconCache}
+      />
       <button onClick={() => console.log("%o", selectedParts)}>button</button>
     </div>
   );

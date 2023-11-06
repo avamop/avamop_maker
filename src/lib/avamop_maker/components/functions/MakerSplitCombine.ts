@@ -15,7 +15,7 @@ export const MakerSplitCombine = async (buttonImages: PeaceCombined, path: strin
     const faces = buttonImages[peace].faces;
     for (const face in faces) {
       const facePath = path + faces[face].facePath;
-      console.log(facePath)
+      // console.log(facePath)
       // 画像を読み込む
       const image = await Jimp.read(facePath);
 
@@ -38,7 +38,6 @@ export const MakerSplitCombine = async (buttonImages: PeaceCombined, path: strin
       part: base64Image,
     };
   }
-  console.log("executed" + "%o", combinePartsBase64)
+  // console.log("executed" + "%o", combinePartsBase64)
   return combinePartsBase64;
 }
-

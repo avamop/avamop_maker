@@ -1,22 +1,34 @@
 import React from "react";
+import MakerFaceButton from "./MakerFaceButton";
 
 interface MakerFaceMenuProps {
-  face: string;
-  // faceImage: string;
-  onClick: () => void;
+  faceList: string[];
+  isLoading: boolean;
+  // faceImages: string[];
+  changeFace: (face: string) => void;
 }
 
 const MakerFaceMenu: React.FC<MakerFaceMenuProps> = ({
-  face,
-  // faceImage,
-  onClick,
+  faceList,
+  isLoading,
+  changeFace,
+  // faceImages
 }) => {
   return (
-    <li onClick={onClick}>
-      {/* <img src={faceImage} alt={face} /> */}
-      {face}
-    </li>
+    <ul>
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : (
+        faceList.map((face) => (
+          <MakerFaceButton
+            key={face}
+            face={face}
+            // faceImages= {faceImages[face]}
+            onClick={() => changeFace(face)}
+          />
+        ))
+      )}
+    </ul>
   );
 };
-
-export default MakerFaceMenu;
+export default React.memo(MakerFaceMenu);
