@@ -7,8 +7,9 @@ export const mergeCategories = (data: PartObject): PartObjectMerged => {
     const partChain = currentCategory.partChain;
 
     if (!mergedCategories[partChain]) {
-      // If the partChain doesn't exist in the mergedCategories, create a new entry.
+      //mergedCategoriesにpartChainの値が存在しない場合は新規作成
       mergedCategories[partChain] = {
+        colorGroup: currentCategory.colorGroup,
         partList: {},
         partCount: currentCategory.partCount,
         partChain: partChain,
@@ -18,13 +19,13 @@ export const mergeCategories = (data: PartObject): PartObjectMerged => {
     const currentPartList = mergedCategories[partChain].partList;
 
     if (!currentPartList[category]) {
-      // If the category doesn't exist in the currentPartList, create a new entry.
+      // currentPartListにcategoryの値が存在しない場合は新規作成
       currentPartList[category] = {
         partOrder: currentCategory.partOrder,
         items: currentCategory.items,
       };
     } else {
-      // Check if partCount, partChain, and items are the same in the current category.
+      // currntPartListにCategoryの値がある場合は比較してエラーチェック
       const existingCategory = currentPartList[category];
 
       if (

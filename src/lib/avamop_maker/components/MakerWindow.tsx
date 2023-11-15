@@ -3,6 +3,7 @@ import { MakerViewStatusGen } from "./functions/MakerViewStatusGen";
 import { MakerConvertPartList } from "./functions/MakerConvertPartList";
 import { MakerSplitCombine } from "./functions/MakerSplitCombine";
 import { MakerFaceGen } from "./functions/MakerFaceGen";
+import MakerView from "./MakerView";
 import MakerPartsMenu from "./MakerPartsMenu";
 import MakerFaceMenu from "./MakerFaceMenu";
 interface MakerMenuProps {
@@ -11,7 +12,7 @@ interface MakerMenuProps {
   thumbnailObject: MenuThumbnail;
 }
 
-const MakerMenu: React.FC<MakerMenuProps> = ({
+const MakerWindow: React.FC<MakerMenuProps> = ({
   path,
   partObject,
   thumbnailObject,
@@ -24,15 +25,62 @@ const MakerMenu: React.FC<MakerMenuProps> = ({
   const [menuPartIconCache, setMenuPartIconCache] =
     useState<PartObjectBase64 | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const changePart = (category: string, key: string, value: string) => {
-    const updateAvaters = {
-      ...selectedParts,
-      [category]: {
-        ...selectedParts[category],
-        [key]: value,
-      },
-    };
-    setSelectedParts(updateAvaters);
+  const changePart = (
+    category: string,
+    key: string,
+    bodyTypeValue: BodyType<typeof category>,
+    partNameValue: string
+  ) => {
+    if (category === "body") {
+      try {
+        if (Array.isArray(bodyTypeValue)) {
+          throw new Error(
+            "エラー:bodyのbodyTypeプロパティが配列になっています"
+          );
+        } else if (bodyTypeValue === 0) {
+          throw new Error("エラー:bodyのbodyTypeプロパティが0になっています");
+        } else {
+          const updateAvaters: ViewStatus = {
+            bodyType: bodyTypeValue,
+            category: {
+              ...selectedParts.category,
+              [category]: {
+                ...selectedParts.category[category],
+                [key]: {
+                  partName: partNameValue,
+                },
+              },
+            },
+          };
+          setSelectedParts(updateAvaters);
+        }
+      } catch (error) {
+        console.error(error.message);
+      }
+    } else {
+      try {
+        if (!Array.isArray(bodyTypeValue) && bodyTypeValue !== 0) {
+          throw new Error(
+            `エラー:${category}のbodyTypeプロパティが配列になっていません`
+          );
+        }
+        const updateAvaters: ViewStatus = {
+          bodyType: selectedParts.bodyType,
+          category: {
+            ...selectedParts.category,
+            [category]: {
+              ...selectedParts.category[category],
+              [key]: {
+                partName: partNameValue,
+              },
+            },
+          },
+        };
+        setSelectedParts(updateAvaters);
+      } catch (error) {
+        console.error(error.message);
+      }
+    }
   };
 
   const changeFace = (face: string) => {
@@ -46,40 +94,43 @@ const MakerMenu: React.FC<MakerMenuProps> = ({
   useEffect(() => {
     async function fetchData() {
       try {
-        const convertPartObject = {};
+        const convertPartObject: ConvertPartObject = {};
         for (const category in partObject) {
+          const convertPartList: CategoryItemsCombined<typeof category> =
+            MakerConvertPartList(partObject[category].partList);
           convertPartObject[category] = {
-            partList: MakerConvertPartList(partObject[category].partList),
+            partList: convertPartList,
           };
         }
-        const newMenuPartIconCache = {};
+        const menuPartIconList: PartObjectBase64 = {};
         for (const category in convertPartObject) {
-          newMenuPartIconCache[category] = { partList: {} };
+          menuPartIconList[category] = {
+            partList: {},
+          };
           for (const item in convertPartObject[category].partList) {
-            newMenuPartIconCache[category].partList[item] = { faces: {} };
-            const result = await MakerSplitCombine(
-              convertPartObject[category].partList[item].peaces,
-              path + "parts/"
-            );
-            newMenuPartIconCache[category].partList[item] = {
-              faces: result,
+            const partList: CategoryItemsBase64<typeof category> = {
+              bodyType: convertPartObject[category].partList[item].bodyType,
+              faces: await MakerSplitCombine(
+                convertPartObject[category].partList[item].peaces,
+                path + "parts/"
+              ),
             };
+            menuPartIconList[category].partList[item] = partList;
           }
         }
-
-        setMenuPartIconCache(newMenuPartIconCache);
+        setMenuPartIconCache(menuPartIconList);
         setIsLoading(false); // データの読み込みが完了したらisLoadingをfalseに設定
       } catch (error) {
         console.log("データ読み込みエラー:", error);
         setIsLoading(false); // エラーが発生した場合もisLoadingをfalseに設定
       }
     }
-
     fetchData();
   }, []); // 空の依存リストを指定して初回のみ実行されるように
 
   return (
     <div>
+      <MakerView />
       <MakerFaceMenu
         faceList={faceList}
         isLoading={isLoading}
@@ -101,4 +152,4 @@ const MakerMenu: React.FC<MakerMenuProps> = ({
   );
 };
 
-export default React.memo(MakerMenu);
+export default React.memo(MakerWindow);

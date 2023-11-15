@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/react";
-import MakerMenu from "./components/MakerWindow";
+import MakerWindow from "./components/MakerWindow";
 
 interface AvamopMakerProps {
   path: string;
@@ -14,7 +14,7 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
 }) => {
   return (
     <Box bg="gray.50">
-      <MakerMenu
+      <MakerWindow
         path={path}
         partObject={partObject}
         thumbnailObject={thumbnailObject}

@@ -9,7 +9,12 @@ interface MakerPartsMenuProps {
   path: string;
   thumbnailObject: MenuThumbnail;
   handleCategoryClick: (category: string) => void;
-  changePart: (category: string, key: string, value: string) => void;
+  changePart: (
+    category: string,
+    key: string,
+    bodyTypeValue: BodyType<typeof category>,
+    partNameValue: string
+  ) => void;
   menuPartIconCache: PartObjectBase64;
   isLoading: boolean;
 }
@@ -31,7 +36,7 @@ const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
         {isLoading ? (
           <div>Loading...</div>
         ) : (
-          Object.keys(viewStatus).map((category) => (
+          Object.keys(viewStatus.category).map((category) => (
             <MakerPartsCategories
               key={category}
               category={category}
@@ -59,7 +64,14 @@ const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
                           .partList[item].faces["normal"].part
                   }
                   onClick={() =>
-                    changePart(category, "partName", item.toString())
+                    changePart(
+                      category,
+                      "partName",
+                      menuPartIconCache[category.replace(/_\d+$/, "")].partList[
+                        item
+                      ].bodyType,
+                      item.toString()
+                    )
                   }
                 />
               ))}

@@ -30,6 +30,7 @@ function generatePartObject(directoryPath, partChain) {
     const categoryPartChain = partChain ? `${partChain}/${category}` : category;
 
     partObject[category] = {
+      colorGroup: "none",
       partCount: 1,
       partChain: categoryPartChain,
       partOrder,
@@ -48,8 +49,9 @@ function generatePartObject(directoryPath, partChain) {
         .filter((dirent) => dirent.isFile() && dirent.name.endsWith(".png"))
         .map((dirent) => dirent.name);
       partObject[category].items[item] = {
-        body: 0,
-        faces: {}
+        bodyType: [0],
+        color: true,
+        faces: {},
       };
 
       for (const face of faces) {
@@ -63,7 +65,6 @@ function generatePartObject(directoryPath, partChain) {
         partObject[category].items[item].faces[faceName] = {
           facePath: facePath,
         };
-
       }
     }
   }

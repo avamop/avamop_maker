@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require("fs");
 
 function mergeCategories(data) {
   const mergedCategories = {};
@@ -9,6 +9,7 @@ function mergeCategories(data) {
 
     if (!mergedCategories[partChain]) {
       mergedCategories[partChain] = {
+        colorGroup: currentCategory.colorGroup,
         partList: {},
         partCount: currentCategory.partCount,
         partChain: partChain,
@@ -38,14 +39,14 @@ function mergeCategories(data) {
 }
 
 if (process.argv.length !== 4) {
-  console.log('Usage: node script.js input.json output.json');
+  console.log("Usage: node script.js input.json output.json");
   process.exit(1);
 }
 
 const inputFilePath = process.argv[2];
 const outputFilePath = process.argv[3];
 
-fs.readFile(inputFilePath, 'utf8', (err, data) => {
+fs.readFile(inputFilePath, "utf8", (err, data) => {
   if (err) {
     console.error(`Error reading input file: ${err}`);
     process.exit(1);
