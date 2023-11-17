@@ -4,9 +4,10 @@
     "partCount": 1,
     "partChain": "body",
     "partOrder": 1,
+    "ignoreTrigger": null,
     "items": {
       "female": {
-        "bodyType": 1,
+        "bodyType": [1],
         "color": true,
         "faces": {
           "normal": {
@@ -15,7 +16,7 @@
         }
       },
       "male": {
-        "bodyType": 2,
+        "bodyType": [2],
         "color": true,
         "faces": {
           "normal": {
@@ -30,9 +31,10 @@
     "partCount": 1,
     "partChain": "head",
     "partOrder": 6,
+    "ignoreTrigger": null,
     "items": {
       "headStandard": {
-        "bodyType": 0,
+        "bodyType": null,
         "color": true,
         "faces": {
           "normal": {
@@ -47,9 +49,10 @@
     "partCount": 1,
     "partChain": "fronthair",
     "partOrder": 12,
+    "ignoreTrigger": null,
     "items": {
       "femaleBluntBangs": {
-        "bodyType": 0,
+        "bodyType": null,
         "color": true,
         "faces": {
           "normal": {
@@ -58,7 +61,7 @@
         }
       },
       "maleSpikyLord": {
-        "bodyType": 0,
+        "bodyType": null,
         "color": true,
         "faces": {
           "normal": {
@@ -73,9 +76,10 @@
     "partCount": 1,
     "partChain": "backhair",
     "partOrder": 0,
+    "ignoreTrigger": null,
     "items": {
       "femaleStraightLong": {
-        "bodyType": 0,
+        "bodyType": null,
         "color": true,
         "faces": {
           "normal": {
@@ -84,7 +88,7 @@
         }
       },
       "maleSpikyLord": {
-        "bodyType": 0,
+        "bodyType": null,
         "color": true,
         "faces": {
           "normal": {
@@ -99,9 +103,10 @@
     "partCount": 1,
     "partChain": "ear",
     "partOrder": 4,
+    "ignoreTrigger": null,
     "items": {
       "elf": {
-        "bodyType": 0,
+        "bodyType": null,
         "color": true,
         "faces": {
           "normal": {
@@ -110,7 +115,7 @@
         }
       },
       "humanStandard": {
-        "bodyType": 0,
+        "bodyType": null,
         "color": true,
         "faces": {
           "normal": {
@@ -125,9 +130,10 @@
     "partCount": 1,
     "partChain": "eyebrows",
     "partOrder": 11,
+    "ignoreTrigger": null,
     "items": {
       "femaleStandard": {
-        "bodyType": 0,
+        "bodyType": null,
         "color": true,
         "faces": {
           "angry": {
@@ -139,7 +145,7 @@
         }
       },
       "maleGallant": {
-        "bodyType": 0,
+        "bodyType": null,
         "color": true,
         "faces": {
           "angry": {
@@ -157,9 +163,10 @@
     "partCount": 1,
     "partChain": "eye",
     "partOrder": 10,
+    "ignoreTrigger": null,
     "items": {
       "femaleRounded": {
-        "bodyType": 0,
+        "bodyType": null,
         "color": true,
         "faces": {
           "angry": {
@@ -171,7 +178,7 @@
         }
       },
       "maleGallant": {
-        "bodyType": 0,
+        "bodyType": null,
         "color": true,
         "faces": {
           "angry": {
@@ -189,9 +196,10 @@
     "partCount": 1,
     "partChain": "nose",
     "partOrder": 9,
+    "ignoreTrigger": null,
     "items": {
       "noseDumping": {
-        "bodyType": 0,
+        "bodyType": null,
         "color": true,
         "faces": {
           "angry": {
@@ -203,7 +211,7 @@
         }
       },
       "noseRound": {
-        "bodyType": 0,
+        "bodyType": null,
         "color": true,
         "faces": {
           "angry": {
@@ -221,9 +229,10 @@
     "partCount": 1,
     "partChain": "mouth",
     "partOrder": 8,
+    "ignoreTrigger": null,
     "items": {
       "mouthMeh": {
-        "bodyType": 0,
+        "bodyType": null,
         "color": true,
         "faces": {
           "angry": {
@@ -235,7 +244,7 @@
         }
       },
       "mouthSmile": {
-        "bodyType": 0,
+        "bodyType": null,
         "color": true,
         "faces": {
           "angry": {
@@ -253,6 +262,7 @@
     "partCount": 1,
     "partChain": "tops",
     "partOrder": 4,
+    "ignoreTrigger": null,
     "items": {
       "femaleShirtStandard": {
         "bodyType": [1],
@@ -279,6 +289,7 @@
     "partCount": 1,
     "partChain": "bottoms",
     "partOrder": 5,
+    "ignoreTrigger": null,
     "items": {
       "femaleSkirtPleated": {
         "bodyType": [1],
@@ -296,6 +307,7 @@
     "partCount": 1,
     "partChain": "socks",
     "partOrder": 2,
+    "ignoreTrigger": null,
     "items": {
       "femaleSocksShortSimple": {
         "bodyType": [1],
@@ -313,6 +325,7 @@
     "partCount": 1,
     "partChain": "shoes",
     "partOrder": 3,
+    "ignoreTrigger": null,
     "items": {
       "femaleSneakersLine": {
         "bodyType": [1],

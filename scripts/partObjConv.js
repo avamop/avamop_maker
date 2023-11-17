@@ -10,9 +10,10 @@ function mergeCategories(data) {
     if (!mergedCategories[partChain]) {
       mergedCategories[partChain] = {
         colorGroup: currentCategory.colorGroup,
-        partList: {},
         partCount: currentCategory.partCount,
         partChain: partChain,
+        ignoreTrigger: currentCategory.ignoreTrigger,
+        partList: {},
       };
     }
 

@@ -1,12 +1,15 @@
 {
   "body": {
     "colorGroup": "skin",
+    "partCount": 1,
+    "partChain": "body",
+    "ignoreTrigger": null,
     "partList": {
       "body": {
         "partOrder": 1,
         "items": {
           "female": {
-            "bodyType": 1,
+            "bodyType": [1],
             "color": true,
             "faces": {
               "normal": {
@@ -15,7 +18,7 @@
             }
           },
           "male": {
-            "bodyType": 2,
+            "bodyType": [2],
             "color": true,
             "faces": {
               "normal": {
@@ -25,18 +28,19 @@
           }
         }
       }
-    },
-    "partCount": 1,
-    "partChain": "body"
+    }
   },
   "head": {
     "colorGroup": "skin",
+    "partCount": 1,
+    "partChain": "head",
+    "ignoreTrigger": null,
     "partList": {
       "head": {
         "partOrder": 6,
         "items": {
           "headStandard": {
-            "bodyType": 0,
+            "bodyType": null,
             "color": true,
             "faces": {
               "normal": {
@@ -46,18 +50,19 @@
           }
         }
       }
-    },
-    "partCount": 1,
-    "partChain": "head"
+    }
   },
   "fronthair": {
     "colorGroup": "hair",
+    "partCount": 1,
+    "partChain": "fronthair",
+    "ignoreTrigger": null,
     "partList": {
       "fronthair": {
         "partOrder": 12,
         "items": {
           "femaleBluntBangs": {
-            "bodyType": 0,
+            "bodyType": null,
             "color": true,
             "faces": {
               "normal": {
@@ -66,7 +71,7 @@
             }
           },
           "maleSpikyLord": {
-            "bodyType": 0,
+            "bodyType": null,
             "color": true,
             "faces": {
               "normal": {
@@ -76,18 +81,19 @@
           }
         }
       }
-    },
-    "partCount": 1,
-    "partChain": "fronthair"
+    }
   },
   "backhair": {
     "colorGroup": "hair",
+    "partCount": 1,
+    "partChain": "backhair",
+    "ignoreTrigger": null,
     "partList": {
       "backhair": {
         "partOrder": 0,
         "items": {
           "femaleStraightLong": {
-            "bodyType": 0,
+            "bodyType": null,
             "color": true,
             "faces": {
               "normal": {
@@ -96,7 +102,7 @@
             }
           },
           "maleSpikyLord": {
-            "bodyType": 0,
+            "bodyType": null,
             "color": true,
             "faces": {
               "normal": {
@@ -106,18 +112,19 @@
           }
         }
       }
-    },
-    "partCount": 1,
-    "partChain": "backhair"
+    }
   },
   "ear": {
     "colorGroup": "skin",
+    "partCount": 1,
+    "partChain": "ear",
+    "ignoreTrigger": null,
     "partList": {
       "ear": {
         "partOrder": 4,
         "items": {
           "elf": {
-            "bodyType": 0,
+            "bodyType": null,
             "color": true,
             "faces": {
               "normal": {
@@ -126,7 +133,7 @@
             }
           },
           "humanStandard": {
-            "bodyType": 0,
+            "bodyType": null,
             "color": true,
             "faces": {
               "normal": {
@@ -136,18 +143,19 @@
           }
         }
       }
-    },
-    "partCount": 1,
-    "partChain": "ear"
+    }
   },
   "eyebrows": {
     "colorGroup": "hair",
+    "partCount": 1,
+    "partChain": "eyebrows",
+    "ignoreTrigger": null,
     "partList": {
       "eyebrows": {
         "partOrder": 11,
         "items": {
           "femaleStandard": {
-            "bodyType": 0,
+            "bodyType": null,
             "color": true,
             "faces": {
               "angry": {
@@ -159,7 +167,7 @@
             }
           },
           "maleGallant": {
-            "bodyType": 0,
+            "bodyType": null,
             "color": true,
             "faces": {
               "angry": {
@@ -172,18 +180,19 @@
           }
         }
       }
-    },
-    "partCount": 1,
-    "partChain": "eyebrows"
+    }
   },
   "eye": {
     "colorGroup": "eye",
+    "partCount": 1,
+    "partChain": "eye",
+    "ignoreTrigger": null,
     "partList": {
       "eye": {
         "partOrder": 10,
         "items": {
           "femaleRounded": {
-            "bodyType": 0,
+            "bodyType": null,
             "color": true,
             "faces": {
               "angry": {
@@ -195,7 +204,7 @@
             }
           },
           "maleGallant": {
-            "bodyType": 0,
+            "bodyType": null,
             "color": true,
             "faces": {
               "angry": {
@@ -208,18 +217,19 @@
           }
         }
       }
-    },
-    "partCount": 1,
-    "partChain": "eye"
+    }
   },
   "nose": {
     "colorGroup": "skin",
+    "partCount": 1,
+    "partChain": "nose",
+    "ignoreTrigger": null,
     "partList": {
       "nose": {
         "partOrder": 9,
         "items": {
           "noseDumping": {
-            "bodyType": 0,
+            "bodyType": null,
             "color": true,
             "faces": {
               "angry": {
@@ -231,7 +241,7 @@
             }
           },
           "noseRound": {
-            "bodyType": 0,
+            "bodyType": null,
             "color": true,
             "faces": {
               "angry": {
@@ -244,18 +254,19 @@
           }
         }
       }
-    },
-    "partCount": 1,
-    "partChain": "nose"
+    }
   },
   "mouth": {
     "colorGroup": "mouth",
+    "partCount": 1,
+    "partChain": "mouth",
+    "ignoreTrigger": null,
     "partList": {
       "mouth": {
         "partOrder": 8,
         "items": {
           "mouthMeh": {
-            "bodyType": 0,
+            "bodyType": null,
             "color": true,
             "faces": {
               "angry": {
@@ -267,7 +278,7 @@
             }
           },
           "mouthSmile": {
-            "bodyType": 0,
+            "bodyType": null,
             "color": true,
             "faces": {
               "angry": {
@@ -280,12 +291,13 @@
           }
         }
       }
-    },
-    "partCount": 1,
-    "partChain": "mouth"
+    }
   },
   "tops": {
     "colorGroup": "tops",
+    "partCount": 1,
+    "partChain": "tops",
+    "ignoreTrigger": null,
     "partList": {
       "tops": {
         "partOrder": 4,
@@ -310,12 +322,13 @@
           }
         }
       }
-    },
-    "partCount": 1,
-    "partChain": "tops"
+    }
   },
   "bottoms": {
     "colorGroup": "bottoms",
+    "partCount": 1,
+    "partChain": "bottoms",
+    "ignoreTrigger": null,
     "partList": {
       "bottoms": {
         "partOrder": 5,
@@ -331,12 +344,13 @@
           }
         }
       }
-    },
-    "partCount": 1,
-    "partChain": "bottoms"
+    }
   },
   "socks": {
     "colorGroup": "socks",
+    "partCount": 1,
+    "partChain": "socks",
+    "ignoreTrigger": null,
     "partList": {
       "socks": {
         "partOrder": 2,
@@ -352,12 +366,13 @@
           }
         }
       }
-    },
-    "partCount": 1,
-    "partChain": "socks"
+    }
   },
   "shoes": {
     "colorGroup": "shoes",
+    "partCount": 1,
+    "partChain": "shoes",
+    "ignoreTrigger": null,
     "partList": {
       "shoes": {
         "partOrder": 3,
@@ -373,8 +388,6 @@
           }
         }
       }
-    },
-    "partCount": 1,
-    "partChain": "shoes"
+    }
   }
 }

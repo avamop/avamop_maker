@@ -34,6 +34,7 @@ function generatePartObject(directoryPath, partChain) {
       partCount: 1,
       partChain: categoryPartChain,
       partOrder,
+      ignoreTrigger: null,
       items: {},
     };
 

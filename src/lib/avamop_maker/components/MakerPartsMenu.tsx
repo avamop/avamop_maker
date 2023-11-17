@@ -3,30 +3,33 @@ import MakerPartsButton from "./MakerPartsButton";
 import MakerPartsCategories from "./MakerPartsCategories";
 
 interface MakerPartsMenuProps {
-  viewStatus: ViewStatus;
   selectedCategory: string | null;
   selectedFace: string;
   path: string;
   thumbnailObject: MenuThumbnail;
+  selectedParts: ViewStatus;
+  setSelectedParts: React.Dispatch<React.SetStateAction<ViewStatus>>;
   handleCategoryClick: (category: string) => void;
   changePart: (
     category: string,
-    key: string,
-    bodyTypeValue: BodyType<typeof category>,
-    partNameValue: string
+    bodyTypeValue: number[],
+    partNameValue: string,
+    selectedParts: ViewStatus,
+    setSelectedParts: React.Dispatch<React.SetStateAction<ViewStatus>>
   ) => void;
   menuPartIconCache: PartObjectBase64;
   isLoading: boolean;
 }
 
 const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
-  viewStatus,
   selectedCategory,
   selectedFace,
   path,
   thumbnailObject,
   handleCategoryClick,
   changePart,
+  selectedParts,
+  setSelectedParts,
   menuPartIconCache,
   isLoading,
 }) => {
@@ -36,7 +39,7 @@ const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
         {isLoading ? (
           <div>Loading...</div>
         ) : (
-          Object.keys(viewStatus.category).map((category) => (
+          Object.keys(selectedParts.category).map((category) => (
             <MakerPartsCategories
               key={category}
               category={category}
@@ -48,33 +51,66 @@ const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
                 thumbnailObject[category.replace(/_\d+$/, "")].pathUrl
               }
             >
-              {Object.keys(
-                menuPartIconCache[category.replace(/_\d+$/, "")].partList
-              ).map((item) => (
-                <MakerPartsButton
-                  key={item}
-                  item={item}
-                  buttonImage={
+              {category === "body"
+                ? Object.keys(
+                    menuPartIconCache[category.replace(/_\d+$/, "")].partList
+                  ).map((item) => (
+                    <MakerPartsButton
+                      key={item}
+                      item={item}
+                      buttonImage={
+                        menuPartIconCache[category.replace(/_\d+$/, "")]
+                          .partList[item].faces[selectedFace]
+                          ? menuPartIconCache[category.replace(/_\d+$/, "")]
+                              .partList[item].faces[selectedFace].part
+                          : menuPartIconCache[category.replace(/_\d+$/, "")]
+                              .partList[item].faces["normal"].part
+                      }
+                      onClick={() =>
+                        changePart(
+                          category,
+                          menuPartIconCache[category.replace(/_\d+$/, "")]
+                            .partList[item].bodyType,
+                          item,
+                          selectedParts,
+                          setSelectedParts
+                        )
+                      }
+                    />
+                  ))
+                : Object.keys(
+                    menuPartIconCache[category.replace(/_\d+$/, "")].partList
+                  ).map((item) =>
                     menuPartIconCache[category.replace(/_\d+$/, "")].partList[
                       item
-                    ].faces[selectedFace]
-                      ? menuPartIconCache[category.replace(/_\d+$/, "")]
-                          .partList[item].faces[selectedFace].part
-                      : menuPartIconCache[category.replace(/_\d+$/, "")]
-                          .partList[item].faces["normal"].part
-                  }
-                  onClick={() =>
-                    changePart(
-                      category,
-                      "partName",
-                      menuPartIconCache[category.replace(/_\d+$/, "")].partList[
-                        item
-                      ].bodyType,
-                      item.toString()
-                    )
-                  }
-                />
-              ))}
+                    ].bodyType === null ||
+                    menuPartIconCache[category.replace(/_\d+$/, "")].partList[
+                      item
+                    ].bodyType.includes(selectedParts.bodyType) ? (
+                      <MakerPartsButton
+                        key={item}
+                        item={item}
+                        buttonImage={
+                          menuPartIconCache[category.replace(/_\d+$/, "")]
+                            .partList[item].faces[selectedFace]
+                            ? menuPartIconCache[category.replace(/_\d+$/, "")]
+                                .partList[item].faces[selectedFace].part
+                            : menuPartIconCache[category.replace(/_\d+$/, "")]
+                                .partList[item].faces["normal"].part
+                        }
+                        onClick={() =>
+                          changePart(
+                            category,
+                            menuPartIconCache[category.replace(/_\d+$/, "")]
+                              .partList[item].bodyType,
+                            item,
+                            selectedParts,
+                            setSelectedParts
+                          )
+                        }
+                      />
+                    ) : null
+                  )}
             </MakerPartsCategories>
           ))
         )}{" "}

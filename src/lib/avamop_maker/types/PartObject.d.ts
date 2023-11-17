@@ -1,34 +1,32 @@
-type BodyType<T extends "body" | string> = T extends "body"
-  ? number
-  : 0 | number[];
-
 interface PartObject {
   [category: "body" | string]: {
     colorGroup: string;
     partCount: number;
     partChain: string;
     partOrder: number;
-    items: Items<typeof category>;
+    ignoreTrigger: null | string[];
+    items: Items;
   };
 }
 interface PartObjectMerged {
   [category: "body" | string]: {
     colorGroup: "eye" | string;
-    partList: CategoryMerged;
     partCount: number;
     partChain: string;
+    ignoreTrigger: null | string[];
+    partList: CategoryMerged;
   };
 }
 
 interface CategoryMerged {
   [partSplit: "body" | string]: {
     partOrder: number;
-    items: Items<typeof partSplit>;
+    items: Items;
   };
 }
-interface Items<T extends "body" | string> {
+interface Items {
   [item: string]: {
-    bodyType: BodyType<T>;
+    bodyType: null | number[];
     color: boolean;
     faces: Faces;
   };
@@ -36,12 +34,12 @@ interface Items<T extends "body" | string> {
 
 interface ConvertPartObject {
   [category: "body" | string]: {
-    partList: CategoryItemsCombined<typeof category>;
+    partList: CategoryItemsCombined;
   };
 }
-interface CategoryItemsCombined<T extends "body" | string> {
+interface CategoryItemsCombined {
   [item: string]: {
-    bodyType: BodyType<T>;
+    bodyType: null | number[];
     peaces: PeaceCombined;
   };
 }
@@ -55,13 +53,13 @@ interface PeaceCombined {
 interface PartObjectBase64 {
   [category: "body" | string]: {
     partList: {
-      [item: string]: CategoryItemsBase64<typeof category>;
+      [item: string]: CategoryItemsBase64;
     };
   };
 }
 
-interface CategoryItemsBase64<T extends "body" | string> {
-  bodyType: BodyType<T>;
+interface CategoryItemsBase64 {
+  bodyType: null | number[];
   faces: CombinePartsBase64;
 }
 

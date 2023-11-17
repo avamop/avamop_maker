@@ -7,14 +7,18 @@ export const MakerViewStatusGen = (
       Object.keys(partObject["body"].partList["body"].items)[0]
     ].bodyType;
   try {
-    if (Array.isArray(bodyTypeValue)) {
-      throw new Error("エラー:bodyプロパティが配列になっています");
+    if (bodyTypeValue === null) {
+      throw new Error(`エラー:bodyのbodyTypeプロパティに値がありませんｎ`);
+    } else if (bodyTypeValue.length > 1) {
+      throw new Error("エラー:bodyのbodyTypeプロパティが複数あります");
+    } else if (bodyTypeValue[0] == 0) {
+      throw new Error("エラー:bodyのbodyTypeプロパティが0になっています");
+    } else {
+      viewStatus.bodyType = bodyTypeValue[0];
     }
-    viewStatus.bodyType = bodyTypeValue;
   } catch (error) {
     console.error(error.message);
   }
-
   for (const category in partObject) {
     const { partList, partCount, colorGroup } = partObject[category];
     const partSplits = Object.keys(partList);

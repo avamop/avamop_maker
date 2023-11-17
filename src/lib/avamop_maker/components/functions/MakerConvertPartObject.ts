@@ -10,9 +10,10 @@ export const mergeCategories = (data: PartObject): PartObjectMerged => {
       //mergedCategoriesにpartChainの値が存在しない場合は新規作成
       mergedCategories[partChain] = {
         colorGroup: currentCategory.colorGroup,
-        partList: {},
         partCount: currentCategory.partCount,
         partChain: partChain,
+        ignoreTrigger: currentCategory.ignoreTrigger,
+        partList: {},
       };
     }
 

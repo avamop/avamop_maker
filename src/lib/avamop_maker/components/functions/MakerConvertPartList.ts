@@ -1,7 +1,22 @@
 export const MakerConvertPartList = (
+  partObject: PartObjectMerged
+): ConvertPartObject => {
+  const convertPartObject: ConvertPartObject = {};
+  for (const category in partObject) {
+    const convertPartList: CategoryItemsCombined = MakerConvertCategory(
+      partObject[category].partList
+    );
+    convertPartObject[category] = {
+      partList: convertPartList,
+    };
+  }
+  return convertPartObject;
+};
+
+const MakerConvertCategory = (
   categoryItems: CategoryMerged
-): CategoryItemsCombined<"body" | string> => {
-  const categoryItemsCombined: CategoryItemsCombined<string> = {};
+): CategoryItemsCombined => {
+  const categoryItemsCombined: CategoryItemsCombined = {};
   for (const partSplit in categoryItems) {
     const partData = categoryItems[partSplit];
     for (const item in partData.items) {
