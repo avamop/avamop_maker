@@ -8,7 +8,7 @@ export const MakerViewStatusGen = (
     ].bodyType;
   try {
     if (bodyTypeValue === null) {
-      throw new Error(`エラー:bodyのbodyTypeプロパティに値がありませんｎ`);
+      throw new Error(`エラー:bodyのbodyTypeプロパティに値がありません`);
     } else if (bodyTypeValue.length > 1) {
       throw new Error("エラー:bodyのbodyTypeプロパティが複数あります");
     } else if (bodyTypeValue[0] == 0) {
