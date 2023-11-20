@@ -1,6 +1,6 @@
 export const MakerCanvasStatusGen = (
   selectedParts: ViewStatus,
-  partObject: PartObjectMerged,
+  partObjectJimp: PartObjectJimp,
   selectedFace: string
 ): CanvasObject => {
   const canvasObject: CanvasObject = {
@@ -12,21 +12,23 @@ export const MakerCanvasStatusGen = (
   } = {};
 
   for (const category in selectedParts.category) {
-    for (const partSplit in partObject[category.replace(/_\d+$/, "")]
+    for (const partSplit in partObjectJimp[category.replace(/_\d+$/, "")]
       .partList) {
       const canvasObjectCategory: CanvasObjectCategory<typeof category> = {
         partOrder:
-          partObject[category.replace(/_\d+$/, "")].partList[partSplit]
+          partObjectJimp[category.replace(/_\d+$/, "")].partList[partSplit]
             .partOrder,
         colorGroup: selectedParts.category[category].colorGroup,
-        partPath: partObject[category.replace(/_\d+$/, "")].partList[partSplit]
-          .items[selectedParts.category[category].partName].faces[selectedFace]
-          ? partObject[category.replace(/_\d+$/, "")].partList[partSplit].items[
-              selectedParts.category[category].partName
-            ].faces[selectedFace].facePath
-          : partObject[category.replace(/_\d+$/, "")].partList[partSplit].items[
-              selectedParts.category[category].partName
-            ].faces["normal"].facePath,
+        partData: partObjectJimp[category.replace(/_\d+$/, "")].partList[
+          partSplit
+        ].items[selectedParts.category[category].partName].faces[selectedFace]
+          ? partObjectJimp[category.replace(/_\d+$/, "")].partList[partSplit]
+              .items[selectedParts.category[category].partName].faces[
+              selectedFace
+            ].jimpData
+          : partObjectJimp[category.replace(/_\d+$/, "")].partList[partSplit]
+              .items[selectedParts.category[category].partName].faces["normal"]
+              .jimpData,
         partColor: selectedParts.category[category].partColor,
       };
       tmpCanvasObject[category] = canvasObjectCategory;

@@ -6,6 +6,7 @@ import MakerPartsMenu from "./MakerPartsMenu";
 import MakerFaceMenu from "./MakerFaceMenu";
 import { MakerChangePart } from "./functions/MakerChangePart";
 import { MakerFetchPartsData } from "./functions/MakerFetchPartsData";
+import { MakerConvertPartsJimp } from "./functions/MakerConvertPartsJimp";
 interface MakerMenuProps {
   path: string;
   partObject: PartObjectMerged;
@@ -34,34 +35,43 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
     setSelectedCategory(category === selectedCategory ? null : category);
   };
 
+  let partObjectJimp: PartObjectJimp;
+
   useEffect(() => {
-    MakerFetchPartsData(partObject, path, setMenuPartIcon, setIsLoading);
+    partObjectJimp = MakerConvertPartsJimp(partObject, path + "parts/");
+    MakerFetchPartsData(partObjectJimp, setMenuPartIcon, setIsLoading);
   }, []); // 空の依存リストを指定して初回のみ実行されるように
 
   return (
     <div>
-      <MakerView
-        selectedParts={selectedParts}
-        partObject={partObject}
-        selectedFace={selectedFace}
-      />
-      <MakerFaceMenu
-        faceList={faceList}
-        isLoading={isLoading}
-        changeFace={changeFace}
-      />
-      <MakerPartsMenu
-        isLoading={isLoading}
-        path={path}
-        thumbnailObject={thumbnailObject}
-        selectedCategory={selectedCategory}
-        selectedFace={selectedFace}
-        handleCategoryClick={handleCategoryClick}
-        changePart={MakerChangePart}
-        menuPartIcon={menuPartIcon}
-        selectedParts={selectedParts}
-        setSelectedParts={setSelectedParts}
-      />
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : (
+        <>
+          <MakerView
+            selectedParts={selectedParts}
+            partObjectJimp={partObjectJimp}
+            selectedFace={selectedFace}
+          />
+          <MakerFaceMenu
+            faceList={faceList}
+            isLoading={isLoading}
+            changeFace={changeFace}
+          />
+          <MakerPartsMenu
+            isLoading={isLoading}
+            path={path}
+            thumbnailObject={thumbnailObject}
+            selectedCategory={selectedCategory}
+            selectedFace={selectedFace}
+            handleCategoryClick={handleCategoryClick}
+            changePart={MakerChangePart}
+            menuPartIcon={menuPartIcon}
+            selectedParts={selectedParts}
+            setSelectedParts={setSelectedParts}
+          />
+        </>
+      )}
       <button onClick={() => console.log("%o", selectedParts)}>button</button>
     </div>
   );

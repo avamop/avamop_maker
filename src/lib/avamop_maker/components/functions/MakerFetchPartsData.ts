@@ -1,18 +1,12 @@
 import { MakerConvertPartList } from "./MakerConvertPartList";
 import { MakerCombinePartIcon } from "./MakerCombinePartIcon";
-import { MakerConvertPartsJimp } from "./MakerConvertPartsJimp";
 
 export const MakerFetchPartsData = async (
-  partObject: PartObjectMerged,
-  path: string,
+  partObjectJimp: PartObjectJimp,
   setMenuPartIcon: (menuPartIconList: CombinePartIconsObjectBase64) => void,
   setIsLoading: (isLoading: boolean) => void
 ) => {
   try {
-    const partObjectJimp: Promise<PartObjectJimp> = MakerConvertPartsJimp(
-      partObject,
-      path + "parts/"
-    );
     const partObjectForCombine = MakerConvertPartList(await partObjectJimp);
     const menuPartIconList: CombinePartIconsObjectBase64 = {};
     for (const category in partObjectForCombine) {

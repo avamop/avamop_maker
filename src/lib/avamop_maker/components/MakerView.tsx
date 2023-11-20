@@ -5,13 +5,13 @@ import { MakerCanvasStatusGen } from "./functions/MakerCanvasStatusGen";
 
 interface MakerViewProps {
   selectedParts: ViewStatus;
-  partObject: PartObjectMerged;
+  partObjectJimp: PartObjectJimp;
   selectedFace: string;
 }
 
 const MakerView: React.FC<MakerViewProps> = ({
   selectedParts,
-  partObject,
+  partObjectJimp,
   selectedFace,
 }) => {
   const canvas = document.createElement("canvas");
@@ -19,7 +19,7 @@ const MakerView: React.FC<MakerViewProps> = ({
 
   const CanvasObject = MakerCanvasStatusGen(
     selectedParts,
-    partObject,
+    partObjectJimp,
     selectedFace
   );
 

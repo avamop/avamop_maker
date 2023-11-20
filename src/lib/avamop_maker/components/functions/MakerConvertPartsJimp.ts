@@ -4,7 +4,7 @@ import type { Jimp } from "jimp/browser/lib/jimp";
 export const MakerConvertPartsJimp = async (
   partObject: PartObjectMerged,
   path: string
-): Promise<PartObjectJimp> => {
+): PartObjectJimp => {
   const PartObjectJimp: PartObjectJimp = {};
   for (const category in partObject) {
     PartObjectJimp[category] = {

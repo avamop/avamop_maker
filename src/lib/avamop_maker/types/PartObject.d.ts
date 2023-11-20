@@ -111,7 +111,7 @@ declare global {
   interface CanvasObjectCategory<U extends "eye" | string> {
     partOrder: number;
     colorGroup: U;
-    partPath: string;
+    partData: Jimp;
     partColor: PartColor<U>;
   }
 

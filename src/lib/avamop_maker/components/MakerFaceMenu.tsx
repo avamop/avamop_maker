@@ -16,18 +16,14 @@ const MakerFaceMenu: React.FC<MakerFaceMenuProps> = ({
 }) => {
   return (
     <ul>
-      {isLoading ? (
-        <div>Loading...</div>
-      ) : (
-        faceList.map((face) => (
-          <MakerFaceButton
-            key={face}
-            face={face}
-            // faceImages= {faceImages[face]}
-            onClick={() => changeFace(face)}
-          />
-        ))
-      )}
+      {faceList.map((face) => (
+        <MakerFaceButton
+          key={face}
+          face={face}
+          // faceImages= {faceImages[face]}
+          onClick={() => changeFace(face)}
+        />
+      ))}
     </ul>
   );
 };
