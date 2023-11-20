@@ -1,40 +1,38 @@
 export const MakerConvertPartList = (
-  partObject: PartObjectMerged
-): ConvertPartObject => {
-  const convertPartObject: ConvertPartObject = {};
+  partObject: PartObjectJimp
+): PartObjectForCombine => {
+  const PartObjectForCombine: PartObjectForCombine = {};
   for (const category in partObject) {
-    const convertPartList: CategoryItemsCombined = MakerConvertCategory(
+    const convertPartList: ItemsForCombine = MakerConvertCategory(
       partObject[category].partList
     );
-    convertPartObject[category] = {
+    PartObjectForCombine[category] = {
       partList: convertPartList,
     };
   }
-  return convertPartObject;
+  return PartObjectForCombine;
 };
 
-const MakerConvertCategory = (
-  categoryItems: CategoryMerged
-): CategoryItemsCombined => {
-  const categoryItemsCombined: CategoryItemsCombined = {};
+const MakerConvertCategory = (categoryItems: CategoryJimp): ItemsForCombine => {
+  const itemsForCombine: ItemsForCombine = {};
   for (const partSplit in categoryItems) {
     const partData = categoryItems[partSplit];
     for (const item in partData.items) {
-      if (!categoryItemsCombined[item]) {
-        categoryItemsCombined[item] = {
+      if (!itemsForCombine[item]) {
+        itemsForCombine[item] = {
           bodyType: partData.items[item].bodyType,
           peaces: {},
         };
       } else {
-        categoryItemsCombined[item].bodyType = partData.items[item].bodyType;
+        itemsForCombine[item].bodyType = partData.items[item].bodyType;
       }
-      if (!categoryItemsCombined[item].peaces) {
-        categoryItemsCombined[item].peaces = {};
+      if (!itemsForCombine[item].peaces) {
+        itemsForCombine[item].peaces = {};
       }
-      categoryItemsCombined[item].peaces[partSplit] = {
+      itemsForCombine[item].peaces[partSplit] = {
         faces: partData.items[item].faces,
       };
     }
   }
-  return categoryItemsCombined;
+  return itemsForCombine;
 };

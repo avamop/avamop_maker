@@ -22,8 +22,8 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedParts, setSelectedParts] = useState<ViewStatus>(viewStatus);
   const [selectedFace, setSelectedFace] = useState<string>("normal");
-  const [menuPartIconCache, setMenuPartIconCache] =
-    useState<PartObjectBase64 | null>(null);
+  const [menuPartIcon, setMenuPartIcon] =
+    useState<CombinePartIconsObjectBase64 | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const changeFace = (face: string) => {
@@ -35,7 +35,7 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
   };
 
   useEffect(() => {
-    MakerFetchPartsData(partObject, path, setMenuPartIconCache, setIsLoading);
+    MakerFetchPartsData(partObject, path, setMenuPartIcon, setIsLoading);
   }, []); // 空の依存リストを指定して初回のみ実行されるように
 
   return (
@@ -58,7 +58,7 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
         selectedFace={selectedFace}
         handleCategoryClick={handleCategoryClick}
         changePart={MakerChangePart}
-        menuPartIconCache={menuPartIconCache}
+        menuPartIcon={menuPartIcon}
         selectedParts={selectedParts}
         setSelectedParts={setSelectedParts}
       />

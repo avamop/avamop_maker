@@ -17,7 +17,7 @@ interface MakerPartsMenuProps {
     selectedParts: ViewStatus,
     setSelectedParts: React.Dispatch<React.SetStateAction<ViewStatus>>
   ) => void;
-  menuPartIconCache: PartObjectBase64;
+  menuPartIcon: CombinePartIconsObjectBase64;
   isLoading: boolean;
 }
 
@@ -30,7 +30,7 @@ const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
   changePart,
   selectedParts,
   setSelectedParts,
-  menuPartIconCache,
+  menuPartIcon,
   isLoading,
 }) => {
   return (
@@ -53,24 +53,26 @@ const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
             >
               {category === "body"
                 ? Object.keys(
-                    menuPartIconCache[category.replace(/_\d+$/, "")].partList
+                    menuPartIcon[category.replace(/_\d+$/, "")].partList
                   ).map((item) => (
                     <MakerPartsButton
                       key={item}
                       item={item}
                       buttonImage={
-                        menuPartIconCache[category.replace(/_\d+$/, "")]
-                          .partList[item].faces[selectedFace]
-                          ? menuPartIconCache[category.replace(/_\d+$/, "")]
-                              .partList[item].faces[selectedFace].part
-                          : menuPartIconCache[category.replace(/_\d+$/, "")]
-                              .partList[item].faces["normal"].part
+                        menuPartIcon[category.replace(/_\d+$/, "")].partList[
+                          item
+                        ].faces[selectedFace]
+                          ? menuPartIcon[category.replace(/_\d+$/, "")]
+                              .partList[item].faces[selectedFace].partBase64
+                          : menuPartIcon[category.replace(/_\d+$/, "")]
+                              .partList[item].faces["normal"].partBase64
                       }
                       onClick={() =>
                         changePart(
                           category,
-                          menuPartIconCache[category.replace(/_\d+$/, "")]
-                            .partList[item].bodyType,
+                          menuPartIcon[category.replace(/_\d+$/, "")].partList[
+                            item
+                          ].bodyType,
                           item,
                           selectedParts,
                           setSelectedParts
@@ -79,29 +81,29 @@ const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
                     />
                   ))
                 : Object.keys(
-                    menuPartIconCache[category.replace(/_\d+$/, "")].partList
+                    menuPartIcon[category.replace(/_\d+$/, "")].partList
                   ).map((item) =>
-                    menuPartIconCache[category.replace(/_\d+$/, "")].partList[
-                      item
-                    ].bodyType === null ||
-                    menuPartIconCache[category.replace(/_\d+$/, "")].partList[
+                    menuPartIcon[category.replace(/_\d+$/, "")].partList[item]
+                      .bodyType === null ||
+                    menuPartIcon[category.replace(/_\d+$/, "")].partList[
                       item
                     ].bodyType.includes(selectedParts.bodyType) ? (
                       <MakerPartsButton
                         key={item}
                         item={item}
                         buttonImage={
-                          menuPartIconCache[category.replace(/_\d+$/, "")]
-                            .partList[item].faces[selectedFace]
-                            ? menuPartIconCache[category.replace(/_\d+$/, "")]
-                                .partList[item].faces[selectedFace].part
-                            : menuPartIconCache[category.replace(/_\d+$/, "")]
-                                .partList[item].faces["normal"].part
+                          menuPartIcon[category.replace(/_\d+$/, "")].partList[
+                            item
+                          ].faces[selectedFace]
+                            ? menuPartIcon[category.replace(/_\d+$/, "")]
+                                .partList[item].faces[selectedFace].partBase64
+                            : menuPartIcon[category.replace(/_\d+$/, "")]
+                                .partList[item].faces["normal"].partBase64
                         }
                         onClick={() =>
                           changePart(
                             category,
-                            menuPartIconCache[category.replace(/_\d+$/, "")]
+                            menuPartIcon[category.replace(/_\d+$/, "")]
                               .partList[item].bodyType,
                             item,
                             selectedParts,
