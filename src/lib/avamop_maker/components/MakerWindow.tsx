@@ -40,7 +40,11 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
 
   return (
     <div>
-      <MakerView />
+      <MakerView
+        selectedParts={selectedParts}
+        partObject={partObject}
+        selectedFace={selectedFace}
+      />
       <MakerFaceMenu
         faceList={faceList}
         isLoading={isLoading}
