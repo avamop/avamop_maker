@@ -74,6 +74,10 @@ interface Faces {
     facePath: string;
   };
 }
+
+type eyes = { left: string; right: string };
+
+type PartColor<U extends "eye" | string> = U extends "eye" ? eyes : string;
 interface ViewStatus {
   bodyType: number;
   category: {
@@ -81,13 +85,23 @@ interface ViewStatus {
   };
 }
 
-type eyes = { left: string; right: string };
-
-type PartColor<U extends "eye" | string> = U extends "eye" ? eyes : string;
-
 interface ViewStatusCategory<U extends "eye" | string> {
   colorGroup: U;
   partName: string;
+  partColor: PartColor<U>;
+}
+
+interface CanvasObject {
+  bodyType: number;
+  category: {
+    [category: string]: CanvasObjectCategory<typeof category>;
+  };
+}
+
+interface CanvasObjectCategory<U extends "eye" | string> {
+  partOrder: number;
+  colorGroup: U;
+  partPath: string;
   partColor: PartColor<U>;
 }
 
