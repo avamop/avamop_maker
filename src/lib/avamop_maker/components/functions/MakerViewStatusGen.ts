@@ -34,8 +34,9 @@ export const MakerViewStatusGen = (
           partName,
           partColor: { left: "black", right: "black" },
         };
-        viewStatus[partCount === 1 ? category : `${category}_${i + 1}`] =
-          viewStatusCategory;
+        viewStatus.category[
+          partCount === 1 ? category : `${category}_${i + 1}`
+        ] = viewStatusCategory;
       } else {
         const viewStatusCategory: ViewStatusCategory<string> = {
           colorGroup,
