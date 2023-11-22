@@ -20,6 +20,7 @@ const MakerFaceMenu: React.FC<MakerFaceMenuProps> = ({
         <MakerFaceButton
           key={face}
           face={face}
+          // 表情のサムネイルを用意する予定
           // faceImages= {faceImages[face]}
           onClick={() => changeFace(face)}
         />

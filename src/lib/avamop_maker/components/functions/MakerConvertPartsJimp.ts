@@ -1,6 +1,7 @@
 import "jimp/browser/lib/jimp";
 import type { Jimp } from "jimp/browser/lib/jimp";
 
+// パスの入ったpartObjectをJimpデータの入ったものに変換する
 export const MakerConvertPartsJimp = async (
   partObject: PartObjectMerged,
   path: string
@@ -33,7 +34,7 @@ export const MakerConvertPartsJimp = async (
               path +
                 partObject[category].partList[partSplit].items[item].faces[face]
                   .facePath
-            );
+            ); //パーツのパスからJimpデータを生成する
             PartObjectJimp[category].partList[partSplit].items[item].faces[
               face
             ] = {
@@ -49,6 +50,7 @@ export const MakerConvertPartsJimp = async (
   return PartObjectJimp;
 };
 
+//パーツ画像を読み込んで返す関数
 const partRead = async (imagePath: string): Promise<Jimp> => {
   try {
     const image: Jimp = await Jimp.read(imagePath);

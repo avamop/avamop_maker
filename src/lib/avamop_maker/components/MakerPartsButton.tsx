@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface MakerPartsButtonProps {
   item: string;
@@ -9,10 +9,11 @@ interface MakerPartsButtonProps {
 const MakerPartsButton: React.FC<MakerPartsButtonProps> = ({
   onClick,
   item,
-  buttonImage
+  buttonImage,
 }) => {
   return (
     <li onClick={onClick}>
+      {/* パーツ画像 */}
       <img src={buttonImage} alt={item} />
       {item}
     </li>

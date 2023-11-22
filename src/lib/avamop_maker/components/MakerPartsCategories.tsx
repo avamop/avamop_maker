@@ -1,5 +1,5 @@
-import * as React from 'react'
-import type { ReactNode } from 'react';
+import * as React from "react";
+import type { ReactNode } from "react";
 
 interface MakerPartsCategoriesProps {
   category: string;
@@ -14,12 +14,13 @@ const MakerPartsCategories: React.FC<MakerPartsCategoriesProps> = ({
   category,
   isSelected,
   onClick,
-  children
+  children,
 }) => {
   return (
     <li className={isSelected ? "selected" : ""}>
       <img onClick={onClick} src={imageSrc} alt={category} /> {category}
       <ul>
+        {/* カテゴリーボタンの開閉 */}
         {isSelected ? children : null}
       </ul>
     </li>

@@ -25,7 +25,7 @@ const MakerView: React.FC<MakerViewProps> = ({
 
   return (
     <>
-      <canvas></canvas>
+      <canvas></canvas> {/*アバター画像を表示する場所*/}
     </>
   );
 };

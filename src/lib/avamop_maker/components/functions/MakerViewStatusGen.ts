@@ -1,3 +1,4 @@
+// パーツ一覧からアバターのステータス、もとい組み合わせオブジェクトを生成する
 export const MakerViewStatusGen = (
   partObject: PartObjectMerged
 ): ViewStatus => {

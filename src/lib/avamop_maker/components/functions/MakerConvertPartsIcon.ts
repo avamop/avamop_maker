@@ -4,7 +4,7 @@ import { MakerCombinePartIcon } from "./MakerCombinePartIcon";
 export const MakerConvertPartsIcon = async (
   partObjectJimp: PartObjectJimp
 ): Promise<CombinePartIconsObjectBase64> => {
-  const partObjectForCombine = MakerConvertPartList(partObjectJimp);
+  const partObjectForCombine = MakerConvertPartList(partObjectJimp); //パーツを合成しやすくするためにオブジェクトを組み替える
   const menuPartIconList: CombinePartIconsObjectBase64 = {};
   for (const category in partObjectForCombine) {
     menuPartIconList[category] = {
@@ -15,7 +15,7 @@ export const MakerConvertPartsIcon = async (
         bodyType: partObjectForCombine[category].partList[item].bodyType,
         faces: await MakerCombinePartIcon(
           partObjectForCombine[category].partList[item].peaces
-        ),
+        ), //同じパーツ名のパーツ画像を合成する
       };
       menuPartIconList[category].partList[item] = partList;
     }
