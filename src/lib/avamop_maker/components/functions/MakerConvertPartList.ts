@@ -1,16 +1,16 @@
 export const MakerConvertPartList = (
   partObject: PartObjectJimp
 ): PartObjectForCombine => {
-  const PartObjectForCombine: PartObjectForCombine = {};
+  const partObjectForCombine: PartObjectForCombine = {};
   for (const category in partObject) {
     const convertPartList: ItemsForCombine = MakerConvertCategory(
       partObject[category].partList
     );
-    PartObjectForCombine[category] = {
+    partObjectForCombine[category] = {
       partList: convertPartList,
     };
   }
-  return PartObjectForCombine;
+  return partObjectForCombine;
 };
 
 const MakerConvertCategory = (categoryItems: CategoryJimp): ItemsForCombine => {

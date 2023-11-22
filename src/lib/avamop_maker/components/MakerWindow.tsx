@@ -5,7 +5,7 @@ import MakerView from "./MakerView";
 import MakerPartsMenu from "./MakerPartsMenu";
 import MakerFaceMenu from "./MakerFaceMenu";
 import { MakerChangePart } from "./functions/MakerChangePart";
-import { MakerFetchPartsData } from "./functions/MakerFetchPartsData";
+import { MakerConvertPartsIcon } from "./functions/MakerConvertPartsIcon";
 import { MakerConvertPartsJimp } from "./functions/MakerConvertPartsJimp";
 interface MakerMenuProps {
   path: string;
@@ -25,6 +25,9 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
   const [selectedFace, setSelectedFace] = useState<string>("normal");
   const [menuPartIcon, setMenuPartIcon] =
     useState<CombinePartIconsObjectBase64 | null>(null);
+  const [partObjectJimp, setPartObjectJimp] = useState<PartObjectJimp | null>(
+    null
+  );
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const changeFace = (face: string) => {
@@ -35,16 +38,29 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
     setSelectedCategory(category === selectedCategory ? null : category);
   };
 
-  let partObjectJimp: PartObjectJimp;
-
   useEffect(() => {
-    partObjectJimp = MakerConvertPartsJimp(partObject, path + "parts/");
-    MakerFetchPartsData(partObjectJimp, setMenuPartIcon, setIsLoading);
+    const fetchData = async () => {
+      try {
+        const tmpPartObjectJimp: PartObjectJimp = await MakerConvertPartsJimp(
+          partObject,
+          path + "parts/"
+        );
+        setPartObjectJimp(tmpPartObjectJimp);
+        const menuPartIconList: Promise<CombinePartIconsObjectBase64> =
+          MakerConvertPartsIcon(tmpPartObjectJimp);
+        setMenuPartIcon(await menuPartIconList);
+        setIsLoading(false); // データの読み込みが完了したらisLoadingをfalseに設定
+      } catch (error) {
+        console.log("データ読み込みエラー:", error);
+        setIsLoading(false); // エラーが発生した場合もisLoadingをfalseに設定
+      }
+    };
+    fetchData();
   }, []); // 空の依存リストを指定して初回のみ実行されるように
 
   return (
     <div>
-      {isLoading ? (
+      {isLoading && !partObjectJimp && !menuPartIcon ? (
         <div>Loading...</div>
       ) : (
         <>

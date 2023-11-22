@@ -30,6 +30,5 @@ export const MakerCombinePartIcon = async (
       partBase64: base64Image,
     };
   }
-  // console.log("executed" + "%o", CombinePartIconBase64)
   return CombinePartIconBase64;
 };
