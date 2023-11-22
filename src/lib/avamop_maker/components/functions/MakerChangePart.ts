@@ -7,10 +7,8 @@ export const MakerChangePart = (
 ) => {
   if (category === "body") {
     try {
-      if (bodyTypeValue.length == 0) {
-        throw new Error(
-          `エラー:${category}のbodyTypeプロパティに値がありません。`
-        );
+      if (!bodyTypeValue) {
+        throw new Error("エラー:bodyのbodyTypeプロパティに値がありません。");
       } else if (bodyTypeValue.length > 1) {
         throw new Error("エラー:bodyのbodyTypeプロパティが複数あります");
       } else if (bodyTypeValue[0] == 0) {
@@ -33,11 +31,7 @@ export const MakerChangePart = (
     }
   } else {
     try {
-      if (bodyTypeValue.length == 0) {
-        throw new Error(
-          `エラー:${category}のbodyTypeプロパティに値がありませんｎ`
-        );
-      } else if (bodyTypeValue.length > 1 && bodyTypeValue.includes(0)) {
+      if (bodyTypeValue && bodyTypeValue.includes(0)) {
         throw new Error(
           `エラー:${category}のbodyTypeプロパティに0が入っています`
         );
