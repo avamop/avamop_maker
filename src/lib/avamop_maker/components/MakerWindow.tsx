@@ -1,35 +1,36 @@
 import React, { useState, useEffect } from "react";
-import { MakerViewStatusGen } from "./functions/fetchData/MakerViewStatusGen";
+import { MakerSelectedPartsGen } from "./functions/fetchData/MakerSelectedPartsGen";
 import { MakerFaceGen } from "./functions/fetchData/MakerFaceGen";
 import MakerView from "./MakerView/MakerView";
 import MakerPartsMenu from "./makerMenu/MakerPartsMenu";
 import MakerFaceMenu from "./makerMenu/MakerFaceMenu";
-import { MakerChangePart } from "./functions/fetchData/MakerChangePart";
-import { MakerConvertPartsIcon } from "./functions/imageProcess/MakerConvertPartsIcon";
+import { MakerConvertPartsToMenuIcons } from "./functions/imageProcess/MakerConvertPartsToMenuIcons";
 import { MakerConvertPartsJimp } from "./functions/objectProcess/MakerConvertPartsJimp";
 import { MakerFetchCategoryIcons } from "./functions/imageProcess/MakerFetchCategoryIcons";
 interface MakerMenuProps {
   path: string;
-  partObject: PartObjectMerged;
-  thumbnailObject: MenuThumbnail;
+  PartsObject: PartsObjectSplit;
+  categoryIconObject: categoryIconObject;
 }
 
 const MakerWindow: React.FC<MakerMenuProps> = ({
   path,
-  partObject,
-  thumbnailObject,
+  PartsObject,
+  categoryIconObject,
 }) => {
-  const viewStatus: ViewStatus = MakerViewStatusGen(partObject);
-  const faceList: string[] = MakerFaceGen(partObject);
+  const SelectedParts: SelectedParts = MakerSelectedPartsGen(PartsObject);
+  const faceList: string[] = MakerFaceGen(PartsObject);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [selectedParts, setSelectedParts] = useState<ViewStatus>(viewStatus);
+  const [SelectedPartss, setSelectedPartss] =
+    useState<SelectedParts>(SelectedParts);
   const [selectedFace, setSelectedFace] = useState<string>("normal");
-  const [categoryIcon, setCategoryIcon] = useState<MenuThumbnail | null>(null);
-  const [menuPartIcon, setMenuPartIcon] =
-    useState<CombinePartIconsObjectBase64 | null>(null);
-  const [partObjectJimp, setPartObjectJimp] = useState<PartObjectJimp | null>(
+  const [categoryIcon, setCategoryIcon] = useState<categoryIconObject | null>(
     null
   );
+  const [menuPartIcon, setMenuPartIcon] =
+    useState<CombinePartIconsObjectBase64 | null>(null);
+  const [PartsObjectJimp, setPartsObjectJimp] =
+    useState<PartsObjectJimp | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const changeFace = (face: string) => {
@@ -44,16 +45,16 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
     const fetchData = async () => {
       try {
         const tmpCategoryIcon = await MakerFetchCategoryIcons(
-          thumbnailObject,
+          categoryIconObject,
           path + "thumbnails/"
         );
-        const tmpPartObjectJimp: PartObjectJimp = await MakerConvertPartsJimp(
-          partObject,
+        const tmpPartsObjectJimp: PartsObjectJimp = await MakerConvertPartsJimp(
+          PartsObject,
           path + "parts/"
         );
-        setPartObjectJimp(tmpPartObjectJimp);
+        setPartsObjectJimp(tmpPartsObjectJimp);
         const menuPartIconList: Promise<CombinePartIconsObjectBase64> =
-          MakerConvertPartsIcon(tmpPartObjectJimp);
+          MakerConvertPartsToMenuIcons(tmpPartsObjectJimp);
         setCategoryIcon(tmpCategoryIcon);
         setMenuPartIcon(await menuPartIconList);
         setIsLoading(false); // データの読み込みが完了したらisLoadingをfalseに設定
@@ -68,14 +69,14 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
   return (
     <div>
       {/* 画像データのロードが終わったら中身を表示する */}
-      {isLoading && !partObjectJimp && !menuPartIcon ? (
+      {isLoading && !PartsObjectJimp && !menuPartIcon ? (
         <div>Loading...</div>
       ) : (
         <>
           {/* アバターメーカーのアバター表示部分 */}
           <MakerView
-            selectedParts={selectedParts}
-            partObjectJimp={partObjectJimp}
+            SelectedPartss={SelectedPartss}
+            PartsObjectJimp={PartsObjectJimp}
             selectedFace={selectedFace}
           />
           {/* アバターメーカーの表情メニュー部分 */}
@@ -87,19 +88,18 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
           {/* アバターメーカーのパーツメニュー部分 */}
           <MakerPartsMenu
             isLoading={isLoading}
-            thumbnailObject={categoryIcon}
+            categoryIconObject={categoryIcon}
             selectedCategory={selectedCategory}
             selectedFace={selectedFace}
             handleCategoryClick={handleCategoryClick}
-            changePart={MakerChangePart}
             menuPartIcon={menuPartIcon}
-            selectedParts={selectedParts}
-            setSelectedParts={setSelectedParts}
+            SelectedPartss={SelectedPartss}
+            setSelectedPartss={setSelectedPartss}
           />
         </>
       )}
       {/* オブジェクト変化テスト用ボタン */}
-      <button onClick={() => console.log("%o", selectedParts)}>button</button>
+      <button onClick={() => console.log("%o", SelectedPartss)}>button</button>
     </div>
   );
 };

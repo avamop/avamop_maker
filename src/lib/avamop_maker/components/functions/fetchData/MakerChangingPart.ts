@@ -1,9 +1,9 @@
-export const MakerChangePart = (
+export const MakerChangingPart = (
   category: string,
   bodyTypeValue: number[],
   partNameValue: string,
-  selectedParts: ViewStatus,
-  setSelectedParts: React.Dispatch<React.SetStateAction<ViewStatus>>
+  SelectedPartss: SelectedParts,
+  setSelectedPartss: React.Dispatch<React.SetStateAction<SelectedParts>>
 ) => {
   if (category === "body") {
     try {
@@ -15,17 +15,17 @@ export const MakerChangePart = (
       } else if (bodyTypeValue[0] == 0) {
         throw new Error("エラー:bodyのbodyTypeプロパティが0になっています");
       } else {
-        const updateAvaters: ViewStatus = {
+        const updateAvaters: SelectedParts = {
           bodyType: bodyTypeValue[0],
           category: {
-            ...selectedParts.category,
+            ...SelectedPartss.category,
             [category]: {
-              ...selectedParts.category[category],
+              ...SelectedPartss.category[category],
               partName: partNameValue,
             },
           },
         };
-        setSelectedParts(updateAvaters);
+        setSelectedPartss(updateAvaters);
       }
     } catch (error) {
       console.error(error.message);
@@ -38,17 +38,17 @@ export const MakerChangePart = (
           `エラー:${category}のbodyTypeプロパティに0が入っています`
         );
       }
-      const updateAvaters: ViewStatus = {
-        bodyType: selectedParts.bodyType,
+      const updateAvaters: SelectedParts = {
+        bodyType: SelectedPartss.bodyType,
         category: {
-          ...selectedParts.category,
+          ...SelectedPartss.category,
           [category]: {
-            ...selectedParts.category[category],
+            ...SelectedPartss.category[category],
             partName: partNameValue,
           },
         },
       };
-      setSelectedParts(updateAvaters);
+      setSelectedPartss(updateAvaters);
     } catch (error) {
       console.error(error.message);
     }

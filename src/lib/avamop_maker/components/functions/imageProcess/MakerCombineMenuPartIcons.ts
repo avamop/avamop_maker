@@ -1,9 +1,9 @@
 import "jimp/browser/lib/jimp";
-import { MakerPartsIconTrim } from "./MakerPartsIconTrim";
+import { MakerPartIconsTrim } from "./MakerPartIconsTrim";
 import { MakerConvertBase64 } from "./MakerConvertBase64";
 
-export const MakerCombinePartIcon = async (
-  buttonImages: ItemPeacesForCombine
+export const MakerCombineMenuPartIcons = async (
+  buttonImages: ItemPeacesIconForCombine
 ): Promise<CombinePartIconBase64> => {
   const combineParts: FacesJimp = {};
 
@@ -26,10 +26,10 @@ export const MakerCombinePartIcon = async (
   const CombinePartIconBase64: CombinePartIconBase64 = {};
   for (const face in combineParts) {
     const base64Image: string = await MakerConvertBase64(
-      await MakerPartsIconTrim(combineParts[face].jimpData)
+      await MakerPartIconsTrim(combineParts[face].jimpData)
     );
     CombinePartIconBase64[face] = {
-      partBase64: base64Image,
+      imagePath: base64Image,
     };
   }
   return CombinePartIconBase64;

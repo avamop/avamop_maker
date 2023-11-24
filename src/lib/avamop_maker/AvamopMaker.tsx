@@ -1,26 +1,25 @@
-import { Box } from "@chakra-ui/react";
 import MakerWindow from "./components/MakerWindow";
 
 interface AvamopMakerProps {
   path: string;
-  partObject: PartObjectMerged;
-  thumbnailObject: MenuThumbnail;
+  PartsObject: PartsObjectSplit;
+  categoryIconObject: categoryIconObject;
 }
 
 const AvamopMaker: React.FC<AvamopMakerProps> = ({
   path,
-  partObject,
-  thumbnailObject,
+  PartsObject,
+  categoryIconObject,
 }) => {
   return (
-    <Box bg="gray.50">
+    <>
       {/*アバターメーカーの枠*/}
       <MakerWindow
         path={path}
-        partObject={partObject}
-        thumbnailObject={thumbnailObject}
+        PartsObject={PartsObject}
+        categoryIconObject={categoryIconObject}
       />{" "}
-    </Box>
+    </>
   );
 };
 

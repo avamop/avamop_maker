@@ -2,7 +2,7 @@ import "jimp/browser/lib/jimp";
 import type { Jimp } from "jimp/browser/lib/jimp";
 
 declare global {
-  interface PartObject {
+  interface PartsObject {
     //目や鼻などの部位
     [category: "body" | string]: {
       colorGroup: string; // デフォルトの色を決めるパーツの系統
@@ -13,21 +13,21 @@ declare global {
       items: Items; //パーツの画像の一覧のオブジェクト
     };
   }
-  interface PartObjectMerged {
+  interface PartsObjectSplit {
     [category: "body" | string]: {
       colorGroup: "eye" | string;
       partCount: number;
       partChain: string;
       ignoreTrigger: null | string[];
-      partList: CategoryMerged; //同じpartChainを部位ごとに分けたオブジェクト。
+      partList: CategorySplit; //同じpartChainを部位ごとに分けたオブジェクト。
     };
   }
 
-  interface CategoryMerged {
+  interface CategorySplit {
     [partSplit: "body" | string]: {
       //partChainの値が入る。一つのパーツを複数の画像で賄う際のくくりつけたもの
       partOrder: number; //同じpartChainを部位ごとに分けたオブジェクト。
-      items: Items; //パーツの画像の一覧のオブジェクト。MergedではpartChain→partSplitでくくりつけたことで扱いやすくなっている
+      items: Items; //パーツの画像の一覧のオブジェクト。SplitではpartChain→partSplitでくくりつけたことで扱いやすくなっている
     };
   }
   interface Items {
@@ -38,28 +38,22 @@ declare global {
     };
   }
 
-  //パーツアイコンを合成するためにpartObjectを変換したオブジェクト
-  interface PartObjectForCombine {
+  //パーツアイコンを合成するためにPartsObjectを変換したオブジェクト
+  interface PartsObjectIconForCombine {
     [category: "body" | string]: {
-      partList: ItemsForCombine;
+      partList: ItemsIconForCombine;
     };
   }
-  interface ItemsForCombine {
+  interface ItemsIconForCombine {
     [item: string]: {
       bodyType: null | number[];
-      peaces: ItemPeacesForCombine;
+      peaces: ItemPeacesIconForCombine;
     };
   }
 
-  interface ItemPeacesForCombine {
+  interface ItemPeacesIconForCombine {
     [peace: string]: {
       faces: FacesJimp;
-    };
-  }
-
-  interface FacesForCombine {
-    [face: "normal" | string]: {
-      icon: string;
     };
   }
 
@@ -79,55 +73,55 @@ declare global {
 
   interface CombinePartIconBase64 {
     [face: "normal" | string]: {
-      partBase64: string; //パーツアイコンのbase64データ
+      imagePath: string; //パーツアイコンのbase64データ
     };
   }
 
   interface Faces {
     [face: "normal" | string]: {
       //表情の種類。
-      facePath: string; //表情ごとの画像パス。該当する表情がない場合はnormalのパスを使用する。同じ画像を複数の表情で使う場合は同一のパスを指定する。
+      imagePath: string; //表情ごとの画像パス。該当する表情がない場合はnormalのパスを使用する。同じ画像を複数の表情で使う場合は同一のパスを指定する。
     };
   }
 
   type eyes = { left: string; right: string }; //左目と右目
 
   type PartColor<U extends "eye" | string> = U extends "eye" ? eyes : string; //目の場合は2つカラーを指定する、それ以外の場合は1つ指定する
-  interface ViewStatus {
+  interface SelectedParts {
     bodyType: number; //現在選択されているbodyのタイプの数字
     category: {
-      [category: string]: ViewStatusCategory<typeof category>;
+      [category: string]: SelectedPartsCategory<typeof category>;
     };
   }
 
-  interface ViewStatusCategory<U extends "eye" | string> {
+  interface SelectedPartsCategory<U extends "eye" | string> {
     colorGroup: U; //デフォルトの色を決めるパーツの系統
     partName: string; //パーツの名前
     partColor: PartColor<U>; //パーツの色
   }
 
-  interface CanvasObject {
+  interface SelectedPartsForCanvas {
     bodyType: number;
     category: {
-      [category: string]: CanvasObjectCategory<typeof category>;
+      [category: string]: SelectedPartsForCanvasCategory<typeof category>;
     };
   }
 
-  interface CanvasObjectCategory<U extends "eye" | string> {
+  interface SelectedPartsForCanvasCategory<U extends "eye" | string> {
     partOrder: number;
     colorGroup: U;
     partData: Jimp; //パーツのJimpデータ
     partColor: PartColor<U>;
   }
 
-  interface MenuThumbnail {
+  interface categoryIconObject {
     [category: string]: {
-      pathUrl: string;
+      imagePath: string;
     };
   }
 
-  //partObjectのパスをJimpデータに置き換えたオブジェクト
-  interface PartObjectJimp {
+  //PartsObjectのパスをJimpデータに置き換えたオブジェクト
+  interface PartsObjectJimp {
     [category: "body" | string]: {
       colorGroup: "eye" | string;
       partCount: number;
