@@ -7,6 +7,7 @@ import MakerFaceMenu from "./MakerFaceMenu";
 import { MakerChangePart } from "./functions/MakerChangePart";
 import { MakerConvertPartsIcon } from "./functions/MakerConvertPartsIcon";
 import { MakerConvertPartsJimp } from "./functions/MakerConvertPartsJimp";
+import { MakerFetchCategoryIcons } from "./functions/MakerFetchCategoryIcons";
 interface MakerMenuProps {
   path: string;
   partObject: PartObjectMerged;
@@ -23,6 +24,7 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedParts, setSelectedParts] = useState<ViewStatus>(viewStatus);
   const [selectedFace, setSelectedFace] = useState<string>("normal");
+  const [categoryIcon, setCategoryIcon] = useState<MenuThumbnail | null>(null);
   const [menuPartIcon, setMenuPartIcon] =
     useState<CombinePartIconsObjectBase64 | null>(null);
   const [partObjectJimp, setPartObjectJimp] = useState<PartObjectJimp | null>(
@@ -41,6 +43,10 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
   useEffect(() => {
     const fetchData = async () => {
       try {
+        const tmpCategoryIcon = await MakerFetchCategoryIcons(
+          thumbnailObject,
+          path + "thumbnails/"
+        );
         const tmpPartObjectJimp: PartObjectJimp = await MakerConvertPartsJimp(
           partObject,
           path + "parts/"
@@ -48,6 +54,7 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
         setPartObjectJimp(tmpPartObjectJimp);
         const menuPartIconList: Promise<CombinePartIconsObjectBase64> =
           MakerConvertPartsIcon(tmpPartObjectJimp);
+        setCategoryIcon(tmpCategoryIcon);
         setMenuPartIcon(await menuPartIconList);
         setIsLoading(false); // データの読み込みが完了したらisLoadingをfalseに設定
       } catch (error) {
@@ -80,8 +87,7 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
           {/* アバターメーカーのパーツメニュー部分 */}
           <MakerPartsMenu
             isLoading={isLoading}
-            path={path}
-            thumbnailObject={thumbnailObject}
+            thumbnailObject={categoryIcon}
             selectedCategory={selectedCategory}
             selectedFace={selectedFace}
             handleCategoryClick={handleCategoryClick}

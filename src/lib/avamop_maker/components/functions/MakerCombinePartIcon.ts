@@ -1,5 +1,5 @@
 import "jimp/browser/lib/jimp";
-import type { Jimp } from "jimp/browser/lib/jimp";
+import { MakerPartsIconTrim } from "./MakerPartsIconTrim";
 import { MakerConvertBase64 } from "./MakerConvertBase64";
 
 export const MakerCombinePartIcon = async (
@@ -25,7 +25,9 @@ export const MakerCombinePartIcon = async (
   // combineParts を base64 形式に変換
   const CombinePartIconBase64: CombinePartIconBase64 = {};
   for (const face in combineParts) {
-    const base64Image = await MakerConvertBase64(combineParts[face].jimpData);
+    const base64Image: string = await MakerConvertBase64(
+      await MakerPartsIconTrim(combineParts[face].jimpData)
+    );
     CombinePartIconBase64[face] = {
       partBase64: base64Image,
     };

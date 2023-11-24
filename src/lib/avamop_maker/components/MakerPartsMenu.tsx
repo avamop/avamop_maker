@@ -5,7 +5,6 @@ import MakerPartsCategories from "./MakerPartsCategories";
 interface MakerPartsMenuProps {
   selectedCategory: string | null;
   selectedFace: string;
-  path: string;
   thumbnailObject: MenuThumbnail;
   selectedParts: ViewStatus;
   setSelectedParts: React.Dispatch<React.SetStateAction<ViewStatus>>;
@@ -24,7 +23,6 @@ interface MakerPartsMenuProps {
 const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
   selectedCategory,
   selectedFace,
-  path,
   thumbnailObject,
   handleCategoryClick,
   changePart,
@@ -42,11 +40,7 @@ const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
             category={category}
             isSelected={selectedCategory === category}
             onClick={() => handleCategoryClick(category)}
-            imageSrc={
-              path +
-              "thumbnails/" +
-              thumbnailObject[category.replace(/_\d+$/, "")].pathUrl
-            }
+            imageSrc={thumbnailObject[category.replace(/_\d+$/, "")].pathUrl}
           >
             {/* category.replace(/_\d+$/, "")はcategoryから連番を取り除いたもの */}
             {/* カテゴリーがbodyかどうかで代入する値が変化する */}
