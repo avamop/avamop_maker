@@ -1,4 +1,5 @@
 import React from "react";
+import "./MakerFaceButton.module.css"; // CSSファイルをインポート
 
 interface MakerFaceButtonProps {
   face: string;
