@@ -1,3 +1,4 @@
+// パーツ名が入ったアバターメーカーのステータスオブジェクトを、実際の画像データが入ったオブジェクトに変換する
 export const MakerCanvasStatusGen = (
   selectedParts: ViewStatus,
   partObjectJimp: PartObjectJimp,
@@ -38,6 +39,7 @@ export const MakerCanvasStatusGen = (
   return canvasObject;
 };
 
+//パーツの順番を定め、カテゴリーの連番に伴って重複したパーツの順番値の分だけ加算する
 const CanvasObjectSort = (tmpCanvasObject: {
   [category: string]: CanvasObjectCategory<typeof category>;
 }): {

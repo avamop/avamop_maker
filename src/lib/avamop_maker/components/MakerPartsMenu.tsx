@@ -35,6 +35,7 @@ const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
   return (
     <>
       <ul>
+        {/* カテゴリーの入ったオブジェクトの中身を展開したものからカテゴリーボタンを生成し、代入している */}
         {Object.keys(selectedParts.category).map((category) => (
           <MakerPartsCategories
             key={category}
@@ -47,10 +48,13 @@ const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
               thumbnailObject[category.replace(/_\d+$/, "")].pathUrl
             }
           >
+            {/* category.replace(/_\d+$/, "")はcategoryから連番を取り除いたもの */}
+            {/* カテゴリーがbodyかどうかで代入する値が変化する */}
             {category === "body"
               ? Object.keys(
                   menuPartIcon[category.replace(/_\d+$/, "")].partList
                 ).map((item) => (
+                  // パーツアイコンオブジェクトの中身を展開したものをパーツボタンに代入している
                   <MakerPartsButton
                     key={item}
                     item={item}
@@ -64,6 +68,7 @@ const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
                             item
                           ].faces["normal"].partBase64
                     }
+                    // 選択した表情に合わせた画像がない場合はデフォルトの画像を出す
                     onClick={() =>
                       changePart(
                         category,
@@ -77,7 +82,8 @@ const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
                     }
                   />
                 ))
-              : Object.keys(
+              : // bodyカテゴリじゃない場合のボタン
+                Object.keys(
                   menuPartIcon[category.replace(/_\d+$/, "")].partList
                 ).map((item) =>
                   menuPartIcon[category.replace(/_\d+$/, "")].partList[item]

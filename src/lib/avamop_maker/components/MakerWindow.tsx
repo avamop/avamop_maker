@@ -60,20 +60,24 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
 
   return (
     <div>
+      {/* 画像データのロードが終わったら中身を表示する */}
       {isLoading && !partObjectJimp && !menuPartIcon ? (
         <div>Loading...</div>
       ) : (
         <>
+          {/* アバターメーカーのアバター表示部分 */}
           <MakerView
             selectedParts={selectedParts}
             partObjectJimp={partObjectJimp}
             selectedFace={selectedFace}
           />
+          {/* アバターメーカーの表情メニュー部分 */}
           <MakerFaceMenu
             faceList={faceList}
             isLoading={isLoading}
             changeFace={changeFace}
           />
+          {/* アバターメーカーのパーツメニュー部分 */}
           <MakerPartsMenu
             isLoading={isLoading}
             path={path}
@@ -88,6 +92,7 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
           />
         </>
       )}
+      {/* オブジェクト変化テスト用ボタン */}
       <button onClick={() => console.log("%o", selectedParts)}>button</button>
     </div>
   );

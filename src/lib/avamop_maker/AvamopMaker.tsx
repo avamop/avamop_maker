@@ -14,11 +14,12 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
 }) => {
   return (
     <Box bg="gray.50">
+      {/*アバターメーカーの枠*/}
       <MakerWindow
         path={path}
         partObject={partObject}
         thumbnailObject={thumbnailObject}
-      />
+      />{" "}
     </Box>
   );
 };

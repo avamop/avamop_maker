@@ -7,6 +7,7 @@ export const MakerChangePart = (
 ) => {
   if (category === "body") {
     try {
+      //bodyの値が正常かどうかを判定する
       if (!bodyTypeValue) {
         throw new Error("エラー:bodyのbodyTypeプロパティに値がありません。");
       } else if (bodyTypeValue.length > 1) {
@@ -31,6 +32,7 @@ export const MakerChangePart = (
     }
   } else {
     try {
+      //bodyの値が正常かどうかを判定する
       if (bodyTypeValue && bodyTypeValue.includes(0)) {
         throw new Error(
           `エラー:${category}のbodyTypeプロパティに0が入っています`
