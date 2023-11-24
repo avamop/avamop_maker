@@ -18,11 +18,11 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
   PartsObject,
   categoryIconObject,
 }) => {
-  const SelectedParts: SelectedParts = MakerSelectedPartsGen(PartsObject);
+  const TmpSelectedParts: SelectedParts = MakerSelectedPartsGen(PartsObject);
   const faceList: string[] = MakerFaceGen(PartsObject);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [SelectedParts, setSelectedParts] =
-    useState<SelectedParts>(SelectedParts);
+    useState<SelectedParts>(TmpSelectedParts);
   const [selectedFace, setSelectedFace] = useState<string>("normal");
   const [categoryIcon, setCategoryIcon] = useState<categoryIconObject | null>(
     null
