@@ -1,19 +1,19 @@
 import { MakerConvertBase64 } from "./MakerConvertBase64";
-import { MakerPartsIconTrim } from "./MakerPartsIconTrim";
+import { MakerPartIconsTrim } from "./MakerPartIconsTrim";
 import "jimp/browser/lib/jimp";
 import type { Jimp } from "jimp/browser/lib/jimp";
 
 export const MakerFetchCategoryIcons = async (
-  ThumbnailObject: MenuThumbnail,
+  categoryIconObject: categoryIconObject,
   path: string
-): Promise<MenuThumbnail> => {
-  for (const category in ThumbnailObject) {
+): Promise<categoryIconObject> => {
+  for (const category in categoryIconObject) {
     const image: Jimp = await Jimp.read(
-      path + ThumbnailObject[category].pathUrl
+      path + categoryIconObject[category].imagePath
     );
-    ThumbnailObject[category].pathUrl = await MakerConvertBase64(
-      await MakerPartsIconTrim(await image)
+    categoryIconObject[category].imagePath = await MakerConvertBase64(
+      await MakerPartIconsTrim(await image)
     );
   }
-  return ThumbnailObject;
+  return categoryIconObject;
 };

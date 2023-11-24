@@ -1,14 +1,14 @@
 const fs = require("fs");
 
 function mergeCategories(data) {
-  const mergedCategories = {};
+  const SplitCategories = {};
 
   for (const category in data) {
     const currentCategory = data[category];
     const partChain = currentCategory.partChain;
 
-    if (!mergedCategories[partChain]) {
-      mergedCategories[partChain] = {
+    if (!SplitCategories[partChain]) {
+      SplitCategories[partChain] = {
         colorGroup: currentCategory.colorGroup,
         partCount: currentCategory.partCount,
         partChain: partChain,
@@ -17,7 +17,7 @@ function mergeCategories(data) {
       };
     }
 
-    const currentPartList = mergedCategories[partChain].partList;
+    const currentPartList = SplitCategories[partChain].partList;
 
     if (!currentPartList[category]) {
       currentPartList[category] = {
@@ -36,7 +36,7 @@ function mergeCategories(data) {
     }
   }
 
-  return mergedCategories;
+  return SplitCategories;
 }
 
 if (process.argv.length !== 4) {
@@ -55,9 +55,9 @@ fs.readFile(inputFilePath, "utf8", (err, data) => {
 
   try {
     const inputData = JSON.parse(data);
-    const mergedData = mergeCategories(inputData);
+    const SplitData = mergeCategories(inputData);
 
-    fs.writeFile(outputFilePath, JSON.stringify(mergedData, null, 2), (err) => {
+    fs.writeFile(outputFilePath, JSON.stringify(SplitData, null, 2), (err) => {
       if (err) {
         console.error(`Error writing output file: ${err}`);
         process.exit(1);

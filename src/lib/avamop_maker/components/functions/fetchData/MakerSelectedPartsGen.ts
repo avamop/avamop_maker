@@ -1,11 +1,11 @@
 // パーツ一覧からアバターのステータス、もとい組み合わせオブジェクトを生成する
-export const MakerViewStatusGen = (
-  partObject: PartObjectMerged
-): ViewStatus => {
-  const viewStatus: ViewStatus = { bodyType: null, category: {} };
+export const MakerSelectedPartsGen = (
+  PartsObject: PartsObjectSplit
+): SelectedParts => {
+  const SelectedParts: SelectedParts = { bodyType: null, category: {} };
   const bodyTypeValue =
-    partObject["body"].partList["body"].items[
-      Object.keys(partObject["body"].partList["body"].items)[0]
+    PartsObject["body"].partList["body"].items[
+      Object.keys(PartsObject["body"].partList["body"].items)[0]
     ].bodyType;
   try {
     if (bodyTypeValue === null) {
@@ -15,31 +15,31 @@ export const MakerViewStatusGen = (
     } else if (bodyTypeValue[0] == 0) {
       throw new Error("エラー:bodyのbodyTypeプロパティが0になっています");
     } else {
-      viewStatus.bodyType = bodyTypeValue[0];
+      SelectedParts.bodyType = bodyTypeValue[0];
     }
   } catch (error) {
     console.error(error.message);
   }
-  for (const category in partObject) {
-    const { partList, partCount, colorGroup } = partObject[category];
+  for (const category in PartsObject) {
+    const { partList, partCount, colorGroup } = PartsObject[category];
     const partSplits = Object.keys(partList);
 
     for (let i = 0; i < partCount; i++) {
       const partSplit = partSplits[0];
       const partName = Object.keys(
-        partObject[category].partList[partSplit].items
+        PartsObject[category].partList[partSplit].items
       )[0];
       if (colorGroup === "eye") {
-        const viewStatusCategory: ViewStatusCategory<"eye"> = {
+        const SelectedPartsCategory: SelectedPartsCategory<"eye"> = {
           colorGroup,
           partName,
           partColor: { left: "black", right: "black" },
         };
-        viewStatus.category[
+        SelectedParts.category[
           partCount === 1 ? category : `${category}_${i + 1}`
-        ] = viewStatusCategory;
+        ] = SelectedPartsCategory;
       } else {
-        const viewStatusCategory: ViewStatusCategory<string> = {
+        const SelectedPartsCategory: SelectedPartsCategory<string> = {
           colorGroup,
           partName,
           partColor:
@@ -49,11 +49,11 @@ export const MakerViewStatusGen = (
               ? "bisque"
               : "gray",
         };
-        viewStatus.category[
+        SelectedParts.category[
           partCount === 1 ? category : `${category}_${i + 1}`
-        ] = viewStatusCategory;
+        ] = SelectedPartsCategory;
       }
     }
   }
-  return viewStatus;
+  return SelectedParts;
 };
