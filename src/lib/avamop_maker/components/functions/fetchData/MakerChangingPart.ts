@@ -2,8 +2,8 @@ export const MakerChangingPart = (
   category: string,
   bodyTypeValue: number[],
   partNameValue: string,
-  SelectedPartss: SelectedParts,
-  setSelectedPartss: React.Dispatch<React.SetStateAction<SelectedParts>>
+  SelectedParts: SelectedParts,
+  setSelectedParts: React.Dispatch<React.SetStateAction<SelectedParts>>
 ) => {
   if (category === "body") {
     try {
@@ -18,14 +18,14 @@ export const MakerChangingPart = (
         const updateAvaters: SelectedParts = {
           bodyType: bodyTypeValue[0],
           category: {
-            ...SelectedPartss.category,
+            ...SelectedParts.category,
             [category]: {
-              ...SelectedPartss.category[category],
+              ...SelectedParts.category[category],
               partName: partNameValue,
             },
           },
         };
-        setSelectedPartss(updateAvaters);
+        setSelectedParts(updateAvaters);
       }
     } catch (error) {
       console.error(error.message);
@@ -39,16 +39,16 @@ export const MakerChangingPart = (
         );
       }
       const updateAvaters: SelectedParts = {
-        bodyType: SelectedPartss.bodyType,
+        bodyType: SelectedParts.bodyType,
         category: {
-          ...SelectedPartss.category,
+          ...SelectedParts.category,
           [category]: {
-            ...SelectedPartss.category[category],
+            ...SelectedParts.category[category],
             partName: partNameValue,
           },
         },
       };
-      setSelectedPartss(updateAvaters);
+      setSelectedParts(updateAvaters);
     } catch (error) {
       console.error(error.message);
     }

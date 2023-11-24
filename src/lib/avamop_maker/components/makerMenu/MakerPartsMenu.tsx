@@ -6,8 +6,8 @@ interface MakerPartsMenuProps {
   selectedCategory: string | null;
   selectedFace: string;
   categoryIconObject: categoryIconObject;
-  SelectedPartss: SelectedParts;
-  setSelectedPartss: React.Dispatch<React.SetStateAction<SelectedParts>>;
+  SelectedParts: SelectedParts;
+  setSelectedParts: React.Dispatch<React.SetStateAction<SelectedParts>>;
   handleCategoryClick: (category: string) => void;
   menuPartIcon: CombinePartIconsObjectBase64;
   isLoading: boolean;
@@ -18,15 +18,15 @@ const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
   selectedFace,
   categoryIconObject,
   handleCategoryClick,
-  SelectedPartss,
-  setSelectedPartss,
+  SelectedParts,
+  setSelectedParts,
   menuPartIcon,
 }) => {
   return (
     <>
       <ul>
         {/* カテゴリーの入ったオブジェクトの中身を展開したものからカテゴリーボタンを生成し、代入している */}
-        {Object.keys(SelectedPartss.category).map((category) => (
+        {Object.keys(SelectedParts.category).map((category) => (
           <MakerPartsCategories
             key={category}
             category={category}
@@ -64,8 +64,8 @@ const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
                           item
                         ].bodyType,
                         item,
-                        SelectedPartss,
-                        setSelectedPartss
+                        SelectedParts,
+                        setSelectedParts
                       )
                     }
                   />
@@ -78,7 +78,7 @@ const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
                     .bodyType === null ||
                   menuPartIcon[category.replace(/_\d+$/, "")].partList[
                     item
-                  ].bodyType.includes(SelectedPartss.bodyType) ? (
+                  ].bodyType.includes(SelectedParts.bodyType) ? (
                     <MakerPartsButton
                       key={item}
                       item={item}
@@ -98,8 +98,8 @@ const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
                             item
                           ].bodyType,
                           item,
-                          SelectedPartss,
-                          setSelectedPartss
+                          SelectedParts,
+                          setSelectedParts
                         )
                       }
                     />

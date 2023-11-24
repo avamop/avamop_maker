@@ -21,7 +21,7 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
   const SelectedParts: SelectedParts = MakerSelectedPartsGen(PartsObject);
   const faceList: string[] = MakerFaceGen(PartsObject);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [SelectedPartss, setSelectedPartss] =
+  const [SelectedParts, setSelectedParts] =
     useState<SelectedParts>(SelectedParts);
   const [selectedFace, setSelectedFace] = useState<string>("normal");
   const [categoryIcon, setCategoryIcon] = useState<categoryIconObject | null>(
@@ -75,7 +75,7 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
         <>
           {/* アバターメーカーのアバター表示部分 */}
           <MakerView
-            SelectedPartss={SelectedPartss}
+            SelectedParts={SelectedParts}
             PartsObjectJimp={PartsObjectJimp}
             selectedFace={selectedFace}
           />
@@ -93,13 +93,13 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
             selectedFace={selectedFace}
             handleCategoryClick={handleCategoryClick}
             menuPartIcon={menuPartIcon}
-            SelectedPartss={SelectedPartss}
-            setSelectedPartss={setSelectedPartss}
+            SelectedParts={SelectedParts}
+            setSelectedParts={setSelectedParts}
           />
         </>
       )}
       {/* オブジェクト変化テスト用ボタン */}
-      <button onClick={() => console.log("%o", SelectedPartss)}>button</button>
+      <button onClick={() => console.log("%o", SelectedParts)}>button</button>
     </div>
   );
 };
