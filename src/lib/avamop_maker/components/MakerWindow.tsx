@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { MakerViewStatusGen } from "./functions/MakerViewStatusGen";
-import { MakerFaceGen } from "./functions/MakerFaceGen";
-import MakerView from "./MakerView";
-import MakerPartsMenu from "./MakerPartsMenu";
-import MakerFaceMenu from "./MakerFaceMenu";
-import { MakerChangePart } from "./functions/MakerChangePart";
-import { MakerConvertPartsIcon } from "./functions/MakerConvertPartsIcon";
-import { MakerConvertPartsJimp } from "./functions/MakerConvertPartsJimp";
-import { MakerFetchCategoryIcons } from "./functions/MakerFetchCategoryIcons";
+import { MakerViewStatusGen } from "./functions/fetchData/MakerViewStatusGen";
+import { MakerFaceGen } from "./functions/fetchData/MakerFaceGen";
+import MakerView from "./MakerView/MakerView";
+import MakerPartsMenu from "./makerMenu/MakerPartsMenu";
+import MakerFaceMenu from "./makerMenu/MakerFaceMenu";
+import { MakerChangePart } from "./functions/fetchData/MakerChangePart";
+import { MakerConvertPartsIcon } from "./functions/imageProcess/MakerConvertPartsIcon";
+import { MakerConvertPartsJimp } from "./functions/objectProcess/MakerConvertPartsJimp";
+import { MakerFetchCategoryIcons } from "./functions/imageProcess/MakerFetchCategoryIcons";
 interface MakerMenuProps {
   path: string;
   partObject: PartObjectMerged;

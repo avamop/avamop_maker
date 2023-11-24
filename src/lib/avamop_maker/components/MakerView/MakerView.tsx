@@ -1,7 +1,7 @@
 import React from "react";
 import "jimp/browser/lib/jimp";
 import type { Jimp } from "jimp/browser/lib/jimp";
-import { MakerCanvasStatusGen } from "./functions/MakerCanvasStatusGen";
+import { MakerCanvasStatusGen } from "../functions/fetchData/MakerCanvasStatusGen";
 
 interface MakerViewProps {
   selectedParts: ViewStatus;
