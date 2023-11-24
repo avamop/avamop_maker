@@ -4,13 +4,13 @@ import type { Jimp } from "jimp/browser/lib/jimp";
 import { MakerCanvasStatusGen } from "../functions/fetchData/MakerCanvasStatusGen";
 
 interface MakerViewProps {
-  SelectedPartss: SelectedParts;
+  SelectedParts: SelectedParts;
   PartsObjectJimp: PartsObjectJimp;
   selectedFace: string;
 }
 
 const MakerView: React.FC<MakerViewProps> = ({
-  SelectedPartss,
+  SelectedParts,
   PartsObjectJimp,
   selectedFace,
 }) => {
@@ -18,7 +18,7 @@ const MakerView: React.FC<MakerViewProps> = ({
   const ctx = canvas.getContext("2d");
 
   const SelectedPartsForCanvas = MakerCanvasStatusGen(
-    SelectedPartss,
+    SelectedParts,
     PartsObjectJimp,
     selectedFace
   );

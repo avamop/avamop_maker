@@ -1,18 +1,18 @@
 // パーツ名が入ったアバターメーカーのステータスオブジェクトを、実際の画像データが入ったオブジェクトに変換する
 export const MakerCanvasStatusGen = (
-  SelectedPartss: SelectedParts,
+  SelectedParts: SelectedParts,
   PartsObjectJimp: PartsObjectJimp,
   selectedFace: string
 ): SelectedPartsForCanvas => {
   const SelectedPartsForCanvas: SelectedPartsForCanvas = {
-    bodyType: SelectedPartss.bodyType,
+    bodyType: SelectedParts.bodyType,
     category: {},
   };
   const tmpSelectedPartsForCanvas: {
     [category: string]: SelectedPartsForCanvasCategory<typeof category>;
   } = {};
 
-  for (const category in SelectedPartss.category) {
+  for (const category in SelectedParts.category) {
     for (const partSplit in PartsObjectJimp[category.replace(/_\d+$/, "")]
       .partList) {
       const SelectedPartsForCanvasCategory: SelectedPartsForCanvasCategory<
@@ -21,18 +21,18 @@ export const MakerCanvasStatusGen = (
         partOrder:
           PartsObjectJimp[category.replace(/_\d+$/, "")].partList[partSplit]
             .partOrder,
-        colorGroup: SelectedPartss.category[category].colorGroup,
+        colorGroup: SelectedParts.category[category].colorGroup,
         partData: PartsObjectJimp[category.replace(/_\d+$/, "")].partList[
           partSplit
-        ].items[SelectedPartss.category[category].partName].faces[selectedFace]
+        ].items[SelectedParts.category[category].partName].faces[selectedFace]
           ? PartsObjectJimp[category.replace(/_\d+$/, "")].partList[partSplit]
-              .items[SelectedPartss.category[category].partName].faces[
+              .items[SelectedParts.category[category].partName].faces[
               selectedFace
             ].jimpData
           : PartsObjectJimp[category.replace(/_\d+$/, "")].partList[partSplit]
-              .items[SelectedPartss.category[category].partName].faces["normal"]
+              .items[SelectedParts.category[category].partName].faces["normal"]
               .jimpData,
-        partColor: SelectedPartss.category[category].partColor,
+        partColor: SelectedParts.category[category].partColor,
       };
       tmpSelectedPartsForCanvas[category] = SelectedPartsForCanvasCategory;
     }
