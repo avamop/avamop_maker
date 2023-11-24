@@ -1,4 +1,4 @@
-import { MakerConvertPartList } from "./MakerConvertPartList";
+import { MakerConvertPartList } from "../objectProcess/MakerConvertPartList";
 import { MakerCombinePartIcon } from "./MakerCombinePartIcon";
 
 export const MakerConvertPartsIcon = async (

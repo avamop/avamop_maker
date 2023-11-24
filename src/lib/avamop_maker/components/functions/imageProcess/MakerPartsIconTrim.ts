@@ -29,7 +29,11 @@ export const MakerPartsIconTrim = async (image: Jimp) => {
   const trimTop = Math.max(0, centerY - size / 2);
 
   const trimmedImage = image.clone().crop(trimLeft, trimTop, size, size);
-  trimmedImage.resize(64, 64, Jimp.RESIZE_BILINEAR);
+  trimmedImage.resize(
+    64,
+    64,
+    size >= 32 ? Jimp.RESIZE_BILINEAR : Jimp.RESIZE_NEAREST_NEIGHBOR
+  );
 
   return await trimmedImage;
 };
