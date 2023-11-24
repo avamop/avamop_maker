@@ -1,65 +1,67 @@
 // パーツ名が入ったアバターメーカーのステータスオブジェクトを、実際の画像データが入ったオブジェクトに変換する
 export const MakerCanvasStatusGen = (
-  selectedParts: ViewStatus,
-  partObjectJimp: PartObjectJimp,
+  SelectedPartss: SelectedParts,
+  PartsObjectJimp: PartsObjectJimp,
   selectedFace: string
-): CanvasObject => {
-  const canvasObject: CanvasObject = {
-    bodyType: selectedParts.bodyType,
+): SelectedPartsForCanvas => {
+  const SelectedPartsForCanvas: SelectedPartsForCanvas = {
+    bodyType: SelectedPartss.bodyType,
     category: {},
   };
-  const tmpCanvasObject: {
-    [category: string]: CanvasObjectCategory<typeof category>;
+  const tmpSelectedPartsForCanvas: {
+    [category: string]: SelectedPartsForCanvasCategory<typeof category>;
   } = {};
 
-  for (const category in selectedParts.category) {
-    for (const partSplit in partObjectJimp[category.replace(/_\d+$/, "")]
+  for (const category in SelectedPartss.category) {
+    for (const partSplit in PartsObjectJimp[category.replace(/_\d+$/, "")]
       .partList) {
-      const canvasObjectCategory: CanvasObjectCategory<typeof category> = {
+      const SelectedPartsForCanvasCategory: SelectedPartsForCanvasCategory<
+        typeof category
+      > = {
         partOrder:
-          partObjectJimp[category.replace(/_\d+$/, "")].partList[partSplit]
+          PartsObjectJimp[category.replace(/_\d+$/, "")].partList[partSplit]
             .partOrder,
-        colorGroup: selectedParts.category[category].colorGroup,
-        partData: partObjectJimp[category.replace(/_\d+$/, "")].partList[
+        colorGroup: SelectedPartss.category[category].colorGroup,
+        partData: PartsObjectJimp[category.replace(/_\d+$/, "")].partList[
           partSplit
-        ].items[selectedParts.category[category].partName].faces[selectedFace]
-          ? partObjectJimp[category.replace(/_\d+$/, "")].partList[partSplit]
-              .items[selectedParts.category[category].partName].faces[
+        ].items[SelectedPartss.category[category].partName].faces[selectedFace]
+          ? PartsObjectJimp[category.replace(/_\d+$/, "")].partList[partSplit]
+              .items[SelectedPartss.category[category].partName].faces[
               selectedFace
             ].jimpData
-          : partObjectJimp[category.replace(/_\d+$/, "")].partList[partSplit]
-              .items[selectedParts.category[category].partName].faces["normal"]
+          : PartsObjectJimp[category.replace(/_\d+$/, "")].partList[partSplit]
+              .items[SelectedPartss.category[category].partName].faces["normal"]
               .jimpData,
-        partColor: selectedParts.category[category].partColor,
+        partColor: SelectedPartss.category[category].partColor,
       };
-      tmpCanvasObject[category] = canvasObjectCategory;
+      tmpSelectedPartsForCanvas[category] = SelectedPartsForCanvasCategory;
     }
   }
-  canvasObject.category = CanvasObjectSort(tmpCanvasObject);
-  return canvasObject;
+  SelectedPartsForCanvas.category = SelectedPartsForCanvasSort(
+    tmpSelectedPartsForCanvas
+  );
+  return SelectedPartsForCanvas;
 };
 
 //パーツの順番を定め、カテゴリーの連番に伴って重複したパーツの順番値の分だけ加算する
-const CanvasObjectSort = (tmpCanvasObject: {
-  [category: string]: CanvasObjectCategory<typeof category>;
+const SelectedPartsForCanvasSort = (tmpSelectedPartsForCanvas: {
+  [category: string]: SelectedPartsForCanvasCategory<typeof category>;
 }): {
-  [category: string]: CanvasObjectCategory<typeof category>;
+  [category: string]: SelectedPartsForCanvasCategory<typeof category>;
 } => {
-  let sortedCategories: [string, CanvasObjectCategory<"eye" | string>][] =
-    Object.entries(tmpCanvasObject).sort((a, b) => {
-      // partOrderが一致している場合、カテゴリ名に含まれる連番でソート
-      if (a[1].partOrder === b[1].partOrder) {
-        const numA = Number(
-          a[0].match(/_(\d+)$/) ? a[0].match(/_(\d+)$/)[1] : 0
-        );
-        const numB = Number(
-          b[0].match(/_(\d+)$/) ? b[0].match(/_(\d+)$/)[1] : 0
-        );
-        return numA - numB;
-      }
-      // partOrderが一致していない場合、partOrderでソート
-      return a[1].partOrder - b[1].partOrder;
-    });
+  let sortedCategories: [
+    string,
+    SelectedPartsForCanvasCategory<"eye" | string>
+  ][] = Object.entries(tmpSelectedPartsForCanvas).sort((a, b) => {
+    // partOrderが一致している場合、カテゴリ名に含まれる連番でソート
+    if (a[1].partOrder === b[1].partOrder) {
+      const numA = Number(a[0].match(/_(\d+)$/) ? a[0].match(/_(\d+)$/)[1] : 0);
+      const numB = Number(b[0].match(/_(\d+)$/) ? b[0].match(/_(\d+)$/)[1] : 0);
+      return numA - numB;
+    }
+    // partOrderが一致していない場合、partOrderでソート
+    return a[1].partOrder - b[1].partOrder;
+  });
   let increment: number = 0;
   let lastIncrement: number = 0;
   let lastCategory: string = null;
@@ -79,6 +81,6 @@ const CanvasObjectSort = (tmpCanvasObject: {
     lastCategory = category;
   }
 
-  // オブジェクトに戻してcanvasObjectに代入
+  // オブジェクトに戻してSelectedPartsForCanvasに代入
   return Object.fromEntries(sortedCategories);
 };

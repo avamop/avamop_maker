@@ -1,41 +1,42 @@
 import "jimp/browser/lib/jimp";
 import type { Jimp } from "jimp/browser/lib/jimp";
 
-// パスの入ったpartObjectをJimpデータの入ったものに変換する
+// パスの入ったPartsObjectをJimpデータの入ったものに変換する
 export const MakerConvertPartsJimp = async (
-  partObject: PartObjectMerged,
+  PartsObject: PartsObjectSplit,
   path: string
-): Promise<PartObjectJimp> => {
-  const PartObjectJimp: PartObjectJimp = {};
-  for (const category in partObject) {
-    PartObjectJimp[category] = {
-      colorGroup: partObject[category].colorGroup,
-      partCount: partObject[category].partCount,
-      partChain: partObject[category].partChain,
-      ignoreTrigger: partObject[category].ignoreTrigger,
+): Promise<PartsObjectJimp> => {
+  const PartsObjectJimp: PartsObjectJimp = {};
+  for (const category in PartsObject) {
+    PartsObjectJimp[category] = {
+      colorGroup: PartsObject[category].colorGroup,
+      partCount: PartsObject[category].partCount,
+      partChain: PartsObject[category].partChain,
+      ignoreTrigger: PartsObject[category].ignoreTrigger,
       partList: {},
     };
-    for (const partSplit in partObject[category].partList) {
-      PartObjectJimp[category].partList[partSplit] = {
-        partOrder: partObject[category].partList[partSplit].partOrder,
+    for (const partSplit in PartsObject[category].partList) {
+      PartsObjectJimp[category].partList[partSplit] = {
+        partOrder: PartsObject[category].partList[partSplit].partOrder,
         items: {},
       };
-      for (const item in partObject[category].partList[partSplit].items) {
-        PartObjectJimp[category].partList[partSplit].items[item] = {
+      for (const item in PartsObject[category].partList[partSplit].items) {
+        PartsObjectJimp[category].partList[partSplit].items[item] = {
           bodyType:
-            partObject[category].partList[partSplit].items[item].bodyType,
-          color: partObject[category].partList[partSplit].items[item].color,
+            PartsObject[category].partList[partSplit].items[item].bodyType,
+          color: PartsObject[category].partList[partSplit].items[item].color,
           faces: {},
         };
-        for (const face in partObject[category].partList[partSplit].items[item]
+        for (const face in PartsObject[category].partList[partSplit].items[item]
           .faces) {
           try {
             const jimpData = await partRead(
               path +
-                partObject[category].partList[partSplit].items[item].faces[face]
-                  .facePath
+                PartsObject[category].partList[partSplit].items[item].faces[
+                  face
+                ].imagePath
             ); //パーツのパスからJimpデータを生成する
-            PartObjectJimp[category].partList[partSplit].items[item].faces[
+            PartsObjectJimp[category].partList[partSplit].items[item].faces[
               face
             ] = {
               jimpData: jimpData,
@@ -47,7 +48,7 @@ export const MakerConvertPartsJimp = async (
       }
     }
   }
-  return PartObjectJimp;
+  return PartsObjectJimp;
 };
 
 //パーツ画像を読み込んで返す関数

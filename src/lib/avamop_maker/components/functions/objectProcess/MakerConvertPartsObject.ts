@@ -1,14 +1,14 @@
-export const mergeCategories = (data: PartObject): PartObjectMerged => {
-  const mergedCategories: PartObjectMerged = {};
+export const mergeCategories = (data: PartsObject): PartsObjectSplit => {
+  const SplitCategories: PartsObjectSplit = {};
 
   //partChainが一致するカテゴリを一纏めにする
   for (const category in data) {
     const currentCategory = data[category];
     const partChain = currentCategory.partChain;
 
-    if (!mergedCategories[partChain]) {
-      //mergedCategoriesにpartChainの値が存在しない場合は新規作成
-      mergedCategories[partChain] = {
+    if (!SplitCategories[partChain]) {
+      //SplitCategoriesにpartChainの値が存在しない場合は新規作成
+      SplitCategories[partChain] = {
         colorGroup: currentCategory.colorGroup,
         partCount: currentCategory.partCount,
         partChain: partChain,
@@ -17,7 +17,7 @@ export const mergeCategories = (data: PartObject): PartObjectMerged => {
       };
     }
 
-    const currentPartList = mergedCategories[partChain].partList;
+    const currentPartList = SplitCategories[partChain].partList;
 
     if (!currentPartList[category]) {
       // currentPartListにcategoryの値が存在しない場合は新規作成
@@ -38,5 +38,5 @@ export const mergeCategories = (data: PartObject): PartObjectMerged => {
     }
   }
 
-  return mergedCategories;
+  return SplitCategories;
 };
