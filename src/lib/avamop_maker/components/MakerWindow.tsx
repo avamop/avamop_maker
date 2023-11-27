@@ -78,6 +78,7 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
             SelectedParts={SelectedParts}
             PartsObjectJimp={PartsObjectJimp}
             selectedFace={selectedFace}
+            scale={2}
           />
           {/* アバターメーカーの表情メニュー部分 */}
           <MakerFaceMenu

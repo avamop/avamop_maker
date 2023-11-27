@@ -1,5 +1,5 @@
 // パーツ名が入ったアバターメーカーのステータスオブジェクトを、実際の画像データが入ったオブジェクトに変換する
-export const MakerCanvasStatusGen = (
+export const MakerCanvasSelectedPartsGen = (
   SelectedParts: SelectedParts,
   PartsObjectJimp: PartsObjectJimp,
   selectedFace: string
@@ -33,6 +33,7 @@ export const MakerCanvasStatusGen = (
               .items[SelectedParts.category[category].partName].faces["normal"]
               .jimpData,
         partColor: SelectedParts.category[category].partColor,
+        partFlip: SelectedParts.category[category].partFlip,
       };
       tmpSelectedPartsForCanvas[category] = SelectedPartsForCanvasCategory;
     }

@@ -10,6 +10,7 @@ declare global {
       partChain: string; //複数の画像1つのパーツとしてを扱うための仕組み。白目と瞳など
       partOrder: number; //パーツレイヤーを重ねる順番を表したもの
       ignoreTrigger: null | string[]; //特定のカテゴリーのパーツが選ばれた時に連動するカテゴリーのパーツを外す(Tシャツとワンピースなど)
+      partFlip: boolean;
       items: Items; //パーツの画像の一覧のオブジェクト
     };
   }
@@ -19,6 +20,7 @@ declare global {
       partCount: number;
       partChain: string;
       ignoreTrigger: null | string[];
+      partFlip: boolean;
       partList: CategorySplit; //同じpartChainを部位ごとに分けたオブジェクト。
     };
   }
@@ -98,6 +100,7 @@ declare global {
     colorGroup: U; //デフォルトの色を決めるパーツの系統
     partName: string; //パーツの名前
     partColor: PartColor<U>; //パーツの色
+    partFlip: boolean;
   }
 
   interface SelectedPartsForCanvas {
@@ -112,6 +115,7 @@ declare global {
     colorGroup: U;
     partData: Jimp; //パーツのJimpデータ
     partColor: PartColor<U>;
+    partFlip: boolean;
   }
 
   interface categoryIconObject {

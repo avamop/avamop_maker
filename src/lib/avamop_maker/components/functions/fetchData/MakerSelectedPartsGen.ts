@@ -34,6 +34,7 @@ export const MakerSelectedPartsGen = (
           colorGroup,
           partName,
           partColor: { left: "black", right: "black" },
+          partFlip: false,
         };
         SelectedParts.category[
           partCount === 1 ? category : `${category}_${i + 1}`
@@ -48,6 +49,7 @@ export const MakerSelectedPartsGen = (
               : colorGroup === "skin"
               ? "bisque"
               : "gray",
+          partFlip: false,
         };
         SelectedParts.category[
           partCount === 1 ? category : `${category}_${i + 1}`

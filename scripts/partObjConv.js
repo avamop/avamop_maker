@@ -13,6 +13,7 @@ function mergeCategories(data) {
         partCount: currentCategory.partCount,
         partChain: partChain,
         ignoreTrigger: currentCategory.ignoreTrigger,
+        partFlip: currentCategory.partFlip,
         partList: {},
       };
     }
