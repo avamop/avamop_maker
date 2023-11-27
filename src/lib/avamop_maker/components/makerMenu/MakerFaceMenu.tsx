@@ -1,5 +1,7 @@
 import React from "react";
 import MakerFaceButton from "./MakerFaceButton";
+import "../../module-css/makerMenu/MakerFaceMenu.module.css"; // CSSファイルをインポート
+
 
 interface MakerFaceMenuProps {
   faceList: string[];

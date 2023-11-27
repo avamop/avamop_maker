@@ -1,0 +1,13 @@
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin:20;
+    
+  }
+  
+  li {
+    
+    display: inline-block; margin: 35px; 
+  }
