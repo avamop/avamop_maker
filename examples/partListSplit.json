@@ -4,6 +4,7 @@
     "partCount": 1,
     "partChain": "body",
     "ignoreTrigger": null,
+    "partFlip": false,
     "partList": {
       "body": {
         "partOrder": 1,
@@ -35,6 +36,7 @@
     "partCount": 1,
     "partChain": "head",
     "ignoreTrigger": null,
+    "partFlip": false,
     "partList": {
       "head": {
         "partOrder": 6,
@@ -57,6 +59,7 @@
     "partCount": 1,
     "partChain": "fronthair",
     "ignoreTrigger": null,
+    "partFlip": false,
     "partList": {
       "fronthair": {
         "partOrder": 12,
@@ -88,6 +91,7 @@
     "partCount": 1,
     "partChain": "backhair",
     "ignoreTrigger": null,
+    "partFlip": false,
     "partList": {
       "backhair": {
         "partOrder": 0,
@@ -119,6 +123,7 @@
     "partCount": 1,
     "partChain": "ear",
     "ignoreTrigger": null,
+    "partFlip": false,
     "partList": {
       "ear": {
         "partOrder": 7,
@@ -150,6 +155,7 @@
     "partCount": 1,
     "partChain": "eyebrows",
     "ignoreTrigger": null,
+    "partFlip": false,
     "partList": {
       "eyebrows": {
         "partOrder": 11,
@@ -187,6 +193,7 @@
     "partCount": 1,
     "partChain": "eye",
     "ignoreTrigger": null,
+    "partFlip": false,
     "partList": {
       "eye": {
         "partOrder": 10,
@@ -224,6 +231,7 @@
     "partCount": 1,
     "partChain": "nose",
     "ignoreTrigger": null,
+    "partFlip": false,
     "partList": {
       "nose": {
         "partOrder": 9,
@@ -261,6 +269,7 @@
     "partCount": 1,
     "partChain": "mouth",
     "ignoreTrigger": null,
+    "partFlip": false,
     "partList": {
       "mouth": {
         "partOrder": 8,
@@ -298,6 +307,7 @@
     "partCount": 1,
     "partChain": "tops",
     "ignoreTrigger": null,
+    "partFlip": false,
     "partList": {
       "tops": {
         "partOrder": 4,
@@ -329,6 +339,7 @@
     "partCount": 1,
     "partChain": "bottoms",
     "ignoreTrigger": null,
+    "partFlip": false,
     "partList": {
       "bottoms": {
         "partOrder": 5,
@@ -351,6 +362,7 @@
     "partCount": 1,
     "partChain": "socks",
     "ignoreTrigger": null,
+    "partFlip": false,
     "partList": {
       "socks": {
         "partOrder": 2,
@@ -373,6 +385,7 @@
     "partCount": 1,
     "partChain": "shoes",
     "ignoreTrigger": null,
+    "partFlip": false,
     "partList": {
       "shoes": {
         "partOrder": 3,

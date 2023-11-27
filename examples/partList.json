@@ -5,6 +5,7 @@
     "partChain": "body",
     "partOrder": 1,
     "ignoreTrigger": null,
+    "partFlip": false,
     "items": {
       "female": {
         "bodyType": [1],
@@ -32,6 +33,7 @@
     "partChain": "head",
     "partOrder": 6,
     "ignoreTrigger": null,
+    "partFlip": false,
     "items": {
       "headStandard": {
         "bodyType": null,
@@ -50,6 +52,7 @@
     "partChain": "fronthair",
     "partOrder": 12,
     "ignoreTrigger": null,
+    "partFlip": false,
     "items": {
       "femaleBluntBangs": {
         "bodyType": null,
@@ -77,6 +80,7 @@
     "partChain": "backhair",
     "partOrder": 0,
     "ignoreTrigger": null,
+    "partFlip": false,
     "items": {
       "femaleStraightLong": {
         "bodyType": null,
@@ -104,6 +108,7 @@
     "partChain": "ear",
     "partOrder": 7,
     "ignoreTrigger": null,
+    "partFlip": false,
     "items": {
       "elf": {
         "bodyType": null,
@@ -131,6 +136,7 @@
     "partChain": "eyebrows",
     "partOrder": 11,
     "ignoreTrigger": null,
+    "partFlip": false,
     "items": {
       "femaleStandard": {
         "bodyType": null,
@@ -164,6 +170,7 @@
     "partChain": "eye",
     "partOrder": 10,
     "ignoreTrigger": null,
+    "partFlip": false,
     "items": {
       "femaleRounded": {
         "bodyType": null,
@@ -197,6 +204,7 @@
     "partChain": "nose",
     "partOrder": 9,
     "ignoreTrigger": null,
+    "partFlip": false,
     "items": {
       "noseDumping": {
         "bodyType": null,
@@ -230,6 +238,7 @@
     "partChain": "mouth",
     "partOrder": 8,
     "ignoreTrigger": null,
+    "partFlip": false,
     "items": {
       "mouthMeh": {
         "bodyType": null,
@@ -263,6 +272,7 @@
     "partChain": "tops",
     "partOrder": 4,
     "ignoreTrigger": null,
+    "partFlip": false,
     "items": {
       "femaleShirtStandard": {
         "bodyType": [1],
@@ -290,6 +300,7 @@
     "partChain": "bottoms",
     "partOrder": 5,
     "ignoreTrigger": null,
+    "partFlip": false,
     "items": {
       "femaleSkirtPleated": {
         "bodyType": [1],
@@ -308,6 +319,7 @@
     "partChain": "socks",
     "partOrder": 2,
     "ignoreTrigger": null,
+    "partFlip": false,
     "items": {
       "femaleSocksShortSimple": {
         "bodyType": [1],
@@ -326,6 +338,7 @@
     "partChain": "shoes",
     "partOrder": 3,
     "ignoreTrigger": null,
+    "partFlip": false,
     "items": {
       "femaleSneakersLine": {
         "bodyType": [1],
