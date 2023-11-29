@@ -6,7 +6,6 @@ interface MakerPartsCategoriesProps {
   isSelected: boolean;
   onClick: () => void;
   imageSrc: string;
-  children: ReactNode;
 }
 
 const MakerPartsCategories: React.FC<MakerPartsCategoriesProps> = ({
@@ -14,15 +13,10 @@ const MakerPartsCategories: React.FC<MakerPartsCategoriesProps> = ({
   category,
   isSelected,
   onClick,
-  children,
 }) => {
   return (
     <li className={isSelected ? "selected" : ""}>
       <img onClick={onClick} src={imageSrc} alt={category} /> {category}
-      <ul>
-        {/* カテゴリーボタンの開閉 */}
-        {isSelected ? children : null}
-      </ul>
     </li>
   );
 };
