@@ -1,0 +1,13 @@
+li {
+    list-style: none;
+  }
+  
+  img {
+    width: 64px;
+    height: 64px;
+    cursor: pointer;
+  }
+  
+  .selected {
+    border: 3px solid blue;
+  }

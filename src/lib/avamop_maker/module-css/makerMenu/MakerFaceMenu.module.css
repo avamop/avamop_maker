@@ -3,11 +3,11 @@ ul {
     flex-wrap: wrap;
     list-style: none;
     padding: 0;
-    margin:20;
+    margin:0;
     
   }
   
   li {
     
-    display: inline-block; margin: 35px; 
+    display: inline-block; margin: 20px; 
   }

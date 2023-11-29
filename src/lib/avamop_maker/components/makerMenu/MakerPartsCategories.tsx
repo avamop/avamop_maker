@@ -1,5 +1,6 @@
 import * as React from "react";
 import type { ReactNode } from "react";
+import "../../module-css/makerMenu/MakerPartsCategories.module.css";
 
 interface MakerPartsCategoriesProps {
   category: string;
