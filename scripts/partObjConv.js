@@ -9,7 +9,6 @@ function mergeCategories(data) {
 
     if (!SplitCategories[partChain]) {
       SplitCategories[partChain] = {
-        colorGroup: currentCategory.colorGroup,
         partCount: currentCategory.partCount,
         partChain: partChain,
         ignoreTrigger: currentCategory.ignoreTrigger,
@@ -22,6 +21,7 @@ function mergeCategories(data) {
 
     if (!currentPartList[category]) {
       currentPartList[category] = {
+        colorGroup: currentCategory.colorGroup,
         partOrder: currentCategory.partOrder,
         items: currentCategory.items,
       };

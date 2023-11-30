@@ -16,7 +16,6 @@ declare global {
   }
   interface PartsObjectSplit {
     [category: "body" | string]: {
-      colorGroup: "eye" | string;
       partCount: number;
       partChain: string;
       ignoreTrigger: null | string[];
@@ -28,13 +27,14 @@ declare global {
   interface CategorySplit {
     [partSplit: "body" | string]: {
       //partChainの値が入る。一つのパーツを複数の画像で賄う際のくくりつけたもの
+      colorGroup: "eye" | string;
       partOrder: number; //同じpartChainを部位ごとに分けたオブジェクト。
       items: Items; //パーツの画像の一覧のオブジェクト。SplitではpartChain→partSplitでくくりつけたことで扱いやすくなっている
     };
   }
   interface Items {
     [item: string]: {
-      bodyType: null | number[]; //体パーツのタイプを表している。categoryが体パーツの場合は体のタイプを、それ以外のパーツの場合はどの体タイプに対応してるかを配列で列挙する。nullの場合は全てのbodyに対応している
+      bodyType: null | string[]; //体パーツのタイプを表している。categoryが体パーツの場合は体のタイプを、それ以外のパーツの場合はどの体タイプに対応してるかを配列で列挙する。nullの場合は全てのbodyに対応している
       color: boolean; //カラーチェンジが有効かどうかを表している
       faces: Faces; //表情差分。この中に画像パスがある。
     };
@@ -48,7 +48,7 @@ declare global {
   }
   interface ItemsIconForCombine {
     [item: string]: {
-      bodyType: null | number[];
+      bodyType: null | string[];
       peaces: ItemPeacesIconForCombine;
     };
   }
@@ -69,7 +69,7 @@ declare global {
   }
 
   interface CombinePartIconsCategoryBase64 {
-    bodyType: null | number[];
+    bodyType: null | string[];
     faces: CombinePartIconBase64;
   }
 
@@ -86,35 +86,42 @@ declare global {
     };
   }
 
-  type eyes = { left: string; right: string }; //左目と右目
+  interface ColorsObject {
+    [colorName: string]: string;
+  }
 
-  type PartColor<U extends "eye" | string> = U extends "eye" ? eyes : string; //目の場合は2つカラーを指定する、それ以外の場合は1つ指定する
+  interface DefaultColors {
+    [category: string]: string;
+  }
   interface SelectedParts {
-    bodyType: number; //現在選択されているbodyのタイプの数字
+    bodyType: string; //現在選択されているbodyのタイプの数字
     category: {
-      [category: string]: SelectedPartsCategory<typeof category>;
+      [category: string]: SelectedPartsCategory;
     };
   }
 
-  interface SelectedPartsCategory<U extends "eye" | string> {
-    colorGroup: U; //デフォルトの色を決めるパーツの系統
+  interface SelectedPartsCategory {
     partName: string; //パーツの名前
-    partColor: PartColor<U>; //パーツの色
     partFlip: boolean;
   }
 
-  interface SelectedPartsForCanvas {
-    bodyType: number;
-    category: {
-      [category: string]: SelectedPartsForCanvasCategory<typeof category>;
+  interface SelectedColor {
+    [colorGroup: string]: {
+      color: string;
+      hueShiftReverse: boolean;
     };
   }
 
-  interface SelectedPartsForCanvasCategory<U extends "eye" | string> {
+  interface SelectedPartsForCanvas {
+    bodyType: string;
+    category: {
+      [category: string]: SelectedPartsForCanvasCategory;
+    };
+  }
+
+  interface SelectedPartsForCanvasCategory {
     partOrder: number;
-    colorGroup: U;
     partData: Jimp; //パーツのJimpデータ
-    partColor: PartColor<U>;
     partFlip: boolean;
   }
 
@@ -127,7 +134,6 @@ declare global {
   //PartsObjectのパスをJimpデータに置き換えたオブジェクト
   interface PartsObjectJimp {
     [category: "body" | string]: {
-      colorGroup: "eye" | string;
       partCount: number;
       partChain: string;
       ignoreTrigger: null | string[];
@@ -137,13 +143,14 @@ declare global {
 
   interface CategoryJimp {
     [partSplit: "body" | string]: {
+      colorGroup: string;
       partOrder: number;
       items: ItemsJimp;
     };
   }
   interface ItemsJimp {
     [item: string]: {
-      bodyType: null | number[];
+      bodyType: null | string[];
       color: boolean;
       faces: FacesJimp;
     };

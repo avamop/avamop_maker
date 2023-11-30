@@ -8,7 +8,7 @@
     "partFlip": false,
     "items": {
       "female": {
-        "bodyType": [1],
+        "bodyType": null,
         "color": true,
         "faces": {
           "normal": {
@@ -17,7 +17,7 @@
         }
       },
       "male": {
-        "bodyType": [2],
+        "bodyType": null,
         "color": true,
         "faces": {
           "normal": {
@@ -275,7 +275,7 @@
     "partFlip": false,
     "items": {
       "femaleShirtStandard": {
-        "bodyType": [1],
+        "bodyType": ["female"],
         "color": true,
         "faces": {
           "normal": {
@@ -284,7 +284,7 @@
         }
       },
       "maleShirtStandard": {
-        "bodyType": [2],
+        "bodyType": ["male"],
         "color": true,
         "faces": {
           "normal": {
@@ -303,7 +303,7 @@
     "partFlip": false,
     "items": {
       "femaleSkirtPleated": {
-        "bodyType": [1],
+        "bodyType": ["female"],
         "color": true,
         "faces": {
           "normal": {
@@ -322,7 +322,7 @@
     "partFlip": false,
     "items": {
       "femaleSocksShortSimple": {
-        "bodyType": [1],
+        "bodyType": ["female"],
         "color": true,
         "faces": {
           "normal": {
@@ -341,7 +341,7 @@
     "partFlip": false,
     "items": {
       "femaleSneakersLine": {
-        "bodyType": [1],
+        "bodyType": ["female"],
         "color": true,
         "faces": {
           "normal": {

@@ -9,19 +9,16 @@ export const MakerCanvasSelectedPartsGen = (
     category: {},
   };
   const tmpSelectedPartsForCanvas: {
-    [category: string]: SelectedPartsForCanvasCategory<typeof category>;
+    [category: string]: SelectedPartsForCanvasCategory;
   } = {};
 
   for (const category in SelectedParts.category) {
     for (const partSplit in PartsObjectJimp[category.replace(/_\d+$/, "")]
       .partList) {
-      const SelectedPartsForCanvasCategory: SelectedPartsForCanvasCategory<
-        typeof category
-      > = {
+      const SelectedPartsForCanvasCategory: SelectedPartsForCanvasCategory = {
         partOrder:
           PartsObjectJimp[category.replace(/_\d+$/, "")].partList[partSplit]
             .partOrder,
-        colorGroup: SelectedParts.category[category].colorGroup,
         partData: PartsObjectJimp[category.replace(/_\d+$/, "")].partList[
           partSplit
         ].items[SelectedParts.category[category].partName].faces[selectedFace]
@@ -32,7 +29,6 @@ export const MakerCanvasSelectedPartsGen = (
           : PartsObjectJimp[category.replace(/_\d+$/, "")].partList[partSplit]
               .items[SelectedParts.category[category].partName].faces["normal"]
               .jimpData,
-        partColor: SelectedParts.category[category].partColor,
         partFlip: SelectedParts.category[category].partFlip,
       };
       tmpSelectedPartsForCanvas[category] = SelectedPartsForCanvasCategory;
@@ -46,23 +42,25 @@ export const MakerCanvasSelectedPartsGen = (
 
 //パーツの順番を定め、カテゴリーの連番に伴って重複したパーツの順番値の分だけ加算する
 const SelectedPartsForCanvasSort = (tmpSelectedPartsForCanvas: {
-  [category: string]: SelectedPartsForCanvasCategory<typeof category>;
+  [category: string]: SelectedPartsForCanvasCategory;
 }): {
-  [category: string]: SelectedPartsForCanvasCategory<typeof category>;
+  [category: string]: SelectedPartsForCanvasCategory;
 } => {
-  let sortedCategories: [
-    string,
-    SelectedPartsForCanvasCategory<"eye" | string>
-  ][] = Object.entries(tmpSelectedPartsForCanvas).sort((a, b) => {
-    // partOrderが一致している場合、カテゴリ名に含まれる連番でソート
-    if (a[1].partOrder === b[1].partOrder) {
-      const numA = Number(a[0].match(/_(\d+)$/) ? a[0].match(/_(\d+)$/)[1] : 0);
-      const numB = Number(b[0].match(/_(\d+)$/) ? b[0].match(/_(\d+)$/)[1] : 0);
-      return numA - numB;
-    }
-    // partOrderが一致していない場合、partOrderでソート
-    return a[1].partOrder - b[1].partOrder;
-  });
+  let sortedCategories: [string, SelectedPartsForCanvasCategory][] =
+    Object.entries(tmpSelectedPartsForCanvas).sort((a, b) => {
+      // partOrderが一致している場合、カテゴリ名に含まれる連番でソート
+      if (a[1].partOrder === b[1].partOrder) {
+        const numA = Number(
+          a[0].match(/_(\d+)$/) ? a[0].match(/_(\d+)$/)[1] : 0
+        );
+        const numB = Number(
+          b[0].match(/_(\d+)$/) ? b[0].match(/_(\d+)$/)[1] : 0
+        );
+        return numA - numB;
+      }
+      // partOrderが一致していない場合、partOrderでソート
+      return a[1].partOrder - b[1].partOrder;
+    });
   let increment: number = 0;
   let lastIncrement: number = 0;
   let lastCategory: string = null;
