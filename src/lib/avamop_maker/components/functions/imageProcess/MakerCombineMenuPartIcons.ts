@@ -26,7 +26,7 @@ export const MakerCombineMenuPartIcons = async (
   const CombinePartIconBase64: CombinePartIconBase64 = {};
   for (const face in combineParts) {
     const base64Image: string = await MakerConvertBase64(
-      await MakerPartIconsTrim(combineParts[face].jimpData)
+      await MakerPartIconsTrim(combineParts[face].jimpData, 128)
     );
     CombinePartIconBase64[face] = {
       imagePath: base64Image,
