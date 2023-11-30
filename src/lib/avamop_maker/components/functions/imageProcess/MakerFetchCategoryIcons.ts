@@ -12,7 +12,7 @@ export const MakerFetchCategoryIcons = async (
       path + categoryIconObject[category].imagePath
     );
     categoryIconObject[category].imagePath = await MakerConvertBase64(
-      await MakerPartIconsTrim(await image)
+      await MakerPartIconsTrim(await image, 48)
     );
   }
   return categoryIconObject;

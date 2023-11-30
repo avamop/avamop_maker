@@ -9,7 +9,6 @@ export const MakerConvertPartsJimp = async (
   const PartsObjectJimp: PartsObjectJimp = {};
   for (const category in PartsObject) {
     PartsObjectJimp[category] = {
-      colorGroup: PartsObject[category].colorGroup,
       partCount: PartsObject[category].partCount,
       partChain: PartsObject[category].partChain,
       ignoreTrigger: PartsObject[category].ignoreTrigger,
@@ -17,6 +16,7 @@ export const MakerConvertPartsJimp = async (
     };
     for (const partSplit in PartsObject[category].partList) {
       PartsObjectJimp[category].partList[partSplit] = {
+        colorGroup: PartsObject[category].partList[partSplit].colorGroup,
         partOrder: PartsObject[category].partList[partSplit].partOrder,
         items: {},
       };
