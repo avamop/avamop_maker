@@ -1,6 +1,6 @@
 export const MakerChangingPart = (
   category: string,
-  bodyTypeValue: number[],
+  bodyTypeValue: string[],
   partNameValue: string,
   SelectedParts: SelectedParts,
   setSelectedParts: React.Dispatch<React.SetStateAction<SelectedParts>>
@@ -8,15 +8,11 @@ export const MakerChangingPart = (
   if (category === "body") {
     try {
       //bodyの値が正常かどうかを判定する
-      if (!bodyTypeValue) {
-        throw new Error("エラー:bodyのbodyTypeプロパティに値がありません。");
-      } else if (bodyTypeValue.length > 1) {
-        throw new Error("エラー:bodyのbodyTypeプロパティが複数あります");
-      } else if (bodyTypeValue[0] == 0) {
-        throw new Error("エラー:bodyのbodyTypeプロパティが0になっています");
+      if (bodyTypeValue) {
+        throw new Error("エラー:bodyのbodyTypeプロパティに値があります");
       } else {
         const updateAvaters: SelectedParts = {
-          bodyType: bodyTypeValue[0],
+          bodyType: partNameValue,
           category: {
             ...SelectedParts.category,
             [category]: {
@@ -32,12 +28,6 @@ export const MakerChangingPart = (
     }
   } else {
     try {
-      //bodyの値が正常かどうかを判定する
-      if (bodyTypeValue && bodyTypeValue.includes(0)) {
-        throw new Error(
-          `エラー:${category}のbodyTypeプロパティに0が入っています`
-        );
-      }
       const updateAvaters: SelectedParts = {
         bodyType: SelectedParts.bodyType,
         category: {

@@ -11,12 +11,16 @@ interface MakerMenuProps {
   path: string;
   PartsObject: PartsObjectSplit;
   categoryIconObject: categoryIconObject;
+  colorsObject: ColorsObject;
+  defaultColors: DefaultColors;
 }
 
 const MakerWindow: React.FC<MakerMenuProps> = ({
   path,
   PartsObject,
   categoryIconObject,
+  colorsObject,
+  defaultColors,
 }) => {
   const TmpSelectedParts: SelectedParts = MakerSelectedPartsGen(PartsObject);
   const faceList: string[] = MakerFaceGen(PartsObject);

@@ -9,10 +9,10 @@ export const mergeCategories = (data: PartsObject): PartsObjectSplit => {
     if (!SplitCategories[partChain]) {
       //SplitCategoriesにpartChainの値が存在しない場合は新規作成
       SplitCategories[partChain] = {
-        colorGroup: currentCategory.colorGroup,
         partCount: currentCategory.partCount,
         partChain: partChain,
         ignoreTrigger: currentCategory.ignoreTrigger,
+        partFlip: currentCategory.partFlip,
         partList: {},
       };
     }
@@ -22,6 +22,7 @@ export const mergeCategories = (data: PartsObject): PartsObjectSplit => {
     if (!currentPartList[category]) {
       // currentPartListにcategoryの値が存在しない場合は新規作成
       currentPartList[category] = {
+        colorGroup: currentCategory.colorGroup,
         partOrder: currentCategory.partOrder,
         items: currentCategory.items,
       };

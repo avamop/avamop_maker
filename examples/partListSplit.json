@@ -1,16 +1,16 @@
 {
   "body": {
-    "colorGroup": "skin",
     "partCount": 1,
     "partChain": "body",
     "ignoreTrigger": null,
     "partFlip": false,
     "partList": {
       "body": {
+        "colorGroup": "skin",
         "partOrder": 1,
         "items": {
           "female": {
-            "bodyType": [1],
+            "bodyType": null,
             "color": true,
             "faces": {
               "normal": {
@@ -19,7 +19,7 @@
             }
           },
           "male": {
-            "bodyType": [2],
+            "bodyType": null,
             "color": true,
             "faces": {
               "normal": {
@@ -32,13 +32,13 @@
     }
   },
   "head": {
-    "colorGroup": "skin",
     "partCount": 1,
     "partChain": "head",
     "ignoreTrigger": null,
     "partFlip": false,
     "partList": {
       "head": {
+        "colorGroup": "skin",
         "partOrder": 6,
         "items": {
           "headStandard": {
@@ -55,13 +55,13 @@
     }
   },
   "fronthair": {
-    "colorGroup": "hair",
     "partCount": 1,
     "partChain": "fronthair",
     "ignoreTrigger": null,
     "partFlip": false,
     "partList": {
       "fronthair": {
+        "colorGroup": "hair",
         "partOrder": 12,
         "items": {
           "femaleBluntBangs": {
@@ -87,13 +87,13 @@
     }
   },
   "backhair": {
-    "colorGroup": "hair",
     "partCount": 1,
     "partChain": "backhair",
     "ignoreTrigger": null,
     "partFlip": false,
     "partList": {
       "backhair": {
+        "colorGroup": "hair",
         "partOrder": 0,
         "items": {
           "femaleStraightLong": {
@@ -119,13 +119,13 @@
     }
   },
   "ear": {
-    "colorGroup": "skin",
     "partCount": 1,
     "partChain": "ear",
     "ignoreTrigger": null,
     "partFlip": false,
     "partList": {
       "ear": {
+        "colorGroup": "skin",
         "partOrder": 7,
         "items": {
           "elf": {
@@ -151,13 +151,13 @@
     }
   },
   "eyebrows": {
-    "colorGroup": "hair",
     "partCount": 1,
     "partChain": "eyebrows",
     "ignoreTrigger": null,
     "partFlip": false,
     "partList": {
       "eyebrows": {
+        "colorGroup": "hair",
         "partOrder": 11,
         "items": {
           "femaleStandard": {
@@ -189,13 +189,13 @@
     }
   },
   "eye": {
-    "colorGroup": "eye",
     "partCount": 1,
     "partChain": "eye",
     "ignoreTrigger": null,
     "partFlip": false,
     "partList": {
       "eye": {
+        "colorGroup": "eye",
         "partOrder": 10,
         "items": {
           "femaleRounded": {
@@ -227,13 +227,13 @@
     }
   },
   "nose": {
-    "colorGroup": "skin",
     "partCount": 1,
     "partChain": "nose",
     "ignoreTrigger": null,
     "partFlip": false,
     "partList": {
       "nose": {
+        "colorGroup": "skin",
         "partOrder": 9,
         "items": {
           "noseDumping": {
@@ -265,13 +265,13 @@
     }
   },
   "mouth": {
-    "colorGroup": "mouth",
     "partCount": 1,
     "partChain": "mouth",
     "ignoreTrigger": null,
     "partFlip": false,
     "partList": {
       "mouth": {
+        "colorGroup": "mouth",
         "partOrder": 8,
         "items": {
           "mouthMeh": {
@@ -303,17 +303,19 @@
     }
   },
   "tops": {
-    "colorGroup": "tops",
     "partCount": 1,
     "partChain": "tops",
     "ignoreTrigger": null,
     "partFlip": false,
     "partList": {
       "tops": {
+        "colorGroup": "tops",
         "partOrder": 4,
         "items": {
           "femaleShirtStandard": {
-            "bodyType": [1],
+            "bodyType": [
+              "female"
+            ],
             "color": true,
             "faces": {
               "normal": {
@@ -322,7 +324,9 @@
             }
           },
           "maleShirtStandard": {
-            "bodyType": [2],
+            "bodyType": [
+              "male"
+            ],
             "color": true,
             "faces": {
               "normal": {
@@ -335,17 +339,19 @@
     }
   },
   "bottoms": {
-    "colorGroup": "bottoms",
     "partCount": 1,
     "partChain": "bottoms",
     "ignoreTrigger": null,
     "partFlip": false,
     "partList": {
       "bottoms": {
+        "colorGroup": "bottoms",
         "partOrder": 5,
         "items": {
           "femaleSkirtPleated": {
-            "bodyType": [1],
+            "bodyType": [
+              "female"
+            ],
             "color": true,
             "faces": {
               "normal": {
@@ -358,17 +364,19 @@
     }
   },
   "socks": {
-    "colorGroup": "socks",
     "partCount": 1,
     "partChain": "socks",
     "ignoreTrigger": null,
     "partFlip": false,
     "partList": {
       "socks": {
+        "colorGroup": "socks",
         "partOrder": 2,
         "items": {
           "femaleSocksShortSimple": {
-            "bodyType": [1],
+            "bodyType": [
+              "female"
+            ],
             "color": true,
             "faces": {
               "normal": {
@@ -381,17 +389,19 @@
     }
   },
   "shoes": {
-    "colorGroup": "shoes",
     "partCount": 1,
     "partChain": "shoes",
     "ignoreTrigger": null,
     "partFlip": false,
     "partList": {
       "shoes": {
+        "colorGroup": "shoes",
         "partOrder": 3,
         "items": {
           "femaleSneakersLine": {
-            "bodyType": [1],
+            "bodyType": [
+              "female"
+            ],
             "color": true,
             "faces": {
               "normal": {
