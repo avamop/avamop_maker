@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "../module-css/makerView/MakerWindow.module.css"; // CSSファイルをインポート
 import { MakerSelectedPartsGen } from "./functions/fetchData/MakerSelectedPartsGen";
 import { MakerFaceGen } from "./functions/fetchData/MakerFaceGen";
 import MakerView from "./MakerView/MakerView";
@@ -7,6 +8,8 @@ import MakerFaceMenu from "./makerMenu/MakerFaceMenu";
 import { MakerConvertPartsToMenuIcons } from "./functions/imageProcess/MakerConvertPartsToMenuIcons";
 import { MakerConvertPartsJimp } from "./functions/objectProcess/MakerConvertPartsJimp";
 import { MakerFetchCategoryIcons } from "./functions/imageProcess/MakerFetchCategoryIcons";
+
+
 interface MakerMenuProps {
   path: string;
   PartsObject: PartsObjectSplit;

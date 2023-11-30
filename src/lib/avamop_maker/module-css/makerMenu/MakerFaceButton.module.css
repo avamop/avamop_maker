@@ -1,6 +1,8 @@
 li {
     list-style: none;
     cursor: pointer;
+    display: inline-block; margin: 20px; 
+    background-color:rgb(209, 209, 209,0.5);
   }
   
   li:hover {
