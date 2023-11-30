@@ -1,5 +1,5 @@
 import React from "react";
-import "../../module-css/makerMenu/MakerFaceButton.module.css"; // CSSファイルをインポート
+import  "../../module-css/makerMenu/MakerFaceButton.module.css"; // CSSファイルをインポート
 
 interface MakerFaceButtonProps {
   face: string;
@@ -10,10 +10,13 @@ interface MakerFaceButtonProps {
 const MakerFaceButton: React.FC<MakerFaceButtonProps> = ({
   face,
   // faceImage,
+
   onClick,
 }) => {
   return (
-    <li onClick={onClick}>
+    
+    
+      <li className="hover" onClick={onClick}>
       {/* <img src={faceImage} alt={face} /> */}
       {face}
     </li>
