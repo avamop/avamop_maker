@@ -13,7 +13,7 @@ const MakerPartsButton: React.FC<MakerPartsButtonProps> = ({
   buttonImage,
 }) => {
   return (
-    <li className="parts" onClick={onClick}>
+    <li className="partsButton" onClick={onClick}>
       {/* パーツ画像 */}
       <img src={buttonImage} alt={item} />
       {item}
