@@ -1,8 +1,9 @@
 .maker-face-button {
     list-style: none;
     cursor: pointer;
-    display: inline-block; margin: 20px; 
+    display: inline-block; 
     background-color:rgb(209, 209, 209,0.5);
+    margin: 20px;
   }
   
 .maker-face-button:hover {

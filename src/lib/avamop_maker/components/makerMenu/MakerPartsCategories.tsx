@@ -1,6 +1,6 @@
 import * as React from "react";
 import type { ReactNode } from "react";
-import "../../module-css/makerMenu/MakerPartsCategories.module.css";
+import styles from "../../module-css/makerMenu/MakerPartsCategories.module.css";
 
 interface MakerPartsCategoriesProps {
   category: string;
@@ -16,8 +16,8 @@ const MakerPartsCategories: React.FC<MakerPartsCategoriesProps> = ({
   onClick,
 }) => {
   return (
-    <li className={`menuCategory ${isSelected ? "selected" : ""}`}>
-      <img onClick={onClick} src={imageSrc} alt={category} /> {category}
+    <li className={styles['menu-category']}>
+      <img onClick={onClick} src={imageSrc} alt={category} />
     </li>
   );
 };

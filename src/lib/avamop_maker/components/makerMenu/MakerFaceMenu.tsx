@@ -1,6 +1,6 @@
 import React from "react";
 import MakerFaceButton from "./MakerFaceButton";
-import "../../module-css/makerMenu/MakerFaceMenu.module.css"; // CSSファイルをインポート
+import styles from "../../module-css/makerMenu/MakerFaceMenu.module.css"; // CSSファイルをインポート
 
 
 interface MakerFaceMenuProps {
@@ -17,7 +17,7 @@ const MakerFaceMenu: React.FC<MakerFaceMenuProps> = ({
   // faceImages
 }) => {
   return (
-    <ul>
+    <ul className={styles['face-menu']}>
       {faceList.map((face) => (
         <MakerFaceButton
           key={face}

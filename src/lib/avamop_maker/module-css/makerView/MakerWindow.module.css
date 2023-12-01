@@ -4,11 +4,16 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: #007BFF;
   }
   
   .loading {
     font-size: 2em;
     color: #888;
+  }
+
+  .avatar-img-all{
+    background-color: #888;
   }
   
   button {

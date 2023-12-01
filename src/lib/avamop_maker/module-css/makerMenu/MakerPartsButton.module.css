@@ -1,13 +1,13 @@
-.partsButton {
+.parts-button {
   list-style: none;
   display: inline-block;
-  margin: 10px;
 }
 
-.partsButton > img {
+.parts-img {
   width: 128px;
   height: 128px;
-  background-color: rgb(209, 209, 209, 0.5);
+  background-color: rgb(255, 201, 201, 0.5);
   border-radius: 10%;
+  margin: 10px;
   cursor: pointer;
 }

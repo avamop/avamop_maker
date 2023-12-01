@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../module-css/makerView/MakerWindow.module.css"; // CSSファイルをインポート
+import styles from "../module-css/makerView/MakerWindow.module.css"; // CSSファイルをインポート
 import { MakerSelectedPartsGen } from "./functions/fetchData/MakerSelectedPartsGen";
 import { MakerFaceGen } from "./functions/fetchData/MakerFaceGen";
 import MakerView from "./MakerView/MakerView";
@@ -81,7 +81,8 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
       ) : (
         <>
           {/* アバターメーカーのアバター表示部分 */}
-          <MakerView
+          <div className={styles['avatar-img-all']}>
+            <MakerView
             SelectedParts={SelectedParts}
             PartsObjectJimp={PartsObjectJimp}
             selectedFace={selectedFace}
@@ -93,6 +94,7 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
             isLoading={isLoading}
             changeFace={changeFace}
           />
+          </div>
           {/* アバターメーカーのパーツメニュー部分 */}
           <MakerPartsMenu
             isLoading={isLoading}
