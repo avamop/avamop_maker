@@ -6,8 +6,8 @@ interface MakerPartsMenuProps {
   selectedCategory: string | null;
   selectedFace: string;
   categoryIconObject: categoryIconObject;
-  SelectedParts: SelectedParts;
-  setSelectedParts: React.Dispatch<React.SetStateAction<SelectedParts>>;
+  selectedParts: SelectedParts;
+  setselectedParts: React.Dispatch<React.SetStateAction<SelectedParts>>;
   handleCategoryClick: (category: string) => void;
   menuPartIcon: CombinePartIconsObjectBase64;
   isLoading: boolean;
@@ -18,15 +18,15 @@ const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
   selectedFace,
   categoryIconObject,
   handleCategoryClick,
-  SelectedParts,
-  setSelectedParts,
+  selectedParts,
+  setselectedParts,
   menuPartIcon,
 }) => {
   return (
     <>
       <ul>
         {/* カテゴリーの入ったオブジェクトの中身を展開したものからカテゴリーボタンを生成し、代入している */}
-        {Object.keys(SelectedParts.category).map((category) => (
+        {Object.keys(selectedParts.category).map((category) => (
           <MakerPartsCategories
             key={category}
             category={category}
@@ -39,7 +39,7 @@ const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
           /* category.replace(/_\d+$/, "")はcategoryから連番を取り除いたもの */
         ))}
       </ul>
-      {Object.keys(SelectedParts.category).map((category) =>
+      {Object.keys(selectedParts.category).map((category) =>
         /* カテゴリーがbodyかどうかで代入する値が変化する */
         selectedCategory === category
           ? category === "body"
@@ -67,8 +67,8 @@ const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
                       menuPartIcon[category.replace(/_\d+$/, "")].partList[item]
                         .bodyType,
                       item,
-                      SelectedParts,
-                      setSelectedParts
+                      selectedParts,
+                      setselectedParts
                     )
                   }
                 />
@@ -81,7 +81,7 @@ const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
                   .bodyType === null ||
                 menuPartIcon[category.replace(/_\d+$/, "")].partList[
                   item
-                ].bodyType.includes(SelectedParts.bodyType) ? (
+                ].bodyType.includes(selectedParts.bodyType) ? (
                   <MakerPartsButton
                     key={item}
                     item={item}
@@ -102,8 +102,8 @@ const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
                           item
                         ].bodyType,
                         item,
-                        SelectedParts,
-                        setSelectedParts
+                        selectedParts,
+                        setselectedParts
                       )
                     }
                   />

@@ -2,19 +2,19 @@ import { MakerConvertPartsList } from "../objectProcess/MakerConvertPartsList";
 import { MakerCombineMenuPartIcons } from "./MakerCombineMenuPartIcons";
 
 export const MakerConvertPartsToMenuIcons = async (
-  PartsObjectJimp: PartsObjectJimp
+  partsObjectJimp: PartsObjectJimp
 ): Promise<CombinePartIconsObjectBase64> => {
-  const PartsObjectIconForCombine = MakerConvertPartsList(PartsObjectJimp); //パーツを合成しやすくするためにオブジェクトを組み替える
+  const partsObjectIconForCombine = MakerConvertPartsList(partsObjectJimp); //パーツを合成しやすくするためにオブジェクトを組み替える
   const menuPartIconList: CombinePartIconsObjectBase64 = {};
-  for (const category in PartsObjectIconForCombine) {
+  for (const category in partsObjectIconForCombine) {
     menuPartIconList[category] = {
       partList: {},
     };
-    for (const item in PartsObjectIconForCombine[category].partList) {
+    for (const item in partsObjectIconForCombine[category].partList) {
       const partList: CombinePartIconsCategoryBase64 = {
-        bodyType: PartsObjectIconForCombine[category].partList[item].bodyType,
+        bodyType: partsObjectIconForCombine[category].partList[item].bodyType,
         faces: await MakerCombineMenuPartIcons(
-          PartsObjectIconForCombine[category].partList[item].peaces
+          partsObjectIconForCombine[category].partList[item].peaces
         ), //同じパーツ名のパーツ画像を合成する
       };
       menuPartIconList[category].partList[item] = partList;

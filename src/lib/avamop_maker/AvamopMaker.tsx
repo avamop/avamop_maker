@@ -2,7 +2,7 @@ import MakerWindow from "./components/MakerWindow";
 
 interface AvamopMakerProps {
   path: string;
-  PartsObject: PartsObjectSplit;
+  partsObject: PartsObjectSplit;
   categoryIconObject: categoryIconObject;
   colorsObject: ColorsObject;
   defaultColors: DefaultColors;
@@ -10,7 +10,7 @@ interface AvamopMakerProps {
 
 const AvamopMaker: React.FC<AvamopMakerProps> = ({
   path,
-  PartsObject,
+  partsObject,
   categoryIconObject,
   colorsObject,
   defaultColors,
@@ -20,7 +20,7 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
       {/*アバターメーカーの枠*/}
       <MakerWindow
         path={path}
-        PartsObject={PartsObject}
+        partsObject={partsObject}
         categoryIconObject={categoryIconObject}
         colorsObject={colorsObject}
         defaultColors={defaultColors}

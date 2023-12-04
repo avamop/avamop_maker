@@ -9,7 +9,7 @@ import { MakerConvertPartsJimp } from "./functions/objectProcess/MakerConvertPar
 import { MakerFetchCategoryIcons } from "./functions/imageProcess/MakerFetchCategoryIcons";
 interface MakerMenuProps {
   path: string;
-  PartsObject: PartsObjectSplit;
+  partsObject: PartsObjectSplit;
   categoryIconObject: categoryIconObject;
   colorsObject: ColorsObject;
   defaultColors: DefaultColors;
@@ -17,23 +17,23 @@ interface MakerMenuProps {
 
 const MakerWindow: React.FC<MakerMenuProps> = ({
   path,
-  PartsObject,
+  partsObject,
   categoryIconObject,
   colorsObject,
   defaultColors,
 }) => {
-  const TmpSelectedParts: SelectedParts = MakerSelectedPartsGen(PartsObject);
-  const faceList: string[] = MakerFaceGen(PartsObject);
+  const TmpselectedParts: SelectedParts = MakerSelectedPartsGen(partsObject);
+  const faceList: string[] = MakerFaceGen(partsObject);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [SelectedParts, setSelectedParts] =
-    useState<SelectedParts>(TmpSelectedParts);
+  const [selectedParts, setselectedParts] =
+    useState<SelectedParts>(TmpselectedParts);
   const [selectedFace, setSelectedFace] = useState<string>("normal");
   const [categoryIcon, setCategoryIcon] = useState<categoryIconObject | null>(
     null
   );
   const [menuPartIcon, setMenuPartIcon] =
     useState<CombinePartIconsObjectBase64 | null>(null);
-  const [PartsObjectJimp, setPartsObjectJimp] =
+  const [partsObjectJimp, setpartsObjectJimp] =
     useState<PartsObjectJimp | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -52,13 +52,13 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
           categoryIconObject,
           path + "thumbnails/"
         );
-        const tmpPartsObjectJimp: PartsObjectJimp = await MakerConvertPartsJimp(
-          PartsObject,
+        const tmppartsObjectJimp: PartsObjectJimp = await MakerConvertPartsJimp(
+          partsObject,
           path + "parts/"
         );
-        setPartsObjectJimp(tmpPartsObjectJimp);
+        setpartsObjectJimp(tmppartsObjectJimp);
         const menuPartIconList: Promise<CombinePartIconsObjectBase64> =
-          MakerConvertPartsToMenuIcons(tmpPartsObjectJimp);
+          MakerConvertPartsToMenuIcons(tmppartsObjectJimp);
         setCategoryIcon(tmpCategoryIcon);
         setMenuPartIcon(await menuPartIconList);
         setIsLoading(false); // データの読み込みが完了したらisLoadingをfalseに設定
@@ -73,14 +73,14 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
   return (
     <div>
       {/* 画像データのロードが終わったら中身を表示する */}
-      {isLoading && !PartsObjectJimp && !menuPartIcon ? (
+      {isLoading && !partsObjectJimp && !menuPartIcon ? (
         <div>Loading...</div>
       ) : (
         <>
           {/* アバターメーカーのアバター表示部分 */}
           <MakerView
-            SelectedParts={SelectedParts}
-            PartsObjectJimp={PartsObjectJimp}
+            selectedParts={selectedParts}
+            partsObjectJimp={partsObjectJimp}
             selectedFace={selectedFace}
             scale={2}
           />
@@ -98,13 +98,13 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
             selectedFace={selectedFace}
             handleCategoryClick={handleCategoryClick}
             menuPartIcon={menuPartIcon}
-            SelectedParts={SelectedParts}
-            setSelectedParts={setSelectedParts}
+            selectedParts={selectedParts}
+            setselectedParts={setselectedParts}
           />
         </>
       )}
       {/* オブジェクト変化テスト用ボタン */}
-      <button onClick={() => console.log("%o", SelectedParts)}>button</button>
+      <button onClick={() => console.log("%o", selectedParts)}>button</button>
     </div>
   );
 };

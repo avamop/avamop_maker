@@ -13,10 +13,10 @@ const outputFilePath = process.argv[3];
 const rootDirectoryPath = process.cwd();
 
 // 型定義
-const PartsObject = {};
+const partsObject = {};
 
 // JSONオブジェクトを生成する関数
-function generatePartsObject(directoryPath, partChain) {
+function generatepartsObject(directoryPath, partChain) {
   const categories = fs
     .readdirSync(directoryPath, { withFileTypes: true })
     .filter((dirent) => dirent.isDirectory())
@@ -29,7 +29,7 @@ function generatePartsObject(directoryPath, partChain) {
     const categoryPath = path.join(directoryPath, category);
     const categoryPartChain = partChain ? `${partChain}/${category}` : category;
 
-    PartsObject[category] = {
+    partsObject[category] = {
       colorGroup: "none",
       partCount: 1,
       partChain: categoryPartChain,
@@ -50,7 +50,7 @@ function generatePartsObject(directoryPath, partChain) {
         .readdirSync(itemPath, { withFileTypes: true })
         .filter((dirent) => dirent.isFile() && dirent.name.endsWith(".png"))
         .map((dirent) => dirent.name);
-      PartsObject[category].items[item] = {
+      partsObject[category].items[item] = {
         bodyType: [0],
         color: true,
         faces: {},
@@ -60,11 +60,11 @@ function generatePartsObject(directoryPath, partChain) {
         const faceName = path.basename(face, path.extname(face));
         const imagePath = path.join(categoryPartChain, item, face);
 
-        if (!PartsObject[category].items[item].faces) {
-          PartsObject[category].items[item].faces = {};
+        if (!partsObject[category].items[item].faces) {
+          partsObject[category].items[item].faces = {};
         }
 
-        PartsObject[category].items[item].faces[faceName] = {
+        partsObject[category].items[item].faces[faceName] = {
           imagePath: imagePath,
         };
       }
@@ -73,10 +73,10 @@ function generatePartsObject(directoryPath, partChain) {
 }
 
 // 指定されたディレクトリからJSONオブジェクトを生成
-generatePartsObject(inputDirectory, null);
+generatepartsObject(inputDirectory, null);
 
 // 生成したJSONオブジェクトをファイルに保存
-const jsonOutput = JSON.stringify(PartsObject, null, 2);
+const jsonOutput = JSON.stringify(partsObject, null, 2);
 
 fs.writeFileSync(outputFilePath, jsonOutput);
 

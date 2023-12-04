@@ -27,7 +27,7 @@ declare global {
   interface CategorySplit {
     [partSplit: "body" | string]: {
       //partChainの値が入る。一つのパーツを複数の画像で賄う際のくくりつけたもの
-      colorGroup: "eye" | string;
+      colorGroup: string;
       partOrder: number; //同じpartChainを部位ごとに分けたオブジェクト。
       items: Items; //パーツの画像の一覧のオブジェクト。SplitではpartChain→partSplitでくくりつけたことで扱いやすくなっている
     };
@@ -40,7 +40,7 @@ declare global {
     };
   }
 
-  //パーツアイコンを合成するためにPartsObjectを変換したオブジェクト
+  //パーツアイコンを合成するためにpartsObjectを変換したオブジェクト
   interface PartsObjectIconForCombine {
     [category: "body" | string]: {
       partList: ItemsIconForCombine;
@@ -131,7 +131,7 @@ declare global {
     };
   }
 
-  //PartsObjectのパスをJimpデータに置き換えたオブジェクト
+  //partsObjectのパスをJimpデータに置き換えたオブジェクト
   interface PartsObjectJimp {
     [category: "body" | string]: {
       partCount: number;
