@@ -6,15 +6,15 @@ import { MakerLayerCombineParts } from "../functions/imageProcess/MakerLayerComb
 import { MakerConvertBase64 } from "../functions/imageProcess/MakerConvertBase64";
 
 interface MakerViewProps {
-  SelectedParts: SelectedParts;
-  PartsObjectJimp: PartsObjectJimp;
+  selectedParts: SelectedParts;
+  partsObjectJimp: PartsObjectJimp;
   selectedFace: string;
   scale: number;
 }
 
 const MakerView: React.FC<MakerViewProps> = ({
-  SelectedParts,
-  PartsObjectJimp,
+  selectedParts,
+  partsObjectJimp,
   selectedFace,
   scale,
 }) => {
@@ -24,8 +24,8 @@ const MakerView: React.FC<MakerViewProps> = ({
     const imageGen = async () => {
       const selectedPartsForCanvas: SelectedPartsForCanvas =
         MakerCanvasSelectedPartsGen(
-          SelectedParts,
-          PartsObjectJimp,
+          selectedParts,
+          partsObjectJimp,
           selectedFace
         );
 
@@ -36,7 +36,7 @@ const MakerView: React.FC<MakerViewProps> = ({
       setCanvasImage(await MakerConvertBase64(tmpCanvasImage));
     };
     imageGen();
-  }, [SelectedParts, selectedFace]);
+  }, [selectedParts, selectedFace]);
 
   useEffect(() => {
     if (canvasImage && canvasRef.current) {
@@ -45,9 +45,9 @@ const MakerView: React.FC<MakerViewProps> = ({
       if (ctx) {
         const img = new Image();
         img.onload = () => {
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
           canvas.width = img.width * scale;
           canvas.height = img.height * scale;
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
           ctx.imageSmoothingEnabled = false;
           ctx.drawImage(img, 0, 0, img.width * scale, img.height * scale);
         };

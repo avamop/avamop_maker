@@ -1,14 +1,14 @@
 const fs = require("fs");
 
 function mergeCategories(data) {
-  const SplitCategories = {};
+  const splitCategories = {};
 
   for (const category in data) {
     const currentCategory = data[category];
     const partChain = currentCategory.partChain;
 
-    if (!SplitCategories[partChain]) {
-      SplitCategories[partChain] = {
+    if (!splitCategories[partChain]) {
+      splitCategories[partChain] = {
         partCount: currentCategory.partCount,
         partChain: partChain,
         ignoreTrigger: currentCategory.ignoreTrigger,
@@ -17,7 +17,7 @@ function mergeCategories(data) {
       };
     }
 
-    const currentPartList = SplitCategories[partChain].partList;
+    const currentPartList = splitCategories[partChain].partList;
 
     if (!currentPartList[category]) {
       currentPartList[category] = {
@@ -37,7 +37,7 @@ function mergeCategories(data) {
     }
   }
 
-  return SplitCategories;
+  return splitCategories;
 }
 
 if (process.argv.length !== 4) {

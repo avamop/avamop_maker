@@ -1,14 +1,14 @@
 export const mergeCategories = (data: PartsObject): PartsObjectSplit => {
-  const SplitCategories: PartsObjectSplit = {};
+  const splitCategories: PartsObjectSplit = {};
 
   //partChainが一致するカテゴリを一纏めにする
   for (const category in data) {
     const currentCategory = data[category];
     const partChain = currentCategory.partChain;
 
-    if (!SplitCategories[partChain]) {
-      //SplitCategoriesにpartChainの値が存在しない場合は新規作成
-      SplitCategories[partChain] = {
+    if (!splitCategories[partChain]) {
+      //splitCategoriesにpartChainの値が存在しない場合は新規作成
+      splitCategories[partChain] = {
         partCount: currentCategory.partCount,
         partChain: partChain,
         ignoreTrigger: currentCategory.ignoreTrigger,
@@ -17,7 +17,7 @@ export const mergeCategories = (data: PartsObject): PartsObjectSplit => {
       };
     }
 
-    const currentPartList = SplitCategories[partChain].partList;
+    const currentPartList = splitCategories[partChain].partList;
 
     if (!currentPartList[category]) {
       // currentPartListにcategoryの値が存在しない場合は新規作成
@@ -39,5 +39,5 @@ export const mergeCategories = (data: PartsObject): PartsObjectSplit => {
     }
   }
 
-  return SplitCategories;
+  return splitCategories;
 };

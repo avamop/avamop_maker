@@ -10,7 +10,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <AvamopMaker
       path="/examples/assets/"
-      PartsObject={partData}
+      partsObject={partData}
       categoryIconObject={categoryIconObject}
       colorsObject={colorsObject}
       defaultColors={defaultColors}

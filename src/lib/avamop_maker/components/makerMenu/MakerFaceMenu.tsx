@@ -12,7 +12,6 @@ interface MakerFaceMenuProps {
 
 const MakerFaceMenu: React.FC<MakerFaceMenuProps> = ({
   faceList,
-  isLoading,
   changeFace,
   // faceImages
 }) => {

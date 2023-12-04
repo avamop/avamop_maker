@@ -1,10 +1,10 @@
 //パーツオブジェクトから表情一覧を生成する
-export const MakerFaceGen = (PartsObject: PartsObjectSplit) => {
+export const MakerFaceGen = (partsObject: PartsObjectSplit) => {
   const faceList: string[] = [];
-  for (const category in PartsObject) {
-    for (const partSplit in PartsObject[category].partList) {
-      for (const item in PartsObject[category].partList[partSplit].items) {
-        for (const face in PartsObject[category].partList[partSplit].items[item]
+  for (const category in partsObject) {
+    for (const partSplit in partsObject[category].partList) {
+      for (const item in partsObject[category].partList[partSplit].items) {
+        for (const face in partsObject[category].partList[partSplit].items[item]
           .faces) {
           if (!faceList.includes(face)) {
             faceList.push(face);

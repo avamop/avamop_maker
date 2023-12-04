@@ -1,53 +1,53 @@
 // パーツ名が入ったアバターメーカーのステータスオブジェクトを、実際の画像データが入ったオブジェクトに変換する
 export const MakerCanvasSelectedPartsGen = (
-  SelectedParts: SelectedParts,
-  PartsObjectJimp: PartsObjectJimp,
+  selectedParts: SelectedParts,
+  partsObjectJimp: PartsObjectJimp,
   selectedFace: string
 ): SelectedPartsForCanvas => {
-  const SelectedPartsForCanvas: SelectedPartsForCanvas = {
-    bodyType: SelectedParts.bodyType,
+  const selectedPartsForCanvas: SelectedPartsForCanvas = {
+    bodyType: selectedParts.bodyType,
     category: {},
   };
-  const tmpSelectedPartsForCanvas: {
+  const tmpselectedPartsForCanvas: {
     [category: string]: SelectedPartsForCanvasCategory;
   } = {};
 
-  for (const category in SelectedParts.category) {
-    for (const partSplit in PartsObjectJimp[category.replace(/_\d+$/, "")]
+  for (const category in selectedParts.category) {
+    for (const partSplit in partsObjectJimp[category.replace(/_\d+$/, "")]
       .partList) {
-      const SelectedPartsForCanvasCategory: SelectedPartsForCanvasCategory = {
+      const selectedPartsForCanvasCategory: SelectedPartsForCanvasCategory = {
         partOrder:
-          PartsObjectJimp[category.replace(/_\d+$/, "")].partList[partSplit]
+          partsObjectJimp[category.replace(/_\d+$/, "")].partList[partSplit]
             .partOrder,
-        partData: PartsObjectJimp[category.replace(/_\d+$/, "")].partList[
+        partData: partsObjectJimp[category.replace(/_\d+$/, "")].partList[
           partSplit
-        ].items[SelectedParts.category[category].partName].faces[selectedFace]
-          ? PartsObjectJimp[category.replace(/_\d+$/, "")].partList[partSplit]
-              .items[SelectedParts.category[category].partName].faces[
+        ].items[selectedParts.category[category].partName].faces[selectedFace]
+          ? partsObjectJimp[category.replace(/_\d+$/, "")].partList[partSplit]
+              .items[selectedParts.category[category].partName].faces[
               selectedFace
             ].jimpData
-          : PartsObjectJimp[category.replace(/_\d+$/, "")].partList[partSplit]
-              .items[SelectedParts.category[category].partName].faces["normal"]
+          : partsObjectJimp[category.replace(/_\d+$/, "")].partList[partSplit]
+              .items[selectedParts.category[category].partName].faces["normal"]
               .jimpData,
-        partFlip: SelectedParts.category[category].partFlip,
+        partFlip: selectedParts.category[category].partFlip,
       };
-      tmpSelectedPartsForCanvas[category] = SelectedPartsForCanvasCategory;
+      tmpselectedPartsForCanvas[category] = selectedPartsForCanvasCategory;
     }
   }
-  SelectedPartsForCanvas.category = SelectedPartsForCanvasSort(
-    tmpSelectedPartsForCanvas
+  selectedPartsForCanvas.category = selectedPartsForCanvasSort(
+    tmpselectedPartsForCanvas
   );
-  return SelectedPartsForCanvas;
+  return selectedPartsForCanvas;
 };
 
 //パーツの順番を定め、カテゴリーの連番に伴って重複したパーツの順番値の分だけ加算する
-const SelectedPartsForCanvasSort = (tmpSelectedPartsForCanvas: {
+const selectedPartsForCanvasSort = (tmpselectedPartsForCanvas: {
   [category: string]: SelectedPartsForCanvasCategory;
 }): {
   [category: string]: SelectedPartsForCanvasCategory;
 } => {
   let sortedCategories: [string, SelectedPartsForCanvasCategory][] =
-    Object.entries(tmpSelectedPartsForCanvas).sort((a, b) => {
+    Object.entries(tmpselectedPartsForCanvas).sort((a, b) => {
       // partOrderが一致している場合、カテゴリ名に含まれる連番でソート
       if (a[1].partOrder === b[1].partOrder) {
         const numA = Number(
@@ -80,6 +80,6 @@ const SelectedPartsForCanvasSort = (tmpSelectedPartsForCanvas: {
     lastCategory = category;
   }
 
-  // オブジェクトに戻してSelectedPartsForCanvasに代入
+  // オブジェクトに戻してselectedPartsForCanvasに代入
   return Object.fromEntries(sortedCategories);
 };

@@ -2,7 +2,7 @@ export const MakerChangingPart = (
   category: string,
   bodyTypeValue: string[],
   partNameValue: string,
-  SelectedParts: SelectedParts,
+  selectedParts: SelectedParts,
   setSelectedParts: React.Dispatch<React.SetStateAction<SelectedParts>>
 ) => {
   if (category === "body") {
@@ -14,9 +14,9 @@ export const MakerChangingPart = (
         const updateAvaters: SelectedParts = {
           bodyType: partNameValue,
           category: {
-            ...SelectedParts.category,
+            ...selectedParts.category,
             [category]: {
-              ...SelectedParts.category[category],
+              ...selectedParts.category[category],
               partName: partNameValue,
             },
           },
@@ -29,11 +29,11 @@ export const MakerChangingPart = (
   } else {
     try {
       const updateAvaters: SelectedParts = {
-        bodyType: SelectedParts.bodyType,
+        bodyType: selectedParts.bodyType,
         category: {
-          ...SelectedParts.category,
+          ...selectedParts.category,
           [category]: {
-            ...SelectedParts.category[category],
+            ...selectedParts.category[category],
             partName: partNameValue,
           },
         },

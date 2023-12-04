@@ -8,11 +8,12 @@ import MakerFaceMenu from "./makerMenu/MakerFaceMenu";
 import { MakerConvertPartsToMenuIcons } from "./functions/imageProcess/MakerConvertPartsToMenuIcons";
 import { MakerConvertPartsJimp } from "./functions/objectProcess/MakerConvertPartsJimp";
 import { MakerFetchCategoryIcons } from "./functions/imageProcess/MakerFetchCategoryIcons";
+import MakerColorsMenu from "./makerMenu/MakerColorsMenu";
 
 
 interface MakerMenuProps {
   path: string;
-  PartsObject: PartsObjectSplit;
+  partsObject: PartsObjectSplit;
   categoryIconObject: categoryIconObject;
   colorsObject: ColorsObject;
   defaultColors: DefaultColors;
@@ -20,23 +21,23 @@ interface MakerMenuProps {
 
 const MakerWindow: React.FC<MakerMenuProps> = ({
   path,
-  PartsObject,
+  partsObject,
   categoryIconObject,
   colorsObject,
   defaultColors,
 }) => {
-  const TmpSelectedParts: SelectedParts = MakerSelectedPartsGen(PartsObject);
-  const faceList: string[] = MakerFaceGen(PartsObject);
+  const TmpselectedParts: SelectedParts = MakerSelectedPartsGen(partsObject);
+  const faceList: string[] = MakerFaceGen(partsObject);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [SelectedParts, setSelectedParts] =
-    useState<SelectedParts>(TmpSelectedParts);
+  const [selectedParts, setSelectedParts] =
+    useState<SelectedParts>(TmpselectedParts);
   const [selectedFace, setSelectedFace] = useState<string>("normal");
   const [categoryIcon, setCategoryIcon] = useState<categoryIconObject | null>(
     null
   );
-  const [menuPartIcon, setMenuPartIcon] =
+  const [menuPartIcons, setMenuPartIcon] =
     useState<CombinePartIconsObjectBase64 | null>(null);
-  const [PartsObjectJimp, setPartsObjectJimp] =
+  const [partsObjectJimp, setPartsObjectJimp] =
     useState<PartsObjectJimp | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -55,15 +56,15 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
           categoryIconObject,
           path + "thumbnails/"
         );
-        const tmpPartsObjectJimp: PartsObjectJimp = await MakerConvertPartsJimp(
-          PartsObject,
+        const tmppartsObjectJimp: PartsObjectJimp = await MakerConvertPartsJimp(
+          partsObject,
           path + "parts/"
         );
-        setPartsObjectJimp(tmpPartsObjectJimp);
-        const menuPartIconList: Promise<CombinePartIconsObjectBase64> =
-          MakerConvertPartsToMenuIcons(tmpPartsObjectJimp);
+        setPartsObjectJimp(tmppartsObjectJimp);
+        const menuPartIconsList: Promise<CombinePartIconsObjectBase64> =
+          MakerConvertPartsToMenuIcons(tmppartsObjectJimp);
         setCategoryIcon(tmpCategoryIcon);
-        setMenuPartIcon(await menuPartIconList);
+        setMenuPartIcon(await menuPartIconsList);
         setIsLoading(false); // データの読み込みが完了したらisLoadingをfalseに設定
       } catch (error) {
         console.log("データ読み込みエラー:", error);
@@ -76,15 +77,16 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
   return (
     <div>
       {/* 画像データのロードが終わったら中身を表示する */}
-      {isLoading && !PartsObjectJimp && !menuPartIcon ? (
+      {isLoading && !partsObjectJimp && !menuPartIcons ? (
         <div>Loading...</div>
       ) : (
         <>
+          <MakerColorsMenu colorsObject={colorsObject} />
           {/* アバターメーカーのアバター表示部分 */}
           <div className={styles['avatar-img-all']}>
             <MakerView
-            SelectedParts={SelectedParts}
-            PartsObjectJimp={PartsObjectJimp}
+            selectedParts={selectedParts}
+            partsObjectJimp={partsObjectJimp}
             selectedFace={selectedFace}
             scale={2}
           />
@@ -102,14 +104,14 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
             selectedCategory={selectedCategory}
             selectedFace={selectedFace}
             handleCategoryClick={handleCategoryClick}
-            menuPartIcon={menuPartIcon}
-            selectedParts={SelectedParts}
+            menuPartIcons={menuPartIcons}
+            selectedParts={selectedParts}
             setSelectedParts={setSelectedParts}
           />
         </>
       )}
       {/* オブジェクト変化テスト用ボタン */}
-      <button onClick={() => console.log("%o", SelectedParts)}>button</button>
+      <button onClick={() => console.log("%o", selectedParts)}>button</button>
     </div>
   );
 };

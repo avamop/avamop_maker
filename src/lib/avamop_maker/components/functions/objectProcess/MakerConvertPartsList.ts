@@ -1,16 +1,16 @@
 export const MakerConvertPartsList = (
-  PartsObject: PartsObjectJimp
+  partsObject: PartsObjectJimp
 ): PartsObjectIconForCombine => {
-  const PartsObjectIconForCombine: PartsObjectIconForCombine = {};
-  for (const category in PartsObject) {
+  const partsObjectIconForCombine: PartsObjectIconForCombine = {};
+  for (const category in partsObject) {
     const convertPartList: ItemsIconForCombine = MakerConvertCategory(
-      PartsObject[category].partList
+      partsObject[category].partList
     );
-    PartsObjectIconForCombine[category] = {
+    partsObjectIconForCombine[category] = {
       partList: convertPartList,
     };
   }
-  return PartsObjectIconForCombine;
+  return partsObjectIconForCombine;
 };
 
 //カテゴリー内のpartSplitで分けられてるパーツ画像をpeacesの中で分ける
