@@ -5,7 +5,7 @@ export const MakerCanvasSelectedPartsGen = (
   selectedFace: string
 ): SelectedPartsForCanvas => {
   const selectedPartsForCanvas: SelectedPartsForCanvas = {
-    bodyType: SelectedParts.bodyType,
+    bodyType: selectedParts.bodyType,
     category: {},
   };
   const tmpselectedPartsForCanvas: {
@@ -29,7 +29,7 @@ export const MakerCanvasSelectedPartsGen = (
           : PartsObjectJimp[category.replace(/_\d+$/, "")].partList[partSplit]
               .items[selectedParts.category[category].partName].faces["normal"]
               .jimpData,
-        partFlip: SelectedParts.category[category].partFlip,
+        partFlip: selectedParts.category[category].partFlip,
       };
       tmpselectedPartsForCanvas[category] = selectedPartsForCanvasCategory;
     }

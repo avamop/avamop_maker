@@ -7,6 +7,7 @@ import MakerFaceMenu from "./makerMenu/MakerFaceMenu";
 import { MakerConvertPartsToMenuIcons } from "./functions/imageProcess/MakerConvertPartsToMenuIcons";
 import { MakerConvertPartsJimp } from "./functions/objectProcess/MakerConvertPartsJimp";
 import { MakerFetchCategoryIcons } from "./functions/imageProcess/MakerFetchCategoryIcons";
+import MakerColorsMenu from "./makerMenu/MakerColorsMenu";
 interface MakerMenuProps {
   path: string;
   partsObject: PartsObjectSplit;
@@ -77,6 +78,7 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
         <div>Loading...</div>
       ) : (
         <>
+          <MakerColorsMenu colorsObject={colorsObject} />
           {/* アバターメーカーのアバター表示部分 */}
           <MakerView
             selectedParts={selectedParts}

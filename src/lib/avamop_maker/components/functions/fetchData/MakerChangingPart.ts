@@ -29,7 +29,7 @@ export const MakerChangingPart = (
   } else {
     try {
       const updateAvaters: SelectedParts = {
-        bodyType: SelectedParts.bodyType,
+        bodyType: selectedParts.bodyType,
         category: {
           ...selectedParts.category,
           [category]: {
