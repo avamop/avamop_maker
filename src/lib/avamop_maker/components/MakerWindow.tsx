@@ -103,7 +103,7 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
             selectedFace={selectedFace}
             handleCategoryClick={handleCategoryClick}
             menuPartIcon={menuPartIcon}
-            SelectedParts={SelectedParts}
+            selectedParts={SelectedParts}
             setSelectedParts={setSelectedParts}
           />
         </>

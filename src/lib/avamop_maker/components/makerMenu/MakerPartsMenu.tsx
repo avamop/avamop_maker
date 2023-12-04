@@ -2,32 +2,39 @@ import React from "react";
 import MakerPartsButton from "./MakerPartsButton";
 import MakerPartsCategories from "./MakerPartsCategories";
 import { MakerChangingPart } from "../functions/fetchData/MakerChangingPart";
+import { Swiper, SwiperSlide } from 'swiper/react'
 interface MakerPartsMenuProps {
   selectedCategory: string | null;
   selectedFace: string;
   categoryIconObject: categoryIconObject;
-  SelectedParts: SelectedParts;
+  selectedParts: SelectedParts;
   setSelectedParts: React.Dispatch<React.SetStateAction<SelectedParts>>;
   handleCategoryClick: (category: string) => void;
   menuPartIcon: CombinePartIconsObjectBase64;
   isLoading: boolean;
 }
-
 const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
   selectedCategory,
   selectedFace,
   categoryIconObject,
   handleCategoryClick,
-  SelectedParts,
+  selectedParts,
   setSelectedParts,
   menuPartIcon,
 }) => {
+  
   return (
     <>
-      <ul>
+    <Swiper
+    slidesPerView='auto'
+    freeMode={true}
+    scrollbar={{ draggable: true }}
+  >
+    <ul>
         {/* カテゴリーの入ったオブジェクトの中身を展開したものからカテゴリーボタンを生成し、代入している */}
-        {Object.keys(SelectedParts.category).map((category) => (
-          <MakerPartsCategories
+        {Object.keys(selectedParts.category).map((category:string) => (
+          <SwiperSlide>
+            <MakerPartsCategories
             key={category}
             category={category}
             isSelected={selectedCategory === category}
@@ -36,10 +43,13 @@ const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
               categoryIconObject[category.replace(/_\d+$/, "")].imagePath
             }
           />
+          </SwiperSlide>
           /* category.replace(/_\d+$/, "")はcategoryから連番を取り除いたもの */
         ))}
       </ul>
-      {Object.keys(SelectedParts.category).map((category) =>
+  </Swiper>
+  
+      {Object.keys(selectedParts.category).map((category) =>
         /* カテゴリーがbodyかどうかで代入する値が変化する */
         selectedCategory === category
           ? category === "body"
@@ -67,7 +77,7 @@ const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
                       menuPartIcon[category.replace(/_\d+$/, "")].partList[item]
                         .bodyType,
                       item,
-                      SelectedParts,
+                      selectedParts,
                       setSelectedParts
                     )
                   }
@@ -81,7 +91,7 @@ const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
                   .bodyType === null ||
                 menuPartIcon[category.replace(/_\d+$/, "")].partList[
                   item
-                ].bodyType.includes(SelectedParts.bodyType) ? (
+                ].bodyType.includes(selectedParts.bodyType) ? (
                   <MakerPartsButton
                     key={item}
                     item={item}
@@ -102,7 +112,7 @@ const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
                           item
                         ].bodyType,
                         item,
-                        SelectedParts,
+                        selectedParts,
                         setSelectedParts
                       )
                     }
