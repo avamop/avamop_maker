@@ -1,6 +1,6 @@
 .parts-button {
   list-style: none;
-  display: inline-block;
+  display: flex;
 }
 
 .parts-img {

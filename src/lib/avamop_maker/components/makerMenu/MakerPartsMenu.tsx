@@ -3,6 +3,8 @@ import MakerPartsButton from "./MakerPartsButton";
 import MakerPartsCategories from "./MakerPartsCategories";
 import { MakerChangingPart } from "../functions/fetchData/MakerChangingPart";
 import { Swiper, SwiperSlide } from 'swiper/react'
+import Styles from '../../module-css/makerMenu/MakerPartsMenu.module.css'
+import 'swiper/css'
 interface MakerPartsMenuProps {
   selectedCategory: string | null;
   selectedFace: string;
@@ -26,16 +28,16 @@ const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
   return (
     <>
     <Swiper
+    className={Styles['scroll-bar-swiper']}
     slidesPerView='auto'
     freeMode={true}
     scrollbar={{ draggable: true }}
   >
     <ul>
         {/* カテゴリーの入ったオブジェクトの中身を展開したものからカテゴリーボタンを生成し、代入している */}
-        {Object.keys(selectedParts.category).map((category:string) => (
-          <SwiperSlide>
+        {Object.keys(selectedParts.category).map((category) => (
+          <SwiperSlide key={category} style={{ width: '70px' }}>
             <MakerPartsCategories
-            key={category}
             category={category}
             isSelected={selectedCategory === category}
             onClick={() => handleCategoryClick(category)}
