@@ -9,7 +9,7 @@ const MakerColorsButton: React.FC<MakerColorsButton> = ({
   colorCode,
   colorName,
 }) => {
-  return <li color={colorCode}>{colorName}</li>;
+  return <li style={{ color: colorCode }}>{colorName}</li>;
 };
 
 export default MakerColorsButton;

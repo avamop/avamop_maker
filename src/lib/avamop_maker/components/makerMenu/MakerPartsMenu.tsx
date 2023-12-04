@@ -58,7 +58,7 @@ const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
                         ].faces[selectedFace].imagePath
                       : menuPartIcons[category.replace(/_\d+$/, "")].partList[
                           item
-                        ].faces["normal"].imagePath
+                        ].faces["clear"].imagePath
                   }
                   // 選択した表情に合わせた画像がない場合はデフォルトの画像を出す
                   onClick={() =>
@@ -95,7 +95,7 @@ const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
                           ].faces[selectedFace].imagePath
                         : menuPartIcons[category.replace(/_\d+$/, "")].partList[
                             item
-                          ].faces["normal"].imagePath
+                          ].faces["clear"].imagePath
                     }
                     onClick={() =>
                       MakerChangingPart(

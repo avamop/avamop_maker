@@ -27,7 +27,7 @@ export const MakerCanvasSelectedPartsGen = (
               selectedFace
             ].jimpData
           : partsObjectJimp[category.replace(/_\d+$/, "")].partList[partSplit]
-              .items[selectedParts.category[category].partName].faces["normal"]
+              .items[selectedParts.category[category].partName].faces["clear"]
               .jimpData,
         partFlip: selectedParts.category[category].partFlip,
       };

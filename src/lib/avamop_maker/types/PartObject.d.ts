@@ -74,15 +74,15 @@ declare global {
   }
 
   interface CombinePartIconBase64 {
-    [face: "normal" | string]: {
+    [face: "clear" | string]: {
       imagePath: string; //パーツアイコンのbase64データ
     };
   }
 
   interface Faces {
-    [face: "normal" | string]: {
+    [face: "clear" | string]: {
       //表情の種類。
-      imagePath: string; //表情ごとの画像パス。該当する表情がない場合はnormalのパスを使用する。同じ画像を複数の表情で使う場合は同一のパスを指定する。
+      imagePath: string; //表情ごとの画像パス。該当する表情がない場合はclearのパスを使用する。同じ画像を複数の表情で使う場合は同一のパスを指定する。
     };
   }
 
@@ -157,7 +157,7 @@ declare global {
   }
 
   interface FacesJimp {
-    [face: "normal" | string]: {
+    [face: "clear" | string]: {
       jimpData: Jimp;
     };
   }

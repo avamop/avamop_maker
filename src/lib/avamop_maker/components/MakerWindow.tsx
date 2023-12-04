@@ -28,7 +28,7 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedParts, setSelectedParts] =
     useState<SelectedParts>(TmpselectedParts);
-  const [selectedFace, setSelectedFace] = useState<string>("normal");
+  const [selectedFace, setSelectedFace] = useState<string>("clear");
   const [categoryIcon, setCategoryIcon] = useState<categoryIconObject | null>(
     null
   );

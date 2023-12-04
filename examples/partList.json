@@ -11,8 +11,8 @@
         "bodyType": null,
         "color": true,
         "faces": {
-          "normal": {
-            "imagePath": "body/female/normal.png"
+          "clear": {
+            "imagePath": "body/female/clear.png"
           }
         }
       },
@@ -20,8 +20,8 @@
         "bodyType": null,
         "color": true,
         "faces": {
-          "normal": {
-            "imagePath": "body/male/normal.png"
+          "clear": {
+            "imagePath": "body/male/clear.png"
           }
         }
       }
@@ -39,8 +39,8 @@
         "bodyType": null,
         "color": true,
         "faces": {
-          "normal": {
-            "imagePath": "head/headStandard/normal.png"
+          "clear": {
+            "imagePath": "head/headStandard/clear.png"
           }
         }
       }
@@ -58,8 +58,8 @@
         "bodyType": null,
         "color": true,
         "faces": {
-          "normal": {
-            "imagePath": "fronthair/femaleBluntBangs/normal.png"
+          "clear": {
+            "imagePath": "fronthair/femaleBluntBangs/clear.png"
           }
         }
       },
@@ -67,8 +67,8 @@
         "bodyType": null,
         "color": true,
         "faces": {
-          "normal": {
-            "imagePath": "fronthair/maleSpikyLord/normal.png"
+          "clear": {
+            "imagePath": "fronthair/maleSpikyLord/clear.png"
           }
         }
       }
@@ -86,8 +86,8 @@
         "bodyType": null,
         "color": true,
         "faces": {
-          "normal": {
-            "imagePath": "backhair/femaleStraightLong/normal.png"
+          "clear": {
+            "imagePath": "backhair/femaleStraightLong/clear.png"
           }
         }
       },
@@ -95,8 +95,8 @@
         "bodyType": null,
         "color": true,
         "faces": {
-          "normal": {
-            "imagePath": "backhair/maleSpikyLord/normal.png"
+          "clear": {
+            "imagePath": "backhair/maleSpikyLord/clear.png"
           }
         }
       }
@@ -114,8 +114,8 @@
         "bodyType": null,
         "color": true,
         "faces": {
-          "normal": {
-            "imagePath": "ear/elf/normal.png"
+          "clear": {
+            "imagePath": "ear/elf/clear.png"
           }
         }
       },
@@ -123,8 +123,8 @@
         "bodyType": null,
         "color": true,
         "faces": {
-          "normal": {
-            "imagePath": "ear/humanStandard/normal.png"
+          "clear": {
+            "imagePath": "ear/humanStandard/clear.png"
           }
         }
       }
@@ -145,8 +145,8 @@
           "angry": {
             "imagePath": "eyebrows/femaleStandard/angry.png"
           },
-          "normal": {
-            "imagePath": "eyebrows/femaleStandard/normal.png"
+          "clear": {
+            "imagePath": "eyebrows/femaleStandard/clear.png"
           }
         }
       },
@@ -157,8 +157,8 @@
           "angry": {
             "imagePath": "eyebrows/maleGallant/angry.png"
           },
-          "normal": {
-            "imagePath": "eyebrows/maleGallant/normal.png"
+          "clear": {
+            "imagePath": "eyebrows/maleGallant/clear.png"
           }
         }
       }
@@ -179,8 +179,8 @@
           "angry": {
             "imagePath": "eye/femaleRounded/angry.png"
           },
-          "normal": {
-            "imagePath": "eye/femaleRounded/normal.png"
+          "clear": {
+            "imagePath": "eye/femaleRounded/clear.png"
           }
         }
       },
@@ -191,8 +191,8 @@
           "angry": {
             "imagePath": "eye/maleGallant/angry.png"
           },
-          "normal": {
-            "imagePath": "eye/maleGallant/normal.png"
+          "clear": {
+            "imagePath": "eye/maleGallant/clear.png"
           }
         }
       }
@@ -213,8 +213,8 @@
           "angry": {
             "imagePath": "nose/noseDumping/angry.png"
           },
-          "normal": {
-            "imagePath": "nose/noseDumping/normal.png"
+          "clear": {
+            "imagePath": "nose/noseDumping/clear.png"
           }
         }
       },
@@ -225,8 +225,8 @@
           "angry": {
             "imagePath": "nose/noseRound/angry.png"
           },
-          "normal": {
-            "imagePath": "nose/noseRound/normal.png"
+          "clear": {
+            "imagePath": "nose/noseRound/clear.png"
           }
         }
       }
@@ -247,8 +247,8 @@
           "angry": {
             "imagePath": "mouth/mouthMeh/angry.png"
           },
-          "normal": {
-            "imagePath": "mouth/mouthMeh/normal.png"
+          "clear": {
+            "imagePath": "mouth/mouthMeh/clear.png"
           }
         }
       },
@@ -259,8 +259,8 @@
           "angry": {
             "imagePath": "mouth/mouthSmile/angry.png"
           },
-          "normal": {
-            "imagePath": "mouth/mouthSmile/normal.png"
+          "clear": {
+            "imagePath": "mouth/mouthSmile/clear.png"
           }
         }
       }
@@ -278,8 +278,8 @@
         "bodyType": ["female"],
         "color": true,
         "faces": {
-          "normal": {
-            "imagePath": "tops/femaleShirtStandard/normal.png"
+          "clear": {
+            "imagePath": "tops/femaleShirtStandard/clear.png"
           }
         }
       },
@@ -287,8 +287,8 @@
         "bodyType": ["male"],
         "color": true,
         "faces": {
-          "normal": {
-            "imagePath": "tops/maleShirtStandard/normal.png"
+          "clear": {
+            "imagePath": "tops/maleShirtStandard/clear.png"
           }
         }
       }
@@ -306,8 +306,8 @@
         "bodyType": ["female"],
         "color": true,
         "faces": {
-          "normal": {
-            "imagePath": "bottoms/femaleSkirtPleated/normal.png"
+          "clear": {
+            "imagePath": "bottoms/femaleSkirtPleated/clear.png"
           }
         }
       }
@@ -325,8 +325,8 @@
         "bodyType": ["female"],
         "color": true,
         "faces": {
-          "normal": {
-            "imagePath": "socks/femaleSocksShortSimple/normal.png"
+          "clear": {
+            "imagePath": "socks/femaleSocksShortSimple/clear.png"
           }
         }
       }
@@ -344,8 +344,8 @@
         "bodyType": ["female"],
         "color": true,
         "faces": {
-          "normal": {
-            "imagePath": "shoes/femaleSneakersLine/normal.png"
+          "clear": {
+            "imagePath": "shoes/femaleSneakersLine/clear.png"
           }
         }
       }
