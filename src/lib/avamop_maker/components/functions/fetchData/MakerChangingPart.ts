@@ -3,7 +3,7 @@ export const MakerChangingPart = (
   bodyTypeValue: string[],
   partNameValue: string,
   selectedParts: SelectedParts,
-  setselectedParts: React.Dispatch<React.SetStateAction<selectedParts>>
+  setselectedParts: React.Dispatch<React.SetStateAction<SelectedParts>>
 ) => {
   if (category === "body") {
     try {
