@@ -5,9 +5,9 @@ export const MakerConvertPartsToMenuIcons = async (
   partsObjectJimp: PartsObjectJimp
 ): Promise<CombinePartIconsObjectBase64> => {
   const partsObjectIconForCombine = MakerConvertPartsList(partsObjectJimp); //パーツを合成しやすくするためにオブジェクトを組み替える
-  const menuPartIconList: CombinePartIconsObjectBase64 = {};
+  const menuPartIconsList: CombinePartIconsObjectBase64 = {};
   for (const category in partsObjectIconForCombine) {
-    menuPartIconList[category] = {
+    menuPartIconsList[category] = {
       partList: {},
     };
     for (const item in partsObjectIconForCombine[category].partList) {
@@ -17,8 +17,8 @@ export const MakerConvertPartsToMenuIcons = async (
           partsObjectIconForCombine[category].partList[item].peaces
         ), //同じパーツ名のパーツ画像を合成する
       };
-      menuPartIconList[category].partList[item] = partList;
+      menuPartIconsList[category].partList[item] = partList;
     }
   }
-  return menuPartIconList;
+  return menuPartIconsList;
 };

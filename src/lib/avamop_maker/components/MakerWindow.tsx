@@ -26,15 +26,15 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
   const TmpselectedParts: SelectedParts = MakerSelectedPartsGen(partsObject);
   const faceList: string[] = MakerFaceGen(partsObject);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [selectedParts, setselectedParts] =
+  const [selectedParts, setSelectedParts] =
     useState<SelectedParts>(TmpselectedParts);
   const [selectedFace, setSelectedFace] = useState<string>("normal");
   const [categoryIcon, setCategoryIcon] = useState<categoryIconObject | null>(
     null
   );
-  const [menuPartIcon, setMenuPartIcon] =
+  const [menuPartIcons, setMenuPartIcon] =
     useState<CombinePartIconsObjectBase64 | null>(null);
-  const [partsObjectJimp, setpartsObjectJimp] =
+  const [partsObjectJimp, setPartsObjectJimp] =
     useState<PartsObjectJimp | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -57,11 +57,11 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
           partsObject,
           path + "parts/"
         );
-        setpartsObjectJimp(tmppartsObjectJimp);
-        const menuPartIconList: Promise<CombinePartIconsObjectBase64> =
+        setPartsObjectJimp(tmppartsObjectJimp);
+        const menuPartIconsList: Promise<CombinePartIconsObjectBase64> =
           MakerConvertPartsToMenuIcons(tmppartsObjectJimp);
         setCategoryIcon(tmpCategoryIcon);
-        setMenuPartIcon(await menuPartIconList);
+        setMenuPartIcon(await menuPartIconsList);
         setIsLoading(false); // データの読み込みが完了したらisLoadingをfalseに設定
       } catch (error) {
         console.log("データ読み込みエラー:", error);
@@ -74,7 +74,7 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
   return (
     <div>
       {/* 画像データのロードが終わったら中身を表示する */}
-      {isLoading && !partsObjectJimp && !menuPartIcon ? (
+      {isLoading && !partsObjectJimp && !menuPartIcons ? (
         <div>Loading...</div>
       ) : (
         <>
@@ -99,9 +99,9 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
             selectedCategory={selectedCategory}
             selectedFace={selectedFace}
             handleCategoryClick={handleCategoryClick}
-            menuPartIcon={menuPartIcon}
+            menuPartIcons={menuPartIcons}
             selectedParts={selectedParts}
-            setselectedParts={setselectedParts}
+            setSelectedParts={setSelectedParts}
           />
         </>
       )}

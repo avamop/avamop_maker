@@ -7,9 +7,9 @@ interface MakerPartsMenuProps {
   selectedFace: string;
   categoryIconObject: categoryIconObject;
   selectedParts: SelectedParts;
-  setselectedParts: React.Dispatch<React.SetStateAction<SelectedParts>>;
+  setSelectedParts: React.Dispatch<React.SetStateAction<SelectedParts>>;
   handleCategoryClick: (category: string) => void;
-  menuPartIcon: CombinePartIconsObjectBase64;
+  menuPartIcons: CombinePartIconsObjectBase64;
   isLoading: boolean;
 }
 
@@ -19,8 +19,8 @@ const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
   categoryIconObject,
   handleCategoryClick,
   selectedParts,
-  setselectedParts,
-  menuPartIcon,
+  setSelectedParts,
+  menuPartIcons,
 }) => {
   return (
     <>
@@ -44,19 +44,19 @@ const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
         selectedCategory === category
           ? category === "body"
             ? Object.keys(
-                menuPartIcon[category.replace(/_\d+$/, "")].partList
+                menuPartIcons[category.replace(/_\d+$/, "")].partList
               ).map((item) => (
                 // パーツアイコンオブジェクトの中身を展開したものをパーツボタンに代入している
                 <MakerPartsButton
                   key={item}
                   item={item}
                   buttonImage={
-                    menuPartIcon[category.replace(/_\d+$/, "")].partList[item]
+                    menuPartIcons[category.replace(/_\d+$/, "")].partList[item]
                       .faces[selectedFace]
-                      ? menuPartIcon[category.replace(/_\d+$/, "")].partList[
+                      ? menuPartIcons[category.replace(/_\d+$/, "")].partList[
                           item
                         ].faces[selectedFace].imagePath
-                      : menuPartIcon[category.replace(/_\d+$/, "")].partList[
+                      : menuPartIcons[category.replace(/_\d+$/, "")].partList[
                           item
                         ].faces["normal"].imagePath
                   }
@@ -64,46 +64,48 @@ const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
                   onClick={() =>
                     MakerChangingPart(
                       category,
-                      menuPartIcon[category.replace(/_\d+$/, "")].partList[item]
-                        .bodyType,
+                      menuPartIcons[category.replace(/_\d+$/, "")].partList[
+                        item
+                      ].bodyType,
                       item,
                       selectedParts,
-                      setselectedParts
+                      setSelectedParts
                     )
                   }
                 />
               ))
             : // bodyカテゴリじゃない場合のボタン
               Object.keys(
-                menuPartIcon[category.replace(/_\d+$/, "")].partList
+                menuPartIcons[category.replace(/_\d+$/, "")].partList
               ).map((item) =>
-                menuPartIcon[category.replace(/_\d+$/, "")].partList[item]
+                menuPartIcons[category.replace(/_\d+$/, "")].partList[item]
                   .bodyType === null ||
-                menuPartIcon[category.replace(/_\d+$/, "")].partList[
+                menuPartIcons[category.replace(/_\d+$/, "")].partList[
                   item
                 ].bodyType.includes(selectedParts.bodyType) ? (
                   <MakerPartsButton
                     key={item}
                     item={item}
                     buttonImage={
-                      menuPartIcon[category.replace(/_\d+$/, "")].partList[item]
-                        .faces[selectedFace]
-                        ? menuPartIcon[category.replace(/_\d+$/, "")].partList[
+                      menuPartIcons[category.replace(/_\d+$/, "")].partList[
+                        item
+                      ].faces[selectedFace]
+                        ? menuPartIcons[category.replace(/_\d+$/, "")].partList[
                             item
                           ].faces[selectedFace].imagePath
-                        : menuPartIcon[category.replace(/_\d+$/, "")].partList[
+                        : menuPartIcons[category.replace(/_\d+$/, "")].partList[
                             item
                           ].faces["normal"].imagePath
                     }
                     onClick={() =>
                       MakerChangingPart(
                         category,
-                        menuPartIcon[category.replace(/_\d+$/, "")].partList[
+                        menuPartIcons[category.replace(/_\d+$/, "")].partList[
                           item
                         ].bodyType,
                         item,
                         selectedParts,
-                        setselectedParts
+                        setSelectedParts
                       )
                     }
                   />
