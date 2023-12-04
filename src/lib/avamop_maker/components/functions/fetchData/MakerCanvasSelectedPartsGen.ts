@@ -19,14 +19,14 @@ export const MakerCanvasSelectedPartsGen = (
         partOrder:
           partsObjectJimp[category.replace(/_\d+$/, "")].partList[partSplit]
             .partOrder,
-        partData: PartsObjectJimp[category.replace(/_\d+$/, "")].partList[
+        partData: partsObjectJimp[category.replace(/_\d+$/, "")].partList[
           partSplit
         ].items[selectedParts.category[category].partName].faces[selectedFace]
           ? partsObjectJimp[category.replace(/_\d+$/, "")].partList[partSplit]
               .items[selectedParts.category[category].partName].faces[
               selectedFace
             ].jimpData
-          : PartsObjectJimp[category.replace(/_\d+$/, "")].partList[partSplit]
+          : partsObjectJimp[category.replace(/_\d+$/, "")].partList[partSplit]
               .items[selectedParts.category[category].partName].faces["normal"]
               .jimpData,
         partFlip: selectedParts.category[category].partFlip,
@@ -46,7 +46,7 @@ const selectedPartsForCanvasSort = (tmpselectedPartsForCanvas: {
 }): {
   [category: string]: SelectedPartsForCanvasCategory;
 } => {
-  let sortedCategories: [string, selectedPartsForCanvasCategory][] =
+  let sortedCategories: [string, SelectedPartsForCanvasCategory][] =
     Object.entries(tmpselectedPartsForCanvas).sort((a, b) => {
       // partOrderが一致している場合、カテゴリ名に含まれる連番でソート
       if (a[1].partOrder === b[1].partOrder) {

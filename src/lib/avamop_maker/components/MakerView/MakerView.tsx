@@ -45,9 +45,9 @@ const MakerView: React.FC<MakerViewProps> = ({
       if (ctx) {
         const img = new Image();
         img.onload = () => {
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
           canvas.width = img.width * scale;
           canvas.height = img.height * scale;
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
           ctx.imageSmoothingEnabled = false;
           ctx.drawImage(img, 0, 0, img.width * scale, img.height * scale);
         };
