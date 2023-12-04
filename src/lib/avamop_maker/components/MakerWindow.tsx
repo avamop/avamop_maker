@@ -37,6 +37,21 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
   const [partsObjectJimp, setPartsObjectJimp] =
     useState<PartsObjectJimp | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [viewScale, setViewScale] = useState(windowWidth < 480 ? 1 : 2);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+      setViewScale(windowWidth < 480 ? 1 : 2);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [windowWidth]);
 
   const changeFace = (face: string) => {
     setSelectedFace(face);
@@ -84,7 +99,7 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
             selectedParts={selectedParts}
             partsObjectJimp={partsObjectJimp}
             selectedFace={selectedFace}
-            scale={2}
+            scale={viewScale}
           />
           {/* アバターメーカーの表情メニュー部分 */}
           <MakerFaceMenu
