@@ -1,7 +1,62 @@
 {
-  "eye": "black",
-  "skin": "bisque",
-  "hair": "saddleBrown",
-  "oral": "crimson",
-  "default": "gray"
+  "eye": {
+    "color": "black",
+    "hueShiftReverse": false,
+    "hueGraph": {
+      "globalSlope": 20,
+      "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    "brightnessGraph": {
+      "globalSlope": 20,
+      "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    }
+  },
+  "skin": {
+    "color": "bisque",
+    "hueShiftReverse": false,
+    "hueGraph": {
+      "globalSlope": 20,
+      "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    "brightnessGraph": {
+      "globalSlope": 20,
+      "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    }
+  },
+  "hair": {
+    "color": "saddleBrown",
+    "hueShiftReverse": false,
+    "hueGraph": {
+      "globalSlope": 20,
+      "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    "brightnessGraph": {
+      "globalSlope": 20,
+      "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    }
+  },
+  "oral": {
+    "color": "crimson",
+    "hueShiftReverse": false,
+    "hueGraph": {
+      "globalSlope": 20,
+      "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    "brightnessGraph": {
+      "globalSlope": 20,
+      "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    }
+  },
+  "default": {
+    "color": "gray",
+    "hueShiftReverse": false,
+    "hueGraph": {
+      "globalSlope": 20,
+      "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    "brightnessGraph": {
+      "globalSlope": 20,
+      "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    }
+  }
 }

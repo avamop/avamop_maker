@@ -10,7 +10,7 @@ declare global {
       partChain: string; //複数の画像1つのパーツとしてを扱うための仕組み。白目と瞳など
       partOrder: number; //パーツレイヤーを重ねる順番を表したもの
       ignoreTrigger: null | string[]; //特定のカテゴリーのパーツが選ばれた時に連動するカテゴリーのパーツを外す(Tシャツとワンピースなど)
-      partFlip: boolean;
+      partFlip: null | boolean;
       items: Items; //パーツの画像の一覧のオブジェクト
     };
   }
@@ -19,7 +19,7 @@ declare global {
       partCount: number;
       partChain: string;
       ignoreTrigger: null | string[];
-      partFlip: boolean;
+      partFlip: null | boolean;
       partList: CategorySplit; //同じpartChainを部位ごとに分けたオブジェクト。
     };
   }
@@ -91,25 +91,45 @@ declare global {
   }
 
   interface DefaultColors {
-    [category: string]: string;
+    [colorGroup: string]: SelectedColor;
   }
   interface SelectedParts {
     bodyType: string; //現在選択されているbodyのタイプの数字
     category: {
       [category: string]: SelectedPartsCategory;
     };
+    selectedColor: {
+      [colorGroup: string]: SelectedColor;
+    }; //選択されている色のオブジェクト
   }
 
   interface SelectedPartsCategory {
     partName: string; //パーツの名前
-    partFlip: boolean;
+    colorGroup: string;
+    partFlip: null | boolean;
   }
 
   interface SelectedColor {
-    [colorGroup: string]: {
-      color: string;
-      hueShiftReverse: boolean;
-    };
+    color: string;
+    hueShiftReverse: boolean;
+    hueGraph: ColorGraph;
+  }
+
+  type Append<Elm, T extends unknown[]> = ((
+    arg: Elm,
+    ...rest: T
+  ) => void) extends (...args: infer T2) => void
+    ? T2
+    : never;
+  type AtLeast<N extends number, T> = AtLeastRec<N, T, T[], []>;
+  type AtLeastRec<Num, Elm, T extends unknown[], C extends unknown[]> = {
+    0: T;
+    1: AtLeastRec<Num, Elm, Append<Elm, T>, Append<unknown, C>>;
+  }[C extends { length: Num } ? 0 : 1];
+
+  interface ColorGraph {
+    globalSlope: number;
+    individualSlope: AtLeast<10, number>;
   }
 
   interface SelectedPartsForCanvas {
@@ -117,12 +137,15 @@ declare global {
     category: {
       [category: string]: SelectedPartsForCanvasCategory;
     };
+    selectedColor: {
+      [colorGroup: string]: SelectedColor;
+    };
   }
 
   interface SelectedPartsForCanvasCategory {
     partOrder: number;
     partData: Jimp; //パーツのJimpデータ
-    partFlip: boolean;
+    partFlip: null | boolean;
   }
 
   interface categoryIconObject {
