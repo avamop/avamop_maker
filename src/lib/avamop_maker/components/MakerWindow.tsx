@@ -23,7 +23,10 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
   colorsObject,
   defaultColors,
 }) => {
-  const TmpselectedParts: SelectedParts = MakerSelectedPartsGen(partsObject);
+  const TmpselectedParts: SelectedParts = MakerSelectedPartsGen(
+    partsObject,
+    defaultColors
+  );
   const faceList: string[] = MakerFaceGen(partsObject);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedParts, setSelectedParts] =

@@ -1,8 +1,13 @@
 // パーツ一覧からアバターのステータス、もとい組み合わせオブジェクトを生成する
 export const MakerSelectedPartsGen = (
-  partsObject: PartsObjectSplit
+  partsObject: PartsObjectSplit,
+  defaultColors: DefaultColors
 ): SelectedParts => {
-  const selectedParts: SelectedParts = { bodyType: null, category: {} };
+  const selectedParts: SelectedParts = {
+    bodyType: null,
+    category: {},
+    selectedColor: {},
+  };
   const bodyTypeValue =
     partsObject["body"].partList["body"].items[
       Object.keys(partsObject["body"].partList["body"].items)[0]
@@ -27,17 +32,22 @@ export const MakerSelectedPartsGen = (
       const partName = Object.keys(
         partsObject[category].partList[partSplit].items
       )[0];
+      const colorGroup = partsObject[category].partList[partSplit].colorGroup;
       {
         const selectedPartsCategory = {
           partSplit,
           partName,
           partFlip: false,
+          colorGroup,
         };
         selectedParts.category[
           partCount === 1 ? category : `${category}_${i + 1}`
         ] = selectedPartsCategory;
       }
     }
+  }
+  for (const colorGroup in defaultColors) {
+    selectedParts.selectedColor[colorGroup] = defaultColors[colorGroup];
   }
   return selectedParts;
 };

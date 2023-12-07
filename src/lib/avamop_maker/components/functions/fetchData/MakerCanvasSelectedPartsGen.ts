@@ -7,6 +7,7 @@ export const MakerCanvasSelectedPartsGen = (
   const selectedPartsForCanvas: SelectedPartsForCanvas = {
     bodyType: selectedParts.bodyType,
     category: {},
+    selectedColor: {},
   };
   const tmpselectedPartsForCanvas: {
     [category: string]: SelectedPartsForCanvasCategory;
