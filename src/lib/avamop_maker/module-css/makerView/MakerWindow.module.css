@@ -1,11 +1,5 @@
 
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: #007BFF;
-  }
+
   
   .loading {
     font-size: 2em;
@@ -13,7 +7,10 @@
   }
 
   .avatar-img-all{
-    background-color: #888;
+   
+    background-color: papayawhip;
+    
+    
   }
   
   button {
@@ -29,4 +26,11 @@
   
   button:hover {
     background-color: green;
+  }
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #007BFF;
   }

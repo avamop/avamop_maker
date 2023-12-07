@@ -1,4 +1,5 @@
 import MakerWindow from "./components/MakerWindow";
+import styles from "./module-css/makerMenu/AvamopMaker.module.css"
 
 interface AvamopMakerProps {
   path: string;
@@ -17,14 +18,18 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
 }) => {
   return (
     <>
+    <div className={styles['Makerwindow']}>
       {/*アバターメーカーの枠*/}
+      
       <MakerWindow
         path={path}
         partsObject={partsObject}
+        
         categoryIconObject={categoryIconObject}
         colorsObject={colorsObject}
         defaultColors={defaultColors}
       />{" "}
+      </div>
     </>
   );
 };
