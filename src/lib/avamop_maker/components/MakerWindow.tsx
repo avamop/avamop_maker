@@ -98,6 +98,7 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
           />
           </div>
           {/* アバターメーカーのパーツメニュー部分 */}
+          <div className={styles['avatar-img-part']}>
           <MakerPartsMenu
             isLoading={isLoading}
             categoryIconObject={categoryIcon}
@@ -108,6 +109,7 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
             selectedParts={selectedParts}
             setSelectedParts={setSelectedParts}
           />
+          </div>
         </>
       )}
       {/* オブジェクト変化テスト用ボタン */}

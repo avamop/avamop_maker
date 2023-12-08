@@ -1,5 +1,7 @@
 .face-menu{
   display: flex;
+  margin:  auto;
   list-style: none;
+  background-color: papayawhip;
 
 }

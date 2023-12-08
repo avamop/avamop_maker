@@ -1,9 +1,19 @@
 .maker-face-button {
     list-style: none;
+    color:white;
+    text-align: center;
+    margin:  0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+    font-size: 20px;
+    border-radius: 20px;
+    padding: 20px;
     cursor: pointer;
     display: inline-block; 
-    background-color:rgb(209, 209, 209,0.5);
-    margin: 20px;
+    background-color:orangered;
+    
+   
   }
   
 .maker-face-button:hover {

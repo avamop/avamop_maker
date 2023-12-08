@@ -4,6 +4,7 @@ import type { Jimp } from "jimp/browser/lib/jimp";
 import { MakerCanvasSelectedPartsGen } from "../functions/fetchData/MakerCanvasSelectedPartsGen";
 import { MakerLayerCombineParts } from "../functions/imageProcess/MakerLayerCombineParts";
 import { MakerConvertBase64 } from "../functions/imageProcess/MakerConvertBase64";
+import styles from '../../module-css/makerView/MakerView.module.css'
 
 interface MakerViewProps {
   selectedParts: SelectedParts;
@@ -57,7 +58,9 @@ const MakerView: React.FC<MakerViewProps> = ({
   }, [canvasImage]);
   return (
     <>
-      <canvas ref={canvasRef}></canvas> {/*アバター画像を表示する場所*/}
+
+      <canvas ref={canvasRef} className={styles['Canvas']}  ></canvas> {/*アバター画像を表示する場所*/}
+
     </>
   );
 };
