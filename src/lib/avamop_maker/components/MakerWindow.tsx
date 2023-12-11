@@ -91,7 +91,6 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
         <div>Loading...</div>
       ) : (
         <>
-        <MakerColorsMenu colorsObject={colorsObject} />
           {/* アバターメーカーのアバター表示部分 */}
           <div className={styles['avatar-img-all']}>
             <MakerView
@@ -109,6 +108,7 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
             changeFace={changeFace}
           />
           </div>
+        <MakerColorsMenu colorsObject={colorsObject} />
           {/* アバターメーカーのパーツメニュー部分 */}
           <div className={styles['avatar-img-part']}>
           <MakerPartsMenu
