@@ -18,13 +18,11 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
 }) => {
   return (
     <>
-    <div className={styles['Makerwindow']}>
       {/*アバターメーカーの枠*/}
-      
+      <div className={styles['Makerwindow']}>
       <MakerWindow
         path={path}
         partsObject={partsObject}
-        
         categoryIconObject={categoryIconObject}
         colorsObject={colorsObject}
         defaultColors={defaultColors}

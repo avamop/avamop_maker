@@ -113,7 +113,7 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
         </>
       )}
       {/* オブジェクト変化テスト用ボタン */}
-      <button onClick={() => console.log("%o", selectedParts)}>button</button>
+      <button className={styles['bottom-botton']} onClick={() => console.log("%o", selectedParts)}>button</button>
     </div>
   );
 };

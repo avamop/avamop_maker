@@ -1,1 +1,21 @@
-.colorlist{display:none; }
+.colorlist {
+    /* ボタンの背景色をcolor属性の値にする */
+    background-color: attr(color);
+   
+    /* ボタンの文字色を白にする */
+    color: white;
+    /* ボタンのサイズや余白などを適宜調整する */
+    width: 50px; /* ボタンの幅を小さくする */
+    height: 50px; /* ボタンの高さを小さくする */
+    margin: 10px;
+    padding: 10px;
+    border-radius: 50%; /* ボタンを丸くする */
+    /* ボタンにカーソルを合わせたときのスタイルを設定する */
+    &:hover {
+      /* ボタンの色を少し暗くする */
+      filter: brightness(80%);
+      /* ボタンのカーソルをポインターにする */
+      cursor: pointer;
+    }
+}
+  p {display: none;}

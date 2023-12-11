@@ -15,7 +15,7 @@
     background-color: aquamarine;
   }
   
-  button {
+  .bottom-botton {
     margin-top: 20px;
     padding: 10px 20px;
     font-size: 1em;
@@ -24,11 +24,12 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-  }
   
-  button:hover {
+  
+  &:hover  {
     background-color: green;
   }
+}
   .container {
     display: flex;
     justify-content: center;
