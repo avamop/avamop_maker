@@ -1,5 +1,4 @@
 import React from "react";
-import { Swiper, SwiperSlide } from 'swiper/react'
 import styles from '../../module-css/makerMenu/MakerColorsButton.module.css'
 import 'swiper/css';
 

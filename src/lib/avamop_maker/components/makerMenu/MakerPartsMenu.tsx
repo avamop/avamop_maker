@@ -4,7 +4,6 @@ import MakerPartsCategories from "./MakerPartsCategories";
 import { MakerChangingPart } from "../functions/fetchData/MakerChangingPart";
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Styles from '../../module-css/makerMenu/MakerPartsMenu.module.css'
-import 'swiper/css'
 interface MakerPartsMenuProps {
   selectedCategory: string | null;
   selectedFace: string;
