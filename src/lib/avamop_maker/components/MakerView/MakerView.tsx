@@ -5,8 +5,9 @@ import { MakerCanvasSelectedPartsGen } from "../functions/fetchData/MakerCanvasS
 import { MakerLayerCombineParts } from "../functions/imageProcess/MakerLayerCombineParts";
 import { MakerConvertBase64 } from "../functions/imageProcess/MakerConvertBase64";
 import styles from '../../module-css/makerView/MakerView.module.css'
-
 interface MakerViewProps {
+  canvasImage: string | null;
+  setCanvasImage: React.Dispatch<React.SetStateAction<string | null>>;
   selectedParts: SelectedParts;
   partsObjectJimp: PartsObjectJimp;
   selectedFace: string;
@@ -14,12 +15,13 @@ interface MakerViewProps {
 }
 
 const MakerView: React.FC<MakerViewProps> = ({
+  canvasImage,
+  setCanvasImage,
   selectedParts,
   partsObjectJimp,
   selectedFace,
   scale,
 }) => {
-  const [canvasImage, setCanvasImage] = useState<string | null>(null);
   const canvasRef = useRef(null);
   useEffect(() => {
     const imageGen = async () => {

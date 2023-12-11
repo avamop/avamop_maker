@@ -18,7 +18,6 @@ interface MakerMenuProps {
   colorsObject: ColorsObject;
   defaultColors: DefaultColors;
 }
-
 const MakerWindow: React.FC<MakerMenuProps> = ({
   path,
   partsObject,
@@ -26,6 +25,13 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
   colorsObject,
   defaultColors,
 }) => {
+  const [canvasImage, setCanvasImage] = useState(null);
+  const saveImage = (data: string, filename: string) => {
+    const link = document.createElement("a");
+    link.href = data;
+    link.download = filename;
+    link.click();
+  };
   const TmpselectedParts: SelectedParts = MakerSelectedPartsGen(partsObject);
   const faceList: string[] = MakerFaceGen(partsObject);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -47,6 +53,10 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
 
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category === selectedCategory ? null : category);
+  };
+
+  const handleClick = () => {
+    saveImage(canvasImage, 'image.png');
   };
 
   useEffect(() => {
@@ -85,6 +95,8 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
           {/* アバターメーカーのアバター表示部分 */}
           <div className={styles['avatar-img-all']}>
             <MakerView
+            canvasImage={canvasImage}
+            setCanvasImage={setCanvasImage}
             selectedParts={selectedParts}
             partsObjectJimp={partsObjectJimp}
             selectedFace={selectedFace}
@@ -113,7 +125,7 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
         </>
       )}
       {/* オブジェクト変化テスト用ボタン */}
-      <button onClick={() => console.log("%o", selectedParts)}>button</button>
+          <button onClick = { handleClick }>button</button>
     </div>
   );
 };
