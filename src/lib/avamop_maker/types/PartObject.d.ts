@@ -6,12 +6,12 @@ declare global {
     //変換前のパーツのパス格納オブジェクト
     //目や鼻などの部位
     [category: "body" | string]: {
-      colorGroup: string; // デフォルトの色を決めるパーツの系統
+      colorGroup: null | string; // デフォルトの色を決めるパーツの系統
       partCount: number; //同じ部位のパーツを何個まで重ねがけ出来るか、帽子やメガネやアホ毛といったパーツに使用
       partChain: string; //複数の画像1つのパーツとしてを扱うための仕組み。白目と瞳など
       partOrder: number; //パーツレイヤーを重ねる順番を表したもの
       ignoreTrigger: null | string[]; //特定のカテゴリーのパーツが選ばれた時に連動するカテゴリーのパーツを外す(Tシャツとワンピースなど)
-      partFlip: null | boolean;
+      partFlip: boolean; //パーツの左右反転の可否
       items: Items; //パーツの画像の一覧のオブジェクト
     };
   }
@@ -21,7 +21,7 @@ declare global {
       partCount: number;
       partChain: string;
       ignoreTrigger: null | string[];
-      partFlip: null | boolean;
+      partFlip: boolean;
       partList: CategorySplit; //同じpartChainを部位ごとに分けたオブジェクト。
     };
   }
@@ -30,7 +30,7 @@ declare global {
     //パーツのパス格納オブジェクトのカテゴリ部
     [partSplit: "body" | string]: {
       //partChainの値が入る。一つのパーツを複数の画像で賄う際のくくりつけたもの
-      colorGroup: string;
+      colorGroup: null | string;
       partOrder: number; //同じpartChainを部位ごとに分けたオブジェクト。
       items: Items; //パーツの画像の一覧のオブジェクト。SplitではpartChain→partSplitでくくりつけたことで扱いやすくなっている
     };
@@ -75,7 +75,7 @@ declare global {
   interface SelectedPartsCategory {
     //SelectedPartsのカテゴリ部
     partName: string; //パーツの名前
-    colorGroup: string;
+    colorGroup: null | string;
     partFlip: null | boolean;
   }
 
@@ -177,7 +177,7 @@ declare global {
 
   interface CategoryJimp {
     [partSplit: "body" | string]: {
-      colorGroup: string;
+      colorGroup: null | string;
       partOrder: number;
       items: ItemsJimp;
     };

@@ -1,6 +1,7 @@
 {
   "eye": {
     "color": "black",
+    "chain": false,
     "hueShiftReverse": false,
     "hueGraph": {
       "globalSlope": 20,
@@ -13,6 +14,7 @@
   },
   "skin": {
     "color": "bisque",
+    "chain": true,
     "hueShiftReverse": false,
     "hueGraph": {
       "globalSlope": 20,
@@ -25,6 +27,7 @@
   },
   "hair": {
     "color": "saddleBrown",
+    "chain": false,
     "hueShiftReverse": false,
     "hueGraph": {
       "globalSlope": 20,
@@ -37,6 +40,7 @@
   },
   "oral": {
     "color": "crimson",
+    "chain": true,
     "hueShiftReverse": false,
     "hueGraph": {
       "globalSlope": 20,
@@ -47,8 +51,9 @@
       "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     }
   },
-  "default": {
+  "none": {
     "color": "gray",
+    "chain": false,
     "hueShiftReverse": false,
     "hueGraph": {
       "globalSlope": 20,
