@@ -125,7 +125,7 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
         </>
       )}
       {/* オブジェクト変化テスト用ボタン */}
-          <button onClick = { handleClick }>button</button>
+          <button className={styles['bottom-botton']} onClick = { handleClick }>Download</button>
     </div>
   );
 };

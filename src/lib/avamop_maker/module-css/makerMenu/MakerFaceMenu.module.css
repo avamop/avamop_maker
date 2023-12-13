@@ -1,7 +1,9 @@
 .face-menu{
   display: flex;
+  justify-content: center;
   margin:  auto;
   list-style: none;
   background-color: papayawhip;
+  padding-inline-start: 10px;
 
 }
