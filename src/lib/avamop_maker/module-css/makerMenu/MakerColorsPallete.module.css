@@ -1,3 +1,17 @@
+.swiper-color-image{
+  margin-left: 5px;
+}
+
+.color-show-button{
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+  }
+
 .scroll-bar-swiper{
     display: flex;
 }

@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import MakerFaceButton from "./MakerFaceButton";
 import styles from "../../module-css/makerMenu/MakerFaceMenu.module.css"; // CSSファイルをインポート
-
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 interface MakerFaceMenuProps {
   faceList: string[];
@@ -15,9 +15,24 @@ const MakerFaceMenu: React.FC<MakerFaceMenuProps> = ({
   changeFace,
   // faceImages
 }) => {
+  const [showSwiper, setShowSwiper] = useState(false);
   return (
+    <>
+    <button className={styles["face-show-button"]} onClick={() => setShowSwiper(!showSwiper)}>
+      {showSwiper ? <img className={styles["swiper-color-image"]} src="../../../../../examples/assets/provisionals/provisionalclose.png" alt="Hide Face" />
+          : <img className={styles["swiper-color-image"]} src="../../../../../examples/assets/provisionals/provisionalopen.png" alt="Show Face" />}
+    </button>
+    {showSwiper && (
+      <Swiper
+        className={styles['scroll-bar-swiper']}
+        slidesPerView='auto'
+        freeMode={true}
+        grabCursor={true}
+        spaceBetween={10}
+      >
     <ul className={styles['face-menu']}>
       {faceList.map((face) => (
+        <SwiperSlide key={face} style={{ width: '180px' }}>
         <MakerFaceButton
           key={face}
           face={face}
@@ -25,8 +40,12 @@ const MakerFaceMenu: React.FC<MakerFaceMenuProps> = ({
           // faceImages= {faceImages[face]}
           onClick={() => changeFace(face)}
         />
+        </SwiperSlide>
       ))}
     </ul>
+  </Swiper>
+  )}
+  </>
   );
 };
 export default React.memo(MakerFaceMenu);
