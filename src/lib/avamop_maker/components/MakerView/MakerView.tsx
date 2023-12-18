@@ -12,13 +12,13 @@ const MakerView: React.FC = ({}) => {
   const { selectedPartsForCanvas, setSelectedPartsForCanvas } = useContext(
     SelectedPartsForCanvasContext
   );
-  const [canvasImage, setCanvasImage] = useState<string[] | null>(null);
+  const [canvasImage, setCanvasImage] = useState<Jimp[] | null>(null);
   const viewScale = useContext(ViewScaleContext);
   const canvasRef = useRef(null);
 
   useEffect(() => {
     const imageGen = async () => {
-      const tmpCanvasImage: string[] = await MakerLayerCombineParts(
+      const tmpCanvasImage: Jimp[] = await MakerLayerCombineParts(
         selectedPartsForCanvas
       );
       setCanvasImage(tmpCanvasImage);
@@ -27,45 +27,48 @@ const MakerView: React.FC = ({}) => {
   }, [selectedPartsForCanvas]);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    const context = canvas.getContext("2d");
+    const canvasGen = async () => {
+      const canvas = canvasRef.current;
+      const context = canvas.getContext("2d");
 
-    // キャンバスをクリア
-    context.clearRect(0, 0, canvas.width, canvas.height);
+      // キャンバスをクリア
+      context.clearRect(0, 0, canvas.width, canvas.height);
 
-    // 画像をレイヤーとして追加
-    if (canvasImage) {
-      // すべての画像が読み込まれるのを待つ
-      Promise.all(
-        canvasImage.map((image) => {
-          return new Promise((resolve) => {
-            const img = new Image();
-            img.src = image;
-            img.onload = () => {
-              resolve({ img, image });
-            };
+      // 画像をレイヤーとして追加
+      if (canvasImage) {
+        // すべての画像が読み込まれるのを待つ
+        Promise.all(
+          canvasImage.map((image) => {
+            return new Promise(async (resolve) => {
+              const img = new Image();
+              img.src = await MakerConvertBase64(image);
+              img.onload = () => {
+                resolve({ img, image });
+              };
+            });
+          })
+        ).then((images: any[]) => {
+          // キャンバスのサイズを設定
+          const firstImage = images[0].img;
+          canvas.width = firstImage.width * viewScale;
+          canvas.height = firstImage.height * viewScale;
+
+          // 画像をレイヤーとして追加
+          images.forEach(({ img }) => {
+            context.globalCompositeOperation = "source-over";
+            context.imageSmoothingEnabled = false;
+            context.drawImage(
+              img,
+              0,
+              0,
+              img.width * viewScale,
+              img.height * viewScale
+            );
           });
-        })
-      ).then((images: any[]) => {
-        // キャンバスのサイズを設定
-        const firstImage = images[0].img;
-        canvas.width = firstImage.width * viewScale;
-        canvas.height = firstImage.height * viewScale;
-
-        // 画像をレイヤーとして追加
-        images.forEach(({ img }) => {
-          context.globalCompositeOperation = "source-over";
-          context.imageSmoothingEnabled = false;
-          context.drawImage(
-            img,
-            0,
-            0,
-            img.width * viewScale,
-            img.height * viewScale
-          );
         });
-      });
-    }
+      }
+    };
+    canvasGen();
   }, [canvasImage, viewScale]);
 
   return (
