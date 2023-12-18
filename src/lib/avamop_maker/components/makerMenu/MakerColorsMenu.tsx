@@ -1,14 +1,10 @@
 import React from "react";
 import MakerColorsPalleteMenu from "./MakerColorsPalleteMenu";
 
-interface MakerColorsMenuProps {
-  colorsObject: ColorsObject;
-}
-
-const MakerColorsMenu: React.FC<MakerColorsMenuProps> = ({ colorsObject }) => {
+const MakerColorsMenu: React.FC = () => {
   return (
     <>
-      <MakerColorsPalleteMenu colorsObject={colorsObject} />
+      <MakerColorsPalleteMenu />
     </>
   );
 };

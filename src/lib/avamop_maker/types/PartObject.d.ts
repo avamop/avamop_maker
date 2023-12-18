@@ -63,19 +63,22 @@ declare global {
   }
   interface SelectedParts {
     //アバターの組み合わせデータのオブジェクト
-    bodyType: string; //現在選択されているbodyのタイプの数字
+    bodyType: string;
+    face: string; //現在選択されているbodyのタイプの数字
     category: {
       [category: string]: SelectedPartsCategory;
     };
     selectedColor: {
       [colorGroup: string]: SelectedColor;
     }; //選択されている色のオブジェクト
+    selectedFace: {
+      [category: string]: string;
+    };
   }
 
   interface SelectedPartsCategory {
     //SelectedPartsのカテゴリ部
     partName: string; //パーツの名前
-    colorGroup: null | string;
     partFlip: null | boolean;
   }
 
@@ -85,6 +88,33 @@ declare global {
     hueShiftReverse: boolean;
     hueGraph: ColorGraph;
     brightnessGraph: ColorGraph;
+  }
+
+  interface SelectedPartsForCanvas {
+    bodyType: string;
+    face: string;
+    category: SelectedPartsForCanvasCategory;
+    selectedColor: {
+      [colorGroup: string]: SelectedColor;
+    };
+    selectedFace: {
+      [category: string]: string;
+    };
+  }
+
+  interface SelectedPartsForCanvasCategory {
+    [category: string]: {
+      partSplit: SelectedPartsForCanvasSplit;
+      partFlip: null | boolean;
+    };
+  }
+
+  interface SelectedPartsForCanvasSplit {
+    [partSplit: string]: {
+      colorGroup: null | string;
+      partOrder: number;
+      partData: Jimp; //パーツのJimpデータ
+    };
   }
 
   type Append<Elm, T extends unknown[]> = ((
@@ -143,28 +173,10 @@ declare global {
     };
   }
 
-  interface SelectedPartsForCanvas {
-    bodyType: string;
-    category: {
-      [category: string]: SelectedPartsForCanvasCategory;
-    };
-    selectedColor: {
-      [colorGroup: string]: SelectedColor;
-    };
+  interface faceTree {
+    face: string;
+    children: faceTree[];
   }
-
-  interface SelectedPartsForCanvasCategory {
-    partOrder: number;
-    partData: Jimp; //パーツのJimpデータ
-    partFlip: null | boolean;
-  }
-
-  interface categoryIconObject {
-    [category: string]: {
-      imagePath: string;
-    };
-  }
-
   //partsObjectのパスをJimpデータに置き換えたオブジェクト
   interface PartsObjectJimp {
     [category: "body" | string]: {

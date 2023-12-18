@@ -1,13 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import MakerColorsButton from "./MakerColorsButton";
+import ColorsObjectContext from "../../store/ColorsObjectContext";
 
-interface MakerColorsPalleteMenuProps {
-  colorsObject: ColorsObject;
-}
-
-const MakerColorsPalleteMenu: React.FC<MakerColorsPalleteMenuProps> = ({
-  colorsObject,
-}) => {
+const MakerColorsPalleteMenu: React.FC = ({}) => {
+  const colorsObject = useContext(ColorsObjectContext);
   return (
     <>
       <ul>

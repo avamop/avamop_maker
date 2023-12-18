@@ -12,7 +12,7 @@
         "colorGroup": null,
         "partOrder": 39,
         "items": {
-          "femaleSimpleTShirt": {
+          "femaleSimpleDress": {
             "bodyType": [
               "female"
             ],
@@ -236,7 +236,7 @@
     "partList": {
       "ear": {
         "colorGroup": "skin",
-        "partOrder": 7,
+        "partOrder": 47,
         "items": {
           "elf": {
             "bodyType": null,
@@ -261,14 +261,14 @@
     }
   },
   "eyes": {
-    "partCount": 60,
+    "partCount": 1,
     "partChain": "eyes",
     "ignoreTrigger": null,
     "partFlip": false,
     "partList": {
       "eyeLeftEyeWhite": {
         "colorGroup": null,
-        "partOrder": 8,
+        "partOrder": 60,
         "items": {
           "keen": {
             "bodyType": null,
@@ -277,8 +277,8 @@
               "clear": {
                 "imagePath": "eyeLeftEyeWhite/keen/clear.png"
               },
-              "smile": {
-                "imagePath": "eyeLeftEyeWhite/keen/smile.png"
+              "smileOpen": {
+                "imagePath": "eyeLeftEyeWhite/keen/smileOpen.png"
               }
             }
           },
@@ -289,8 +289,8 @@
               "clear": {
                 "imagePath": "eyeLeftEyeWhite/round/clear.png"
               },
-              "smile": {
-                "imagePath": "eyeLeftEyeWhite/round/smile.png"
+              "smileOpen": {
+                "imagePath": "eyeLeftEyeWhite/round/smileOpen.png"
               }
             }
           }
@@ -307,11 +307,11 @@
               "clear": {
                 "imagePath": "eyeLeftEyelash/keen/clear.png"
               },
-              "laugh": {
-                "imagePath": "eyeLeftEyelash/keen/laugh.png"
-              },
               "smile": {
                 "imagePath": "eyeLeftEyelash/keen/smile.png"
+              },
+              "smileOpen": {
+                "imagePath": "eyeLeftEyelash/keen/smileOpen.png"
               }
             }
           },
@@ -322,11 +322,11 @@
               "clear": {
                 "imagePath": "eyeLeftEyelash/round/clear.png"
               },
-              "laugh": {
-                "imagePath": "eyeLeftEyelash/round/laugh.png"
-              },
               "smile": {
                 "imagePath": "eyeLeftEyelash/round/smile.png"
+              },
+              "smileOpen": {
+                "imagePath": "eyeLeftEyelash/round/smileOpen.png"
               }
             }
           }
@@ -343,8 +343,8 @@
               "clear": {
                 "imagePath": "eyeLeftHighright/keen/clear.png"
               },
-              "smile": {
-                "imagePath": "eyeLeftHighright/keen/smile.png"
+              "smileOpen": {
+                "imagePath": "eyeLeftHighright/keen/smileOpen.png"
               }
             }
           },
@@ -355,8 +355,8 @@
               "clear": {
                 "imagePath": "eyeLeftHighright/round/clear.png"
               },
-              "smile": {
-                "imagePath": "eyeLeftHighright/round/smile.png"
+              "smileOpen": {
+                "imagePath": "eyeLeftHighright/round/smileOpen.png"
               }
             }
           }
@@ -373,8 +373,8 @@
               "clear": {
                 "imagePath": "eyeLeftPupil/keen/clear.png"
               },
-              "smile": {
-                "imagePath": "eyeLeftPupil/keen/smile.png"
+              "smileOpen": {
+                "imagePath": "eyeLeftPupil/keen/smileOpen.png"
               }
             }
           },
@@ -385,8 +385,8 @@
               "clear": {
                 "imagePath": "eyeLeftPupil/round/clear.png"
               },
-              "smile": {
-                "imagePath": "eyeLeftPupil/round/smile.png"
+              "smileOpen": {
+                "imagePath": "eyeLeftPupil/round/smileOpen.png"
               }
             }
           }
@@ -403,8 +403,8 @@
               "clear": {
                 "imagePath": "eyeRightEyeWhite/keen/clear.png"
               },
-              "smile": {
-                "imagePath": "eyeRightEyeWhite/keen/smile.png"
+              "smileOpen": {
+                "imagePath": "eyeRightEyeWhite/keen/smileOpen.png"
               }
             }
           },
@@ -415,8 +415,8 @@
               "clear": {
                 "imagePath": "eyeRightEyeWhite/round/clear.png"
               },
-              "smile": {
-                "imagePath": "eyeRightEyeWhite/round/smile.png"
+              "smileOpen": {
+                "imagePath": "eyeRightEyeWhite/round/smileOpen.png"
               }
             }
           }
@@ -433,11 +433,11 @@
               "clear": {
                 "imagePath": "eyeRightEyelash/keen/clear.png"
               },
-              "laugh": {
-                "imagePath": "eyeRightEyelash/keen/laugh.png"
-              },
               "smile": {
                 "imagePath": "eyeRightEyelash/keen/smile.png"
+              },
+              "smileOpen": {
+                "imagePath": "eyeRightEyelash/keen/smileOpen.png"
               }
             }
           },
@@ -448,11 +448,11 @@
               "clear": {
                 "imagePath": "eyeRightEyelash/round/clear.png"
               },
-              "laugh": {
-                "imagePath": "eyeRightEyelash/round/laugh.png"
-              },
               "smile": {
                 "imagePath": "eyeRightEyelash/round/smile.png"
+              },
+              "smileOpen": {
+                "imagePath": "eyeRightEyelash/round/smileOpen.png"
               }
             }
           }
@@ -469,8 +469,8 @@
               "clear": {
                 "imagePath": "eyeRightHighright/keen/clear.png"
               },
-              "smile": {
-                "imagePath": "eyeRightHighright/keen/smile.png"
+              "smileOpen": {
+                "imagePath": "eyeRightHighright/keen/smileOpen.png"
               }
             }
           },
@@ -481,8 +481,8 @@
               "clear": {
                 "imagePath": "eyeRightHighright/round/clear.png"
               },
-              "smile": {
-                "imagePath": "eyeRightHighright/round/smile.png"
+              "smileOpen": {
+                "imagePath": "eyeRightHighright/round/smileOpen.png"
               }
             }
           }
@@ -499,8 +499,8 @@
               "clear": {
                 "imagePath": "eyeRightPupil/keen/clear.png"
               },
-              "smile": {
-                "imagePath": "eyeRightPupil/keen/smile.png"
+              "smileOpen": {
+                "imagePath": "eyeRightPupil/keen/smileOpen.png"
               }
             }
           },
@@ -511,8 +511,8 @@
               "clear": {
                 "imagePath": "eyeRightPupil/round/clear.png"
               },
-              "smile": {
-                "imagePath": "eyeRightPupil/round/smile.png"
+              "smileOpen": {
+                "imagePath": "eyeRightPupil/round/smileOpen.png"
               }
             }
           }
@@ -666,8 +666,8 @@
               "clear": {
                 "imagePath": "mouthLips/lips/clear.png"
               },
-              "laugh": {
-                "imagePath": "mouthLips/lips/laugh.png"
+              "smileOpen": {
+                "imagePath": "mouthLips/lips/smileOpen.png"
               },
               "smile": {
                 "imagePath": "mouthLips/lips/smile.png"
@@ -696,8 +696,8 @@
               "clear": {
                 "imagePath": ""
               },
-              "laugh": {
-                "imagePath": "mouthOral/lips/laugh.png"
+              "smileOpen": {
+                "imagePath": "mouthOral/lips/smileOpen.png"
               }
             }
           },
@@ -708,8 +708,8 @@
               "clear": {
                 "imagePath": ""
               },
-              "laugh": {
-                "imagePath": "mouthOral/standard/laugh.png"
+              "smileOpen": {
+                "imagePath": "mouthOral/standard/smileOpen.png"
               }
             }
           }
@@ -753,8 +753,8 @@
               "clear": {
                 "imagePath": ""
               },
-              "laugh": {
-                "imagePath": "mouthTeeth/lips/laugh.png"
+              "smileOpen": {
+                "imagePath": "mouthTeeth/lips/smileOpen.png"
               }
             }
           },
@@ -765,8 +765,8 @@
               "clear": {
                 "imagePath": ""
               },
-              "laugh": {
-                "imagePath": "mouthTeeth/standard/laugh.png"
+              "smileOpen": {
+                "imagePath": "mouthTeeth/standard/smileOpen.png"
               }
             }
           }
