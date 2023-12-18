@@ -1,3 +1,17 @@
+.swiper-color-image{
+  margin-left: 5px;
+}
+
+.face-show-button{
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
 .face-menu{
   display: flex;
   margin:  auto;
@@ -5,4 +19,14 @@
   padding-inline-start: 0;
   background-color: papayawhip;
 
+}
+
+.face-menu {
+  position: absolute;
+  top: 20%;
+
+  @media screen and (max-width: 300px ), screen and (max-height:300px){
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }

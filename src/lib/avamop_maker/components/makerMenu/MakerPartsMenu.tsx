@@ -27,12 +27,14 @@ const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
   return (
     <>
     <Swiper
-    className={Styles['scroll-bar-swiper']}
-    slidesPerView='auto'
-    freeMode={true}
-    scrollbar={{ draggable: true }}
-  >
-    <ul>
+      direction='vertical'
+      className={Styles['scroll-bar-swiper']}
+      slidesPerView='auto'
+      freeMode={true}
+      scrollbar={{ draggable: true }}
+    >
+    
+    <ul className={Styles['btn-wrapper']}>
         {/* カテゴリーの入ったオブジェクトの中身を展開したものからカテゴリーボタンを生成し、代入している */}
         {Object.keys(selectedParts.category).map((category) => (
           <SwiperSlide key={category} style={{ width: '70px' }}>

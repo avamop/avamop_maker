@@ -25,13 +25,16 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
   colorsObject,
   defaultColors,
 }) => {
+  let imageNumber = 0;
   const [canvasImage, setCanvasImage] = useState(null);
-  const saveImage = (data: string, filename: string) => {
+  const saveImage = (data: string) => {
     const link = document.createElement("a");
     link.href = data;
-    link.download = filename;
+    link.download = `avatar_${imageNumber}.png`; // ファイル名に連番を追加
     link.click();
+    imageNumber++; // 画像を保存した後で連番を増加
   };
+  
   const TmpselectedParts: SelectedParts = MakerSelectedPartsGen(partsObject);
   const faceList: string[] = MakerFaceGen(partsObject);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -56,7 +59,7 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
   };
 
   const handleClick = () => {
-    saveImage(canvasImage, 'image.png');
+    saveImage(canvasImage);
   };
 
   useEffect(() => {
@@ -85,49 +88,41 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
   }, []); // 空の依存リストを指定して初回のみ実行されるように
 
   return (
-    <div>
-      {/* 画像データのロードが終わったら中身を表示する */}
-      {isLoading && !partsObjectJimp && !menuPartIcons ? (
-        <div>Loading...</div>
+    <div style={{ display: 'flex' }}>
+      <MakerFaceMenu
+        faceList={faceList}
+        isLoading={isLoading}
+        changeFace={changeFace}
+      />
+     
+      {isLoading && !partsObjectJimp && !menuPartIcons ? ( 
+         <div>Loading...</div>
       ) : (
         <>
-          {/* アバターメーカーのアバター表示部分 */}
-          <div className={styles['avatar-img-all']}>
-            <MakerView
-            canvasImage={canvasImage}
-            setCanvasImage={setCanvasImage}
-            selectedParts={selectedParts}
-            partsObjectJimp={partsObjectJimp}
-            selectedFace={selectedFace}
-            scale={2}
-          />
-          {/* アバターメーカーの表情メニュー部分 */}
-          <MakerFaceMenu
-            faceList={faceList}
-            isLoading={isLoading}
-            changeFace={changeFace}
-          />
-          </div>
-        <MakerColorsMenu colorsObject={colorsObject} />
-          {/* アバターメーカーのパーツメニュー部分 */}
+        
           <div className={styles['avatar-img-part']}>
-          <MakerPartsMenu
-            isLoading={isLoading}
-            categoryIconObject={categoryIcon}
-            selectedCategory={selectedCategory}
-            selectedFace={selectedFace}
-            handleCategoryClick={handleCategoryClick}
-            menuPartIcons={menuPartIcons}
-            selectedParts={selectedParts}
-            setSelectedParts={setSelectedParts}
-          />
+            <MakerPartsMenu
+              isLoading={isLoading}
+              categoryIconObject={categoryIcon}
+              selectedCategory={selectedCategory}
+              selectedFace={selectedFace}
+              handleCategoryClick={handleCategoryClick}
+              menuPartIcons={menuPartIcons}
+              selectedParts={selectedParts}
+              setSelectedParts={setSelectedParts}
+            />
           </div>
+          <div>
+          <MakerColorsMenu colorsObject={colorsObject} />
+      <button className={styles['bottom-botton']} onClick={handleClick}>Download</button>
+    </div>
+          
         </>
       )}
       {/* オブジェクト変化テスト用ボタン */}
-          <button className={styles['bottom-botton']} onClick = { handleClick }>Download</button>
+          <button onClick = { handleClick }>button</button>
     </div>
   );
-};
-
+      }  
+          
 export default React.memo(MakerWindow);
