@@ -4,7 +4,7 @@ import { MakerConvertBase64 } from "./MakerConvertBase64";
 
 export const MakerLayerCombineParts = async (
   selectedPartsForCanvas: SelectedPartsForCanvas
-): Promise<string[]> => {
+): Promise<Jimp[]> => {
   type Orders = {
     category: string;
     partSplit: string;
@@ -34,11 +34,11 @@ export const MakerLayerCombineParts = async (
   // console.log(sortedParts);
   // 最初の画像をベースにする
 
-  const imageArray: string[] = [];
+  const imageArray: Jimp[] = [];
 
   // 残りの画像を合成
   for (let i = 0; i < sortedParts.length; i++) {
-    imageArray.push(await MakerConvertBase64(sortedParts[i].partData));
+    imageArray.push(sortedParts[i].partData);
   }
   return imageArray;
 };
