@@ -17,12 +17,13 @@ const MakerColorsPalleteMenu: React.FC<MakerColorsPalleteMenuProps> = ({
     <button onClick={() => setShowSwiper(!showSwiper)}>
       {showSwiper ? 'Hide Color' : 'Show Color'}
     </button>
+ 
     {showSwiper && (
       <Swiper
         className={styles['scroll-bar-swiper']}
         slidesPerView='auto'
         freeMode={true}
-        scrollbar={{ draggable: true }}
+        spaceBetween={0}
       >
         <ul>
           {Object.keys(colorsObject).map((colorName) => (

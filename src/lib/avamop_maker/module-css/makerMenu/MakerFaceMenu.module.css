@@ -1,7 +1,23 @@
+.swiper-face-image{
+  width: 50px;
+  height: 50px;
+  margin-left: 5px;
+}
+
+.face-show-button{
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
 .face-menu{
   display: flex;
-  margin:  auto;
+  justify-content: center;
   list-style: none;
+  padding-inline-start: 0;
   background-color: papayawhip;
-
 }

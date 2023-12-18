@@ -1,22 +1,16 @@
+.loading {
+  font-size: 2em;
+  color: #888;
+}
 
-
+.avatar-img-all{
+  background-color: papayawhip;
+}
   
-  .loading {
-    font-size: 2em;
-    color: #888;
-  }
-
-  .avatar-img-all{
-   
-    background-color: papayawhip;
-    
-  }
-  .avatar-img-partt{
-    background-color: aquamarine;
-  }
-  
-  .bottom-botton {
+  .bottom-button {
     margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 5px;
     padding: 10px 20px;
     font-size: 1em;
     color: #fff;
@@ -24,7 +18,7 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-  
+    
   
   &:hover  {
     background-color: green;
@@ -36,4 +30,20 @@
     align-items: center;
     flex-direction: column;
     background-color: #007BFF;
+  }
+
+  @media (min-width:1000px){
+
+    .all-object-container {
+      display: flex;
+    }
+    
+    .all-object-container > div {
+      flex: 0 0 auto;
+      display: block;
+    }
+    .option-menu-group{
+      min-width: 100vh;
+      max-width: 100vh;
+    }
   }

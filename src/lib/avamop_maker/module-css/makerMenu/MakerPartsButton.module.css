@@ -1,7 +1,7 @@
 .parts-button {
   list-style: none;
-  display: flex;
-  
+  display: inline-block;
+  flex-wrap: wrap;
 }
 
 .parts-img {

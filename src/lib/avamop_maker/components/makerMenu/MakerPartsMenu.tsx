@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import MakerPartsButton from "./MakerPartsButton";
 import MakerPartsCategories from "./MakerPartsCategories";
 import { MakerChangingPart } from "../functions/fetchData/MakerChangingPart";
 import { Swiper, SwiperSlide } from 'swiper/react'
-import Styles from '../../module-css/makerMenu/MakerPartsMenu.module.css'
+import styles from '../../module-css/makerMenu/MakerPartsMenu.module.css'
 interface MakerPartsMenuProps {
   selectedCategory: string | null;
   selectedFace: string;
@@ -23,7 +23,13 @@ const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
   setSelectedParts,
   menuPartIcons,
 }) => {
-  
+  const swiperRef = useRef(null);
+
+  useEffect(() => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.update();
+    }
+  }, [selectedParts]);
   return (
     <>
     <Swiper

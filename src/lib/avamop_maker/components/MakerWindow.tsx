@@ -25,13 +25,16 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
   colorsObject,
   defaultColors,
 }) => {
+  let imageNumber = 0;
   const [canvasImage, setCanvasImage] = useState(null);
-  const saveImage = (data: string, filename: string) => {
+  const saveImage = (data: string) => {
     const link = document.createElement("a");
     link.href = data;
-    link.download = filename;
+    link.download = `avatar_${imageNumber}.png`; // ファイル名に連番を追加
     link.click();
+    imageNumber++; // 画像を保存した後で連番を増加
   };
+  
   const TmpselectedParts: SelectedParts = MakerSelectedPartsGen(partsObject);
   const faceList: string[] = MakerFaceGen(partsObject);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -56,7 +59,7 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
   };
 
   const handleClick = () => {
-    saveImage(canvasImage, 'image.png');
+    saveImage(canvasImage);
   };
 
   useEffect(() => {
@@ -125,9 +128,9 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
         </>
       )}
       {/* オブジェクト変化テスト用ボタン */}
-          <button onClick = { handleClick }>button</button>
+          <button className={styles["bottom-button"]} onClick = { handleClick }>完成</button>
     </div>
   );
-};
-
+      }  
+          
 export default React.memo(MakerWindow);
