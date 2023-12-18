@@ -33,7 +33,7 @@ const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
   return (
     <>
     <Swiper
-    className={Styles['scroll-bar-swiper']}
+    className={styles['scroll-bar-swiper']}
     slidesPerView='auto'
     freeMode={true}
     scrollbar={{ draggable: true }}
