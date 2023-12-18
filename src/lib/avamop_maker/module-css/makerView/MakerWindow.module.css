@@ -1,19 +1,11 @@
+.loading {
+  font-size: 2em;
+  color: #888;
+}
 
-
-  
-  .loading {
-    font-size: 2em;
-    color: #888;
-  }
-
-  .avatar-img-all{
-   
-    background-color: papayawhip;
-    
-  }
-  .avatar-img-partt{
-    background-color: aquamarine;
-  }
+.avatar-img-all{
+  background-color: papayawhip;
+}
   
   .bottom-button {
     margin-top: 20px;
@@ -38,4 +30,20 @@
     align-items: center;
     flex-direction: column;
     background-color: #007BFF;
+  }
+
+  @media (min-width:1000px){
+
+    .all-object-container {
+      display: flex;
+    }
+    
+    .all-object-container > div {
+      flex: 0 0 auto;
+      display: block;
+    }
+    .option-menu-group{
+      min-width: 100vh;
+      max-width: 100vh;
+    }
   }

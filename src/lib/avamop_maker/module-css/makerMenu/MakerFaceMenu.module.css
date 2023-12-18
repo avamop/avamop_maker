@@ -1,4 +1,6 @@
-.swiper-color-image{
+.swiper-face-image{
+  width: 50px;
+  height: 50px;
   margin-left: 5px;
 }
 
@@ -10,12 +12,4 @@
   -moz-appearance: none;
   -webkit-appearance: none;
   cursor: pointer;
-}
-
-.face-menu{
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  padding-inline-start: 0;
-  background-color: papayawhip;
 }

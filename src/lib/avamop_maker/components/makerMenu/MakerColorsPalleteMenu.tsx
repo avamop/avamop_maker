@@ -23,8 +23,7 @@ const MakerColorsPalleteMenu: React.FC<MakerColorsPalleteMenuProps> = ({
         className={styles['scroll-bar-swiper']}
         slidesPerView='auto'
         freeMode={true}
-        grabCursor={true}
-        spaceBetween={10}
+        spaceBetween={0}
       >
         <ul>
           {Object.keys(colorsObject).map((colorName) => (

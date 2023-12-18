@@ -94,6 +94,7 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
         <div>Loading...</div>
       ) : (
         <>
+        <div className={styles['all-object-container']}>
           {/* アバターメーカーのアバター表示部分 */}
           <div className={styles['avatar-img-all']}>
             <MakerView
@@ -104,13 +105,18 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
             selectedFace={selectedFace}
             scale={2}
           />
+          {/* オブジェクト変化テスト用ボタン */}
+              <button className={styles["bottom-button"]} onClick = { handleClick }>完成</button>
+          </div>
+          <div className={styles["option-menu-group"]}>
+
           {/* アバターメーカーの表情メニュー部分 */}
           <MakerFaceMenu
             faceList={faceList}
             isLoading={isLoading}
             changeFace={changeFace}
           />
-          </div>
+          {/* アバターメーカーの色メニュー部分 */}
         <MakerColorsMenu colorsObject={colorsObject} />
           {/* アバターメーカーのパーツメニュー部分 */}
           <div className={styles['avatar-img-part']}>
@@ -125,10 +131,10 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
             setSelectedParts={setSelectedParts}
           />
           </div>
+        </div>
+        </div>
         </>
       )}
-      {/* オブジェクト変化テスト用ボタン */}
-          <button className={styles["bottom-button"]} onClick = { handleClick }>完成</button>
     </div>
   );
 };

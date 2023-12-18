@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import MakerPartsButton from "./MakerPartsButton";
 import MakerPartsCategories from "./MakerPartsCategories";
 import { MakerChangingPart } from "../functions/fetchData/MakerChangingPart";
 import { Swiper, SwiperSlide } from 'swiper/react'
-import Styles from '../../module-css/makerMenu/MakerPartsMenu.module.css'
+import styles from '../../module-css/makerMenu/MakerPartsMenu.module.css'
 interface MakerPartsMenuProps {
   selectedCategory: string | null;
   selectedFace: string;
@@ -23,15 +23,24 @@ const MakerPartsMenu: React.FC<MakerPartsMenuProps> = ({
   setSelectedParts,
   menuPartIcons,
 }) => {
-  
+  const swiperRef = useRef(null);
+
+  useEffect(() => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.update();
+    }
+  }, [selectedParts]);
   return (
     <>
     <Swiper
-    className={Styles['scroll-bar-swiper']}
-    slidesPerView='auto'
-    freeMode={true}
-    scrollbar={{ draggable: true }}
-  >
+      ref={swiperRef}
+      className={styles['scroll-bar-swiper']}
+      slidesPerView='auto'
+      freeMode={true}
+      scrollbar={{ draggable: true }}
+      spaceBetween={0}
+      onSwiper={(swiper) => swiper.update()}
+    >
     <ul>
         {/* カテゴリーの入ったオブジェクトの中身を展開したものからカテゴリーボタンを生成し、代入している */}
         {Object.keys(selectedParts.category).map((category) => (
