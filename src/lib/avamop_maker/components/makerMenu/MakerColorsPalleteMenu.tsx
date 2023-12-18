@@ -14,9 +14,10 @@ const MakerColorsPalleteMenu: React.FC<MakerColorsPalleteMenuProps> = ({
 
   return (
     <>
-    <button onClick={() => setShowSwiper(!showSwiper)}>
-      {showSwiper ? 'Hide Color' : 'Show Color'}
+    <button className={styles["color-button"]} onClick={() => setShowSwiper(!showSwiper)}>
+      {showSwiper ? 'COLOR' : 'COLOR'}
     </button>
+ 
     {showSwiper && (
       <Swiper
         className={styles['scroll-bar-swiper']}

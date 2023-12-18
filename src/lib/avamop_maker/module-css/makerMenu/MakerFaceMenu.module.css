@@ -6,3 +6,13 @@
   background-color: papayawhip;
 
 }
+
+.face-menu {
+  position: absolute;
+  top: 20%;
+
+  @media screen and (max-width: 300px ), screen and (max-height:300px){
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

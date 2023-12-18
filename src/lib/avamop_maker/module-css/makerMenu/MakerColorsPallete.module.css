@@ -1,3 +1,25 @@
 .scroll-bar-swiper{
     display: flex;
 }
+@keyframes gradient {
+    0% {background-position: 0%;}
+    100% {background-position: 100%;}
+  }
+  
+  .color-button {
+    list-style: none;
+    color: white;
+    text-align: center;
+    margin: 0 auto;
+    border: none;
+    width: 200px;
+    font-size: 20px;
+    border-radius: 20px;
+    padding: 20px;
+    cursor: pointer;
+    display: inline-block;
+    background: linear-gradient(to right, #e60000, #f39800, #fff100, #009944, #0068b7, #920783);
+    background-size: 200% auto;
+    animation: gradient 2s linear infinite;
+  }
+  
