@@ -66,31 +66,30 @@ return (
   <>
     <button className={styles["face-show-button"]} onClick={() => setShowSwiper(!showSwiper)}>
       {showSwiper ? <img className={styles["swiper-color-image"]} src="../../../../../examples/assets/provisionals/provisionalclose.png" alt="Hide Face" />
-        : <img className={styles["swiper-color-image"]} src="../../../../../examples/assets/provisionals/provisionalopen.png" alt="Show Face" />}
+          : <img className={styles["swiper-color-image"]} src="../../../../../examples/assets/provisionals/provisionalopen.png" alt="Show Face" />}
     </button>
     {showSwiper && (
       <Swiper
         className={styles['scroll-bar-swiper']}
         slidesPerView='auto'
         freeMode={true}
-        grabCursor={true}
         spaceBetween={10}
       >
-        <ul className={styles['face-menu']}>
-          {faceList.map((face) => (
-            <SwiperSlide key={face} style={{ width: '180px' }}>
-              <MakerFaceButton
-                key={face}
-                face={face}
-                // 表情のサムネイルを用意する予定
-                // faceImages= {faceImages[face]}
-                onClick={() => changeFace(face)}
-              />
-            </SwiperSlide>
-          ))}
-        </ul>
-      </Swiper>
-    )}
+    <ul className={styles['face-menu']}>
+      {faceList.map((face) => (
+        <SwiperSlide key={face} style={{ width: '180px' }}>
+        <MakerFaceButton
+          key={face}
+          face={face}
+          // 表情のサムネイルを用意する予定
+          // faceImages= {faceImages[face]}
+          onClick={() => changeFace(face)}
+        />
+        </SwiperSlide>
+      ))}
+    </ul>
+  </Swiper>
+  )}
   </>
 );
 

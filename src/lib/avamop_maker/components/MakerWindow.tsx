@@ -88,39 +88,47 @@ const MakerWindow: React.FC<MakerMenuProps> = ({
   }, []); // 空の依存リストを指定して初回のみ実行されるように
 
   return (
-    <div style={{ display: 'flex' }}>
-      <MakerFaceMenu
-        faceList={faceList}
-        isLoading={isLoading}
-        changeFace={changeFace}
-      />
-     
-      {isLoading && !partsObjectJimp && !menuPartIcons ? ( 
-         <div>Loading...</div>
+    <div>
+      {/* 画像データのロードが終わったら中身を表示する */}
+      {isLoading && !partsObjectJimp && !menuPartIcons ? (
+        <div>Loading...</div>
       ) : (
         <>
-        
-          <div className={styles['avatar-img-part']}>
-            <MakerPartsMenu
-              isLoading={isLoading}
-              categoryIconObject={categoryIcon}
-              selectedCategory={selectedCategory}
-              selectedFace={selectedFace}
-              handleCategoryClick={handleCategoryClick}
-              menuPartIcons={menuPartIcons}
-              selectedParts={selectedParts}
-              setSelectedParts={setSelectedParts}
-            />
+          {/* アバターメーカーのアバター表示部分 */}
+          <div className={styles['avatar-img-all']}>
+            <MakerView
+            canvasImage={canvasImage}
+            setCanvasImage={setCanvasImage}
+            selectedParts={selectedParts}
+            partsObjectJimp={partsObjectJimp}
+            selectedFace={selectedFace}
+            scale={2}
+          />
+          {/* アバターメーカーの表情メニュー部分 */}
+          <MakerFaceMenu
+            faceList={faceList}
+            isLoading={isLoading}
+            changeFace={changeFace}
+          />
           </div>
-          <div>
-          <MakerColorsMenu colorsObject={colorsObject} />
-      <button className={styles['bottom-botton']} onClick={handleClick}>Download</button>
-    </div>
-          
+        <MakerColorsMenu colorsObject={colorsObject} />
+          {/* アバターメーカーのパーツメニュー部分 */}
+          <div className={styles['avatar-img-part']}>
+          <MakerPartsMenu
+            isLoading={isLoading}
+            categoryIconObject={categoryIcon}
+            selectedCategory={selectedCategory}
+            selectedFace={selectedFace}
+            handleCategoryClick={handleCategoryClick}
+            menuPartIcons={menuPartIcons}
+            selectedParts={selectedParts}
+            setSelectedParts={setSelectedParts}
+          />
+          </div>
         </>
       )}
       {/* オブジェクト変化テスト用ボタン */}
-          <button onClick = { handleClick }>button</button>
+          <button className={styles["bottom-button"]} onClick = { handleClick }>完成</button>
     </div>
   );
       }  

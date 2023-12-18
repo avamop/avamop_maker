@@ -3,18 +3,12 @@ canvas {
   display: block;
   margin: auto;
   background-color: aqua;
-  width: 400px;
-  height: 400px;
-  float: left;
-  }
-  
+}
 
-
-/* 画面の最大幅が 600px 以下の場合に適用されるスタイル */
-@media screen and (max-width: 300px ), screen and (max-height:300px){
-  canvas {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
+@media (max-width:462px) {
+  Canvas{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
   }
 }

@@ -1,8 +1,6 @@
 .menu-category {
   list-style: none;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  display: inline-block;
 }
 
 .menu-category > img {
