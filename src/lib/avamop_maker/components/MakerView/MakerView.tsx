@@ -7,6 +7,7 @@ import SelectedPartsContext from "../../store/SelectedPartsContext";
 import PartsObjectJimpContext from "../../store/PartsObjectJimpContext";
 import ViewScaleContext from "../../store/ViewScaleContext";
 import SelectedPartsForCanvasContext from "../../store/SelectedPartsForCanvasContext";
+import styles from "../../module-css/makerView/MakerView.module.css"
 
 const MakerView: React.FC = ({}) => {
   const { selectedPartsForCanvas, setSelectedPartsForCanvas } = useContext(
