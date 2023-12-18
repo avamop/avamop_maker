@@ -9,14 +9,11 @@ if (process.argv.length < 4) {
 const inputDirectory = process.argv[2];
 const outputFilePath = process.argv[3];
 
-// カレントディレクトリをルートパスとする
-const rootDirectoryPath = process.cwd();
-
 // 型定義
 const partsObject = {};
 
 // JSONオブジェクトを生成する関数
-function generatepartsObject(directoryPath, partChain) {
+const generatepartsObject = (directoryPath, partChain) => {
   const categories = fs
     .readdirSync(directoryPath, { withFileTypes: true })
     .filter((dirent) => dirent.isDirectory())
@@ -30,7 +27,7 @@ function generatepartsObject(directoryPath, partChain) {
     const categoryPartChain = partChain ? `${partChain}/${category}` : category;
 
     partsObject[category] = {
-      colorGroup: "none",
+      colorGroup: null,
       partCount: 1,
       partChain: categoryPartChain,
       partOrder,
@@ -51,26 +48,27 @@ function generatepartsObject(directoryPath, partChain) {
         .filter((dirent) => dirent.isFile() && dirent.name.endsWith(".png"))
         .map((dirent) => dirent.name);
       partsObject[category].items[item] = {
-        bodyType: [0],
+        bodyType: null,
         color: true,
         faces: {},
       };
-
       for (const face of faces) {
         const faceName = path.basename(face, path.extname(face));
         const imagePath = path.join(categoryPartChain, item, face);
 
-        if (!partsObject[category].items[item].faces) {
-          partsObject[category].items[item].faces = {};
-        }
-
         partsObject[category].items[item].faces[faceName] = {
           imagePath: imagePath,
         };
+
+        if (!partsObject[category].items[item].faces["clear"]) {
+          partsObject[category].items[item].faces["clear"] = {
+            imagePath: "",
+          };
+        }
       }
     }
   }
-}
+};
 
 // 指定されたディレクトリからJSONオブジェクトを生成
 generatepartsObject(inputDirectory, null);

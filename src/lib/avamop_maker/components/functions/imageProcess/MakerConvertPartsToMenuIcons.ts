@@ -1,10 +1,10 @@
-import { MakerConvertPartsList } from "../objectProcess/MakerConvertPartsList";
 import { MakerCombineMenuPartIcons } from "./MakerCombineMenuPartIcons";
 
 export const MakerConvertPartsToMenuIcons = async (
   partsObjectJimp: PartsObjectJimp
 ): Promise<CombinePartIconsObjectBase64> => {
-  const partsObjectIconForCombine = MakerConvertPartsList(partsObjectJimp); //パーツを合成しやすくするためにオブジェクトを組み替える
+  const partsObjectIconForCombine: PartsObjectIconForCombine =
+    MakerConvertPartsList(partsObjectJimp); //パーツを合成しやすくするためにオブジェクトを組み替える
   const menuPartIconsList: CombinePartIconsObjectBase64 = {};
   for (const category in partsObjectIconForCombine) {
     menuPartIconsList[category] = {
@@ -21,4 +21,46 @@ export const MakerConvertPartsToMenuIcons = async (
     }
   }
   return menuPartIconsList;
+};
+
+export const MakerConvertPartsList = (
+  partsObject: PartsObjectJimp
+): PartsObjectIconForCombine => {
+  const partsObjectIconForCombine: PartsObjectIconForCombine = {};
+  for (const category in partsObject) {
+    const convertPartList: ItemIconsForCombine = MakerConvertCategory(
+      partsObject[category].partList
+    );
+    partsObjectIconForCombine[category] = {
+      partList: convertPartList,
+    };
+  }
+  return partsObjectIconForCombine;
+};
+
+//カテゴリー内のpartSplitで分けられてるパーツ画像をpeacesの中で分ける
+const MakerConvertCategory = (
+  categoryItems: CategoryJimp
+): ItemIconsForCombine => {
+  const itemsIconForCombine: ItemIconsForCombine = {};
+  for (const partSplit in categoryItems) {
+    const partData = categoryItems[partSplit];
+    for (const item in partData.items) {
+      if (!itemsIconForCombine[item]) {
+        itemsIconForCombine[item] = {
+          bodyType: partData.items[item].bodyType,
+          peaces: {},
+        };
+      } else {
+        itemsIconForCombine[item].bodyType = partData.items[item].bodyType;
+      }
+      if (!itemsIconForCombine[item].peaces) {
+        itemsIconForCombine[item].peaces = {};
+      }
+      itemsIconForCombine[item].peaces[partSplit] = {
+        faces: partData.items[item].faces,
+      };
+    }
+  }
+  return itemsIconForCombine;
 };
