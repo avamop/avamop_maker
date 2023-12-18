@@ -28,7 +28,7 @@ export const MakerConvertPartsList = (
 ): PartsObjectIconForCombine => {
   const partsObjectIconForCombine: PartsObjectIconForCombine = {};
   for (const category in partsObject) {
-    const convertPartList: ItemsIconForCombine = MakerConvertCategory(
+    const convertPartList: ItemIconsForCombine = MakerConvertCategory(
       partsObject[category].partList
     );
     partsObjectIconForCombine[category] = {
@@ -41,8 +41,8 @@ export const MakerConvertPartsList = (
 //カテゴリー内のpartSplitで分けられてるパーツ画像をpeacesの中で分ける
 const MakerConvertCategory = (
   categoryItems: CategoryJimp
-): ItemsIconForCombine => {
-  const itemsIconForCombine: ItemsIconForCombine = {};
+): ItemIconsForCombine => {
+  const itemsIconForCombine: ItemIconsForCombine = {};
   for (const partSplit in categoryItems) {
     const partData = categoryItems[partSplit];
     for (const item in partData.items) {

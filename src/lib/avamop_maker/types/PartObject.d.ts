@@ -137,10 +137,10 @@ declare global {
   //パーツアイコンを合成するためにpartsObjectを変換したオブジェクト
   interface PartsObjectIconForCombine {
     [category: "body" | string]: {
-      partList: ItemsIconForCombine;
+      partList: ItemIconsForCombine;
     };
   }
-  interface ItemsIconForCombine {
+  interface ItemIconsForCombine {
     [item: string]: {
       bodyType: null | string[];
       peaces: ItemPeacesIconForCombine;

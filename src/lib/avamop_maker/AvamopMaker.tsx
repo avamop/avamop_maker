@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import MakerWindow from "./components/MakerWindow";
-import styles from "./module-css/makerMenu/AvamopMaker.module.css"
+import styles from "./module-css/makerMenu/AvamopMaker.module.css";
 
 import PartsObjectContext from "./store/PartsObjectContext";
 import NullImageContext from "./store/NullImageContext";
@@ -22,6 +22,8 @@ import ColorsObjectContext from "./store/ColorsObjectContext";
 import { MakerFaceGen } from "./components/functions/fetchData/MakerFaceGen";
 import { MakerCanvasSelectedPartsGen } from "./components/functions/fetchData/MakerCanvasSelectedPartsGen";
 import SelectedPartsForCanvasContext from "./store/SelectedPartsForCanvasContext";
+import { MakerLayerCombineParts } from "./components/functions/imageProcess/MakerLayerCombineParts";
+import CanvasImageContext from "./store/CanvasImageContext";
 interface AvamopMakerProps {
   path: string;
   partsObject: PartsObjectSplit;
@@ -60,6 +62,7 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
     useState<boolean>(true);
   const [menuPartsIconsIsLoading, setMenuPartsIconsIsLoading] =
     useState<boolean>(true);
+  const [canvasImage, setCanvasImage] = useState<Jimp[] | null>(null);
   const faceList: string[] = MakerFaceGen(facePresets);
   faceList.push("custom");
 
@@ -132,55 +135,69 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
     };
   }, [windowWidth]);
 
+  useEffect(() => {
+    const imageGen = async () => {
+      const tmpCanvasImage: Jimp[] = await MakerLayerCombineParts(
+        selectedPartsForCanvas
+      );
+      setCanvasImage(tmpCanvasImage);
+    };
+    imageGen();
+  }, [selectedPartsForCanvas]);
+
   return (
     <>
-<div className={styles['Makerwindow']}>
-      <AssetsPathContext.Provider value={path}>
-        <PartsObjectContext.Provider value={partsObject}>
-          <NullImageContext.Provider value={nullImage}>
-            <PartsObjectJimpContext.Provider value={partsObjectJimp}>
-              <MenuPartIconsContext.Provider value={menuPartIcons}>
-                <SelectedCategoryContext.Provider
-                  value={{ selectedCategory, setSelectedCategory }}
+      <div className={styles["Makerwindow"]}>
+        <AssetsPathContext.Provider value={path}>
+          <PartsObjectContext.Provider value={partsObject}>
+            <NullImageContext.Provider value={nullImage}>
+              <PartsObjectJimpContext.Provider value={partsObjectJimp}>
+                <MenuPartIconsContext.Provider value={menuPartIcons}>
+                  <SelectedCategoryContext.Provider
+                    value={{ selectedCategory, setSelectedCategory }}
                   >
-                  <ColorsObjectContext.Provider value={colorsObject}>
-                    <FaceListContext.Provider value={faceList}>
-                      <FacePresetsContext.Provider value={facePresets}>
-                        <SelectedPartsContext.Provider
-                          value={{ selectedParts, setSelectedParts }}
+                    <ColorsObjectContext.Provider value={colorsObject}>
+                      <FaceListContext.Provider value={faceList}>
+                        <FacePresetsContext.Provider value={facePresets}>
+                          <SelectedPartsContext.Provider
+                            value={{ selectedParts, setSelectedParts }}
                           >
-                          <SelectedPartsForCanvasContext.Provider
-                            value={{
-                              selectedPartsForCanvas,
-                              setSelectedPartsForCanvas,
-                            }}
+                            <SelectedPartsForCanvasContext.Provider
+                              value={{
+                                selectedPartsForCanvas,
+                                setSelectedPartsForCanvas,
+                              }}
                             >
-                            <WindowWidthContext.Provider value={windowWidth}>
-                              <ViewScaleContext.Provider value={viewScale}>
-                                {/* 画像データのロードが終わったら中身を表示する */}
-                                {nullImageIsLoading ||
-                                partsObjectJimpIsLoading ||
-                                menuPartsIconsIsLoading ||
-                                selectedPartsForCanvasIsLoading ? (
-                                  <div>loading...</div>
-                                ) : (
-                                  /*アバターメーカーの枠*/
-                                  <MakerWindow />
-                                )}
-                              </ViewScaleContext.Provider>
-                            </WindowWidthContext.Provider>
-                          </SelectedPartsForCanvasContext.Provider>
-                        </SelectedPartsContext.Provider>
-                      </FacePresetsContext.Provider>
-                    </FaceListContext.Provider>
-                  </ColorsObjectContext.Provider>
-                </SelectedCategoryContext.Provider>
-              </MenuPartIconsContext.Provider>
-            </PartsObjectJimpContext.Provider>
-          </NullImageContext.Provider>
-        </PartsObjectContext.Provider>
-      </AssetsPathContext.Provider>
-                                </div>
+                              <WindowWidthContext.Provider value={windowWidth}>
+                                <ViewScaleContext.Provider value={viewScale}>
+                                  <CanvasImageContext.Provider
+                                    value={{ canvasImage, setCanvasImage }}
+                                  >
+                                    {/* 画像データのロードが終わったら中身を表示する */}
+                                    {nullImageIsLoading ||
+                                    partsObjectJimpIsLoading ||
+                                    menuPartsIconsIsLoading ||
+                                    selectedPartsForCanvasIsLoading ? (
+                                      <div>loading...</div>
+                                    ) : (
+                                      /*アバターメーカーの枠*/
+                                      <MakerWindow />
+                                    )}
+                                  </CanvasImageContext.Provider>
+                                </ViewScaleContext.Provider>
+                              </WindowWidthContext.Provider>
+                            </SelectedPartsForCanvasContext.Provider>
+                          </SelectedPartsContext.Provider>
+                        </FacePresetsContext.Provider>
+                      </FaceListContext.Provider>
+                    </ColorsObjectContext.Provider>
+                  </SelectedCategoryContext.Provider>
+                </MenuPartIconsContext.Provider>
+              </PartsObjectJimpContext.Provider>
+            </NullImageContext.Provider>
+          </PartsObjectContext.Provider>
+        </AssetsPathContext.Provider>
+      </div>
     </>
   );
 };
