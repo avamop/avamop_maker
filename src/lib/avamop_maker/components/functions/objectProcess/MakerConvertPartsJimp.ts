@@ -4,7 +4,8 @@ import type { Jimp } from "jimp/browser/lib/jimp";
 // パスの入ったpartsObjectをJimpデータの入ったものに変換する
 export const MakerConvertPartsJimp = async (
   partsObject: PartsObjectSplit,
-  path: string
+  path: string,
+  nullImage: Jimp
 ): Promise<PartsObjectJimp> => {
   const partsObjectJimp: PartsObjectJimp = {};
   for (const category in partsObject) {
@@ -29,13 +30,21 @@ export const MakerConvertPartsJimp = async (
         };
         for (const face in partsObject[category].partList[partSplit].items[item]
           .faces) {
+          let jimpData: Jimp;
           try {
-            const jimpData = await partRead(
-              path +
-                partsObject[category].partList[partSplit].items[item].faces[
-                  face
-                ].imagePath
-            ); //パーツのパスからJimpデータを生成する
+            if (
+              partsObject[category].partList[partSplit].items[item].faces[face]
+                .imagePath == ""
+            ) {
+              jimpData = nullImage;
+            } else {
+              jimpData = await partRead(
+                path +
+                  partsObject[category].partList[partSplit].items[item].faces[
+                    face
+                  ].imagePath
+              ); //パーツのパスからJimpデータを生成する
+            }
             partsObjectJimp[category].partList[partSplit].items[item].faces[
               face
             ] = {

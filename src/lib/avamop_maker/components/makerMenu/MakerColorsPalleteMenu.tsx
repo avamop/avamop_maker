@@ -1,17 +1,14 @@
-import React, { useState } from "react";
+
+import React, { useContext, useState } from "react";
 import MakerColorsButton from "./MakerColorsButton";
 import styles from "../../module-css/makerMenu/MakerColorsPallete.module.css";
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-interface MakerColorsPalleteMenuProps {
-  colorsObject: ColorsObject;
-}
-
-const MakerColorsPalleteMenu: React.FC<MakerColorsPalleteMenuProps> = ({
-  colorsObject,
-}) => {
+  
+  import ColorsObjectContext from "../../store/ColorsObjectContext";
+  
+  const MakerColorsPalleteMenu: React.FC = ({}) => {
   const [showSwiper, setShowSwiper] = useState(false);
-
+  const colorsObject = useContext(ColorsObjectContext);
   return (
     <>
     <button className={styles["color-show-button"]} onClick={() => setShowSwiper(!showSwiper)}>
