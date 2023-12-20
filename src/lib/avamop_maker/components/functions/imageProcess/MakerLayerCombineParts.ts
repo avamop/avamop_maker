@@ -1,6 +1,5 @@
 import "jimp/browser/lib/jimp";
 import type { Jimp } from "jimp/browser/lib/jimp";
-import { MakerConvertBase64 } from "./MakerConvertBase64";
 
 export const MakerLayerCombineParts = async (
   selectedPartsForCanvas: SelectedPartsForCanvas
