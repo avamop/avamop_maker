@@ -28,12 +28,12 @@
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
-    "react-id-swiper": "^4.0.0",
-    "sass": "^1.69.5",
-    "swiper": "^11.0.5",
     "react-draggable": "^4.4.6",
+    "react-id-swiper": "^4.0.0",
     "react-slider": "^2.0.6",
-    "require": "^2.4.20"
+    "require": "^2.4.20",
+    "sass": "^1.69.5",
+    "swiper": "^11.0.5"
   },
   "devDependencies": {
     "@types/node": "^20.10.1",

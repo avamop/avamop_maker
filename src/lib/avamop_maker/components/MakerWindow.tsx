@@ -28,12 +28,7 @@ const MakerWindow: React.FC = ({}) => {
           {/* アバターメーカーのアバター表示部分 */}
           <div className={styles['avatar-img-all']}>
             <MakerView
-            canvasImage={canvasImage}
-            setCanvasImage={setCanvasImage}
-            selectedParts={selectedParts}
-            partsObjectJimp={partsObjectJimp}
-            selectedFace={selectedFace}
-            scale={2}
+          
           />
           {/* オブジェクト変化テスト用ボタン */}
               <button className={styles["bottom-button"]} onClick = { handleClick }>完成</button>
@@ -49,14 +44,7 @@ const MakerWindow: React.FC = ({}) => {
           {/* アバターメーカーのパーツメニュー部分 */}
           <div className={styles['avatar-img-part']}>
           <MakerPartsMenu
-            isLoading={isLoading}
-            categoryIconObject={categoryIcon}
-            selectedCategory={selectedCategory}
-            selectedFace={selectedFace}
-            handleCategoryClick={handleCategoryClick}
-            menuPartIcons={menuPartIcons}
-            selectedParts={selectedParts}
-            setSelectedParts={setSelectedParts}
+         
           />
           </div>
         </div>
@@ -64,6 +52,6 @@ const MakerWindow: React.FC = ({}) => {
         </>
      
   );
-      }  
-          
+};
+
 export default React.memo(MakerWindow);

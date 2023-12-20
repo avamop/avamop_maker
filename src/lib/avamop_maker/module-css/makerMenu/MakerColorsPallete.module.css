@@ -12,3 +12,24 @@
     background: #999999;
     border-radius: 5px;
 }
+@keyframes gradient {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+.colorbutton {
+    background: linear-gradient(270deg, #e60000, #f39800, #fff100, #009944, #0068b7, #1d2088, #920783);
+    background-size: 200% 200%;
+    animation: gradient 10s ease infinite;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+

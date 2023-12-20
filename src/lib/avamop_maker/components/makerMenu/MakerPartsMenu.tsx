@@ -9,6 +9,7 @@ import PartsObjectContext from "../../store/PartsObjectContext";
 import { Swiper, SwiperSlide } from "swiper/react";
 import styles from "../../module-css/makerMenu/MakerPartsMenu.module.css";
 
+
 const MakerPartsMenu: React.FC = ({}) => {
   const { selectedParts, setSelectedParts } = useContext(SelectedPartsContext);
   const { selectedCategory, setSelectedCategory } = useContext(
