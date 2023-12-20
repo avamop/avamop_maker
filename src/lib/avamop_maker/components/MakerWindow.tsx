@@ -1,25 +1,36 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import styles from "../module-css/makerView/MakerWindow.module.css"; // CSSファイルをインポート
-
 import MakerView from "./MakerView/MakerView";
 import MakerPartsMenu from "./makerMenu/MakerPartsMenu";
 import MakerFaceMenu from "./makerMenu/MakerFaceListMenu";
 import MakerColorsMenu from "./makerMenu/MakerColorsMenu";
+import CanvasImageContext from "../store/CanvasImageContext";
 
 const MakerWindow: React.FC = ({}) => {
-  let imageNumber = 0;
-  const [canvasImage, setCanvasImage] = useState(null);
-  const saveImage = (data: string) => {
+  const { canvasImage, setCanvasImage } = useContext(CanvasImageContext);
+  const [imageNumber, setImageNumber] = useState(0);
+
+  const saveImage = async (images) => {
+    let combinedImage = images[0];
+    for (let i = 1; i < images.length; i++) {
+      combinedImage = combinedImage.composite(images[i], 0, 0);
+    }
+    const data = await combinedImage.getBase64Async(Jimp.MIME_PNG);
     const link = document.createElement("a");
     link.href = data;
-    link.download = `avatar_${imageNumber}.png`; // ファイル名に連番を追加
+    link.download = `avatar_${imageNumber}.png`;
     link.click();
-    imageNumber++; // 画像を保存した後で連番を増加
+    setImageNumber(imageNumber + 1);
   };
   
   const handleClick = () => {
     saveImage(canvasImage);
   };
+
+
+
+
+
 
   return (
   
