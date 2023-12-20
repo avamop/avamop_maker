@@ -28,6 +28,7 @@ interface AvamopMakerProps {
   partsObject: PartsObjectSplit;
   colorsObject: ColorsObject;
   defaultColors: DefaultColors;
+  defaultAvaters?: SelectedParts;
   facePresets: faceTree;
   nullImagePath: string;
 }
@@ -37,6 +38,7 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
   partsObject,
   colorsObject,
   defaultColors,
+  defaultAvaters,
   facePresets,
   nullImagePath,
 }) => {
@@ -47,7 +49,9 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
     useState<CombinePartIconsObjectBase64 | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedParts, setSelectedParts] = useState<SelectedParts>(
-    MakerSelectedPartsGen(partsObject, defaultColors)
+    defaultAvaters
+      ? defaultAvaters
+      : MakerSelectedPartsGen(partsObject, defaultColors)
   );
   const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
   const [viewScale, setViewScale] = useState<number>(windowWidth < 480 ? 1 : 2);
@@ -136,10 +140,12 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
 
   useEffect(() => {
     const imageGen = async () => {
-      const tmpCanvasImage: Jimp[] = await MakerLayerCombineParts(
-        selectedPartsForCanvas
-      );
-      setCanvasImage(tmpCanvasImage);
+      if (selectedPartsForCanvas != null) {
+        const tmpCanvasImage: Jimp[] = await MakerLayerCombineParts(
+          selectedPartsForCanvas
+        );
+        setCanvasImage(tmpCanvasImage);
+      }
     };
     imageGen();
   }, [selectedPartsForCanvas]);

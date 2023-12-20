@@ -85,5 +85,6 @@ export const MakerSelectedPartsGen = (
   for (const category in partsObject) {
     selectedParts.selectedFace[category] = "clear";
   }
+  console.log(selectedParts);
   return selectedParts;
 };
