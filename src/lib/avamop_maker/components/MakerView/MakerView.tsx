@@ -1,10 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import "jimp/browser/lib/jimp";
 import type { Jimp } from "jimp/browser/lib/jimp";
-import { MakerLayerCombineParts } from "../functions/imageProcess/MakerLayerCombineParts";
 import { MakerConvertBase64 } from "../functions/imageProcess/MakerConvertBase64";
-import SelectedPartsContext from "../../store/SelectedPartsContext";
-import PartsObjectJimpContext from "../../store/PartsObjectJimpContext";
 import ViewScaleContext from "../../store/ViewScaleContext";
 import SelectedPartsForCanvasContext from "../../store/SelectedPartsForCanvasContext";
 import styles from "../../module-css/makerView/MakerView.module.css";
