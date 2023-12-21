@@ -1,7 +1,7 @@
 /* デフォルトのキャンバスサイズ */
 canvas {
   display: block;
-  margin: auto;
+  margin: 96px;
   background-color: aqua;
 }
 
