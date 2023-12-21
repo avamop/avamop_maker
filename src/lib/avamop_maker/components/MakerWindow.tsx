@@ -38,30 +38,22 @@ const MakerWindow: React.FC = ({}) => {
         <div className={styles['all-object-container']}>
           {/* アバターメーカーのアバター表示部分 */}
           <div className={styles['avatar-img-all']}>
-            <MakerView
-          
-          />
-          {/* オブジェクト変化テスト用ボタン */}
-              <button className={styles["bottom-button"]} onClick = { handleClick }>完成</button>
+            <MakerView />
+            {/* オブジェクト変化テスト用ボタン */}
+            <button className={styles["bottom-button"]} onClick = { handleClick }>完成</button>
           </div>
           <div className={styles["option-menu-group"]}>
-
-          {/* アバターメーカーの表情メニュー部分 */}
-          {/* <MakerFaceMenu
-            
-          /> */}
-          {/* アバターメーカーの色メニュー部分 */}
-        <MakerColorsMenu/>
-          {/* アバターメーカーのパーツメニュー部分 */}
-          <div className={styles['avatar-img-part']}>
-          <MakerPartsMenu
-         
-          />
+            {/* アバターメーカーの表情メニュー部分 */}
+            {/* <MakerFaceMenu /> */}
+            {/* アバターメーカーの色メニュー部分 */}
+            <MakerColorsMenu/>
+            {/* アバターメーカーのパーツメニュー部分 */}
+            <div className={styles['avatar-img-part']}>
+              <MakerPartsMenu />
+            </div>
           </div>
         </div>
-        </div>
-        </>
-     
+      </>
   );
 };
 

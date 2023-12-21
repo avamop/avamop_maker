@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import MakerWindow from "./components/MakerWindow";
 import styles from "./module-css/makerMenu/AvamopMaker.module.css";
-
 import PartsObjectContext from "./store/PartsObjectContext";
 import NullImageContext from "./store/NullImageContext";
 import "jimp/browser/lib/jimp";
@@ -184,7 +183,7 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
                                     partsObjectJimpIsLoading ||
                                     menuPartsIconsIsLoading ||
                                     selectedPartsForCanvasIsLoading ? (
-                                      <div>loading...</div>
+                                      <div className={styles["loading"]}></div>
                                     ) : (
                                       /*アバターメーカーの枠*/
                                       <MakerWindow />

@@ -33,7 +33,6 @@ const MakerPartsMenu: React.FC = ({}) => {
         className={styles["scroll-bar-swiper"]}
         slidesPerView="auto"
         freeMode={true}
-        scrollbar={{ draggable: true }}
         spaceBetween={0}
         onSwiper={(swiper) => swiper.update()}
       >
