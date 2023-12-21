@@ -27,7 +27,6 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
       {showSwiper ? <img className={styles["swiper-color-image"]} src="../../../../../examples/assets/provisionals/provisionalclose.png" alt="Hide Face" />
           : <img className={styles["swiper-color-image"]} src="../../../../../examples/assets/provisionals/provisionalopen.png" alt="Show Face" />}
     </button>
-    <div>{touchRatio}</div>
     {showSwiper && (
       <Swiper
         className={styles['scroll-bar-swiper']}
