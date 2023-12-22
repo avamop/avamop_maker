@@ -27,49 +27,47 @@ const MakerPartsMenu: React.FC = ({}) => {
   }, [selectedParts]);
   return (
     <>
-    <Swiper
-      ref={swiperRef}
-      className={styles['scroll-bar-swiper']}
-      slidesPerView='auto'
-      freeMode={true}
-      scrollbar={{ draggable: true }}
-      spaceBetween={0}
-      onSwiper={(swiper) => swiper.update()}
-    >
-    <ul>
- 
-        {Object.keys(selectedParts.category).map((category) => (
-          <SwiperSlide key={category} style={{ width: '70px' }}>
-            <MakerPartsCategories
-            category={category}
-            isSelected={selectedCategory === category}
-            onClick={() => handleCategoryClick(category)}
-            imageSrc={
-              selectedParts.category[category].partName
-                ? menuPartIcons[category.replace(/_\d+$/, "")].partList[
-                    selectedParts.category[category].partName
-                  ].faces[
-                    selectedParts.selectedFace[category]
-                      ? selectedParts.selectedFace[category]
-                      : "clear"
-                  ].imagePath
-                : menuPartIcons[category.replace(/_\d+$/, "")].partList[
-                    Object.keys(
-                      menuPartIcons[category.replace(/_\d+$/, "")].partList
-                    )[0]
-                  ].faces[
-                    selectedParts.selectedFace[category]
-                      ? selectedParts.selectedFace[category]
-                      : "clear"
-                  ].imagePath
-            }
-          />
-          </SwiperSlide>
-          /* category.replace(/_\d+$/, "")はcategoryから連番を取り除いたもの */
-        ))}
-      </ul>
-  </Swiper>
-  
+      <Swiper
+        ref={swiperRef}
+        className={styles["scroll-bar-swiper"]}
+        slidesPerView="auto"
+        freeMode={true}
+        spaceBetween={0}
+        onSwiper={(swiper) => swiper.update()}
+      >
+        <ul>
+          {Object.keys(selectedParts.category).map((category) => (
+            <SwiperSlide key={category} style={{ width: "70px" }}>
+              <MakerPartsCategories
+                category={category}
+                isSelected={selectedCategory === category}
+                onClick={() => handleCategoryClick(category)}
+                imageSrc={
+                  selectedParts.category[category].partName
+                    ? menuPartIcons[category.replace(/_\d+$/, "")].partList[
+                        selectedParts.category[category].partName
+                      ].faces[
+                        selectedParts.selectedFace[category]
+                          ? selectedParts.selectedFace[category]
+                          : "clear"
+                      ].imagePath
+                    : menuPartIcons[category.replace(/_\d+$/, "")].partList[
+                        Object.keys(
+                          menuPartIcons[category.replace(/_\d+$/, "")].partList
+                        )[0]
+                      ].faces[
+                        selectedParts.selectedFace[category]
+                          ? selectedParts.selectedFace[category]
+                          : "clear"
+                      ].imagePath
+                }
+              />
+            </SwiperSlide>
+            /* category.replace(/_\d+$/, "")はcategoryから連番を取り除いたもの */
+          ))}
+        </ul>
+      </Swiper>
+
       {Object.keys(selectedParts.category).map((category) =>
         selectedCategory === category
           ? Object.keys(
