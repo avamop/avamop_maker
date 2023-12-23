@@ -1,14 +1,13 @@
 export const mergeCategories = (data: PartsObject): PartsObjectSplit => {
-  const splitCategories: PartsObjectSplit = {};
-  const partOrders: Set<number> = new Set();
+  const splitCategories = {};
+  const partOrders = new Set();
 
   for (const category in data) {
     const currentCategory = data[category];
     const partChain = currentCategory.partChain;
-
     // チェック: data["body"].items.bodyTypeプロパティがlength数1の文字列配列になっているかどうか
     if (partChain === "body") {
-      for (const item in currentCategory[category].items)
+      for (const item in currentCategory.items)
         if (
           !Array.isArray(currentCategory.items[item].bodyType) ||
           currentCategory.items[item].bodyType.length !== 1 ||
@@ -27,7 +26,6 @@ export const mergeCategories = (data: PartsObject): PartsObjectSplit => {
     partOrders.add(currentCategory.partOrder);
 
     if (!splitCategories[partChain]) {
-      //splitCategoriesにpartChainの値が存在しない場合は新規作成
       splitCategories[partChain] = {
         partCount: currentCategory.partCount,
         partChain: partChain,
@@ -40,14 +38,12 @@ export const mergeCategories = (data: PartsObject): PartsObjectSplit => {
     const currentPartList = splitCategories[partChain].partList;
 
     if (!currentPartList[category]) {
-      // currentPartListにcategoryの値が存在しない場合は新規作成
       currentPartList[category] = {
         colorGroup: currentCategory.colorGroup,
         partOrder: currentCategory.partOrder,
         items: currentCategory.items,
       };
     } else {
-      // currntPartListにCategoryの値がある場合は比較してエラーチェック
       const existingCategory = currentPartList[category];
 
       if (

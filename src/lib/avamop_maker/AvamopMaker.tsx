@@ -142,7 +142,8 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
     const imageGen = async () => {
       if (selectedPartsForCanvas != null) {
         const tmpCanvasImage: Jimp[] = await MakerLayerCombineParts(
-          selectedPartsForCanvas
+          selectedPartsForCanvas,
+          colorsObject
         );
         setCanvasImage(tmpCanvasImage);
       }

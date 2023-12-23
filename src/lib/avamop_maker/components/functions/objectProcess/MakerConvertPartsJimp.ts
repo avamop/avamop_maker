@@ -25,7 +25,8 @@ export const MakerConvertPartsJimp = async (
         partsObjectJimp[category].partList[partSplit].items[item] = {
           bodyType:
             partsObject[category].partList[partSplit].items[item].bodyType,
-          color: partsObject[category].partList[partSplit].items[item].color,
+          enableColor:
+            partsObject[category].partList[partSplit].items[item].enableColor,
           faces: {},
         };
         for (const face in partsObject[category].partList[partSplit].items[item]

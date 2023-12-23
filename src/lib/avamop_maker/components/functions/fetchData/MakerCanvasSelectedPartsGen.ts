@@ -21,6 +21,11 @@ export const MakerCanvasSelectedPartsGen = (
     for (const partSplit in partsObjectJimp[category.replace(/_\d+$/, "")]
       .partList) {
       selectedPartsForCanvasSplit[partSplit] = {
+        enableColor:
+          selectedParts.category[category].partName != ""
+            ? partsObjectJimp[category.replace(/_\d+$/, "")].partList[partSplit]
+                .items[selectedParts.category[category].partName].enableColor
+            : false,
         colorGroup:
           partsObjectJimp[category.replace(/_\d+$/, "")].partList[partSplit]
             .colorGroup,
@@ -113,6 +118,9 @@ const selectedPartsForCanvasSort = (
     }
 
     result[category].partSplit[partSplit] = {
+      enableColor:
+        selectedPartsForCanvasCategory[category].partSplit[partSplit]
+          .enableColor,
       colorGroup:
         selectedPartsForCanvasCategory[category].partSplit[partSplit]
           .colorGroup,

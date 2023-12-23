@@ -59,6 +59,20 @@ export const MakerChangingPart = (
                   : "")
             : "";
         }
+        if (!selectedParts.selectedColor[category]) {
+          selectedParts.selectedColor[category]["default"] = {
+            color: selectedParts.selectedColor["none"]["default"].color,
+            hueShiftReverse:
+              selectedParts.selectedColor["none"]["default"].hueShiftReverse,
+            saturationReverse:
+              selectedParts.selectedColor["none"]["default"].saturationReverse,
+            hueGraph: selectedParts.selectedColor["none"]["default"].hueGraph,
+            saturationGraph:
+              selectedParts.selectedColor["none"]["default"].saturationGraph,
+            valueGraph:
+              selectedParts.selectedColor["none"]["default"].valueGraph,
+          };
+        }
       }
     }
     setSelectedParts(updateAvaters);
