@@ -2,45 +2,47 @@ import "jimp/browser/lib/jimp";
 import type { Jimp } from "jimp/browser/lib/jimp";
 
 export const MakerPartsColoring = async (
-  selectedParts: SelectedPartsForCanvas,
+  image: Jimp,
   colorGroup: string,
-  category: string,
-  partSplit: string,
+  selectedParts: SelectedParts,
   colorsObject: ColorsObject
 ): Promise<Jimp> => {
   const maskColor: string[] = [
-    "fefefe",
-    "e5e5e5",
-    "cbcbcb",
-    "b2b2b2",
-    "989898",
-    "7f7f7f",
-    "656565",
-    "4c4c4c",
-    "323232",
-    "191919",
+    "#fefefe",
+    "#e5e5e5",
+    "#cbcbcb",
+    "#b2b2b2",
+    "#989898",
+    "#7f7f7f",
+    "#656565",
+    "#4c4c4c",
+    "#323232",
+    "#191919",
   ];
-  const colorData = selectedParts.selectedColor[colorGroup]["default"];
+  const colorData = selectedParts.selectedColor[colorGroup]
+    ? selectedParts.selectedColor[colorGroup]["default"]
+    : selectedParts.selectedColor["none"]["default"];
   const colorCode: string = colorsObject[colorData.color];
   const colorHsv: [number, number, number] = rgbToHsv(colorCode);
   let changeColor: string[] = [];
   for (let i = 0; i < 10; i++) {
     const hCalculatedTmp = colorData.hueShiftReverse
       ? colorHsv[0] -
-        (colorData.hueGraph.globalSlope + colorData.hueGraph.individualSlope[i])
+        (colorData.hueGraph.globalSlope * (i + 1) +
+          colorData.hueGraph.individualSlope[i])
       : colorHsv[0] +
-        (colorData.hueGraph.globalSlope +
+        (colorData.hueGraph.globalSlope * (i + 1) +
           colorData.hueGraph.individualSlope[i]);
     const sCalculatedTmp = colorData.saturationReverse
       ? colorHsv[1] +
-        (colorData.saturationGraph.globalSlope +
+        (colorData.saturationGraph.globalSlope * (i + 1) +
           colorData.saturationGraph.individualSlope[i])
       : colorHsv[1] -
-        (colorData.saturationGraph.globalSlope +
+        (colorData.saturationGraph.globalSlope * (i + 1) +
           colorData.saturationGraph.individualSlope[i]);
     const vCalculatedTmp =
       colorHsv[2] -
-      colorData.saturationGraph.globalSlope +
+      colorData.saturationGraph.globalSlope * (i + 1) +
       colorData.saturationGraph.individualSlope[i];
     const hCalculated =
       hCalculatedTmp < 0
@@ -52,18 +54,80 @@ export const MakerPartsColoring = async (
       sCalculatedTmp < 0 ? 0 : sCalculatedTmp > 255 ? 255 : sCalculatedTmp;
     const vCaluculated =
       vCalculatedTmp < 0 ? 0 : vCalculatedTmp > 255 ? 255 : vCalculatedTmp;
-    changeColor.push(hsvToRgb(hCalculated, sCalculated, vCaluculated));
+    // console.log(hCalculated, sCalculated, vCaluculated);
+    changeColor.push(hsvToRgb([hCalculated, sCalculated, vCaluculated]));
   }
-  return MakerPartsColoringChange(
-    selectedParts.category[category].partSplit[partSplit].partData,
-    maskColor,
-    changeColor
-  );
+  // console.log(maskColor);
+  // console.log(changeColor);
+  return await MakerPartsColoringChange(image, maskColor, changeColor);
 };
+
+const MakerPartsColoringChange = async (
+  image: Jimp,
+  oldColors: string[],
+  newColors: string[]
+): Promise<Jimp> => {
+  try {
+    const colorPairs = oldColors.map((oldColor, i) => {
+      const oldRGB: { red: number; green: number; blue: number } =
+        hexToRgb(oldColor);
+      console.log(oldColor, oldRGB);
+      const newRGB: { red: number; green: number; blue: number } = hexToRgb(
+        newColors[i]
+      );
+      return {
+        old: oldRGB,
+        new: newRGB,
+      };
+    });
+
+    image.scan(0, 0, image.bitmap.width, image.bitmap.height, (x, y, idx) => {
+      const alpha: number = image.bitmap.data[idx + 3];
+      if (alpha === 0) {
+        //透明ピクセルの場合、処理をスキップする
+        return;
+      }
+
+      const red: number = image.bitmap.data[idx + 0];
+      const green: number = image.bitmap.data[idx + 1];
+      const blue: number = image.bitmap.data[idx + 2];
+
+      for (const { old, new: newColor } of colorPairs) {
+        if (red === old.red && green === old.green && blue === old.blue) {
+          image.bitmap.data[idx + 0] = newColor.red;
+          image.bitmap.data[idx + 1] = newColor.green;
+          image.bitmap.data[idx + 2] = newColor.blue;
+          break;
+        }
+      }
+    });
+
+    return image;
+  } catch (error) {
+    console.error("画像着色エラー：", error);
+    throw error; // エラーを再スローして、呼び出し元で処理できるようにします
+  }
+};
+
+const hexToRgb = (
+  hex: string
+): { red: number; green: number; blue: number } => {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result
+    ? {
+        red: parseInt(result[1], 16),
+        green: parseInt(result[2], 16),
+        blue: parseInt(result[3], 16),
+      }
+    : null;
+};
+
+// 使用例:
+console.log(hexToRgb("#0033ff")); // { r: 0, g: 51, b: 255 }
 
 // カラーコードをHSVに変換する関数
 const rgbToHsv = (hex: string): [number, number, number] => {
-  console.log(hex);
+  // console.log(hex);
   let r = parseInt(hex.slice(1, 3), 16) / 255;
   let g = parseInt(hex.slice(3, 5), 16) / 255;
   let b = parseInt(hex.slice(5, 7), 16) / 255;
@@ -98,93 +162,46 @@ const rgbToHsv = (hex: string): [number, number, number] => {
 };
 
 // HSVをカラーコードに変換する関数
-const hsvToRgb = (h: number, s: number, v: number): string => {
-  let r, g, b;
+function hsvToRgb(hsv: [number, number, number]): string {
+  let [h, s, v] = hsv;
+  s /= 255;
+  v /= 255;
+
+  let r = 0,
+    g = 0,
+    b = 0;
+
   let i = Math.floor(h / 60);
   let f = h / 60 - i;
   let p = v * (1 - s);
-  let q = v * (1 - f * s);
-  let t = v * (1 - (1 - f) * s);
+  let q = v * (1 - s * f);
+  let t = v * (1 - s * (1 - f));
 
   switch (i % 6) {
     case 0:
-      (r = v), (g = t), (b = p);
+      [r, g, b] = [v, t, p];
       break;
     case 1:
-      (r = q), (g = v), (b = p);
+      [r, g, b] = [q, v, p];
       break;
     case 2:
-      (r = p), (g = v), (b = t);
+      [r, g, b] = [p, v, t];
       break;
     case 3:
-      (r = p), (g = q), (b = v);
+      [r, g, b] = [p, q, v];
       break;
     case 4:
-      (r = t), (g = p), (b = v);
+      [r, g, b] = [t, p, v];
       break;
     case 5:
-      (r = v), (g = p), (b = q);
+      [r, g, b] = [v, p, q];
       break;
   }
 
-  let hr = Math.floor(r * 255).toString(16);
-  let hg = Math.floor(g * 255).toString(16);
-  let hb = Math.floor(b * 255).toString(16);
+  let hex = (x: number) => {
+    let hex = Math.round(x * 255).toString(16);
+    return hex.length === 1 ? "0" + hex : hex;
+  };
 
-  return (
-    "#" +
-    (hr.length < 2 ? "0" : "") +
-    hr +
-    (hg.length < 2 ? "0" : "") +
-    hg +
-    (hb.length < 2 ? "0" : "") +
-    hb
-  );
-};
-
-const MakerPartsColoringChange = async (
-  image: Jimp,
-  oldColors: string[],
-  newColors: string[]
-): Promise<Jimp> => {
-  const colorPairs = oldColors.map((oldColor, i) => {
-    const oldRGB: number = Jimp.cssColorToHex(oldColor);
-    const newRGB: number = Jimp.cssColorToHex(newColors[i]);
-
-    return {
-      old: {
-        red: (oldRGB >> 16) & 255,
-        green: (oldRGB >> 8) & 255,
-        blue: oldRGB & 255,
-      },
-      new: {
-        red: (newRGB >> 16) & 255,
-        green: (newRGB >> 8) & 255,
-        blue: newRGB & 255,
-      },
-    };
-  });
-
-  image.scan(0, 0, image.bitmap.width, image.bitmap.height, (x, y, idx) => {
-    const alpha: number = image.bitmap.data[idx + 3];
-    if (alpha === 0) {
-      //透明ピクセルの場合、処理をスキップする
-      return;
-    }
-
-    const red: number = image.bitmap.data[idx + 0];
-    const green: number = image.bitmap.data[idx + 1];
-    const blue: number = image.bitmap.data[idx + 2];
-
-    for (const { old, new: newColor } of colorPairs) {
-      if (red === old.red && green === old.green && blue === old.blue) {
-        image.bitmap.data[idx + 0] = newColor.red;
-        image.bitmap.data[idx + 1] = newColor.green;
-        image.bitmap.data[idx + 2] = newColor.blue;
-        break;
-      }
-    }
-  });
-
-  return image;
-};
+  return "#" + hex(r) + hex(g) + hex(b);
+}

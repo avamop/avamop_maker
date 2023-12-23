@@ -1,10 +1,8 @@
 import "jimp/browser/lib/jimp";
 import type { Jimp } from "jimp/browser/lib/jimp";
-import { MakerPartsColoring } from "./MakerPartsColoring";
 
 export const MakerLayerCombineParts = async (
-  selectedPartsForCanvas: SelectedPartsForCanvas,
-  colorsObject: ColorsObject
+  selectedPartsForCanvas: SelectedPartsForCanvas
 ): Promise<Jimp[]> => {
   type Orders = {
     category: string;
@@ -13,10 +11,10 @@ export const MakerLayerCombineParts = async (
     partData: Jimp;
   };
   // console.log(selectedPartsForCanvas);
-  let partIndividual: string = "";
   let sortedParts: Orders[] = [];
-  for (let category in selectedPartsForCanvas.category) {
-    for (let partSplit in selectedPartsForCanvas.category[category].partSplit) {
+  for (const category in selectedPartsForCanvas.category) {
+    for (const partSplit in selectedPartsForCanvas.category[category]
+      .partSplit) {
       sortedParts.push({
         category: category,
         partSplit: partSplit,

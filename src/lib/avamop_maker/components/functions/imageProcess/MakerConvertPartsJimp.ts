@@ -1,11 +1,14 @@
 import "jimp/browser/lib/jimp";
 import type { Jimp } from "jimp/browser/lib/jimp";
+import { MakerPartsColoring } from "./MakerPartsColoring";
 
 // パスの入ったpartsObjectをJimpデータの入ったものに変換する
 export const MakerConvertPartsJimp = async (
   partsObject: PartsObjectSplit,
   path: string,
-  nullImage: Jimp
+  nullImage: Jimp,
+  selectedParts: SelectedParts,
+  colorsObject: ColorsObject
 ): Promise<PartsObjectJimp> => {
   const partsObjectJimp: PartsObjectJimp = {};
   for (const category in partsObject) {
@@ -43,8 +46,12 @@ export const MakerConvertPartsJimp = async (
                 path +
                   partsObject[category].partList[partSplit].items[item].faces[
                     face
-                  ].imagePath
-              ); //パーツのパスからJimpデータを生成する
+                  ].imagePath,
+                partsObject[category].partList[partSplit].colorGroup,
+                selectedParts,
+                colorsObject
+              );
+              //パーツのパスからJimpデータを生成する
             }
             partsObjectJimp[category].partList[partSplit].items[item].faces[
               face
@@ -62,10 +69,20 @@ export const MakerConvertPartsJimp = async (
 };
 
 //パーツ画像を読み込んで返す関数
-const partRead = async (imagePath: string): Promise<Jimp> => {
+const partRead = async (
+  imagePath: string,
+  colorGroup: string,
+  selectedParts: SelectedParts,
+  colorsObject: ColorsObject
+): Promise<Jimp> => {
   try {
     const image: Jimp = await Jimp.read(imagePath);
-    return image;
+    return await MakerPartsColoring(
+      image,
+      colorGroup,
+      selectedParts,
+      colorsObject
+    );
   } catch (error) {
     console.log("パーツ画像が見つかりません:" + error);
     return;

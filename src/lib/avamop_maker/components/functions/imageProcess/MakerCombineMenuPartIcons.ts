@@ -7,9 +7,12 @@ export const MakerCombineMenuPartIcons = async (
 ): Promise<CombinePartIconBase64> => {
   const combineParts: FacesJimp = {};
 
+  const sortedButtonImages = Object.entries(buttonImages).sort(
+    (a, b) => a[1].partOrder - b[1].partOrder
+  );
+
   // 各peace内の画像を合成
-  for (const peace in buttonImages) {
-    const faces = buttonImages[peace].faces;
+  for (const [peace, { faces }] of sortedButtonImages) {
     for (const face in faces) {
       const faceData = faces[face].jimpData;
       if (!combineParts[face]) {

@@ -154,6 +154,7 @@ declare global {
 
   interface ItemPeacesIconForCombine {
     [peace: string]: {
+      partOrder: number;
       faces: FacesJimp;
     };
   }

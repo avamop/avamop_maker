@@ -5,7 +5,7 @@ import PartsObjectContext from "./store/PartsObjectContext";
 import NullImageContext from "./store/NullImageContext";
 import "jimp/browser/lib/jimp";
 import type { Jimp } from "jimp/browser/lib/jimp";
-import { MakerConvertPartsJimp } from "./components/functions/objectProcess/MakerConvertPartsJimp";
+import { MakerConvertPartsJimp } from "./components/functions/imageProcess/MakerConvertPartsJimp";
 import { MakerConvertPartsToMenuIcons } from "./components/functions/imageProcess/MakerConvertPartsToMenuIcons";
 import PartsObjectJimpContext from "./store/PartsObjectJimpContext";
 import AssetsPathContext from "./store/AssetsPathContext";
@@ -85,7 +85,9 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
         const tmpPartsObjectJimp: PartsObjectJimp = await MakerConvertPartsJimp(
           partsObject,
           path,
-          nullImage
+          nullImage,
+          selectedParts,
+          colorsObject
         );
         setPartsObjectJimp(tmpPartsObjectJimp);
         // console.log(tmpPartsObjectJimp);
@@ -142,8 +144,7 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
     const imageGen = async () => {
       if (selectedPartsForCanvas != null) {
         const tmpCanvasImage: Jimp[] = await MakerLayerCombineParts(
-          selectedPartsForCanvas,
-          colorsObject
+          selectedPartsForCanvas
         );
         setCanvasImage(tmpCanvasImage);
       }

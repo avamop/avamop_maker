@@ -19,7 +19,7 @@
       "partFlip": false
     },
     "ear": {
-      "partName": "elf",
+      "partName": "human",
       "partFlip": false
     },
     "eyes": {
@@ -39,7 +39,7 @@
       "partFlip": false
     },
     "mouth": {
-      "partName": "lips",
+      "partName": "standard",
       "partFlip": false
     },
     "nose": {

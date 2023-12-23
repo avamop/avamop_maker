@@ -16,33 +16,33 @@ export const MakerCanvasSelectedPartsGen = (
   };
   const tmpSelectedPartsForCanvas: SelectedPartsForCanvasCategory = {};
 
-  for (const category in selectedParts.category) {
+  for (const tmpCategory in selectedParts.category) {
     let selectedPartsForCanvasSplit: SelectedPartsForCanvasSplit = {};
-    for (const partSplit in partsObjectJimp[category.replace(/_\d+$/, "")]
+    for (const partSplit in partsObjectJimp[tmpCategory.replace(/_\d+$/, "")]
       .partList) {
       selectedPartsForCanvasSplit[partSplit] = {
         enableColor:
-          selectedParts.category[category].partName != ""
-            ? partsObjectJimp[category.replace(/_\d+$/, "")].partList[partSplit]
-                .items[selectedParts.category[category].partName].enableColor
+          selectedParts.category[tmpCategory].partName != ""
+            ? partsObjectJimp[tmpCategory.replace(/_\d+$/, "")].partList[partSplit]
+                .items[selectedParts.category[tmpCategory].partName].enableColor
             : false,
         colorGroup:
-          partsObjectJimp[category.replace(/_\d+$/, "")].partList[partSplit]
+          partsObjectJimp[tmpCategory.replace(/_\d+$/, "")].partList[partSplit]
             .colorGroup,
         partOrder:
-          partsObjectJimp[category.replace(/_\d+$/, "")].partList[partSplit]
+          partsObjectJimp[tmpCategory.replace(/_\d+$/, "")].partList[partSplit]
             .partOrder,
         partData:
-          selectedParts.category[category].partName != ""
-            ? partsObjectJimp[category.replace(/_\d+$/, "")].partList[partSplit]
-                .items[selectedParts.category[category].partName].faces["clear"]
+          selectedParts.category[tmpCategory].partName != ""
+            ? partsObjectJimp[tmpCategory.replace(/_\d+$/, "")].partList[partSplit]
+                .items[selectedParts.category[tmpCategory].partName].faces["clear"]
                 .jimpData
             : nullImage,
       };
     }
-    tmpSelectedPartsForCanvas[category] = {
+    tmpSelectedPartsForCanvas[tmpCategory] = {
       partSplit: selectedPartsForCanvasSplit,
-      partFlip: selectedParts.category[category].partFlip,
+      partFlip: selectedParts.category[tmpCategory].partFlip,
     };
   }
   // console.log(tmpSelectedPartsForCanvas);
@@ -59,8 +59,8 @@ const selectedPartsForCanvasSort = (
   type Orders = { category: string; partSplit: string; partOrder: number };
 
   let partOrders: Orders[] = [];
-  for (let category in selectedPartsForCanvasCategory) {
-    for (let partSplit in selectedPartsForCanvasCategory[category].partSplit) {
+  for (const category in selectedPartsForCanvasCategory) {
+    for (const partSplit in selectedPartsForCanvasCategory[category].partSplit) {
       partOrders.push({
         category: category,
         partSplit: partSplit,

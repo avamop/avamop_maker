@@ -43,35 +43,39 @@ export const MakerChangingPart = (
       } else if (bodyTypeValue.length != 1) {
         throw new Error("エラー:bodyのbodyTypeプロパティに値が複数あります");
       }
-      for (category in selectedParts.category) {
-        if (category !== "body") {
-          selectedParts.category[category].partName !== ""
-            ? (updateAvaters.category[category].partName =
-                !partsObject[category].partList[
-                  Object.keys(partsObject[category].partList)[0]
-                ].items[selectedParts.category[category].partName].bodyType ||
-                partsObject[category].partList[
-                  Object.keys(partsObject[category].partList)[0]
+      for (const tmpCategory in selectedParts.category) {
+        if (tmpCategory !== "body") {
+          selectedParts.category[tmpCategory].partName !== ""
+            ? (updateAvaters.category[tmpCategory].partName =
+                !partsObject[tmpCategory].partList[
+                  Object.keys(partsObject[tmpCategory].partList)[0]
+                ].items[selectedParts.category[tmpCategory].partName].bodyType ||
+                partsObject[tmpCategory].partList[
+                  Object.keys(partsObject[tmpCategory].partList)[0]
                 ].items[
-                  selectedParts.category[category].partName
+                  selectedParts.category[tmpCategory].partName
                 ].bodyType.includes(partNameValue)
-                  ? selectedParts.category[category].partName
+                  ? selectedParts.category[tmpCategory].partName
                   : "")
             : "";
         }
-        if (!selectedParts.selectedColor[category]) {
-          selectedParts.selectedColor[category]["default"] = {
-            color: selectedParts.selectedColor["none"]["default"].color,
-            hueShiftReverse:
-              selectedParts.selectedColor["none"]["default"].hueShiftReverse,
-            saturationReverse:
-              selectedParts.selectedColor["none"]["default"].saturationReverse,
-            hueGraph: selectedParts.selectedColor["none"]["default"].hueGraph,
-            saturationGraph:
-              selectedParts.selectedColor["none"]["default"].saturationGraph,
-            valueGraph:
-              selectedParts.selectedColor["none"]["default"].valueGraph,
-          };
+        for(const partSplit in partsObject[tmpCategory].partList) {
+        if (!selectedParts.selectedColor[partsObject[tmpCategory].partList[partSplit].colorGroup]) {
+          selectedParts.selectedColor[partsObject[tmpCategory].partList[partSplit].colorGroup] = {
+            default: {
+              color: selectedParts.selectedColor["none"]["default"].color,
+              hueShiftReverse:
+                selectedParts.selectedColor["none"]["default"].hueShiftReverse,
+              saturationReverse:
+                selectedParts.selectedColor["none"]["default"].saturationReverse,
+              hueGraph: selectedParts.selectedColor["none"]["default"].hueGraph,
+              saturationGraph:
+                selectedParts.selectedColor["none"]["default"].saturationGraph,
+              valueGraph:
+                selectedParts.selectedColor["none"]["default"].valueGraph,
+            }
+          }
+          }
         }
       }
     }
