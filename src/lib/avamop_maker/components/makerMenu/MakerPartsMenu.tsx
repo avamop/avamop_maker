@@ -8,17 +8,25 @@ import MenuPartIconsContext from "../../store/MenuPartIconsContext";
 import PartsObjectContext from "../../store/PartsObjectContext";
 import { Swiper, SwiperSlide } from "swiper/react";
 import styles from "../../module-css/makerMenu/MakerPartsMenu.module.css";
+import SelectedPartsForCanvasContext from "../../store/SelectedPartsForCanvasContext";
+import PartObjectJimpContext from "../../store/PartsObjectJimpContext";
+import NullImageContext from "../../store/NullImageContext";
 
 const MakerPartsMenu: React.FC = ({}) => {
   const { selectedParts, setSelectedParts } = useContext(SelectedPartsContext);
+  const { selectedPartsForCanvas, setSelectedPartsForCanvas } = useContext(
+    SelectedPartsForCanvasContext
+  );
   const { selectedCategory, setSelectedCategory } = useContext(
     SelectedCategoryContext
   );
   const partsObject = useContext(PartsObjectContext);
+  const partsObjectJimp = useContext(PartObjectJimpContext);
   const menuPartIcons = useContext(MenuPartIconsContext);
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category === selectedCategory ? null : category);
   };
+  const nullImage = useContext(NullImageContext);
   const swiperRef = useRef(null);
 
   useEffect(() => {
@@ -90,13 +98,14 @@ const MakerPartsMenu: React.FC = ({}) => {
                   onClick={() =>
                     MakerChangingPart(
                       category,
-                      menuPartIcons[category.replace(/_\d+$/, "")].partList[
-                        item
-                      ].bodyType,
                       item,
                       selectedParts,
                       setSelectedParts,
-                      partsObject
+                      selectedPartsForCanvas,
+                      setSelectedPartsForCanvas,
+                      partsObject,
+                      partsObjectJimp,
+                      nullImage
                     )
                   }
                 />

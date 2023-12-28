@@ -112,7 +112,11 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
 
   useEffect(() => {
     const fetchSelectedPartsForCanvas = async () => {
-      if (!partsObjectJimpIsLoading && partsObjectJimp != null) {
+      if (
+        !partsObjectJimpIsLoading &&
+        partsObjectJimp != null &&
+        selectedPartsForCanvasIsLoading
+      ) {
         const tmpSelectedPartsForCanvas: SelectedPartsForCanvas =
           await MakerCanvasSelectedPartsGen(
             selectedParts,

@@ -71,7 +71,7 @@ const MakerPartsColoringChange = async (
     const colorPairs = oldColors.map((oldColor, i) => {
       const oldRGB: { red: number; green: number; blue: number } =
         hexToRgb(oldColor);
-      console.log(oldColor, oldRGB);
+      // console.log(oldColor, oldRGB);
       const newRGB: { red: number; green: number; blue: number } = hexToRgb(
         newColors[i]
       );
@@ -123,7 +123,7 @@ const hexToRgb = (
 };
 
 // 使用例:
-console.log(hexToRgb("#0033ff")); // { r: 0, g: 51, b: 255 }
+// console.log(hexToRgb("#0033ff")); // { r: 0, g: 51, b: 255 }
 
 // カラーコードをHSVに変換する関数
 const rgbToHsv = (hex: string): [number, number, number] => {
