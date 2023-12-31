@@ -58,6 +58,7 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
   const [selectedPartsForCanvas, setSelectedPartsForCanvas] =
     useState<SelectedPartsForCanvas>(null);
 
+  const [canvasImage, setCanvasImage] = useState<Jimp[] | null>(null);
   const [nullImageIsLoading, setNullImageIsLoading] = useState<boolean>(true);
   const [partsObjectJimpIsLoading, setPartsObjectJimpIsLoading] =
     useState<boolean>(true);
@@ -65,7 +66,8 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
     useState<boolean>(true);
   const [menuPartsIconsIsLoading, setMenuPartsIconsIsLoading] =
     useState<boolean>(true);
-  const [canvasImage, setCanvasImage] = useState<Jimp[] | null>(null);
+  const [canvasImageIsLoading, setCanvasImageIsLoading] =
+    useState<boolean>(true);
   const faceList: string[] = MakerFaceGen(facePresets);
   faceList.push("custom");
 
@@ -142,11 +144,12 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
 
   useEffect(() => {
     const imageGen = async () => {
-      if (selectedPartsForCanvas != null) {
+      if (canvasImageIsLoading && selectedPartsForCanvas != null) {
         const tmpCanvasImage: Jimp[] = await MakerLayerCombineParts(
           selectedPartsForCanvas
         );
         setCanvasImage(tmpCanvasImage);
+        setCanvasImageIsLoading(false); // データの読み込みが完了したらisLoadingをfalseに設定
       }
     };
     imageGen();
@@ -184,7 +187,8 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
                                     {nullImageIsLoading ||
                                     partsObjectJimpIsLoading ||
                                     menuPartsIconsIsLoading ||
-                                    selectedPartsForCanvasIsLoading ? (
+                                    selectedPartsForCanvasIsLoading ||
+                                    canvasImageIsLoading ? (
                                       <div className={styles["loading"]}></div>
                                     ) : (
                                       /*アバターメーカーの枠*/

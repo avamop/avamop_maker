@@ -8,12 +8,14 @@ import MenuPartIconsContext from "../../store/MenuPartIconsContext";
 import PartsObjectContext from "../../store/PartsObjectContext";
 import { Swiper, SwiperSlide } from "swiper/react";
 import styles from "../../module-css/makerMenu/MakerPartsMenu.module.css";
+import CanvasImageContext from "../../store/CanvasImageContext";
 
 const MakerPartsMenu: React.FC = ({}) => {
   const { selectedParts, setSelectedParts } = useContext(SelectedPartsContext);
   const { selectedCategory, setSelectedCategory } = useContext(
     SelectedCategoryContext
   );
+  const { canvasImage, setCanvasImage } = useContext(CanvasImageContext);
   const partsObject = useContext(PartsObjectContext);
   const menuPartIcons = useContext(MenuPartIconsContext);
   const handleCategoryClick = (category: string) => {
