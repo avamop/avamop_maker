@@ -11,6 +11,7 @@ import styles from "../../module-css/makerMenu/MakerPartsMenu.module.css";
 import SelectedPartsForCanvasContext from "../../store/SelectedPartsForCanvasContext";
 import PartObjectJimpContext from "../../store/PartsObjectJimpContext";
 import NullImageContext from "../../store/NullImageContext";
+import CanvasImageContext from "../../store/CanvasImageContext";
 
 const MakerPartsMenu: React.FC = ({}) => {
   const { selectedParts, setSelectedParts } = useContext(SelectedPartsContext);
@@ -20,6 +21,7 @@ const MakerPartsMenu: React.FC = ({}) => {
   const { selectedCategory, setSelectedCategory } = useContext(
     SelectedCategoryContext
   );
+  const { canvasImage, setCanvasImage } = useContext(CanvasImageContext);
   const partsObject = useContext(PartsObjectContext);
   const partsObjectJimp = useContext(PartObjectJimpContext);
   const menuPartIcons = useContext(MenuPartIconsContext);
