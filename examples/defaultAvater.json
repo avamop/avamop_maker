@@ -62,60 +62,60 @@
   "selectedColor": {
     "eye": {
       "default": {
-        "color": "black",
+        "color": "aquamarine",
         "chain": false,
         "hueShiftReverse": false,
-        "saturationReverse": false,
+        "saturationReverse": true,
         "hueGraph": {
-          "globalSlope": 1,
+          "globalSlope": 7,
           "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         "saturationGraph": {
-          "globalSlope": 16,
+          "globalSlope": 30,
           "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         "valueGraph": {
-          "globalSlope": 16,
+          "globalSlope": 30,
           "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         }
       }
     },
     "skin": {
       "default": {
-        "color": "bisque",
+        "color": "papayaWhip",
         "chain": true,
-        "hueShiftReverse": false,
-        "saturationReverse": false,
+        "hueShiftReverse": true,
+        "saturationReverse": true,
         "hueGraph": {
-          "globalSlope": 1,
+          "globalSlope": 2,
           "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         "saturationGraph": {
-          "globalSlope": 16,
+          "globalSlope": 17,
           "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         "valueGraph": {
-          "globalSlope": 16,
+          "globalSlope": 11,
           "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         }
       }
     },
     "hair": {
       "default": {
-        "color": "saddleBrown",
+        "color": "steelBlue",
         "chain": false,
-        "hueShiftReverse": false,
-        "saturationReverse": false,
+        "hueShiftReverse": true,
+        "saturationReverse": true,
         "hueGraph": {
           "globalSlope": 1,
           "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         "saturationGraph": {
-          "globalSlope": 16,
+          "globalSlope": 21,
           "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         "valueGraph": {
-          "globalSlope": 16,
+          "globalSlope": 25,
           "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         }
       }
@@ -145,37 +145,77 @@
         "color": "aquamarine",
         "chain": true,
         "hueShiftReverse": false,
-        "saturationReverse": false,
+        "saturationReverse": true,
         "hueGraph": {
           "globalSlope": 1,
           "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         "saturationGraph": {
-          "globalSlope": 16,
+          "globalSlope": 17,
           "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         "valueGraph": {
-          "globalSlope": 16,
+          "globalSlope": 18,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        }
+      }
+    },
+    "tops": {
+      "default": {
+        "color": "aquamarine",
+        "chain": true,
+        "hueShiftReverse": false,
+        "saturationReverse": true,
+        "hueGraph": {
+          "globalSlope": 1,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "saturationGraph": {
+          "globalSlope": 17,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "valueGraph": {
+          "globalSlope": 18,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        }
+      }
+    },
+    "bottoms": {
+      "default": {
+        "color": "midnightBlue",
+        "chain": true,
+        "hueShiftReverse": true,
+        "saturationReverse": true,
+        "hueGraph": {
+          "globalSlope": 2,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "saturationGraph": {
+          "globalSlope": 19,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "valueGraph": {
+          "globalSlope": 22,
           "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         }
       }
     },
     "socks": {
       "default": {
-        "color": "lightSteelBlue",
+        "color": "lightCyan",
         "chain": true,
         "hueShiftReverse": false,
-        "saturationReverse": false,
+        "saturationReverse": true,
         "hueGraph": {
           "globalSlope": 1,
           "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         "saturationGraph": {
-          "globalSlope": 16,
+          "globalSlope": 21,
           "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         "valueGraph": {
-          "globalSlope": 16,
+          "globalSlope": 14,
           "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         }
       }
@@ -185,17 +225,17 @@
         "color": "aquamarine",
         "chain": true,
         "hueShiftReverse": false,
-        "saturationReverse": false,
+        "saturationReverse": true,
         "hueGraph": {
           "globalSlope": 1,
           "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         "saturationGraph": {
-          "globalSlope": 16,
+          "globalSlope": 21,
           "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         "valueGraph": {
-          "globalSlope": 16,
+          "globalSlope": 23,
           "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         }
       }

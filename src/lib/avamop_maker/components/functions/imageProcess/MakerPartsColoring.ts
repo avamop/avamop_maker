@@ -28,27 +28,31 @@ export const MakerPartsColoring = async (
   for (let i = 0; i < 10; i++) {
     const hCalculatedTmp = colorData.hueShiftReverse
       ? colorHsv[0] -
-        (colorData.hueGraph.globalSlope * (i + 1) +
+        (colorData.hueGraph.globalSlope * i +
           colorData.hueGraph.individualSlope[i])
       : colorHsv[0] +
-        (colorData.hueGraph.globalSlope * (i + 1) +
+        (colorData.hueGraph.globalSlope * i +
           colorData.hueGraph.individualSlope[i]);
     const sCalculatedTmp = colorData.saturationReverse
       ? colorHsv[1] +
-        (colorData.saturationGraph.globalSlope * (i + 1) +
+        (colorData.saturationGraph.globalSlope * i +
           colorData.saturationGraph.individualSlope[i])
       : colorHsv[1] -
-        (colorData.saturationGraph.globalSlope * (i + 1) +
+        (colorData.saturationGraph.globalSlope * i +
           colorData.saturationGraph.individualSlope[i]);
     const vCalculatedTmp =
       colorHsv[2] -
-      colorData.saturationGraph.globalSlope * (i + 1) +
+      colorData.saturationGraph.globalSlope * i +
       colorData.saturationGraph.individualSlope[i];
     const hCalculated =
       hCalculatedTmp < 0
-        ? 360 + hCalculatedTmp
+        ? hCalculatedTmp < -360
+          ? hCalculatedTmp * (hCalculatedTmp / -360) + hCalculatedTmp
+          : 360 + hCalculatedTmp
         : hCalculatedTmp > 360
-        ? hCalculatedTmp - 360
+        ? hCalculatedTmp > 720
+          ? hCalculatedTmp * (hCalculatedTmp / 360) - hCalculatedTmp
+          : hCalculatedTmp - 360
         : hCalculatedTmp;
     const sCalculated =
       sCalculatedTmp < 0 ? 0 : sCalculatedTmp > 255 ? 255 : sCalculatedTmp;
@@ -71,7 +75,7 @@ const MakerPartsColoringChange = async (
     const colorPairs = oldColors.map((oldColor, i) => {
       const oldRGB: { red: number; green: number; blue: number } =
         hexToRgb(oldColor);
-      console.log(oldColor, oldRGB);
+      // console.log(oldColor, oldRGB);
       const newRGB: { red: number; green: number; blue: number } = hexToRgb(
         newColors[i]
       );
@@ -121,9 +125,6 @@ const hexToRgb = (
       }
     : null;
 };
-
-// 使用例:
-console.log(hexToRgb("#0033ff")); // { r: 0, g: 51, b: 255 }
 
 // カラーコードをHSVに変換する関数
 const rgbToHsv = (hex: string): [number, number, number] => {
