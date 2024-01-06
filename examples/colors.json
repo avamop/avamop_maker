@@ -29,7 +29,7 @@
   },
   "black": {
     "hex": "#000000",
-    "group": "black"
+    "group": "gray"
   },
   "blanchedAlmond": {
     "hex": "#FFEBCD",
@@ -83,9 +83,17 @@
     "hex": "#00FFFF",
     "group": "cyan"
   },
+  "darkBeige": {
+    "hex": "#7B4B24",
+    "group": "skin"
+  },
   "darkBlue": {
     "hex": "#00008B",
     "group": "blue"
+  },
+  "darkBrown": {
+    "hex": "#7B4B2A",
+    "group": "skin"
   },
   "darkCyan": {
     "hex": "#008B8B",
@@ -111,6 +119,10 @@
     "hex": "#8B008B",
     "group": "purple"
   },
+  "darkMocha": {
+    "hex": "#573719",
+    "group": "skin"
+  },
   "darkOliveGreen": {
     "hex": "#556B2F",
     "group": "green"
@@ -122,6 +134,10 @@
   "darkOrchid": {
     "hex": "#9932CC",
     "group": "purple"
+  },
+  "darkPeach": {
+    "hex": "#AA724B",
+    "group": "skin"
   },
   "darkRed": {
     "hex": "#8B0000",
@@ -142,6 +158,10 @@
   "darkSlateGray": {
     "hex": "#2F4F4F",
     "group": "gray"
+  },
+  "darkTan": {
+    "hex": "#935D37",
+    "group": "skin"
   },
   "darkTurquoise": {
     "hex": "#00CED1",
@@ -225,7 +245,7 @@
   },
   "indigo": {
     "hex": "#4B0082",
-    "group": "indigo"
+    "group": "purple"
   },
   "ivory": {
     "hex": "#FFFFF0",
@@ -251,9 +271,17 @@
     "hex": "#FFFACD",
     "group": "yellow"
   },
+  "lightBeige": {
+    "hex": "#C8ACA3",
+    "group": "skin"
+  },
   "lightBlue": {
     "hex": "#ADD8E6",
     "group": "blue"
+  },
+  "lightBrown": {
+    "hex": "#FEB186",
+    "group": "skin"
   },
   "lightCoral": {
     "hex": "#F08080",
@@ -274,6 +302,14 @@
   "lightGreen": {
     "hex": "#90EE90",
     "group": "green"
+  },
+  "lightMocha": {
+    "hex": "#C0A183",
+    "group": "skin"
+  },
+  "lightPeach": {
+    "hex": "#FAE7D0",
+    "group": "skin"
   },
   "lightPink": {
     "hex": "#FFB6C1",
@@ -298,6 +334,10 @@
   "lightSteelBlue": {
     "hex": "#B0C4DE",
     "group": "blue"
+  },
+  "lightTan": {
+    "hex": "#FFCC99",
+    "group": "skin"
   },
   "lightYellow": {
     "hex": "#FFFFE0",
@@ -327,13 +367,29 @@
     "hex": "#66CDAA",
     "group": "cyan"
   },
+  "mediumBeige": {
+    "hex": "#EBCDA8",
+    "group": "skin"
+  },
   "mediumBlue": {
     "hex": "#0000CD",
     "group": "blue"
   },
+  "mediumBrown": {
+    "hex": "#B98865",
+    "group": "skin"
+  },
+  "mediumMocha": {
+    "hex": "#CAA661",
+    "group": "skin"
+  },
   "mediumOrchid": {
     "hex": "#BA55D3",
     "group": "purple"
+  },
+  "mediumPeach": {
+    "hex": "#DFC183",
+    "group": "skin"
   },
   "mediumPurple": {
     "hex": "#9370DB",
@@ -350,6 +406,10 @@
   "mediumSpringGreen": {
     "hex": "#00FA9A",
     "group": "green"
+  },
+  "mediumTan": {
+    "hex": "#CEAB69",
+    "group": "skin"
   },
   "mediumTurquoise": {
     "hex": "#48D1CC",
@@ -494,6 +554,10 @@
   "silver": {
     "hex": "#C0C0C0",
     "group": "gray"
+  },
+  "skin": {
+    "hex": "#FFDFDB",
+    "group": "skin"
   },
   "skyBlue": {
     "hex": "#87CEEB",

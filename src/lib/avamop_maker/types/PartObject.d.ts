@@ -60,6 +60,14 @@ declare global {
     };
   }
 
+  interface ColorsObjectSorted {
+    //使用できる色の一覧、バックエンドではなくフロントのローカル内保存
+    [group: string]: {
+      colorName: string[];
+      parentColor: string;
+    };
+  }
+
   interface DefaultColors {
     //アバターのカテゴリごとのデフォルトカラー格納オブジェクト、バックエンドではなくフロントのローカル内保存
     [colorGroup: string]: SelectedColor;

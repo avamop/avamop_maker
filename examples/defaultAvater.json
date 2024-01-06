@@ -82,9 +82,9 @@
     },
     "skin": {
       "default": {
-        "color": "papayaWhip",
+        "color": "skin",
         "chain": true,
-        "hueShiftReverse": true,
+        "hueShiftReverse": false,
         "saturationReverse": true,
         "hueGraph": {
           "globalSlope": 2,
