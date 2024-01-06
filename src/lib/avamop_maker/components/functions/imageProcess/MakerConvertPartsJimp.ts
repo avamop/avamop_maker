@@ -5,7 +5,7 @@ import { MakerPartsColoring } from "./MakerPartsColoring";
 // パスの入ったpartsObjectをJimpデータの入ったものに変換する
 export const MakerConvertPartsJimp = async (
   partsObject: PartsObjectSplit,
-  path: string,
+  partsPath: string,
   nullImage: Jimp,
   selectedParts: SelectedParts,
   colorsObject: ColorsObject
@@ -43,7 +43,7 @@ export const MakerConvertPartsJimp = async (
               jimpData = nullImage;
             } else {
               jimpData = await partRead(
-                path +
+                partsPath +
                   partsObject[category].partList[partSplit].items[item].faces[
                     face
                   ].imagePath,
