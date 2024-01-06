@@ -22,7 +22,7 @@ export const MakerPartsColoring = async (
   const colorData = selectedParts.selectedColor[colorGroup]
     ? selectedParts.selectedColor[colorGroup]["default"]
     : selectedParts.selectedColor["none"]["default"];
-  const colorCode: string = colorsObject[colorData.color];
+  const colorCode: string = colorsObject[colorData.color].hex;
   const colorHsv: [number, number, number] = rgbToHsv(colorCode);
   let changeColor: string[] = [];
   for (let i = 0; i < 10; i++) {

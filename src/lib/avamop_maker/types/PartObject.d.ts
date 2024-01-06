@@ -54,7 +54,10 @@ declare global {
 
   interface ColorsObject {
     //使用できる色の一覧、バックエンドではなくフロントのローカル内保存
-    [colorName: string]: string;
+    [colorName: string]: {
+      hex: string;
+      group: string;
+    };
   }
 
   interface DefaultColors {

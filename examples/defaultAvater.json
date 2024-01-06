@@ -182,7 +182,7 @@
     },
     "bottoms": {
       "default": {
-        "color": "midnightBlue",
+        "color": "steelBlue",
         "chain": true,
         "hueShiftReverse": true,
         "saturationReverse": true,
