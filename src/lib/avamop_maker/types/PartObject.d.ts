@@ -95,7 +95,7 @@ declare global {
 
   interface SelectedColor {
     //SelectedPartsの色データ格納オブジェクト
-    [partIndividual: "default" | string]: {
+    [partSplit: "default" | string]: {
       color: string;
       hueShiftReverse: boolean;
       saturationReverse: boolean;

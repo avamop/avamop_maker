@@ -63,7 +63,6 @@
     "eye": {
       "default": {
         "color": "aquamarine",
-        "chain": false,
         "hueShiftReverse": false,
         "saturationReverse": true,
         "hueGraph": {
@@ -83,7 +82,6 @@
     "skin": {
       "default": {
         "color": "skin",
-        "chain": true,
         "hueShiftReverse": false,
         "saturationReverse": true,
         "hueGraph": {
@@ -103,7 +101,6 @@
     "hair": {
       "default": {
         "color": "steelBlue",
-        "chain": false,
         "hueShiftReverse": true,
         "saturationReverse": true,
         "hueGraph": {
@@ -123,7 +120,6 @@
     "oral": {
       "default": {
         "color": "crimson",
-        "chain": true,
         "hueShiftReverse": false,
         "saturationReverse": false,
         "hueGraph": {
@@ -143,7 +139,6 @@
     "allinone": {
       "default": {
         "color": "aquamarine",
-        "chain": true,
         "hueShiftReverse": false,
         "saturationReverse": true,
         "hueGraph": {
@@ -163,7 +158,6 @@
     "tops": {
       "default": {
         "color": "aquamarine",
-        "chain": true,
         "hueShiftReverse": false,
         "saturationReverse": true,
         "hueGraph": {
@@ -183,7 +177,6 @@
     "bottoms": {
       "default": {
         "color": "steelBlue",
-        "chain": true,
         "hueShiftReverse": true,
         "saturationReverse": true,
         "hueGraph": {
@@ -203,7 +196,6 @@
     "socks": {
       "default": {
         "color": "lightCyan",
-        "chain": true,
         "hueShiftReverse": false,
         "saturationReverse": true,
         "hueGraph": {
@@ -223,7 +215,6 @@
     "shoes": {
       "default": {
         "color": "aquamarine",
-        "chain": true,
         "hueShiftReverse": false,
         "saturationReverse": true,
         "hueGraph": {
@@ -243,7 +234,6 @@
     "none": {
       "default": {
         "color": "gray",
-        "chain": false,
         "hueShiftReverse": false,
         "saturationReverse": false,
         "hueGraph": {

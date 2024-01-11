@@ -49,7 +49,8 @@ export const MakerChangingPart = (
             ? (updateAvaters.category[tmpCategory].partName =
                 !partsObject[tmpCategory].partList[
                   Object.keys(partsObject[tmpCategory].partList)[0]
-                ].items[selectedParts.category[tmpCategory].partName].bodyType ||
+                ].items[selectedParts.category[tmpCategory].partName]
+                  .bodyType ||
                 partsObject[tmpCategory].partList[
                   Object.keys(partsObject[tmpCategory].partList)[0]
                 ].items[
@@ -59,22 +60,32 @@ export const MakerChangingPart = (
                   : "")
             : "";
         }
-        for(const partSplit in partsObject[tmpCategory].partList) {
-        if (!selectedParts.selectedColor[partsObject[tmpCategory].partList[partSplit].colorGroup]) {
-          selectedParts.selectedColor[partsObject[tmpCategory].partList[partSplit].colorGroup] = {
-            default: {
-              color: selectedParts.selectedColor["none"]["default"].color,
-              hueShiftReverse:
-                selectedParts.selectedColor["none"]["default"].hueShiftReverse,
-              saturationReverse:
-                selectedParts.selectedColor["none"]["default"].saturationReverse,
-              hueGraph: selectedParts.selectedColor["none"]["default"].hueGraph,
-              saturationGraph:
-                selectedParts.selectedColor["none"]["default"].saturationGraph,
-              valueGraph:
-                selectedParts.selectedColor["none"]["default"].valueGraph,
-            }
-          }
+        for (const partSplit in partsObject[tmpCategory].partList) {
+          if (
+            !selectedParts.selectedColor[
+              partsObject[tmpCategory].partList[partSplit].colorGroup
+            ]
+          ) {
+            selectedParts.selectedColor[
+              partsObject[tmpCategory].partList[partSplit].colorGroup
+            ] = {
+              default: {
+                color: selectedParts.selectedColor["none"]["default"].color,
+                hueShiftReverse:
+                  selectedParts.selectedColor["none"]["default"]
+                    .hueShiftReverse,
+                saturationReverse:
+                  selectedParts.selectedColor["none"]["default"]
+                    .saturationReverse,
+                hueGraph:
+                  selectedParts.selectedColor["none"]["default"].hueGraph,
+                saturationGraph:
+                  selectedParts.selectedColor["none"]["default"]
+                    .saturationGraph,
+                valueGraph:
+                  selectedParts.selectedColor["none"]["default"].valueGraph,
+              },
+            };
           }
         }
       }
