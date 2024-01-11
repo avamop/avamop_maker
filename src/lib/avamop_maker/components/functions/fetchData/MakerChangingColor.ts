@@ -4,9 +4,14 @@ export const MakerChangingColor = (
   selectedColorGroup: string,
   selectedPartSplit: string,
   enableChain: boolean,
-  color: string
+  color: string,
+  category: string,
+  partName: string,
+  partsObject: PartsObjectSplit,
+  partsObjectJimp: PartsObjectJimp,
+  setPartsObjectJimp: React.Dispatch<React.SetStateAction<PartsObjectJimp>>
 ) => {
-  console.log(selectedColorGroup);
+  // console.log(selectedColorGroup);
   let updateColor: SelectedParts = {
     bodyType: selectedParts.bodyType,
     face: selectedParts.face,

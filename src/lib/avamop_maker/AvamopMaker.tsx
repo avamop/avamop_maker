@@ -24,6 +24,9 @@ import SelectedPartsForCanvasContext from "./store/SelectedPartsForCanvasContext
 import { MakerLayerCombineParts } from "./components/functions/imageProcess/MakerLayerCombineParts";
 import CanvasImageContext from "./store/CanvasImageContext";
 import FacePathContext from "./store/FacePathContext";
+import { MakerConvertBase64 } from "./components/functions/imageProcess/MakerConvertBase64";
+import { MakerGroupingParts } from "./components/functions/imageProcess/MakerGroupingParts";
+import ColorMenuPartIconsContext from "./store/ColorMenuPartIconsContext";
 interface AvamopMakerProps {
   partsPath: string;
   facePath: string;
@@ -50,6 +53,8 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
     useState<PartsObjectJimp | null>(null);
   const [menuPartIcons, setMenuPartIcons] =
     useState<CombinePartIconsObjectBase64 | null>(null);
+  const [colorMenuPartIcons, setColorMenuPartIcons] =
+    useState<ColorMenuPartIcons | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedParts, setSelectedParts] = useState<SelectedParts>(
     defaultAvaters
@@ -66,7 +71,9 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
     useState<boolean>(true);
   const [selectedPartsForCanvasIsLoading, setSelectedPartsForCanvasIsLoading] =
     useState<boolean>(true);
-  const [menuPartsIconsIsLoading, setMenuPartsIconsIsLoading] =
+  const [menuPartIconsIsLoading, setMenuPartIconsIsLoading] =
+    useState<boolean>(true);
+  const [colorMenuPartIconsIsLoading, setColorMenuPartIconsIsLoading] =
     useState<boolean>(true);
   const [canvasImage, setCanvasImage] = useState<Jimp[] | null>(null);
   const faceList: string[] = MakerFaceGen(facePresets);
@@ -84,7 +91,7 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
 
   useEffect(() => {
     const fetchPartsObjectJimp = async () => {
-      if (!nullImageIsLoading && nullImage != null) {
+      if (!nullImageIsLoading && nullImage != null && partsObjectJimp == null) {
         const tmpPartsObjectJimp: PartsObjectJimp = await MakerConvertPartsJimp(
           partsObject,
           partsPath,
@@ -98,7 +105,7 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
       }
     };
     fetchPartsObjectJimp();
-  }, [nullImageIsLoading]);
+  }, [nullImageIsLoading, selectedParts]);
 
   useEffect(() => {
     const fetchMenuPartIcons = async () => {
@@ -107,7 +114,7 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
           await MakerConvertPartsToMenuIcons(partsObjectJimp);
         setMenuPartIcons(await tmpMenuPartIcons);
         // console.log(tmpMenuPartIcons);
-        setMenuPartsIconsIsLoading(false); // データの読み込みが完了したらisLoadingをfalseに設定
+        setMenuPartIconsIsLoading(false); // データの読み込みが完了したらisLoadingをfalseに設定
       }
     };
     fetchMenuPartIcons();
@@ -155,64 +162,183 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
     imageGen();
   }, [selectedPartsForCanvas]);
 
+  useEffect(() => {
+    const fetchColorMenuIcons = async () => {
+      if (selectedPartsForCanvas != null) {
+        const categories = Object.keys(selectedPartsForCanvas.category);
+        const enableChainOptions = [true, false];
+        let newImages: ColorMenuPartIcons = {};
+
+        for (let selectedCategory of categories) {
+          newImages[selectedCategory] = {
+            true: [],
+            false: [],
+          };
+
+          for (let enableChain of enableChainOptions) {
+            if (enableChain) {
+              const groupedParts = MakerGroupingParts(
+                selectedPartsForCanvas,
+                selectedCategory
+              );
+              const colorGroups = Object.keys(groupedParts);
+              for (let colorGroup of colorGroups) {
+                let partSplits = groupedParts[colorGroup];
+                const images: { jimp: Jimp; partOrder: number }[] = [];
+                for (let i = 0; i < partSplits.length; i++) {
+                  let partSplit = partSplits[i];
+                  if (
+                    selectedPartsForCanvas.category[selectedCategory].partSplit[
+                      partSplit
+                    ].enableColor &&
+                    partsObject[selectedCategory].partList[partSplit].items[
+                      selectedParts.category[selectedCategory].partName
+                    ].faces[selectedParts.selectedFace[selectedCategory]]
+                      .imagePath != null &&
+                    partsObject[selectedCategory].partList[partSplit].items[
+                      selectedParts.category[selectedCategory].partName
+                    ].faces[selectedParts.selectedFace[selectedCategory]]
+                      .imagePath != "" &&
+                    selectedPartsForCanvas.category[selectedCategory].partSplit[
+                      partSplit
+                    ]
+                  ) {
+                    images.push({
+                      jimp: selectedPartsForCanvas.category[selectedCategory]
+                        .partSplit[partSplit].partData,
+                      partOrder:
+                        selectedPartsForCanvas.category[selectedCategory]
+                          .partSplit[partSplit].partOrder,
+                    });
+                  }
+                }
+                if (images.length > 0) {
+                  images.sort((a, b) => a.partOrder - b.partOrder);
+                  let image: Jimp = images[0].jimp;
+                  for (let i = 1; i < images.length; i++) {
+                    image = image.composite(images[i].jimp, 0, 0);
+                  }
+                  const imageBase64: string = await MakerConvertBase64(image);
+                  newImages[selectedCategory]["true"].push({
+                    image: imageBase64,
+                    colorGroup,
+                    partSplit: "default",
+                  });
+                }
+              }
+            } else {
+              const partSplits = Object.keys(
+                selectedPartsForCanvas.category[selectedCategory].partSplit
+              );
+              for (let partSplit of partSplits) {
+                if (
+                  selectedPartsForCanvas.category[selectedCategory].partSplit[
+                    partSplit
+                  ].enableColor &&
+                  partsObject[selectedCategory].partList[partSplit].items[
+                    selectedParts.category[selectedCategory].partName
+                  ].faces[selectedParts.selectedFace[selectedCategory]]
+                    .imagePath != null &&
+                  partsObject[selectedCategory].partList[partSplit].items[
+                    selectedParts.category[selectedCategory].partName
+                  ].faces[selectedParts.selectedFace[selectedCategory]]
+                    .imagePath != "" &&
+                  selectedPartsForCanvas.category[selectedCategory].partSplit[
+                    partSplit
+                  ]
+                ) {
+                  const image = await MakerConvertBase64(
+                    selectedPartsForCanvas.category[selectedCategory].partSplit[
+                      partSplit
+                    ].partData
+                  );
+                  newImages[selectedCategory]["false"].push({
+                    image,
+                    colorGroup:
+                      selectedPartsForCanvas.category[selectedCategory]
+                        .partSplit[partSplit].colorGroup,
+                    partSplit,
+                  });
+                }
+              }
+            }
+          }
+        }
+        setColorMenuPartIcons(newImages);
+        setColorMenuPartIconsIsLoading(false); // データの読み込みが完了したらisLoadingをfalseに設定
+      }
+    };
+    fetchColorMenuIcons();
+  }, [selectedPartsForCanvas]);
+
   return (
     <>
       <div className={styles["Makerwindow"]}>
-        <PartsPathContext.Provider value={partsPath}>
-          <FacePathContext.Provider value={facePath}>
-            <PartsObjectContext.Provider value={partsObject}>
-              <NullImageContext.Provider value={nullImage}>
-                <PartsObjectJimpContext.Provider value={partsObjectJimp}>
-                  <MenuPartIconsContext.Provider value={menuPartIcons}>
-                    <SelectedCategoryContext.Provider
-                      value={{ selectedCategory, setSelectedCategory }}
-                    >
-                      <ColorsObjectContext.Provider value={colorsObject}>
-                        <FaceListContext.Provider value={faceList}>
-                          <FacePresetsContext.Provider value={facePresets}>
-                            <SelectedPartsContext.Provider
-                              value={{ selectedParts, setSelectedParts }}
-                            >
-                              <SelectedPartsForCanvasContext.Provider
-                                value={{
-                                  selectedPartsForCanvas,
-                                  setSelectedPartsForCanvas,
-                                }}
-                              >
-                                <WindowWidthContext.Provider
-                                  value={windowWidth}
+        {/* 画像データのロードが終わったら中身を表示する */}
+        {nullImageIsLoading ||
+        partsObjectJimpIsLoading ||
+        menuPartIconsIsLoading ||
+        colorMenuPartIconsIsLoading ||
+        selectedPartsForCanvasIsLoading ? (
+          <div className={styles["loading"]}></div>
+        ) : (
+          <PartsPathContext.Provider value={partsPath}>
+            <FacePathContext.Provider value={facePath}>
+              <PartsObjectContext.Provider value={partsObject}>
+                <NullImageContext.Provider value={nullImage}>
+                  <PartsObjectJimpContext.Provider
+                    value={{ partsObjectJimp, setPartsObjectJimp }}
+                  >
+                    <MenuPartIconsContext.Provider value={menuPartIcons}>
+                      <ColorMenuPartIconsContext.Provider
+                        value={colorMenuPartIcons}
+                      >
+                        <SelectedCategoryContext.Provider
+                          value={{ selectedCategory, setSelectedCategory }}
+                        >
+                          <ColorsObjectContext.Provider value={colorsObject}>
+                            <FaceListContext.Provider value={faceList}>
+                              <FacePresetsContext.Provider value={facePresets}>
+                                <SelectedPartsContext.Provider
+                                  value={{ selectedParts, setSelectedParts }}
                                 >
-                                  <ViewScaleContext.Provider value={viewScale}>
-                                    <CanvasImageContext.Provider
-                                      value={{ canvasImage, setCanvasImage }}
+                                  <SelectedPartsForCanvasContext.Provider
+                                    value={{
+                                      selectedPartsForCanvas,
+                                      setSelectedPartsForCanvas,
+                                    }}
+                                  >
+                                    <WindowWidthContext.Provider
+                                      value={windowWidth}
                                     >
-                                      {/* 画像データのロードが終わったら中身を表示する */}
-                                      {nullImageIsLoading ||
-                                      partsObjectJimpIsLoading ||
-                                      menuPartsIconsIsLoading ||
-                                      selectedPartsForCanvasIsLoading ? (
-                                        <div
-                                          className={styles["loading"]}
-                                        ></div>
-                                      ) : (
-                                        /*アバターメーカーの枠*/
-                                        <MakerWindow />
-                                      )}
-                                    </CanvasImageContext.Provider>
-                                  </ViewScaleContext.Provider>
-                                </WindowWidthContext.Provider>
-                              </SelectedPartsForCanvasContext.Provider>
-                            </SelectedPartsContext.Provider>
-                          </FacePresetsContext.Provider>
-                        </FaceListContext.Provider>
-                      </ColorsObjectContext.Provider>
-                    </SelectedCategoryContext.Provider>
-                  </MenuPartIconsContext.Provider>
-                </PartsObjectJimpContext.Provider>
-              </NullImageContext.Provider>
-            </PartsObjectContext.Provider>
-          </FacePathContext.Provider>
-        </PartsPathContext.Provider>
+                                      <ViewScaleContext.Provider
+                                        value={viewScale}
+                                      >
+                                        <CanvasImageContext.Provider
+                                          value={{
+                                            canvasImage,
+                                            setCanvasImage,
+                                          }}
+                                        >
+                                          {/*アバターメーカーの枠*/}
+                                          <MakerWindow />
+                                        </CanvasImageContext.Provider>
+                                      </ViewScaleContext.Provider>
+                                    </WindowWidthContext.Provider>
+                                  </SelectedPartsForCanvasContext.Provider>
+                                </SelectedPartsContext.Provider>
+                              </FacePresetsContext.Provider>
+                            </FaceListContext.Provider>
+                          </ColorsObjectContext.Provider>
+                        </SelectedCategoryContext.Provider>
+                      </ColorMenuPartIconsContext.Provider>
+                    </MenuPartIconsContext.Provider>
+                  </PartsObjectJimpContext.Provider>
+                </NullImageContext.Provider>
+              </PartsObjectContext.Provider>
+            </FacePathContext.Provider>
+          </PartsPathContext.Provider>
+        )}
       </div>
     </>
   );

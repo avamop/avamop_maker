@@ -133,6 +133,19 @@ declare global {
     };
   }
 
+  interface ColorMenuPartIcons {
+    [selectedCategory: string]: {
+      true: ColorMenuPartIconsArray[];
+      false: ColorMenuPartIconsArray[];
+    };
+  }
+
+  interface ColorMenuPartIconsArray {
+    image: string;
+    colorGroup: string;
+    partSplit: string;
+  }
+
   type Append<Elm, T extends unknown[]> = ((
     arg: Elm,
     ...rest: T

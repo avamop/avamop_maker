@@ -13,6 +13,8 @@ import { MakerGroupingParts } from "../functions/imageProcess/MakerGroupingParts
 import "jimp/browser/lib/jimp";
 import type { Jimp } from "jimp/browser/lib/jimp";
 import { MakerChangingColor } from "../functions/fetchData/MakerChangingColor";
+import ColorMenuPartIconsContext from "../../store/ColorMenuPartIconsContext";
+import PartsObjectJimpContext from "../../store/PartsObjectJimpContext";
 
 const MakerColorsPalleteMenu: React.FC = ({}) => {
   const [showSwiper, setShowSwiper] = useState(false);
@@ -22,19 +24,21 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
     SelectedPartsForCanvasContext
   );
   const partsObject = useContext(PartsObjectContext);
+  const { partsObjectJimp, setPartsObjectJimp } = useContext(
+    PartsObjectJimpContext
+  );
   const colorsObject = useContext(ColorsObjectContext);
   const { selectedCategory, setSelectedCategory } = useContext(
     SelectedCategoryContext
   );
+  const colorMenuPartIcons = useContext(ColorMenuPartIconsContext);
   const [selectedColorGroup, setSelectedColorGroup] = useState<null | string>(
     null
   );
   const [selectedPartSplit, setSelectedPartSplit] = useState<null | string>(
     null
   );
-  const [groupedParts, setGroupedParts] = useState<
-    {} | { [colorGroup: string]: string[] }
-  >({});
+
   const selectedRadio = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { colorGroup, partSplit } = JSON.parse(event.target.value);
     setSelectedColorGroup(colorGroup);
@@ -45,11 +49,6 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
   useEffect(() => {
     setSelectedColorGroup(null);
     setSelectedPartSplit(null);
-    if (selectedCategory) {
-      setGroupedParts(
-        MakerGroupingParts(selectedPartsForCanvas, selectedCategory)
-      );
-    }
     enableChain = true;
   }, [selectedCategory]);
 
@@ -80,6 +79,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
         setTouchRatio(length); // touchRatioを設定
       });
   }, []);
+  console.log(colorMenuPartIcons);
 
   return (
     <>
@@ -112,115 +112,42 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                 defaultChecked={enableChain}
               />
               {enableChain
-                ? Object.keys(groupedParts).forEach(async (colorGroup) => {
-                    let partSplits = groupedParts[colorGroup];
-                    let images: { jimp: Jimp; partOrder: number }[] = [];
-                    for (let i = 0; i < partSplits.length; i++) {
-                      let partSplit = partSplits[i];
-                      // if (
-                      //   (selectedPartsForCanvas.category[
-                      //     selectedCategory
-                      //   ].partSplit[partSplit].enableColor =
-                      //     true &&
-                      //     partsObject[selectedCategory].partList[partSplit]
-                      //       .items[
-                      //       selectedParts.category[selectedCategory].partName
-                      //     ].faces[selectedParts.selectedFace[selectedCategory]]
-                      //       .imagePath != "" &&
-                      //     partsObject[selectedCategory].partList[partSplit]
-                      //       .items[
-                      //       selectedParts.category[selectedCategory].partName
-                      //     ].faces[selectedParts.selectedFace[selectedCategory]]
-                      //       .imagePath != null)
-                      // ) {
-                      images.push({
-                        jimp: selectedPartsForCanvas.category[selectedCategory]
-                          .partSplit[partSplit].partData,
-                        partOrder:
-                          selectedPartsForCanvas.category[selectedCategory]
-                            .partSplit[partSplit].partOrder,
-                      });
-                      images.sort((a, b) => a.partOrder - b.partOrder);
-                      const image = await MakerConvertBase64(
-                        images
-                          .map((image) => image.jimp)
-                          .reduce(
-                            (acc, jimp) => acc.composite(jimp, 0, 0),
-                            images[0].jimp
-                          )
-                      );
-                      return (
-                        <>
-                          <img
-                            className={styles["parts-img"]}
-                            src={image}
-                            alt={
-                              selectedParts.category[selectedCategory].partName
-                            }
-                          />
-                          <input
-                            type="radio"
-                            name="colorMenu"
-                            value={JSON.stringify({
-                              colorGroup:
-                                selectedPartsForCanvas.category[
-                                  selectedCategory
-                                ].partSplit[partSplit].colorGroup,
-                              partSplit: "default",
-                            })}
-                            onChange={selectedRadio}
-                          />
-                        </>
-                      );
-                    }
-                  })
-                : Object.keys(
-                    selectedPartsForCanvas.category[selectedCategory].partSplit
-                  ).map(async (partSplit) => {
-                    // if (
-                    //   (selectedPartsForCanvas.category[
-                    //     selectedCategory
-                    //   ].partSplit[partSplit].enableColor =
-                    //     true &&
-                    //     partsObject[selectedCategory].partList[partSplit]
-                    //       .items[
-                    //       selectedParts.category[selectedCategory].partName
-                    //     ].faces[selectedParts.selectedFace[selectedCategory]]
-                    //       .imagePath != "" &&
-                    //     partsObject[selectedCategory].partList[partSplit]
-                    //       .items[
-                    //       selectedParts.category[selectedCategory].partName
-                    //     ].faces[selectedParts.selectedFace[selectedCategory]]
-                    //       .imagePath != null)
-                    // ) {
-                    const image = await MakerConvertBase64(
-                      selectedPartsForCanvas.category[selectedCategory]
-                        .partSplit[partSplit].partData
-                    );
-
-                    return (
-                      <>
-                        <img
-                          className={styles["parts-img"]}
-                          src={image}
-                          alt={
-                            selectedParts.category[selectedCategory].partName
-                          }
-                        />
-                        <input
-                          type="radio"
-                          name="colorMenu"
-                          value={JSON.stringify({
-                            colorGroup:
-                              selectedPartsForCanvas.category[selectedCategory]
-                                .partSplit[partSplit].colorGroup,
-                            partSplit: partSplit,
-                          })}
-                          onChange={selectedRadio}
-                        />
-                      </>
-                    );
-                  })}
+                ? colorMenuPartIcons[selectedCategory].true.map((index) => (
+                    <>
+                      <img
+                        className={styles["parts-img"]}
+                        src={index.image}
+                        alt={selectedParts.category[selectedCategory].partName}
+                      />
+                      <input
+                        type="radio"
+                        name="colorMenu"
+                        value={JSON.stringify({
+                          colorGroup: index.colorGroup,
+                          partSplit: "default",
+                        })}
+                        onChange={selectedRadio}
+                      />
+                    </>
+                  ))
+                : colorMenuPartIcons[selectedCategory].false.map((index) => (
+                    <>
+                      <img
+                        className={styles["parts-img"]}
+                        src={index.image}
+                        alt={selectedParts.category[selectedCategory].partName}
+                      />
+                      <input
+                        type="radio"
+                        name="colorMenu"
+                        value={JSON.stringify({
+                          colorGroup: index.colorGroup,
+                          partSplit: index.partSplit,
+                        })}
+                        onChange={selectedRadio}
+                      />
+                    </>
+                  ))}
               {!selectedColorGroup || !selectedPartSplit ? null : (
                 <>
                   {Object.keys(colorsObjectSorted).map((groupKey) => (
@@ -235,7 +162,12 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                           selectedColorGroup,
                           selectedPartSplit,
                           enableChain,
-                          groupKey
+                          groupKey,
+                          selectedCategory,
+                          selectedParts.category[selectedCategory].partName,
+                          partsObject,
+                          partsObjectJimp,
+                          setPartsObjectJimp
                         )
                       }
                     />
@@ -267,7 +199,13 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                                       selectedColorGroup,
                                       selectedPartSplit,
                                       enableChain,
-                                      color
+                                      color,
+                                      selectedCategory,
+                                      selectedParts.category[selectedCategory]
+                                        .partName,
+                                      partsObject,
+                                      partsObjectJimp,
+                                      setPartsObjectJimp
                                     )
                                   }
                                 />
