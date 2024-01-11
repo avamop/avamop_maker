@@ -104,7 +104,7 @@ const MakerPartsMenu: React.FC = ({}) => {
           : null
       )}
       {/* オブジェクト変化テスト用ボタン */}
-      <button onClick={() => console.log(selectedParts)}>button</button>
+      
     </>
   );
 };

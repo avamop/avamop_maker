@@ -48,8 +48,10 @@ const MakerWindow: React.FC = ({}) => {
             {/* アバターメーカーの色メニュー部分 */}
             <MakerColorsMenu/>
             {/* アバターメーカーのパーツメニュー部分 */}
+            
             <div className={styles['avatar-img-part']}>
               <MakerPartsMenu />
+            
             </div>
           </div>
         </div>
