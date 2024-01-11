@@ -5,10 +5,10 @@ import PartsObjectContext from "./store/PartsObjectContext";
 import NullImageContext from "./store/NullImageContext";
 import "jimp/browser/lib/jimp";
 import type { Jimp } from "jimp/browser/lib/jimp";
-import { MakerConvertPartsJimp } from "./components/functions/objectProcess/MakerConvertPartsJimp";
+import { MakerConvertPartsJimp } from "./components/functions/imageProcess/MakerConvertPartsJimp";
 import { MakerConvertPartsToMenuIcons } from "./components/functions/imageProcess/MakerConvertPartsToMenuIcons";
 import PartsObjectJimpContext from "./store/PartsObjectJimpContext";
-import AssetsPathContext from "./store/AssetsPathContext";
+import PartsPathContext from "./store/PartsPathContext";
 import MenuPartIconsContext from "./store/MenuPartIconsContext";
 import SelectedCategoryContext from "./store/SelectedCategoryContext";
 import FaceListContext from "./store/FaceListContext";
@@ -23,8 +23,10 @@ import { MakerCanvasSelectedPartsGen } from "./components/functions/fetchData/Ma
 import SelectedPartsForCanvasContext from "./store/SelectedPartsForCanvasContext";
 import { MakerLayerCombineParts } from "./components/functions/imageProcess/MakerLayerCombineParts";
 import CanvasImageContext from "./store/CanvasImageContext";
+import FacePathContext from "./store/FacePathContext";
 interface AvamopMakerProps {
-  path: string;
+  partsPath: string;
+  facePath: string;
   partsObject: PartsObjectSplit;
   colorsObject: ColorsObject;
   defaultColors: DefaultColors;
@@ -34,7 +36,8 @@ interface AvamopMakerProps {
 }
 
 const AvamopMaker: React.FC<AvamopMakerProps> = ({
-  path,
+  partsPath,
+  facePath,
   partsObject,
   colorsObject,
   defaultColors,
@@ -71,7 +74,7 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
 
   useEffect(() => {
     const fetchNullImage = async () => {
-      const tmpNullImage: Jimp = await Jimp.read(path + nullImagePath);
+      const tmpNullImage: Jimp = await Jimp.read(partsPath + nullImagePath);
       setNullImage(tmpNullImage);
       // console.log(tmpNullImage);
       setNullImageIsLoading(false); // データの読み込みが完了したらisLoadingをfalseに設定
@@ -84,8 +87,10 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
       if (!nullImageIsLoading && nullImage != null) {
         const tmpPartsObjectJimp: PartsObjectJimp = await MakerConvertPartsJimp(
           partsObject,
-          path,
-          nullImage
+          partsPath,
+          nullImage,
+          selectedParts,
+          colorsObject
         );
         setPartsObjectJimp(tmpPartsObjectJimp);
         // console.log(tmpPartsObjectJimp);
@@ -153,55 +158,61 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
   return (
     <>
       <div className={styles["Makerwindow"]}>
-        <AssetsPathContext.Provider value={path}>
-          <PartsObjectContext.Provider value={partsObject}>
-            <NullImageContext.Provider value={nullImage}>
-              <PartsObjectJimpContext.Provider value={partsObjectJimp}>
-                <MenuPartIconsContext.Provider value={menuPartIcons}>
-                  <SelectedCategoryContext.Provider
-                    value={{ selectedCategory, setSelectedCategory }}
-                  >
-                    <ColorsObjectContext.Provider value={colorsObject}>
-                      <FaceListContext.Provider value={faceList}>
-                        <FacePresetsContext.Provider value={facePresets}>
-                          <SelectedPartsContext.Provider
-                            value={{ selectedParts, setSelectedParts }}
-                          >
-                            <SelectedPartsForCanvasContext.Provider
-                              value={{
-                                selectedPartsForCanvas,
-                                setSelectedPartsForCanvas,
-                              }}
+        <PartsPathContext.Provider value={partsPath}>
+          <FacePathContext.Provider value={facePath}>
+            <PartsObjectContext.Provider value={partsObject}>
+              <NullImageContext.Provider value={nullImage}>
+                <PartsObjectJimpContext.Provider value={partsObjectJimp}>
+                  <MenuPartIconsContext.Provider value={menuPartIcons}>
+                    <SelectedCategoryContext.Provider
+                      value={{ selectedCategory, setSelectedCategory }}
+                    >
+                      <ColorsObjectContext.Provider value={colorsObject}>
+                        <FaceListContext.Provider value={faceList}>
+                          <FacePresetsContext.Provider value={facePresets}>
+                            <SelectedPartsContext.Provider
+                              value={{ selectedParts, setSelectedParts }}
                             >
-                              <WindowWidthContext.Provider value={windowWidth}>
-                                <ViewScaleContext.Provider value={viewScale}>
-                                  <CanvasImageContext.Provider
-                                    value={{ canvasImage, setCanvasImage }}
-                                  >
-                                    {/* 画像データのロードが終わったら中身を表示する */}
-                                    {nullImageIsLoading ||
-                                    partsObjectJimpIsLoading ||
-                                    menuPartsIconsIsLoading ||
-                                    selectedPartsForCanvasIsLoading ? (
-                                      <div className={styles["loading"]}></div>
-                                    ) : (
-                                      /*アバターメーカーの枠*/
-                                      <MakerWindow />
-                                    )}
-                                  </CanvasImageContext.Provider>
-                                </ViewScaleContext.Provider>
-                              </WindowWidthContext.Provider>
-                            </SelectedPartsForCanvasContext.Provider>
-                          </SelectedPartsContext.Provider>
-                        </FacePresetsContext.Provider>
-                      </FaceListContext.Provider>
-                    </ColorsObjectContext.Provider>
-                  </SelectedCategoryContext.Provider>
-                </MenuPartIconsContext.Provider>
-              </PartsObjectJimpContext.Provider>
-            </NullImageContext.Provider>
-          </PartsObjectContext.Provider>
-        </AssetsPathContext.Provider>
+                              <SelectedPartsForCanvasContext.Provider
+                                value={{
+                                  selectedPartsForCanvas,
+                                  setSelectedPartsForCanvas,
+                                }}
+                              >
+                                <WindowWidthContext.Provider
+                                  value={windowWidth}
+                                >
+                                  <ViewScaleContext.Provider value={viewScale}>
+                                    <CanvasImageContext.Provider
+                                      value={{ canvasImage, setCanvasImage }}
+                                    >
+                                      {/* 画像データのロードが終わったら中身を表示する */}
+                                      {nullImageIsLoading ||
+                                      partsObjectJimpIsLoading ||
+                                      menuPartsIconsIsLoading ||
+                                      selectedPartsForCanvasIsLoading ? (
+                                        <div
+                                          className={styles["loading"]}
+                                        ></div>
+                                      ) : (
+                                        /*アバターメーカーの枠*/
+                                        <MakerWindow />
+                                      )}
+                                    </CanvasImageContext.Provider>
+                                  </ViewScaleContext.Provider>
+                                </WindowWidthContext.Provider>
+                              </SelectedPartsForCanvasContext.Provider>
+                            </SelectedPartsContext.Provider>
+                          </FacePresetsContext.Provider>
+                        </FaceListContext.Provider>
+                      </ColorsObjectContext.Provider>
+                    </SelectedCategoryContext.Provider>
+                  </MenuPartIconsContext.Provider>
+                </PartsObjectJimpContext.Provider>
+              </NullImageContext.Provider>
+            </PartsObjectContext.Provider>
+          </FacePathContext.Provider>
+        </PartsPathContext.Provider>
       </div>
       
     </>

@@ -20,9 +20,6 @@ const MakerView: React.FC = ({}) => {
       const canvas = canvasRef.current;
       const context = canvas.getContext("2d");
 
-      // キャンバスをクリア
-      context.clearRect(0, 0, canvas.width, canvas.height);
-
       // 画像をレイヤーとして追加
       if (canvasImage) {
         // すべての画像が読み込まれるのを待つ
@@ -37,6 +34,9 @@ const MakerView: React.FC = ({}) => {
             });
           })
         ).then((images: any[]) => {
+          // キャンバスをクリア
+          context.clearRect(0, 0, canvas.width, canvas.height);
+
           // キャンバスのサイズを設定
           const firstImage = images[0].img;
           canvas.width = firstImage.width * viewScale;

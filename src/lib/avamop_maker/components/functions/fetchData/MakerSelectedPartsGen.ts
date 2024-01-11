@@ -37,7 +37,7 @@ export const MakerSelectedPartsGen = (
       const partSplit: string = partSplits[0];
       let defaultItemCnt: number = 0;
       partsObject[category].partList[partSplit].items;
-      for (let item in partsObject[category].partList[partSplit].items) {
+      for (const item in partsObject[category].partList[partSplit].items) {
         let bodyType =
           partsObject[category].partList[partSplit].items[item].bodyType;
         if (

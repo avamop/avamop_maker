@@ -10,10 +10,11 @@ export const MakerLayerCombineParts = async (
     partOrder: number;
     partData: Jimp;
   };
-
+  // console.log(selectedPartsForCanvas);
   let sortedParts: Orders[] = [];
-  for (let category in selectedPartsForCanvas.category) {
-    for (let partSplit in selectedPartsForCanvas.category[category].partSplit) {
+  for (const category in selectedPartsForCanvas.category) {
+    for (const partSplit in selectedPartsForCanvas.category[category]
+      .partSplit) {
       sortedParts.push({
         category: category,
         partSplit: partSplit,

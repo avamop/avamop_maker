@@ -27,7 +27,7 @@ const generatepartsObject = (directoryPath, partChain) => {
     const categoryPartChain = partChain ? `${partChain}/${category}` : category;
 
     partsObject[category] = {
-      colorGroup: null,
+      colorGroup: category,
       partCount: 1,
       partChain: categoryPartChain,
       partOrder,
@@ -49,7 +49,7 @@ const generatepartsObject = (directoryPath, partChain) => {
         .map((dirent) => dirent.name);
       partsObject[category].items[item] = {
         bodyType: null,
-        color: true,
+        enableColor: true,
         faces: {},
       };
       for (const face of faces) {

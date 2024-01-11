@@ -10,11 +10,11 @@
         "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
       },
       "saturationGraph": {
-        "globalSlope": 1,
+        "globalSlope": 16,
         "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
       },
       "valueGraph": {
-        "globalSlope": 7,
+        "globalSlope": 16,
         "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
       }
     }
@@ -30,11 +30,11 @@
         "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
       },
       "saturationGraph": {
-        "globalSlope": 1,
+        "globalSlope": 16,
         "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
       },
       "valueGraph": {
-        "globalSlope": 7,
+        "globalSlope": 16,
         "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
       }
     }
@@ -50,11 +50,11 @@
         "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
       },
       "saturationGraph": {
-        "globalSlope": 1,
+        "globalSlope": 16,
         "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
       },
       "valueGraph": {
-        "globalSlope": 7,
+        "globalSlope": 16,
         "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
       }
     }
@@ -70,11 +70,11 @@
         "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
       },
       "saturationGraph": {
-        "globalSlope": 1,
+        "globalSlope": 16,
         "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
       },
       "valueGraph": {
-        "globalSlope": 7,
+        "globalSlope": 16,
         "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
       }
     }
@@ -90,11 +90,11 @@
         "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
       },
       "saturationGraph": {
-        "globalSlope": 1,
+        "globalSlope": 16,
         "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
       },
       "valueGraph": {
-        "globalSlope": 7,
+        "globalSlope": 16,
         "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
       }
     }

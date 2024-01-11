@@ -58,6 +58,7 @@ const MakerConvertCategory = (
         itemsIconForCombine[item].peaces = {};
       }
       itemsIconForCombine[item].peaces[partSplit] = {
+        partOrder: categoryItems[partSplit].partOrder,
         faces: partData.items[item].faces,
       };
     }

@@ -39,7 +39,7 @@ declare global {
     //変換前及び変換後のパーツのパス格納オブジェクトのパーツリスト部
     [item: string]: {
       bodyType: null | string[]; //体パーツのタイプを表している。categoryが体パーツの場合は体のタイプを、それ以外のパーツの場合はどの体タイプに対応してるかを配列で列挙する。nullの場合は全てのbodyに対応している
-      color: boolean; //カラーチェンジが有効かどうかを表している
+      enableColor: boolean; //カラーチェンジが有効かどうかを表している
       faces: Faces; //表情差分。この中に画像パスがある。
     };
   }
@@ -54,7 +54,18 @@ declare global {
 
   interface ColorsObject {
     //使用できる色の一覧、バックエンドではなくフロントのローカル内保存
-    [colorName: string]: string;
+    [colorName: string]: {
+      hex: string;
+      group: string;
+    };
+  }
+
+  interface ColorsObjectSorted {
+    //使用できる色の一覧、バックエンドではなくフロントのローカル内保存
+    [group: string]: {
+      colorName: string[];
+      parentColor: string;
+    };
   }
 
   interface DefaultColors {
@@ -84,7 +95,7 @@ declare global {
 
   interface SelectedColor {
     //SelectedPartsの色データ格納オブジェクト
-    [partSplit: "default" | string]: {
+    [partIndividual: "default" | string]: {
       color: string;
       hueShiftReverse: boolean;
       saturationReverse: boolean;
@@ -115,6 +126,7 @@ declare global {
 
   interface SelectedPartsForCanvasSplit {
     [partSplit: string]: {
+      enableColor: boolean; //色チェンジが有効かどうかを表している
       colorGroup: null | string;
       partOrder: number;
       partData: Jimp; //パーツのJimpデータ
@@ -153,6 +165,7 @@ declare global {
 
   interface ItemPeacesIconForCombine {
     [peace: string]: {
+      partOrder: number;
       faces: FacesJimp;
     };
   }
@@ -201,7 +214,7 @@ declare global {
   interface ItemsJimp {
     [item: string]: {
       bodyType: null | string[];
-      color: boolean;
+      enableColor: boolean;
       faces: FacesJimp;
     };
   }
