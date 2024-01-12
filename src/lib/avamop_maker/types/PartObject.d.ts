@@ -95,7 +95,7 @@ declare global {
 
   interface SelectedColor {
     //SelectedPartsの色データ格納オブジェクト
-    [partIndividual: "default" | string]: {
+    [partSplit: "default" | string]: {
       color: string;
       hueShiftReverse: boolean;
       saturationReverse: boolean;
@@ -131,6 +131,19 @@ declare global {
       partOrder: number;
       partData: Jimp; //パーツのJimpデータ
     };
+  }
+
+  interface ColorMenuPartIcons {
+    [selectedCategory: string]: {
+      true: ColorMenuPartIconsArray[];
+      false: ColorMenuPartIconsArray[];
+    };
+  }
+
+  interface ColorMenuPartIconsArray {
+    image: string;
+    colorGroup: string;
+    partSplit: string;
   }
 
   type Append<Elm, T extends unknown[]> = ((

@@ -49,7 +49,8 @@ export const MakerConvertPartsJimp = async (
                   ].imagePath,
                 partsObject[category].partList[partSplit].colorGroup,
                 selectedParts,
-                colorsObject
+                colorsObject,
+                partSplit
               );
               //パーツのパスからJimpデータを生成する
             }
@@ -73,12 +74,14 @@ const partRead = async (
   imagePath: string,
   colorGroup: string,
   selectedParts: SelectedParts,
-  colorsObject: ColorsObject
+  colorsObject: ColorsObject,
+  partIndividual: string
 ): Promise<Jimp> => {
   try {
     const image: Jimp = await Jimp.read(imagePath);
     return await MakerPartsColoring(
       image,
+      partIndividual,
       colorGroup,
       selectedParts,
       colorsObject
