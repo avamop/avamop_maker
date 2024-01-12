@@ -27,6 +27,7 @@ import FacePathContext from "./store/FacePathContext";
 import { MakerConvertBase64 } from "./components/functions/imageProcess/MakerConvertBase64";
 import { MakerGroupingParts } from "./components/functions/imageProcess/MakerGroupingParts";
 import ColorMenuPartIconsContext from "./store/ColorMenuPartIconsContext";
+import { MakerPartIconsTrim } from "./components/functions/imageProcess/MakerPartIconsTrim";
 interface AvamopMakerProps {
   partsPath: string;
   facePath: string;
@@ -109,7 +110,11 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
 
   useEffect(() => {
     const fetchMenuPartIcons = async () => {
-      if (!partsObjectJimpIsLoading && partsObjectJimp != null) {
+      if (
+        !partsObjectJimpIsLoading &&
+        partsObjectJimp != null &&
+        setMenuPartIconsIsLoading
+      ) {
         const tmpMenuPartIcons: CombinePartIconsObjectBase64 =
           await MakerConvertPartsToMenuIcons(partsObjectJimp);
         setMenuPartIcons(await tmpMenuPartIcons);
@@ -135,7 +140,7 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
       }
     };
     fetchSelectedPartsForCanvas();
-  }, [partsObjectJimpIsLoading, selectedParts]);
+  }, [partsObjectJimpIsLoading, selectedParts, partsObjectJimp]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -204,8 +209,9 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
                     ]
                   ) {
                     images.push({
-                      jimp: selectedPartsForCanvas.category[selectedCategory]
-                        .partSplit[partSplit].partData,
+                      jimp: selectedPartsForCanvas.category[
+                        selectedCategory
+                      ].partSplit[partSplit].partData.clone(),
                       partOrder:
                         selectedPartsForCanvas.category[selectedCategory]
                           .partSplit[partSplit].partOrder,
@@ -218,7 +224,9 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
                   for (let i = 1; i < images.length; i++) {
                     image = image.composite(images[i].jimp, 0, 0);
                   }
-                  const imageBase64: string = await MakerConvertBase64(image);
+                  const imageBase64: string = await MakerConvertBase64(
+                    await MakerPartIconsTrim(image, 64)
+                  );
                   newImages[selectedCategory]["true"].push({
                     image: imageBase64,
                     colorGroup,
@@ -248,9 +256,11 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
                   ]
                 ) {
                   const image = await MakerConvertBase64(
-                    selectedPartsForCanvas.category[selectedCategory].partSplit[
-                      partSplit
-                    ].partData
+                    await MakerPartIconsTrim(
+                      selectedPartsForCanvas.category[selectedCategory]
+                        .partSplit[partSplit].partData,
+                      64
+                    )
                   );
                   newImages[selectedCategory]["false"].push({
                     image,
@@ -289,7 +299,9 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
                   <PartsObjectJimpContext.Provider
                     value={{ partsObjectJimp, setPartsObjectJimp }}
                   >
-                    <MenuPartIconsContext.Provider value={menuPartIcons}>
+                    <MenuPartIconsContext.Provider
+                      value={{ menuPartIcons, setMenuPartIcons }}
+                    >
                       <ColorMenuPartIconsContext.Provider
                         value={colorMenuPartIcons}
                       >

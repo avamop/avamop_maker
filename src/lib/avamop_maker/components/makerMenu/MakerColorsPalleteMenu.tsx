@@ -15,6 +15,8 @@ import type { Jimp } from "jimp/browser/lib/jimp";
 import { MakerChangingColor } from "../functions/fetchData/MakerChangingColor";
 import ColorMenuPartIconsContext from "../../store/ColorMenuPartIconsContext";
 import PartsObjectJimpContext from "../../store/PartsObjectJimpContext";
+import PartsPathContext from "../../store/PartsPathContext";
+import MenuPartIconsContext from "../../store/MenuPartIconsContext";
 
 const MakerColorsPalleteMenu: React.FC = ({}) => {
   const [showSwiper, setShowSwiper] = useState(false);
@@ -23,6 +25,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
   const { selectedPartsForCanvas, setSelectedPartsForCanvas } = useContext(
     SelectedPartsForCanvasContext
   );
+  const partsPath = useContext(PartsPathContext);
   const partsObject = useContext(PartsObjectContext);
   const { partsObjectJimp, setPartsObjectJimp } = useContext(
     PartsObjectJimpContext
@@ -31,6 +34,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
   const { selectedCategory, setSelectedCategory } = useContext(
     SelectedCategoryContext
   );
+  const { menuPartIcons, setMenuPartIcons } = useContext(MenuPartIconsContext);
   const colorMenuPartIcons = useContext(ColorMenuPartIconsContext);
   const [selectedColorGroup, setSelectedColorGroup] = useState<null | string>(
     null
@@ -38,18 +42,21 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
   const [selectedPartSplit, setSelectedPartSplit] = useState<null | string>(
     null
   );
+  const [enableChain, setEnableChain] = useState<boolean>(true);
 
+  const selectedCheck = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEnableChain(enableChain ? false : true);
+  };
   const selectedRadio = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { colorGroup, partSplit } = JSON.parse(event.target.value);
     setSelectedColorGroup(colorGroup);
     setSelectedPartSplit(partSplit);
   };
-  let enableChain = true;
 
   useEffect(() => {
     setSelectedColorGroup(null);
     setSelectedPartSplit(null);
-    enableChain = true;
+    setEnableChain(true);
   }, [selectedCategory]);
 
   const colorsObjectSort = (colorsObject: ColorsObject): ColorsObjectSorted => {
@@ -79,7 +86,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
         setTouchRatio(length); // touchRatioを設定
       });
   }, []);
-  console.log(colorMenuPartIcons);
+  // console.log(colorMenuPartIcons);
 
   return (
     <>
@@ -110,10 +117,11 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                 name="enableChain"
                 id="enableChain"
                 defaultChecked={enableChain}
+                onChange={selectedCheck}
               />
               {enableChain
-                ? colorMenuPartIcons[selectedCategory].true.map((index) => (
-                    <>
+                ? colorMenuPartIcons[selectedCategory].true.map((index, i) => (
+                    <div key={i}>
                       <img
                         className={styles["parts-img"]}
                         src={index.image}
@@ -128,10 +136,10 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                         })}
                         onChange={selectedRadio}
                       />
-                    </>
+                    </div>
                   ))
-                : colorMenuPartIcons[selectedCategory].false.map((index) => (
-                    <>
+                : colorMenuPartIcons[selectedCategory].false.map((index, i) => (
+                    <div key={i}>
                       <img
                         className={styles["parts-img"]}
                         src={index.image}
@@ -146,10 +154,10 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                         })}
                         onChange={selectedRadio}
                       />
-                    </>
+                    </div>
                   ))}
               {!selectedColorGroup || !selectedPartSplit ? null : (
-                <>
+                <div>
                   {Object.keys(colorsObjectSorted).map((groupKey) => (
                     <MakerColorsButton
                       key={groupKey}
@@ -167,7 +175,11 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                           selectedParts.category[selectedCategory].partName,
                           partsObject,
                           partsObjectJimp,
-                          setPartsObjectJimp
+                          setPartsObjectJimp,
+                          colorsObject,
+                          partsPath,
+                          menuPartIcons,
+                          setMenuPartIcons
                         )
                       }
                     />
@@ -189,7 +201,6 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                                 style={{ width: "50px" }}
                               >
                                 <MakerColorsButton
-                                  key={color}
                                   colorCode={colorsObject[color].hex}
                                   colorName={color}
                                   onClick={() =>
@@ -205,7 +216,11 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                                         .partName,
                                       partsObject,
                                       partsObjectJimp,
-                                      setPartsObjectJimp
+                                      setPartsObjectJimp,
+                                      colorsObject,
+                                      partsPath,
+                                      menuPartIcons,
+                                      setMenuPartIcons
                                     )
                                   }
                                 />
@@ -216,7 +231,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                       ))}
                     </ul>
                   </Swiper>
-                </>
+                </div>
               )}
             </>
           )}

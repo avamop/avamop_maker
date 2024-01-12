@@ -3,7 +3,7 @@ import type { Jimp } from "jimp/browser/lib/jimp";
 
 export const MakerPartsColoring = async (
   image: Jimp,
-  partIndividual: string,
+  partSplit: string,
   colorGroup: string,
   selectedParts: SelectedParts,
   colorsObject: ColorsObject
@@ -21,8 +21,8 @@ export const MakerPartsColoring = async (
     "#191919",
   ];
   const colorData = selectedParts.selectedColor[colorGroup]
-    ? selectedParts.selectedColor[colorGroup][partIndividual]
-      ? selectedParts.selectedColor[colorGroup][partIndividual]
+    ? selectedParts.selectedColor[colorGroup][partSplit]
+      ? selectedParts.selectedColor[colorGroup][partSplit]
       : selectedParts.selectedColor[colorGroup]["default"]
     : selectedParts.selectedColor["none"]["default"];
   const colorCode: string = colorsObject[colorData.color].hex;

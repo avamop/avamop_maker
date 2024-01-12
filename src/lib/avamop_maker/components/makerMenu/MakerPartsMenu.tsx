@@ -15,7 +15,7 @@ const MakerPartsMenu: React.FC = ({}) => {
     SelectedCategoryContext
   );
   const partsObject = useContext(PartsObjectContext);
-  const menuPartIcons = useContext(MenuPartIconsContext);
+  const { menuPartIcons } = useContext(MenuPartIconsContext);
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category === selectedCategory ? null : category);
   };
