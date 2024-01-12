@@ -90,16 +90,14 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
             onClick={() => setShowSwiper(!showSwiper)}
           >
             {showSwiper ? (
-              <img
-                className={styles["swiper-color-image"]}
-                src="../../../../../examples/assets/provisionals/provisionalclose.png"
-                alt="Hide Face"
+              <button
+                className={styles["colorbutton"]}
+              
               />
             ) : (
-              <img
-                className={styles["swiper-color-image"]}
-                src="../../../../../examples/assets/provisionals/provisionalopen.png"
-                alt="Show Face"
+              <button
+                className={styles["colorbutton"]}
+               
               />
             )}
           </button>
