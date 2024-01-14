@@ -1,13 +1,13 @@
-import "jimp/browser/lib/jimp";
-import type { Jimp } from "jimp/browser/lib/jimp";
+import Jimp from "jimp/browser/lib/jimp";
+import { JimpObject, JimpType } from "../../../types/jimp";
 
 export const MakerPartsColoring = async (
-  image: Jimp,
+  image: JimpType,
   partSplit: string,
   colorGroup: string,
   selectedParts: SelectedParts,
   colorsObject: ColorsObject
-): Promise<Jimp> => {
+): Promise<JimpType> => {
   const maskColor: string[] = [
     "#fefefe",
     "#e5e5e5",
@@ -70,10 +70,10 @@ export const MakerPartsColoring = async (
 };
 
 const MakerPartsColoringChange = async (
-  image: Jimp,
+  image: JimpType,
   oldColors: string[],
   newColors: string[]
-): Promise<Jimp> => {
+): Promise<JimpType> => {
   try {
     const colorPairs = oldColors.map((oldColor, i) => {
       const oldRGB: { red: number; green: number; blue: number } =

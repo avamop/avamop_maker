@@ -1,0 +1,54 @@
+import "jimp/browser/lib/jimp";
+import { JimpObject, JimpType } from "../../../types/jimp";
+
+declare const Jimp: JimpObject;
+
+export const MakerPartsColoring = async (
+  image: JimpType,
+  partIndividual: string,
+  colorGroup: string,
+  selectedParts: SelectedParts,
+  colorsObject: ColorsObject
+): Promise<JimpType> => {
+  const colorData = selectedParts.selectedColor[colorGroup]
+    ? selectedParts.selectedColor[colorGroup][partIndividual]
+      ? selectedParts.selectedColor[colorGroup][partIndividual]
+      : selectedParts.selectedColor[colorGroup]["default"]
+    : selectedParts.selectedColor["none"]["default"];
+  const color: string = colorsObject[colorData.color].hex;
+
+  const mask: JimpType = new Jimp(
+    image.bitmap.width,
+    image.bitmap.height,
+    color
+  );
+
+  image.scan(
+    0,
+    0,
+    image.bitmap.width,
+    image.bitmap.height,
+    function (x, y, idx) {
+      if (this.bitmap.data[idx + 3] > 0) {
+        mask.setPixelColor(
+          Jimp.rgbaToInt(
+            mask.bitmap.data[idx],
+            mask.bitmap.data[idx + 1],
+            mask.bitmap.data[idx + 2],
+            this.bitmap.data[idx + 3]
+          ),
+          x,
+          y
+        );
+      }
+    }
+  );
+
+  image.composite(mask, 0, 0, {
+    mode: Jimp.BLEND_MULTIPLY,
+    opacitySource: 1,
+    opacityDest: 1,
+  });
+
+  return image;
+};
