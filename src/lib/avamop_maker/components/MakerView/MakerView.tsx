@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import "jimp/browser/lib/jimp";
+import Jimp from "jimp/browser/lib/jimp";
 import { JimpObject } from "../types/jimp";
 import { MakerConvertBase64 } from "../functions/imageProcess/MakerConvertBase64";
 import ViewScaleContext from "../../store/ViewScaleContext";

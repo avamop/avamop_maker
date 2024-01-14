@@ -1,4 +1,4 @@
-import "jimp/browser/lib/jimp";
+import Jimp from "jimp/browser/lib/jimp";
 import { JimpObject } from "../types/jimp";
 
 export const MakerPartIconsTrim = async (

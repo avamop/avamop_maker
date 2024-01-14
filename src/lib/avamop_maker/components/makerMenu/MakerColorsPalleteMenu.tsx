@@ -10,7 +10,7 @@ import PartsObjectContext from "../../store/PartsObjectContext";
 import SelectedCategoryContext from "../../store/SelectedCategoryContext";
 import { MakerConvertBase64 } from "../functions/imageProcess/MakerConvertBase64";
 import { MakerGroupingParts } from "../functions/imageProcess/MakerGroupingParts";
-import "jimp/browser/lib/jimp";
+import Jimp from "jimp/browser/lib/jimp";
 import { JimpObject, JimpType } from "../..//types/jimp";
 import { MakerChangingColor } from "../functions/fetchData/MakerChangingColor";
 import ColorMenuPartIconsContext from "../../store/ColorMenuPartIconsContext";

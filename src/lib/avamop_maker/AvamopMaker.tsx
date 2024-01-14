@@ -3,7 +3,7 @@ import MakerWindow from "./components/MakerWindow";
 import styles from "./module-css/makerMenu/AvamopMaker.module.css";
 import PartsObjectContext from "./store/PartsObjectContext";
 import NullImageContext from "./store/NullImageContext";
-import "jimp/browser/lib/jimp";
+import Jimp from "jimp/browser/lib/jimp";
 import { JimpObject, JimpType } from "./types/jimp";
 import { MakerConvertPartsJimp } from "./components/functions/imageProcess/MakerConvertPartsJimp";
 import { MakerConvertPartsToMenuIcons } from "./components/functions/imageProcess/MakerConvertPartsToMenuIcons";

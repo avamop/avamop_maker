@@ -1,4 +1,4 @@
-import "jimp/browser/lib/jimp";
+import Jimp from "jimp/browser/lib/jimp";
 import { MakerPartIconsTrim } from "./MakerPartIconsTrim";
 import { MakerConvertBase64 } from "./MakerConvertBase64";
 

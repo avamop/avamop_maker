@@ -2,8 +2,8 @@ import SelectedPartsForCanvasContext from "../../../store/SelectedPartsForCanvas
 import { MakerCombineMenuPartIcons } from "../imageProcess/MakerCombineMenuPartIcons";
 import { MakerConvertCategory } from "../imageProcess/MakerConvertPartsToMenuIcons";
 import { MakerPartsColoring } from "../imageProcess/MakerPartsColoring";
-import "jimp/browser/lib/jimp";
-import type { Jimp } from "jimp/browser/lib/jimp";
+import Jimp from "jimp/browser/lib/jimp";
+import { JimpObject, JimpType } from "../../../types/jimp";
 
 const MAX_PROMISE = 12;
 
@@ -174,13 +174,13 @@ const faceJimpWrite = async (
   const coloredImageObject: FacesJimp = {};
   for (const face in partsObject[selectedCategory].partList[selectedPartSplit]
     .items[partName].faces) {
-    const image = await Jimp.read(
+    const image: JimpType = await Jimp.read(
       partsPath +
         partsObject[selectedCategory].partList[selectedPartSplit].items[
           partName
         ].faces[face].imagePath
     );
-    const coloredImage: Jimp = await MakerPartsColoring(
+    const coloredImage: JimpType = await MakerPartsColoring(
       image,
       selectedPartSplit,
       selectedColorGroup,
