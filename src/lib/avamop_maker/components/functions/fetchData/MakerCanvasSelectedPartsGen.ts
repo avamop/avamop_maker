@@ -1,11 +1,13 @@
 import "jimp/browser/lib/jimp";
-import type { Jimp } from "jimp/browser/lib/jimp";
+import { JimpObject, JimpType } from "../../../types/jimp";
+
+declare const Jimp: JimpObject;
 
 // パーツ名が入ったアバターメーカーのステータスオブジェクトを、実際の画像データが入ったオブジェクトに変換する
 export const MakerCanvasSelectedPartsGen = (
   selectedParts: SelectedParts,
   partsObjectJimp: PartsObjectJimp,
-  nullImage: Jimp
+  nullImage: JimpType
 ): SelectedPartsForCanvas => {
   const selectedPartsForCanvas: SelectedPartsForCanvas = {
     bodyType: selectedParts.bodyType,
@@ -23,8 +25,9 @@ export const MakerCanvasSelectedPartsGen = (
       selectedPartsForCanvasSplit[partSplit] = {
         enableColor:
           selectedParts.category[tmpCategory].partName != ""
-            ? partsObjectJimp[tmpCategory.replace(/_\d+$/, "")].partList[partSplit]
-                .items[selectedParts.category[tmpCategory].partName].enableColor
+            ? partsObjectJimp[tmpCategory.replace(/_\d+$/, "")].partList[
+                partSplit
+              ].items[selectedParts.category[tmpCategory].partName].enableColor
             : false,
         colorGroup:
           partsObjectJimp[tmpCategory.replace(/_\d+$/, "")].partList[partSplit]
@@ -34,9 +37,11 @@ export const MakerCanvasSelectedPartsGen = (
             .partOrder,
         partData:
           selectedParts.category[tmpCategory].partName != ""
-            ? partsObjectJimp[tmpCategory.replace(/_\d+$/, "")].partList[partSplit]
-                .items[selectedParts.category[tmpCategory].partName].faces["clear"]
-                .jimpData
+            ? partsObjectJimp[tmpCategory.replace(/_\d+$/, "")].partList[
+                partSplit
+              ].items[selectedParts.category[tmpCategory].partName].faces[
+                "clear"
+              ].jimpData
             : nullImage,
       };
     }
@@ -60,7 +65,8 @@ const selectedPartsForCanvasSort = (
 
   let partOrders: Orders[] = [];
   for (const category in selectedPartsForCanvasCategory) {
-    for (const partSplit in selectedPartsForCanvasCategory[category].partSplit) {
+    for (const partSplit in selectedPartsForCanvasCategory[category]
+      .partSplit) {
       partOrders.push({
         category: category,
         partSplit: partSplit,

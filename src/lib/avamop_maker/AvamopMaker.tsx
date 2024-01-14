@@ -4,7 +4,7 @@ import styles from "./module-css/makerMenu/AvamopMaker.module.css";
 import PartsObjectContext from "./store/PartsObjectContext";
 import NullImageContext from "./store/NullImageContext";
 import "jimp/browser/lib/jimp";
-import type { Jimp } from "jimp/browser/lib/jimp";
+import { JimpObject, JimpType } from "./types/jimp";
 import { MakerConvertPartsJimp } from "./components/functions/imageProcess/MakerConvertPartsJimp";
 import { MakerConvertPartsToMenuIcons } from "./components/functions/imageProcess/MakerConvertPartsToMenuIcons";
 import PartsObjectJimpContext from "./store/PartsObjectJimpContext";
@@ -27,6 +27,9 @@ import FacePathContext from "./store/FacePathContext";
 import { MakerConvertBase64 } from "./components/functions/imageProcess/MakerConvertBase64";
 import { MakerGroupingParts } from "./components/functions/imageProcess/MakerGroupingParts";
 import ColorMenuPartIconsContext from "./store/ColorMenuPartIconsContext";
+
+declare const Jimp: JimpObject;
+
 interface AvamopMakerProps {
   partsPath: string;
   facePath: string;
@@ -48,7 +51,7 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
   facePresets,
   nullImagePath,
 }) => {
-  const [nullImage, setNullImage] = useState<Jimp | null>(null);
+  const [nullImage, setNullImage] = useState<JimpType | null>(null);
   const [partsObjectJimp, setPartsObjectJimp] =
     useState<PartsObjectJimp | null>(null);
   const [menuPartIcons, setMenuPartIcons] =
@@ -75,13 +78,13 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
     useState<boolean>(true);
   const [colorMenuPartIconsIsLoading, setColorMenuPartIconsIsLoading] =
     useState<boolean>(true);
-  const [canvasImage, setCanvasImage] = useState<Jimp[] | null>(null);
+  const [canvasImage, setCanvasImage] = useState<JimpType[] | null>(null);
   const faceList: string[] = MakerFaceGen(facePresets);
   faceList.push("custom");
 
   useEffect(() => {
     const fetchNullImage = async () => {
-      const tmpNullImage: Jimp = await Jimp.read(partsPath + nullImagePath);
+      const tmpNullImage: JimpType = await Jimp.read(partsPath + nullImagePath);
       setNullImage(tmpNullImage);
       // console.log(tmpNullImage);
       setNullImageIsLoading(false); // データの読み込みが完了したらisLoadingをfalseに設定
@@ -153,7 +156,7 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
   useEffect(() => {
     const imageGen = async () => {
       if (selectedPartsForCanvas != null) {
-        const tmpCanvasImage: Jimp[] = await MakerLayerCombineParts(
+        const tmpCanvasImage: JimpType[] = await MakerLayerCombineParts(
           selectedPartsForCanvas
         );
         setCanvasImage(tmpCanvasImage);
@@ -184,7 +187,7 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
               const colorGroups = Object.keys(groupedParts);
               for (let colorGroup of colorGroups) {
                 let partSplits = groupedParts[colorGroup];
-                const images: { jimp: Jimp; partOrder: number }[] = [];
+                const images: { jimp: JimpType; partOrder: number }[] = [];
                 for (let i = 0; i < partSplits.length; i++) {
                   let partSplit = partSplits[i];
                   if (
@@ -214,7 +217,7 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
                 }
                 if (images.length > 0) {
                   images.sort((a, b) => a.partOrder - b.partOrder);
-                  let image: Jimp = images[0].jimp;
+                  let image: JimpType = images[0].jimp;
                   for (let i = 1; i < images.length; i++) {
                     image = image.composite(images[i].jimp, 0, 0);
                   }

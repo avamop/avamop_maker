@@ -1,5 +1,7 @@
 import "jimp/browser/lib/jimp";
-import type { Jimp } from "jimp/browser/lib/jimp";
+import { JimpObject, JimpType } from "../types/jimp";
+
+declare const Jimp: JimpObject;
 
 declare global {
   interface PartsObject {
@@ -129,7 +131,7 @@ declare global {
       enableColor: boolean; //色チェンジが有効かどうかを表している
       colorGroup: null | string;
       partOrder: number;
-      partData: Jimp; //パーツのJimpデータ
+      partData: JimpType; //パーツのJimpデータ
     };
   }
 
@@ -234,7 +236,7 @@ declare global {
 
   interface FacesJimp {
     [face: "clear" | string]: {
-      jimpData: Jimp;
+      jimpData: JimpType;
     };
   }
 }

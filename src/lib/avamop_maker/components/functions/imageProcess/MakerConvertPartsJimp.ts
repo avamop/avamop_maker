@@ -1,16 +1,19 @@
 import "jimp/browser/lib/jimp";
-import type { Jimp } from "jimp/browser/lib/jimp";
+import { JimpObject, JimpType } from "../../../types/jimp";
 import { MakerPartsColoring } from "./MakerPartsColoring";
+
+declare const Jimp: JimpObject;
 
 // パスの入ったpartsObjectをJimpデータの入ったものに変換する
 export const MakerConvertPartsJimp = async (
   partsObject: PartsObjectSplit,
   partsPath: string,
-  nullImage: Jimp,
+  nullImage: JimpType,
   selectedParts: SelectedParts,
   colorsObject: ColorsObject
 ): Promise<PartsObjectJimp> => {
   const partsObjectJimp: PartsObjectJimp = {};
+  const promises = [];
   for (const category in partsObject) {
     partsObjectJimp[category] = {
       partCount: partsObject[category].partCount,
@@ -34,37 +37,45 @@ export const MakerConvertPartsJimp = async (
         };
         for (const face in partsObject[category].partList[partSplit].items[item]
           .faces) {
-          let jimpData: Jimp;
-          try {
-            if (
-              partsObject[category].partList[partSplit].items[item].faces[face]
-                .imagePath == ""
-            ) {
-              jimpData = nullImage;
-            } else {
-              jimpData = await partRead(
-                partsPath +
+          promises.push(
+            (async () => {
+              let jimpData: JimpType;
+              try {
+                if (
                   partsObject[category].partList[partSplit].items[item].faces[
                     face
-                  ].imagePath,
-                partsObject[category].partList[partSplit].colorGroup,
-                selectedParts,
-                colorsObject,
-                partSplit
-              );
-              //パーツのパスからJimpデータを生成する
-            }
-            partsObjectJimp[category].partList[partSplit].items[item].faces[
-              face
-            ] = {
-              jimpData: jimpData,
-            };
-          } catch (error) {
-            console.log("パーツ読み込みエラー：" + error);
-          }
+                  ].imagePath == ""
+                ) {
+                  jimpData = nullImage;
+                } else {
+                  jimpData = await partRead(
+                    partsPath +
+                      partsObject[category].partList[partSplit].items[item]
+                        .faces[face].imagePath,
+                    partsObject[category].partList[partSplit].colorGroup,
+                    selectedParts,
+                    colorsObject,
+                    partSplit
+                  );
+                  //パーツのパスからJimpデータを生成する
+                }
+                partsObjectJimp[category].partList[partSplit].items[item].faces[
+                  face
+                ] = {
+                  jimpData: jimpData,
+                };
+              } catch (error) {
+                console.log("パーツ読み込みエラー：" + error);
+              }
+            })()
+          );
         }
       }
     }
+  }
+  if (promises.length >= 12) {
+    await Promise.all(promises);
+    promises.length = 0;
   }
   return partsObjectJimp;
 };
@@ -76,9 +87,9 @@ const partRead = async (
   selectedParts: SelectedParts,
   colorsObject: ColorsObject,
   partIndividual: string
-): Promise<Jimp> => {
+): Promise<JimpType> => {
   try {
-    const image: Jimp = await Jimp.read(imagePath);
+    const image: JimpType = await Jimp.read(imagePath);
     return await MakerPartsColoring(
       image,
       partIndividual,
