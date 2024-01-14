@@ -1,4 +1,4 @@
-import Jimp from "jimp/browser/lib/jimp";;
+import "jimp/browser/lib/jimp";
 import { JimpObject, JimpType } from "../../../types/jimp";
 
 declare const Jimp: JimpObject;

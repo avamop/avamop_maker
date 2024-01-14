@@ -1,4 +1,4 @@
-import Jimp from "jimp/browser/lib/jimp";
+import "jimp/browser/lib/jimp";
 import { JimpObject } from "../types/jimp";
 
 // 画像をbase64形式に変換するだけ
