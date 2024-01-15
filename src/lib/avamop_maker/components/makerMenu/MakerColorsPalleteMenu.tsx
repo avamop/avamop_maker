@@ -11,10 +11,15 @@ import SelectedCategoryContext from "../../store/SelectedCategoryContext";
 import { MakerConvertBase64 } from "../functions/imageProcess/MakerConvertBase64";
 import { MakerGroupingParts } from "../functions/imageProcess/MakerGroupingParts";
 import "jimp/browser/lib/jimp";
-import type { Jimp } from "jimp/browser/lib/jimp";
+import { JimpObject, JimpType } from "../..//types/jimp";
 import { MakerChangingColor } from "../functions/fetchData/MakerChangingColor";
 import ColorMenuPartIconsContext from "../../store/ColorMenuPartIconsContext";
 import PartsObjectJimpContext from "../../store/PartsObjectJimpContext";
+import PartsPathContext from "../../store/PartsPathContext";
+import MenuPartIconsContext from "../../store/MenuPartIconsContext";
+import NullImageContext from "../../store/NullImageContext";
+
+declare const Jimp: JimpObject;
 
 const MakerColorsPalleteMenu: React.FC = ({}) => {
   const [showSwiper, setShowSwiper] = useState(false);
@@ -23,6 +28,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
   const { selectedPartsForCanvas, setSelectedPartsForCanvas } = useContext(
     SelectedPartsForCanvasContext
   );
+  const partsPath = useContext(PartsPathContext);
   const partsObject = useContext(PartsObjectContext);
   const { partsObjectJimp, setPartsObjectJimp } = useContext(
     PartsObjectJimpContext
@@ -31,26 +37,71 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
   const { selectedCategory, setSelectedCategory } = useContext(
     SelectedCategoryContext
   );
+  const { menuPartIcons, setMenuPartIcons } = useContext(MenuPartIconsContext);
   const colorMenuPartIcons = useContext(ColorMenuPartIconsContext);
+  const [selectedRadioValue, setSelectedRadioValue] = useState<null | string>(
+    null
+  );
   const [selectedColorGroup, setSelectedColorGroup] = useState<null | string>(
     null
   );
   const [selectedPartSplit, setSelectedPartSplit] = useState<null | string>(
     null
   );
+  const [enableChain, setEnableChain] = useState<boolean>(true);
+  const nullImage: JimpType = useContext(NullImageContext);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const selectedCheck = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEnableChain(enableChain ? false : true);
+  };
 
   const selectedRadio = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedRadioValue(event.target.value);
     const { colorGroup, partSplit } = JSON.parse(event.target.value);
     setSelectedColorGroup(colorGroup);
     setSelectedPartSplit(partSplit);
   };
-  let enableChain = true;
 
   useEffect(() => {
-    setSelectedColorGroup(null);
-    setSelectedPartSplit(null);
-    enableChain = true;
-  }, [selectedCategory]);
+    const radioValuesColorGroup: string[] = [];
+    const radioValuesPartSplit: string[] = [];
+    if (selectedCategory) {
+      if (enableChain) {
+        for (const value in colorMenuPartIcons[selectedCategory].true) {
+          radioValuesColorGroup.push(
+            colorMenuPartIcons[selectedCategory].true[value].colorGroup
+          );
+          radioValuesPartSplit.push("default");
+        }
+      } else {
+        for (const value in colorMenuPartIcons[selectedCategory].false) {
+          radioValuesColorGroup.push(
+            colorMenuPartIcons[selectedCategory].false[value].colorGroup
+          );
+          radioValuesPartSplit.push(
+            colorMenuPartIcons[selectedCategory].false[value].partSplit
+          );
+        }
+      }
+    }
+    setSelectedRadioValue(
+      JSON.stringify({
+        colorGroup: radioValuesColorGroup[0],
+        partSplit: radioValuesPartSplit[0],
+      })
+      // null
+    );
+    setSelectedColorGroup(
+      radioValuesColorGroup[0]
+      // null
+    );
+    setSelectedPartSplit(
+      radioValuesPartSplit[0]
+      // null
+    );
+    setEnableChain(enableChain);
+  }, [selectedCategory, enableChain]);
 
   const colorsObjectSort = (colorsObject: ColorsObject): ColorsObjectSorted => {
     const groups: ColorsObjectSorted = {};
@@ -79,7 +130,57 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
         setTouchRatio(length); // touchRatioを設定
       });
   }, []);
-  console.log(colorMenuPartIcons);
+  // console.log(colorMenuPartIcons);
+
+  const handleClick = async (
+    selectedParts: SelectedParts,
+    setSelectedParts: React.Dispatch<React.SetStateAction<SelectedParts>>,
+    selectedColorGroup: string,
+    selectedPartSplit: string,
+    enableChain: boolean,
+    color: string,
+    selectedCategory: string,
+    partName: string,
+    partsObject: PartsObjectSplit,
+    partsObjectJimp: PartsObjectJimp,
+    setPartsObjectJimp: React.Dispatch<React.SetStateAction<PartsObjectJimp>>,
+    colorsObject: ColorsObject,
+    partsPath: string,
+    menuPartIcons: CombinePartIconsObjectBase64,
+    setMenuPartIcons: React.Dispatch<
+      React.SetStateAction<CombinePartIconsObjectBase64>
+    >,
+    nullImage: JimpType
+  ) => {
+    if (isLoading) return; // 非同期関数が実行中の場合、ここで処理を終了します。
+
+    setIsLoading(true); // 非同期関数の実行を開始します。
+
+    try {
+      await MakerChangingColor(
+        selectedParts,
+        setSelectedParts,
+        selectedColorGroup,
+        selectedPartSplit,
+        enableChain,
+        color,
+        selectedCategory,
+        partName,
+        partsObject,
+        partsObjectJimp,
+        setPartsObjectJimp,
+        colorsObject,
+        partsPath,
+        menuPartIcons,
+        setMenuPartIcons,
+        nullImage
+      );
+    } catch (error) {
+      console.error(error);
+    }
+
+    setIsLoading(false); // 非同期関数の実行が完了したら、状態を更新します。
+  };
 
   return (
     <>
@@ -98,53 +199,77 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                 name="enableChain"
                 id="enableChain"
                 defaultChecked={enableChain}
+                onChange={selectedCheck}
               />
               {enableChain
-                ? colorMenuPartIcons[selectedCategory].true.map((index) => (
-                    <>
-                      <img
-                        className={styles["parts-img"]}
-                        src={index.image}
-                        alt={selectedParts.category[selectedCategory].partName}
-                      />
-                      <input
-                        type="radio"
-                        name="colorMenu"
-                        value={JSON.stringify({
-                          colorGroup: index.colorGroup,
-                          partSplit: "default",
-                        })}
-                        onChange={selectedRadio}
-                      />
-                    </>
-                  ))
-                : colorMenuPartIcons[selectedCategory].false.map((index) => (
-                    <>
-                      <img
-                        className={styles["parts-img"]}
-                        src={index.image}
-                        alt={selectedParts.category[selectedCategory].partName}
-                      />
-                      <input
-                        type="radio"
-                        name="colorMenu"
-                        value={JSON.stringify({
-                          colorGroup: index.colorGroup,
-                          partSplit: index.partSplit,
-                        })}
-                        onChange={selectedRadio}
-                      />
-                    </>
-                  ))}
+                ? colorMenuPartIcons[selectedCategory].true.map((index, i) => {
+                    return (
+                      <div key={i}>
+                        <img
+                          className={styles["parts-img"]}
+                          src={index.image}
+                          alt={
+                            selectedParts.category[selectedCategory].partName
+                          }
+                        />
+                        <input
+                          type="radio"
+                          name="colorMenu"
+                          value={JSON.stringify({
+                            colorGroup: index.colorGroup,
+                            partSplit: "default",
+                          })}
+                          checked={
+                            selectedRadioValue ===
+                            JSON.stringify({
+                              colorGroup: index.colorGroup,
+                              partSplit: "default",
+                            })
+                          }
+                          onChange={selectedRadio}
+                        />
+                      </div>
+                    );
+                  })
+                : colorMenuPartIcons[selectedCategory].false.map((index, i) => {
+                    return (
+                      <div key={i}>
+                        <img
+                          className={styles["parts-img"]}
+                          src={index.image}
+                          alt={
+                            selectedParts.category[selectedCategory].partName
+                          }
+                        />
+                        <input
+                          type="radio"
+                          name="colorMenu"
+                          value={JSON.stringify({
+                            colorGroup: index.colorGroup,
+                            partSplit: index.partSplit,
+                          })}
+                          checked={
+                            selectedRadioValue ===
+                            JSON.stringify({
+                              colorGroup: index.colorGroup,
+                              partSplit: index.partSplit,
+                            })
+                          }
+                          onChange={selectedRadio}
+                        />
+                      </div>
+                    );
+                  })}
               {!selectedColorGroup || !selectedPartSplit ? null : (
-                <>
+                <div>
                   {Object.keys(colorsObjectSorted).map((groupKey) => (
                     <MakerColorsButton
                       key={groupKey}
                       colorCode={colorsObject[groupKey].hex}
                       colorName={groupKey}
+                      isLoading={isLoading}
                       onClick={() =>
-                        MakerChangingColor(
+                        handleClick(
                           selectedParts,
                           setSelectedParts,
                           selectedColorGroup,
@@ -155,7 +280,12 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                           selectedParts.category[selectedCategory].partName,
                           partsObject,
                           partsObjectJimp,
-                          setPartsObjectJimp
+                          setPartsObjectJimp,
+                          colorsObject,
+                          partsPath,
+                          menuPartIcons,
+                          setMenuPartIcons,
+                          nullImage
                         )
                       }
                     />
@@ -177,11 +307,11 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                                 style={{ width: "50px" }}
                               >
                                 <MakerColorsButton
-                                  key={color}
                                   colorCode={colorsObject[color].hex}
                                   colorName={color}
+                                  isLoading={isLoading}
                                   onClick={() =>
-                                    MakerChangingColor(
+                                    handleClick(
                                       selectedParts,
                                       setSelectedParts,
                                       selectedColorGroup,
@@ -193,7 +323,12 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                                         .partName,
                                       partsObject,
                                       partsObjectJimp,
-                                      setPartsObjectJimp
+                                      setPartsObjectJimp,
+                                      colorsObject,
+                                      partsPath,
+                                      menuPartIcons,
+                                      setMenuPartIcons,
+                                      nullImage
                                     )
                                   }
                                 />
@@ -204,7 +339,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                       ))}
                     </ul>
                   </Swiper>
-                </>
+                </div>
               )}
             </>
           )}
