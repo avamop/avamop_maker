@@ -13,3 +13,11 @@
   -webkit-appearance: none;
   cursor: pointer;
 }
+
+.face-menu{
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding-inline-start: 0;
+  background-color: papayawhip;
+}

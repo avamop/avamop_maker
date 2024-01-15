@@ -6,8 +6,8 @@ import SelectedCategoryContext from "../../store/SelectedCategoryContext";
 import SelectedPartsContext from "../../store/SelectedPartsContext";
 import MenuPartIconsContext from "../../store/MenuPartIconsContext";
 import PartsObjectContext from "../../store/PartsObjectContext";
-import { Swiper, SwiperSlide } from "swiper/react";
-import styles from "../../module-css/makerMenu/MakerPartsMenu.module.css";
+import {Swiper, SwiperSlide } from "swiper/react";
+import styles from "../../module-css/makerMenu/MakerPartsMenu.module.css"
 
 const MakerPartsMenu: React.FC = ({}) => {
   const { selectedParts, setSelectedParts } = useContext(SelectedPartsContext);
@@ -18,8 +18,7 @@ const MakerPartsMenu: React.FC = ({}) => {
   const { menuPartIcons } = useContext(MenuPartIconsContext);
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category === selectedCategory ? null : category);
-  };
-  const swiperRef = useRef(null);
+  }; const swiperRef = useRef(null);
 
   useEffect(() => {
     if (swiperRef.current && swiperRef.current.swiper) {
@@ -104,8 +103,11 @@ const MakerPartsMenu: React.FC = ({}) => {
             )
           : null
       )}
+      {/* オブジェクト変化テスト用ボタン */}
+      
     </>
   );
 };
 
 export default React.memo(MakerPartsMenu);
+

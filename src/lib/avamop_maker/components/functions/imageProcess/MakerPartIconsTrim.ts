@@ -1,10 +1,12 @@
 import "jimp/browser/lib/jimp";
-import { JimpObject } from "../types/jimp";
+import { JimpObject, JimpType } from "../../../types/jimp";
+
+declare const Jimp: JimpObject;
 
 export const MakerPartIconsTrim = async (
-  image: Jimp,
+  image: JimpType,
   iconSize: number
-): Promise<Jimp> => {
+): Promise<JimpType> => {
   let top: number, left: number, bottom: number, right: number;
 
   if (image.bitmap.width == iconSize && image.bitmap.height == iconSize) {

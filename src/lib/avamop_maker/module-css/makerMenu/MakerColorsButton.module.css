@@ -1,21 +1,45 @@
 .colorlist {
-    /* ボタンの背景色をcolor属性の値にする */
-    background-color: attr(color);
-   
-    /* ボタンの文字色を白にする */
-    color: white;
-    /* ボタンのサイズや余白などを適宜調整する */
-    width: 40px; /* ボタンの幅を小さくする */
-    height: 40px; /* ボタンの高さを小さくする */
-    margin: 10px;
-    padding: 10px;
-    border-radius: 50%; /* ボタンを丸くする */
-    /* ボタンにカーソルを合わせたときのスタイルを設定する */
-    &:hover {
-      /* ボタンの色を少し暗くする */
-      filter: brightness(80%);
-      /* ボタンのカーソルをポインターにする */
-      cursor: pointer;
-    }
+  /* ボタンの背景色をcolor属性の値にする */
+  background-color: attr(color);
+
+  /* ボタンの文字色を白にする */
+  color: white;
+  /* ボタンのサイズや余白などを適宜調整する */
+  width: 40px; /* ボタンの幅を小さくする */
+  height: 40px; /* ボタンの高さを小さくする */
+  margin: 10px;
+  padding: 10px;
+  border-radius: 50%; /* ボタンを丸くする */
+  /* ボタンにカーソルを合わせたときのスタイルを設定する */
+  &:hover {
+    /* ボタンの色を少し暗くする */
+    filter: brightness(80%);
+    /* ボタンのカーソルをポインターにする */
+    cursor: pointer;
+  }
 }
-  p {display: none;}
+p {
+  display: none;
+}
+
+.colorlist-loading {
+  /* ボタンの背景色をcolor属性の値にする */
+  background-color: attr(color);
+
+  /* ボタンの文字色を白にする */
+  color: white;
+  /* ボタンのサイズや余白などを適宜調整する */
+  width: 40px; /* ボタンの幅を小さくする */
+  height: 40px; /* ボタンの高さを小さくする */
+  margin: 10px;
+  padding: 10px;
+  border-radius: 50%; /* ボタンを丸くする */
+  /* ボタンにカーソルを合わせたときのスタイルを設定する */
+
+  /* ボタンの色を少し暗くする */
+  filter: brightness(80%);
+  /* ボタンのカーソルをポインターにする */
+}
+p {
+  display: none;
+}

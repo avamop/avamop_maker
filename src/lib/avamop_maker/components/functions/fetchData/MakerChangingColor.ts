@@ -1,90 +1,32 @@
-import SelectedPartsForCanvasContext from "../../../store/SelectedPartsForCanvasContext";
 import { MakerCombineMenuPartIcons } from "../imageProcess/MakerCombineMenuPartIcons";
 import { MakerConvertCategory } from "../imageProcess/MakerConvertPartsToMenuIcons";
 import { MakerPartsColoring } from "../imageProcess/MakerPartsColoring";
 import "jimp/browser/lib/jimp";
-import type { Jimp } from "jimp/browser/lib/jimp";
+import { JimpObject, JimpType } from "../../../types/jimp";
+
+declare const Jimp: JimpObject;
 
 const MAX_PROMISE = 12;
 
 export const MakerChangingColor = async (
   selectedParts: SelectedParts,
-  setSelectedParts: React.Dispatch<React.SetStateAction<SelectedParts>>,
   selectedColorGroup: string,
   selectedPartSplit: string,
   enableChain: boolean,
-  color: string,
   selectedCategory: string,
-  partName: string,
   partsObject: PartsObjectSplit,
   partsObjectJimp: PartsObjectJimp,
   setPartsObjectJimp: React.Dispatch<React.SetStateAction<PartsObjectJimp>>,
-  colorsObject,
+  colorsObject: ColorsObject,
   partsPath: string,
   menuPartIcons: CombinePartIconsObjectBase64,
   setMenuPartIcons: React.Dispatch<
     React.SetStateAction<CombinePartIconsObjectBase64>
-  >
+  >,
+  nullImage: JimpType
 ) => {
   // console.log(selectedColorGroup);
-  let newColorGroup = selectedColorGroup;
-  if (selectedColorGroup === "none") {
-    const partList = partsObject[selectedCategory].partList;
-    newColorGroup =
-      selectedPartSplit === "default"
-        ? selectedColorGroup === selectedCategory
-          ? selectedCategory
-          : Object.keys(partList).length === 1
-          ? partList[Object.keys(partList)[0]].colorGroup
-          : "none"
-        : partList[selectedPartSplit].colorGroup;
-  }
-  const selectedGroup = selectedParts.selectedColor[selectedColorGroup];
-  const defaultSplit = selectedGroup["default"];
-  let updateColor: SelectedParts = {
-    bodyType: selectedParts.bodyType,
-    face: selectedParts.face,
-    category: selectedParts.category,
-    selectedColor: {
-      ...selectedParts.selectedColor,
-      [newColorGroup]: enableChain
-        ? {
-            default: {
-              color: color,
-              hueShiftReverse: defaultSplit.hueShiftReverse,
-              saturationReverse: defaultSplit.saturationReverse,
-              hueGraph: defaultSplit.hueGraph,
-              saturationGraph: defaultSplit.saturationGraph,
-              valueGraph: defaultSplit.valueGraph,
-            },
-          }
-        : {
-            ...selectedGroup,
-            [selectedPartSplit]: {
-              color: color,
-              hueShiftReverse: selectedGroup[selectedPartSplit]
-                ? selectedGroup[selectedPartSplit].hueShiftReverse
-                : defaultSplit.hueShiftReverse,
-              saturationReverse: selectedParts.selectedColor[
-                selectedColorGroup
-              ][selectedPartSplit]
-                ? selectedGroup[selectedPartSplit].saturationReverse
-                : defaultSplit.saturationReverse,
-              hueGraph: selectedGroup[selectedPartSplit]
-                ? selectedGroup[selectedPartSplit].hueGraph
-                : defaultSplit.hueGraph,
-              saturationGraph: selectedGroup[selectedPartSplit]
-                ? selectedGroup[selectedPartSplit].saturationGraph
-                : defaultSplit.saturationGraph,
-              valueGraph: selectedGroup[selectedPartSplit]
-                ? selectedGroup[selectedPartSplit].valueGraph
-                : defaultSplit.valueGraph,
-            },
-          },
-    },
-    selectedFace: selectedParts.selectedFace,
-  };
-  setSelectedParts(updateColor);
+  // console.log(color);
 
   let updatePartsObjectJimp = {
     ...partsObjectJimp,
@@ -109,7 +51,8 @@ export const MakerChangingColor = async (
               selectedColorGroup,
               selectedParts,
               colorsObject,
-              partsPath
+              partsPath,
+              nullImage
             );
           });
 
@@ -141,7 +84,8 @@ export const MakerChangingColor = async (
           selectedColorGroup,
           selectedParts,
           colorsObject,
-          partsPath
+          partsPath,
+          nullImage
         );
       });
     }
@@ -157,7 +101,7 @@ export const MakerChangingColor = async (
     });
   }
   setPartsObjectJimp(updatePartsObjectJimp);
-  console.log(updateMenuPartIcon);
+  // console.log(updateMenuPartIcon);
   setMenuPartIcons(updateMenuPartIcon);
 };
 
@@ -169,29 +113,48 @@ const faceJimpWrite = async (
   selectedColorGroup: string,
   selectedParts: SelectedParts,
   colorsObject: ColorsObject,
-  partsPath: string
+  partsPath: string,
+  nullImage: JimpType
 ): Promise<FacesJimp> => {
   const coloredImageObject: FacesJimp = {};
-  for (const face in partsObject[selectedCategory].partList[selectedPartSplit]
-    .items[partName].faces) {
-    const image = await Jimp.read(
-      partsPath +
+  await asyncMap(
+    Object.keys(
+      partsObject[selectedCategory].partList[selectedPartSplit].items[partName]
+        .faces
+    ),
+    async (face) => {
+      if (
         partsObject[selectedCategory].partList[selectedPartSplit].items[
           partName
-        ].faces[face].imagePath
-    );
-    const coloredImage: Jimp = await MakerPartsColoring(
-      image,
-      selectedPartSplit,
-      selectedColorGroup,
-      selectedParts,
-      colorsObject
-    );
-    coloredImageObject[face] = {
-      jimpData: coloredImage,
-    };
-    return coloredImageObject;
-  }
+        ].faces[face].imagePath == "" ||
+        partsObject[selectedCategory].partList[selectedPartSplit].items[
+          partName
+        ].faces[face].imagePath == null
+      ) {
+        coloredImageObject[face] = {
+          jimpData: nullImage,
+        };
+      } else {
+        const image: JimpType = await Jimp.read(
+          partsPath +
+            partsObject[selectedCategory].partList[selectedPartSplit].items[
+              partName
+            ].faces[face].imagePath
+        );
+        const coloredImage: JimpType = await MakerPartsColoring(
+          image,
+          selectedPartSplit,
+          selectedColorGroup,
+          selectedParts,
+          colorsObject
+        );
+        coloredImageObject[face] = {
+          jimpData: coloredImage,
+        };
+      }
+    }
+  );
+  return coloredImageObject;
 };
 
 const asyncMap = async (
