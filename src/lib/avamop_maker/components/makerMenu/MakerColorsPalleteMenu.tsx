@@ -8,16 +8,15 @@ import SelectedPartsContext from "../../store/SelectedPartsContext";
 import SelectedPartsForCanvasContext from "../../store/SelectedPartsForCanvasContext";
 import PartsObjectContext from "../../store/PartsObjectContext";
 import SelectedCategoryContext from "../../store/SelectedCategoryContext";
-import { MakerConvertBase64 } from "../functions/imageProcess/MakerConvertBase64";
-import { MakerGroupingParts } from "../functions/imageProcess/MakerGroupingParts";
 import "jimp/browser/lib/jimp";
 import { JimpObject, JimpType } from "../..//types/jimp";
-import { MakerChangingColor } from "../functions/fetchData/MakerChangingColor";
+import { MakerChangingColorsObject } from "../functions/fetchData/MakerChangingColorsObject";
 import ColorMenuPartIconsContext from "../../store/ColorMenuPartIconsContext";
 import PartsObjectJimpContext from "../../store/PartsObjectJimpContext";
 import PartsPathContext from "../../store/PartsPathContext";
 import MenuPartIconsContext from "../../store/MenuPartIconsContext";
 import NullImageContext from "../../store/NullImageContext";
+import { MakerChangingColor } from "../functions/fetchData/MakerChangingColor";
 
 declare const Jimp: JimpObject;
 
@@ -140,7 +139,6 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
     enableChain: boolean,
     color: string,
     selectedCategory: string,
-    partName: string,
     partsObject: PartsObjectSplit,
     partsObjectJimp: PartsObjectJimp,
     setPartsObjectJimp: React.Dispatch<React.SetStateAction<PartsObjectJimp>>,
@@ -157,15 +155,27 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
     setIsLoading(true); // 非同期関数の実行を開始します。
 
     try {
-      await MakerChangingColor(
+      MakerChangingColorsObject(
         selectedParts,
         setSelectedParts,
         selectedColorGroup,
         selectedPartSplit,
         enableChain,
         color,
+        null,
+        null,
+        null,
+        null,
+        null,
         selectedCategory,
-        partName,
+        partsObject
+      );
+      await MakerChangingColor(
+        selectedParts,
+        selectedColorGroup,
+        selectedPartSplit,
+        enableChain,
+        selectedCategory,
         partsObject,
         partsObjectJimp,
         setPartsObjectJimp,
@@ -277,7 +287,6 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                           enableChain,
                           groupKey,
                           selectedCategory,
-                          selectedParts.category[selectedCategory].partName,
                           partsObject,
                           partsObjectJimp,
                           setPartsObjectJimp,
@@ -319,8 +328,6 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                                       enableChain,
                                       color,
                                       selectedCategory,
-                                      selectedParts.category[selectedCategory]
-                                        .partName,
                                       partsObject,
                                       partsObjectJimp,
                                       setPartsObjectJimp,

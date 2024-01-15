@@ -1,4 +1,3 @@
-import SelectedPartsForCanvasContext from "../../../store/SelectedPartsForCanvasContext";
 import { MakerCombineMenuPartIcons } from "../imageProcess/MakerCombineMenuPartIcons";
 import { MakerConvertCategory } from "../imageProcess/MakerConvertPartsToMenuIcons";
 import { MakerPartsColoring } from "../imageProcess/MakerPartsColoring";
@@ -11,13 +10,10 @@ const MAX_PROMISE = 12;
 
 export const MakerChangingColor = async (
   selectedParts: SelectedParts,
-  setSelectedParts: React.Dispatch<React.SetStateAction<SelectedParts>>,
   selectedColorGroup: string,
   selectedPartSplit: string,
   enableChain: boolean,
-  color: string,
   selectedCategory: string,
-  partName: string,
   partsObject: PartsObjectSplit,
   partsObjectJimp: PartsObjectJimp,
   setPartsObjectJimp: React.Dispatch<React.SetStateAction<PartsObjectJimp>>,
@@ -30,65 +26,7 @@ export const MakerChangingColor = async (
   nullImage: JimpType
 ) => {
   // console.log(selectedColorGroup);
-  console.log(color);
-  let newColorGroup = selectedColorGroup;
-  if (selectedColorGroup === "none") {
-    const partList = partsObject[selectedCategory].partList;
-    newColorGroup =
-      selectedPartSplit === "default"
-        ? selectedColorGroup === selectedCategory
-          ? selectedCategory
-          : Object.keys(partList).length === 1
-          ? partList[Object.keys(partList)[0]].colorGroup
-          : "none"
-        : partList[selectedPartSplit].colorGroup;
-  }
-  const selectedGroup = selectedParts.selectedColor[selectedColorGroup];
-  const defaultSplit = selectedGroup["default"];
-  let updateColor: SelectedParts = {
-    bodyType: selectedParts.bodyType,
-    face: selectedParts.face,
-    category: selectedParts.category,
-    selectedColor: {
-      ...selectedParts.selectedColor,
-      [newColorGroup]: enableChain
-        ? {
-            default: {
-              color: color,
-              hueShiftReverse: defaultSplit.hueShiftReverse,
-              saturationReverse: defaultSplit.saturationReverse,
-              hueGraph: defaultSplit.hueGraph,
-              saturationGraph: defaultSplit.saturationGraph,
-              valueGraph: defaultSplit.valueGraph,
-            },
-          }
-        : {
-            ...selectedGroup,
-            [selectedPartSplit]: {
-              color: color,
-              hueShiftReverse: selectedGroup[selectedPartSplit]
-                ? selectedGroup[selectedPartSplit].hueShiftReverse
-                : defaultSplit.hueShiftReverse,
-              saturationReverse: selectedParts.selectedColor[
-                selectedColorGroup
-              ][selectedPartSplit]
-                ? selectedGroup[selectedPartSplit].saturationReverse
-                : defaultSplit.saturationReverse,
-              hueGraph: selectedGroup[selectedPartSplit]
-                ? selectedGroup[selectedPartSplit].hueGraph
-                : defaultSplit.hueGraph,
-              saturationGraph: selectedGroup[selectedPartSplit]
-                ? selectedGroup[selectedPartSplit].saturationGraph
-                : defaultSplit.saturationGraph,
-              valueGraph: selectedGroup[selectedPartSplit]
-                ? selectedGroup[selectedPartSplit].valueGraph
-                : defaultSplit.valueGraph,
-            },
-          },
-    },
-    selectedFace: selectedParts.selectedFace,
-  };
-  setSelectedParts(updateColor);
+  // console.log(color);
 
   let updatePartsObjectJimp = {
     ...partsObjectJimp,
@@ -111,7 +49,7 @@ export const MakerChangingColor = async (
               category,
               partSplit,
               selectedColorGroup,
-              updateColor,
+              selectedParts,
               colorsObject,
               partsPath,
               nullImage
@@ -144,7 +82,7 @@ export const MakerChangingColor = async (
           selectedCategory,
           selectedPartSplit,
           selectedColorGroup,
-          updateColor,
+          selectedParts,
           colorsObject,
           partsPath,
           nullImage
