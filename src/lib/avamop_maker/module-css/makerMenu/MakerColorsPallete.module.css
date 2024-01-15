@@ -1,19 +1,35 @@
-.swiper-color-image{
-  width: 50px;
-  height: 50px;
-  margin-left: 5px;
-}
-
-.color-show-button{
-  padding: 0;
-  background-color: transparent;
-  border: none;
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  cursor: pointer;
-}
-
-/*.scroll-bar-swiper{
+.scroll-bar-swiper{
     display: flex;
-}*/
+}
+
+.swiper-scrollbar {
+    height: 10px;
+    background: #e0e0e0;
+    border-radius: 5px;
+}
+
+.swiper-scrollbar-drag {
+    background: #999999;
+    border-radius: 5px;
+}
+@keyframes gradient {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+.colorbutton {
+    background: linear-gradient(270deg, #e60000, #f39800, #fff100, #009944, #0068b7, #1d2088, #920783);
+    background-size: 200% 200%;
+    animation: gradient 5s ease infinite;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
