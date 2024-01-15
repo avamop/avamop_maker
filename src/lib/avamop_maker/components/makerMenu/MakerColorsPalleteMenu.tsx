@@ -270,33 +270,46 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                   })}
               {!selectedColorGroup || !selectedPartSplit ? null : (
                 <div>
+                  <Swiper
+                    className={styles["scroll-bar-swiper"]}
+                    slidesPerView="auto"
+                    freeMode={true}
+                    spaceBetween={0}
+                    touchRatio={touchRatio / 10000}
+                  >
                   {Object.keys(colorsObjectSorted).map((groupKey) => (
-                    <MakerColorsButton
-                      key={groupKey}
-                      colorCode={colorsObject[groupKey].hex}
-                      colorName={groupKey}
-                      isLoading={isLoading}
-                      onClick={() =>
-                        handleClick(
-                          selectedParts,
-                          setSelectedParts,
-                          selectedColorGroup,
-                          selectedPartSplit,
-                          enableChain,
-                          groupKey,
-                          selectedCategory,
-                          partsObject,
-                          partsObjectJimp,
-                          setPartsObjectJimp,
-                          colorsObject,
-                          partsPath,
-                          menuPartIcons,
-                          setMenuPartIcons,
-                          nullImage
-                        )
-                      }
-                    />
+                              <SwiperSlide
+                                key={groupKey}
+                                style={{ width: "50px" }}
+                              >
+                                <MakerColorsButton
+                                  key={groupKey}
+                                  colorCode={colorsObject[groupKey].hex}
+                                  colorName={groupKey}
+                                  isLoading={isLoading}
+                                  onClick={() =>
+                                    handleClick(
+                                      selectedParts,
+                                      setSelectedParts,
+                                      selectedColorGroup,
+                                      selectedPartSplit,
+                                      enableChain,
+                                      groupKey,
+                                      selectedCategory,
+                                      partsObject,
+                                      partsObjectJimp,
+                                      setPartsObjectJimp,
+                                      colorsObject,
+                                      partsPath,
+                                      menuPartIcons,
+                                      setMenuPartIcons,
+                                      nullImage
+                                    )
+                                  }
+                                />
+                              </SwiperSlide>
                   ))}
+                  </Swiper>
                   <Swiper
                     className={styles["scroll-bar-swiper"]}
                     slidesPerView="auto"
