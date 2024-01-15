@@ -1,7 +1,7 @@
-.avatar-img-all{
+.avatar-img-all {
   background-color: papayawhip;
 }
-  
+
 .bottom-button {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -9,16 +9,16 @@
   padding: 10px 20px;
   font-size: 1em;
   color: #fff;
-  background-color: #007BFF;
+  background-color: #007bff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  &:hover  {
+  &:hover {
     background-color: green;
   }
 }
 
-@media (min-width:1000px){
+@media (min-width: 1000px) {
   .all-object-container {
     display: flex;
   }

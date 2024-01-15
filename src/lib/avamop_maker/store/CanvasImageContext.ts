@@ -1,10 +1,12 @@
 import { Dispatch, SetStateAction, createContext } from "react";
 import "jimp/browser/lib/jimp";
-import { JimpObject } from "../types/jimp";
+import { JimpObject, JimpType } from "../types/jimp";
+
+declare const Jimp: JimpObject;
 
 const CanvasImageContext = createContext<{
-  canvasImage: Jimp[];
-  setCanvasImage: Dispatch<SetStateAction<Jimp[]>>;
+  canvasImage: JimpType[];
+  setCanvasImage: Dispatch<SetStateAction<JimpType[]>>;
 }>(null);
 
 export default CanvasImageContext;

@@ -1,8 +1,10 @@
 import "jimp/browser/lib/jimp";
-import { JimpObject } from "../types/jimp";
+import { JimpObject, JimpType } from "../types/jimp";
+
+declare const Jimp: JimpObject;
 
 import { createContext } from "react";
 
-const NullImageContext = createContext<Jimp>(null);
+const NullImageContext = createContext<JimpType>(null);
 
 export default NullImageContext;
