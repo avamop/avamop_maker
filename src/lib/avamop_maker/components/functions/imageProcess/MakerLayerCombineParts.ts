@@ -1,14 +1,16 @@
 import "jimp/browser/lib/jimp";
-import { JimpObject } from "../types/jimp";
+import { JimpObject, JimpType } from "../../../types/jimp";
+
+declare const Jimp: JimpObject;
 
 export const MakerLayerCombineParts = async (
   selectedPartsForCanvas: SelectedPartsForCanvas
-): Promise<Jimp[]> => {
+): Promise<JimpType[]> => {
   type Orders = {
     category: string;
     partSplit: string;
     partOrder: number;
-    partData: Jimp;
+    partData: JimpType;
   };
   // console.log(selectedPartsForCanvas);
   let sortedParts: Orders[] = [];
@@ -34,7 +36,7 @@ export const MakerLayerCombineParts = async (
   // console.log(sortedParts);
   // 最初の画像をベースにする
 
-  const imageArray: Jimp[] = [];
+  const imageArray: JimpType[] = [];
 
   // 残りの画像を合成
   for (let i = 0; i < sortedParts.length; i++) {

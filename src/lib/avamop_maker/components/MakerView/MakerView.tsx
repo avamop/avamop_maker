@@ -1,11 +1,13 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import "jimp/browser/lib/jimp";
-import { JimpObject } from "../types/jimp";
+import { JimpObject, JimpType } from "../../types/jimp";
 import { MakerConvertBase64 } from "../functions/imageProcess/MakerConvertBase64";
 import ViewScaleContext from "../../store/ViewScaleContext";
 import SelectedPartsForCanvasContext from "../../store/SelectedPartsForCanvasContext";
 import styles from "../../module-css/makerView/MakerView.module.css";
 import CanvasImageContext from "../../store/CanvasImageContext";
+
+declare const Jimp: JimpObject;
 
 const MakerView: React.FC = ({}) => {
   const { selectedPartsForCanvas, setSelectedPartsForCanvas } = useContext(
@@ -19,6 +21,7 @@ const MakerView: React.FC = ({}) => {
     const canvasGen = async () => {
       const canvas = canvasRef.current;
       const context = canvas.getContext("2d");
+      context.imageSmoothingEnabled = false;
 
       // 画像をレイヤーとして追加
       if (canvasImage) {
@@ -45,7 +48,6 @@ const MakerView: React.FC = ({}) => {
           // 画像をレイヤーとして追加
           images.forEach(({ img }) => {
             context.globalCompositeOperation = "source-over";
-            context.imageSmoothingEnabled = false;
             context.drawImage(
               img,
               0,
