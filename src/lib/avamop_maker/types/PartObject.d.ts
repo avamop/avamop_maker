@@ -99,7 +99,7 @@ declare global {
     //SelectedPartsの色データ格納オブジェクト
     [partSplit: "default" | string]: {
       color: string;
-      hueShiftReverse: boolean;
+      hueReverse: boolean;
       saturationReverse: boolean;
       hueGraph: ColorGraph;
       saturationGraph: ColorGraph;

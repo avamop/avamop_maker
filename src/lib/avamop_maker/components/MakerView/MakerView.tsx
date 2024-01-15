@@ -21,7 +21,6 @@ const MakerView: React.FC = ({}) => {
     const canvasGen = async () => {
       const canvas = canvasRef.current;
       const context = canvas.getContext("2d");
-      context.imageSmoothingEnabled = false;
 
       // 画像をレイヤーとして追加
       if (canvasImage) {
@@ -30,6 +29,7 @@ const MakerView: React.FC = ({}) => {
           canvasImage.map((image) => {
             return new Promise(async (resolve) => {
               const img = new Image();
+              img.style.imageRendering = "pixelated";
               img.src = await MakerConvertBase64(image);
               img.onload = () => {
                 resolve({ img, image });
@@ -48,6 +48,9 @@ const MakerView: React.FC = ({}) => {
           // 画像をレイヤーとして追加
           images.forEach(({ img }) => {
             context.globalCompositeOperation = "source-over";
+            context.imageSmoothingEnabled = false;
+            context.webkitImageSmoothingEnabled = false;
+            context.mozImageSmoothingEnabled = false;
             context.drawImage(
               img,
               0,

@@ -10,7 +10,7 @@ export const MakerPartsColoring = async (
   selectedParts: SelectedParts,
   colorsObject: ColorsObject
 ): Promise<JimpType> => {
-  console.log("colord!");
+  // console.log("colord!");
   const maskColor: string[] = [
     "#fefefe",
     "#e5e5e5",
@@ -32,7 +32,7 @@ export const MakerPartsColoring = async (
   const colorHsv: [number, number, number] = rgbToHsv(colorCode);
   let changeColor: string[] = [];
   for (let i = 0; i < 10; i++) {
-    const hCalculatedTmp = colorData.hueShiftReverse
+    const hCalculatedTmp = colorData.hueReverse
       ? colorHsv[0] -
         (colorData.hueGraph.globalSlope * i +
           colorData.hueGraph.individualSlope[i])
@@ -48,8 +48,8 @@ export const MakerPartsColoring = async (
           colorData.saturationGraph.individualSlope[i]);
     const vCalculatedTmp =
       colorHsv[2] -
-      colorData.saturationGraph.globalSlope * i +
-      colorData.saturationGraph.individualSlope[i];
+      colorData.valueGraph.globalSlope * i +
+      colorData.valueGraph.individualSlope[i];
     const hCalculated =
       hCalculatedTmp < 0
         ? hCalculatedTmp < -360

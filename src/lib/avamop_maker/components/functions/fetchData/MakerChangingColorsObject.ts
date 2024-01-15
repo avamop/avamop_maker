@@ -1,29 +1,30 @@
+import { value } from "happy-dom/lib/PropertySymbol";
 import "jimp/browser/lib/jimp";
 
-export const MakerChangingColorsObject = async (
+export const MakerChangingColorsObject = (
   selectedParts: SelectedParts,
   setSelectedParts: React.Dispatch<React.SetStateAction<SelectedParts>>,
   selectedColorGroup: string,
   selectedPartSplit: string,
   enableChain: boolean,
   color: string | null,
-  hueShiftReverse: boolean | null,
+  hueReverse: boolean | null,
   saturationReverse: boolean | null,
   hueGraph: ColorGraph | null,
   saturationGraph: ColorGraph | null,
   valueGraph: ColorGraph | null,
   selectedCategory: string,
   partsObject: PartsObjectSplit
-) => {
+): SelectedParts => {
   if (
-    !color &&
-    !hueShiftReverse &&
-    !saturationReverse &&
-    !hueGraph &&
-    !saturationGraph &&
-    !valueGraph
+    color === null &&
+    hueReverse === null &&
+    saturationReverse === null &&
+    hueGraph === null &&
+    saturationGraph === null &&
+    valueGraph === null
   ) {
-    return;
+    return null;
   }
   let newColorGroup = selectedColorGroup;
   if (selectedColorGroup === "none") {
@@ -49,58 +50,69 @@ export const MakerChangingColorsObject = async (
         ? {
             default: {
               color: color ? color : defaultSplit.color,
-              hueShiftReverse: hueShiftReverse
-                ? hueShiftReverse
-                : defaultSplit.hueShiftReverse,
-              saturationReverse: saturationReverse
-                ? saturationReverse
-                : defaultSplit.saturationReverse,
-              hueGraph: hueGraph ? hueGraph : defaultSplit.hueGraph,
-              saturationGraph: saturationGraph
-                ? saturationGraph
-                : defaultSplit.saturationGraph,
-              valueGraph: valueGraph ? valueGraph : defaultSplit.valueGraph,
+              hueReverse:
+                hueReverse === null ? defaultSplit.hueReverse : hueReverse,
+              saturationReverse:
+                saturationReverse === null
+                  ? defaultSplit.saturationReverse
+                  : saturationReverse,
+              hueGraph: hueGraph === null ? defaultSplit.hueGraph : hueGraph,
+              saturationGraph:
+                saturationGraph === null
+                  ? defaultSplit.saturationGraph
+                  : saturationGraph,
+              valueGraph:
+                valueGraph === null ? defaultSplit.valueGraph : valueGraph,
             },
           }
         : {
             ...selectedGroup,
             [selectedPartSplit]: {
-              color: color
-                ? color
-                : selectedGroup[selectedPartSplit]
-                ? selectedGroup[selectedPartSplit].color
-                : defaultSplit.color,
-              hueShiftReverse: hueShiftReverse
-                ? hueShiftReverse
-                : selectedGroup[selectedPartSplit]
-                ? selectedGroup[selectedPartSplit].hueShiftReverse
-                : defaultSplit.hueShiftReverse,
-              saturationReverse: saturationReverse
-                ? saturationReverse
-                : selectedParts.selectedColor[selectedColorGroup][
-                    selectedPartSplit
-                  ]
-                ? selectedGroup[selectedPartSplit].saturationReverse
-                : defaultSplit.saturationReverse,
-              hueGraph: hueGraph
-                ? hueGraph
-                : selectedGroup[selectedPartSplit]
-                ? selectedGroup[selectedPartSplit].hueGraph
-                : defaultSplit.hueGraph,
-              saturationGraph: saturationGraph
-                ? saturationGraph
-                : selectedGroup[selectedPartSplit]
-                ? selectedGroup[selectedPartSplit].saturationGraph
-                : defaultSplit.saturationGraph,
-              valueGraph: valueGraph
-                ? valueGraph
-                : selectedGroup[selectedPartSplit]
-                ? selectedGroup[selectedPartSplit].valueGraph
-                : defaultSplit.valueGraph,
+              color:
+                color === null
+                  ? selectedGroup[selectedPartSplit]
+                    ? selectedGroup[selectedPartSplit].color
+                    : defaultSplit.color
+                  : color,
+              hueReverse:
+                hueReverse === null
+                  ? selectedGroup[selectedPartSplit]
+                    ? selectedGroup[selectedPartSplit].hueReverse
+                    : defaultSplit.hueReverse
+                  : hueReverse,
+              saturationReverse:
+                saturationReverse === null
+                  ? selectedGroup[selectedColorGroup][selectedPartSplit]
+                    ? selectedGroup[selectedPartSplit].saturationReverse
+                    : defaultSplit.saturationReverse
+                  : saturationReverse,
+              hueGraph:
+                hueGraph === null
+                  ? selectedGroup[selectedPartSplit]
+                    ? selectedGroup[selectedPartSplit].hueGraph
+                    : defaultSplit.hueGraph
+                  : hueGraph,
+              saturationGraph:
+                saturationGraph === null
+                  ? selectedGroup[selectedPartSplit]
+                    ? selectedGroup[selectedPartSplit].saturationGraph
+                    : defaultSplit.saturationGraph
+                  : saturationGraph,
+              valueGraph:
+                valueGraph === null
+                  ? selectedGroup[selectedPartSplit]
+                    ? selectedGroup[selectedPartSplit].valueGraph
+                    : defaultSplit.valueGraph
+                  : valueGraph,
             },
           },
     },
     selectedFace: selectedParts.selectedFace,
   };
+  console.log(
+    selectedParts.selectedColor[newColorGroup]["default"],
+    updateColor.selectedColor[newColorGroup]["default"]
+  );
   setSelectedParts(updateColor);
+  return updateColor;
 };
