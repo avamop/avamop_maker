@@ -9,7 +9,7 @@ import SelectedPartsForCanvasContext from "../../store/SelectedPartsForCanvasCon
 import PartsObjectContext from "../../store/PartsObjectContext";
 import SelectedCategoryContext from "../../store/SelectedCategoryContext";
 import "jimp/browser/lib/jimp";
-import { JimpObject, JimpType } from "../../types/jimp";
+import { JimpObject, JimpType } from "../..//types/jimp";
 import { MakerChangingColorsObject } from "../functions/fetchData/MakerChangingColorsObject";
 import ColorMenuPartIconsContext from "../../store/ColorMenuPartIconsContext";
 import PartsObjectJimpContext from "../../store/PartsObjectJimpContext";
@@ -195,11 +195,13 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
   return (
     <>
       {!selectedCategory ? null : (
-        <>
-          <button
+        <>          <button
             className={styles["colorbutton"]}
             onClick={() => setShowSwiper(!showSwiper)}
-          ></button>
+          >
+           
+          </button>
+
           {showSwiper && (
             <>
               <input
@@ -336,6 +338,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                                       nullImage
                                     )
                                   }
+                                  
                                 />
                               </SwiperSlide>
                             )
@@ -344,8 +347,11 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                       ))}
                     </ul>
                   </Swiper>
+                
                 </div>
+                
               )}
+              
             </>
           )}
         </>
