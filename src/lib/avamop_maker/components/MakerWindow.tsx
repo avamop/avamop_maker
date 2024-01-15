@@ -2,11 +2,15 @@ import React, { useContext, useState } from "react";
 import styles from "../module-css/makerView/MakerWindow.module.css"; // CSSファイルをインポート
 import MakerView from "./MakerView/MakerView";
 import MakerPartsMenu from "./makerMenu/MakerPartsMenu";
-import MakerFaceMenu from "./makerMenu/MakerFaceListMenu";
+import MakerFaceMenu from "./makerMenu/MakerFaceMenu";
 import MakerColorsMenu from "./makerMenu/MakerColorsMenu";
 import CanvasImageContext from "../store/CanvasImageContext";
+import "jimp/browser/lib/jimp";
+import { JimpObject, JimpType } from "../types/jimp";
 
-const MakerWindow: React.FC = ({}) => {
+declare const Jimp: JimpObject;
+
+const MakerWindow: React.FC = () => {
   const { canvasImage, setCanvasImage } = useContext(CanvasImageContext);
   const [imageNumber, setImageNumber] = useState(0);
 
@@ -22,40 +26,36 @@ const MakerWindow: React.FC = ({}) => {
     link.click();
     setImageNumber(imageNumber + 1);
   };
-  
+
   const handleClick = () => {
     saveImage(canvasImage);
   };
 
-
-
-
-
-
   return (
-  
-     <>
-        <div className={styles['all-object-container']}>
-          {/* アバターメーカーのアバター表示部分 */}
-          <div className={styles['avatar-img-all']}>
-            <MakerView />
-            {/* オブジェクト変化テスト用ボタン */}
-            <button className={styles["bottom-button"]} onClick = { handleClick }>完成</button>
-          </div>
-          <div className={styles["option-menu-group"]}>
-            {/* アバターメーカーの表情メニュー部分 */}
-            {/* <MakerFaceMenu /> */}
-            {/* アバターメーカーの色メニュー部分 */}
-            <MakerColorsMenu/>
-            {/* アバターメーカーのパーツメニュー部分 */}
-            
-            <div className={styles['avatar-img-part']}>
-              <MakerPartsMenu />
-            
-            </div>
+    <>
+      <div className={styles["all-object-container"]}>
+        {/* アバターメーカーのアバター表示部分 */}
+        <div className={styles["avatar-img-all"]}>
+          <MakerView />
+          {/* オブジェクト変化テスト用ボタン */}
+          <button className={styles["bottom-button"]} onClick={handleClick}>
+            完成
+          </button>
+        </div>
+        <div className={styles["option-menu-group"]}>
+          {/* アバターメーカーの表情メニュー部分 */}
+          {/* <MakerFaceMenu /> */}
+          {/* アバターメーカーの色メニュー部分 */}
+          <MakerColorsMenu />
+          <MakerFaceMenu />
+          {/* アバターメーカーのパーツメニュー部分 */}
+
+          <div className={styles["avatar-img-part"]}>
+            <MakerPartsMenu />
           </div>
         </div>
-      </>
+      </div>
+    </>
   );
 };
 

@@ -103,8 +103,6 @@ const MakerPartsMenu: React.FC = ({}) => {
             )
           : null
       )}
-      {/* オブジェクト変化テスト用ボタン */}
-      
     </>
   );
 };

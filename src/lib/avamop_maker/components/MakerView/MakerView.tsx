@@ -1,11 +1,13 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import "jimp/browser/lib/jimp";
-import { JimpObject } from "../types/jimp";
+import { JimpObject, JimpType } from "../../types/jimp";
 import { MakerConvertBase64 } from "../functions/imageProcess/MakerConvertBase64";
 import ViewScaleContext from "../../store/ViewScaleContext";
 import SelectedPartsForCanvasContext from "../../store/SelectedPartsForCanvasContext";
 import styles from "../../module-css/makerView/MakerView.module.css";
 import CanvasImageContext from "../../store/CanvasImageContext";
+
+declare const Jimp: JimpObject;
 
 const MakerView: React.FC = ({}) => {
   const { selectedPartsForCanvas, setSelectedPartsForCanvas } = useContext(
@@ -27,6 +29,7 @@ const MakerView: React.FC = ({}) => {
           canvasImage.map((image) => {
             return new Promise(async (resolve) => {
               const img = new Image();
+              img.style.imageRendering = "pixelated";
               img.src = await MakerConvertBase64(image);
               img.onload = () => {
                 resolve({ img, image });
@@ -46,6 +49,8 @@ const MakerView: React.FC = ({}) => {
           images.forEach(({ img }) => {
             context.globalCompositeOperation = "source-over";
             context.imageSmoothingEnabled = false;
+            context.webkitImageSmoothingEnabled = false;
+            context.mozImageSmoothingEnabled = false;
             context.drawImage(
               img,
               0,

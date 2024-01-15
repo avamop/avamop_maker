@@ -99,7 +99,7 @@ declare global {
     //SelectedPartsの色データ格納オブジェクト
     [partSplit: "default" | string]: {
       color: string;
-      hueShiftReverse: boolean;
+      hueReverse: boolean;
       saturationReverse: boolean;
       hueGraph: ColorGraph;
       saturationGraph: ColorGraph;
@@ -205,10 +205,17 @@ declare global {
     };
   }
 
-  interface faceTree {
+  interface FaceTree {
     face: string;
-    children: faceTree[];
+    image: string;
+    children: FaceTree[];
   }
+
+  interface FaceList {
+    face: string;
+    image: string;
+  }
+
   //partsObjectのパスをJimpデータに置き換えたオブジェクト
   interface PartsObjectJimp {
     [category: "body" | string]: {
