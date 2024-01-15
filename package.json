@@ -16,7 +16,6 @@
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@jimp/types": "^0.22.10",
-    "@rollup/rollup-linux-x64-gnu": "^4.9.5",
     "@types/chart.js": "^2.9.41",
     "@types/css-modules": "^1.0.5",
     "@types/react-slider": "^1.3.6",

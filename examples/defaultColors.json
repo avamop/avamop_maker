@@ -3,7 +3,7 @@
     "default": {
       "color": "black",
       "chain": false,
-      "hueShiftReverse": false,
+      "hueReverse": false,
       "saturationReverse": false,
       "hueGraph": {
         "globalSlope": 1,
@@ -23,7 +23,7 @@
     "default": {
       "color": "bisque",
       "chain": true,
-      "hueShiftReverse": false,
+      "hueReverse": false,
       "saturationReverse": false,
       "hueGraph": {
         "globalSlope": 1,
@@ -43,7 +43,7 @@
     "default": {
       "color": "saddleBrown",
       "chain": false,
-      "hueShiftReverse": false,
+      "hueReverse": false,
       "saturationReverse": false,
       "hueGraph": {
         "globalSlope": 1,
@@ -63,7 +63,7 @@
     "default": {
       "color": "crimson",
       "chain": true,
-      "hueShiftReverse": false,
+      "hueReverse": false,
       "saturationReverse": false,
       "hueGraph": {
         "globalSlope": 1,
@@ -83,7 +83,7 @@
     "default": {
       "color": "gray",
       "chain": false,
-      "hueShiftReverse": false,
+      "hueReverse": false,
       "saturationReverse": false,
       "hueGraph": {
         "globalSlope": 1,
