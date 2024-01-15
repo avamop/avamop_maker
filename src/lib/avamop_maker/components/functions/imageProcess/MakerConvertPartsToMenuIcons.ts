@@ -39,7 +39,7 @@ export const MakerConvertPartsList = (
 };
 
 //カテゴリー内のpartSplitで分けられてるパーツ画像をpeacesの中で分ける
-const MakerConvertCategory = (
+export const MakerConvertCategory = (
   categoryItems: CategoryJimp
 ): ItemIconsForCombine => {
   const itemsIconForCombine: ItemIconsForCombine = {};

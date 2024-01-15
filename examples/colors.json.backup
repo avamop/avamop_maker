@@ -1,43 +1,32 @@
 {
-  "crimson": {
-    "hex": "#DC143C",
-    "group": "red"
+  "aliceBlue": {
+    "hex": "#F0F8FF",
+    "group": "blue"
   },
-  
-  "coral": {
-    "hex": "#FF7F50",
-    "group": "orange"
+  "antiqueWhite": {
+    "hex": "#FAEBD7",
+    "group": "white"
   },
-  "goldenRod": {
-    "hex": "#DAA520",
-    "group": "yellow"
+  "aqua": {
+    "hex": "#00FFFF",
+    "group": "cyan"
   },
-  
-
-
+  "aquamarine": {
+    "hex": "#7FFFD4",
+    "group": "cyan"
+  },
+  "azure": {
+    "hex": "#F0FFFF",
+    "group": "cyan"
+  },
   "beige": {
     "hex": "#F5F5DC",
-    "group": "brown"
-  },
-  "brown": {
-    "hex": "#A52A2A",
     "group": "brown"
   },
   "bisque": {
     "hex": "#FFE4C4",
     "group": "brown"
   },
-  "chartreuse": {
-    "hex": "#7FFF00",
-    "group": "green"
-  },
-  "darkGreen": {
-    "hex": "#006400",
-    "group": "green"
-  },
-
-  
-
   "black": {
     "hex": "#000000",
     "group": "gray"
@@ -49,44 +38,35 @@
   "blue": {
     "hex": "#0000FF",
     "group": "blue"
-    
-  },
-    
-  "aquamarine": {
-    "hex": "#7FFFD4",
-    "group": "cyan"
-  },
-  "aqua": {
-    "hex": "#00FFFF",
-    "group": "cyan"
-  },
-  "aliceBlue": {
-    "hex": "#F0F8FF",
-    "group": "blue"
   },
   "blueViolet": {
     "hex": "#8A2BE2",
     "group": "violet"
   },
-
+  "brown": {
+    "hex": "#A52A2A",
+    "group": "brown"
+  },
   "burlyWood": {
     "hex": "#DEB887",
     "group": "brown"
-  },
-  "antiqueWhite": {
-    "hex": "#FAEBD7",
-    "group": "white"
   },
   "cadetBlue": {
     "hex": "#5F9EA0",
     "group": "blue"
   },
-
+  "chartreuse": {
+    "hex": "#7FFF00",
+    "group": "green"
+  },
   "chocolate": {
     "hex": "#D2691E",
     "group": "brown"
   },
-
+  "coral": {
+    "hex": "#FF7F50",
+    "group": "orange"
+  },
   "cornflowerBlue": {
     "hex": "#6495ED",
     "group": "blue"
@@ -95,7 +75,10 @@
     "hex": "#FFF8DC",
     "group": "yellow"
   },
-
+  "crimson": {
+    "hex": "#DC143C",
+    "group": "red"
+  },
   "cyan": {
     "hex": "#00FFFF",
     "group": "cyan"
@@ -120,8 +103,14 @@
     "hex": "#B8860B",
     "group": "yellow"
   },
-
-
+  "darkGray": {
+    "hex": "#A9A9A9",
+    "group": "gray"
+  },
+  "darkGreen": {
+    "hex": "#006400",
+    "group": "green"
+  },
   "darkKhaki": {
     "hex": "#BDB76B",
     "group": "yellow"
@@ -226,13 +215,12 @@
     "hex": "#FFD700",
     "group": "yellow"
   },
-
+  "goldenRod": {
+    "hex": "#DAA520",
+    "group": "yellow"
+  },
   "gray": {
     "hex": "#808080",
-    "group": "gray"
-  },
-  "darkGray": {
-    "hex": "#A9A9A9",
     "group": "gray"
   },
   "green": {

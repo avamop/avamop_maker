@@ -5,17 +5,19 @@ interface MakerColorsButton {
   colorCode: string;
   colorName: string;
   onClick: () => void;
+  isLoading: boolean;
 }
 
 const MakerColorsButton: React.FC<MakerColorsButton> = ({
   colorCode,
   colorName,
   onClick,
+  isLoading,
 }) => {
   // <li>タグを<button>タグに変更する
   return (
     <button
-      className={styles["colorlist"]}
+      className={isLoading ? styles["colorlist-loading"] : styles["colorlist"]}
       style={{ backgroundColor: colorCode }}
       onClick={onClick}
     >
