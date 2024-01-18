@@ -639,12 +639,16 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                       }
                     />
                   ))}
-                  <Swiper
-                    className={styles["scroll-bar-swiper"]}
-                    slidesPerView="auto"
-                    freeMode={true}
-                    spaceBetween={0}
-                    touchRatio={touchRatio / 20}
+                 <Swiper
+  className={styles["scroll-bar-swiper"]}
+  slidesPerView="auto"
+  freeMode={true}
+  spaceBetween={0}
+  touchRatio={touchRatio / 20}
+  mousewheel={true} // この行を追加します
+
+  
+
                   >
                     <ul>
                       {Object.keys(colorsObjectSorted).map((groupKey) => (
@@ -654,6 +658,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                               <SwiperSlide
                                 key={color}
                                 style={{ width: "50px" }}
+                                
                               >
                                 <MakerColorsButton
                                   colorCode={colorsObject[color].hex}
