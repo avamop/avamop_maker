@@ -24,6 +24,9 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
   const [showSwiper, setShowSwiper] = useState(false);
   const [touchRatio, setTouchRatio] = useState(0); // touchRatioのstateを追加
   const { selectedParts, setSelectedParts } = useContext(SelectedPartsContext);
+  const { selectedPartsForCanvas, setSelectedPartsForCanvas } = useContext(
+    SelectedPartsForCanvasContext
+  );
   const partsPath = useContext(PartsPathContext);
   const partsObject = useContext(PartsObjectContext);
   const { partsObjectJimp, setPartsObjectJimp } = useContext(
@@ -45,194 +48,18 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
     null
   );
   const [enableChain, setEnableChain] = useState<boolean>(true);
-  const [hueReverse, setHueReverse] = useState<boolean>(null);
-  const [saturationReverse, setSaturationReverse] = useState<boolean>(null);
-  const [hueGraph, setHueGraph] = useState<ColorGraph>(null);
-  const [saturationGraph, setSaturationGraph] = useState<ColorGraph>(null);
-  const [valueGraph, setValueGraph] = useState<ColorGraph>(null);
-  const [hueGlobalSlope, setHueGlobalSlope] = useState<number>(null);
-  const [saturationGlobalSlope, setSaturationGlobalSlope] =
-    useState<number>(null);
-  const [valueGlobalSlope, setValueGlobalSlope] = useState<number>(null);
   const nullImage: JimpType = useContext(NullImageContext);
   const [isLoading, setIsLoading] = useState(false);
+
+  const selectedCheck = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEnableChain(enableChain ? false : true);
+  };
 
   const selectedRadio = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedRadioValue(event.target.value);
     const { colorGroup, partSplit } = JSON.parse(event.target.value);
     setSelectedColorGroup(colorGroup);
     setSelectedPartSplit(partSplit);
-    setHueReverse(
-      selectedParts.selectedColor[selectedColorGroup]
-        ? selectedParts.selectedColor[selectedColorGroup][selectedPartSplit]
-          ? selectedParts.selectedColor[selectedColorGroup][selectedPartSplit]
-              .hueReverse
-          : selectedParts.selectedColor[selectedColorGroup]["default"]
-              .hueReverse
-        : selectedParts.selectedColor["none"][selectedPartSplit]
-        ? selectedParts.selectedColor["none"][selectedPartSplit].hueReverse
-        : selectedParts.selectedColor["none"]["default"].hueReverse
-    );
-    setSaturationReverse(
-      selectedParts.selectedColor[selectedColorGroup]
-        ? selectedParts.selectedColor[selectedColorGroup][selectedPartSplit]
-          ? selectedParts.selectedColor[selectedColorGroup][selectedPartSplit]
-              .saturationReverse
-          : selectedParts.selectedColor[selectedColorGroup]["default"]
-              .saturationReverse
-        : selectedParts.selectedColor["none"][selectedPartSplit]
-        ? selectedParts.selectedColor["none"][selectedPartSplit]
-            .saturationReverse
-        : selectedParts.selectedColor["none"]["default"].saturationReverse
-    );
-    setHueGraph(
-      selectedParts.selectedColor[selectedColorGroup]
-        ? selectedParts.selectedColor[selectedColorGroup][selectedPartSplit]
-          ? selectedParts.selectedColor[selectedColorGroup][selectedPartSplit]
-              .hueGraph
-          : selectedParts.selectedColor[selectedColorGroup]["default"].hueGraph
-        : selectedParts.selectedColor["none"][selectedPartSplit]
-        ? selectedParts.selectedColor["none"][selectedPartSplit].hueGraph
-        : selectedParts.selectedColor["none"]["default"].hueGraph
-    );
-    setSaturationGraph(
-      selectedParts.selectedColor[selectedColorGroup]
-        ? selectedParts.selectedColor[selectedColorGroup][selectedPartSplit]
-          ? selectedParts.selectedColor[selectedColorGroup][selectedPartSplit]
-              .saturationGraph
-          : selectedParts.selectedColor[selectedColorGroup]["default"]
-              .saturationGraph
-        : selectedParts.selectedColor["none"][selectedPartSplit]
-        ? selectedParts.selectedColor["none"][selectedPartSplit].saturationGraph
-        : selectedParts.selectedColor["none"]["default"].saturationGraph
-    );
-    setValueGraph(
-      selectedParts.selectedColor[selectedColorGroup]
-        ? selectedParts.selectedColor[selectedColorGroup][selectedPartSplit]
-          ? selectedParts.selectedColor[selectedColorGroup][selectedPartSplit]
-              .valueGraph
-          : selectedParts.selectedColor[selectedColorGroup]["default"]
-              .valueGraph
-        : selectedParts.selectedColor["none"][selectedPartSplit]
-        ? selectedParts.selectedColor["none"][selectedPartSplit].valueGraph
-        : selectedParts.selectedColor["none"]["default"].valueGraph
-    );
-  };
-
-  const [isPressed, setIsPressed] = React.useState(false);
-
-  const handleMouseDown = () => {
-    setIsPressed(true);
-  };
-
-  const handleMouseUp = () => {
-    setIsPressed(false);
-  };
-
-  const changeHueGlobalScope = (event: React.ChangeEvent<HTMLInputElement>) => {
-    // if (isPressed) {
-    let changeHue = Number(event.target.value);
-    // console.log(changeHue);
-    setHueGlobalSlope(changeHue);
-    setHueGraph({
-      globalSlope: hueGlobalSlope,
-      individualSlope: hueGraph.individualSlope,
-    });
-    handleChange(
-      selectedParts,
-      setSelectedParts,
-      selectedColorGroup,
-      selectedPartSplit,
-      enableChain,
-      null,
-      null,
-      null,
-      hueGraph,
-      null,
-      null,
-      selectedCategory,
-      partsObject,
-      partsObjectJimp,
-      setPartsObjectJimp,
-      colorsObject,
-      partsPath,
-      menuPartIcons,
-      setMenuPartIcons,
-      nullImage
-    );
-    // }
-  };
-
-  const changeSaturationGlobalScope = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    // if (isPressed) {
-    let changeSaturation = Number(event.target.value);
-    // console.log(changeSaturation);
-    setSaturationGlobalSlope(changeSaturation);
-    setSaturationGraph({
-      globalSlope: saturationGlobalSlope,
-      individualSlope: saturationGraph.individualSlope,
-    });
-    handleChange(
-      selectedParts,
-      setSelectedParts,
-      selectedColorGroup,
-      selectedPartSplit,
-      enableChain,
-      null,
-      null,
-      null,
-      null,
-      saturationGraph,
-      null,
-      selectedCategory,
-      partsObject,
-      partsObjectJimp,
-      setPartsObjectJimp,
-      colorsObject,
-      partsPath,
-      menuPartIcons,
-      setMenuPartIcons,
-      nullImage
-    );
-    // }
-  };
-
-  const changeValueGlobalScope = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    // if (isPressed) {
-    let changeValue = Number(event.target.value);
-    // console.log(changeValue);
-    setValueGlobalSlope(changeValue);
-    setValueGraph({
-      globalSlope: valueGlobalSlope,
-      individualSlope: valueGraph.individualSlope,
-    });
-    handleChange(
-      selectedParts,
-      setSelectedParts,
-      selectedColorGroup,
-      selectedPartSplit,
-      enableChain,
-      null,
-      null,
-      null,
-      null,
-      null,
-      valueGraph,
-      selectedCategory,
-      partsObject,
-      partsObjectJimp,
-      setPartsObjectJimp,
-      colorsObject,
-      partsPath,
-      menuPartIcons,
-      setMenuPartIcons,
-      nullImage
-    );
-    // }
   };
 
   useEffect(() => {
@@ -272,61 +99,6 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
       radioValuesPartSplit[0]
       // null
     );
-    setHueReverse(
-      selectedParts.selectedColor[selectedColorGroup]
-        ? selectedParts.selectedColor[selectedColorGroup][selectedPartSplit]
-          ? selectedParts.selectedColor[selectedColorGroup][selectedPartSplit]
-              .hueReverse
-          : selectedParts.selectedColor[selectedColorGroup]["default"]
-              .hueReverse
-        : selectedParts.selectedColor["none"][selectedPartSplit]
-        ? selectedParts.selectedColor["none"][selectedPartSplit].hueReverse
-        : selectedParts.selectedColor["none"]["default"].hueReverse
-    );
-    setSaturationReverse(
-      selectedParts.selectedColor[selectedColorGroup]
-        ? selectedParts.selectedColor[selectedColorGroup][selectedPartSplit]
-          ? selectedParts.selectedColor[selectedColorGroup][selectedPartSplit]
-              .saturationReverse
-          : selectedParts.selectedColor[selectedColorGroup]["default"]
-              .saturationReverse
-        : selectedParts.selectedColor["none"][selectedPartSplit]
-        ? selectedParts.selectedColor["none"][selectedPartSplit]
-            .saturationReverse
-        : selectedParts.selectedColor["none"]["default"].saturationReverse
-    );
-    setHueGraph(
-      selectedParts.selectedColor[selectedColorGroup]
-        ? selectedParts.selectedColor[selectedColorGroup][selectedPartSplit]
-          ? selectedParts.selectedColor[selectedColorGroup][selectedPartSplit]
-              .hueGraph
-          : selectedParts.selectedColor[selectedColorGroup]["default"].hueGraph
-        : selectedParts.selectedColor["none"][selectedPartSplit]
-        ? selectedParts.selectedColor["none"][selectedPartSplit].hueGraph
-        : selectedParts.selectedColor["none"]["default"].hueGraph
-    );
-    setSaturationGraph(
-      selectedParts.selectedColor[selectedColorGroup]
-        ? selectedParts.selectedColor[selectedColorGroup][selectedPartSplit]
-          ? selectedParts.selectedColor[selectedColorGroup][selectedPartSplit]
-              .saturationGraph
-          : selectedParts.selectedColor[selectedColorGroup]["default"]
-              .saturationGraph
-        : selectedParts.selectedColor["none"][selectedPartSplit]
-        ? selectedParts.selectedColor["none"][selectedPartSplit].saturationGraph
-        : selectedParts.selectedColor["none"]["default"].saturationGraph
-    );
-    setValueGraph(
-      selectedParts.selectedColor[selectedColorGroup]
-        ? selectedParts.selectedColor[selectedColorGroup][selectedPartSplit]
-          ? selectedParts.selectedColor[selectedColorGroup][selectedPartSplit]
-              .valueGraph
-          : selectedParts.selectedColor[selectedColorGroup]["default"]
-              .valueGraph
-        : selectedParts.selectedColor["none"][selectedPartSplit]
-        ? selectedParts.selectedColor["none"][selectedPartSplit].valueGraph
-        : selectedParts.selectedColor["none"]["default"].valueGraph
-    );
     setEnableChain(enableChain);
   }, [selectedCategory, enableChain]);
 
@@ -359,18 +131,13 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
   }, []);
   // console.log(colorMenuPartIcons);
 
-  const handleChange = async (
+  const handleClick = async (
     selectedParts: SelectedParts,
     setSelectedParts: React.Dispatch<React.SetStateAction<SelectedParts>>,
     selectedColorGroup: string,
     selectedPartSplit: string,
     enableChain: boolean,
-    color: string | null,
-    hueReverse: boolean | null,
-    saturationReverse: boolean | null,
-    hueGraph: ColorGraph | null,
-    saturationGraph: ColorGraph | null,
-    valueGraph: ColorGraph | null,
+    color: string,
     selectedCategory: string,
     partsObject: PartsObjectSplit,
     partsObjectJimp: PartsObjectJimp,
@@ -388,26 +155,23 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
     setIsLoading(true); // 非同期関数の実行を開始します。
 
     try {
-      const updateSelectedParts = MakerChangingColorsObject(
+      MakerChangingColorsObject(
         selectedParts,
         setSelectedParts,
         selectedColorGroup,
         selectedPartSplit,
         enableChain,
         color,
-        hueReverse,
-        saturationReverse,
-        hueGraph,
-        saturationGraph,
-        valueGraph,
+        null,
+        null,
+        null,
+        null,
+        null,
         selectedCategory,
         partsObject
       );
-      if (updateSelectedParts === null) {
-        return;
-      }
-      MakerChangingColor(
-        updateSelectedParts,
+      await MakerChangingColor(
+        selectedParts,
         selectedColorGroup,
         selectedPartSplit,
         enableChain,
@@ -431,13 +195,25 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
   return (
     <>
       {!selectedCategory ? null : (
-        <>          <button
-            className={styles["colorbutton"]}
+        <>
+          <button
+            className={styles["color-show-button"]}
             onClick={() => setShowSwiper(!showSwiper)}
           >
-           
+            {showSwiper ? (
+              <img
+                className={styles["swiper-color-image"]}
+                src={`/pallete.png`}
+                alt="Hide Face"
+              />
+            ) : (
+              <img
+                className={styles["swiper-color-image"]}
+                src={`/pallete.png`}
+                alt="Show Face"
+              />
+            )}
           </button>
-
           {showSwiper && (
             <>
               <input
@@ -445,107 +221,8 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                 name="enableChain"
                 id="enableChain"
                 defaultChecked={enableChain}
-                onChange={() => setEnableChain(enableChain ? false : true)}
+                onChange={selectedCheck}
               />
-              {!selectedColorGroup || !selectedPartSplit ? null : (
-                <div
-                  onMouseDown={handleMouseDown}
-                  onMouseUp={handleMouseUp}
-                  onTouchStart={handleMouseDown}
-                  onTouchEnd={handleMouseUp}
-                >
-                  <label htmlFor="hueReverse">色相ずらし方向</label>
-                  <input
-                    type="checkbox"
-                    name="hueReverse"
-                    id="hueReverse"
-                    defaultChecked={hueReverse}
-                    onChange={() => {
-                      setHueReverse(hueReverse ? false : true);
-                      handleChange(
-                        selectedParts,
-                        setSelectedParts,
-                        selectedColorGroup,
-                        selectedPartSplit,
-                        enableChain,
-                        null,
-                        hueReverse,
-                        null,
-                        null,
-                        null,
-                        null,
-                        selectedCategory,
-                        partsObject,
-                        partsObjectJimp,
-                        setPartsObjectJimp,
-                        colorsObject,
-                        partsPath,
-                        menuPartIcons,
-                        setMenuPartIcons,
-                        nullImage
-                      );
-                    }}
-                  />
-                  <input
-                    type="checkbox"
-                    name="saturationReverse"
-                    id="saturationReverse"
-                    defaultChecked={saturationReverse}
-                    onChange={() => {
-                      setSaturationReverse(saturationReverse ? false : true);
-                      handleChange(
-                        selectedParts,
-                        setSelectedParts,
-                        selectedColorGroup,
-                        selectedPartSplit,
-                        enableChain,
-                        null,
-                        null,
-                        saturationReverse,
-                        null,
-                        null,
-                        null,
-                        selectedCategory,
-                        partsObject,
-                        partsObjectJimp,
-                        setPartsObjectJimp,
-                        colorsObject,
-                        partsPath,
-                        menuPartIcons,
-                        setMenuPartIcons,
-                        nullImage
-                      );
-                    }}
-                  />
-                  <input
-                    type="range"
-                    name="hueRange"
-                    min="0"
-                    max="32"
-                    defaultValue={hueGraph.globalSlope}
-                    id="hueRange"
-                    onChange={changeHueGlobalScope}
-                  />
-                  <input
-                    type="range"
-                    name="saturationRange"
-                    min="0"
-                    max="48"
-                    defaultValue={saturationGraph.globalSlope}
-                    id="saturationRange"
-                    onChange={changeSaturationGlobalScope}
-                  />
-                  <input
-                    type="range"
-                    name="valueRange"
-                    min="0"
-                    max="48"
-                    defaultValue={valueGraph.globalSlope}
-                    id="valueRange"
-                    onChange={changeValueGlobalScope}
-                  />
-                </div>
-              )}
               {enableChain
                 ? colorMenuPartIcons[selectedCategory].true.map((index, i) => {
                     return (
@@ -614,18 +291,13 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                       colorName={groupKey}
                       isLoading={isLoading}
                       onClick={() =>
-                        handleChange(
+                        handleClick(
                           selectedParts,
                           setSelectedParts,
                           selectedColorGroup,
                           selectedPartSplit,
                           enableChain,
                           groupKey,
-                          null,
-                          null,
-                          null,
-                          null,
-                          null,
                           selectedCategory,
                           partsObject,
                           partsObjectJimp,
@@ -639,16 +311,12 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                       }
                     />
                   ))}
-                 <Swiper
-  className={styles["scroll-bar-swiper"]}
-  slidesPerView="auto"
-  freeMode={true}
-  spaceBetween={0}
-  touchRatio={touchRatio / 20}
-  mousewheel={true} // この行を追加します
-
-  
-
+                  <Swiper
+                    className={styles["scroll-bar-swiper"]}
+                    slidesPerView="auto"
+                    freeMode={true}
+                    spaceBetween={0}
+                    touchRatio={touchRatio / 20}
                   >
                     <ul>
                       {Object.keys(colorsObjectSorted).map((groupKey) => (
@@ -665,18 +333,13 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                                   colorName={color}
                                   isLoading={isLoading}
                                   onClick={() =>
-                                    handleChange(
+                                    handleClick(
                                       selectedParts,
                                       setSelectedParts,
                                       selectedColorGroup,
                                       selectedPartSplit,
                                       enableChain,
                                       color,
-                                      null,
-                                      null,
-                                      null,
-                                      null,
-                                      null,
                                       selectedCategory,
                                       partsObject,
                                       partsObjectJimp,
