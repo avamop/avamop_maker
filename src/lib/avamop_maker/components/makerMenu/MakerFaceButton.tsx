@@ -3,18 +3,18 @@ import styles from "../../module-css/makerMenu/MakerFaceButton.module.css"; // C
 
 interface MakerFaceButtonProps {
   face: string;
-  // faceImage: string;
+  faceImage: string;
   onClick: () => void;
 }
 
 const MakerFaceButton: React.FC<MakerFaceButtonProps> = ({
   face,
-  // faceImage,
+  faceImage,
   onClick,
 }) => {
   return (
-    <li className={styles['maker-face-button']} onClick={onClick}>
-      {/* <img src={faceImage} alt={face} /> */}
+    <li className={styles["maker-face-button"]} onClick={onClick}>
+      <img src={faceImage} alt={face} />
       {face}
     </li>
   );

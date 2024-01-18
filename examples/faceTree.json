@@ -1,5 +1,5 @@
 {
   "face": "clear",
-  "image": "",
-  "children": [{ "face": "smile", "image": "", "children": [] }]
+  "image": "clear.png",
+  "children": [{ "face": "smile", "image": "smile.png", "children": [] }]
 }

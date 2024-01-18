@@ -1,14 +1,12 @@
 /* デフォルトのキャンバスサイズ */
-canvas {
+.Canvas {
   display: block;
   margin: 96px;
   background-color: aqua;
 }
 
-@media (max-width:462px) {
-  Canvas{
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+@media (max-width: 1000px) {
+  .Canvas{
+    margin: 0 auto;
   }
 }

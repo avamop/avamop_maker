@@ -205,10 +205,17 @@ declare global {
     };
   }
 
-  interface faceTree {
+  interface FaceTree {
     face: string;
-    children: faceTree[];
+    image: string;
+    children: FaceTree[];
   }
+
+  interface FaceList {
+    face: string;
+    image: string;
+  }
+
   //partsObjectのパスをJimpデータに置き換えたオブジェクト
   interface PartsObjectJimp {
     [category: "body" | string]: {
