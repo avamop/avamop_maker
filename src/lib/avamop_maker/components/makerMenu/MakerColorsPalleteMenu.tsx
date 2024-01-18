@@ -439,13 +439,13 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
             {showSwiper ? (
               <img
                 className={styles["swiper-color-image"]}
-                src="../../../../../examples/assets/provisionals/pallete.png"
+                src={`/pallete.png`}
                 alt="Hide Face"
               />
             ) : (
               <img
                 className={styles["swiper-color-image"]}
-                src="../../../../../examples/assets/provisionals/pallete.png"
+                src={`/pallete.png`}
                 alt="Show Face"
               />
             )}

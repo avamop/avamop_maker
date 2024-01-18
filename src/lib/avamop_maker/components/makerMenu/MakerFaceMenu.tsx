@@ -57,13 +57,13 @@ const MakerFaceMenu: React.FC = () => {
       >
         {showMenu ? (
           <img
-            src="https://static.wikia.nocookie.net/eb14885b-a435-4612-b6a7-31709c190614/scale-to-width/370"
+            src={`/pallete.png`}
             alt="Hide Faces"
             style={{ width: "100px", height: "100px" }}
           />
         ) : (
           <img
-            src="https://static.wikia.nocookie.net/eb14885b-a435-4612-b6a7-31709c190614/scale-to-width/370"
+            src={`/pallete.png`}
             alt="Show Faces"
             style={{ width: "100px", height: "100px" }}
           />
