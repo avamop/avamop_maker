@@ -38,7 +38,7 @@ interface AvamopMakerProps {
   colorsObject: ColorsObject;
   defaultColors: DefaultColors;
   defaultAvaters?: SelectedParts;
-  facePresets: faceTree;
+  facePresets: FaceTree;
   nullImagePath: string;
 }
 
@@ -80,9 +80,9 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
   const [colorMenuPartIconsIsLoading, setColorMenuPartIconsIsLoading] =
     useState<boolean>(true);
   const [canvasImage, setCanvasImage] = useState<JimpType[] | null>(null);
-  const faceList: string[] = MakerFaceGen(facePresets);
-  faceList.push("custom");
+  const faceList: FaceList[] = MakerFaceGen(facePresets);
 
+  // console.log(faceList);
   useEffect(() => {
     const fetchNullImage = async () => {
       const tmpNullImage: JimpType = await Jimp.read(partsPath + nullImagePath);
@@ -355,7 +355,6 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
           </PartsPathContext.Provider>
         )}
       </div>
-      
     </>
   );
 };
