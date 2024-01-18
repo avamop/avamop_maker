@@ -71,9 +71,8 @@ export const MakerChangingPart = (
             ] = {
               default: {
                 color: selectedParts.selectedColor["none"]["default"].color,
-                hueShiftReverse:
-                  selectedParts.selectedColor["none"]["default"]
-                    .hueShiftReverse,
+                hueReverse:
+                  selectedParts.selectedColor["none"]["default"].hueReverse,
                 saturationReverse:
                   selectedParts.selectedColor["none"]["default"]
                     .saturationReverse,
