@@ -2,6 +2,10 @@
     display: flex;
 }
 
+.parts-img{
+    margin-right: 10px;
+}
+
 .swiper-scrollbar {
     height: 10px;
     background: #e0e0e0;
@@ -18,18 +22,8 @@
     100% {background-position: 0% 50%;}
 }
 
-.colorbutton {
-    background: linear-gradient(270deg, #e60000, #f39800, #fff100, #009944, #0068b7, #1d2088, #920783);
-    background-size: 200% 200%;
-    animation: gradient 5s ease infinite;
+.color-show-button{
+    background-color: transparent;
     border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
     cursor: pointer;
-}
-
+  }
