@@ -57,13 +57,13 @@ const MakerFaceMenu: React.FC = () => {
       >
         {showMenu ? (
           <img
-            src={`/pallete.png`}
+            src={`/faceMenu.png`}
             alt="Hide Faces"
             style={{ width: "100px", height: "100px" }}
           />
         ) : (
           <img
-            src={`/pallete.png`}
+            src={`/faceMenu.png`}
             alt="Show Faces"
             style={{ width: "100px", height: "100px" }}
           />
