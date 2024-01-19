@@ -21,7 +21,9 @@ const MakerColorsButton: React.FC<MakerColorsButton> = ({
       style={{ backgroundColor: colorCode }}
       onClick={onClick}
     >
-      <p>{colorName}</p>
+      <p>{colorName
+      
+      }</p>
     </button>
   );
 };
