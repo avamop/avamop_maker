@@ -82,7 +82,7 @@ export const MakerChangingColorsObject = (
                   : hueReverse,
               saturationReverse:
                 saturationReverse === null
-                  ? selectedGroup[selectedColorGroup][selectedPartSplit]
+                  ? selectedGroup[selectedPartSplit]
                     ? selectedGroup[selectedPartSplit].saturationReverse
                     : defaultSplit.saturationReverse
                   : saturationReverse,
