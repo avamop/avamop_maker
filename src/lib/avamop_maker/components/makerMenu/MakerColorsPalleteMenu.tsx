@@ -431,13 +431,11 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
   return (
     <>
       {!selectedCategory ? null : (
-        <>          <button
-            className={styles["colorbutton"]}
+        <>
+          <button
+            className={styles["color-show-button"]}
             onClick={() => setShowSwiper(!showSwiper)}
-          >
-           
-          </button>
-
+          ></button>
           {showSwiper && (
             <>
               <input
@@ -454,7 +452,50 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                   onTouchStart={handleMouseDown}
                   onTouchEnd={handleMouseUp}
                 >
-                  <label htmlFor="hueReverse">色相ずらし方向</label>
+                  <Swiper
+                    className={styles["scroll-bar-swiper"]}
+                    slidesPerView="auto"
+                    freeMode={true}
+                    spaceBetween={0}
+                    touchRatio={touchRatio / 100}
+                  >
+                    <SwiperSlide style={{ width: "150px" }}>
+                      <label>H</label>
+                      <input
+                        type="range"
+                        name="hueRange"
+                        min="0"
+                        max="32"
+                        defaultValue={hueGraph.globalSlope}
+                        id="hueRange"
+                        onChange={changeHueGlobalScope}
+                      />
+                    </SwiperSlide>
+                    <SwiperSlide style={{ width: "150px" }}>
+                      <label>S</label>
+                      <input
+                        type="range"
+                        name="saturationRange"
+                        min="0"
+                        max="48"
+                        defaultValue={saturationGraph.globalSlope}
+                        id="saturationRange"
+                        onChange={changeSaturationGlobalScope}
+                      />
+                    </SwiperSlide>
+                    <SwiperSlide style={{ width: "150px" }}>
+                      <label>V</label>
+                      <input
+                        type="range"
+                        name="valueRange"
+                        min="0"
+                        max="48"
+                        defaultValue={valueGraph.globalSlope}
+                        id="valueRange"
+                        onChange={changeValueGlobalScope}
+                      />
+                    </SwiperSlide>
+                  </Swiper>
                   <input
                     type="checkbox"
                     name="hueReverse"
@@ -517,128 +558,129 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                       );
                     }}
                   />
-                  <input
-                    type="range"
-                    name="hueRange"
-                    min="0"
-                    max="32"
-                    defaultValue={hueGraph.globalSlope}
-                    id="hueRange"
-                    onChange={changeHueGlobalScope}
-                  />
-                  <input
-                    type="range"
-                    name="saturationRange"
-                    min="0"
-                    max="48"
-                    defaultValue={saturationGraph.globalSlope}
-                    id="saturationRange"
-                    onChange={changeSaturationGlobalScope}
-                  />
-                  <input
-                    type="range"
-                    name="valueRange"
-                    min="0"
-                    max="48"
-                    defaultValue={valueGraph.globalSlope}
-                    id="valueRange"
-                    onChange={changeValueGlobalScope}
-                  />
                 </div>
               )}
-              {enableChain
-                ? colorMenuPartIcons[selectedCategory].true.map((index, i) => {
-                    return (
-                      <div key={i}>
-                        <img
-                          className={styles["parts-img"]}
-                          src={index.image}
-                          alt={
-                            selectedParts.category[selectedCategory].partName
-                          }
-                        />
-                        <input
-                          type="radio"
-                          name="colorMenu"
-                          value={JSON.stringify({
-                            colorGroup: index.colorGroup,
-                            partSplit: "default",
-                          })}
-                          checked={
-                            selectedRadioValue ===
-                            JSON.stringify({
-                              colorGroup: index.colorGroup,
-                              partSplit: "default",
-                            })
-                          }
-                          onChange={selectedRadio}
-                        />
-                      </div>
-                    );
-                  })
-                : colorMenuPartIcons[selectedCategory].false.map((index, i) => {
-                    return (
-                      <div key={i}>
-                        <img
-                          className={styles["parts-img"]}
-                          src={index.image}
-                          alt={
-                            selectedParts.category[selectedCategory].partName
-                          }
-                        />
-                        <input
-                          type="radio"
-                          name="colorMenu"
-                          value={JSON.stringify({
-                            colorGroup: index.colorGroup,
-                            partSplit: index.partSplit,
-                          })}
-                          checked={
-                            selectedRadioValue ===
-                            JSON.stringify({
-                              colorGroup: index.colorGroup,
-                              partSplit: index.partSplit,
-                            })
-                          }
-                          onChange={selectedRadio}
-                        />
-                      </div>
-                    );
-                  })}
+              <Swiper
+                className={styles["scroll-bar-swiper"]}
+                slidesPerView="auto"
+                freeMode={true}
+                spaceBetween={0}
+                touchRatio={touchRatio / 10}
+              >
+                {enableChain
+                  ? colorMenuPartIcons[selectedCategory].true.map(
+                      (index, i) => {
+                        return (
+                          <div key={i}>
+                            <SwiperSlide key={i} style={{ width: "100px" }}>
+                              <img
+                                className={styles["parts-img"]}
+                                src={index.image}
+                                alt={
+                                  selectedParts.category[selectedCategory]
+                                    .partName
+                                }
+                              />
+                              <input
+                                type="radio"
+                                name="colorMenu"
+                                value={JSON.stringify({
+                                  colorGroup: index.colorGroup,
+                                  partSplit: "default",
+                                })}
+                                checked={
+                                  selectedRadioValue ===
+                                  JSON.stringify({
+                                    colorGroup: index.colorGroup,
+                                    partSplit: "default",
+                                  })
+                                }
+                                onChange={selectedRadio}
+                              />
+                            </SwiperSlide>
+                          </div>
+                        );
+                      }
+                    )
+                  : colorMenuPartIcons[selectedCategory].false.map(
+                      (index, i) => {
+                        return (
+                          <div key={i}>
+                            <SwiperSlide key={i} style={{ width: "100px" }}>
+                              <img
+                                className={styles["parts-img"]}
+                                src={index.image}
+                                alt={
+                                  selectedParts.category[selectedCategory]
+                                    .partName
+                                }
+                              />
+                              <input
+                                type="radio"
+                                name="colorMenu"
+                                value={JSON.stringify({
+                                  colorGroup: index.colorGroup,
+                                  partSplit: index.partSplit,
+                                })}
+                                checked={
+                                  selectedRadioValue ===
+                                  JSON.stringify({
+                                    colorGroup: index.colorGroup,
+                                    partSplit: index.partSplit,
+                                  })
+                                }
+                                onChange={selectedRadio}
+                              />
+                            </SwiperSlide>
+                          </div>
+                        );
+                      }
+                    )}
+              </Swiper>
               {!selectedColorGroup || !selectedPartSplit ? null : (
                 <div>
-                  {Object.keys(colorsObjectSorted).map((groupKey) => (
-                    <MakerColorsButton
-                      key={groupKey}
-                      colorCode={colorsObject[groupKey].hex}
-                      colorName={groupKey}
-                      isLoading={isLoading}
-                      onClick={() =>
-                        handleChange(
-                          selectedParts,
-                          setSelectedParts,
-                          selectedColorGroup,
-                          selectedPartSplit,
-                          enableChain,
-                          groupKey,
-                          null,
-                          null,
-                          null,
-                          null,
-                          null,
-                          selectedCategory,
-                          partsObject,
-                          partsObjectJimp,
-                          setPartsObjectJimp,
-                          colorsObject,
-                          partsPath,
-                          menuPartIcons,
-                          setMenuPartIcons,
-                          nullImage
-                        )
-                      }
-                    />
-                  ))}
+                  <Swiper
+                    className={styles["scroll-bar-swiper"]}
+                    slidesPerView="auto"
+                    freeMode={true}
+                    spaceBetween={0}
+                    touchRatio={touchRatio / 10}
+                  >
+                    {Object.keys(colorsObjectSorted).map((groupKey) => (
+                      <SwiperSlide key={groupKey} style={{ width: "50px" }}>
+                        <MakerColorsButton
+                          key={groupKey}
+                          colorCode={colorsObject[groupKey].hex}
+                          colorName={groupKey}
+                          isLoading={isLoading}
+                          onClick={() =>
+                            handleChange(
+                              selectedParts,
+                              setSelectedParts,
+                              selectedColorGroup,
+                              selectedPartSplit,
+                              enableChain,
+                              groupKey,
+                              null,
+                              null,
+                              null,
+                              null,
+                              null,
+                              selectedCategory,
+                              partsObject,
+                              partsObjectJimp,
+                              setPartsObjectJimp,
+                              colorsObject,
+                              partsPath,
+                              menuPartIcons,
+                              setMenuPartIcons,
+                              nullImage
+                            )
+                          }
+                        />
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
                   <Swiper
                     className={styles["scroll-bar-swiper"]}
                     slidesPerView="auto"

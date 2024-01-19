@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import styles from "../module-css/makerView/MakerWindow.module.css"; // CSSファイルをインポート
 import MakerView from "./MakerView/MakerView";
 import MakerPartsMenu from "./makerMenu/MakerPartsMenu";
-import MakerFaceMenu from "./makerMenu/MakerFaceListMenu";
+import MakerFaceMenu from "./makerMenu/MakerFaceMenu";
 import MakerColorsMenu from "./makerMenu/MakerColorsMenu";
 import CanvasImageContext from "../store/CanvasImageContext";
 import "jimp/browser/lib/jimp";
@@ -10,7 +10,7 @@ import { JimpObject, JimpType } from "../types/jimp";
 
 declare const Jimp: JimpObject;
 
-const MakerWindow: React.FC = ({}) => {
+const MakerWindow: React.FC = () => {
   const { canvasImage, setCanvasImage } = useContext(CanvasImageContext);
   const [imageNumber, setImageNumber] = useState(0);
 
@@ -47,6 +47,7 @@ const MakerWindow: React.FC = ({}) => {
           {/* <MakerFaceMenu /> */}
           {/* アバターメーカーの色メニュー部分 */}
           <MakerColorsMenu />
+          <MakerFaceMenu />
           {/* アバターメーカーのパーツメニュー部分 */}
 
           <div className={styles["avatar-img-part"]}>
