@@ -2,16 +2,16 @@ import { MakerCombineMenuPartIcons } from "./MakerCombineMenuPartIcons";
 
 export const MakerConvertPartsToMenuIcons = async (
   partsObjectJimp: PartsObjectJimp
-): Promise<CombinePartIconsObjectBase64> => {
-  const partsObjectIconForCombine: PartsObjectIconForCombine =
+): Promise<MenuPartIconsBase64> => {
+  const partsObjectIconForCombine: MenuPartIcons =
     MakerConvertPartsList(partsObjectJimp); //パーツを合成しやすくするためにオブジェクトを組み替える
-  const menuPartIconsList: CombinePartIconsObjectBase64 = {};
+  const menuPartIconsList: MenuPartIconsBase64 = {};
   for (const category in partsObjectIconForCombine) {
     menuPartIconsList[category] = {
       partList: {},
     };
     for (const item in partsObjectIconForCombine[category].partList) {
-      const partList: CombinePartIconsCategoryBase64 = {
+      const partList: MenuPartIconsCategoryBase64 = {
         bodyType: partsObjectIconForCombine[category].partList[item].bodyType,
         faces: await MakerCombineMenuPartIcons(
           partsObjectIconForCombine[category].partList[item].peaces
@@ -25,10 +25,10 @@ export const MakerConvertPartsToMenuIcons = async (
 
 export const MakerConvertPartsList = (
   partsObject: PartsObjectJimp
-): PartsObjectIconForCombine => {
-  const partsObjectIconForCombine: PartsObjectIconForCombine = {};
+): MenuPartIcons => {
+  const partsObjectIconForCombine: MenuPartIcons = {};
   for (const category in partsObject) {
-    const convertPartList: ItemIconsForCombine = MakerConvertCategory(
+    const convertPartList: MenuPartIconItems = MakerConvertCategory(
       partsObject[category].partList
     );
     partsObjectIconForCombine[category] = {
@@ -41,8 +41,8 @@ export const MakerConvertPartsList = (
 //カテゴリー内のpartSplitで分けられてるパーツ画像をpeacesの中で分ける
 export const MakerConvertCategory = (
   categoryItems: CategoryJimp
-): ItemIconsForCombine => {
-  const itemsIconForCombine: ItemIconsForCombine = {};
+): MenuPartIconItems => {
+  const itemsIconForCombine: MenuPartIconItems = {};
   for (const partSplit in categoryItems) {
     const partData = categoryItems[partSplit];
     for (const item in partData.items) {

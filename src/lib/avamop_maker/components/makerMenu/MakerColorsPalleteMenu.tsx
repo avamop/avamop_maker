@@ -138,28 +138,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
       globalSlope: hueGlobalSlope,
       individualSlope: hueGraph.individualSlope,
     });
-    handleChange(
-      selectedParts,
-      setSelectedParts,
-      selectedColorGroup,
-      selectedPartSplit,
-      enableChain,
-      null,
-      null,
-      null,
-      hueGraph,
-      null,
-      null,
-      selectedCategory,
-      partsObject,
-      partsObjectJimp,
-      setPartsObjectJimp,
-      colorsObject,
-      partsPath,
-      menuPartIcons,
-      setMenuPartIcons,
-      nullImage
-    );
+    handleChange(null, null, null, hueGraph, null, null);
     // }
   };
 
@@ -174,28 +153,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
       globalSlope: saturationGlobalSlope,
       individualSlope: saturationGraph.individualSlope,
     });
-    handleChange(
-      selectedParts,
-      setSelectedParts,
-      selectedColorGroup,
-      selectedPartSplit,
-      enableChain,
-      null,
-      null,
-      null,
-      null,
-      saturationGraph,
-      null,
-      selectedCategory,
-      partsObject,
-      partsObjectJimp,
-      setPartsObjectJimp,
-      colorsObject,
-      partsPath,
-      menuPartIcons,
-      setMenuPartIcons,
-      nullImage
-    );
+    handleChange(null, null, null, null, saturationGraph, null);
     // }
   };
 
@@ -210,28 +168,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
       globalSlope: valueGlobalSlope,
       individualSlope: valueGraph.individualSlope,
     });
-    handleChange(
-      selectedParts,
-      setSelectedParts,
-      selectedColorGroup,
-      selectedPartSplit,
-      enableChain,
-      null,
-      null,
-      null,
-      null,
-      null,
-      valueGraph,
-      selectedCategory,
-      partsObject,
-      partsObjectJimp,
-      setPartsObjectJimp,
-      colorsObject,
-      partsPath,
-      menuPartIcons,
-      setMenuPartIcons,
-      nullImage
-    );
+    handleChange(null, null, null, null, null, valueGraph);
     // }
   };
 
@@ -360,28 +297,12 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
   // console.log(colorMenuPartIcons);
 
   const handleChange = async (
-    selectedParts: SelectedParts,
-    setSelectedParts: React.Dispatch<React.SetStateAction<SelectedParts>>,
-    selectedColorGroup: string,
-    selectedPartSplit: string,
-    enableChain: boolean,
     color: string | null,
     hueReverse: boolean | null,
     saturationReverse: boolean | null,
     hueGraph: ColorGraph | null,
     saturationGraph: ColorGraph | null,
-    valueGraph: ColorGraph | null,
-    selectedCategory: string,
-    partsObject: PartsObjectSplit,
-    partsObjectJimp: PartsObjectJimp,
-    setPartsObjectJimp: React.Dispatch<React.SetStateAction<PartsObjectJimp>>,
-    colorsObject: ColorsObject,
-    partsPath: string,
-    menuPartIcons: CombinePartIconsObjectBase64,
-    setMenuPartIcons: React.Dispatch<
-      React.SetStateAction<CombinePartIconsObjectBase64>
-    >,
-    nullImage: JimpType
+    valueGraph: ColorGraph | null
   ) => {
     if (isLoading) return; // 非同期関数が実行中の場合、ここで処理を終了します。
 
@@ -517,28 +438,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                     defaultChecked={hueReverse}
                     onChange={() => {
                       setHueReverse(hueReverse ? false : true);
-                      handleChange(
-                        selectedParts,
-                        setSelectedParts,
-                        selectedColorGroup,
-                        selectedPartSplit,
-                        enableChain,
-                        null,
-                        hueReverse,
-                        null,
-                        null,
-                        null,
-                        null,
-                        selectedCategory,
-                        partsObject,
-                        partsObjectJimp,
-                        setPartsObjectJimp,
-                        colorsObject,
-                        partsPath,
-                        menuPartIcons,
-                        setMenuPartIcons,
-                        nullImage
-                      );
+                      handleChange(null, hueReverse, null, null, null, null);
                     }}
                   />
                   <input
@@ -549,26 +449,12 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                     onChange={() => {
                       setSaturationReverse(saturationReverse ? false : true);
                       handleChange(
-                        selectedParts,
-                        setSelectedParts,
-                        selectedColorGroup,
-                        selectedPartSplit,
-                        enableChain,
                         null,
                         null,
                         saturationReverse,
                         null,
                         null,
-                        null,
-                        selectedCategory,
-                        partsObject,
-                        partsObjectJimp,
-                        setPartsObjectJimp,
-                        colorsObject,
-                        partsPath,
-                        menuPartIcons,
-                        setMenuPartIcons,
-                        nullImage
+                        null
                       );
                     }}
                   />
@@ -668,28 +554,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                           colorName={groupKey}
                           isLoading={isLoading}
                           onClick={() =>
-                            handleChange(
-                              selectedParts,
-                              setSelectedParts,
-                              selectedColorGroup,
-                              selectedPartSplit,
-                              enableChain,
-                              groupKey,
-                              null,
-                              null,
-                              null,
-                              null,
-                              null,
-                              selectedCategory,
-                              partsObject,
-                              partsObjectJimp,
-                              setPartsObjectJimp,
-                              colorsObject,
-                              partsPath,
-                              menuPartIcons,
-                              setMenuPartIcons,
-                              nullImage
-                            )
+                            handleChange(groupKey, null, null, null, null, null)
                           }
                         />
                       </SwiperSlide>
@@ -717,26 +582,12 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                                   isLoading={isLoading}
                                   onClick={() =>
                                     handleChange(
-                                      selectedParts,
-                                      setSelectedParts,
-                                      selectedColorGroup,
-                                      selectedPartSplit,
-                                      enableChain,
                                       color,
                                       null,
                                       null,
                                       null,
                                       null,
-                                      null,
-                                      selectedCategory,
-                                      partsObject,
-                                      partsObjectJimp,
-                                      setPartsObjectJimp,
-                                      colorsObject,
-                                      partsPath,
-                                      menuPartIcons,
-                                      setMenuPartIcons,
-                                      nullImage
+                                      null
                                     )
                                   }
                                 />
