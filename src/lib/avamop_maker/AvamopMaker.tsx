@@ -56,7 +56,7 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
   const [partsObjectJimp, setPartsObjectJimp] =
     useState<PartsObjectJimp | null>(null);
   const [menuPartIcons, setMenuPartIcons] =
-    useState<CombinePartIconsObjectBase64 | null>(null);
+    useState<MenuPartIconsBase64 | null>(null);
   const [colorMenuPartIcons, setColorMenuPartIcons] =
     useState<ColorMenuPartIcons | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -118,7 +118,7 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
         partsObjectJimp != null &&
         setMenuPartIconsIsLoading
       ) {
-        const tmpMenuPartIcons: CombinePartIconsObjectBase64 =
+        const tmpMenuPartIcons: MenuPartIconsBase64 =
           await MakerConvertPartsToMenuIcons(partsObjectJimp);
         setMenuPartIcons(await tmpMenuPartIcons);
         // console.log(tmpMenuPartIcons);
