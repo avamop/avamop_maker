@@ -19,10 +19,8 @@ export const MakerChangingColor = async (
   setPartsObjectJimp: React.Dispatch<React.SetStateAction<PartsObjectJimp>>,
   colorsObject: ColorsObject,
   partsPath: string,
-  menuPartIcons: CombinePartIconsObjectBase64,
-  setMenuPartIcons: React.Dispatch<
-    React.SetStateAction<CombinePartIconsObjectBase64>
-  >,
+  menuPartIcons: MenuPartIconsBase64,
+  setMenuPartIcons: React.Dispatch<React.SetStateAction<MenuPartIconsBase64>>,
   nullImage: JimpType
 ) => {
   // console.log(selectedColorGroup);
@@ -31,7 +29,7 @@ export const MakerChangingColor = async (
   let updatePartsObjectJimp = {
     ...partsObjectJimp,
   };
-  let updateMenuPartIcon: CombinePartIconsObjectBase64 = {
+  let updateMenuPartIcon: MenuPartIconsBase64 = {
     ...menuPartIcons,
   };
   if (enableChain) {
@@ -56,11 +54,11 @@ export const MakerChangingColor = async (
             );
           });
 
-          const combineItems: ItemIconsForCombine = MakerConvertCategory(
+          const combineItems: MenuPartIconItems = MakerConvertCategory(
             updatePartsObjectJimp[category].partList
           );
           await asyncMap(Object.keys(combineItems), async (item) => {
-            const partList: CombinePartIconsCategoryBase64 = {
+            const partList: MenuPartIconsCategoryBase64 = {
               bodyType: combineItems[item].bodyType,
               faces: await MakerCombineMenuPartIcons(combineItems[item].peaces),
             };
@@ -89,11 +87,11 @@ export const MakerChangingColor = async (
         );
       });
     }
-    const combineItems: ItemIconsForCombine = MakerConvertCategory(
+    const combineItems: MenuPartIconItems = MakerConvertCategory(
       updatePartsObjectJimp[selectedCategory].partList
     );
     await asyncMap(Object.keys(combineItems), async (item) => {
-      const partList: CombinePartIconsCategoryBase64 = {
+      const partList: MenuPartIconsCategoryBase64 = {
         bodyType: combineItems[item].bodyType,
         faces: await MakerCombineMenuPartIcons(combineItems[item].peaces),
       };
@@ -161,7 +159,7 @@ const asyncMap = async (
   array,
   mapper,
   concurrency = MAX_PROMISE
-): Promise<FacesJimp[] | CombinePartIconsCategoryBase64[]> => {
+): Promise<FacesJimp[] | MenuPartIconsCategoryBase64[]> => {
   const queue = array.slice();
   const results = new Array(array.length);
   const workers = new Array(concurrency).fill(Promise.resolve());

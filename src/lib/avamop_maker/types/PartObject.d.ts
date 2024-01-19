@@ -166,19 +166,19 @@ declare global {
   }
 
   //パーツアイコンを合成するためにpartsObjectを変換したオブジェクト
-  interface PartsObjectIconForCombine {
+  interface MenuPartIcons {
     [category: "body" | string]: {
-      partList: ItemIconsForCombine;
+      partList: MenuPartIconItems;
     };
   }
-  interface ItemIconsForCombine {
+  interface MenuPartIconItems {
     [item: string]: {
       bodyType: null | string[];
-      peaces: ItemPeacesIconForCombine;
+      peaces: MenuPartIconPeaces;
     };
   }
 
-  interface ItemPeacesIconForCombine {
+  interface MenuPartIconPeaces {
     [peace: string]: {
       partOrder: number;
       faces: FacesJimp;
@@ -186,20 +186,20 @@ declare global {
   }
 
   //パーツアイコンをbase64に変換したものを格納するオブジェクト
-  interface CombinePartIconsObjectBase64 {
+  interface MenuPartIconsBase64 {
     [category: "body" | string]: {
       partList: {
-        [item: string]: CombinePartIconsCategoryBase64;
+        [item: string]: MenuPartIconsCategoryBase64;
       };
     };
   }
 
-  interface CombinePartIconsCategoryBase64 {
+  interface MenuPartIconsCategoryBase64 {
     bodyType: null | string[];
-    faces: CombinePartIconBase64;
+    faces: MenuPartIconFacesBase64;
   }
 
-  interface CombinePartIconBase64 {
+  interface MenuPartIconFacesBase64 {
     [face: "clear" | string]: {
       imagePath: string; //パーツアイコンのbase64データ
     };
