@@ -32,6 +32,7 @@ const MakerFaceListMenu: React.FC = () => {
           // faceImages= {faceImages[face]}
           onClick={() => changeFace(face)}
         />
+        
       ))}
     </ul>
   );

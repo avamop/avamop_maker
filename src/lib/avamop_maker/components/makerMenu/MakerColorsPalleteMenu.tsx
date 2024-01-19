@@ -432,10 +432,10 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
     <>
       {!selectedCategory ? null : (
         <>
-          <button
+          <button 
             className={styles["color-show-button"]}
             onClick={() => setShowSwiper(!showSwiper)}
-          ></button>
+          >"色"</button>
           {showSwiper && (
             <>
               <input
