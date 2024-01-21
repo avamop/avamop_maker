@@ -36,10 +36,29 @@ const MakerFaceMenu: React.FC = () => {
 
   return (
     <div style={{ position: "relative" }}>
+    <button
+      style={{ display: "block", margin: "auto" }}
+      onClick={() => setShowMenu(!showMenu)}
+    >
+      {showMenu ? (
+        <img
+          className={styles["face-button"]}
+          src={`/faceMenu.png`}
+          alt="Hide Faces"
+          style={{ width: "100px", height: "100px" }}
+        />
+      ) : (
+        <img
+          className={styles["face-button"]}
+          src={`/faceMenu.png`}
+          alt="Show Faces"
+          style={{ width: "100px", height: "100px" }}
+        />
+      )}
+    </button>
       {showMenu && (
         <ul
           className={styles["face-menu"]}
-          style={{ position: "absolute", left: 400 }}
         >
           {faceList.map((face, i) => (
             <MakerFaceButton
@@ -51,24 +70,6 @@ const MakerFaceMenu: React.FC = () => {
           ))}
         </ul>
       )}
-      <button
-        style={{ display: "block", margin: "auto" }}
-        onClick={() => setShowMenu(!showMenu)}
-      >
-        {showMenu ? (
-          <img
-            src={`/faceMenu.png`}
-            alt="Hide Faces"
-            style={{ width: "100px", height: "100px" }}
-          />
-        ) : (
-          <img
-            src={`/faceMenu.png`}
-            alt="Show Faces"
-            style={{ width: "100px", height: "100px" }}
-          />
-        )}
-      </button>
     </div>
   );
 };
