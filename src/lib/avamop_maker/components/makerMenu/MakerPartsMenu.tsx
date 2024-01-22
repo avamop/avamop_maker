@@ -9,7 +9,7 @@ import MenuPartIconsContext from "../../store/MenuPartIconsContext";
 import PartsObjectContext from "../../store/PartsObjectContext";
 import { Swiper, SwiperSlide } from "swiper/react";
 import styles from "../../module-css/makerMenu/MakerPartsMenu.module.css";
-import MakerFaceListMenu from "./MakerFaceListMenu";
+import MakerPartsFaceMenu from "./MakerPartsFaceMenu";
 
 const MakerPartsMenu: React.FC = ({}) => {
   const { selectedParts, setSelectedParts } = useContext(SelectedPartsContext);
@@ -26,6 +26,8 @@ const MakerPartsMenu: React.FC = ({}) => {
 
   useEffect(() => {
     if (selectedCategory === null) {
+      setSelectedItem(null);
+    } else if (!selectedParts.category[selectedCategory]) {
       setSelectedItem(null);
     } else {
       setSelectedItem(selectedParts.category[selectedCategory].partName);
@@ -56,17 +58,15 @@ const MakerPartsMenu: React.FC = ({}) => {
                 onClick={() => handleCategoryClick(category)}
                 imageSrc={
                   selectedParts.category[category].partName
-                    ? menuPartIcons[category.replace(/_\d+$/, "")].partList[
+                    ? menuPartIcons[category].partList[
                         selectedParts.category[category].partName
                       ].faces[
                         selectedParts.selectedFace[category]
                           ? selectedParts.selectedFace[category]
                           : "clear"
                       ].imagePath
-                    : menuPartIcons[category.replace(/_\d+$/, "")].partList[
-                        Object.keys(
-                          menuPartIcons[category.replace(/_\d+$/, "")].partList
-                        )[0]
+                    : menuPartIcons[category].partList[
+                        Object.keys(menuPartIcons[category].partList)[0]
                       ].faces[
                         selectedParts.selectedFace[category]
                           ? selectedParts.selectedFace[category]
@@ -75,35 +75,29 @@ const MakerPartsMenu: React.FC = ({}) => {
                 }
               />
             </SwiperSlide>
-            /* category.replace(/_\d+$/, "")はcategoryから連番を取り除いたもの */
           ))}
         </ul>
       </Swiper>
 
       {Object.keys(selectedParts.category).map((category) =>
         selectedCategory === category
-          ? Object.keys(
-              menuPartIcons[category.replace(/_\d+$/, "")].partList
-            ).map((item) =>
+          ? Object.keys(menuPartIcons[category].partList).map((item) =>
               category === "body" ||
-              menuPartIcons[category.replace(/_\d+$/, "")].partList[item]
-                .bodyType === null ||
-              menuPartIcons[category.replace(/_\d+$/, "")].partList[
-                item
-              ].bodyType.includes(selectedParts.bodyType) ? (
+              menuPartIcons[category].partList[item].bodyType === null ||
+              menuPartIcons[category].partList[item].bodyType.includes(
+                selectedParts.bodyType
+              ) ? (
                 <MakerPartsButton
                   key={item}
                   item={item}
                   buttonImage={
-                    menuPartIcons[category.replace(/_\d+$/, "")].partList[item]
-                      .faces["clear"].imagePath
+                    menuPartIcons[category].partList[item].faces["clear"]
+                      .imagePath
                   }
                   onClick={() =>
                     MakerChangingPart(
                       category,
-                      menuPartIcons[category.replace(/_\d+$/, "")].partList[
-                        item
-                      ].bodyType,
+                      menuPartIcons[category].partList[item].bodyType,
                       item,
                       selectedParts,
                       setSelectedParts,
@@ -115,9 +109,7 @@ const MakerPartsMenu: React.FC = ({}) => {
             )
           : null
       )}
-      {selectedCategory !== null && selectedItem !== null ? (
-        <MakerFaceListMenu category={selectedCategory} item={selectedItem} />
-      ) : null}
+      <MakerPartsFaceMenu category={selectedCategory} item={selectedItem} />
     </>
   );
 };

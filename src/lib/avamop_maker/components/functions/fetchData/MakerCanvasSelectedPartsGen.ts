@@ -20,28 +20,21 @@ export const MakerCanvasSelectedPartsGen = (
 
   for (const tmpCategory in selectedParts.category) {
     let selectedPartsForCanvasSplit: SelectedPartsForCanvasSplit = {};
-    for (const partSplit in partsObjectJimp[tmpCategory.replace(/_\d+$/, "")]
-      .partList) {
+    for (const partSplit in partsObjectJimp[tmpCategory].partList) {
       selectedPartsForCanvasSplit[partSplit] = {
         enableColor:
           selectedParts.category[tmpCategory].partName != ""
-            ? partsObjectJimp[tmpCategory.replace(/_\d+$/, "")].partList[
-                partSplit
-              ].items[selectedParts.category[tmpCategory].partName].enableColor
+            ? partsObjectJimp[tmpCategory].partList[partSplit].items[
+                selectedParts.category[tmpCategory].partName
+              ].enableColor
             : false,
-        colorGroup:
-          partsObjectJimp[tmpCategory.replace(/_\d+$/, "")].partList[partSplit]
-            .colorGroup,
-        partOrder:
-          partsObjectJimp[tmpCategory.replace(/_\d+$/, "")].partList[partSplit]
-            .partOrder,
+        colorGroup: partsObjectJimp[tmpCategory].partList[partSplit].colorGroup,
+        partOrder: partsObjectJimp[tmpCategory].partList[partSplit].partOrder,
         partData:
           selectedParts.category[tmpCategory].partName != ""
-            ? partsObjectJimp[tmpCategory.replace(/_\d+$/, "")].partList[
-                partSplit
-              ].items[selectedParts.category[tmpCategory].partName].faces[
-                "clear"
-              ].jimpData
+            ? partsObjectJimp[tmpCategory].partList[partSplit].items[
+                selectedParts.category[tmpCategory].partName
+              ].faces["clear"].jimpData
             : nullImage,
       };
     }
