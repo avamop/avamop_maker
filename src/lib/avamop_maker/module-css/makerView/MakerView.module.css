@@ -1,0 +1,11 @@
+canvas {
+    border: 1px solid #ccc; /* ビジュアルの区切りのためにボーダーを追加 */
+    border-radius: 8px; /* 角を丸める */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* サブティルな影 */
+    max-width: 70%; /* レスポンシブな幅 */
+    transition: transform 0.1s ease-in-out; /* スムーズな拡大縮小のためのトランジション */
+  }
+  
+  canvas:hover {
+    transform: scale(1.1); /* ホバー時にキャンバスを少し拡大 */
+  }

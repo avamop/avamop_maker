@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import "../../module-css/makerView/MakerView.module.css"; // CSSファイルをインポート
 import "jimp/browser/lib/jimp";
 import type { Jimp } from "jimp/browser/lib/jimp";
 import { MakerCanvasSelectedPartsGen } from "../functions/fetchData/MakerCanvasSelectedPartsGen";

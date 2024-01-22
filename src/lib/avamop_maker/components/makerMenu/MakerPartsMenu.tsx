@@ -1,5 +1,6 @@
 import React from "react";
 import MakerPartsButton from "./MakerPartsButton";
+import "../../module-css/makerMenu/MakerPartsMenu.module.css";
 import MakerPartsCategories from "./MakerPartsCategories";
 import { MakerChangingPart } from "../functions/fetchData/MakerChangingPart";
 interface MakerPartsMenuProps {

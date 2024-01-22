@@ -1,5 +1,5 @@
 import React from "react";
-import "../../module-css/makerMenu/MakerPartsButton.module.css";
+import styles from "../../module-css/makerMenu/MakerPartsButton.module.css";
 
 interface MakerPartsButtonProps {
   item: string;
@@ -13,7 +13,7 @@ const MakerPartsButton: React.FC<MakerPartsButtonProps> = ({
   buttonImage,
 }) => {
   return (
-    <li className="partsButton" onClick={onClick}>
+    <li className={styles.partsButton} onClick={onClick}>
       {/* パーツ画像 */}
       <img src={buttonImage} alt={item} />
       {item}

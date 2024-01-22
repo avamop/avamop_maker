@@ -1,25 +1,28 @@
-import * as React from "react";
-import type { ReactNode } from "react";
-import "../../module-css/makerMenu/MakerPartsCategories.module.css";
 
-interface MakerPartsCategoriesProps {
-  category: string;
-  isSelected: boolean;
+import type { ReactNode } from "react";
+import React from "react";
+import styles from "../../module-css/makerMenu/MakerPartsButton.module.css";
+
+
+interface MakerPartsButtonProps {
+  item: string;
+  buttonImage: string;
   onClick: () => void;
-  imageSrc: string;
 }
 
-const MakerPartsCategories: React.FC<MakerPartsCategoriesProps> = ({
-  imageSrc,
-  category,
-  isSelected,
+const MakerPartsButton: React.FC<MakerPartsButtonProps> = ({
   onClick,
+  item,
+  buttonImage,
 }) => {
   return (
-    <li className={`menuCategory ${isSelected ? "selected" : ""}`}>
-      <img onClick={onClick} src={imageSrc} alt={category} /> {category}
+    <li className={styles.partsButton} onClick={onClick}>
+      {/* パーツ画像 */}
+      <img src={buttonImage} alt={item} />
+      {item}
     </li>
   );
 };
 
-export default React.memo(MakerPartsCategories);
+export default React.memo(MakerPartsButton);
+
