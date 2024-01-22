@@ -1,11 +1,14 @@
-canvas {
-    border: 1px solid #ccc; /* ビジュアルの区切りのためにボーダーを追加 */
-    border-radius: 8px; /* 角を丸める */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* サブティルな影 */
-    max-width: 70%; /* レスポンシブな幅 */
-    transition: transform 0.1s ease-in-out; /* スムーズな拡大縮小のためのトランジション */
+/* デフォルトのキャンバスサイズ */
+.Canvas {
+  display: block;
+  margin: 96px;
+  margin-bottom: 50px; /* 下のマージンだけを縮める */
+  background-color: aqua;
+}
+
+@media (max-width: 1000px) {
+  .Canvas{
+    margin: 0 auto;
+    margin-bottom: 20px; /* 下のマージンだけを縮める */
   }
-  
-  canvas:hover {
-    transform: scale(1.1); /* ホバー時にキャンバスを少し拡大 */
-  }
+}

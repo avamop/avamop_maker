@@ -6,7 +6,8 @@
     "jsx": "react-jsx",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "traceResolution": true
+    "traceResolution": true,
+    "downlevelIteration":true
   },
   "include": [
     "src/lib"

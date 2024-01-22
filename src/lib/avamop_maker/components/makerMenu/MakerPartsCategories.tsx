@@ -1,8 +1,5 @@
-
-import type { ReactNode } from "react";
-import React from "react";
-import styles from "../../module-css/makerMenu/MakerPartsButton.module.css";
-
+import * as React from "react";
+import styles from "../../module-css/makerMenu/MakerPartsCategories.module.css";
 
 interface MakerPartsButtonProps {
   item: string;
@@ -15,12 +12,11 @@ const MakerPartsButton: React.FC<MakerPartsButtonProps> = ({
   item,
   buttonImage,
 }) => {
+  
   return (
-    <li className={styles.partsButton} onClick={onClick}>
-      {/* パーツ画像 */}
-      <img src={buttonImage} alt={item} />
-      {item}
-    </li>
+      <li className={styles['menu-category']}>
+        <img onClick={onClick} src={imageSrc} alt={category} />
+      </li>
   );
 };
 

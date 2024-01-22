@@ -1,10 +1,10 @@
 .maker-face-button {
-    list-style: none;
-    cursor: pointer;
-    display: inline-block; margin: 20px; 
-    background-color:rgb(209, 209, 209,0.5);
-  }
-  
-.maker-face-button:hover {
-    background-color: blue
-  }
+  margin: 10px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
