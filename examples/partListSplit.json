@@ -279,6 +279,9 @@
               },
               "smileOpen": {
                 "imagePath": "eyeLeftEyeWhite/keen/smileOpen.png"
+              },
+              "smile": {
+                "imagePath": ""
               }
             }
           },
@@ -291,6 +294,9 @@
               },
               "smileOpen": {
                 "imagePath": "eyeLeftEyeWhite/round/smileOpen.png"
+              },
+              "smile": {
+                "imagePath": ""
               }
             }
           }
@@ -345,6 +351,9 @@
               },
               "smileOpen": {
                 "imagePath": "eyeLeftHighright/keen/smileOpen.png"
+              },
+              "smile": {
+                "imagePath": ""
               }
             }
           },
@@ -357,6 +366,9 @@
               },
               "smileOpen": {
                 "imagePath": "eyeLeftHighright/round/smileOpen.png"
+              },
+              "smile": {
+                "imagePath": ""
               }
             }
           }
@@ -375,6 +387,9 @@
               },
               "smileOpen": {
                 "imagePath": "eyeLeftPupil/keen/smileOpen.png"
+              },
+              "smile": {
+                "imagePath": ""
               }
             }
           },
@@ -387,6 +402,9 @@
               },
               "smileOpen": {
                 "imagePath": "eyeLeftPupil/round/smileOpen.png"
+              },
+              "smile": {
+                "imagePath": ""
               }
             }
           }
@@ -405,6 +423,9 @@
               },
               "smileOpen": {
                 "imagePath": "eyeRightEyeWhite/keen/smileOpen.png"
+              },
+              "smile": {
+                "imagePath": ""
               }
             }
           },
@@ -417,6 +438,9 @@
               },
               "smileOpen": {
                 "imagePath": "eyeRightEyeWhite/round/smileOpen.png"
+              },
+              "smile": {
+                "imagePath": ""
               }
             }
           }
@@ -471,6 +495,9 @@
               },
               "smileOpen": {
                 "imagePath": "eyeRightHighright/keen/smileOpen.png"
+              },
+              "smile": {
+                "imagePath": ""
               }
             }
           },
@@ -483,6 +510,9 @@
               },
               "smileOpen": {
                 "imagePath": "eyeRightHighright/round/smileOpen.png"
+              },
+              "smile": {
+                "imagePath": ""
               }
             }
           }
@@ -501,6 +531,9 @@
               },
               "smileOpen": {
                 "imagePath": "eyeRightPupil/keen/smileOpen.png"
+              },
+              "smile": {
+                "imagePath": ""
               }
             }
           },
@@ -513,6 +546,9 @@
               },
               "smileOpen": {
                 "imagePath": "eyeRightPupil/round/smileOpen.png"
+              },
+              "smile": {
+                "imagePath": ""
               }
             }
           }
@@ -680,6 +716,12 @@
             "faces": {
               "clear": {
                 "imagePath": ""
+              },
+              "smileOpen": {
+                "imagePath": ""
+              },
+              "smile": {
+                "imagePath": ""
               }
             }
           }
@@ -698,6 +740,9 @@
               },
               "clear": {
                 "imagePath": ""
+              },
+              "smile": {
+                "imagePath": ""
               }
             }
           },
@@ -709,6 +754,9 @@
                 "imagePath": "mouthOral/standard/smileOpen.png"
               },
               "clear": {
+                "imagePath": ""
+              },
+              "smile": {
                 "imagePath": ""
               }
             }
@@ -725,6 +773,12 @@
             "faces": {
               "clear": {
                 "imagePath": ""
+              },
+              "smileOpen": {
+                "imagePath": ""
+              },
+              "smile": {
+                "imagePath": ""
               }
             }
           },
@@ -737,6 +791,9 @@
               },
               "smile": {
                 "imagePath": "mouthSkin/standard/smile.png"
+              },
+              "smileOpen": {
+                "imagePath": ""
               }
             }
           }
@@ -755,6 +812,9 @@
               },
               "clear": {
                 "imagePath": ""
+              },
+              "smile": {
+                "imagePath": ""
               }
             }
           },
@@ -766,6 +826,9 @@
                 "imagePath": "mouthTeeth/standard/smileOpen.png"
               },
               "clear": {
+                "imagePath": ""
+              },
+              "smile": {
                 "imagePath": ""
               }
             }
