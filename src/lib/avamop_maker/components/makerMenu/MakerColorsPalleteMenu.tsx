@@ -350,16 +350,18 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
 
   return (
     <>
+    
       {!selectedCategory ? null : (
         <>
           <button 
             className={styles["color-show-button"]}
             onClick={() => setShowSwiper(!showSwiper)}
           >"色"</button>
+          
           {showSwiper && (
             <>
               {!selectedColorGroup || !selectedPartSplit ? null : (
-                <div
+                <div className={styles["dropdown-content"]}
                   onMouseDown={handleMouseDown}
                   onMouseUp={handleMouseUp}
                   onTouchStart={handleMouseDown}
