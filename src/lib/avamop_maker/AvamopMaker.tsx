@@ -176,13 +176,11 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
         const categories = Object.keys(selectedPartsForCanvas.category);
         const enableChainOptions = [true, false];
         let newImages: ColorMenuPartIcons = {};
-
         for (let selectedCategory of categories) {
           newImages[selectedCategory] = {
             true: [],
             false: [],
           };
-
           for (let enableChain of enableChainOptions) {
             if (enableChain) {
               const groupedParts = MakerGroupingParts(

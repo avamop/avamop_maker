@@ -20,10 +20,6 @@ const MakerPartsFaceMenu: React.FC<MakerFaceListMenuProps> = ({
   const changeFace = (face: string) => {
     setSelectedParts({
       ...selectedParts,
-      bodyType: selectedParts.bodyType,
-      face: face,
-      category: selectedParts.category,
-      selectedColor: selectedParts.selectedColor, //選択されている色のオブジェクト
       selectedFace: {
         ...selectedParts.selectedFace,
         [category]: face,

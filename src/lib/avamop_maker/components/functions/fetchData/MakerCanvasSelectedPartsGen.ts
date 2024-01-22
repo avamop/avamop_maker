@@ -34,7 +34,13 @@ export const MakerCanvasSelectedPartsGen = (
           selectedParts.category[tmpCategory].partName != ""
             ? partsObjectJimp[tmpCategory].partList[partSplit].items[
                 selectedParts.category[tmpCategory].partName
-              ].faces["clear"].jimpData
+              ].faces[selectedParts.selectedFace[tmpCategory]]
+              ? partsObjectJimp[tmpCategory].partList[partSplit].items[
+                  selectedParts.category[tmpCategory].partName
+                ].faces[selectedParts.selectedFace[tmpCategory]].jimpData
+              : partsObjectJimp[tmpCategory].partList[partSplit].items[
+                  selectedParts.category[tmpCategory].partName
+                ].faces["clear"].jimpData
             : nullImage,
       };
     }
