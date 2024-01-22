@@ -36,11 +36,18 @@ const MakerPartsFaceMenu: React.FC<MakerFaceListMenuProps> = ({
       {category !== null &&
       item !== null &&
       menuPartIcons[category].partList[item] ? (
-        <Swiper slidesPerView="auto" freeMode={true} spaceBetween={0}>
+        <Swiper
+          style={{ display: "flex" }}
+          slidesPerView={"auto"}
+          freeMode={true}
+          spaceBetween={0}
+        >
           <ul>
             {Object.keys(menuPartIcons[category].partList[item].faces).map(
               (face) => (
-                <SwiperSlide key={face}>
+                <SwiperSlide key={face} style={{ width: "150px" }}>
+                  {" "}
+                  {/* ここでスライドの幅を設定します */}
                   <MakerFaceButton
                     face={face}
                     // 表情のサムネイルを用意する予定
