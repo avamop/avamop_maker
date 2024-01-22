@@ -1,0 +1,270 @@
+{
+  "bodyType": "female",
+  "face": "clear",
+  "category": {
+    "allinone": {
+      "partName": "femaleSimpleDress",
+      "partFlip": false
+    },
+    "backHair": {
+      "partName": "longStraight",
+      "partFlip": false
+    },
+    "body": {
+      "partName": "female",
+      "partFlip": false
+    },
+    "bottoms": {
+      "partName": "",
+      "partFlip": false
+    },
+    "ear": {
+      "partName": "human",
+      "partFlip": false
+    },
+    "eyes": {
+      "partName": "round",
+      "partFlip": false
+    },
+    "eyebrows": {
+      "partName": "narrow",
+      "partFlip": false
+    },
+    "frontHair": {
+      "partName": "bangsLongSide",
+      "partFlip": false
+    },
+    "head": {
+      "partName": "baseface",
+      "partFlip": false
+    },
+    "mouth": {
+      "partName": "standard",
+      "partFlip": false
+    },
+    "nose": {
+      "partName": "dot",
+      "partFlip": false
+    },
+    "shoes": {
+      "partName": "femaleSneakers",
+      "partFlip": false
+    },
+    "socks": {
+      "partName": "femaleSocksLong",
+      "partFlip": false
+    },
+    "tops": {
+      "partName": "",
+      "partFlip": false
+    }
+  },
+  "selectedColor": {
+    "eye": {
+      "default": {
+        "color": "aquamarine",
+        "hueReverse": false,
+        "saturationReverse": true,
+        "hueGraph": {
+          "globalSlope": 7,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "saturationGraph": {
+          "globalSlope": 30,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "valueGraph": {
+          "globalSlope": 30,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        }
+      }
+    },
+    "skin": {
+      "default": {
+        "color": "skin",
+        "hueReverse": false,
+        "saturationReverse": true,
+        "hueGraph": {
+          "globalSlope": 2,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "saturationGraph": {
+          "globalSlope": 17,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "valueGraph": {
+          "globalSlope": 11,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        }
+      }
+    },
+    "hair": {
+      "default": {
+        "color": "steelBlue",
+        "hueReverse": true,
+        "saturationReverse": true,
+        "hueGraph": {
+          "globalSlope": 1,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "saturationGraph": {
+          "globalSlope": 21,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "valueGraph": {
+          "globalSlope": 25,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        }
+      }
+    },
+    "oral": {
+      "default": {
+        "color": "crimson",
+        "hueReverse": false,
+        "saturationReverse": false,
+        "hueGraph": {
+          "globalSlope": 1,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "saturationGraph": {
+          "globalSlope": 16,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "valueGraph": {
+          "globalSlope": 16,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        }
+      }
+    },
+    "allinone": {
+      "default": {
+        "color": "aquamarine",
+        "hueReverse": false,
+        "saturationReverse": true,
+        "hueGraph": {
+          "globalSlope": 1,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "saturationGraph": {
+          "globalSlope": 17,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "valueGraph": {
+          "globalSlope": 18,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        }
+      }
+    },
+    "tops": {
+      "default": {
+        "color": "aquamarine",
+        "hueReverse": false,
+        "saturationReverse": true,
+        "hueGraph": {
+          "globalSlope": 1,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "saturationGraph": {
+          "globalSlope": 17,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "valueGraph": {
+          "globalSlope": 18,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        }
+      }
+    },
+    "bottoms": {
+      "default": {
+        "color": "steelBlue",
+        "hueReverse": true,
+        "saturationReverse": true,
+        "hueGraph": {
+          "globalSlope": 2,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "saturationGraph": {
+          "globalSlope": 19,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "valueGraph": {
+          "globalSlope": 22,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        }
+      }
+    },
+    "socks": {
+      "default": {
+        "color": "lightCyan",
+        "hueReverse": false,
+        "saturationReverse": true,
+        "hueGraph": {
+          "globalSlope": 1,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "saturationGraph": {
+          "globalSlope": 21,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "valueGraph": {
+          "globalSlope": 14,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        }
+      }
+    },
+    "shoes": {
+      "default": {
+        "color": "aquamarine",
+        "hueReverse": false,
+        "saturationReverse": true,
+        "hueGraph": {
+          "globalSlope": 1,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "saturationGraph": {
+          "globalSlope": 21,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "valueGraph": {
+          "globalSlope": 23,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        }
+      }
+    },
+    "none": {
+      "default": {
+        "color": "gray",
+        "hueReverse": false,
+        "saturationReverse": false,
+        "hueGraph": {
+          "globalSlope": 1,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "saturationGraph": {
+          "globalSlope": 16,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "valueGraph": {
+          "globalSlope": 16,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        }
+      }
+    }
+  },
+  "selectedFace": {
+    "allinone": "clear",
+    "backHair": "clear",
+    "body": "clear",
+    "bottoms": "clear",
+    "ear": "clear",
+    "eyes": "clear",
+    "eyebrows": "clear",
+    "frontHair": "clear",
+    "head": "clear",
+    "mouth": "clear",
+    "nose": "clear",
+    "shoes": "clear",
+    "socks": "clear",
+    "tops": "clear"
+  }
+}
