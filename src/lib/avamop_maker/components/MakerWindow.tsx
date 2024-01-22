@@ -45,14 +45,15 @@ const MakerWindow: React.FC = () => {
         <div className={styles["option-menu-group"]}>
           {/* アバターメーカーの表情メニュー部分 */}
           {/* <MakerFaceMenu /> */}
+          
+          <div className={styles["avatar-img-part"]}>
+            <MakerPartsMenu />
+          </div>
           {/* アバターメーカーの色メニュー部分 */}
           <MakerColorsMenu />
          
           {/* アバターメーカーのパーツメニュー部分 */}
 
-          <div className={styles["avatar-img-part"]}>
-            <MakerPartsMenu />
-          </div>
         </div>
       </div>
     </>
