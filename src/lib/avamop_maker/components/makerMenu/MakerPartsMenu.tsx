@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import MakerPartsButton from "./MakerPartsButton";
 import MakerPartsCategories from "./MakerPartsCategories";
 import MakerChangingPart from "../functions/fetchData/MakerChangingPart";
@@ -6,9 +6,9 @@ import SelectedCategoryContext from "../../store/SelectedCategoryContext";
 import SelectedPartsContext from "../../store/SelectedPartsContext";
 import MenuPartIconsContext from "../../store/MenuPartIconsContext";
 import PartsObjectContext from "../../store/PartsObjectContext";
-import {Swiper, SwiperSlide } from "swiper/react";
-
-import styles from "../../module-css/makerMenu/MakerPartsMenu.module.css"
+import { Swiper, SwiperSlide } from "swiper/react";
+import styles from "../../module-css/makerMenu/MakerPartsMenu.module.css";
+import MakerFaceListMenu from "./MakerFaceListMenu";
 
 const MakerPartsMenu: React.FC = ({}) => {
   const { selectedParts, setSelectedParts } = useContext(SelectedPartsContext);
@@ -19,7 +19,17 @@ const MakerPartsMenu: React.FC = ({}) => {
   const { menuPartIcons } = useContext(MenuPartIconsContext);
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category === selectedCategory ? null : category);
-  }; const swiperRef = useRef(null);
+  };
+  const swiperRef = useRef(null);
+  const [selectedItem, setSelectedItem] = useState<string>(null);
+
+  useEffect(() => {
+    if (selectedCategory === null) {
+      setSelectedItem(null);
+    } else {
+      setSelectedItem(selectedParts.category[selectedCategory].partName);
+    }
+  }, [selectedParts, selectedCategory]);
 
   useEffect(() => {
     if (swiperRef.current && swiperRef.current.swiper) {
@@ -104,9 +114,11 @@ const MakerPartsMenu: React.FC = ({}) => {
             )
           : null
       )}
+      {selectedCategory !== null && selectedItem !== null ? (
+        <MakerFaceListMenu category={selectedCategory} item={selectedItem} />
+      ) : null}
     </>
   );
 };
 
 export default React.memo(MakerPartsMenu);
-
