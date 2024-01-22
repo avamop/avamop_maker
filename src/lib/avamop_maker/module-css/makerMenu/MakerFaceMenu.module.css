@@ -14,10 +14,21 @@
   cursor: pointer;
 }
 
+.face-button{
+  margin: 10px;
+  padding: 5px;
+  line-height: 1.5;
+  background-color: white;
+  box-shadow: 5px 5px 10px gray;
+  border-radius: 15%;
+  border: none;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
 .face-menu{
   display: flex;
-  justify-content: center;
   list-style: none;
   padding-inline-start: 0;
-  background-color: papayawhip;
 }
