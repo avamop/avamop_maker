@@ -7,7 +7,7 @@ const mergeCategories = (data) => {
   for (const category in data) {
     const currentCategory = data[category];
     const partChain = currentCategory.partChain;
-    // チェック: data["body"].items.bodyTypeプロパティがlength数1の文字列配列になっているかどうか
+
     if (partChain === "body") {
       for (const item in currentCategory.items)
         if (
@@ -21,7 +21,6 @@ const mergeCategories = (data) => {
         }
     }
 
-    // チェック: 全てのpartOrderの数値に被りがないかどうか
     if (partOrders.has(currentCategory.partOrder)) {
       throw new Error(`Duplicate partOrder in category: ${category}`);
     }
@@ -53,6 +52,20 @@ const mergeCategories = (data) => {
         existingCategory.items !== currentCategory.items
       ) {
         throw new Error(`Mismatched properties in category: ${category}`);
+      }
+    }
+
+    // 各category毎に、同一のitemsのプロパティを持つすべてのプロパティのfaceキーを集め、それぞれのpartSplit内の同一のitems内のfacesプロパティにおいて欠けているプロパティがあれば中のimagePathプロパティに""を代入して追加する
+    for (const item in currentPartList[category].items) {
+      const faces = currentPartList[category].items[item].faces;
+      for (const face in faces) {
+        if (!faces[face]) {
+          faces[face] = { imagePath: "" };
+        }
+      }
+      // 同様の条件で、どれか1つでも何らかのプロパティが存在してかつ、いずれのプロパティにもclearプロパティが無い場合に、同様にimagePathに""を代入したclearプロパティを追加する
+      if (!faces.clear) {
+        faces.clear = { imagePath: "" };
       }
     }
   }
