@@ -43,9 +43,9 @@ export const MakerChangingPart = (
       } else if (bodyTypeValue.length != 1) {
         throw new Error("エラー:bodyのbodyTypeプロパティに値が複数あります");
       }
-      for (const tmpCategory in selectedParts.category) {
+      for (const tmpCategory in updateAvaters.category) {
         if (tmpCategory !== "body") {
-          selectedParts.category[tmpCategory].partName !== ""
+          updateAvaters.category[tmpCategory].partName !== ""
             ? (updateAvaters.category[tmpCategory].partName =
                 !partsObject[tmpCategory].partList[
                   Object.keys(partsObject[tmpCategory].partList)[0]
@@ -62,11 +62,11 @@ export const MakerChangingPart = (
         }
         for (const partSplit in partsObject[tmpCategory].partList) {
           if (
-            !selectedParts.selectedColor[
+            !updateAvaters.selectedColor[
               partsObject[tmpCategory].partList[partSplit].colorGroup
             ]
           ) {
-            selectedParts.selectedColor[
+            updateAvaters.selectedColor[
               partsObject[tmpCategory].partList[partSplit].colorGroup
             ] = {
               default: {
@@ -86,6 +86,16 @@ export const MakerChangingPart = (
               },
             };
           }
+        }
+        if (
+          Object.keys(
+            partsObject[category].partList[0].items[partNameValue].faces
+          ).includes(updateAvaters.selectedFace[category])
+        ) {
+          updateAvaters.selectedFace[category] =
+            updateAvaters.selectedFace[category];
+        } else {
+          updateAvaters.selectedFace[category] = "clear";
         }
       }
     }
