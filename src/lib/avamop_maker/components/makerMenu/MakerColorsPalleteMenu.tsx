@@ -377,10 +377,8 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
     setPartsObjectJimp: React.Dispatch<React.SetStateAction<PartsObjectJimp>>,
     colorsObject: ColorsObject,
     partsPath: string,
-    menuPartIcons: CombinePartIconsObjectBase64,
-    setMenuPartIcons: React.Dispatch<
-      React.SetStateAction<CombinePartIconsObjectBase64>
-    >,
+    menuPartIcons: MenuPartIconsBase64,
+    setMenuPartIcons: React.Dispatch<React.SetStateAction<MenuPartIconsBase64>>,
     nullImage: JimpType
   ) => {
     if (isLoading) return; // 非同期関数が実行中の場合、ここで処理を終了します。
@@ -427,10 +425,10 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
 
     setIsLoading(false); // 非同期関数の実行が完了したら、状態を更新します。
   };
-  
+
   const [swiper, setSwiper] = useState(null);
   const scrollSpeed = 1; // スクロール速度を調整します
-  
+
   useEffect(() => {
     if (swiper !== null && swiper.el !== undefined) {
       const handleWheel = (event) => {
@@ -439,9 +437,14 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
         swiper.el.scrollLeft += event.deltaY * scrollSpeed;
       };
       swiper.el.addEventListener('wheel', handleWheel);
-      return () => swiper.el.removeEventListener('wheel', handleWheel);
+      return () => {
+        // swiper.elの存在を再確認
+        if (swiper !== null && swiper.el !== undefined) {
+          swiper.el.removeEventListener('wheel', handleWheel);
+        }
+      };
     }
-  }, [swiper]);  
+  }, [swiper]);
   return (
     <>
     
@@ -491,7 +494,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                         );
                       }}
                     >
-                      {hueReverse ? 'Hue Reverse ON' : 'Hue Reverse OFF'}
+                      {hueReverse ? '色調反転 ON' : '色調反転 OFF'}
                     </button>
                 <button
                   className={styles["setting-button"]}
@@ -523,14 +526,19 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                     );
                   }}
                 >
-                  {saturationReverse ? 'Saturation Reverse ON' : 'Saturation Reverse OFF'}
+                  {saturationReverse ? '彩度反転 ON' : '彩度反転 OFF'}
                 </button>
                   <Swiper
+                    onSwiper={(swiperInstance) => {
+                      if (swiperInstance && swiperInstance !== swiper) {
+                        setSwiper(swiperInstance);
+                      }
+                    }}
                     className={styles["scroll-bar-swiper"]}
                     slidesPerView="auto"
-                    freeMode={true}
                     spaceBetween={0}
                     touchRatio={touchRatio / 100}
+                    mousewheel={false}
                   >
                     <SwiperSlide style={{ width: "150px" }}>
                       <label>H</label>
@@ -577,27 +585,34 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                 id="enableChain"
                 onClick={() => setEnableChain(!enableChain)}
               >
-                {enableChain ? 'Separate Setting' : 'Global Setting'}
+                {enableChain ? '個別設定' : '全体設定'}
               </button>
               <MakerFaceMenu />
                 <Swiper
+                    onSwiper={(swiperInstance) => {
+                      if (swiperInstance && swiperInstance !== swiper) {
+                        setSwiper(swiperInstance);
+                      }
+                    }}
                   className={styles["scroll-bar-swiper"]}
                   slidesPerView="auto"
-                  freeMode={true}
                   spaceBetween={0}
                   touchRatio={touchRatio / 300}
+                  mousewheel={false}
                 >
                 {enableChain
-                  ? colorMenuPartIcons[selectedCategory].true.map((index, i) => {
-                      return (
+                  ? colorMenuPartIcons[selectedCategory].true.map(
+                      (index, i) => {
+                        return (
                           <SwiperSlide key={i} style={{ width: "100px" }}>
                             <img
                               className={styles["parts-img"]}
                               src={index.image}
                               alt={
                                 selectedParts.category[selectedCategory]
-                                  ? selectedParts.category[selectedCategory].partName
-                                  : ''
+                                  ? selectedParts.category[selectedCategory]
+                                      .partName
+                                  : ""
                               }
                             />
                             <input
@@ -617,18 +632,21 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                               onChange={selectedRadio}
                             />
                           </SwiperSlide>
-                      );
-                    })
-                  : colorMenuPartIcons[selectedCategory].false.map((index, i) => {
-                      return (
+                        );
+                      }
+                    )
+                  : colorMenuPartIcons[selectedCategory].false.map(
+                      (index, i) => {
+                        return (
                           <SwiperSlide key={i} style={{ width: "100px" }}>
                             <img
                               className={styles["parts-img"]}
                               src={index.image}
                               alt={
                                 selectedParts.category[selectedCategory]
-                                  ? selectedParts.category[selectedCategory].partName
-                                  : ''
+                                  ? selectedParts.category[selectedCategory]
+                                      .partName
+                                  : ""
                               }
                             />
                             <input
@@ -648,17 +666,23 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                               onChange={selectedRadio}
                             />
                           </SwiperSlide>
-                      );
-                    })}
-                </Swiper>
+                        );
+                      }
+                    )}
+              </Swiper>
               {!selectedColorGroup || !selectedPartSplit ? null : (
                 <div>
                   <Swiper
+                    onSwiper={(swiperInstance) => {
+                      if (swiperInstance && swiperInstance !== swiper) {
+                        setSwiper(swiperInstance);
+                      }
+                    }}
                     className={styles["scroll-bar-swiper"]}
                     slidesPerView="auto"
-                    freeMode={true}
                     spaceBetween={0}
                     touchRatio={touchRatio / 300}
+                    mousewheel={false}
                   >
                     {Object.keys(colorsObjectSorted).map((groupKey) => (
                       <SwiperSlide key={groupKey} style={{ width: "50px" }}>
@@ -675,11 +699,11 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                               selectedPartSplit,
                               enableChain,
                               groupKey,
-                                          null,
-                                          null,
-                                          null,
-                                          null,
-                                          null,
+                              null,
+                              null,
+                              null,
+                              null,
+                              null,
                               selectedCategory,
                               partsObject,
                               partsObjectJimp,
@@ -707,51 +731,51 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                     touchRatio={touchRatio / 20}
                     mousewheel={false}
                   >
-                      <ul>
-                        {Object.keys(colorsObjectSorted).map((groupKey) => (
-                          <div key={groupKey}>
-                            {colorsObjectSorted[groupKey].colorName.map(
-                              (color) => (
-                                <SwiperSlide
-                                  key={color}
-                                  style={{ width: "50px" }}
-                                >
-                                  <MakerColorsButton
-                                    colorCode={colorsObject[color].hex}
-                                    colorName={color}
-                                    isLoading={isLoading}
-                                    onClick={() =>
-                                      handleChange(
-                                        selectedParts,
-                                        setSelectedParts,
-                                        selectedColorGroup,
-                                        selectedPartSplit,
-                                        enableChain,
-                                        color,
-                                        null,
-                                        null,
-                                        null,
-                                        null,
-                                        null,
-                                        selectedCategory,
-                                        partsObject,
-                                        partsObjectJimp,
-                                        setPartsObjectJimp,
-                                        colorsObject,
-                                        partsPath,
-                                        menuPartIcons,
-                                        setMenuPartIcons,
-                                        nullImage
-                                      )
-                                    }
-                                  />
-                                </SwiperSlide>
-                              )
-                            )}
-                          </div>
-                        ))}
-                      </ul>
-                    </Swiper>
+                    <ul>
+                      {Object.keys(colorsObjectSorted).map((groupKey) => (
+                        <div key={groupKey}>
+                          {colorsObjectSorted[groupKey].colorName.map(
+                            (color) => (
+                              <SwiperSlide
+                                key={color}
+                                style={{ width: "50px" }}
+                              >
+                                <MakerColorsButton
+                                  colorCode={colorsObject[color].hex}
+                                  colorName={color}
+                                  isLoading={isLoading}
+                                  onClick={() =>
+                                    handleChange(
+                                      selectedParts,
+                                      setSelectedParts,
+                                      selectedColorGroup,
+                                      selectedPartSplit,
+                                      enableChain,
+                                      color,
+                                      null,
+                                      null,
+                                      null,
+                                      null,
+                                      null,
+                                      selectedCategory,
+                                      partsObject,
+                                      partsObjectJimp,
+                                      setPartsObjectJimp,
+                                      colorsObject,
+                                      partsPath,
+                                      menuPartIcons,
+                                      setMenuPartIcons,
+                                      nullImage
+                                    )
+                                  }
+                                />
+                              </SwiperSlide>
+                            )
+                          )}
+                        </div>
+                      ))}
+                    </ul>
+                  </Swiper>
                 </div>
                 
               )}

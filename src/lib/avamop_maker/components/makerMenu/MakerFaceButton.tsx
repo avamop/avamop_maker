@@ -13,11 +13,11 @@ const MakerFaceButton: React.FC<MakerFaceButtonProps> = ({
   onClick,
 }) => {
   return (
-    <li onClick={onClick}>
-      <button className={styles["maker-face-button"]}>
-        <img src={faceImage} alt={face} />
-      </button>
-    </li>
+      <li onClick={onClick}>
+        <button className={styles["maker-face-button"]}>
+          <img src={faceImage} alt={face} />
+        </button>
+      </li>
   );
 };
 

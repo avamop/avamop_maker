@@ -55,21 +55,31 @@ const mergeCategories = (data) => {
       }
     }
 
-    // 各category毎に、同一のitemsのプロパティを持つすべてのプロパティのfaceキーを集め、それぞれのpartSplit内の同一のitems内のfacesプロパティにおいて欠けているプロパティがあれば中のimagePathプロパティに""を代入して追加する
-    for (const item in currentPartList[category].items) {
-      const faces = currentPartList[category].items[item].faces;
-      for (const face in faces) {
-        if (!faces[face]) {
-          faces[face] = { imagePath: "" };
+    const allFacesKeys = new Set();
+    for (const category in currentPartList) {
+      for (const item in currentPartList[category].items) {
+        for (const face in currentPartList[category].items[item].faces) {
+          allFacesKeys.add(face);
         }
       }
-      // 同様の条件で、どれか1つでも何らかのプロパティが存在してかつ、いずれのプロパティにもclearプロパティが無い場合に、同様にimagePathに""を代入したclearプロパティを追加する
-      if (!faces.clear) {
-        faces.clear = { imagePath: "" };
+    }
+
+    // faces の欠けているプロパティを補完する
+    for (const category in currentPartList) {
+      for (const item in currentPartList[category].items) {
+        const faces = currentPartList[category].items[item].faces;
+        for (const faceKey of allFacesKeys) {
+          if (!faces[faceKey]) {
+            faces[faceKey] = { imagePath: "" };
+          }
+
+          if (!faces.clear) {
+            faces.clear = { imagePath: "" };
+          }
+        }
       }
     }
   }
-
   return splitCategories;
 };
 

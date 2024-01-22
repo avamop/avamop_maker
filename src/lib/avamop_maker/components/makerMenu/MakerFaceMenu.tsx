@@ -38,77 +38,41 @@ const MakerFaceMenu: React.FC<MakerFaceMenuProps> = ({
   }, []);
 
   return (
-    <div style={{ position: "relative" }}>
-    <button
-      style={{ display: "block", margin: "auto" }}
-      onClick={() => setShowMenu(!showMenu)}
+    <Swiper
+      slidesPerView="auto"
+      freeMode={true}
+      spaceBetween={0}
     >
-      {showMenu ? (
-        <img
+    <div style={{ position: "relative" }}>
+      <SwiperSlide>
+        <button
           className={styles["face-button"]}
-          src={`/faceMenu.png`}
-          alt="Hide Faces"
-          style={{ width: "100px", height: "100px" }}
-        />
-      ) : (
-        <img
-          className={styles["face-button"]}
-          src={`/faceMenu.png`}
-          alt="Show Faces"
-          style={{ width: "100px", height: "100px" }}
-        />
-      )}
-    </button>
+          onClick={() => setShowMenu(!showMenu)}
+        >
+          {showMenu ? (
+            <div>閉じる</div>
+          ) : (
+            <div>表情差分</div>
+          )}
+        </button>
       {showMenu && (
         <ul
           className={styles["face-menu"]}
         >
           {faceList.map((face, i) => (
-            <MakerFaceButton
-              key={face}
-              face={face}
-              onClick={() => {
-                changeFace(face);
-                setShowMenu(false);
-              }}
-            />
+              <MakerFaceButton
+                key={face.face}
+                face={face.face}
+                faceImage={facePath + face.image}
+                onClick={() => console.log(face)}
+              />
           ))}
         </ul>
       )}
+      </SwiperSlide>
     </div>
-  )
-const [showSwiper, setShowSwiper] = useState(false);
-return (
-  <>
-    <button className={styles["face-show-button"]} onClick={() => setShowSwiper(!showSwiper)}>
-      {showSwiper ? <img className={styles["swiper-color-image"]} src="../../../../../examples/assets/provisionals/provisionalclose.png" alt="Hide Face" />
-          : <img className={styles["swiper-color-image"]} src="../../../../../examples/assets/provisionals/provisionalopen.png" alt="Show Face" />}
-    </button>
-    {showSwiper && (
-      <Swiper
-        className={styles['scroll-bar-swiper']}
-        slidesPerView='auto'
-        freeMode={true}
-        spaceBetween={10}
-      >
-    <ul className={styles['face-menu']}>
-      {faceList.map((face) => (
-        <SwiperSlide key={face} style={{ width: '180px' }}>
-        <MakerFaceButton
-          key={face}
-          face={face}
-          // 表情のサムネイルを用意する予定
-          // faceImages= {faceImages[face]}
-          onClick={() => changeFace(face)}
-        />
-        </SwiperSlide>
-      ))}
-    </ul>
-  </Swiper>
-  )}
-  </>
-);
-
+    </Swiper>
+  );
 };
 
 export default React.memo(MakerFaceMenu);
