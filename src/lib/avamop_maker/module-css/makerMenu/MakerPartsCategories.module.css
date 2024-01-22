@@ -1,9 +1,13 @@
-li {
-    list-style: none;
-  }
-  
+.menuCategory {
+  list-style: none;
+}
 
-  
-  .selected {
-    border: 3px solid blue;
-  }
+.menuCategory > img {
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+}
+
+.menuCategory.selected {
+  border: 3px solid blue;
+}

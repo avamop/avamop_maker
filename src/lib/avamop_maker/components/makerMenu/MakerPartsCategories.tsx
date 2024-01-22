@@ -16,7 +16,7 @@ const MakerPartsCategories: React.FC<MakerPartsCategoriesProps> = ({
   onClick,
 }) => {
   return (
-    <li className={isSelected ? "selected" : ""}>
+    <li className={`menuCategory ${isSelected ? "selected" : ""}`}>
       <img onClick={onClick} src={imageSrc} alt={category} /> {category}
     </li>
   );
