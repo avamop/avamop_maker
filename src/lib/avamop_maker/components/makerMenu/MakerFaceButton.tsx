@@ -10,14 +10,14 @@ interface MakerFaceButtonProps {
 const MakerFaceButton: React.FC<MakerFaceButtonProps> = ({
   face,
   // faceImage,
+
   onClick,
 }) => {
   return (
-      <li onClick={onClick}>
-        <button className={styles["maker-face-button"]}>
-          <img src={faceImage} alt={face} />
-        </button>
-      </li>
+    <li onClick={onClick}>
+      {/* <img src={faceImage} alt={face} /> */}
+      {face}
+    </li>
   );
 };
 
