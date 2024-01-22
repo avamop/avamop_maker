@@ -439,9 +439,14 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
         swiper.el.scrollLeft += event.deltaY * scrollSpeed;
       };
       swiper.el.addEventListener('wheel', handleWheel);
-      return () => swiper.el.removeEventListener('wheel', handleWheel);
+      return () => {
+        // swiper.elの存在を再確認
+        if (swiper !== null && swiper.el !== undefined) {
+          swiper.el.removeEventListener('wheel', handleWheel);
+        }
+      };
     }
-  }, [swiper]);  
+  }, [swiper]);
   return (
     <>
       {!selectedCategory ? null : (
@@ -503,7 +508,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                         );
                       }}
                     >
-                      {hueReverse ? 'Hue Reverse ON' : 'Hue Reverse OFF'}
+                      {hueReverse ? '色調反転 ON' : '色調反転 OFF'}
                     </button>
                 <button
                   className={styles["setting-button"]}
@@ -535,14 +540,19 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                     );
                   }}
                 >
-                  {saturationReverse ? 'Saturation Reverse ON' : 'Saturation Reverse OFF'}
+                  {saturationReverse ? '彩度反転 ON' : '彩度反転 OFF'}
                 </button>
                   <Swiper
+                    onSwiper={(swiperInstance) => {
+                      if (swiperInstance && swiperInstance !== swiper) {
+                        setSwiper(swiperInstance);
+                      }
+                    }}
                     className={styles["scroll-bar-swiper"]}
                     slidesPerView="auto"
-                    freeMode={true}
                     spaceBetween={0}
                     touchRatio={touchRatio / 100}
+                    mousewheel={false}
                   >
                     <SwiperSlide style={{ width: "150px" }}>
                       <label>H</label>
@@ -589,15 +599,20 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                 id="enableChain"
                 onClick={() => setEnableChain(!enableChain)}
               >
-                {enableChain ? 'Separate Setting' : 'Global Setting'}
+                {enableChain ? '個別設定' : '全体設定'}
               </button>
               <MakerFaceMenu />
                 <Swiper
+                    onSwiper={(swiperInstance) => {
+                      if (swiperInstance && swiperInstance !== swiper) {
+                        setSwiper(swiperInstance);
+                      }
+                    }}
                   className={styles["scroll-bar-swiper"]}
                   slidesPerView="auto"
-                  freeMode={true}
                   spaceBetween={0}
                   touchRatio={touchRatio / 300}
+                  mousewheel={false}
                 >
                 {enableChain
                   ? colorMenuPartIcons[selectedCategory].true.map((index, i) => {
@@ -666,11 +681,16 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
               {!selectedColorGroup || !selectedPartSplit ? null : (
                 <div>
                   <Swiper
+                    onSwiper={(swiperInstance) => {
+                      if (swiperInstance && swiperInstance !== swiper) {
+                        setSwiper(swiperInstance);
+                      }
+                    }}
                     className={styles["scroll-bar-swiper"]}
                     slidesPerView="auto"
-                    freeMode={true}
                     spaceBetween={0}
                     touchRatio={touchRatio / 300}
+                    mousewheel={false}
                   >
                     {Object.keys(colorsObjectSorted).map((groupKey) => (
                       <SwiperSlide key={groupKey} style={{ width: "50px" }}>

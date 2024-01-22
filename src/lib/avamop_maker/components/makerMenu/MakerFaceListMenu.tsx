@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import MakerFaceButton from "./MakerFaceButton";
 import FaceListContext from "../../store/FaceListContext";
 import SelectedPartsContext from "../../store/SelectedPartsContext";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper-bundle.css";
 
 const MakerFaceListMenu: React.FC = () => {
   const faceList = useContext(FaceListContext);
@@ -23,17 +25,25 @@ const MakerFaceListMenu: React.FC = () => {
   };
 
   return (
-    <ul>
-      {faceList.map((face) => (
-        <MakerFaceButton
-          key={face}
-          face={face}
-          // 表情のサムネイルを用意する予定
-          // faceImages= {faceImages[face]}
-          onClick={() => changeFace(face)}
-        />
-      ))}
-    </ul>
+    <Swiper
+      slidesPerView="auto"
+      freeMode={true}
+      spaceBetween={0}
+    >
+      <ul>
+        {faceList.map((face) => (
+          <SwiperSlide>
+            <MakerFaceButton
+              key={face}
+              face={face}
+              // 表情のサムネイルを用意する予定
+              // faceImages= {faceImages[face]}
+              onClick={() => changeFace(face)}
+            />
+          </SwiperSlide>
+        ))}
+      </ul>
+    </Swiper>
   );
 };
 export default React.memo(MakerFaceListMenu);

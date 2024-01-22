@@ -35,42 +35,40 @@ const MakerFaceMenu: React.FC = () => {
   }, []);
 
   return (
-    <div style={{ position: "relative" }}>
-    <button
-      style={{ display: "block", margin: "auto" }}
-      onClick={() => setShowMenu(!showMenu)}
+    <Swiper
+      slidesPerView="auto"
+      freeMode={true}
+      spaceBetween={0}
     >
-      {showMenu ? (
-        <img
+    <div style={{ position: "relative" }}>
+      <SwiperSlide>
+        <button
           className={styles["face-button"]}
-          src={`/faceMenu.png`}
-          alt="Hide Faces"
-          style={{ width: "100px", height: "100px" }}
-        />
-      ) : (
-        <img
-          className={styles["face-button"]}
-          src={`/faceMenu.png`}
-          alt="Show Faces"
-          style={{ width: "100px", height: "100px" }}
-        />
-      )}
-    </button>
+          onClick={() => setShowMenu(!showMenu)}
+        >
+          {showMenu ? (
+            <div>閉じる</div>
+          ) : (
+            <div>表情差分</div>
+          )}
+        </button>
       {showMenu && (
         <ul
           className={styles["face-menu"]}
         >
           {faceList.map((face, i) => (
-            <MakerFaceButton
-              key={face.face}
-              face={face.face}
-              faceImage={facePath + face.image}
-              onClick={() => console.log(face)}
-            />
+              <MakerFaceButton
+                key={face.face}
+                face={face.face}
+                faceImage={facePath + face.image}
+                onClick={() => console.log(face)}
+              />
           ))}
         </ul>
       )}
+      </SwiperSlide>
     </div>
+    </Swiper>
   );
 };
 
