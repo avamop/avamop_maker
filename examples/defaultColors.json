@@ -1,7 +1,102 @@
 {
-  "eye": "black",
-  "skin": "bisque",
-  "hair": "saddleBrown",
-  "oral": "crimson",
-  "none": "gray"
+  "eye": {
+    "default": {
+      "color": "black",
+      "chain": false,
+      "hueReverse": false,
+      "saturationReverse": false,
+      "hueGraph": {
+        "globalSlope": 1,
+        "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      },
+      "saturationGraph": {
+        "globalSlope": 16,
+        "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      },
+      "valueGraph": {
+        "globalSlope": 16,
+        "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      }
+    }
+  },
+  "skin": {
+    "default": {
+      "color": "bisque",
+      "chain": true,
+      "hueReverse": false,
+      "saturationReverse": false,
+      "hueGraph": {
+        "globalSlope": 1,
+        "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      },
+      "saturationGraph": {
+        "globalSlope": 16,
+        "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      },
+      "valueGraph": {
+        "globalSlope": 16,
+        "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      }
+    }
+  },
+  "hair": {
+    "default": {
+      "color": "saddleBrown",
+      "chain": false,
+      "hueReverse": false,
+      "saturationReverse": false,
+      "hueGraph": {
+        "globalSlope": 1,
+        "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      },
+      "saturationGraph": {
+        "globalSlope": 16,
+        "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      },
+      "valueGraph": {
+        "globalSlope": 16,
+        "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      }
+    }
+  },
+  "oral": {
+    "default": {
+      "color": "crimson",
+      "chain": true,
+      "hueReverse": false,
+      "saturationReverse": false,
+      "hueGraph": {
+        "globalSlope": 1,
+        "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      },
+      "saturationGraph": {
+        "globalSlope": 16,
+        "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      },
+      "valueGraph": {
+        "globalSlope": 16,
+        "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      }
+    }
+  },
+  "none": {
+    "default": {
+      "color": "gray",
+      "chain": false,
+      "hueReverse": false,
+      "saturationReverse": false,
+      "hueGraph": {
+        "globalSlope": 1,
+        "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      },
+      "saturationGraph": {
+        "globalSlope": 16,
+        "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      },
+      "valueGraph": {
+        "globalSlope": 16,
+        "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      }
+    }
+  }
 }

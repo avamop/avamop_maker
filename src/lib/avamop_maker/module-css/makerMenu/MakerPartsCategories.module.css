@@ -1,13 +1,15 @@
-.menuCategory {
+.menu-category {
   list-style: none;
+  display: inline-block;
 }
 
-.menuCategory > img {
+.menu-category > img {
   width: 48px;
   height: 48px;
+  background-color: orangered;
+  border-radius: 10%;
+  box-shadow: 5px 5px 10px gray;
+  margin: 10px;
   cursor: pointer;
-}
-
-.menuCategory.selected {
-  border: 3px solid blue;
+  flex-wrap: wrap;
 }

@@ -1,0 +1,14 @@
+/* デフォルトのキャンバスサイズ */
+.Canvas {
+  display: block;
+  margin: 96px;
+  margin-bottom: 50px; /* 下のマージンだけを縮める */
+  background-color: aqua;
+}
+
+@media (max-width: 1000px) {
+  .Canvas{
+    margin: 0 auto;
+    margin-bottom: 20px; /* 下のマージンだけを縮める */
+  }
+}

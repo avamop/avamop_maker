@@ -1,27 +1,29 @@
+.avatar-img-all {
+  background-color: papayawhip;
+}
 
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  
-  .loading {
-    font-size: 8em;
-    color: #888;
-  }
-  
-  button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 1em;
-    color: #fff;
-    background-color: #007BFF;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
+.bottom-button {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 5px;
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
     background-color: green;
   }
+}
+
+@media (min-width: 1000px) {
+  .all-object-container {
+    display: flex;
+  }
+  .option-menu-group {
+    width: calc(100vw - 667px);
+    max-width: calc(100vw - 667px);
+  }
+}

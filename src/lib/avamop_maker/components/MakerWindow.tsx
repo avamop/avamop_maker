@@ -1,114 +1,59 @@
-import React, { useState, useEffect } from "react";
-import "../module-css/makerView/MakerWindow.module.css"; // CSSファイルをインポート
-import { MakerSelectedPartsGen } from "./functions/fetchData/MakerSelectedPartsGen";
-import { MakerFaceGen } from "./functions/fetchData/MakerFaceGen";
+import React, { useContext, useState } from "react";
+import styles from "../module-css/makerView/MakerWindow.module.css"; // CSSファイルをインポート
 import MakerView from "./MakerView/MakerView";
 import MakerPartsMenu from "./makerMenu/MakerPartsMenu";
 import MakerFaceMenu from "./makerMenu/MakerFaceMenu";
-import { MakerConvertPartsToMenuIcons } from "./functions/imageProcess/MakerConvertPartsToMenuIcons";
-import { MakerConvertPartsJimp } from "./functions/objectProcess/MakerConvertPartsJimp";
-import { MakerFetchCategoryIcons } from "./functions/imageProcess/MakerFetchCategoryIcons";
+import MakerColorsMenu from "./makerMenu/MakerColorsMenu";
+import CanvasImageContext from "../store/CanvasImageContext";
+import "jimp/browser/lib/jimp";
+import { JimpObject, JimpType } from "../types/jimp";
 
+declare const Jimp: JimpObject;
 
-interface MakerMenuProps {
-  path: string;
-  PartsObject: PartsObjectSplit;
-  categoryIconObject: categoryIconObject;
-  colorsObject: ColorsObject;
-  defaultColors: DefaultColors;
-}
+const MakerWindow: React.FC = () => {
+  const { canvasImage, setCanvasImage } = useContext(CanvasImageContext);
+  const [imageNumber, setImageNumber] = useState(0);
 
-const MakerWindow: React.FC<MakerMenuProps> = ({
-  path,
-  PartsObject,
-  categoryIconObject,
-  colorsObject,
-  defaultColors,
-}) => {
-  const TmpSelectedParts: SelectedParts = MakerSelectedPartsGen(PartsObject);
-  const faceList: string[] = MakerFaceGen(PartsObject);
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [SelectedParts, setSelectedParts] =
-    useState<SelectedParts>(TmpSelectedParts);
-  const [selectedFace, setSelectedFace] = useState<string>("normal");
-  const [categoryIcon, setCategoryIcon] = useState<categoryIconObject | null>(
-    null
-  );
-  const [menuPartIcon, setMenuPartIcon] =
-    useState<CombinePartIconsObjectBase64 | null>(null);
-  const [PartsObjectJimp, setPartsObjectJimp] =
-    useState<PartsObjectJimp | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-
-  const changeFace = (face: string) => {
-    setSelectedFace(face);
+  const saveImage = async (images) => {
+    let combinedImage = images[0];
+    for (let i = 1; i < images.length; i++) {
+      combinedImage = combinedImage.composite(images[i], 0, 0);
+    }
+    const data = await combinedImage.getBase64Async(Jimp.MIME_PNG);
+    const link = document.createElement("a");
+    link.href = data;
+    link.download = `avatar_${imageNumber}.png`;
+    link.click();
+    setImageNumber(imageNumber + 1);
   };
 
-  const handleCategoryClick = (category: string) => {
-    setSelectedCategory(category === selectedCategory ? null : category);
+  const handleClick = () => {
+    saveImage(canvasImage);
   };
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const tmpCategoryIcon = await MakerFetchCategoryIcons(
-          categoryIconObject,
-          path + "thumbnails/"
-        );
-        const tmpPartsObjectJimp: PartsObjectJimp = await MakerConvertPartsJimp(
-          PartsObject,
-          path + "parts/"
-        );
-        setPartsObjectJimp(tmpPartsObjectJimp);
-        const menuPartIconList: Promise<CombinePartIconsObjectBase64> =
-          MakerConvertPartsToMenuIcons(tmpPartsObjectJimp);
-        setCategoryIcon(tmpCategoryIcon);
-        setMenuPartIcon(await menuPartIconList);
-        setIsLoading(false); // データの読み込みが完了したらisLoadingをfalseに設定
-      } catch (error) {
-        console.log("データ読み込みエラー:", error);
-        setIsLoading(false); // エラーが発生した場合もisLoadingをfalseに設定
-      }
-    };
-    fetchData();
-  }, []); // 空の依存リストを指定して初回のみ実行されるように
 
   return (
-    <div>
-      {/* 画像データのロードが終わったら中身を表示する */}
-      {isLoading && !PartsObjectJimp && !menuPartIcon ? (
-        <div>Loading...</div>
-      ) : (
-        <>
-          {/* アバターメーカーのアバター表示部分 */}
-          <MakerView
-            SelectedParts={SelectedParts}
-            PartsObjectJimp={PartsObjectJimp}
-            selectedFace={selectedFace}
-            scale={2}
-          />
+    <>
+      <div className={styles["all-object-container"]}>
+        {/* アバターメーカーのアバター表示部分 */}
+        <div className={styles["avatar-img-all"]}>
+          <MakerView />
+          {/* オブジェクト変化テスト用ボタン */}
+          <button className={styles["bottom-button"]} onClick={handleClick}>
+            完成
+          </button>
+        </div>
+        <div className={styles["option-menu-group"]}>
           {/* アバターメーカーの表情メニュー部分 */}
-          <MakerFaceMenu
-            faceList={faceList}
-            isLoading={isLoading}
-            changeFace={changeFace}
-          />
+          {/* <MakerFaceMenu /> */}
           {/* アバターメーカーのパーツメニュー部分 */}
-          <MakerPartsMenu
-            isLoading={isLoading}
-            categoryIconObject={categoryIcon}
-            selectedCategory={selectedCategory}
-            selectedFace={selectedFace}
-            handleCategoryClick={handleCategoryClick}
-            menuPartIcon={menuPartIcon}
-            SelectedParts={SelectedParts}
-            setSelectedParts={setSelectedParts}
-          />
-        </>
-      )}
-      {/* オブジェクト変化テスト用ボタン */}
-      <button onClick={() => console.log("%o", SelectedParts)}>button</button>
-    </div>
+          <div className={styles["avatar-img-part"]}>
+            <MakerPartsMenu />
+          </div>
+          {/* アバターメーカーの色メニュー部分 */}
+          <MakerColorsMenu />
+        </div>
+      </div>
+    </>
   );
 };
 
