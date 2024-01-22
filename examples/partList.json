@@ -650,11 +650,7 @@
       "standard": {
         "bodyType": null,
         "enableColor": true,
-        "faces": {
-          "clear": {
-            "imagePath": ""
-          }
-        }
+        "faces": {}
       }
     }
   },
@@ -670,9 +666,6 @@
         "bodyType": null,
         "enableColor": true,
         "faces": {
-          "clear": {
-            "imagePath": ""
-          },
           "smileOpen": {
             "imagePath": "mouthOral/lips/smileOpen.png"
           }
@@ -682,9 +675,6 @@
         "bodyType": null,
         "enableColor": true,
         "faces": {
-          "clear": {
-            "imagePath": ""
-          },
           "smileOpen": {
             "imagePath": "mouthOral/standard/smileOpen.png"
           }
@@ -703,11 +693,7 @@
       "lips": {
         "bodyType": null,
         "enableColor": true,
-        "faces": {
-          "clear": {
-            "imagePath": ""
-          }
-        }
+        "faces": {}
       },
       "standard": {
         "bodyType": null,
@@ -735,9 +721,6 @@
         "bodyType": null,
         "enableColor": false,
         "faces": {
-          "clear": {
-            "imagePath": ""
-          },
           "smileOpen": {
             "imagePath": "mouthTeeth/lips/smileOpen.png"
           }
@@ -747,9 +730,6 @@
         "bodyType": null,
         "enableColor": false,
         "faces": {
-          "clear": {
-            "imagePath": ""
-          },
           "smileOpen": {
             "imagePath": "mouthTeeth/standard/smileOpen.png"
           }

@@ -59,12 +59,6 @@ const generatepartsObject = (directoryPath, partChain) => {
         partsObject[category].items[item].faces[faceName] = {
           imagePath: imagePath,
         };
-
-        if (!partsObject[category].items[item].faces["clear"]) {
-          partsObject[category].items[item].faces["clear"] = {
-            imagePath: "",
-          };
-        }
       }
     }
   }

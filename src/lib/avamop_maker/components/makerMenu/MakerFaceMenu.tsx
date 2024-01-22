@@ -38,10 +38,32 @@ const MakerFaceMenu: React.FC<MakerFaceMenuProps> = ({
   }, []);
 
   return (
-    <div style={{position: 'relative'}}>
+    <div style={{ position: "relative" }}>
+    <button
+      style={{ display: "block", margin: "auto" }}
+      onClick={() => setShowMenu(!showMenu)}
+    >
+      {showMenu ? (
+        <img
+          className={styles["face-button"]}
+          src={`/faceMenu.png`}
+          alt="Hide Faces"
+          style={{ width: "100px", height: "100px" }}
+        />
+      ) : (
+        <img
+          className={styles["face-button"]}
+          src={`/faceMenu.png`}
+          alt="Show Faces"
+          style={{ width: "100px", height: "100px" }}
+        />
+      )}
+    </button>
       {showMenu && (
-        <ul className={styles['face-menu']} style={{position: 'absolute', left: 400}}>
-          {faceList.map((face) => (
+        <ul
+          className={styles["face-menu"]}
+        >
+          {faceList.map((face, i) => (
             <MakerFaceButton
               key={face}
               face={face}
@@ -53,12 +75,6 @@ const MakerFaceMenu: React.FC<MakerFaceMenuProps> = ({
           ))}
         </ul>
       )}
-      <button style={{display: 'block', margin: 'auto'}} onClick={() => setShowMenu(!showMenu)}>
-        {showMenu ? <img src="https://static.wikia.nocookie.net/eb14885b-a435-4612-b6a7-31709c190614/scale-to-width/370"
-         alt="Hide Faces" style={{width: '100px', height: '100px'}} /> :
-          <img src="" 
-          alt="Show Faces" style={{width: '100px', height: '100px'}} />}
-      </button>
     </div>
   )
 const [showSwiper, setShowSwiper] = useState(false);

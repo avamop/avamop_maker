@@ -6,6 +6,10 @@
     margin-right: 10px;
 }
 
+.scroll-event{
+    overflow: auto;
+}
+
 .setting-button{
     margin: 10px;
     padding: 5px;
