@@ -4,47 +4,54 @@ import FaceListContext from "../../store/FaceListContext";
 import SelectedPartsContext from "../../store/SelectedPartsContext";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
+import MenuPartIconsContext from "../../store/MenuPartIconsContext";
+import PartsObjectContext from "../../store/PartsObjectContext";
 
-const MakerFaceListMenu: React.FC = () => {
-  const faceList = useContext(FaceListContext);
+interface MakerFaceListMenuProps {
+  category: string;
+  item: string;
+}
+
+const MakerFaceListMenu: React.FC<MakerFaceListMenuProps> = ({
+  category,
+  item,
+}) => {
   const { selectedParts, setSelectedParts } = useContext(SelectedPartsContext);
+  const { menuPartIcons, setMenuPartIcons } = useContext(MenuPartIconsContext);
 
   const changeFace = (face: string) => {
-    let newSelectedFace = { ...selectedParts.selectedFace };
-    Object.keys(selectedParts.category).forEach((key) => {
-      newSelectedFace[key] = face;
-    });
     setSelectedParts({
       ...selectedParts,
       bodyType: selectedParts.bodyType,
       face: face,
       category: selectedParts.category,
       selectedColor: selectedParts.selectedColor, //選択されている色のオブジェクト
-      selectedFace: newSelectedFace,
+      selectedFace: {
+        ...selectedParts.selectedFace,
+        [category]: face,
+      },
     });
   };
 
   return (
-    <Swiper
-      slidesPerView="auto"
-      freeMode={true}
-      spaceBetween={0}
-    >
+    <Swiper slidesPerView="auto" freeMode={true} spaceBetween={0}>
       <ul>
-        {faceList.map((face) => (
-          <SwiperSlide>
-            <MakerFaceButton
-              key={face}
-              face={face}
-              // 表情のサムネイルを用意する予定
-              // faceImages= {faceImages[face]}
-              onClick={() => changeFace(face)}
-            />
-          </SwiperSlide>
-        ))}
+        {Object.keys(menuPartIcons[category].partList[item].faces).map(
+          (face) => (
+            <SwiperSlide key={face}>
+              <MakerFaceButton
+                face={face}
+                // 表情のサムネイルを用意する予定
+                faceImage={
+                  menuPartIcons[category].partList[item].faces[face].imagePath
+                }
+                onClick={() => changeFace(face)}
+              />
+            </SwiperSlide>
+          )
+        )}
       </ul>
     </Swiper>
   );
 };
 export default React.memo(MakerFaceListMenu);
-
