@@ -26,6 +26,10 @@ export const MakerChangingColor = async (
   // console.log(selectedColorGroup);
   // console.log(color);
 
+  if (!selectedParts) {
+    return;
+  }
+
   let updatePartsObjectJimp = {
     ...partsObjectJimp,
   };

@@ -12,7 +12,7 @@ import SelectedPartsContext from "../../store/SelectedPartsContext";
 
 const MakerFaceMenu: React.FC = () => {
   const faceList: FaceList[] = useContext(FaceListContext);
-  console.log(faceList);
+  // console.log(faceList);
   const facePath: string = useContext(FacePathContext);
 
   const { selectedParts, setSelectedParts } = useContext(SelectedPartsContext);
