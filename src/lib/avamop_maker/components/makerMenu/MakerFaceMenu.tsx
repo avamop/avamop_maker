@@ -8,17 +8,32 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import FaceListContext from "../../store/FaceListContext";
 import FacePathContext from "../../store/FacePathContext";
+import SelectedPartsContext from "../../store/SelectedPartsContext";
 
 const MakerFaceMenu: React.FC = () => {
   const faceList: FaceList[] = useContext(FaceListContext);
   console.log(faceList);
   const facePath: string = useContext(FacePathContext);
 
+  const { selectedParts, setSelectedParts } = useContext(SelectedPartsContext);
   const [showMenu, setShowMenu] = useState(false);
   const [buttonPosition, setButtonPosition] = useState({
     left: "4px",
     top: "0px",
   });
+
+  const changeFace = (face: string) => {
+    let updateFace: SelectedParts = {
+      ...selectedParts,
+      selectedFace: {
+        ...selectedParts.selectedFace,
+      },
+    };
+    for (const category in selectedParts.selectedFace) {
+      updateFace.selectedFace[category] = face;
+    }
+    setSelectedParts(updateFace);
+  };
 
   useEffect(() => {
     const updateButtonPosition = () => {
@@ -35,39 +50,29 @@ const MakerFaceMenu: React.FC = () => {
   }, []);
 
   return (
-    <Swiper
-      slidesPerView="auto"
-      freeMode={true}
-      spaceBetween={0}
-    >
-    <div style={{ position: "relative" }}>
-      <SwiperSlide>
-        <button
-          className={styles["face-button"]}
-          onClick={() => setShowMenu(!showMenu)}
-        >
-          {showMenu ? (
-            <div>閉じる</div>
-          ) : (
-            <div>表情差分</div>
+    <Swiper slidesPerView="auto" freeMode={true} spaceBetween={0}>
+      <div style={{ position: "relative" }}>
+        <SwiperSlide>
+          <button
+            className={styles["face-button"]}
+            onClick={() => setShowMenu(!showMenu)}
+          >
+            {showMenu ? <div>閉じる</div> : <div>表情差分</div>}
+          </button>
+          {showMenu && (
+            <ul className={styles["face-menu"]}>
+              {faceList.map((face, i) => (
+                <MakerFaceButton
+                  key={face.face}
+                  face={face.face}
+                  faceImage={facePath + face.image}
+                  onClick={() => changeFace(face.face)}
+                />
+              ))}
+            </ul>
           )}
-        </button>
-      {showMenu && (
-        <ul
-          className={styles["face-menu"]}
-        >
-          {faceList.map((face, i) => (
-              <MakerFaceButton
-                key={face.face}
-                face={face.face}
-                faceImage={facePath + face.image}
-                onClick={() => console.log(face)}
-              />
-          ))}
-        </ul>
-      )}
-      </SwiperSlide>
-    </div>
+        </SwiperSlide>
+      </div>
     </Swiper>
   );
 };

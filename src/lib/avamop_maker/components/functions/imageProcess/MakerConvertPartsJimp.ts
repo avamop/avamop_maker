@@ -14,45 +14,57 @@ export const MakerConvertPartsJimp = async (
 ): Promise<PartsObjectJimp> => {
   const partsObjectJimp: PartsObjectJimp = {};
   const promises = [];
-  for (const category in partsObject) {
+  for (const category in selectedParts.category) {
     partsObjectJimp[category] = {
       partCount: partsObject[category].partCount,
       partChain: partsObject[category].partChain,
       ignoreTrigger: partsObject[category].ignoreTrigger,
       partList: {},
     };
-    for (const partSplit in partsObject[category].partList) {
+    for (const partSplit in partsObject[category.replace(/_\d+$/, "")]
+      .partList) {
       partsObjectJimp[category].partList[partSplit] = {
-        colorGroup: partsObject[category].partList[partSplit].colorGroup,
-        partOrder: partsObject[category].partList[partSplit].partOrder,
+        colorGroup:
+          partsObject[category.replace(/_\d+$/, "")].partList[partSplit]
+            .colorGroup,
+        partOrder:
+          partsObject[category.replace(/_\d+$/, "")].partList[partSplit]
+            .partOrder,
         items: {},
       };
-      for (const item in partsObject[category].partList[partSplit].items) {
+      for (const item in partsObject[category.replace(/_\d+$/, "")].partList[
+        partSplit
+      ].items) {
         partsObjectJimp[category].partList[partSplit].items[item] = {
           bodyType:
-            partsObject[category].partList[partSplit].items[item].bodyType,
+            partsObject[category.replace(/_\d+$/, "")].partList[partSplit]
+              .items[item].bodyType,
           enableColor:
-            partsObject[category].partList[partSplit].items[item].enableColor,
+            partsObject[category.replace(/_\d+$/, "")].partList[partSplit]
+              .items[item].enableColor,
           faces: {},
         };
-        for (const face in partsObject[category].partList[partSplit].items[item]
-          .faces) {
+        for (const face in partsObject[category.replace(/_\d+$/, "")].partList[
+          partSplit
+        ].items[item].faces) {
           promises.push(
             (async () => {
               let jimpData: JimpType;
               try {
                 if (
-                  partsObject[category].partList[partSplit].items[item].faces[
-                    face
-                  ].imagePath == ""
+                  partsObject[category.replace(/_\d+$/, "")].partList[partSplit]
+                    .items[item].faces[face].imagePath == ""
                 ) {
                   jimpData = nullImage;
                 } else {
                   jimpData = await partRead(
                     partsPath +
-                      partsObject[category].partList[partSplit].items[item]
-                        .faces[face].imagePath,
-                    partsObject[category].partList[partSplit].colorGroup,
+                      partsObject[category.replace(/_\d+$/, "")].partList[
+                        partSplit
+                      ].items[item].faces[face].imagePath,
+                    partsObject[category.replace(/_\d+$/, "")].partList[
+                      partSplit
+                    ].colorGroup,
                     selectedParts,
                     colorsObject,
                     partSplit
