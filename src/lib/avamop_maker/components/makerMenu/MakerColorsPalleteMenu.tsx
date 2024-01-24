@@ -738,6 +738,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                       }
                     }}
                     className={styles["scroll-bar-swiper"]}
+                    simulateTouch={false}
                     slidesPerView="auto"
                     spaceBetween={0}
                     touchRatio={touchRatio / 20}
