@@ -68,6 +68,53 @@ const MakerPartsMenu: React.FC = ({}) => {
                         ].faces["clear"].imagePath
                     : menuPartIcons[category].partList[
                         Object.keys(menuPartIcons[category].partList)[0]
+                      ].bodyType.includes(selectedParts.bodyType) ||
+                      menuPartIcons[category].partList[
+                        Object.keys(menuPartIcons[category].partList)[0]
+                      ].bodyType === null
+                    ? menuPartIcons[category].partList[
+                        Object.keys(menuPartIcons[category].partList)[0]
+                      ].faces[selectedParts.selectedFace[category]]
+                      ? menuPartIcons[category].partList[
+                          Object.keys(menuPartIcons[category].partList)[0]
+                        ].faces[selectedParts.selectedFace[category]].imagePath
+                      : menuPartIcons[category].partList[
+                          Object.keys(menuPartIcons[category].partList)[0]
+                        ].faces["clear"].imagePath
+                    : menuPartIcons[category].partList[
+                        Object.keys(menuPartIcons[category].partList).find(
+                          (x) =>
+                            menuPartIcons[category].partList[
+                              x
+                            ].bodyType.includes(selectedParts.bodyType)
+                        )
+                      ]
+                    ? menuPartIcons[category].partList[
+                        Object.keys(menuPartIcons[category].partList).find(
+                          (x) =>
+                            menuPartIcons[category].partList[
+                              x
+                            ].bodyType.includes(selectedParts.bodyType)
+                        )
+                      ].faces[selectedParts.selectedFace[category]]
+                      ? menuPartIcons[category].partList[
+                          Object.keys(menuPartIcons[category].partList).find(
+                            (x) =>
+                              menuPartIcons[category].partList[
+                                x
+                              ].bodyType.includes(selectedParts.bodyType)
+                          )
+                        ].faces[selectedParts.selectedFace[category]].imagePath
+                      : menuPartIcons[category].partList[
+                          Object.keys(menuPartIcons[category].partList).find(
+                            (x) =>
+                              menuPartIcons[category].partList[
+                                x
+                              ].bodyType.includes(selectedParts.bodyType)
+                          )
+                        ].faces["clear"].imagePath
+                    : menuPartIcons[category].partList[
+                        Object.keys(menuPartIcons[category].partList)[0]
                       ].faces[selectedParts.selectedFace[category]]
                     ? menuPartIcons[category].partList[
                         Object.keys(menuPartIcons[category].partList)[0]
