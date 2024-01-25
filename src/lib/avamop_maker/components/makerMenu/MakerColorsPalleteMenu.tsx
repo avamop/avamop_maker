@@ -197,7 +197,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
               .individualSlope
       );
     }
-  }, [selectedCategory, selectedColorGroup, selectedPartSplit]);
+  }, [selectedColorGroup, selectedPartSplit]);
 
   const [isPressed, setIsPressed] = React.useState(false);
 
@@ -541,13 +541,13 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                               name="colorMenu"
                               value={JSON.stringify({
                                 colorGroup: index.colorGroup,
-                                partSplit: "default",
+                                partSplit: index.partSplit,
                               })}
                               checked={
                                 selectedRadioValue ===
                                 JSON.stringify({
                                   colorGroup: index.colorGroup,
-                                  partSplit: "default",
+                                  partSplit: index.partSplit,
                                 })
                               }
                               onChange={selectedRadio}

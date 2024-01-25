@@ -234,23 +234,23 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
                           });
                         }
                       }
-                      if (images.length > 0) {
-                        images.sort((a, b) => a.partOrder - b.partOrder);
-                        let image: JimpType = images[0].jimp;
-                        for (let i = 1; i < images.length; i++) {
-                          image = image.composite(images[i].jimp, 0, 0);
-                        }
-                        const imageBase64: string = await MakerConvertBase64(
-                          await MakerPartIconsTrim(image, 64)
-                        );
-                        newImages[selectedCategory]["true"].push({
-                          image: imageBase64,
-                          colorGroup,
-                          partSplit: "default",
-                        });
-                      }
                     }
                   }
+                }
+                if (images.length > 0) {
+                  images.sort((a, b) => a.partOrder - b.partOrder);
+                  let image: JimpType = images[0].jimp;
+                  for (let i = 1; i < images.length; i++) {
+                    image = image.composite(images[i].jimp, 0, 0);
+                  }
+                  const imageBase64: string = await MakerConvertBase64(
+                    await MakerPartIconsTrim(image, 64)
+                  );
+                  newImages[selectedCategory]["true"].push({
+                    image: imageBase64,
+                    colorGroup,
+                    partSplit: "default",
+                  });
                 }
               }
             } else {
@@ -289,8 +289,9 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
                       ) {
                         const image = await MakerConvertBase64(
                           await MakerPartIconsTrim(
-                            selectedPartsForCanvas.category[selectedCategory]
-                              .partSplit[partSplit].partData,
+                            selectedPartsForCanvas.category[
+                              selectedCategory
+                            ].partSplit[partSplit].partData.clone(),
                             64
                           )
                         );

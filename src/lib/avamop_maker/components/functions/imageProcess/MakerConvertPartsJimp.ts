@@ -85,7 +85,7 @@ export const MakerConvertPartsJimp = async (
       }
     }
   }
-  if (promises.length >= 12) {
+  if (promises.length >= 20) {
     await Promise.all(promises);
     promises.length = 0;
   }

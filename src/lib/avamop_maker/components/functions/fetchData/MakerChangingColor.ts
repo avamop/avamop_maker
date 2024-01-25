@@ -6,7 +6,7 @@ import { JimpObject, JimpType } from "../../../types/jimp";
 
 declare const Jimp: JimpObject;
 
-const MAX_PROMISE = 12;
+const MAX_PROMISE = 20;
 
 export const MakerChangingColor = async (
   selectedParts: SelectedParts,
