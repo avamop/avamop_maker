@@ -64,6 +64,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
     useState<AtLeast<10, number>>(null);
   const nullImage: JimpType = useContext(NullImageContext);
   const [isLoading, setIsLoading] = useState(false);
+  const [isRadioLoading, setIsRadioLoading] = useState(false);
 
   const selectedRadio = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedRadioValue(event.target.value);
@@ -257,6 +258,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
   }, [valueGlobalSlope, valueIndividualSlope]);
 
   useEffect(() => {
+    setIsRadioLoading(true);
     const radioValuesColorGroup: string[] = [];
     const radioValuesPartSplit: string[] = [];
     if (selectedCategory) {
@@ -265,7 +267,9 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
           radioValuesColorGroup.push(
             colorMenuPartIcons[selectedCategory].true[value].colorGroup
           );
-          radioValuesPartSplit.push("default");
+          radioValuesPartSplit.push(
+            colorMenuPartIcons[selectedCategory].true[value].partSplit
+          );
         }
       } else {
         for (const value in colorMenuPartIcons[selectedCategory].false) {
@@ -294,6 +298,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
       // null
     );
     setEnableChain(enableChain);
+    setIsRadioLoading(false);
   }, [selectedCategory, enableChain]);
 
   const colorsObjectSort = (colorsObject: ColorsObject): ColorsObjectSorted => {
@@ -521,7 +526,9 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                 touchRatio={touchRatio / 300}
                 mousewheel={false}
               >
-                {enableChain
+                {isRadioLoading
+                  ? null
+                  : enableChain
                   ? colorMenuPartIcons[selectedCategory].true.map(
                       (index, i) => {
                         return (
