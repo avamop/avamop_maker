@@ -63,6 +63,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
   const nullImage: JimpType = useContext(NullImageContext);
   const [isLoading, setIsLoading] = useState(false);
   const [isPeaceLoading, setIsPeaceLoading] = useState(false);
+  const [isSliderLoading, setIsSliderLoading] = useState(false);
 
   const selectedPeaceButton = (value) => {
     const { colorGroup, partSplit } = value;
@@ -72,6 +73,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
 
   useEffect(() => {
     if (selectedCategory && selectedColorGroup && selectedPartSplit) {
+      setIsSliderLoading(true);
       const colorData = selectedParts.selectedColor[selectedColorGroup];
       setColor(
         colorData
@@ -194,6 +196,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
           : selectedParts.selectedColor["none"]["default"].valueGraph
               .individualSlope
       );
+      setIsSliderLoading(false);
     }
   }, [selectedColorGroup, selectedPartSplit]);
 
@@ -417,7 +420,9 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
           </button>
           {showSwiper && (
             <>
-              {!selectedColorGroup || !selectedPartSplit ? null : (
+              {!selectedColorGroup ||
+              !selectedPartSplit ||
+              isSliderLoading ? null : (
                 <div
                   onMouseDown={handleMouseDown}
                   onMouseUp={handleMouseUp}
@@ -463,7 +468,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                         name="hueRange"
                         min="0"
                         max="32"
-                        defaultValue={hueGraph.globalSlope}
+                        value={hueGlobalSlope}
                         id="hueRange"
                         onChange={changeHueGlobalSlope}
                       />
@@ -475,7 +480,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                         name="saturationRange"
                         min="0"
                         max="48"
-                        defaultValue={saturationGraph.globalSlope}
+                        value={saturationGlobalSlope}
                         id="saturationRange"
                         onChange={changeSaturationGlobalSlope}
                       />
@@ -487,7 +492,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                         name="valueRange"
                         min="0"
                         max="48"
-                        defaultValue={valueGraph.globalSlope}
+                        value={valueGlobalSlope}
                         id="valueRange"
                         onChange={changeValueGlobalSlope}
                       />
