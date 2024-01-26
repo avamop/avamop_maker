@@ -1,11 +1,10 @@
 import React, { useContext, useState, useRef, useEffect } from "react";
 import MakerColorsButton from "./MakerColorsButton";
-import styles from "../../module-css/makerMenu/MakerColorsPallete.module.css";
+import styles from "../../module-css/makerMenu/MakerColorsPalleteMenu.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css"; // 追加: SwiperのCSSをインポート
 import ColorsObjectContext from "../../store/ColorsObjectContext";
 import SelectedPartsContext from "../../store/SelectedPartsContext";
-import SelectedPartsForCanvasContext from "../../store/SelectedPartsForCanvasContext";
 import PartsObjectContext from "../../store/PartsObjectContext";
 import SelectedCategoryContext from "../../store/SelectedCategoryContext";
 import "jimp/browser/lib/jimp";
@@ -528,33 +527,34 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                       (index, i) => {
                         return (
                           <SwiperSlide key={i} style={{ width: "100px" }}>
-                          <div 
-                            onClick={() =>
-                              selectedPeaceButton({
-                                colorGroup: index.colorGroup,
-                                partSplit: index.partSplit,
-                              })
-                            }
-                          >
-                            <img 
-                              className={`
-                                ${styles["parts-img"]}
-                                ${index.colorGroup === selectedColorGroup && index.partSplit === selectedPartSplit
-                                  ? styles["parts-img-selected"]
-                                  : ""}
-                                ${index.colorGroup === selectedColorGroup && index.partSplit === selectedPartSplit
-                                  ? styles["parts-img"]
-                                  : ""}
-                              `}
-                              src={index.image}
-                              alt={
-                                selectedParts.category[selectedCategory]
-                                  ? selectedParts.category[selectedCategory].partName
-                                  : ""
+                            <div
+                              onClick={() =>
+                                selectedPeaceButton({
+                                  colorGroup: index.colorGroup,
+                                  partSplit: index.partSplit,
+                                })
                               }
-                            />
-                          </div>
-                        </SwiperSlide>
+                            >
+                              <img
+                                className={`
+                                ${styles["parts-img"]}
+                                ${
+                                  index.colorGroup === selectedColorGroup &&
+                                  index.partSplit === selectedPartSplit
+                                    ? styles["parts-img-selected"]
+                                    : ""
+                                }
+                              `}
+                                src={index.image}
+                                alt={
+                                  selectedParts.category[selectedCategory]
+                                    ? selectedParts.category[selectedCategory]
+                                        .partName
+                                    : ""
+                                }
+                              />
+                            </div>
+                          </SwiperSlide>
                         );
                       }
                     )
