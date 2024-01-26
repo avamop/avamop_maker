@@ -36,9 +36,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
   );
   const { menuPartIcons, setMenuPartIcons } = useContext(MenuPartIconsContext);
   const colorMenuPartIcons = useContext(ColorMenuPartIconsContext);
-  const [selectedRadioValue, setSelectedRadioValue] = useState<null | string>(
-    null
-  );
+
   const [selectedColorGroup, setSelectedColorGroup] = useState<null | string>(
     null
   );
@@ -64,11 +62,10 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
     useState<AtLeast<10, number>>(null);
   const nullImage: JimpType = useContext(NullImageContext);
   const [isLoading, setIsLoading] = useState(false);
-  const [isRadioLoading, setIsRadioLoading] = useState(false);
+  const [isPeaceLoading, setIsPeaceLoading] = useState(false);
 
-  const selectedRadio = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedRadioValue(event.target.value);
-    const { colorGroup, partSplit } = JSON.parse(event.target.value);
+  const selectedPeaceButton = (value) => {
+    const { colorGroup, partSplit } = value;
     setSelectedColorGroup(colorGroup);
     setSelectedPartSplit(partSplit);
   };
@@ -258,48 +255,41 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
   }, [valueGlobalSlope, valueIndividualSlope]);
 
   useEffect(() => {
-    setIsRadioLoading(true);
-    const radioValuesColorGroup: string[] = [];
-    const radioValuesPartSplit: string[] = [];
+    setIsPeaceLoading(true);
+    const peaceValuesColorGroup: string[] = [];
+    const peaceValuesPartSplit: string[] = [];
     if (selectedCategory) {
       if (enableChain) {
         for (const value in colorMenuPartIcons[selectedCategory].true) {
-          radioValuesColorGroup.push(
+          peaceValuesColorGroup.push(
             colorMenuPartIcons[selectedCategory].true[value].colorGroup
           );
-          radioValuesPartSplit.push(
+          peaceValuesPartSplit.push(
             colorMenuPartIcons[selectedCategory].true[value].partSplit
           );
         }
       } else {
         for (const value in colorMenuPartIcons[selectedCategory].false) {
-          radioValuesColorGroup.push(
+          peaceValuesColorGroup.push(
             colorMenuPartIcons[selectedCategory].false[value].colorGroup
           );
-          radioValuesPartSplit.push(
+          peaceValuesPartSplit.push(
             colorMenuPartIcons[selectedCategory].false[value].partSplit
           );
         }
       }
+      setSelectedColorGroup(
+        peaceValuesColorGroup[0]
+        // null
+      );
+      setSelectedPartSplit(
+        peaceValuesPartSplit[0]
+        // null
+      );
+      setEnableChain(enableChain);
     }
-    setSelectedRadioValue(
-      JSON.stringify({
-        colorGroup: radioValuesColorGroup[0],
-        partSplit: radioValuesPartSplit[0],
-      })
-      // null
-    );
-    setSelectedColorGroup(
-      radioValuesColorGroup[0]
-      // null
-    );
-    setSelectedPartSplit(
-      radioValuesPartSplit[0]
-      // null
-    );
-    setEnableChain(enableChain);
-    setIsRadioLoading(false);
-  }, [selectedCategory, enableChain]);
+    setIsPeaceLoading(false);
+  }, [selectedCategory, enableChain, colorMenuPartIcons]);
 
   const colorsObjectSort = (colorsObject: ColorsObject): ColorsObjectSorted => {
     const groups: ColorsObjectSorted = {};
@@ -526,39 +516,37 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                 touchRatio={touchRatio / 300}
                 mousewheel={false}
               >
-                {isRadioLoading
+                {isPeaceLoading
                   ? null
                   : enableChain
                   ? colorMenuPartIcons[selectedCategory].true.map(
                       (index, i) => {
                         return (
                           <SwiperSlide key={i} style={{ width: "100px" }}>
-                            <img
-                              className={styles["parts-img"]}
-                              src={index.image}
-                              alt={
-                                selectedParts.category[selectedCategory]
-                                  ? selectedParts.category[selectedCategory]
-                                      .partName
-                                  : ""
-                              }
-                            />
-                            <input
-                              type="radio"
-                              name="colorMenu"
-                              value={JSON.stringify({
-                                colorGroup: index.colorGroup,
-                                partSplit: index.partSplit,
-                              })}
-                              checked={
-                                selectedRadioValue ===
-                                JSON.stringify({
+                            <div
+                              onClick={() =>
+                                selectedPeaceButton({
                                   colorGroup: index.colorGroup,
                                   partSplit: index.partSplit,
                                 })
                               }
-                              onChange={selectedRadio}
-                            />
+                            >
+                              <img
+                                className={`${styles["parts-img"]}${
+                                  index.colorGroup === selectedColorGroup &&
+                                  index.partSplit === selectedPartSplit
+                                    ? styles["parts-img-selected"]
+                                    : ""
+                                }`}
+                                src={index.image}
+                                alt={
+                                  selectedParts.category[selectedCategory]
+                                    ? selectedParts.category[selectedCategory]
+                                        .partName
+                                    : ""
+                                }
+                              />
+                            </div>
                           </SwiperSlide>
                         );
                       }
@@ -567,32 +555,30 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                       (index, i) => {
                         return (
                           <SwiperSlide key={i} style={{ width: "100px" }}>
-                            <img
-                              className={styles["parts-img"]}
-                              src={index.image}
-                              alt={
-                                selectedParts.category[selectedCategory]
-                                  ? selectedParts.category[selectedCategory]
-                                      .partName
-                                  : ""
-                              }
-                            />
-                            <input
-                              type="radio"
-                              name="colorMenu"
-                              value={JSON.stringify({
-                                colorGroup: index.colorGroup,
-                                partSplit: index.partSplit,
-                              })}
-                              checked={
-                                selectedRadioValue ===
-                                JSON.stringify({
+                            <div
+                              onClick={() =>
+                                selectedPeaceButton({
                                   colorGroup: index.colorGroup,
                                   partSplit: index.partSplit,
                                 })
                               }
-                              onChange={selectedRadio}
-                            />
+                            >
+                              <img
+                                className={`${styles["parts-img"]}${
+                                  index.colorGroup === selectedColorGroup &&
+                                  index.partSplit === selectedPartSplit
+                                    ? styles["parts-img-selected"]
+                                    : ""
+                                }`}
+                                src={index.image}
+                                alt={
+                                  selectedParts.category[selectedCategory]
+                                    ? selectedParts.category[selectedCategory]
+                                        .partName
+                                    : ""
+                                }
+                              />
+                            </div>
                           </SwiperSlide>
                         );
                       }
