@@ -2,9 +2,16 @@
     display: flex;
 }
 
-.parts-img{
-    margin-right: 10px;
-}
+
+
+  .parts-img {
+    
+    background-color: wheat;
+  }
+  .parts-img:hover {
+    background-color: white;
+  }
+
 
 .scroll-event{
     overflow: auto;
@@ -23,6 +30,10 @@
     -webkit-appearance: none;
     cursor: pointer;
 }
+
+
+  
+
 
 .swiper-scrollbar {
     height: 10px;
@@ -45,3 +56,5 @@
     border: none;
     cursor: pointer;
   }
+
+    

@@ -523,31 +523,33 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                       (index, i) => {
                         return (
                           <SwiperSlide key={i} style={{ width: "100px" }}>
-                            <div
-                              onClick={() =>
-                                selectedPeaceButton({
-                                  colorGroup: index.colorGroup,
-                                  partSplit: index.partSplit,
-                                })
+                          <div 
+                            onClick={() =>
+                              selectedPeaceButton({
+                                colorGroup: index.colorGroup,
+                                partSplit: index.partSplit,
+                              })
+                            }
+                          >
+                            <img 
+                              className={`
+                                ${styles["parts-img"]}
+                                ${index.colorGroup === selectedColorGroup && index.partSplit === selectedPartSplit
+                                  ? styles["parts-img-selected"]
+                                  : ""}
+                                ${index.colorGroup === selectedColorGroup && index.partSplit === selectedPartSplit
+                                  ? styles["parts-img"]
+                                  : ""}
+                              `}
+                              src={index.image}
+                              alt={
+                                selectedParts.category[selectedCategory]
+                                  ? selectedParts.category[selectedCategory].partName
+                                  : ""
                               }
-                            >
-                              <img
-                                className={`${styles["parts-img"]}${
-                                  index.colorGroup === selectedColorGroup &&
-                                  index.partSplit === selectedPartSplit
-                                    ? styles["parts-img-selected"]
-                                    : ""
-                                }`}
-                                src={index.image}
-                                alt={
-                                  selectedParts.category[selectedCategory]
-                                    ? selectedParts.category[selectedCategory]
-                                        .partName
-                                    : ""
-                                }
-                              />
-                            </div>
-                          </SwiperSlide>
+                            />
+                          </div>
+                        </SwiperSlide>
                         );
                       }
                     )
