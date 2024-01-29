@@ -223,7 +223,7 @@
       }
     }
   },
-  "eyeLeftEyeWhite": {
+  "eyeWhite": {
     "colorGroup": "",
     "partCount": 1,
     "partChain": "eyes",
@@ -236,10 +236,10 @@
         "enableColor": false,
         "faces": {
           "clear": {
-            "imagePath": "eyeLeftEyeWhite/keen/clear.png"
+            "imagePath": "eyeWhite/keen/clear.png"
           },
           "smileOpen": {
-            "imagePath": "eyeLeftEyeWhite/keen/smileOpen.png"
+            "imagePath": "eyeWhite/keen/smileOpen.png"
           }
         }
       },
@@ -248,16 +248,16 @@
         "enableColor": false,
         "faces": {
           "clear": {
-            "imagePath": "eyeLeftEyeWhite/round/clear.png"
+            "imagePath": "eyeWhite/round/clear.png"
           },
           "smileOpen": {
-            "imagePath": "eyeLeftEyeWhite/round/smileOpen.png"
+            "imagePath": "eyeWhite/round/smileOpen.png"
           }
         }
       }
     }
   },
-  "eyeLeftEyelash": {
+  "eyelash": {
     "colorGroup": "hair",
     "partCount": 1,
     "partChain": "eyes",
@@ -270,13 +270,13 @@
         "enableColor": true,
         "faces": {
           "clear": {
-            "imagePath": "eyeLeftEyelash/keen/clear.png"
+            "imagePath": "eyelash/keen/clear.png"
           },
           "smile": {
-            "imagePath": "eyeLeftEyelash/keen/smile.png"
+            "imagePath": "eyelash/keen/smile.png"
           },
           "smileOpen": {
-            "imagePath": "eyeLeftEyelash/keen/smileOpen.png"
+            "imagePath": "eyelash/keen/smileOpen.png"
           }
         }
       },
@@ -285,19 +285,19 @@
         "enableColor": true,
         "faces": {
           "clear": {
-            "imagePath": "eyeLeftEyelash/round/clear.png"
+            "imagePath": "eyelash/round/clear.png"
           },
           "smile": {
-            "imagePath": "eyeLeftEyelash/round/smile.png"
+            "imagePath": "eyelash/round/smile.png"
           },
           "smileOpen": {
-            "imagePath": "eyeLeftEyelash/round/smileOpen.png"
+            "imagePath": "eyelash/round/smileOpen.png"
           }
         }
       }
     }
   },
-  "eyeLeftHighright": {
+  "eyeHighright": {
     "colorGroup": "",
     "partCount": 1,
     "partChain": "eyes",
@@ -310,10 +310,10 @@
         "enableColor": false,
         "faces": {
           "clear": {
-            "imagePath": "eyeLeftHighright/keen/clear.png"
+            "imagePath": "eyeHighright/keen/clear.png"
           },
           "smileOpen": {
-            "imagePath": "eyeLeftHighright/keen/smileOpen.png"
+            "imagePath": "eyeHighright/keen/smileOpen.png"
           }
         }
       },
@@ -322,10 +322,10 @@
         "enableColor": false,
         "faces": {
           "clear": {
-            "imagePath": "eyeLeftHighright/round/clear.png"
+            "imagePath": "eyeHighright/round/clear.png"
           },
           "smileOpen": {
-            "imagePath": "eyeLeftHighright/round/smileOpen.png"
+            "imagePath": "eyeHighright/round/smileOpen.png"
           }
         }
       }
@@ -360,114 +360,6 @@
           },
           "smileOpen": {
             "imagePath": "eyeLeftPupil/round/smileOpen.png"
-          }
-        }
-      }
-    }
-  },
-  "eyeRightEyeWhite": {
-    "colorGroup": "",
-    "partCount": 1,
-    "partChain": "eyes",
-    "partOrder": 61,
-    "ignoreTrigger": null,
-    "partFlip": false,
-    "items": {
-      "keen": {
-        "bodyType": null,
-        "enableColor": false,
-        "faces": {
-          "clear": {
-            "imagePath": "eyeRightEyeWhite/keen/clear.png"
-          },
-          "smileOpen": {
-            "imagePath": "eyeRightEyeWhite/keen/smileOpen.png"
-          }
-        }
-      },
-      "round": {
-        "bodyType": null,
-        "enableColor": false,
-        "faces": {
-          "clear": {
-            "imagePath": "eyeRightEyeWhite/round/clear.png"
-          },
-          "smileOpen": {
-            "imagePath": "eyeRightEyeWhite/round/smileOpen.png"
-          }
-        }
-      }
-    }
-  },
-  "eyeRightEyelash": {
-    "colorGroup": "hair",
-    "partCount": 1,
-    "partChain": "eyes",
-    "partOrder": 67,
-    "ignoreTrigger": null,
-    "partFlip": false,
-    "items": {
-      "keen": {
-        "bodyType": null,
-        "enableColor": true,
-        "faces": {
-          "clear": {
-            "imagePath": "eyeRightEyelash/keen/clear.png"
-          },
-          "smile": {
-            "imagePath": "eyeRightEyelash/keen/smile.png"
-          },
-          "smileOpen": {
-            "imagePath": "eyeRightEyelash/keen/smileOpen.png"
-          }
-        }
-      },
-      "round": {
-        "bodyType": null,
-        "enableColor": true,
-        "faces": {
-          "clear": {
-            "imagePath": "eyeRightEyelash/round/clear.png"
-          },
-          "smile": {
-            "imagePath": "eyeRightEyelash/round/smile.png"
-          },
-          "smileOpen": {
-            "imagePath": "eyeRightEyelash/round/smileOpen.png"
-          }
-        }
-      }
-    }
-  },
-  "eyeRightHighright": {
-    "colorGroup": "",
-    "partCount": 1,
-    "partChain": "eyes",
-    "partOrder": 65,
-    "ignoreTrigger": null,
-    "partFlip": false,
-    "items": {
-      "keen": {
-        "bodyType": null,
-        "enableColor": false,
-        "faces": {
-          "clear": {
-            "imagePath": "eyeRightHighright/keen/clear.png"
-          },
-          "smileOpen": {
-            "imagePath": "eyeRightHighright/keen/smileOpen.png"
-          }
-        }
-      },
-      "round": {
-        "bodyType": null,
-        "enableColor": false,
-        "faces": {
-          "clear": {
-            "imagePath": "eyeRightHighright/round/clear.png"
-          },
-          "smileOpen": {
-            "imagePath": "eyeRightHighright/round/smileOpen.png"
           }
         }
       }
