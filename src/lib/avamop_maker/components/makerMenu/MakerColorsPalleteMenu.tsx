@@ -66,135 +66,125 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
 
   const selectedPeaceButton = (value) => {
     const { colorGroup, partSplit } = value;
-    setSelectedColorGroup(colorGroup);
     setSelectedPartSplit(partSplit);
+    setSelectedColorGroup(colorGroup);
   };
 
   useEffect(() => {
     if (selectedCategory && selectedColorGroup && selectedPartSplit) {
       setIsSliderLoading(true);
       const colorData = selectedParts.selectedColor[selectedColorGroup];
+      const selectedColor = selectedParts.selectedColor;
       setColor(
         colorData
           ? colorData[selectedPartSplit]
             ? colorData[selectedPartSplit].color
             : colorData["default"].color
-          : selectedParts.selectedColor["none"][selectedPartSplit]
-          ? selectedParts.selectedColor["none"][selectedPartSplit].color
-          : selectedParts.selectedColor["none"]["default"].color
+          : selectedColor["none"][selectedPartSplit]
+          ? selectedColor["none"][selectedPartSplit].color
+          : selectedColor["none"]["default"].color
       );
       setHueReverse(
         colorData
           ? colorData[selectedPartSplit]
             ? colorData[selectedPartSplit].hueReverse
             : colorData["default"].hueReverse
-          : selectedParts.selectedColor["none"][selectedPartSplit]
-          ? selectedParts.selectedColor["none"][selectedPartSplit].hueReverse
-          : selectedParts.selectedColor["none"]["default"].hueReverse
+          : selectedColor["none"][selectedPartSplit]
+          ? selectedColor["none"][selectedPartSplit].hueReverse
+          : selectedColor["none"]["default"].hueReverse
       );
       setSaturationReverse(
         colorData
           ? colorData[selectedPartSplit]
             ? colorData[selectedPartSplit].saturationReverse
             : colorData["default"].saturationReverse
-          : selectedParts.selectedColor["none"][selectedPartSplit]
-          ? selectedParts.selectedColor["none"][selectedPartSplit]
-              .saturationReverse
-          : selectedParts.selectedColor["none"]["default"].saturationReverse
+          : selectedColor["none"][selectedPartSplit]
+          ? selectedColor["none"][selectedPartSplit].saturationReverse
+          : selectedColor["none"]["default"].saturationReverse
       );
       setHueGraph(
         colorData
           ? colorData[selectedPartSplit]
             ? colorData[selectedPartSplit].hueGraph
             : colorData["default"].hueGraph
-          : selectedParts.selectedColor["none"][selectedPartSplit]
-          ? selectedParts.selectedColor["none"][selectedPartSplit].hueGraph
-          : selectedParts.selectedColor["none"]["default"].hueGraph
+          : selectedColor["none"][selectedPartSplit]
+          ? selectedColor["none"][selectedPartSplit].hueGraph
+          : selectedColor["none"]["default"].hueGraph
       );
       setSaturationGraph(
         colorData
           ? colorData[selectedPartSplit]
             ? colorData[selectedPartSplit].saturationGraph
             : colorData["default"].saturationGraph
-          : selectedParts.selectedColor["none"][selectedPartSplit]
-          ? selectedParts.selectedColor["none"][selectedPartSplit]
-              .saturationGraph
-          : selectedParts.selectedColor["none"]["default"].saturationGraph
+          : selectedColor["none"][selectedPartSplit]
+          ? selectedColor["none"][selectedPartSplit].saturationGraph
+          : selectedColor["none"]["default"].saturationGraph
       );
       setValueGraph(
         colorData
           ? colorData[selectedPartSplit]
             ? colorData[selectedPartSplit].valueGraph
             : colorData["default"].valueGraph
-          : selectedParts.selectedColor["none"][selectedPartSplit]
-          ? selectedParts.selectedColor["none"][selectedPartSplit].valueGraph
-          : selectedParts.selectedColor["none"]["default"].valueGraph
+          : selectedColor["none"][selectedPartSplit]
+          ? selectedColor["none"][selectedPartSplit].valueGraph
+          : selectedColor["none"]["default"].valueGraph
       );
       setHueGlobalSlope(
         colorData
           ? colorData[selectedPartSplit]
             ? colorData[selectedPartSplit].hueGraph.globalSlope
             : colorData["default"].hueGraph.globalSlope
-          : selectedParts.selectedColor["none"][selectedPartSplit]
-          ? selectedParts.selectedColor["none"][selectedPartSplit].hueGraph
-              .globalSlope
-          : selectedParts.selectedColor["none"]["default"].hueGraph.globalSlope
+          : selectedColor["none"][selectedPartSplit]
+          ? selectedColor["none"][selectedPartSplit].hueGraph.globalSlope
+          : selectedColor["none"]["default"].hueGraph.globalSlope
       );
       setHueIndividualSlope(
         colorData
           ? colorData[selectedPartSplit]
             ? colorData[selectedPartSplit].hueGraph.individualSlope
             : colorData["default"].hueGraph.individualSlope
-          : selectedParts.selectedColor["none"][selectedPartSplit]
-          ? selectedParts.selectedColor["none"][selectedPartSplit].hueGraph
-              .individualSlope
-          : selectedParts.selectedColor["none"]["default"].hueGraph
-              .individualSlope
+          : selectedColor["none"][selectedPartSplit]
+          ? selectedColor["none"][selectedPartSplit].hueGraph.individualSlope
+          : selectedColor["none"]["default"].hueGraph.individualSlope
       );
       setSaturationGlobalSlope(
         colorData
           ? colorData[selectedPartSplit]
             ? colorData[selectedPartSplit].saturationGraph.globalSlope
             : colorData["default"].saturationGraph.globalSlope
-          : selectedParts.selectedColor["none"][selectedPartSplit]
-          ? selectedParts.selectedColor["none"][selectedPartSplit]
-              .saturationGraph.globalSlope
-          : selectedParts.selectedColor["none"]["default"].saturationGraph
-              .globalSlope
+          : selectedColor["none"][selectedPartSplit]
+          ? selectedColor["none"][selectedPartSplit].saturationGraph.globalSlope
+          : selectedColor["none"]["default"].saturationGraph.globalSlope
       );
       setSaturationIndividualSlope(
         colorData
           ? colorData[selectedPartSplit]
             ? colorData[selectedPartSplit].saturationGraph.individualSlope
             : colorData["default"].saturationGraph.individualSlope
-          : selectedParts.selectedColor["none"][selectedPartSplit]
-          ? selectedParts.selectedColor["none"][selectedPartSplit]
-              .saturationGraph.individualSlope
-          : selectedParts.selectedColor["none"]["default"].saturationGraph
+          : selectedColor["none"][selectedPartSplit]
+          ? selectedColor["none"][selectedPartSplit].saturationGraph
               .individualSlope
+          : selectedColor["none"]["default"].saturationGraph.individualSlope
       );
       setValueGlobalSlope(
         colorData
           ? colorData[selectedPartSplit]
             ? colorData[selectedPartSplit].valueGraph.globalSlope
             : colorData["default"].valueGraph.globalSlope
-          : selectedParts.selectedColor["none"][selectedPartSplit]
-          ? selectedParts.selectedColor["none"][selectedPartSplit].valueGraph
-              .globalSlope
-          : selectedParts.selectedColor["none"]["default"].valueGraph
-              .globalSlope
+          : selectedColor["none"][selectedPartSplit]
+          ? selectedColor["none"][selectedPartSplit].valueGraph.globalSlope
+          : selectedColor["none"]["default"].valueGraph.globalSlope
       );
       setValueIndividualSlope(
         colorData
           ? colorData[selectedPartSplit]
             ? colorData[selectedPartSplit].valueGraph.individualSlope
             : colorData["default"].valueGraph.individualSlope
-          : selectedParts.selectedColor["none"][selectedPartSplit]
-          ? selectedParts.selectedColor["none"][selectedPartSplit].valueGraph
-              .individualSlope
-          : selectedParts.selectedColor["none"]["default"].valueGraph
-              .individualSlope
+          : selectedColor["none"][selectedPartSplit]
+          ? selectedColor["none"][selectedPartSplit].valueGraph.individualSlope
+          : selectedColor["none"]["default"].valueGraph.individualSlope
       );
+
       setIsSliderLoading(false);
     }
   }, [selectedColorGroup, selectedPartSplit]);
@@ -280,14 +270,30 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
           );
         }
       }
-      setSelectedColorGroup(
-        selectedColorGroup ? selectedColorGroup : peaceValuesColorGroup[0]
-        // null
-      );
-      setSelectedPartSplit(
-        selectedPartSplit ? selectedPartSplit : peaceValuesPartSplit[0]
-        // null
-      );
+      const tmpSelectedColorGroup = enableChain
+        ? colorMenuPartIcons[selectedCategory].true.some(
+            (item) => item.colorGroup === selectedColorGroup
+          )
+          ? selectedColorGroup
+          : colorMenuPartIcons[selectedCategory].true[0].colorGroup
+        : colorMenuPartIcons[selectedCategory].false.some(
+            (item) => item.colorGroup === selectedColorGroup
+          )
+        ? selectedColorGroup
+        : colorMenuPartIcons[selectedCategory].false[0].colorGroup;
+      const tmpSelectedPartSplit = enableChain
+        ? colorMenuPartIcons[selectedCategory].true.some(
+            (item) => item.partSplit === selectedPartSplit
+          )
+          ? selectedPartSplit
+          : colorMenuPartIcons[selectedCategory].true[0].partSplit
+        : colorMenuPartIcons[selectedCategory].false.some(
+            (item) => item.partSplit === selectedPartSplit
+          )
+        ? selectedPartSplit
+        : colorMenuPartIcons[selectedCategory].false[0].partSplit;
+      setSelectedPartSplit(tmpSelectedPartSplit);
+      setSelectedColorGroup(tmpSelectedColorGroup);
       setEnableChain(enableChain);
     }
     setIsPeaceLoading(false);
