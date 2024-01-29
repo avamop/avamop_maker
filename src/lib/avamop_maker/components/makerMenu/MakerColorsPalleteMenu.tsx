@@ -270,28 +270,34 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
           );
         }
       }
-      const tmpSelectedColorGroup = enableChain
-        ? colorMenuPartIcons[selectedCategory].true.some(
-            (item) => item.colorGroup === selectedColorGroup
-          )
+      const tmpSelectedColorGroup = selectedParts.category[selectedCategory]
+        .partName
+        ? enableChain
+          ? colorMenuPartIcons[selectedCategory].true.some(
+              (item) => item.colorGroup === selectedColorGroup
+            )
+            ? selectedColorGroup
+            : colorMenuPartIcons[selectedCategory].true[0].colorGroup
+          : colorMenuPartIcons[selectedCategory].false.some(
+              (item) => item.colorGroup === selectedColorGroup
+            )
           ? selectedColorGroup
-          : colorMenuPartIcons[selectedCategory].true[0].colorGroup
-        : colorMenuPartIcons[selectedCategory].false.some(
-            (item) => item.colorGroup === selectedColorGroup
-          )
-        ? selectedColorGroup
-        : colorMenuPartIcons[selectedCategory].false[0].colorGroup;
-      const tmpSelectedPartSplit = enableChain
-        ? colorMenuPartIcons[selectedCategory].true.some(
-            (item) => item.partSplit === selectedPartSplit
-          )
+          : colorMenuPartIcons[selectedCategory].false[0].colorGroup
+        : null;
+      const tmpSelectedPartSplit = selectedParts.category[selectedCategory]
+        .partName
+        ? enableChain
+          ? colorMenuPartIcons[selectedCategory].true.some(
+              (item) => item.partSplit === selectedPartSplit
+            )
+            ? selectedPartSplit
+            : colorMenuPartIcons[selectedCategory].true[0].partSplit
+          : colorMenuPartIcons[selectedCategory].false.some(
+              (item) => item.partSplit === selectedPartSplit
+            )
           ? selectedPartSplit
-          : colorMenuPartIcons[selectedCategory].true[0].partSplit
-        : colorMenuPartIcons[selectedCategory].false.some(
-            (item) => item.partSplit === selectedPartSplit
-          )
-        ? selectedPartSplit
-        : colorMenuPartIcons[selectedCategory].false[0].partSplit;
+          : colorMenuPartIcons[selectedCategory].false[0].partSplit
+        : null;
       setSelectedPartSplit(tmpSelectedPartSplit);
       setSelectedColorGroup(tmpSelectedColorGroup);
       setEnableChain(enableChain);
