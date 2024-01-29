@@ -281,11 +281,11 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
         }
       }
       setSelectedColorGroup(
-        peaceValuesColorGroup[0]
+        selectedColorGroup ? selectedColorGroup : peaceValuesColorGroup[0]
         // null
       );
       setSelectedPartSplit(
-        peaceValuesPartSplit[0]
+        selectedPartSplit ? selectedPartSplit : peaceValuesPartSplit[0]
         // null
       );
       setEnableChain(enableChain);
