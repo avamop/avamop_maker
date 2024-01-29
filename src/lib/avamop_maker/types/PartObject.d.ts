@@ -97,14 +97,16 @@ declare global {
 
   interface SelectedColor {
     //SelectedPartsの色データ格納オブジェクト
-    [partSplit: "default" | string]: {
-      color: string;
-      hueReverse: boolean;
-      saturationReverse: boolean;
-      hueGraph: ColorGraph;
-      saturationGraph: ColorGraph;
-      valueGraph: ColorGraph;
-    };
+    [partSplit: "default" | string]: SelectedColorValue;
+  }
+
+  interface SelectedColorValue {
+    color: string;
+    hueReverse: boolean;
+    saturationReverse: boolean;
+    hueGraph: ColorGraph;
+    saturationGraph: ColorGraph;
+    valueGraph: ColorGraph;
   }
 
   interface SelectedPartsForCanvas {

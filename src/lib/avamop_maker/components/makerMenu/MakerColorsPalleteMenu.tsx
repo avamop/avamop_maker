@@ -60,10 +60,10 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
   const [valueIndividualSlope, setValueIndividualSlope] =
     useState<AtLeast<10, number>>(null);
   const nullImage: JimpType = useContext(NullImageContext);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isPeaceLoading, setIsPeaceLoading] = useState(false);
-  const [isSliderLoading, setIsSliderLoading] = useState(false);
-
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isPeaceLoading, setIsPeaceLoading] = useState<boolean>(false);
+  const [isSliderLoading, setIsSliderLoading] = useState<boolean>(false);
+  const [saveColor, setSaveColor] = useState<SelectedColorValue | null>(null);
   const selectedPeaceButton = (value) => {
     const { colorGroup, partSplit } = value;
     setSelectedPartSplit(partSplit);
@@ -184,7 +184,6 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
           ? selectedColor["none"][selectedPartSplit].valueGraph.individualSlope
           : selectedColor["none"]["default"].valueGraph.individualSlope
       );
-
       setIsSliderLoading(false);
     }
   }, [selectedColorGroup, selectedPartSplit]);
@@ -511,6 +510,42 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                   </Swiper>
                 </div>
               )}
+              <button
+                className={styles["setting-button"]}
+                name="enableChain"
+                id="enableChain"
+                onClick={() =>
+                  setSaveColor(
+                    selectedParts.selectedColor[selectedColorGroup][
+                      selectedPartSplit
+                    ]
+                  )
+                }
+              >
+                {"色の保存"}
+              </button>
+              <button
+                className={styles["setting-button"]}
+                name="enableChain"
+                id="enableChain"
+                onClick={() => {
+                  setColor(saveColor.color);
+                  setHueReverse(saveColor.hueReverse);
+                  setSaturationReverse(saveColor.saturationReverse);
+                  setHueGlobalSlope(saveColor.hueGraph.globalSlope);
+                  setHueIndividualSlope(saveColor.hueGraph.individualSlope);
+                  setSaturationGlobalSlope(
+                    saveColor.saturationGraph.globalSlope
+                  );
+                  setSaturationIndividualSlope(
+                    saveColor.saturationGraph.individualSlope
+                  );
+                  setValueGlobalSlope(saveColor.valueGraph.globalSlope);
+                  setValueIndividualSlope(saveColor.valueGraph.individualSlope);
+                }}
+              >
+                {"保存した色の使用"}
+              </button>
               <button
                 className={styles["setting-button"]}
                 name="enableChain"
