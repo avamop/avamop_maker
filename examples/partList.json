@@ -297,7 +297,7 @@
       }
     }
   },
-  "eyeHighright": {
+  "eyeHighlight": {
     "colorGroup": "",
     "partCount": 1,
     "partChain": "eyes",
@@ -310,10 +310,10 @@
         "enableColor": false,
         "faces": {
           "clear": {
-            "imagePath": "eyeHighright/keen/clear.png"
+            "imagePath": "eyeHighlight/keen/clear.png"
           },
           "smileOpen": {
-            "imagePath": "eyeHighright/keen/smileOpen.png"
+            "imagePath": "eyeHighlight/keen/smileOpen.png"
           }
         }
       },
@@ -322,10 +322,10 @@
         "enableColor": false,
         "faces": {
           "clear": {
-            "imagePath": "eyeHighright/round/clear.png"
+            "imagePath": "eyeHighlight/round/clear.png"
           },
           "smileOpen": {
-            "imagePath": "eyeHighright/round/smileOpen.png"
+            "imagePath": "eyeHighlight/round/smileOpen.png"
           }
         }
       }

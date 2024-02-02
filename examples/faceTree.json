@@ -1,5 +1,10 @@
 {
   "face": "clear",
   "image": "clear.png",
-  "children": [{ "face": "smile", "image": "smile.png", "children": [] }]
+  "children": [
+    { "face": "smile", "image": "smile.png", "children": [] },
+    { "face": "angry", "image": "angry.png", "children": [] },
+    { "face": "sad", "image": "sad.png", "children": [] },
+    { "face": "wonder", "image": "wonder.png", "children": [] }
+  ]
 }
