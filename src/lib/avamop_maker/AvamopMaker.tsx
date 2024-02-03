@@ -233,6 +233,26 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
                                 .partSplit[partSplit].partOrder,
                           });
                         }
+                      } else if (
+                        selectedPartsForCanvas.category[selectedCategory]
+                          .partSplit[partSplit].enableColor &&
+                        partsObject[selectedCategory].partList[partSplit].items[
+                          selectedParts.category[selectedCategory].partName
+                        ].faces["clear"].imagePath != null &&
+                        partsObject[selectedCategory].partList[partSplit].items[
+                          selectedParts.category[selectedCategory].partName
+                        ].faces["clear"].imagePath != "" &&
+                        selectedPartsForCanvas.category[selectedCategory]
+                          .partSplit[partSplit]
+                      ) {
+                        images.push({
+                          jimp: selectedPartsForCanvas.category[
+                            selectedCategory
+                          ].partSplit[partSplit].partData.clone(),
+                          partOrder:
+                            selectedPartsForCanvas.category[selectedCategory]
+                              .partSplit[partSplit].partOrder,
+                        });
                       }
                     }
                   }
@@ -284,6 +304,35 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
                           selectedParts.category[selectedCategory].partName
                         ].faces[selectedParts.selectedFace[selectedCategory]]
                           .imagePath != "" &&
+                        selectedPartsForCanvas.category[selectedCategory]
+                          .partSplit[partSplit]
+                      ) {
+                        const image = await MakerConvertBase64(
+                          await MakerPartIconsTrim(
+                            selectedPartsForCanvas.category[
+                              selectedCategory
+                            ].partSplit[partSplit].partData.clone(),
+                            64
+                          )
+                        );
+                        newImages[selectedCategory]["false"].push({
+                          image,
+                          colorGroup:
+                            selectedPartsForCanvas.category[selectedCategory]
+                              .partSplit[partSplit].colorGroup,
+                          partSplit,
+                        });
+                      }
+                    } else {
+                      if (
+                        selectedPartsForCanvas.category[selectedCategory]
+                          .partSplit[partSplit].enableColor &&
+                        partsObject[selectedCategory].partList[partSplit].items[
+                          selectedParts.category[selectedCategory].partName
+                        ].faces["clear"].imagePath != null &&
+                        partsObject[selectedCategory].partList[partSplit].items[
+                          selectedParts.category[selectedCategory].partName
+                        ].faces["clear"].imagePath != "" &&
                         selectedPartsForCanvas.category[selectedCategory]
                           .partSplit[partSplit]
                       ) {
