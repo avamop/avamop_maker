@@ -537,7 +537,7 @@
     "colorGroup": "hair",
     "partCount": 1,
     "partChain": "eyebrows",
-    "partOrder": 70,
+    "partOrder": 74,
     "ignoreTrigger": null,
     "partFlip": false,
     "items": {
@@ -671,7 +671,7 @@
     "colorGroup": "hair",
     "partCount": 1,
     "partChain": "frontHair",
-    "partOrder": 75,
+    "partOrder": 72,
     "ignoreTrigger": null,
     "partFlip": true,
     "items": {
