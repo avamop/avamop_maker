@@ -4,11 +4,16 @@
     "partCount": 1,
     "partChain": "allinone",
     "partOrder": 39,
-    "ignoreTrigger": ["tops", "bottoms"],
+    "ignoreTrigger": [
+      "tops",
+      "bottoms"
+    ],
     "partFlip": false,
     "items": {
       "femaleSimpleDress": {
-        "bodyType": ["female"],
+        "bodyType": [
+          "female"
+        ],
         "enableColor": true,
         "faces": {
           "clear": {
@@ -55,7 +60,9 @@
     "partFlip": false,
     "items": {
       "female": {
-        "bodyType": ["female"],
+        "bodyType": [
+          "female"
+        ],
         "enableColor": true,
         "faces": {
           "clear": {
@@ -64,7 +71,9 @@
         }
       },
       "male": {
-        "bodyType": ["male"],
+        "bodyType": [
+          "male"
+        ],
         "enableColor": true,
         "faces": {
           "clear": {
@@ -83,7 +92,9 @@
     "partFlip": false,
     "items": {
       "female": {
-        "bodyType": ["female"],
+        "bodyType": [
+          "female"
+        ],
         "enableColor": true,
         "faces": {
           "clear": {
@@ -92,7 +103,9 @@
         }
       },
       "male": {
-        "bodyType": ["male"],
+        "bodyType": [
+          "male"
+        ],
         "enableColor": true,
         "faces": {
           "clear": {
@@ -111,7 +124,9 @@
     "partFlip": false,
     "items": {
       "female": {
-        "bodyType": ["female"],
+        "bodyType": [
+          "female"
+        ],
         "enableColor": true,
         "faces": {
           "clear": {
@@ -120,7 +135,9 @@
         }
       },
       "male": {
-        "bodyType": ["male"],
+        "bodyType": [
+          "male"
+        ],
         "enableColor": true,
         "faces": {
           "clear": {
@@ -139,7 +156,9 @@
     "partFlip": false,
     "items": {
       "female": {
-        "bodyType": ["female"],
+        "bodyType": [
+          "female"
+        ],
         "enableColor": false,
         "faces": {
           "clear": {
@@ -148,7 +167,9 @@
         }
       },
       "male": {
-        "bodyType": ["male"],
+        "bodyType": [
+          "male"
+        ],
         "enableColor": false,
         "faces": {
           "clear": {
@@ -163,11 +184,15 @@
     "partCount": 1,
     "partChain": "bottoms",
     "partOrder": 33,
-    "ignoreTrigger": ["allinone"],
+    "ignoreTrigger": [
+      "allinone"
+    ],
     "partFlip": false,
     "items": {
       "femaleSkirtPleatedLong": {
-        "bodyType": ["female"],
+        "bodyType": [
+          "female"
+        ],
         "enableColor": true,
         "faces": {
           "clear": {
@@ -176,7 +201,9 @@
         }
       },
       "femaleSkirtPleatedShort": {
-        "bodyType": ["female"],
+        "bodyType": [
+          "female"
+        ],
         "enableColor": true,
         "faces": {
           "clear": {
@@ -185,7 +212,9 @@
         }
       },
       "malePantsSkinny": {
-        "bodyType": ["male"],
+        "bodyType": [
+          "male"
+        ],
         "enableColor": true,
         "faces": {
           "clear": {
@@ -311,6 +340,27 @@
             "imagePath": "eyeHighlight/sauceRound/wonder.png"
           }
         }
+      },
+      "mildKeen": {
+        "bodyType": null,
+        "enableColor": false,
+        "faces": {
+          "angry": {
+            "imagePath": "eyeHighlight/mildKeen/angry.png"
+          },
+          "clear": {
+            "imagePath": "eyeHighlight/mildKeen/clear.png"
+          },
+          "sad": {
+            "imagePath": "eyeHighlight/mildKeen/sad.png"
+          },
+          "smileOpen": {
+            "imagePath": "eyeHighlight/mildKeen/smileOpen.png"
+          },
+          "wonder": {
+            "imagePath": "eyeHighlight/mildKeen/wonder.png"
+          }
+        }
       }
     }
   },
@@ -382,6 +432,27 @@
           },
           "wonder": {
             "imagePath": "eyeLeftPupil/sauceRound/wonder.png"
+          }
+        }
+      },
+      "mildKeen": {
+        "bodyType": null,
+        "enableColor": true,
+        "faces": {
+          "angry": {
+            "imagePath": "eyeLeftPupil/mildKeen/angry.png"
+          },
+          "clear": {
+            "imagePath": "eyeLeftPupil/mildKeen/clear.png"
+          },
+          "sad": {
+            "imagePath": "eyeLeftPupil/mildKeen/sad.png"
+          },
+          "smileOpen": {
+            "imagePath": "eyeLeftPupil/mildKeen/smileOpen.png"
+          },
+          "wonder": {
+            "imagePath": "eyeLeftPupil/mildKeen/wonder.png"
           }
         }
       }
@@ -457,6 +528,27 @@
             "imagePath": "eyeRightPupil/sauceRound/wonder.png"
           }
         }
+      },
+      "mildKeen": {
+        "bodyType": null,
+        "enableColor": true,
+        "faces": {
+          "angry": {
+            "imagePath": "eyeRightPupil/mildKeen/angry.png"
+          },
+          "clear": {
+            "imagePath": "eyeRightPupil/mildKeen/clear.png"
+          },
+          "sad": {
+            "imagePath": "eyeRightPupil/mildKeen/sad.png"
+          },
+          "smileOpen": {
+            "imagePath": "eyeRightPupil/mildKeen/smileOpen.png"
+          },
+          "wonder": {
+            "imagePath": "eyeRightPupil/mildKeen/wonder.png"
+          }
+        }
       }
     }
   },
@@ -528,6 +620,27 @@
           },
           "wonder": {
             "imagePath": "eyeWhite/sauceRound/wonder.png"
+          }
+        }
+      },
+      "mildKeen": {
+        "bodyType": null,
+        "enableColor": false,
+        "faces": {
+          "angry": {
+            "imagePath": "eyeWhite/mildKeen/angry.png"
+          },
+          "clear": {
+            "imagePath": "eyeWhite/mildKeen/clear.png"
+          },
+          "sad": {
+            "imagePath": "eyeWhite/mildKeen/sad.png"
+          },
+          "smileOpen": {
+            "imagePath": "eyeWhite/mildKeen/smileOpen.png"
+          },
+          "wonder": {
+            "imagePath": "eyeWhite/mildKeen/wonder.png"
           }
         }
       }
@@ -662,6 +775,30 @@
           },
           "wonder": {
             "imagePath": "eyelash/sauceRound/wonder.png"
+          }
+        }
+      },
+      "mildKeen": {
+        "bodyType": null,
+        "enableColor": true,
+        "faces": {
+          "angry": {
+            "imagePath": "eyelash/mildKeen/angry.png"
+          },
+          "clear": {
+            "imagePath": "eyelash/mildKeen/clear.png"
+          },
+          "sad": {
+            "imagePath": "eyelash/mildKeen/sad.png"
+          },
+          "smile": {
+            "imagePath": "eyelash/mildKeen/smile.png"
+          },
+          "smileOpen": {
+            "imagePath": "eyelash/mildKeen/smileOpen.png"
+          },
+          "wonder": {
+            "imagePath": "eyelash/mildKeen/wonder.png"
           }
         }
       }
@@ -824,6 +961,9 @@
           },
           "wonder": {
             "imagePath": "mouthOral/standard/wonder.png"
+          },
+          "mouthOral": {
+            "imagePath": "mouthOral/standard/mouthOral.png"
           }
         }
       }
@@ -963,7 +1103,9 @@
     "partFlip": false,
     "items": {
       "femaleSneakers": {
-        "bodyType": ["female"],
+        "bodyType": [
+          "female"
+        ],
         "enableColor": true,
         "faces": {
           "clear": {
@@ -972,7 +1114,9 @@
         }
       },
       "maleSneakers": {
-        "bodyType": ["male"],
+        "bodyType": [
+          "male"
+        ],
         "enableColor": true,
         "faces": {
           "clear": {
@@ -991,7 +1135,9 @@
     "partFlip": false,
     "items": {
       "femaleSocksLong": {
-        "bodyType": ["female"],
+        "bodyType": [
+          "female"
+        ],
         "enableColor": true,
         "faces": {
           "clear": {
@@ -1000,7 +1146,9 @@
         }
       },
       "femaleSocksShort": {
-        "bodyType": ["female"],
+        "bodyType": [
+          "female"
+        ],
         "enableColor": true,
         "faces": {
           "clear": {
@@ -1009,7 +1157,9 @@
         }
       },
       "maleSocksLong": {
-        "bodyType": ["male"],
+        "bodyType": [
+          "male"
+        ],
         "enableColor": true,
         "faces": {
           "clear": {
@@ -1018,7 +1168,9 @@
         }
       },
       "maleSocksShort": {
-        "bodyType": ["male"],
+        "bodyType": [
+          "male"
+        ],
         "enableColor": true,
         "faces": {
           "clear": {
@@ -1033,11 +1185,15 @@
     "partCount": 1,
     "partChain": "tops",
     "partOrder": 42,
-    "ignoreTrigger": ["allinone"],
+    "ignoreTrigger": [
+      "allinone"
+    ],
     "partFlip": false,
     "items": {
       "femaleSimpleTShirt": {
-        "bodyType": ["female"],
+        "bodyType": [
+          "female"
+        ],
         "enableColor": true,
         "faces": {
           "clear": {
@@ -1046,7 +1202,9 @@
         }
       },
       "maleSimpleTShirt": {
-        "bodyType": ["male"],
+        "bodyType": [
+          "male"
+        ],
         "enableColor": true,
         "faces": {
           "clear": {
