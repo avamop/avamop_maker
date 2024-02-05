@@ -751,7 +751,7 @@
     }
   },
   "mouthLips": {
-    "colorGroup": "oral",
+    "colorGroup": "lip",
     "partCount": 1,
     "partChain": "mouth",
     "partOrder": 54,
