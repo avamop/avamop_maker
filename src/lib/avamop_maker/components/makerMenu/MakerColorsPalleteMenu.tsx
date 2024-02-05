@@ -531,28 +531,32 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
               >
                 {"色の保存"}
               </button>
-              <button
-                className={styles["setting-button"]}
-                name="enableChain"
-                id="enableChain"
-                onClick={() => {
-                  setColor(saveColor.color);
-                  setHueReverse(saveColor.hueReverse);
-                  setSaturationReverse(saveColor.saturationReverse);
-                  setHueGlobalSlope(saveColor.hueGraph.globalSlope);
-                  setHueIndividualSlope(saveColor.hueGraph.individualSlope);
-                  setSaturationGlobalSlope(
-                    saveColor.saturationGraph.globalSlope
-                  );
-                  setSaturationIndividualSlope(
-                    saveColor.saturationGraph.individualSlope
-                  );
-                  setValueGlobalSlope(saveColor.valueGraph.globalSlope);
-                  setValueIndividualSlope(saveColor.valueGraph.individualSlope);
-                }}
-              >
-                {"保存した色の使用"}
-              </button>
+              {saveColor ? (
+                <button
+                  className={styles["setting-button"]}
+                  name="enableChain"
+                  id="enableChain"
+                  onClick={() => {
+                    setColor(saveColor.color);
+                    setHueReverse(saveColor.hueReverse);
+                    setSaturationReverse(saveColor.saturationReverse);
+                    setHueGlobalSlope(saveColor.hueGraph.globalSlope);
+                    setHueIndividualSlope(saveColor.hueGraph.individualSlope);
+                    setSaturationGlobalSlope(
+                      saveColor.saturationGraph.globalSlope
+                    );
+                    setSaturationIndividualSlope(
+                      saveColor.saturationGraph.individualSlope
+                    );
+                    setValueGlobalSlope(saveColor.valueGraph.globalSlope);
+                    setValueIndividualSlope(
+                      saveColor.valueGraph.individualSlope
+                    );
+                  }}
+                >
+                  {"保存した色の使用"}
+                </button>
+              ) : null}
               <button
                 className={styles["setting-button"]}
                 name="enableChain"
