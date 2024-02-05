@@ -974,9 +974,6 @@
               },
               "wonder": {
                 "imagePath": "mouthLips/lips/wonder.png"
-              },
-              "mouthOral": {
-                "imagePath": ""
               }
             }
           },
@@ -1000,9 +997,6 @@
                 "imagePath": ""
               },
               "wonder": {
-                "imagePath": ""
-              },
-              "mouthOral": {
                 "imagePath": ""
               }
             }
@@ -1034,9 +1028,6 @@
               },
               "sad": {
                 "imagePath": ""
-              },
-              "mouthOral": {
-                "imagePath": ""
               }
             }
           },
@@ -1052,9 +1043,6 @@
               },
               "wonder": {
                 "imagePath": "mouthOral/standard/wonder.png"
-              },
-              "mouthOral": {
-                "imagePath": "mouthOral/standard/mouthOral.png"
               },
               "clear": {
                 "imagePath": ""
@@ -1094,9 +1082,6 @@
               },
               "wonder": {
                 "imagePath": ""
-              },
-              "mouthOral": {
-                "imagePath": ""
               }
             }
           },
@@ -1120,9 +1105,6 @@
                 "imagePath": ""
               },
               "wonder": {
-                "imagePath": ""
-              },
-              "mouthOral": {
                 "imagePath": ""
               }
             }
@@ -1154,9 +1136,6 @@
               },
               "sad": {
                 "imagePath": ""
-              },
-              "mouthOral": {
-                "imagePath": ""
               }
             }
           },
@@ -1180,9 +1159,6 @@
                 "imagePath": ""
               },
               "sad": {
-                "imagePath": ""
-              },
-              "mouthOral": {
                 "imagePath": ""
               }
             }
