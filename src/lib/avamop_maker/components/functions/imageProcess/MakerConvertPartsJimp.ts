@@ -4,6 +4,8 @@ import { MakerPartsColoring } from "./MakerPartsColoring";
 
 declare const Jimp: JimpObject;
 
+const MAX_PROMISE = 20;
+
 // パスの入ったpartsObjectをJimpデータの入ったものに変換する
 export const MakerConvertPartsJimp = async (
   partsObject: PartsObjectSplit,
@@ -13,7 +15,6 @@ export const MakerConvertPartsJimp = async (
   colorsObject: ColorsObject
 ): Promise<PartsObjectJimp> => {
   const partsObjectJimp: PartsObjectJimp = {};
-  const promises = [];
   for (const category in selectedParts.category) {
     partsObjectJimp[category] = {
       partCount: partsObject[category].partCount,
@@ -44,50 +45,42 @@ export const MakerConvertPartsJimp = async (
               .items[item].enableColor,
           faces: {},
         };
-        for (const face in partsObject[category.replace(/_\d+$/, "")].partList[
-          partSplit
-        ].items[item].faces) {
-          promises.push(
-            (async () => {
-              let jimpData: JimpType;
-              try {
-                if (
+
+        await asyncMap(
+          Object.keys(
+            partsObject[category.replace(/_\d+$/, "")].partList[partSplit]
+              .items[item].faces
+          ),
+          async (face) => {
+            let jimpData: JimpType;
+
+            if (
+              partsObject[category.replace(/_\d+$/, "")].partList[partSplit]
+                .items[item].faces[face].imagePath == ""
+            ) {
+              jimpData = nullImage;
+            } else {
+              jimpData = await partRead(
+                partsPath +
                   partsObject[category.replace(/_\d+$/, "")].partList[partSplit]
-                    .items[item].faces[face].imagePath == ""
-                ) {
-                  jimpData = nullImage;
-                } else {
-                  jimpData = await partRead(
-                    partsPath +
-                      partsObject[category.replace(/_\d+$/, "")].partList[
-                        partSplit
-                      ].items[item].faces[face].imagePath,
-                    partsObject[category.replace(/_\d+$/, "")].partList[
-                      partSplit
-                    ].colorGroup,
-                    selectedParts,
-                    colorsObject,
-                    partSplit
-                  );
-                  //パーツのパスからJimpデータを生成する
-                }
-                partsObjectJimp[category].partList[partSplit].items[item].faces[
-                  face
-                ] = {
-                  jimpData: jimpData,
-                };
-              } catch (error) {
-                console.log("パーツ読み込みエラー：" + error);
-              }
-            })()
-          );
-        }
+                    .items[item].faces[face].imagePath,
+                partsObject[category.replace(/_\d+$/, "")].partList[partSplit]
+                  .colorGroup,
+                selectedParts,
+                colorsObject,
+                partSplit
+              );
+              //パーツのパスからJimpデータを生成する
+            }
+            partsObjectJimp[category].partList[partSplit].items[item].faces[
+              face
+            ] = {
+              jimpData: jimpData,
+            };
+          }
+        );
       }
     }
-  }
-  if (promises.length >= 12) {
-    await Promise.all(promises);
-    promises.length = 0;
   }
   return partsObjectJimp;
 };
@@ -113,4 +106,28 @@ const partRead = async (
     console.log("パーツ画像が見つかりません:" + error);
     return;
   }
+};
+
+const asyncMap = async (
+  array,
+  mapper,
+  concurrency = MAX_PROMISE
+): Promise<FacesJimp[] | MenuPartIconsCategoryBase64[]> => {
+  const queue = array.slice();
+  const results = new Array(array.length);
+  const workers = new Array(concurrency).fill(Promise.resolve());
+
+  const pushTask = (i) => {
+    if (queue.length) {
+      const item = queue.shift();
+      return mapper(item).then((result) => {
+        results[i] = result;
+        return pushTask(i);
+      });
+    }
+  };
+
+  await Promise.all(workers.map(pushTask));
+
+  return results;
 };

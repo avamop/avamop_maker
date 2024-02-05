@@ -39,6 +39,11 @@ export const MakerChangingColorsObject = (
         : partList[selectedPartSplit].colorGroup;
   }
   const selectedGroup = selectedParts.selectedColor[selectedColorGroup];
+  if (selectedGroup["default"] === undefined) {
+    selectedGroup["default"] = {
+      ...selectedParts.selectedColor["none"]["default"],
+    };
+  }
   const defaultSplit = selectedGroup["default"];
   let updateColor: SelectedParts = {
     bodyType: selectedParts.bodyType,
@@ -109,10 +114,6 @@ export const MakerChangingColorsObject = (
     },
     selectedFace: selectedParts.selectedFace,
   };
-  console.log(
-    selectedParts.selectedColor[newColorGroup]["default"],
-    updateColor.selectedColor[newColorGroup]["default"]
-  );
   setSelectedParts(updateColor);
   return updateColor;
 };

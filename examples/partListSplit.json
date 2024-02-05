@@ -255,6 +255,24 @@
                 "imagePath": "ear/human/clear.png"
               }
             }
+          },
+          "creature": {
+            "bodyType": null,
+            "enableColor": true,
+            "faces": {
+              "clear": {
+                "imagePath": "ear/creature/clear.png"
+              }
+            }
+          },
+          "triangle": {
+            "bodyType": null,
+            "enableColor": true,
+            "faces": {
+              "clear": {
+                "imagePath": "ear/triangle/clear.png"
+              }
+            }
           }
         }
       }
@@ -266,79 +284,7 @@
     "ignoreTrigger": null,
     "partFlip": false,
     "partList": {
-      "eyeLeftEyeWhite": {
-        "colorGroup": "",
-        "partOrder": 60,
-        "items": {
-          "keen": {
-            "bodyType": null,
-            "enableColor": false,
-            "faces": {
-              "clear": {
-                "imagePath": "eyeLeftEyeWhite/keen/clear.png"
-              },
-              "smileOpen": {
-                "imagePath": "eyeLeftEyeWhite/keen/smileOpen.png"
-              },
-              "smile": {
-                "imagePath": ""
-              }
-            }
-          },
-          "round": {
-            "bodyType": null,
-            "enableColor": false,
-            "faces": {
-              "clear": {
-                "imagePath": "eyeLeftEyeWhite/round/clear.png"
-              },
-              "smileOpen": {
-                "imagePath": "eyeLeftEyeWhite/round/smileOpen.png"
-              },
-              "smile": {
-                "imagePath": ""
-              }
-            }
-          }
-        }
-      },
-      "eyeLeftEyelash": {
-        "colorGroup": "hair",
-        "partOrder": 66,
-        "items": {
-          "keen": {
-            "bodyType": null,
-            "enableColor": true,
-            "faces": {
-              "clear": {
-                "imagePath": "eyeLeftEyelash/keen/clear.png"
-              },
-              "smile": {
-                "imagePath": "eyeLeftEyelash/keen/smile.png"
-              },
-              "smileOpen": {
-                "imagePath": "eyeLeftEyelash/keen/smileOpen.png"
-              }
-            }
-          },
-          "round": {
-            "bodyType": null,
-            "enableColor": true,
-            "faces": {
-              "clear": {
-                "imagePath": "eyeLeftEyelash/round/clear.png"
-              },
-              "smile": {
-                "imagePath": "eyeLeftEyelash/round/smile.png"
-              },
-              "smileOpen": {
-                "imagePath": "eyeLeftEyelash/round/smileOpen.png"
-              }
-            }
-          }
-        }
-      },
-      "eyeLeftHighright": {
+      "eyeHighlight": {
         "colorGroup": "",
         "partOrder": 64,
         "items": {
@@ -347,10 +293,19 @@
             "enableColor": false,
             "faces": {
               "clear": {
-                "imagePath": "eyeLeftHighright/keen/clear.png"
+                "imagePath": "eyeHighlight/keen/clear.png"
               },
               "smileOpen": {
-                "imagePath": "eyeLeftHighright/keen/smileOpen.png"
+                "imagePath": "eyeHighlight/keen/smileOpen.png"
+              },
+              "angry": {
+                "imagePath": "eyeHighlight/keen/angry.png"
+              },
+              "sad": {
+                "imagePath": "eyeHighlight/keen/sad.png"
+              },
+              "wonder": {
+                "imagePath": "eyeHighlight/keen/wonder.png"
               },
               "smile": {
                 "imagePath": ""
@@ -362,10 +317,67 @@
             "enableColor": false,
             "faces": {
               "clear": {
-                "imagePath": "eyeLeftHighright/round/clear.png"
+                "imagePath": "eyeHighlight/round/clear.png"
               },
               "smileOpen": {
-                "imagePath": "eyeLeftHighright/round/smileOpen.png"
+                "imagePath": "eyeHighlight/round/smileOpen.png"
+              },
+              "angry": {
+                "imagePath": "eyeHighlight/round/angry.png"
+              },
+              "sad": {
+                "imagePath": "eyeHighlight/round/sad.png"
+              },
+              "wonder": {
+                "imagePath": "eyeHighlight/round/wonder.png"
+              },
+              "smile": {
+                "imagePath": ""
+              }
+            }
+          },
+          "sauceRound": {
+            "bodyType": null,
+            "enableColor": false,
+            "faces": {
+              "angry": {
+                "imagePath": "eyeHighlight/sauceRound/angry.png"
+              },
+              "clear": {
+                "imagePath": "eyeHighlight/sauceRound/clear.png"
+              },
+              "sad": {
+                "imagePath": "eyeHighlight/sauceRound/sad.png"
+              },
+              "smileOpen": {
+                "imagePath": "eyeHighlight/sauceRound/smileOpen.png"
+              },
+              "wonder": {
+                "imagePath": "eyeHighlight/sauceRound/wonder.png"
+              },
+              "smile": {
+                "imagePath": ""
+              }
+            }
+          },
+          "mildKeen": {
+            "bodyType": null,
+            "enableColor": false,
+            "faces": {
+              "angry": {
+                "imagePath": "eyeHighlight/mildKeen/angry.png"
+              },
+              "clear": {
+                "imagePath": "eyeHighlight/mildKeen/clear.png"
+              },
+              "sad": {
+                "imagePath": "eyeHighlight/mildKeen/sad.png"
+              },
+              "smileOpen": {
+                "imagePath": "eyeHighlight/mildKeen/smileOpen.png"
+              },
+              "wonder": {
+                "imagePath": "eyeHighlight/mildKeen/wonder.png"
               },
               "smile": {
                 "imagePath": ""
@@ -388,6 +400,15 @@
               "smileOpen": {
                 "imagePath": "eyeLeftPupil/keen/smileOpen.png"
               },
+              "angry": {
+                "imagePath": "eyeLeftPupil/keen/angry.png"
+              },
+              "sad": {
+                "imagePath": "eyeLeftPupil/keen/sad.png"
+              },
+              "wonder": {
+                "imagePath": "eyeLeftPupil/keen/wonder.png"
+              },
               "smile": {
                 "imagePath": ""
               }
@@ -403,113 +424,62 @@
               "smileOpen": {
                 "imagePath": "eyeLeftPupil/round/smileOpen.png"
               },
-              "smile": {
-                "imagePath": ""
-              }
-            }
-          }
-        }
-      },
-      "eyeRightEyeWhite": {
-        "colorGroup": "",
-        "partOrder": 61,
-        "items": {
-          "keen": {
-            "bodyType": null,
-            "enableColor": false,
-            "faces": {
-              "clear": {
-                "imagePath": "eyeRightEyeWhite/keen/clear.png"
+              "angry": {
+                "imagePath": "eyeLeftPupil/round/angry.png"
               },
-              "smileOpen": {
-                "imagePath": "eyeRightEyeWhite/keen/smileOpen.png"
+              "sad": {
+                "imagePath": "eyeLeftPupil/round/sad.png"
+              },
+              "wonder": {
+                "imagePath": "eyeLeftPupil/round/wonder.png"
               },
               "smile": {
                 "imagePath": ""
               }
             }
           },
-          "round": {
-            "bodyType": null,
-            "enableColor": false,
-            "faces": {
-              "clear": {
-                "imagePath": "eyeRightEyeWhite/round/clear.png"
-              },
-              "smileOpen": {
-                "imagePath": "eyeRightEyeWhite/round/smileOpen.png"
-              },
-              "smile": {
-                "imagePath": ""
-              }
-            }
-          }
-        }
-      },
-      "eyeRightEyelash": {
-        "colorGroup": "hair",
-        "partOrder": 67,
-        "items": {
-          "keen": {
+          "sauceRound": {
             "bodyType": null,
             "enableColor": true,
             "faces": {
-              "clear": {
-                "imagePath": "eyeRightEyelash/keen/clear.png"
+              "angry": {
+                "imagePath": "eyeLeftPupil/sauceRound/angry.png"
               },
-              "smile": {
-                "imagePath": "eyeRightEyelash/keen/smile.png"
+              "clear": {
+                "imagePath": "eyeLeftPupil/sauceRound/clear.png"
+              },
+              "sad": {
+                "imagePath": "eyeLeftPupil/sauceRound/sad.png"
               },
               "smileOpen": {
-                "imagePath": "eyeRightEyelash/keen/smileOpen.png"
-              }
-            }
-          },
-          "round": {
-            "bodyType": null,
-            "enableColor": true,
-            "faces": {
-              "clear": {
-                "imagePath": "eyeRightEyelash/round/clear.png"
+                "imagePath": "eyeLeftPupil/sauceRound/smileOpen.png"
               },
-              "smile": {
-                "imagePath": "eyeRightEyelash/round/smile.png"
-              },
-              "smileOpen": {
-                "imagePath": "eyeRightEyelash/round/smileOpen.png"
-              }
-            }
-          }
-        }
-      },
-      "eyeRightHighright": {
-        "colorGroup": "",
-        "partOrder": 65,
-        "items": {
-          "keen": {
-            "bodyType": null,
-            "enableColor": false,
-            "faces": {
-              "clear": {
-                "imagePath": "eyeRightHighright/keen/clear.png"
-              },
-              "smileOpen": {
-                "imagePath": "eyeRightHighright/keen/smileOpen.png"
+              "wonder": {
+                "imagePath": "eyeLeftPupil/sauceRound/wonder.png"
               },
               "smile": {
                 "imagePath": ""
               }
             }
           },
-          "round": {
+          "mildKeen": {
             "bodyType": null,
-            "enableColor": false,
+            "enableColor": true,
             "faces": {
+              "angry": {
+                "imagePath": "eyeLeftPupil/mildKeen/angry.png"
+              },
               "clear": {
-                "imagePath": "eyeRightHighright/round/clear.png"
+                "imagePath": "eyeLeftPupil/mildKeen/clear.png"
+              },
+              "sad": {
+                "imagePath": "eyeLeftPupil/mildKeen/sad.png"
               },
               "smileOpen": {
-                "imagePath": "eyeRightHighright/round/smileOpen.png"
+                "imagePath": "eyeLeftPupil/mildKeen/smileOpen.png"
+              },
+              "wonder": {
+                "imagePath": "eyeLeftPupil/mildKeen/wonder.png"
               },
               "smile": {
                 "imagePath": ""
@@ -532,6 +502,15 @@
               "smileOpen": {
                 "imagePath": "eyeRightPupil/keen/smileOpen.png"
               },
+              "angry": {
+                "imagePath": "eyeRightPupil/keen/angry.png"
+              },
+              "sad": {
+                "imagePath": "eyeRightPupil/keen/sad.png"
+              },
+              "wonder": {
+                "imagePath": "eyeRightPupil/keen/wonder.png"
+              },
               "smile": {
                 "imagePath": ""
               }
@@ -547,8 +526,269 @@
               "smileOpen": {
                 "imagePath": "eyeRightPupil/round/smileOpen.png"
               },
+              "angry": {
+                "imagePath": "eyeRightPupil/round/angry.png"
+              },
+              "sad": {
+                "imagePath": "eyeRightPupil/round/sad.png"
+              },
+              "wonder": {
+                "imagePath": "eyeRightPupil/round/wonder.png"
+              },
               "smile": {
                 "imagePath": ""
+              }
+            }
+          },
+          "sauceRound": {
+            "bodyType": null,
+            "enableColor": true,
+            "faces": {
+              "angry": {
+                "imagePath": "eyeRightPupil/sauceRound/angry.png"
+              },
+              "clear": {
+                "imagePath": "eyeRightPupil/sauceRound/clear.png"
+              },
+              "sad": {
+                "imagePath": "eyeRightPupil/sauceRound/sad.png"
+              },
+              "smileOpen": {
+                "imagePath": "eyeRightPupil/sauceRound/smileOpen.png"
+              },
+              "wonder": {
+                "imagePath": "eyeRightPupil/sauceRound/wonder.png"
+              },
+              "smile": {
+                "imagePath": ""
+              }
+            }
+          },
+          "mildKeen": {
+            "bodyType": null,
+            "enableColor": true,
+            "faces": {
+              "angry": {
+                "imagePath": "eyeRightPupil/mildKeen/angry.png"
+              },
+              "clear": {
+                "imagePath": "eyeRightPupil/mildKeen/clear.png"
+              },
+              "sad": {
+                "imagePath": "eyeRightPupil/mildKeen/sad.png"
+              },
+              "smileOpen": {
+                "imagePath": "eyeRightPupil/mildKeen/smileOpen.png"
+              },
+              "wonder": {
+                "imagePath": "eyeRightPupil/mildKeen/wonder.png"
+              },
+              "smile": {
+                "imagePath": ""
+              }
+            }
+          }
+        }
+      },
+      "eyeWhite": {
+        "colorGroup": "",
+        "partOrder": 60,
+        "items": {
+          "keen": {
+            "bodyType": null,
+            "enableColor": false,
+            "faces": {
+              "clear": {
+                "imagePath": "eyeWhite/keen/clear.png"
+              },
+              "smileOpen": {
+                "imagePath": "eyeWhite/keen/smileOpen.png"
+              },
+              "angry": {
+                "imagePath": "eyeWhite/keen/angry.png"
+              },
+              "sad": {
+                "imagePath": "eyeWhite/keen/sad.png"
+              },
+              "wonder": {
+                "imagePath": "eyeWhite/keen/wonder.png"
+              },
+              "smile": {
+                "imagePath": ""
+              }
+            }
+          },
+          "round": {
+            "bodyType": null,
+            "enableColor": false,
+            "faces": {
+              "clear": {
+                "imagePath": "eyeWhite/round/clear.png"
+              },
+              "smileOpen": {
+                "imagePath": "eyeWhite/round/smileOpen.png"
+              },
+              "angry": {
+                "imagePath": "eyeWhite/round/angry.png"
+              },
+              "sad": {
+                "imagePath": "eyeWhite/round/sad.png"
+              },
+              "wonder": {
+                "imagePath": "eyeWhite/round/wonder.png"
+              },
+              "smile": {
+                "imagePath": ""
+              }
+            }
+          },
+          "sauceRound": {
+            "bodyType": null,
+            "enableColor": false,
+            "faces": {
+              "angry": {
+                "imagePath": "eyeWhite/sauceRound/angry.png"
+              },
+              "clear": {
+                "imagePath": "eyeWhite/sauceRound/clear.png"
+              },
+              "sad": {
+                "imagePath": "eyeWhite/sauceRound/sad.png"
+              },
+              "smileOpen": {
+                "imagePath": "eyeWhite/sauceRound/smileOpen.png"
+              },
+              "wonder": {
+                "imagePath": "eyeWhite/sauceRound/wonder.png"
+              },
+              "smile": {
+                "imagePath": ""
+              }
+            }
+          },
+          "mildKeen": {
+            "bodyType": null,
+            "enableColor": false,
+            "faces": {
+              "angry": {
+                "imagePath": "eyeWhite/mildKeen/angry.png"
+              },
+              "clear": {
+                "imagePath": "eyeWhite/mildKeen/clear.png"
+              },
+              "sad": {
+                "imagePath": "eyeWhite/mildKeen/sad.png"
+              },
+              "smileOpen": {
+                "imagePath": "eyeWhite/mildKeen/smileOpen.png"
+              },
+              "wonder": {
+                "imagePath": "eyeWhite/mildKeen/wonder.png"
+              },
+              "smile": {
+                "imagePath": ""
+              }
+            }
+          }
+        }
+      },
+      "eyelash": {
+        "colorGroup": "hair",
+        "partOrder": 66,
+        "items": {
+          "keen": {
+            "bodyType": null,
+            "enableColor": true,
+            "faces": {
+              "clear": {
+                "imagePath": "eyelash/keen/clear.png"
+              },
+              "smile": {
+                "imagePath": "eyelash/keen/smile.png"
+              },
+              "smileOpen": {
+                "imagePath": "eyelash/keen/smileOpen.png"
+              },
+              "angry": {
+                "imagePath": "eyelash/keen/angry.png"
+              },
+              "sad": {
+                "imagePath": "eyelash/keen/sad.png"
+              },
+              "wonder": {
+                "imagePath": "eyelash/keen/wonder.png"
+              }
+            }
+          },
+          "round": {
+            "bodyType": null,
+            "enableColor": true,
+            "faces": {
+              "clear": {
+                "imagePath": "eyelash/round/clear.png"
+              },
+              "smile": {
+                "imagePath": "eyelash/round/smile.png"
+              },
+              "smileOpen": {
+                "imagePath": "eyelash/round/smileOpen.png"
+              },
+              "angry": {
+                "imagePath": "eyelash/round/angry.png"
+              },
+              "sad": {
+                "imagePath": "eyelash/round/sad.png"
+              },
+              "wonder": {
+                "imagePath": "eyelash/round/wonder.png"
+              }
+            }
+          },
+          "sauceRound": {
+            "bodyType": null,
+            "enableColor": true,
+            "faces": {
+              "angry": {
+                "imagePath": "eyelash/sauceRound/angry.png"
+              },
+              "clear": {
+                "imagePath": "eyelash/sauceRound/clear.png"
+              },
+              "sad": {
+                "imagePath": "eyelash/sauceRound/sad.png"
+              },
+              "smile": {
+                "imagePath": "eyelash/sauceRound/smile.png"
+              },
+              "smileOpen": {
+                "imagePath": "eyelash/sauceRound/smileOpen.png"
+              },
+              "wonder": {
+                "imagePath": "eyelash/sauceRound/wonder.png"
+              }
+            }
+          },
+          "mildKeen": {
+            "bodyType": null,
+            "enableColor": true,
+            "faces": {
+              "angry": {
+                "imagePath": "eyelash/mildKeen/angry.png"
+              },
+              "clear": {
+                "imagePath": "eyelash/mildKeen/clear.png"
+              },
+              "sad": {
+                "imagePath": "eyelash/mildKeen/sad.png"
+              },
+              "smile": {
+                "imagePath": "eyelash/mildKeen/smile.png"
+              },
+              "smileOpen": {
+                "imagePath": "eyelash/mildKeen/smileOpen.png"
+              },
+              "wonder": {
+                "imagePath": "eyelash/mildKeen/wonder.png"
               }
             }
           }
@@ -564,7 +804,7 @@
     "partList": {
       "eyebrows": {
         "colorGroup": "hair",
-        "partOrder": 70,
+        "partOrder": 74,
         "items": {
           "keen": {
             "bodyType": null,
@@ -575,6 +815,15 @@
               },
               "smile": {
                 "imagePath": "eyebrows/keen/smile.png"
+              },
+              "angry": {
+                "imagePath": "eyebrows/keen/angry.png"
+              },
+              "sad": {
+                "imagePath": "eyebrows/keen/sad.png"
+              },
+              "wonder": {
+                "imagePath": "eyebrows/keen/wonder.png"
               }
             }
           },
@@ -587,6 +836,15 @@
               },
               "smile": {
                 "imagePath": "eyebrows/narrow/smile.png"
+              },
+              "angry": {
+                "imagePath": "eyebrows/narrow/angry.png"
+              },
+              "sad": {
+                "imagePath": "eyebrows/narrow/sad.png"
+              },
+              "wonder": {
+                "imagePath": "eyebrows/narrow/wonder.png"
               }
             }
           }
@@ -602,7 +860,7 @@
     "partList": {
       "frontHair": {
         "colorGroup": "hair",
-        "partOrder": 75,
+        "partOrder": 72,
         "items": {
           "bangsLongSide": {
             "bodyType": null,
@@ -692,7 +950,7 @@
     "partFlip": false,
     "partList": {
       "mouthLips": {
-        "colorGroup": "oral",
+        "colorGroup": "lip",
         "partOrder": 54,
         "items": {
           "lips": {
@@ -707,6 +965,18 @@
               },
               "smile": {
                 "imagePath": "mouthLips/lips/smile.png"
+              },
+              "angry": {
+                "imagePath": "mouthLips/lips/angry.png"
+              },
+              "sad": {
+                "imagePath": "mouthLips/lips/sad.png"
+              },
+              "wonder": {
+                "imagePath": "mouthLips/lips/wonder.png"
+              },
+              "mouthOral": {
+                "imagePath": ""
               }
             }
           },
@@ -721,6 +991,18 @@
                 "imagePath": ""
               },
               "smile": {
+                "imagePath": ""
+              },
+              "angry": {
+                "imagePath": ""
+              },
+              "sad": {
+                "imagePath": ""
+              },
+              "wonder": {
+                "imagePath": ""
+              },
+              "mouthOral": {
                 "imagePath": ""
               }
             }
@@ -738,10 +1020,22 @@
               "smileOpen": {
                 "imagePath": "mouthOral/lips/smileOpen.png"
               },
+              "angry": {
+                "imagePath": "mouthOral/lips/angry.png"
+              },
+              "wonder": {
+                "imagePath": "mouthOral/lips/wonder.png"
+              },
               "clear": {
                 "imagePath": ""
               },
               "smile": {
+                "imagePath": ""
+              },
+              "sad": {
+                "imagePath": ""
+              },
+              "mouthOral": {
                 "imagePath": ""
               }
             }
@@ -753,10 +1047,22 @@
               "smileOpen": {
                 "imagePath": "mouthOral/standard/smileOpen.png"
               },
+              "angry": {
+                "imagePath": "mouthOral/standard/angry.png"
+              },
+              "wonder": {
+                "imagePath": "mouthOral/standard/wonder.png"
+              },
+              "mouthOral": {
+                "imagePath": "mouthOral/standard/mouthOral.png"
+              },
               "clear": {
                 "imagePath": ""
               },
               "smile": {
+                "imagePath": ""
+              },
+              "sad": {
                 "imagePath": ""
               }
             }
@@ -779,6 +1085,18 @@
               },
               "smile": {
                 "imagePath": ""
+              },
+              "angry": {
+                "imagePath": ""
+              },
+              "sad": {
+                "imagePath": ""
+              },
+              "wonder": {
+                "imagePath": ""
+              },
+              "mouthOral": {
+                "imagePath": ""
               }
             }
           },
@@ -792,7 +1110,19 @@
               "smile": {
                 "imagePath": "mouthSkin/standard/smile.png"
               },
+              "sad": {
+                "imagePath": "mouthSkin/standard/sad.png"
+              },
               "smileOpen": {
+                "imagePath": ""
+              },
+              "angry": {
+                "imagePath": ""
+              },
+              "wonder": {
+                "imagePath": ""
+              },
+              "mouthOral": {
                 "imagePath": ""
               }
             }
@@ -810,10 +1140,22 @@
               "smileOpen": {
                 "imagePath": "mouthTeeth/lips/smileOpen.png"
               },
+              "angry": {
+                "imagePath": "mouthTeeth/lips/angry.png"
+              },
+              "wonder": {
+                "imagePath": "mouthTeeth/lips/wonder.png"
+              },
               "clear": {
                 "imagePath": ""
               },
               "smile": {
+                "imagePath": ""
+              },
+              "sad": {
+                "imagePath": ""
+              },
+              "mouthOral": {
                 "imagePath": ""
               }
             }
@@ -825,10 +1167,22 @@
               "smileOpen": {
                 "imagePath": "mouthTeeth/standard/smileOpen.png"
               },
+              "angry": {
+                "imagePath": "mouthTeeth/standard/angry.png"
+              },
+              "wonder": {
+                "imagePath": "mouthTeeth/standard/wonder.png"
+              },
               "clear": {
                 "imagePath": ""
               },
               "smile": {
+                "imagePath": ""
+              },
+              "sad": {
+                "imagePath": ""
+              },
+              "mouthOral": {
                 "imagePath": ""
               }
             }
@@ -871,6 +1225,24 @@
             "faces": {
               "clear": {
                 "imagePath": "nose/sharp/clear.png"
+              }
+            }
+          },
+          "pico": {
+            "bodyType": null,
+            "enableColor": true,
+            "faces": {
+              "clear": {
+                "imagePath": "nose/pico/clear.png"
+              }
+            }
+          },
+          "pierrot": {
+            "bodyType": null,
+            "enableColor": true,
+            "faces": {
+              "clear": {
+                "imagePath": "nose/pierrot/clear.png"
               }
             }
           }

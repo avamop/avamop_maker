@@ -12,8 +12,15 @@ const outputFilePath = process.argv[3];
 // 型定義
 const partsObject = {};
 
+// 既存のJSONファイルが存在する場合、その内容を読み込む
+let existingPartsObject = {};
+if (fs.existsSync(outputFilePath)) {
+  const existingJson = fs.readFileSync(outputFilePath, "utf8");
+  existingPartsObject = JSON.parse(existingJson);
+}
+
 // JSONオブジェクトを生成する関数
-const generatepartsObject = (directoryPath, partChain) => {
+const generatePartsObject = (directoryPath, partChain, existingPartsObject) => {
   const categories = fs
     .readdirSync(directoryPath, { withFileTypes: true })
     .filter((dirent) => dirent.isDirectory())
@@ -26,15 +33,19 @@ const generatepartsObject = (directoryPath, partChain) => {
     const categoryPath = path.join(directoryPath, category);
     const categoryPartChain = partChain ? `${partChain}/${category}` : category;
 
-    partsObject[category] = {
-      colorGroup: category,
-      partCount: 1,
-      partChain: categoryPartChain,
-      partOrder,
-      ignoreTrigger: null,
-      partFlip: false,
-      items: {},
-    };
+    if (existingPartsObject[category]) {
+      partsObject[category] = existingPartsObject[category];
+    } else {
+      partsObject[category] = {
+        colorGroup: category,
+        partCount: 1,
+        partChain: categoryPartChain,
+        partOrder,
+        ignoreTrigger: null,
+        partFlip: false,
+        items: {},
+      };
+    }
 
     const items = fs
       .readdirSync(categoryPath, { withFileTypes: true })
@@ -47,11 +58,18 @@ const generatepartsObject = (directoryPath, partChain) => {
         .readdirSync(itemPath, { withFileTypes: true })
         .filter((dirent) => dirent.isFile() && dirent.name.endsWith(".png"))
         .map((dirent) => dirent.name);
-      partsObject[category].items[item] = {
-        bodyType: null,
-        enableColor: true,
-        faces: {},
-      };
+
+      if (partsObject[category].items[item]) {
+        partsObject[category].items[item] =
+          existingPartsObject[category].items[item];
+      } else {
+        partsObject[category].items[item] = {
+          bodyType: null,
+          enableColor: partsObject[category].colorGroup == "" ? false : true,
+          faces: {},
+        };
+      }
+
       for (const face of faces) {
         const faceName = path.basename(face, path.extname(face));
         const imagePath = path.join(categoryPartChain, item, face);
@@ -65,7 +83,7 @@ const generatepartsObject = (directoryPath, partChain) => {
 };
 
 // 指定されたディレクトリからJSONオブジェクトを生成
-generatepartsObject(inputDirectory, null);
+generatePartsObject(inputDirectory, null, existingPartsObject);
 
 // 生成したJSONオブジェクトをファイルに保存
 const jsonOutput = JSON.stringify(partsObject, null, 2);
