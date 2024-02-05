@@ -338,7 +338,7 @@
           },
           "sauceRound": {
             "bodyType": null,
-            "enableColor": true,
+            "enableColor": false,
             "faces": {
               "angry": {
                 "imagePath": "eyeHighlight/sauceRound/angry.png"
@@ -572,7 +572,7 @@
           },
           "sauceRound": {
             "bodyType": null,
-            "enableColor": true,
+            "enableColor": false,
             "faces": {
               "angry": {
                 "imagePath": "eyeWhite/sauceRound/angry.png"
