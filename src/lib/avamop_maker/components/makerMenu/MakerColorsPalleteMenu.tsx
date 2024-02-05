@@ -618,12 +618,14 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                               }
                             >
                               <img
-                                className={`${styles["parts-img"]}${
+                                className={`${styles["parts-img"]}
+                                ${
                                   index.colorGroup === selectedColorGroup &&
                                   index.partSplit === selectedPartSplit
                                     ? styles["parts-img-selected"]
                                     : ""
-                                }`}
+                                }
+                              `}
                                 src={index.image}
                                 alt={
                                   selectedParts.category[selectedCategory]
