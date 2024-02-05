@@ -117,6 +117,25 @@
         }
       }
     },
+    "lip": {
+      "default": {
+        "color": "pink",
+        "hueReverse": false,
+        "saturationReverse": false,
+        "hueGraph": {
+          "globalSlope": 1,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "saturationGraph": {
+          "globalSlope": 16,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "valueGraph": {
+          "globalSlope": 16,
+          "individualSlope": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        }
+      }
+    },
     "oral": {
       "default": {
         "color": "crimson",
