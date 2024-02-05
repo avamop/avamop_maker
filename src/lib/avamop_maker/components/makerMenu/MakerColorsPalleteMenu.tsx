@@ -69,10 +69,12 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
     setSelectedPartSplit(partSplit);
     setSelectedColorGroup(colorGroup);
   };
+  const [afterSwitched, setAfterSwitched] = useState<boolean>(true);
 
   useEffect(() => {
     if (selectedCategory && selectedColorGroup && selectedPartSplit) {
       setIsSliderLoading(true);
+      setAfterSwitched(true);
       const colorData = selectedParts.selectedColor[selectedColorGroup];
       const selectedColor = selectedParts.selectedColor;
       setColor(
@@ -201,7 +203,8 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
   const changeHueGlobalSlope = (event: React.ChangeEvent<HTMLInputElement>) => {
     // if (isPressed) {
     let changeHue = Number(event.target.value);
-    console.log(changeHue);
+    // console.log(changeHue);
+    setAfterSwitched(false);
     setHueGlobalSlope(changeHue);
     // }
   };
@@ -211,7 +214,8 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
   ) => {
     // if (isPressed) {
     let changeSaturation = Number(event.target.value);
-    console.log(changeSaturation);
+    // console.log(changeSaturation);
+    setAfterSwitched(false);
     setSaturationGlobalSlope(changeSaturation);
     // }
   };
@@ -220,7 +224,8 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     let changeValue = Number(event.target.value);
-    console.log(changeValue);
+    // console.log(changeValue);
+    setAfterSwitched(false);
     setValueGlobalSlope(changeValue);
   };
 
@@ -299,7 +304,6 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
         : null;
       setSelectedPartSplit(tmpSelectedPartSplit);
       setSelectedColorGroup(tmpSelectedColorGroup);
-      setEnableChain(enableChain);
     }
     setIsPeaceLoading(false);
   }, [selectedCategory, enableChain, colorMenuPartIcons]);
@@ -338,7 +342,8 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
         isLoading ||
         !selectedCategory ||
         !selectedColorGroup ||
-        !selectedPartSplit
+        !selectedPartSplit ||
+        afterSwitched
       )
         return; // 非同期関数が実行中の場合、ここで処理を終了します。
       setIsLoading(true); // 非同期関数の実行を開始します。
@@ -444,6 +449,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                     name="hueReverse"
                     id="hueReverse"
                     onClick={() => {
+                      setAfterSwitched(false);
                       setHueReverse(!hueReverse);
                     }}
                   >
@@ -454,6 +460,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                     name="saturationReverse"
                     id="saturationReverse"
                     onClick={() => {
+                      setAfterSwitched(false);
                       setSaturationReverse(!saturationReverse);
                     }}
                   >
@@ -550,7 +557,10 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                 className={styles["setting-button"]}
                 name="enableChain"
                 id="enableChain"
-                onClick={() => setEnableChain(!enableChain)}
+                onClick={() => {
+                  setAfterSwitched(false);
+                  setEnableChain(!enableChain);
+                }}
               >
                 {enableChain ? "個別設定" : "全体設定"}
               </button>
@@ -661,7 +671,10 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                           colorCode={colorsObject[groupKey].hex}
                           colorName={groupKey}
                           isLoading={isLoading}
-                          onClick={() => setColor(groupKey)}
+                          onClick={() => {
+                            setAfterSwitched(false);
+                            setColor(groupKey);
+                          }}
                         />
                       </SwiperSlide>
                     ))}
@@ -692,7 +705,10 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                                   colorCode={colorsObject[color].hex}
                                   colorName={color}
                                   isLoading={isLoading}
-                                  onClick={() => setColor(color)}
+                                  onClick={() => {
+                                    setAfterSwitched(false);
+                                    setColor(color);
+                                  }}
                                 />
                               </SwiperSlide>
                             )
