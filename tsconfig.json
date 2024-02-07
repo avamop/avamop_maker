@@ -7,7 +7,13 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "traceResolution": true,
-    "downlevelIteration":true
+    "downlevelIteration":true,
+    "moduleResolution": "node",
+    "types": [
+      "node"
+    ],
+    "typeRoots": [
+      "node_modules/@types"]
   },
   "include": [
     "src/lib"
