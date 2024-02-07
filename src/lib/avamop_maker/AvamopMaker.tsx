@@ -441,4 +441,4 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
   );
 };
 
-export { AvamopMaker };
+export default AvamopMaker;
