@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import styles from "../module-css/makerView/MakerWindow.module.css"; // CSSファイルをインポート
+import * as styles from "../module-css/makerView/MakerWindow.module.css"; // CSSファイルをインポート
 import MakerView from "./MakerView/MakerView";
 import MakerPartsMenu from "./makerMenu/MakerPartsMenu";
 import MakerFaceMenu from "./makerMenu/MakerFaceMenu";
@@ -33,20 +33,20 @@ const MakerWindow: React.FC = () => {
 
   return (
     <>
-      <div className={styles["all-object-container"]}>
+      <div className={styles["allObjectContainer"]}>
         {/* アバターメーカーのアバター表示部分 */}
-        <div className={styles["avatar-img-all"]}>
+        <div className={styles["avatarImgAll"]}>
           <MakerView />
           {/* オブジェクト変化テスト用ボタン */}
-          <button className={styles["bottom-button"]} onClick={handleClick}>
+          <button className={styles["bottomButton"]} onClick={handleClick}>
             完成
           </button>
         </div>
-        <div className={styles["option-menu-group"]}>
+        <div className={styles["optionMenuGroup"]}>
           {/* アバターメーカーの表情メニュー部分 */}
           {/* <MakerFaceMenu /> */}
           {/* アバターメーカーのパーツメニュー部分 */}
-          <div className={styles["avatar-img-part"]}>
+          <div className={styles["avatarImgPart"]}>
             <MakerPartsMenu />
           </div>
           {/* アバターメーカーの色メニュー部分 */}

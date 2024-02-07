@@ -1,4 +1,3 @@
-import { value } from "happy-dom/lib/PropertySymbol";
 import "jimp/browser/lib/jimp";
 
 export const MakerChangingColorsObject = (

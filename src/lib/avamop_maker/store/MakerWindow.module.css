@@ -1,28 +1,28 @@
-.avatar-img-all{
+.avatarImgAll {
   background-color: papayawhip;
 }
-  
-.bottom-button {
+
+.bottomButton {
   margin-top: 20px;
   margin-bottom: 20px;
   margin-left: 5px;
   padding: 10px 20px;
   font-size: 1em;
   color: #fff;
-  background-color: #007BFF;
+  background-color: #007bff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  &:hover  {
+  &:hover {
     background-color: green;
   }
 }
 
-@media (min-width:1000px){
-  .all-object-container {
+@media (min-width: 1000px) {
+  .allObjectContainer {
     display: flex;
   }
-  .option-menu-group {
+  .optionMenuGroup {
     width: calc(100vw - 667px);
     max-width: calc(100vw - 667px);
   }

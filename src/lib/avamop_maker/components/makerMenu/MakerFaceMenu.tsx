@@ -54,13 +54,13 @@ const MakerFaceMenu: React.FC = () => {
       <div style={{ position: "relative" }}>
         <SwiperSlide>
           <button
-            className={styles["face-button"]}
+            className={styles["faceButtonStyle"]}
             onClick={() => setShowMenu(!showMenu)}
           >
             {showMenu ? <div>閉じる</div> : <div>表情差分</div>}
           </button>
           {showMenu && (
-            <ul className={styles["face-menu"]}>
+            <ul className={styles["faceMenuStyle"]}>
               {faceList.map((face, i) => (
                 <MakerFaceButton
                   key={face.face}

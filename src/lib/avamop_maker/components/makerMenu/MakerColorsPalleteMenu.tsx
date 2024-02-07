@@ -1,6 +1,6 @@
 import React, { useContext, useState, useRef, useEffect } from "react";
 import MakerColorsButton from "./MakerColorsButton";
-import styles from "../../module-css/makerMenu/MakerColorsPalleteMenu.module.css";
+import * as styles from "../../module-css/makerMenu/MakerColorsPalleteMenu.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css"; // 追加: SwiperのCSSをインポート
 import ColorsObjectContext from "../../store/ColorsObjectContext";
@@ -416,18 +416,18 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
       {!selectedCategory ? null : (
         <>
           <button
-            className={styles["color-show-button"]}
+            className={styles["colorShowButton"]}
             onClick={() => setShowSwiper(!showSwiper)}
           >
             {showSwiper ? (
               <img
-                className={styles["swiper-color-image"]}
+                className={styles["swiperColorImage"]}
                 src={`/pallete.png`}
                 alt="Hide Face"
               />
             ) : (
               <img
-                className={styles["swiper-color-image"]}
+                className={styles["swiperColorImage"]}
                 src={`/pallete.png`}
                 alt="Show Face"
               />
@@ -445,7 +445,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                   onTouchEnd={handleMouseUp}
                 >
                   <button
-                    className={styles["setting-button"]}
+                    className={styles["settingButton"]}
                     name="hueReverse"
                     id="hueReverse"
                     onClick={() => {
@@ -456,7 +456,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                     {hueReverse ? "色調反転 ON" : "色調反転 OFF"}
                   </button>
                   <button
-                    className={styles["setting-button"]}
+                    className={styles["settingButton"]}
                     name="saturationReverse"
                     id="saturationReverse"
                     onClick={() => {
@@ -472,7 +472,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                         setSwiper(swiperInstance);
                       }
                     }}
-                    className={styles["scroll-bar-swiper"]}
+                    className={styles["scrollBarSwiper"]}
                     slidesPerView="auto"
                     spaceBetween={0}
                     touchRatio={touchRatio / 100}
@@ -518,7 +518,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                 </div>
               )}
               <button
-                className={styles["setting-button"]}
+                className={styles["settingButton"]}
                 name="enableChain"
                 id="enableChain"
                 onClick={() =>
@@ -533,7 +533,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
               </button>
               {saveColor ? (
                 <button
-                  className={styles["setting-button"]}
+                  className={styles["settingButton"]}
                   name="enableChain"
                   id="enableChain"
                   onClick={() => {
@@ -558,7 +558,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                 </button>
               ) : null}
               <button
-                className={styles["setting-button"]}
+                className={styles["settingButton"]}
                 name="enableChain"
                 id="enableChain"
                 onClick={() => {
@@ -575,7 +575,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                     setSwiper(swiperInstance);
                   }
                 }}
-                className={styles["scroll-bar-swiper"]}
+                className={styles["scrollBarSwiper"]}
                 slidesPerView="auto"
                 spaceBetween={0}
                 touchRatio={touchRatio / 300}
@@ -598,11 +598,11 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                             >
                               <img
                                 className={`
-                                ${styles["parts-img"]}
+                                ${styles["partsImg"]}
                                 ${
                                   index.colorGroup === selectedColorGroup &&
                                   index.partSplit === selectedPartSplit
-                                    ? styles["parts-img-selected"]
+                                    ? styles["partsImgSelected"]
                                     : ""
                                 }
                               `}
@@ -632,11 +632,11 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                               }
                             >
                               <img
-                                className={`${styles["parts-img"]}
+                                className={`${styles["partsImg"]}
                                 ${
                                   index.colorGroup === selectedColorGroup &&
                                   index.partSplit === selectedPartSplit
-                                    ? styles["parts-img-selected"]
+                                    ? styles["partsImgSelected"]
                                     : ""
                                 }
                               `}
@@ -662,7 +662,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                         setSwiper(swiperInstance);
                       }
                     }}
-                    className={styles["scroll-bar-swiper"]}
+                    className={styles["scrollBarSwiper"]}
                     slidesPerView="auto"
                     spaceBetween={0}
                     touchRatio={touchRatio / 300}
@@ -689,7 +689,7 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                         setSwiper(swiperInstance);
                       }
                     }}
-                    className={styles["scroll-bar-swiper"]}
+                    className={styles["scrollBarSwiper"]}
                     simulateTouch={false}
                     slidesPerView="auto"
                     spaceBetween={0}

@@ -27,7 +27,7 @@ export const MakerSelectedPartsGen = (
       )[0];
     }
   } catch (error) {
-    console.error(error.message);
+    console.error(error);
   }
   for (const category in partsObject) {
     const { partList, partCount } = partsObject[category];

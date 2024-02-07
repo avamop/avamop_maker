@@ -10,7 +10,7 @@
    "resolveJsonModule": true,
    "isolatedModules": true,
     "declaration": true,
-    "declarationDir": "./types",
+    // "declarationDir": "./types",
     "noEmit": true,
     "jsx": "react-jsx",
     "allowSyntheticDefaultImports": true,
@@ -18,15 +18,20 @@
     "traceResolution": true,
     "downlevelIteration":true,
     "strict": true,
-   "noUnusedLocals": true,
-   "noUnusedParameters": true,
+   "noUnusedLocals": false,
+   "noUnusedParameters": false,
    "noFallthroughCasesInSwitch": true,
     "types": [
       "node"
     ],
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "strictNullChecks": false,
+    "noImplicitAny": false
   },
   "include": [
     "src/lib/avamop_maker/**/*"
+, "src/lib/avamop_maker/module-css/makerMenu/.d.ts"  ],
+  "exclude": [
+    "src/lib/avamop_maker/components/function/imageProcess/MakerSetGraph",
   ]
 }

@@ -1,8 +1,8 @@
-.avatar-img-all {
+.avatarImgAll {
   background-color: papayawhip;
 }
 
-.bottom-button {
+.bottomButton {
   margin-top: 20px;
   margin-bottom: 20px;
   margin-left: 5px;
@@ -19,10 +19,10 @@
 }
 
 @media (min-width: 1000px) {
-  .all-object-container {
+  .allObjectContainer {
     display: flex;
   }
-  .option-menu-group {
+  .optionMenuGroup {
     width: calc(100vw - 667px);
     max-width: calc(100vw - 667px);
   }

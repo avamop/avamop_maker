@@ -15,7 +15,7 @@ export default defineConfig({
       entry: resolve(__dirname, "src/lib/avamop_maker/AvamopMaker.tsx"),
       formats: ["es", "cjs"],
       name: "avamop_maker",
-      fileName: (format) => `avamop_maker.${format}.js`,
+      fileName: "index",
     },
     rollupOptions: {
       external: ["react", "react-dom"],

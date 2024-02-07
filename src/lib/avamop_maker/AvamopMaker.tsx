@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import MakerWindow from "./components/MakerWindow";
-import styles from "./module-css/makerMenu/AvamopMaker.module.css";
+import * as styles from "./module-css/makerMenu/AvamopMaker.module.css";
 import PartsObjectContext from "./store/PartsObjectContext";
 import NullImageContext from "./store/NullImageContext";
 import "jimp/browser/lib/jimp";
@@ -368,7 +368,7 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
 
   return (
     <>
-      <div className={styles["Makerwindow"]}>
+      <div className={styles["windowStyle"]}>
         {/* 画像データのロードが終わったら中身を表示する */}
         {nullImageIsLoading ||
         partsObjectJimpIsLoading ||

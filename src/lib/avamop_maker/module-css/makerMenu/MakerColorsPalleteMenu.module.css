@@ -1,67 +1,62 @@
-.scroll-bar-swiper{
-    display: flex;
+.scrollBarSwiper {
+  display: flex;
 }
 
-
-
-  .parts-img {
-    
-    
-    border-radius: 10px;
-    background-color: rgb(209, 209, 209, 0.5);
-    box-shadow: 5px 5px 10px gray;
-  }
-  .parts-img:hover {
-    background-color: white;
-  }
-  
-.parts-img-selected{
+.partsImg {
+  border-radius: 10px;
+  background-color: rgb(209, 209, 209, 0.5);
+  box-shadow: 5px 5px 10px gray;
+}
+.partsImg:hover {
   background-color: white;
 }
 
-
-.scroll-event{
-    overflow: auto;
+.partsImgSelected {
+  background-color: white;
 }
 
-.setting-button{
-    margin: 10px;
-    padding: 5px;
-    line-height: 1.5;
-    background-color: white;
-    box-shadow: 5px 5px 10px gray;
-    border-radius: 15%;
-    border: none;
-    appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    cursor: pointer;
+.scrollEvent {
+  overflow: auto;
 }
 
-
-  
-
-
-.swiper-scrollbar {
-    height: 10px;
-    background: #e0e0e0;
-    border-radius: 5px;
+.settingButton {
+  margin: 10px;
+  padding: 5px;
+  line-height: 1.5;
+  background-color: white;
+  box-shadow: 5px 5px 10px gray;
+  border-radius: 15%;
+  border: none;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
 }
 
-.swiper-scrollbar-drag {
-    background: #999999;
-    border-radius: 5px;
+.swiperScrollbar {
+  height: 10px;
+  background: #e0e0e0;
+  border-radius: 5px;
+}
+
+.swiperScrollbarDrag {
+  background: #999999;
+  border-radius: 5px;
 }
 @keyframes gradient {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
-.color-show-button{
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-  }
-
-    
+.colorShowButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}

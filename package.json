@@ -2,15 +2,31 @@
   "name": "avamop_maker",
   "version": "1.0.0",
   "description": "Avatar creation module for AVAMOP",
-  "main": "index.js",
+  "main": "./dist/index.umd.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "import": "./dist/index.js",
+    "require": "./dist/index.umd.cjs"
+  },
+  "author": "ArchLordRyu",
   "type": "module",
+  "keywords": [
+    "npm",
+    "typescript",
+    "react",
+    "avatar"
+  ],
   "scripts": {
     "start": "vite dev",
-    "build": "vite build && tsc",
+    "build": "tsc && vite build",
     "test": "vitest",
     "clear": "vite clear"
   },
-  "author": "",
+  "files": [
+    "dist"
+  ],
   "license": "MPL-2.0",
   "dependencies": {
     "@emotion/react": "^11.11.3",

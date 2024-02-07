@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import styles from "../../module-css/makerMenu/MakerColorsButton.module.css";
+import * as styles from "../../module-css/makerMenu/MakerColorsButton.module.css";
 import "swiper/css";
 interface MakerColorsButton {
   colorCode: string;
@@ -17,7 +17,7 @@ const MakerColorsButton: React.FC<MakerColorsButton> = ({
   // <li>タグを<button>タグに変更する
   return (
     <button
-      className={isLoading ? styles["colorlist-loading"] : styles["colorlist"]}
+      className={isLoading ? styles["colorListLoading"] : styles["colorList"]}
       style={{ backgroundColor: colorCode }}
       onClick={onClick}
     >

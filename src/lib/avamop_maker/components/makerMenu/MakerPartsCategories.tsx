@@ -14,11 +14,10 @@ const MakerPartsCategories: React.FC<MakerPartsCategoriesProps> = ({
   isSelected,
   onClick,
 }) => {
-  
   return (
-      <li className={styles['menu-category']}>
-        <img onClick={onClick} src={imageSrc} alt={category} />
-      </li>
+    <li className={styles["menuCategoryStyle"]}>
+      <img onClick={onClick} src={imageSrc} alt={category} />
+    </li>
   );
 };
 

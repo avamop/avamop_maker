@@ -54,6 +54,42 @@
                 "imagePath": "backHair/spikyBackMane/clear.png"
               }
             }
+          },
+          "bob": {
+            "bodyType": null,
+            "enableColor": true,
+            "faces": {
+              "clear": {
+                "imagePath": "backHair/bob/clear.png"
+              }
+            }
+          },
+          "longWide": {
+            "bodyType": null,
+            "enableColor": true,
+            "faces": {
+              "clear": {
+                "imagePath": "backHair/longWide/clear.png"
+              }
+            }
+          },
+          "semiLongStraight": {
+            "bodyType": null,
+            "enableColor": true,
+            "faces": {
+              "clear": {
+                "imagePath": "backHair/semiLongStraight/clear.png"
+              }
+            }
+          },
+          "skinHead": {
+            "bodyType": null,
+            "enableColor": true,
+            "faces": {
+              "clear": {
+                "imagePath": "backHair/skinHead/clear.png"
+              }
+            }
           }
         }
       }
@@ -877,6 +913,33 @@
             "faces": {
               "clear": {
                 "imagePath": "frontHair/spikyBackMane/clear.png"
+              }
+            }
+          },
+          "bangsSideBob": {
+            "bodyType": null,
+            "enableColor": true,
+            "faces": {
+              "clear": {
+                "imagePath": "frontHair/bangsSideBob/clear.png"
+              }
+            }
+          },
+          "bangsSideless": {
+            "bodyType": null,
+            "enableColor": true,
+            "faces": {
+              "clear": {
+                "imagePath": "frontHair/bangsSideless/clear.png"
+              }
+            }
+          },
+          "skinHead": {
+            "bodyType": null,
+            "enableColor": true,
+            "faces": {
+              "clear": {
+                "imagePath": "frontHair/skinHead/clear.png"
               }
             }
           }

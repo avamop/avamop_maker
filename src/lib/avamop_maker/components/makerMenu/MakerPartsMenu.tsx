@@ -42,7 +42,7 @@ const MakerPartsMenu: React.FC = ({}) => {
     <>
       <Swiper
         ref={swiperRef}
-        className={styles["scroll-bar-swiper"]}
+        className={styles["scrollBarSwiper"]}
         slidesPerView="auto"
         freeMode={true}
         spaceBetween={0}

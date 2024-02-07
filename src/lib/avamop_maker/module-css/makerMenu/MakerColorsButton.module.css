@@ -1,4 +1,4 @@
-.colorlist {
+.colorList {
   /* ボタンの背景色をcolor属性の値にする */
   background-color: attr(color);
 
@@ -22,7 +22,7 @@ p {
   display: none;
 }
 
-.colorlist-loading {
+.colorListLoading {
   /* ボタンの背景色をcolor属性の値にする */
   background-color: attr(color);
 

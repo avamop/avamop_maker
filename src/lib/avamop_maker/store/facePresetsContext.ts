@@ -1,7 +1,8 @@
 import { createContext } from "react";
 
-const FacePresetsContext = createContext<faceTree>({
+const FacePresetsContext = createContext<FaceTree>({
   face: "clear",
+  image: "",
   children: [],
 });
 
