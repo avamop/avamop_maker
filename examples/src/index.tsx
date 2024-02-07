@@ -5,7 +5,7 @@ import colorsObject from "../colors.json";
 import defaultColors from "../defaultColors.json";
 import facePresets from "../faceTree.json";
 import defaultAvaters from "../defaultAvater.json";
-import { AvamopMaker } from "../../src/lib/avamop_maker/AvamopMaker";
+import AvamopMaker from "../../src/lib/avamop_maker/AvamopMaker";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
