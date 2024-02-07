@@ -1,5 +1,14 @@
 {
   "compilerOptions": {
+    "target": "ES2020",
+   "useDefineForClassFields": true,
+   "module": "ESNext",
+   "lib": ["ES2020", "DOM", "DOM.Iterable"],
+   "skipLibCheck": true,
+   "moduleResolution": "Bundler",
+   "allowImportingTsExtensions": true,
+   "resolveJsonModule": true,
+   "isolatedModules": true,
     "declaration": true,
     "declarationDir": "./types",
     "noEmit": true,
@@ -8,14 +17,16 @@
     "esModuleInterop": true,
     "traceResolution": true,
     "downlevelIteration":true,
-    "moduleResolution": "node",
+    "strict": true,
+   "noUnusedLocals": true,
+   "noUnusedParameters": true,
+   "noFallthroughCasesInSwitch": true,
     "types": [
       "node"
     ],
-    "typeRoots": [
-      "node_modules/@types"]
+    "outDir": "./dist"
   },
   "include": [
-    "src/lib"
+    "src/lib/avamop_maker/**/*"
   ]
 }
