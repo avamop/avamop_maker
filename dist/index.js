@@ -17194,7 +17194,10 @@ const avatarImgAll = "_avatarImgAll_46r89_1", bottomButton = "_bottomButton_46r8
     }] });
   })();
 })();
-const MakerConvertBase64 = (d) => d.getBase64Async(Jimp.MIME_PNG), ViewScaleContext = createContext(window.innerWidth < 480 ? 1 : 2), Canvas = "_Canvas_63y9h_2", MakerView_module = {
+const MakerConvertBase64 = (d) => d.getBase64Async(Jimp.MIME_PNG), ViewScaleContext = createContext(
+  /*window.innerWidth < 480 ? 1 : 2*/
+  720
+), Canvas = "_Canvas_63y9h_2", MakerView_module = {
   Canvas
 }, CanvasImageContext = createContext(null), MakerView = ({}) => {
   const { canvasImage: d } = useContext(CanvasImageContext), l = useContext(ViewScaleContext), s = useRef(null);
@@ -20538,29 +20541,23 @@ const MAX_PROMISE$1 = 20, MakerChangingColor = async (d, l, s, e, f, i, a, t, r,
   faceButtonStyle,
   faceMenuStyle
 }, FaceListContext = createContext([]), FacePathContext = createContext(""), MakerFaceMenu = () => {
-  const d = useContext(FaceListContext), l = useContext(FacePathContext), { selectedParts: s, setSelectedParts: e } = useContext(SelectedPartsContext), [f, i] = useState(!1), [a, t] = useState({
+  const d = useContext(FaceListContext), l = useContext(FacePathContext), { selectedParts: s, setSelectedParts: e } = useContext(SelectedPartsContext), [f, i] = useState(!1);
+  useState({
     left: "4px",
     top: "0px"
-  }), r = (o) => {
-    let n = {
+  });
+  const a = (t) => {
+    let r = {
       ...s,
       selectedFace: {
         ...s.selectedFace
       }
     };
-    for (const u in s.selectedFace)
-      n.selectedFace[u] = o;
-    e(n);
+    for (const o in s.selectedFace)
+      r.selectedFace[o] = t;
+    e(r);
   };
-  return useEffect(() => {
-    const o = () => {
-      t({
-        left: `${window.innerWidth / 2}px`,
-        top: `${window.innerHeight / 2}px`
-      });
-    };
-    return window.addEventListener("resize", o), o(), () => window.removeEventListener("resize", o);
-  }, []), /* @__PURE__ */ jsxRuntimeExports.jsx(Swiper, { slidesPerView: "auto", freeMode: !0, spaceBetween: 0, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { position: "relative" }, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(SwiperSlide, { children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(Swiper, { slidesPerView: "auto", freeMode: !0, spaceBetween: 0, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { position: "relative" }, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(SwiperSlide, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(
       "button",
       {
@@ -20569,14 +20566,14 @@ const MAX_PROMISE$1 = 20, MakerChangingColor = async (d, l, s, e, f, i, a, t, r,
         children: f ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { children: "閉じる" }) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { children: "表情差分" })
       }
     ),
-    f && /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: styles.faceMenuStyle, children: d.map((o, n) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+    f && /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: styles.faceMenuStyle, children: d.map((t, r) => /* @__PURE__ */ jsxRuntimeExports.jsx(
       MakerFaceButton,
       {
-        face: o.face,
-        faceImage: l + o.image,
-        onClick: () => r(o.face)
+        face: t.face,
+        faceImage: l + t.image,
+        onClick: () => a(t.face)
       },
-      o.face
+      t.face
     )) })
   ] }) }) });
 }, MakerFaceMenu$1 = React__default.memo(MakerFaceMenu), MakerColorsPalleteMenu = ({}) => {
@@ -21126,7 +21123,10 @@ const MAX_PROMISE$1 = 20, MakerChangingColor = async (d, l, s, e, f, i, a, t, r,
   face: "clear",
   image: "",
   children: []
-}), WindowWidthContext = createContext(window.innerWidth), MakerSelectedPartsGen = (d, l) => {
+}), WindowWidthContext = createContext(
+  /*window.innerWidth*/
+  720
+), MakerSelectedPartsGen = (d, l) => {
   const s = {
     bodyType: null,
     face: "clear",
@@ -21285,7 +21285,7 @@ const MAX_PROMISE$1 = 20, MakerChangingColor = async (d, l, s, e, f, i, a, t, r,
 }) => {
   const [r, o] = useState(null), [n, u] = useState(null), [p, g] = useState(null), [v, x] = useState(null), [b, w] = useState(null), [M, G] = useState(
     i || MakerSelectedPartsGen(s, f)
-  ), [F, V] = useState(window.innerWidth), [q, I] = useState(F < 480 ? 1 : 2), [_, R] = useState(null), [W, O] = useState(!0), [j, U] = useState(!0), [C, ae] = useState(!0), [J, te] = useState(!0), [$, L] = useState(!0), [re, z] = useState(null), N = MakerFaceGen(a);
+  ), [F, V] = useState(1280), [q, I] = useState(F < 480 ? 1 : 2), [_, R] = useState(null), [W, O] = useState(!0), [j, U] = useState(!0), [C, ae] = useState(!0), [J, te] = useState(!0), [$, L] = useState(!0), [re, z] = useState(null), N = MakerFaceGen(a);
   return useEffect(() => {
     (async () => {
       const le = await Jimp.read(d + t);
@@ -21323,13 +21323,6 @@ const MAX_PROMISE$1 = 20, MakerChangingColor = async (d, l, s, e, f, i, a, t, r,
       }
     })();
   }, [j, M, n]), useEffect(() => {
-    const ne = () => {
-      V(window.innerWidth), I(F < 480 ? 1 : 2);
-    };
-    return window.addEventListener("resize", ne), () => {
-      window.removeEventListener("resize", ne);
-    };
-  }, [F]), useEffect(() => {
     (async () => {
       if (_ != null) {
         const le = await MakerLayerCombineParts(
