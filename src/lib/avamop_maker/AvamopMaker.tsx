@@ -65,7 +65,7 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
       ? defaultAvaters
       : MakerSelectedPartsGen(partsObject, defaultColors)
   );
-  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState<number>(1280);
   const [viewScale, setViewScale] = useState<number>(windowWidth < 480 ? 1 : 2);
   const [selectedPartsForCanvas, setSelectedPartsForCanvas] =
     useState<SelectedPartsForCanvas>(null);
@@ -145,18 +145,18 @@ const AvamopMaker: React.FC<AvamopMakerProps> = ({
     fetchSelectedPartsForCanvas();
   }, [partsObjectJimpIsLoading, selectedParts, partsObjectJimp]);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-      setViewScale(windowWidth < 480 ? 1 : 2);
-    };
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setWindowWidth(window.innerWidth);
+  //     setViewScale(windowWidth < 480 ? 1 : 2);
+  //   };
 
-    window.addEventListener("resize", handleResize);
+  //   window.addEventListener("resize", handleResize);
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [windowWidth]);
+  //   return () => {
+  //     window.removeEventListener("resize", handleResize);
+  //   };
+  // }, [windowWidth]);
 
   useEffect(() => {
     const imageGen = async () => {

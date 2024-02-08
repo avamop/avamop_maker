@@ -35,19 +35,19 @@ const MakerFaceMenu: React.FC = () => {
     setSelectedParts(updateFace);
   };
 
-  useEffect(() => {
-    const updateButtonPosition = () => {
-      setButtonPosition({
-        left: `${window.innerWidth / 2}px`,
-        top: `${window.innerHeight / 2}px`,
-      });
-    };
+  // useEffect(() => {
+  //   const updateButtonPosition = () => {
+  //     setButtonPosition({
+  //       left: `${window.innerWidth / 2}px`,
+  //       top: `${window.innerHeight / 2}px`,
+  //     });
+  //   };
 
-    window.addEventListener("resize", updateButtonPosition);
-    updateButtonPosition();
+  //   window.addEventListener("resize", updateButtonPosition);
+  //   updateButtonPosition();
 
-    return () => window.removeEventListener("resize", updateButtonPosition);
-  }, []);
+  //   return () => window.removeEventListener("resize", updateButtonPosition);
+  // }, []);
 
   return (
     <Swiper slidesPerView="auto" freeMode={true} spaceBetween={0}>
