@@ -10,6 +10,12 @@ export default defineConfig({
       usePolling: true,
     },
   },
+  css: {
+    modules: {
+      generateScopedName: "[name]__[local]___[hash:base64:5]",
+    },
+  },
+
   build: {
     lib: {
       entry: resolve(__dirname, "src/lib/avamop_maker/AvamopMaker.tsx"),
