@@ -1,1 +1,0 @@
-{"version":3,"file":"SelectedPartsForCanvasContext.d.ts","sourceRoot":"","sources":["../../src/lib/avamop_maker/store/SelectedPartsForCanvasContext.ts"],"names":[],"mappings":"AAEA,QAAA,MAAM,6BAA6B;4BACT,sBAAsB;+BACnB,MAAM,QAAQ,CACvC,MAAM,cAAc,CAAC,sBAAsB,CAAC,CAC7C;EACK,CAAC;AAET,eAAe,6BAA6B,CAAC"}

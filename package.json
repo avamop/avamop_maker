@@ -53,8 +53,7 @@
     "react-slider": "^2.0.6",
     "require": "^2.4.20",
     "sass": "^1.69.7",
-    "swiper": "^11.0.5",
-    "vite-plugin-dts": "^3.7.2"
+    "swiper": "^11.0.5"
   },
   "devDependencies": {
     "@types/node": "^20.11.0",

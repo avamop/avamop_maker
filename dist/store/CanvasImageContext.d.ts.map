@@ -1,1 +1,0 @@
-{"version":3,"file":"CanvasImageContext.d.ts","sourceRoot":"","sources":["../../src/lib/avamop_maker/store/CanvasImageContext.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,QAAQ,EAAE,cAAc,EAAiB,MAAM,OAAO,CAAC;AAChE,OAAO,uBAAuB,CAAC;AAC/B,OAAO,EAAc,QAAQ,EAAE,MAAM,eAAe,CAAC;AAIrD,QAAA,MAAM,kBAAkB;iBACT,QAAQ,EAAE;oBACP,SAAS,eAAe,QAAQ,EAAE,CAAC,CAAC;EAC9C,CAAC;AAET,eAAe,kBAAkB,CAAC"}
