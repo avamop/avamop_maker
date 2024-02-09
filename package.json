@@ -5,6 +5,7 @@
   "browser": "./dist/index.umd.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "style": "./dist/style.css",
   "exports": {
     "types": "./dist/index.d.ts",
     "import": "./dist/index.js",
