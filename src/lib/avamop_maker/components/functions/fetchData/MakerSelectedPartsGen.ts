@@ -17,7 +17,7 @@ export const MakerSelectedPartsGen = (
       Object.keys(partsObject["body"].partList["body"].items)[0]
     ].bodyType;
   try {
-    if (!bodyTypeValue) {
+    if (!bodyTypeValue || bodyTypeValue.length === 0) {
       throw new Error(`エラー:bodyのbodyTypeプロパティに値がありません`);
     } else if (bodyTypeValue.length > 1) {
       throw new Error(`エラー:bodyのbodyTypeプロパティの値が複数あります`);

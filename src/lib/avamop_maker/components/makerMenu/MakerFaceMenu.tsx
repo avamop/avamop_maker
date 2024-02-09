@@ -17,10 +17,6 @@ const MakerFaceMenu: React.FC = () => {
 
   const { selectedParts, setSelectedParts } = useContext(SelectedPartsContext);
   const [showMenu, setShowMenu] = useState(false);
-  const [buttonPosition, setButtonPosition] = useState({
-    left: "4px",
-    top: "0px",
-  });
 
   const changeFace = (face: string) => {
     let updateFace: SelectedParts = {
@@ -34,20 +30,6 @@ const MakerFaceMenu: React.FC = () => {
     }
     setSelectedParts(updateFace);
   };
-
-  // useEffect(() => {
-  //   const updateButtonPosition = () => {
-  //     setButtonPosition({
-  //       left: `${window.innerWidth / 2}px`,
-  //       top: `${window.innerHeight / 2}px`,
-  //     });
-  //   };
-
-  //   window.addEventListener("resize", updateButtonPosition);
-  //   updateButtonPosition();
-
-  //   return () => window.removeEventListener("resize", updateButtonPosition);
-  // }, []);
 
   return (
     <Swiper slidesPerView="auto" freeMode={true} spaceBetween={0}>

@@ -40,7 +40,7 @@ declare global {
   interface Items {
     //変換前及び変換後のパーツのパス格納オブジェクトのパーツリスト部
     [item: string]: {
-      bodyType: null | string[]; //体パーツのタイプを表している。categoryが体パーツの場合は体のタイプを、それ以外のパーツの場合はどの体タイプに対応してるかを配列で列挙する。nullの場合は全てのbodyに対応している
+      bodyType: string[]; //体パーツのタイプを表している。categoryが体パーツの場合は体のタイプを、それ以外のパーツの場合はどの体タイプに対応してるかを配列で列挙する。nullの場合は全てのbodyに対応している
       enableColor: boolean; //カラーチェンジが有効かどうかを表している
       faces: Faces; //表情差分。この中に画像パスがある。
     };
@@ -175,7 +175,7 @@ declare global {
   }
   interface MenuPartIconItems {
     [item: string]: {
-      bodyType: null | string[];
+      bodyType: string[];
       peaces: MenuPartIconPeaces;
     };
   }
@@ -197,7 +197,7 @@ declare global {
   }
 
   interface MenuPartIconsCategoryBase64 {
-    bodyType: null | string[];
+    bodyType: string[];
     faces: MenuPartIconFacesBase64;
   }
 
@@ -237,7 +237,7 @@ declare global {
   }
   interface ItemsJimp {
     [item: string]: {
-      bodyType: null | string[];
+      bodyType: string[];
       enableColor: boolean;
       faces: FacesJimp;
     };

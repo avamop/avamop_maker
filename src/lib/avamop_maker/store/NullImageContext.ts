@@ -1,7 +1,5 @@
 import "jimp/browser/lib/jimp";
-import { JimpObject, JimpType } from "../types/jimp";
-
-declare const Jimp: JimpObject;
+import { JimpType } from "../types/jimp";
 
 import { createContext } from "react";
 

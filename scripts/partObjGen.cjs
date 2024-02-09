@@ -64,7 +64,7 @@ const generatePartsObject = (directoryPath, partChain, existingPartsObject) => {
           existingPartsObject[category].items[item];
       } else {
         partsObject[category].items[item] = {
-          bodyType: null,
+          bodyType: [],
           enableColor: partsObject[category].colorGroup == "" ? false : true,
           faces: {},
         };

@@ -18,16 +18,16 @@ const MakerPartsMenu: React.FC = ({}) => {
   const partsObject = useContext(PartsObjectContext);
   const { menuPartIcons } = useContext(MenuPartIconsContext);
   const handleCategoryClick = (category: string) => {
-    setSelectedCategory(category === selectedCategory ? null : category);
+    setSelectedCategory(category === selectedCategory ? "" : category);
   };
   const swiperRef = useRef(null);
-  const [selectedItem, setSelectedItem] = useState<string>(null);
+  const [selectedItem, setSelectedItem] = useState<string>("");
 
   useEffect(() => {
-    if (selectedCategory === null) {
-      setSelectedItem(null);
+    if (selectedCategory === "") {
+      setSelectedItem("");
     } else if (!selectedParts.category[selectedCategory]) {
-      setSelectedItem(null);
+      setSelectedItem("");
     } else {
       setSelectedItem(selectedParts.category[selectedCategory].partName);
     }
@@ -71,7 +71,7 @@ const MakerPartsMenu: React.FC = ({}) => {
                       ].bodyType.includes(selectedParts.bodyType) ||
                       menuPartIcons[category].partList[
                         Object.keys(menuPartIcons[category].partList)[0]
-                      ].bodyType === null
+                      ].bodyType.length === 0
                     ? menuPartIcons[category].partList[
                         Object.keys(menuPartIcons[category].partList)[0]
                       ].faces[selectedParts.selectedFace[category]]
@@ -133,7 +133,7 @@ const MakerPartsMenu: React.FC = ({}) => {
         selectedCategory === category
           ? Object.keys(menuPartIcons[category].partList).map((item) =>
               category === "body" ||
-              menuPartIcons[category].partList[item].bodyType === null ||
+              menuPartIcons[category].partList[item].bodyType.length === 0 ||
               menuPartIcons[category].partList[item].bodyType.includes(
                 selectedParts.bodyType
               ) ? (
@@ -159,7 +159,12 @@ const MakerPartsMenu: React.FC = ({}) => {
             )
           : null
       )}
-      <MakerPartsFaceMenu category={selectedCategory} item={selectedItem} />
+      {selectedCategory &&
+      selectedItem &&
+      selectedCategory !== "" &&
+      selectedItem !== "" ? (
+        <MakerPartsFaceMenu category={selectedCategory} item={selectedItem} />
+      ) : null}
     </>
   );
 };

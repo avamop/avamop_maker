@@ -6,8 +6,8 @@ import "swiper/swiper-bundle.css";
 import MenuPartIconsContext from "../../store/MenuPartIconsContext";
 
 interface MakerFaceListMenuProps {
-  category: string | null;
-  item: string | null;
+  category: string;
+  item: string;
 }
 
 const MakerPartsFaceMenu: React.FC<MakerFaceListMenuProps> = ({
@@ -29,9 +29,7 @@ const MakerPartsFaceMenu: React.FC<MakerFaceListMenuProps> = ({
 
   return (
     <>
-      {category !== null &&
-      item !== null &&
-      menuPartIcons[category].partList[item] ? (
+      {menuPartIcons[category].partList[item] ? (
         Object.keys(menuPartIcons[category].partList[item].faces).length > 1 ? (
           <Swiper
             style={{ display: "flex" }}

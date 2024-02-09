@@ -43,27 +43,26 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
     null
   );
   const [enableChain, setEnableChain] = useState<boolean>(true);
-  const [color, setColor] = useState<string>(null);
-  const [hueReverse, setHueReverse] = useState<boolean>(null);
-  const [saturationReverse, setSaturationReverse] = useState<boolean>(null);
-  const [hueGraph, setHueGraph] = useState<ColorGraph>(null);
-  const [saturationGraph, setSaturationGraph] = useState<ColorGraph>(null);
-  const [valueGraph, setValueGraph] = useState<ColorGraph>(null);
-  const [hueGlobalSlope, setHueGlobalSlope] = useState<number>(null);
-  const [saturationGlobalSlope, setSaturationGlobalSlope] =
-    useState<number>(null);
-  const [valueGlobalSlope, setValueGlobalSlope] = useState<number>(null);
+  const [color, setColor] = useState<string>();
+  const [hueReverse, setHueReverse] = useState<boolean>();
+  const [saturationReverse, setSaturationReverse] = useState<boolean>();
+  const [hueGraph, setHueGraph] = useState<ColorGraph>();
+  const [saturationGraph, setSaturationGraph] = useState<ColorGraph>();
+  const [valueGraph, setValueGraph] = useState<ColorGraph>();
+  const [hueGlobalSlope, setHueGlobalSlope] = useState<number>();
+  const [saturationGlobalSlope, setSaturationGlobalSlope] = useState<number>();
+  const [valueGlobalSlope, setValueGlobalSlope] = useState<number>();
   const [hueIndividualSlope, setHueIndividualSlope] =
-    useState<AtLeast<10, number>>(null);
+    useState<AtLeast<10, number>>();
   const [saturationIndividualSlope, setSaturationIndividualSlope] =
-    useState<AtLeast<10, number>>(null);
+    useState<AtLeast<10, number>>();
   const [valueIndividualSlope, setValueIndividualSlope] =
-    useState<AtLeast<10, number>>(null);
+    useState<AtLeast<10, number>>();
   const nullImage: JimpType = useContext(NullImageContext);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isPeaceLoading, setIsPeaceLoading] = useState<boolean>(false);
   const [isSliderLoading, setIsSliderLoading] = useState<boolean>(false);
-  const [saveColor, setSaveColor] = useState<SelectedColorValue | null>(null);
+  const [saveColor, setSaveColor] = useState<SelectedColorValue>();
   const selectedPeaceButton = (value) => {
     const { colorGroup, partSplit } = value;
     setSelectedPartSplit(partSplit);
@@ -413,7 +412,9 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
   }, [swiper]);
   return (
     <>
-      {!selectedCategory ? null : (
+      {!selectedCategory ? (
+        <></>
+      ) : (
         <>
           <button
             className={styles["colorShowButton"]}
@@ -581,23 +582,22 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                 touchRatio={touchRatio / 300}
                 mousewheel={false}
               >
-                {isPeaceLoading
-                  ? null
-                  : enableChain
-                  ? colorMenuPartIcons[selectedCategory].true.map(
-                      (index, i) => {
-                        return (
-                          <SwiperSlide key={i} style={{ width: "100px" }}>
-                            <div
-                              onClick={() =>
-                                selectedPeaceButton({
-                                  colorGroup: index.colorGroup,
-                                  partSplit: index.partSplit,
-                                })
-                              }
-                            >
-                              <img
-                                className={`
+                {isPeaceLoading ? (
+                  <></>
+                ) : enableChain ? (
+                  colorMenuPartIcons[selectedCategory].true.map((index, i) => {
+                    return (
+                      <SwiperSlide key={i} style={{ width: "100px" }}>
+                        <div
+                          onClick={() =>
+                            selectedPeaceButton({
+                              colorGroup: index.colorGroup,
+                              partSplit: index.partSplit,
+                            })
+                          }
+                        >
+                          <img
+                            className={`
                                 ${styles["partsImg"]}
                                 ${
                                   index.colorGroup === selectedColorGroup &&
@@ -606,33 +606,32 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                                     : ""
                                 }
                               `}
-                                src={index.image}
-                                alt={
-                                  selectedParts.category[selectedCategory]
-                                    ? selectedParts.category[selectedCategory]
-                                        .partName
-                                    : ""
-                                }
-                              />
-                            </div>
-                          </SwiperSlide>
-                        );
-                      }
-                    )
-                  : colorMenuPartIcons[selectedCategory].false.map(
-                      (index, i) => {
-                        return (
-                          <SwiperSlide key={i} style={{ width: "100px" }}>
-                            <div
-                              onClick={() =>
-                                selectedPeaceButton({
-                                  colorGroup: index.colorGroup,
-                                  partSplit: index.partSplit,
-                                })
-                              }
-                            >
-                              <img
-                                className={`${styles["partsImg"]}
+                            src={index.image}
+                            alt={
+                              selectedParts.category[selectedCategory]
+                                ? selectedParts.category[selectedCategory]
+                                    .partName
+                                : ""
+                            }
+                          />
+                        </div>
+                      </SwiperSlide>
+                    );
+                  })
+                ) : (
+                  colorMenuPartIcons[selectedCategory].false.map((index, i) => {
+                    return (
+                      <SwiperSlide key={i} style={{ width: "100px" }}>
+                        <div
+                          onClick={() =>
+                            selectedPeaceButton({
+                              colorGroup: index.colorGroup,
+                              partSplit: index.partSplit,
+                            })
+                          }
+                        >
+                          <img
+                            className={`${styles["partsImg"]}
                                 ${
                                   index.colorGroup === selectedColorGroup &&
                                   index.partSplit === selectedPartSplit
@@ -640,21 +639,23 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
                                     : ""
                                 }
                               `}
-                                src={index.image}
-                                alt={
-                                  selectedParts.category[selectedCategory]
-                                    ? selectedParts.category[selectedCategory]
-                                        .partName
-                                    : ""
-                                }
-                              />
-                            </div>
-                          </SwiperSlide>
-                        );
-                      }
-                    )}
+                            src={index.image}
+                            alt={
+                              selectedParts.category[selectedCategory]
+                                ? selectedParts.category[selectedCategory]
+                                    .partName
+                                : ""
+                            }
+                          />
+                        </div>
+                      </SwiperSlide>
+                    );
+                  })
+                )}
               </Swiper>
-              {!selectedColorGroup || !selectedPartSplit ? null : (
+              {!selectedColorGroup || !selectedPartSplit ? (
+                <></>
+              ) : (
                 <div>
                   <Swiper
                     onSwiper={(swiperInstance) => {

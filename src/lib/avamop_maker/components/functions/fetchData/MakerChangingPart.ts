@@ -38,9 +38,9 @@ export const MakerChangingPart = (
     });
   }
   if (category === "body") {
-    if (!bodyTypeValue) {
+    if (!bodyTypeValue || bodyTypeValue.length === 0) {
       throw new Error("エラー:bodyのbodyTypeプロパティに値がありません");
-    } else if (bodyTypeValue.length != 1) {
+    } else if (bodyTypeValue.length > 1) {
       throw new Error("エラー:bodyのbodyTypeプロパティに値が複数あります");
     }
     for (const tmpCategory in updateAvaters.category) {

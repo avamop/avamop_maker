@@ -1,5 +1,5 @@
 import { createContext } from "react";
 
-const WindowWidthContext = createContext<number>(/*window.innerWidth*/ 720);
+const WindowWidthContext = createContext<number>(0);
 
 export default WindowWidthContext;
