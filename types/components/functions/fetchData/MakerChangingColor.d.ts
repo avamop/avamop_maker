@@ -1,0 +1,4 @@
+import "jimp/browser/lib/jimp";
+import { JimpType } from "../../../types/jimp";
+export declare const MakerChangingColor: (selectedParts: SelectedParts, selectedColorGroup: string, selectedPartSplit: string, enableChain: boolean, selectedCategory: string, partsObject: PartsObjectSplit, partsObjectJimp: PartsObjectJimp, setPartsObjectJimp: React.Dispatch<React.SetStateAction<PartsObjectJimp>>, colorsObject: ColorsObject, partsPath: string, menuPartIcons: MenuPartIconsBase64, setMenuPartIcons: React.Dispatch<React.SetStateAction<MenuPartIconsBase64>>, nullImage: JimpType) => Promise<void>;
+//# sourceMappingURL=MakerChangingColor.d.ts.map

@@ -1,0 +1,1 @@
+{"version":3,"file":"SelectedCategoryContext.d.ts","sourceRoot":"","sources":["../../src/lib/avamop_maker/store/SelectedCategoryContext.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,QAAQ,EAAE,cAAc,EAAiB,MAAM,OAAO,CAAC;AAEhE,QAAA,MAAM,uBAAuB;sBACT,MAAM;yBACH,SAAS,eAAe,MAAM,CAAC,CAAC;EAC/C,CAAC;AAET,eAAe,uBAAuB,CAAC"}

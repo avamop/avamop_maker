@@ -1,9 +1,22 @@
+declare module "avamop_maker";
+
 import "jimp/browser/lib/jimp";
-import { JimpObject, JimpType } from "../types/jimp";
+import { JimpObject, JimpType } from "./jimp";
 
 declare const Jimp: JimpObject;
 
-declare global {
+export declare global {
+  interface AvamopMakerProps {
+    partsPath: string;
+    facePath: string;
+    partsObject: PartsObjectSplit;
+    colorsObject: ColorsObject;
+    defaultColors: DefaultColors;
+    defaultAvaters?: SelectedParts;
+    facePresets: FaceTree;
+    nullImagePath: string;
+  }
+
   interface PartsObject {
     //変換前のパーツのパス格納オブジェクト
     //目や鼻などの部位

@@ -1,37 +1,35 @@
 {
   "compilerOptions": {
+    "rootDir": "./src/lib/avamop_maker",
     "target": "ES2020",
-   "useDefineForClassFields": true,
-   "module": "ESNext",
-   "lib": ["ES2020", "DOM", "DOM.Iterable"],
-   "skipLibCheck": true,
-   "moduleResolution": "Bundler",
-   "allowImportingTsExtensions": true,
-   "resolveJsonModule": true,
-   "isolatedModules": true,
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "skipLibCheck": true,
+    "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
     "declaration": true,
-    // "declarationDir": "./types",
-    "noEmit": true,
+    "emitDeclarationOnly": true,
+    "declarationMap": true,
+    "declarationDir": "./types",
     "jsx": "react-jsx",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "traceResolution": true,
-    "downlevelIteration":true,
+    "downlevelIteration": true,
     "strict": true,
-   "noUnusedLocals": false,
-   "noUnusedParameters": false,
-   "noFallthroughCasesInSwitch": true,
-    "types": [
-      "node"
-    ],
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noFallthroughCasesInSwitch": true,
+    "types": ["node"],
     "outDir": "./dist",
     "strictNullChecks": false,
     "noImplicitAny": false
   },
-  "include": [
-    "src/lib/avamop_maker/**/*"
-, "src/lib/avamop_maker/module-css/makerMenu/.d.ts"  ],
+  "include": ["src/lib/avamop_maker/**/*", "src/lib/avamop_maker/types/*.d.ts"],
   "exclude": [
-    "src/lib/avamop_maker/components/function/imageProcess/MakerSetGraph",
+    "src/lib/avamop_maker/components/function/imageProcess/MakerSetGraph"
   ]
 }

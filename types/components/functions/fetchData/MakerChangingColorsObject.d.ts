@@ -1,0 +1,3 @@
+import "jimp/browser/lib/jimp";
+export declare const MakerChangingColorsObject: (selectedParts: SelectedParts, setSelectedParts: React.Dispatch<React.SetStateAction<SelectedParts>>, selectedColorGroup: string, selectedPartSplit: string, enableChain: boolean, color: string | null, hueReverse: boolean | null, saturationReverse: boolean | null, hueGraph: ColorGraph | null, saturationGraph: ColorGraph | null, valueGraph: ColorGraph | null, selectedCategory: string, partsObject: PartsObjectSplit) => SelectedParts;
+//# sourceMappingURL=MakerChangingColorsObject.d.ts.map

@@ -2,7 +2,7 @@
   "name": "avamop_maker",
   "version": "1.0.0",
   "description": "Avatar creation module for AVAMOP",
-  "main": "./dist/index.umd.cjs",
+  "browser": "./dist/index.umd.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -20,12 +20,15 @@
   ],
   "scripts": {
     "start": "vite dev",
-    "build": "tsc && vite build",
+    "build": "vite build && tsc",
+    "watch": "vite build --watch && tsc",
+    "prepare": "npm run build",
     "test": "vitest",
     "clear": "vite clear"
   },
   "files": [
-    "dist"
+    "./dist",
+    "./types"
   ],
   "license": "MPL-2.0",
   "dependencies": {
@@ -50,7 +53,8 @@
     "react-slider": "^2.0.6",
     "require": "^2.4.20",
     "sass": "^1.69.7",
-    "swiper": "^11.0.5"
+    "swiper": "^11.0.5",
+    "vite-plugin-dts": "^3.7.2"
   },
   "devDependencies": {
     "@types/node": "^20.11.0",
