@@ -1,5 +1,5 @@
 import "jimp/browser/lib/jimp";
-interface AvamopMakerProps {
+export interface AvamopMakerProps {
     partsPath: string;
     facePath: string;
     partsObject: PartsObjectSplit;

@@ -31,7 +31,7 @@ import { MakerPartIconsTrim } from "./components/functions/imageProcess/MakerPar
 
 declare const Jimp: JimpObject;
 
-interface AvamopMakerProps {
+export interface AvamopMakerProps {
   partsPath: string;
   facePath: string;
   partsObject: PartsObjectSplit;
