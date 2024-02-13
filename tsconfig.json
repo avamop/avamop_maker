@@ -6,7 +6,7 @@
     "module": "ESNext",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "skipLibCheck": true,
-    "moduleResolution": "Bundler",
+    "moduleResolution": "node",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -26,7 +26,8 @@
     "types": ["node"],
     "outDir": "./dist",
     "strictNullChecks": false,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "newLine": "lf"
   },
   "include": ["src/lib/avamop_maker/**/*", "src/lib/avamop_maker/types/*.d.ts"],
   "exclude": [
