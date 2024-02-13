@@ -2,16 +2,14 @@
   "name": "avamop_maker",
   "version": "1.0.0",
   "description": "Avatar creation module for AVAMOP",
-  "browser": "./dist/index.umd.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "style": "./dist/style.css",
   "exports": {
-    "types": "./dist/index.d.ts",
-    "import": "./dist/index.js",
-    "require": "./dist/index.umd.cjs",
-    "style": "./dist/style.css"
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./style.css": "./dist/style.css"
   },
+  "browser": "dist/index.cjs",
   "author": "ArchLordRyu",
   "type": "module",
   "keywords": [
