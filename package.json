@@ -7,7 +7,10 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./style.css": "./dist/style.css"
+    "./dist/style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
+    }
   },
   "browser": "dist/index.cjs",
   "author": "ArchLordRyu",
