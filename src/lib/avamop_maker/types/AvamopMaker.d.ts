@@ -6,17 +6,6 @@ import { JimpObject, JimpType } from "./jimp";
 declare const Jimp: JimpObject;
 
 export declare global {
-  interface AvamopMakerProps {
-    partsPath: string;
-    facePath: string;
-    partsObject: PartsObjectSplit;
-    colorsObject: ColorsObject;
-    defaultColors: DefaultColors;
-    defaultAvaters?: SelectedParts;
-    facePresets: FaceTree;
-    nullImagePath: string;
-  }
-
   interface PartsObject {
     //変換前のパーツのパス格納オブジェクト
     //目や鼻などの部位

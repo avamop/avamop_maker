@@ -31,6 +31,17 @@ import { MakerPartIconsTrim } from "./components/functions/imageProcess/MakerPar
 
 declare const Jimp: JimpObject;
 
+interface AvamopMakerProps {
+  partsPath: string;
+  facePath: string;
+  partsObject: PartsObjectSplit;
+  colorsObject: ColorsObject;
+  defaultColors: DefaultColors;
+  defaultAvaters?: SelectedParts;
+  facePresets: FaceTree;
+  nullImagePath: string;
+}
+
 const AvamopMaker: React.FC<AvamopMakerProps> = ({
   partsPath,
   facePath,
