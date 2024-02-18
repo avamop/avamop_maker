@@ -1,30 +1,30 @@
 import Jimp from "jimp";
 
-interface PartsObjectJimp {
+interface PartsObjectJimpServer {
   [category: "body" | string]: {
     partCount: number;
     partChain: string;
     ignoreTrigger: null | string[];
-    partList: CategoryJimp;
+    partList: CategoryJimpServer;
   };
 }
 
-interface CategoryJimp {
+interface CategoryJimpServer {
   [partSplit: "body" | string]: {
     colorGroup: null | string;
     partOrder: number;
     items: ItemsJimp;
   };
 }
-interface ItemsJimp {
+interface ItemsJimpServer {
   [item: string]: {
     bodyType: string[];
     enableColor: boolean;
-    faces: FacesJimp;
+    faces: FacesJimpServer;
   };
 }
 
-interface FacesJimp {
+interface FacesJimpServer {
   [face: "clear" | string]: {
     jimpData: Jimp;
   };
@@ -38,7 +38,7 @@ const MakerGenerateAvaterImage = async (
   colorsObject: ColorsObject
 ): Promise<string> => {
   const nullImage: Jimp = await Jimp.read(partsPath + nullImagePath);
-  const partsObjectJimp: PartsObjectJimp = await MakerConvertPartsJimp(
+  const partsObjectJimp: PartsObjectJimpServer = await MakerConvertPartsJimp(
     partsObject,
     partsPath,
     nullImage,
@@ -73,8 +73,8 @@ export const MakerConvertPartsJimp = async (
   nullImage: Jimp,
   selectedParts: SelectedParts,
   colorsObject: ColorsObject
-): Promise<PartsObjectJimp> => {
-  const partsObjectJimp: PartsObjectJimp = {};
+): Promise<PartsObjectJimpServer> => {
+  const partsObjectJimp: PartsObjectJimpServer = {};
   for (const category in selectedParts.category) {
     partsObjectJimp[category] = {
       partCount: partsObject[category].partCount,
@@ -172,7 +172,7 @@ const asyncMap = async (
   array,
   mapper,
   concurrency = MAX_PROMISE
-): Promise<FacesJimp[] | MenuPartIconsCategoryBase64[]> => {
+): Promise<FacesJimpServer[] | MenuPartIconsCategoryBase64[]> => {
   const queue = array.slice();
   const results = new Array(array.length);
   const workers = new Array(concurrency).fill(Promise.resolve());
@@ -446,7 +446,7 @@ export const MakerLayerCombineParts = async (
 
 export const MakerCanvasSelectedPartsGen = (
   selectedParts: SelectedParts,
-  partsObjectJimp: PartsObjectJimp,
+  partsObjectJimp: PartsObjectJimpServer,
   nullImage: Jimp
 ): SelectedPartsForCanvas => {
   const selectedPartsForCanvas: SelectedPartsForCanvas = {
