@@ -16,8 +16,8 @@ const MakerWindow: React.FC = () => {
   const [imageNumber, setImageNumber] = useState(0);
 
   const saveImage = async (images) => {
-    const event = new CustomEvent("avamopSave", { detail: selectedParts });
-    window.dispatchEvent(event);
+    // const event = new CustomEvent("avamopSave", { detail: selectedParts });
+    // window.dispatchEvent(event);
     let combinedImage = images[0];
     for (let i = 1; i < images.length; i++) {
       combinedImage = combinedImage.composite(images[i], 0, 0);
@@ -25,8 +25,10 @@ const MakerWindow: React.FC = () => {
     const data = await combinedImage.getBase64Async(Jimp.MIME_PNG);
     const link = document.createElement("a");
     link.href = data;
-    link.download = `avatar_${imageNumber}.png`;
-    link.click();
+    const event = new CustomEvent("avamopSave", { detail: data });
+    window.dispatchEvent(event);
+    // link.download = `avatar_${imageNumber}.png`;
+    // link.click();
     setImageNumber(imageNumber + 1);
   };
 

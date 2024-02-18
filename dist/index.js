@@ -21022,16 +21022,17 @@ const MAX_PROMISE$1 = 20, MakerChangingColor = async (d, l, s, e, f, i, a, t, r,
     ] })
   ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, {}) });
 }, MakerColorsMenu = () => /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(MakerColorsPalleteMenu, {}) }), MakerWindow = () => {
-  const { selectedParts: d } = useContext(SelectedPartsContext), { canvasImage: l } = useContext(CanvasImageContext), [s, e] = useState(0), f = async (a) => {
-    const t = new CustomEvent("avamopSave", { detail: d });
-    window.dispatchEvent(t);
-    let r = a[0];
-    for (let u = 1; u < a.length; u++)
-      r = r.composite(a[u], 0, 0);
-    const o = await r.getBase64Async(Jimp.MIME_PNG), n = document.createElement("a");
-    n.href = o, n.download = `avatar_${s}.png`, n.click(), e(s + 1);
-  }, i = () => {
-    f(l);
+  useContext(SelectedPartsContext);
+  const { canvasImage: d } = useContext(CanvasImageContext), [l, s] = useState(0), e = async (i) => {
+    let a = i[0];
+    for (let n = 1; n < i.length; n++)
+      a = a.composite(i[n], 0, 0);
+    const t = await a.getBase64Async(Jimp.MIME_PNG), r = document.createElement("a");
+    r.href = t;
+    const o = new CustomEvent("avamopSave", { detail: t });
+    window.dispatchEvent(o), s(l + 1);
+  }, f = () => {
+    e(d);
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: allObjectContainer, children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: avatarImgAll, children: [
@@ -21041,7 +21042,7 @@ const MAX_PROMISE$1 = 20, MakerChangingColor = async (d, l, s, e, f, i, a, t, r,
         {
           id: "avamopSave",
           className: bottomButton,
-          onClick: i,
+          onClick: f,
           children: "完成"
         }
       )
