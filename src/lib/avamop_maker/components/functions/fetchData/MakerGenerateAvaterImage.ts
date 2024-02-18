@@ -1,11 +1,7 @@
 import { MakerConvertPartsJimp } from "../imageProcess/MakerConvertPartsJimp";
 import { MakerCanvasSelectedPartsGen } from "./MakerCanvasSelectedPartsGen";
-import { MakerPartsColoring } from "../imageProcess/MakerPartsColoring";
-import "jimp/browser/lib/jimp";
-import { JimpObject, JimpType } from "../../../types/jimp";
+import Jimp from "jimp";
 import { MakerLayerCombineParts } from "../imageProcess/MakerLayerCombineParts";
-
-declare const Jimp: JimpObject;
 
 const MakerGenerateAvaterImage = async (
   partsPath: string,
@@ -14,7 +10,7 @@ const MakerGenerateAvaterImage = async (
   selectedParts: SelectedParts,
   colorsObject: ColorsObject
 ): Promise<string> => {
-  const nullImage: JimpType = await Jimp.read(partsPath + nullImagePath);
+  const nullImage: Jimp = await Jimp.read(partsPath + nullImagePath);
   const partsObjectJimp: PartsObjectJimp = await MakerConvertPartsJimp(
     partsObject,
     partsPath,
@@ -28,7 +24,7 @@ const MakerGenerateAvaterImage = async (
       partsObjectJimp,
       nullImage
     );
-  const canvasImage: JimpType[] = await MakerLayerCombineParts(
+  const canvasImage: Jimp[] = await MakerLayerCombineParts(
     selectedPartsForCanvas
   );
   let combinedImage = canvasImage[0];
