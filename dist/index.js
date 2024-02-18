@@ -21022,19 +21022,29 @@ const MAX_PROMISE$1 = 20, MakerChangingColor = async (d, l, s, e, f, i, a, t, r,
     ] })
   ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, {}) });
 }, MakerColorsMenu = () => /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(MakerColorsPalleteMenu, {}) }), MakerWindow = () => {
-  const { canvasImage: d, setCanvasImage: l } = useContext(CanvasImageContext), [s, e] = useState(0), f = async (a) => {
-    let t = a[0];
-    for (let n = 1; n < a.length; n++)
-      t = t.composite(a[n], 0, 0);
-    const r = await t.getBase64Async(Jimp.MIME_PNG), o = document.createElement("a");
-    o.href = r, o.download = `avatar_${s}.png`, o.click(), e(s + 1);
+  const { selectedParts: d } = useContext(SelectedPartsContext), { canvasImage: l } = useContext(CanvasImageContext), [s, e] = useState(0), f = async (a) => {
+    const t = new CustomEvent("avamopSave", { detail: d });
+    window.dispatchEvent(t);
+    let r = a[0];
+    for (let u = 1; u < a.length; u++)
+      r = r.composite(a[u], 0, 0);
+    const o = await r.getBase64Async(Jimp.MIME_PNG), n = document.createElement("a");
+    n.href = o, n.download = `avatar_${s}.png`, n.click(), e(s + 1);
   }, i = () => {
-    f(d);
+    f(l);
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: allObjectContainer, children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: avatarImgAll, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(MakerView, {}),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: bottomButton, onClick: i, children: "完成" })
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "button",
+        {
+          id: "avamopSave",
+          className: bottomButton,
+          onClick: i,
+          children: "完成"
+        }
+      )
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: optionMenuGroup, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: void 0, children: /* @__PURE__ */ jsxRuntimeExports.jsx(MakerPartsMenu$1, {}) }),
