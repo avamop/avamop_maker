@@ -11,7 +11,19 @@ interface CategoryJimpServer {
     [partSplit: "body" | string]: {
         colorGroup: null | string;
         partOrder: number;
-        items: ItemsJimp;
+        items: ItemsJimpServer;
+    };
+}
+interface ItemsJimpServer {
+    [item: string]: {
+        bodyType: string[];
+        enableColor: boolean;
+        faces: FacesJimpServer;
+    };
+}
+interface FacesJimpServer {
+    [face: "clear" | string]: {
+        jimpData: Jimp;
     };
 }
 declare const MakerGenerateAvaterImage: (partsPath: string, nullImagePath: string, partsObject: PartsObjectSplit, selectedParts: SelectedParts, colorsObject: ColorsObject) => Promise<string>;

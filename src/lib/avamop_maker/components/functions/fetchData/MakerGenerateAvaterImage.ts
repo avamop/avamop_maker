@@ -13,7 +13,7 @@ interface CategoryJimpServer {
   [partSplit: "body" | string]: {
     colorGroup: null | string;
     partOrder: number;
-    items: ItemsJimp;
+    items: ItemsJimpServer;
   };
 }
 interface ItemsJimpServer {
