@@ -1,5 +1,6 @@
 import Jimp from "jimp";
 
+type JimpServer = Jimp;
 interface PartsObjectJimpServer {
   [category: "body" | string]: {
     partCount: number;
@@ -26,7 +27,7 @@ interface ItemsJimpServer {
 
 interface FacesJimpServer {
   [face: "clear" | string]: {
-    jimpData: Jimp;
+    jimpData: JimpServer;
   };
 }
 
@@ -37,7 +38,7 @@ const MakerGenerateAvaterImage = async (
   selectedParts: SelectedParts,
   colorsObject: ColorsObject
 ): Promise<string> => {
-  const nullImage: Jimp = await Jimp.read(partsPath + nullImagePath);
+  const nullImage: JimpServer = await Jimp.read(partsPath + nullImagePath);
   const partsObjectJimp: PartsObjectJimpServer = await MakerConvertPartsJimp(
     partsObject,
     partsPath,
@@ -51,7 +52,7 @@ const MakerGenerateAvaterImage = async (
       partsObjectJimp,
       nullImage
     );
-  const canvasImage: Jimp[] = await MakerLayerCombineParts(
+  const canvasImage: JimpServer[] = await MakerLayerCombineParts(
     selectedPartsForCanvas
   );
   let combinedImage = canvasImage[0];
@@ -70,7 +71,7 @@ const MAX_PROMISE = 20;
 export const MakerConvertPartsJimp = async (
   partsObject: PartsObjectSplit,
   partsPath: string,
-  nullImage: Jimp,
+  nullImage: JimpServer,
   selectedParts: SelectedParts,
   colorsObject: ColorsObject
 ): Promise<PartsObjectJimpServer> => {
@@ -112,7 +113,7 @@ export const MakerConvertPartsJimp = async (
               .items[item].faces
           ),
           async (face) => {
-            let jimpData: Jimp;
+            let jimpData: JimpServer;
 
             if (
               partsObject[category.replace(/_\d+$/, "")].partList[partSplit]
@@ -154,7 +155,7 @@ const partRead = async (
   partIndividual: string
 ): Promise<Jimp> => {
   try {
-    const image: Jimp = await Jimp.read(imagePath);
+    const image: JimpServer = await Jimp.read(imagePath);
     return await MakerPartsColoring(
       image,
       partIndividual,
@@ -193,7 +194,7 @@ const asyncMap = async (
 };
 
 export const MakerPartsColoring = async (
-  image: Jimp,
+  image: JimpServer,
   partSplit: string,
   colorGroup: string,
   selectedParts: SelectedParts,
@@ -262,7 +263,7 @@ export const MakerPartsColoring = async (
 };
 
 const MakerPartsColoringChange = async (
-  image: Jimp,
+  image: JimpServer,
   oldColors: string[],
   newColors: string[]
 ): Promise<Jimp> => {
@@ -409,7 +410,7 @@ export const MakerLayerCombineParts = async (
     category: string;
     partSplit: string;
     partOrder: number;
-    partData: Jimp;
+    partData: JimpServer;
   };
   // console.log(selectedPartsForCanvas);
   let sortedParts: Orders[] = [];
@@ -435,7 +436,7 @@ export const MakerLayerCombineParts = async (
   // console.log(sortedParts);
   // 最初の画像をベースにする
 
-  const imageArray: Jimp[] = [];
+  const imageArray: JimpServer[] = [];
 
   // 残りの画像を合成
   for (let i = 0; i < sortedParts.length; i++) {
@@ -447,7 +448,7 @@ export const MakerLayerCombineParts = async (
 export const MakerCanvasSelectedPartsGen = (
   selectedParts: SelectedParts,
   partsObjectJimp: PartsObjectJimpServer,
-  nullImage: Jimp
+  nullImage: JimpServer
 ): SelectedPartsForCanvas => {
   const selectedPartsForCanvas: SelectedPartsForCanvas = {
     bodyType: selectedParts.bodyType,
