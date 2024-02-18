@@ -7,14 +7,18 @@ import MakerColorsMenu from "./makerMenu/MakerColorsMenu";
 import CanvasImageContext from "../store/CanvasImageContext";
 import "jimp/browser/lib/jimp";
 import { JimpObject, JimpType } from "../types/jimp";
+import SelectedPartsContext from "../store/SelectedPartsContext";
 
 declare const Jimp: JimpObject;
 
 const MakerWindow: React.FC = () => {
-  const { canvasImage, setCanvasImage } = useContext(CanvasImageContext);
+  const { selectedParts } = useContext(SelectedPartsContext);
+  const { canvasImage } = useContext(CanvasImageContext);
   const [imageNumber, setImageNumber] = useState(0);
 
   const saveImage = async (images) => {
+    const event = new CustomEvent("avamopSave", { detail: selectedParts });
+    window.dispatchEvent(event);
     let combinedImage = images[0];
     for (let i = 1; i < images.length; i++) {
       combinedImage = combinedImage.composite(images[i], 0, 0);
