@@ -153,7 +153,7 @@ const partRead = async (
   selectedParts: SelectedParts,
   colorsObject: ColorsObject,
   partIndividual: string
-): Promise<Jimp> => {
+): Promise<JimpServer> => {
   try {
     const image: JimpServer = await Jimp.read(imagePath);
     return await MakerPartsColoring(
@@ -173,7 +173,7 @@ const asyncMap = async (
   array,
   mapper,
   concurrency = MAX_PROMISE
-): Promise<FacesJimpServer[] | MenuPartIconsCategoryBase64[]> => {
+): Promise<FacesJimpServer[]> => {
   const queue = array.slice();
   const results = new Array(array.length);
   const workers = new Array(concurrency).fill(Promise.resolve());
@@ -199,7 +199,7 @@ export const MakerPartsColoring = async (
   colorGroup: string,
   selectedParts: SelectedParts,
   colorsObject: ColorsObject
-): Promise<Jimp> => {
+): Promise<JimpServer> => {
   // console.log("colord!");
   const maskColor: string[] = [
     "#fefefe",
@@ -266,7 +266,7 @@ const MakerPartsColoringChange = async (
   image: JimpServer,
   oldColors: string[],
   newColors: string[]
-): Promise<Jimp> => {
+): Promise<JimpServer> => {
   try {
     const colorPairs = oldColors.map((oldColor, i) => {
       const oldRGB: { red: number; green: number; blue: number } =
