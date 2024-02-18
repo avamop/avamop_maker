@@ -1,6 +1,5 @@
 import Jimp from "jimp";
-
-type JimpServer = Jimp;
+import { JimpServer } from "../../../types/jimpServer";
 interface PartsObjectJimpServer {
   [category: "body" | string]: {
     partCount: number;
