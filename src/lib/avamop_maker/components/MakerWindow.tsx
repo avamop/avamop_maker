@@ -2,11 +2,10 @@ import React, { useContext, useState } from "react";
 import * as styles from "../module-css/makerView/MakerWindow.module.css"; // CSSファイルをインポート
 import MakerView from "./MakerView/MakerView";
 import MakerPartsMenu from "./makerMenu/MakerPartsMenu";
-import MakerFaceMenu from "./makerMenu/MakerFaceMenu";
 import MakerColorsMenu from "./makerMenu/MakerColorsMenu";
 import CanvasImageContext from "../store/CanvasImageContext";
 import "jimp/browser/lib/jimp";
-import { JimpObject, JimpType } from "../types/jimp";
+import { JimpObject } from "../types/jimp";
 import SelectedPartsContext from "../store/SelectedPartsContext";
 
 declare const Jimp: JimpObject;
