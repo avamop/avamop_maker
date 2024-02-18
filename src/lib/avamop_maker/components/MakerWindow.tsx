@@ -38,7 +38,11 @@ const MakerWindow: React.FC = () => {
         <div className={styles["avatarImgAll"]}>
           <MakerView />
           {/* オブジェクト変化テスト用ボタン */}
-          <button className={styles["bottomButton"]} onClick={handleClick}>
+          <button
+            id="avamopSave"
+            className={styles["bottomButton"]}
+            onClick={handleClick}
+          >
             完成
           </button>
         </div>
