@@ -17,6 +17,7 @@ import MenuPartIconsContext from "../../store/MenuPartIconsContext";
 import NullImageContext from "../../store/NullImageContext";
 import { MakerChangingColor } from "../functions/fetchData/MakerChangingColor";
 import MakerFaceMenu from "./MakerFaceMenu";
+import palleteIcon from "../../icons/pallete.png";
 
 declare const Jimp: JimpObject;
 
@@ -423,13 +424,13 @@ const MakerColorsPalleteMenu: React.FC = ({}) => {
             {showSwiper ? (
               <img
                 className={styles["swiperColorImage"]}
-                src={`/pallete.png`}
+                src={palleteIcon}
                 alt="Hide Face"
               />
             ) : (
               <img
                 className={styles["swiperColorImage"]}
-                src={`/pallete.png`}
+                src={palleteIcon}
                 alt="Show Face"
               />
             )}

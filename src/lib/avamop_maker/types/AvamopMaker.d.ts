@@ -6,6 +6,10 @@ import { JimpObject, JimpType } from "./jimp";
 declare const Jimp: JimpObject;
 
 export declare global {
+  declare module "*.png" {
+    const value: any;
+    export default value;
+  }
   interface PartsObject {
     //変換前のパーツのパス格納オブジェクト
     //目や鼻などの部位

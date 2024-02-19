@@ -32,16 +32,16 @@ function requireReactJsxRuntime_development() {
       {
         var ut = w.ReactDebugCurrentFrame, bt = ut.getStackAddendum();
         bt !== "" && (Ye += "%s", Ke = Ke.concat([bt]));
-        var At = Ke.map(function(Ct) {
+        var It = Ke.map(function(Ct) {
           return String(Ct);
         });
-        At.unshift("Warning: " + Ye), Function.prototype.apply.call(console[Se], console, At);
+        It.unshift("Warning: " + Ye), Function.prototype.apply.call(console[Se], console, It);
       }
     }
-    var F = !1, V = !1, q = !1, I = !1, _ = !1, R;
+    var F = !1, V = !1, q = !1, A = !1, _ = !1, R;
     R = Symbol.for("react.module.reference");
     function W(Se) {
-      return !!(typeof Se == "string" || typeof Se == "function" || Se === e || Se === i || _ || Se === f || Se === o || Se === n || I || Se === g || F || V || q || typeof Se == "object" && Se !== null && (Se.$$typeof === p || Se.$$typeof === u || Se.$$typeof === a || Se.$$typeof === t || Se.$$typeof === r || // This needs to include all possible module reference object
+      return !!(typeof Se == "string" || typeof Se == "function" || Se === e || Se === i || _ || Se === f || Se === o || Se === n || A || Se === g || F || V || q || typeof Se == "object" && Se !== null && (Se.$$typeof === p || Se.$$typeof === u || Se.$$typeof === a || Se.$$typeof === t || Se.$$typeof === r || // This needs to include all possible module reference object
       // types supported by any Flight configuration anywhere since
       // we don't know which Flight build this will end up being used
       // with.
@@ -92,9 +92,9 @@ function requireReactJsxRuntime_development() {
             var ut = Se.displayName || null;
             return ut !== null ? ut : U(Se.type) || "Memo";
           case p: {
-            var bt = Se, At = bt._payload, Ct = bt._init;
+            var bt = Se, It = bt._payload, Ct = bt._init;
             try {
-              return U(Ct(At));
+              return U(Ct(It));
             } catch {
               return null;
             }
@@ -195,8 +195,8 @@ function requireReactJsxRuntime_development() {
       K = !0;
       var bt = Error.prepareStackTrace;
       Error.prepareStackTrace = void 0;
-      var At;
-      At = M.current, M.current = null, le();
+      var It;
+      It = M.current, M.current = null, le();
       try {
         if (Ye) {
           var Ct = function() {
@@ -249,7 +249,7 @@ function requireReactJsxRuntime_development() {
             }
         }
       } finally {
-        K = !1, M.current = At, he(), Error.prepareStackTrace = bt;
+        K = !1, M.current = It, he(), Error.prepareStackTrace = bt;
       }
       var Jt = Se ? Se.displayName || Se.name : "", er = Jt ? B(Jt) : "";
       return typeof Se == "function" && h.set(Se, er), er;
@@ -281,9 +281,9 @@ function requireReactJsxRuntime_development() {
           case u:
             return E(Se.type, Ye, Ke);
           case p: {
-            var ut = Se, bt = ut._payload, At = ut._init;
+            var ut = Se, bt = ut._payload, It = ut._init;
             try {
-              return E(At(bt), Ye, Ke);
+              return E(It(bt), Ye, Ke);
             } catch {
             }
           }
@@ -300,9 +300,9 @@ function requireReactJsxRuntime_development() {
     }
     function Ee(Se, Ye, Ke, ut, bt) {
       {
-        var At = Function.call.bind(Q);
+        var It = Function.call.bind(Q);
         for (var Ct in Se)
-          if (At(Se, Ct)) {
+          if (It(Se, Ct)) {
             var vt = void 0;
             try {
               if (typeof Se[Ct] != "function") {
@@ -392,7 +392,7 @@ function requireReactJsxRuntime_development() {
         });
       }
     }
-    var de = function(Se, Ye, Ke, ut, bt, At, Ct) {
+    var de = function(Se, Ye, Ke, ut, bt, It, Ct) {
       var vt = {
         // This tag allows us to uniquely identify this as a React Element
         $$typeof: l,
@@ -402,7 +402,7 @@ function requireReactJsxRuntime_development() {
         ref: Ke,
         props: Ct,
         // Record the component responsible for creating this element.
-        _owner: At
+        _owner: It
       };
       return vt._store = {}, Object.defineProperty(vt._store, "validated", {
         configurable: !1,
@@ -423,14 +423,14 @@ function requireReactJsxRuntime_development() {
     };
     function Ze(Se, Ye, Ke, ut, bt) {
       {
-        var At, Ct = {}, vt = null, Dt = null;
+        var It, Ct = {}, vt = null, Dt = null;
         Ke !== void 0 && (Ce(Ke), vt = "" + Ke), lt(Ye) && (Ce(Ye.key), vt = "" + Ye.key), Qe(Ye) && (Dt = Ye.ref, P(Ye, bt));
-        for (At in Ye)
-          Q.call(Ye, At) && !Be.hasOwnProperty(At) && (Ct[At] = Ye[At]);
+        for (It in Ye)
+          Q.call(Ye, It) && !Be.hasOwnProperty(It) && (Ct[It] = Ye[It]);
         if (Se && Se.defaultProps) {
           var jt = Se.defaultProps;
-          for (At in jt)
-            Ct[At] === void 0 && (Ct[At] = jt[At]);
+          for (It in jt)
+            Ct[It] === void 0 && (Ct[It] = jt[It]);
         }
         if (vt || Dt) {
           var Ut = typeof Se == "function" ? Se.displayName || Se.name || "Unknown" : Se;
@@ -452,7 +452,7 @@ function requireReactJsxRuntime_development() {
     function je(Se) {
       return typeof Se == "object" && Se !== null && Se.$$typeof === l;
     }
-    function Ie() {
+    function Ae() {
       {
         if (Re.current) {
           var Se = U(Re.current.type);
@@ -478,7 +478,7 @@ Check your code at ` + Ye + ":" + Ke + ".";
     var st = {};
     function tt(Se) {
       {
-        var Ye = Ie();
+        var Ye = Ae();
         if (!Ye) {
           var Ke = typeof Se == "string" ? Se : Se.displayName || Se.name;
           Ke && (Ye = `
@@ -501,7 +501,7 @@ Check the top-level render call using <` + Ke + ">.");
         Se && Se._owner && Se._owner !== Re.current && (ut = " It was passed a child from " + U(Se._owner.type) + "."), De(Se), k('Each child in a list should have a unique "key" prop.%s%s See https://reactjs.org/link/warning-keys for more information.', Ke, ut), De(null);
       }
     }
-    function It(Se, Ye) {
+    function At(Se, Ye) {
       {
         if (typeof Se != "object")
           return;
@@ -515,7 +515,7 @@ Check the top-level render call using <` + Ke + ">.");
         else if (Se) {
           var bt = b(Se);
           if (typeof bt == "function" && bt !== Se.entries)
-            for (var At = bt.call(Se), Ct; !(Ct = At.next()).done; )
+            for (var It = bt.call(Se), Ct; !(Ct = It.next()).done; )
               je(Ct.value) && mt(Ct.value, Ye);
         }
       }
@@ -557,18 +557,18 @@ Check the top-level render call using <` + Ke + ">.");
         Se.ref !== null && (De(Se), k("Invalid attribute `ref` supplied to `React.Fragment`."), De(null));
       }
     }
-    function Mt(Se, Ye, Ke, ut, bt, At) {
+    function Mt(Se, Ye, Ke, ut, bt, It) {
       {
         var Ct = W(Se);
         if (!Ct) {
           var vt = "";
           (Se === void 0 || typeof Se == "object" && Se !== null && Object.keys(Se).length === 0) && (vt += " You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.");
           var Dt = at(bt);
-          Dt ? vt += Dt : vt += Ie();
+          Dt ? vt += Dt : vt += Ae();
           var jt;
           Se === null ? jt = "null" : Me(Se) ? jt = "array" : Se !== void 0 && Se.$$typeof === l ? (jt = "<" + (U(Se.type) || "Unknown") + " />", vt = " Did you accidentally export a JSX literal instead of a component?") : jt = typeof Se, k("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", jt, vt);
         }
-        var Ut = Ze(Se, Ye, Ke, bt, At);
+        var Ut = Ze(Se, Ye, Ke, bt, It);
         if (Ut == null)
           return Ut;
         if (Ct) {
@@ -577,12 +577,12 @@ Check the top-level render call using <` + Ke + ">.");
             if (ut)
               if (Me(Gt)) {
                 for (var Jt = 0; Jt < Gt.length; Jt++)
-                  It(Gt[Jt], Se);
+                  At(Gt[Jt], Se);
                 Object.freeze && Object.freeze(Gt);
               } else
                 k("React.jsx: Static children should always be an array. You are likely explicitly calling React.jsxs or React.jsxDEV. Use the Babel transform instead.");
             else
-              It(Gt, Se);
+              At(Gt, Se);
         }
         return Se === e ? ot(Ut) : wt(Ut), Ut;
       }
@@ -1126,7 +1126,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
     function q(M, T, B, K) {
       return ne(j(T), M, B, K);
     }
-    function I(M, T, B, K) {
+    function A(M, T, B, K) {
       return ne(function(h, c) {
         for (var m, D, ee, E = [], Q = 0; Q < h.length && !((c -= 2) < 0); ++Q)
           D = (m = h.charCodeAt(Q)) >> 8, ee = m % 256, E.push(ee), E.push(D);
@@ -1325,7 +1325,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           case "ucs-2":
           case "utf16le":
           case "utf-16le":
-            return I(this, M, T, B);
+            return A(this, M, T, B);
           default:
             if (c)
               throw new TypeError("Unknown encoding: " + K);
@@ -1665,8 +1665,8 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         function V() {
           typeof b.removeListener == "function" && b.removeListener("error", F), k([].slice.call(arguments));
         }
-        x(b, w, V, { once: !0 }), w !== "error" && function(q, I, _) {
-          typeof q.on == "function" && x(q, "error", I, { once: !0 });
+        x(b, w, V, { once: !0 }), w !== "error" && function(q, A, _) {
+          typeof q.on == "function" && x(q, "error", A, { once: !0 });
         }(b, F);
       });
     }, i.EventEmitter = i, i.prototype._events = void 0, i.prototype._eventsCount = 0, i.prototype._maxListeners = void 0;
@@ -1679,13 +1679,13 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
       return b._maxListeners === void 0 ? i.defaultMaxListeners : b._maxListeners;
     }
     function o(b, w, k, G) {
-      var F, V, q, I;
+      var F, V, q, A;
       if (t(k), (V = b._events) === void 0 ? (V = b._events = /* @__PURE__ */ Object.create(null), b._eventsCount = 0) : (V.newListener !== void 0 && (b.emit("newListener", w, k.listener ? k.listener : k), V = b._events), q = V[w]), q === void 0)
         q = V[w] = k, ++b._eventsCount;
       else if (typeof q == "function" ? q = V[w] = G ? [k, q] : [q, k] : G ? q.unshift(k) : q.push(k), (F = r(b)) > 0 && q.length > F && !q.warned) {
         q.warned = !0;
         var _ = new Error("Possible EventEmitter memory leak detected. " + q.length + " " + String(w) + " listeners added. Use emitter.setMaxListeners() to increase limit");
-        _.name = "MaxListenersExceededWarning", _.emitter = b, _.type = w, _.count = q.length, I = _, console && console.warn && console.warn(I);
+        _.name = "MaxListenersExceededWarning", _.emitter = b, _.type = w, _.count = q.length, A = _, console && console.warn && console.warn(A);
       }
       return b;
     }
@@ -1703,8 +1703,8 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         return [];
       var F = G[w];
       return F === void 0 ? [] : typeof F == "function" ? k ? [F.listener || F] : [F] : k ? function(V) {
-        for (var q = new Array(V.length), I = 0; I < q.length; ++I)
-          q[I] = V[I].listener || V[I];
+        for (var q = new Array(V.length), A = 0; A < q.length; ++A)
+          q[A] = V[A].listener || V[A];
         return q;
       }(F) : v(F, F.length);
     }
@@ -1764,13 +1764,13 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         var q = new Error("Unhandled error." + (V ? " (" + V.message + ")" : ""));
         throw q.context = V, q;
       }
-      var I = F[b];
-      if (I === void 0)
+      var A = F[b];
+      if (A === void 0)
         return !1;
-      if (typeof I == "function")
-        e(I, this, w);
+      if (typeof A == "function")
+        e(A, this, w);
       else {
-        var _ = I.length, R = v(I, _);
+        var _ = A.length, R = v(A, _);
         for (k = 0; k < _; ++k)
           e(R[k], this, w);
       }
@@ -1799,10 +1799,10 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           }
         if (F < 0)
           return this;
-        F === 0 ? k.shift() : function(I, _) {
-          for (; _ + 1 < I.length; _++)
-            I[_] = I[_ + 1];
-          I.pop();
+        F === 0 ? k.shift() : function(A, _) {
+          for (; _ + 1 < A.length; _++)
+            A[_] = A[_ + 1];
+          A.pop();
         }(k, F), k.length === 1 && (G[b] = k[0]), G.removeListener !== void 0 && this.emit("removeListener", b, q || w);
       }
       return this;
@@ -2184,7 +2184,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             return void (r.value = V);
       }), e.parseSections(k, function(F, V) {
         var q = V.offsetFrom(w);
-        F === 225 ? f.parseTags(V, function(I, _, R, W) {
+        F === 225 ? f.parseTags(V, function(A, _, R, W) {
           if (G.readBinaryTags || W !== 7) {
             if (_ === 513) {
               if (n = R[0], G.hidePointers)
@@ -2196,10 +2196,10 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
               return;
             if (G.returnTags)
               if (G.simplifyValues && (R = i.simplifyValue(R, W)), G.resolveTagNames) {
-                var O = (I === f.GPSIFD ? v.gps : v.exif)[_];
+                var O = (A === f.GPSIFD ? v.gps : v.exif)[_];
                 O || (O = v.exif[_]), r.hasOwnProperty(O) || (r[O] = R);
               } else
-                r.push({ section: I, type: _, value: R });
+                r.push({ section: A, type: _, value: R });
           }
         }) && (g = q) : G.imageSize && e.getSectionName(F).name === "SOF" && (o = e.getSizeFromSOFSection(V));
       }), G.simplifyValues && (i.castDegreeValues(x, b), i.castDateValues(x, b)), new a(w, r, o, n, u, p, g);
@@ -2736,14 +2736,14 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             break;
           for (var F = G < n ? G : k, V = 0, q = F; q > r; )
             q = w[q] >> 8, ++V;
-          var I = q;
+          var A = q;
           if (x + V + (F !== G ? 1 : 0) > a)
             return void console.log("Warning, gif stream longer than expected.");
-          i[x++] = I;
+          i[x++] = A;
           var _ = x += V;
-          for (F !== G && (i[x++] = I), q = F; V--; )
+          for (F !== G && (i[x++] = A), q = F; V--; )
             q = w[q], i[--_] = 255 & q, q >>= 8;
-          k !== null && n < 4096 && (w[n++] = k << 8 | I, n >= p + 1 && u < 12 && (++u, p = p << 1 | 1)), k = G;
+          k !== null && n < 4096 && (w[n++] = k << 8 | A, n >= p + 1 && u < 12 && (++u, p = p << 1 | 1)), k = G;
         } else
           n = o + 1, p = (1 << (u = t + 1)) - 1, k = null;
       }
@@ -2783,24 +2783,24 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           e[t++] = 33, e[t++] = 255, e[t++] = 11, e[t++] = 78, e[t++] = 69, e[t++] = 84, e[t++] = 83, e[t++] = 67, e[t++] = 65, e[t++] = 80, e[t++] = 69, e[t++] = 50, e[t++] = 46, e[t++] = 48, e[t++] = 3, e[t++] = 1, e[t++] = 255 & r, e[t++] = r >> 8 & 255, e[t++] = 0;
         }
         var w = !1;
-        this.addFrame = function(k, G, F, V, q, I) {
-          if (w === !0 && (--t, w = !1), I = I === void 0 ? {} : I, k < 0 || G < 0 || k > 65535 || G > 65535)
+        this.addFrame = function(k, G, F, V, q, A) {
+          if (w === !0 && (--t, w = !1), A = A === void 0 ? {} : A, k < 0 || G < 0 || k > 65535 || G > 65535)
             throw new Error("x/y invalid.");
           if (F <= 0 || V <= 0 || F > 65535 || V > 65535)
             throw new Error("Width/Height invalid.");
           if (q.length < F * V)
             throw new Error("Not enough pixels for the frame size.");
-          var _ = !0, R = I.palette;
+          var _ = !0, R = A.palette;
           if (R == null && (_ = !1, R = o), R == null)
             throw new Error("Must supply either a local or global palette.");
           for (var W = n(R), O = 0; W >>= 1; )
             ++O;
           W = 1 << O;
-          var N = I.delay === void 0 ? 0 : I.delay, U = I.disposal === void 0 ? 0 : I.disposal;
+          var N = A.delay === void 0 ? 0 : A.delay, U = A.disposal === void 0 ? 0 : A.disposal;
           if (U < 0 || U > 3)
             throw new Error("Disposal out of range.");
           var C = !1, ae = 0;
-          if (I.transparent !== void 0 && I.transparent !== null && (C = !0, (ae = I.transparent) < 0 || ae >= W))
+          if (A.transparent !== void 0 && A.transparent !== null && (C = !0, (ae = A.transparent) < 0 || ae >= W))
             throw new Error("Transparent color index.");
           if ((U !== 0 || C || N !== 0) && (e[t++] = 33, e[t++] = 249, e[t++] = 4, e[t++] = U << 2 | (C === !0 ? 1 : 0), e[t++] = 255 & N, e[t++] = N >> 8 & 255, e[t++] = ae, e[t++] = 0), e[t++] = 44, e[t++] = 255 & k, e[t++] = k >> 8 & 255, e[t++] = 255 & G, e[t++] = G >> 8 & 255, e[t++] = 255 & F, e[t++] = F >> 8 & 255, e[t++] = 255 & V, e[t++] = V >> 8 & 255, e[t++] = _ === !0 ? 128 | O - 1 : 0, _ === !0)
             for (var J = 0, te = R.length; J < te; ++J) {
@@ -2886,8 +2886,8 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
               }
               break;
             case 44:
-              var G = e[f++] | e[f++] << 8, F = e[f++] | e[f++] << 8, V = e[f++] | e[f++] << 8, q = e[f++] | e[f++] << 8, I = e[f++], _ = I >> 6 & 1, R = 1 << 1 + (7 & I), W = n, O = u, N = !1;
-              I >> 7 && (N = !0, W = f, O = R, f += 3 * R);
+              var G = e[f++] | e[f++] << 8, F = e[f++] | e[f++] << 8, V = e[f++] | e[f++] << 8, q = e[f++] | e[f++] << 8, A = e[f++], _ = A >> 6 & 1, R = 1 << 1 + (7 & A), W = n, O = u, N = !1;
+              A >> 7 && (N = !0, W = f, O = R, f += 3 * R);
               var U = f;
               for (f++; ; ) {
                 var C;
@@ -3121,7 +3121,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
     function x(b, w, k, G, F) {
       if (k.interlaced)
         throw new a("writing interlaced GIFs is not supported");
-      const V = function(I, _, R) {
+      const V = function(A, _, R) {
         const W = R.colors, O = W.length <= 8 ? n : u, N = _.bitmap.data, U = new e(N.length / 4);
         let C = W.length, ae = 0, J = 0;
         for (; ae < N.length; ) {
@@ -3134,22 +3134,22 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         }
         if (R.usesTransparency) {
           if (C === 256)
-            throw new a(`Frame ${I} already has 256 colorsand so can't use transparency`);
+            throw new a(`Frame ${A} already has 256 colorsand so can't use transparency`);
         } else
           C = null;
         return { buffer: U, transparentIndex: C };
       }(w, k, G), q = { delay: k.delayCentisecs, disposal: k.disposalMethod, transparent: V.transparentIndex };
       F && (p(G), q.palette = G.colors);
       try {
-        let I, _ = b.getOutputBuffer(), R = b.getOutputBufferPosition(), W = !0;
+        let A, _ = b.getOutputBuffer(), R = b.getOutputBufferPosition(), W = !0;
         for (; W; )
-          if (I = b.addFrame(k.xOffset, k.yOffset, k.bitmap.width, k.bitmap.height, V.buffer, q), W = !1, I >= _.length - 1) {
+          if (A = b.addFrame(k.xOffset, k.yOffset, k.bitmap.width, k.bitmap.height, V.buffer, q), W = !1, A >= _.length - 1) {
             const O = new e(1.5 * _.length);
             _.copy(O), b.setOutputBuffer(O), b.setOutputBufferPosition(R), _ = O, W = !0;
           }
         return _;
-      } catch (I) {
-        throw new a(I);
+      } catch (A) {
+        throw new a(A);
       }
     }
     l.GifCodec = class {
@@ -3217,7 +3217,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         }
         w.usesTransparency = k.usesTransparency;
         const G = k.palettes;
-        return w.colorScope === i.LocalColorsOnly ? function(F, V, q, I) {
+        return w.colorScope === i.LocalColorsOnly ? function(F, V, q, A) {
           const _ = { loop: V.loops };
           let R, W = new e(2e3);
           try {
@@ -3226,10 +3226,10 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             throw new a(O);
           }
           for (let O = 0; O < F.length; ++O)
-            W = x(R, O, F[O], I[O], !0);
+            W = x(R, O, F[O], A[O], !0);
           return new i(W.slice(0, R.end()), F, V);
-        }(b, w, 0, G) : function(F, V, q, I) {
-          const _ = { colors: I.colors.slice(), usesTransparency: I.usesTransparency };
+        }(b, w, 0, G) : function(F, V, q, A) {
+          const _ = { colors: A.colors.slice(), usesTransparency: A.usesTransparency };
           p(_);
           const R = { palette: _.colors, loop: V.loops };
           let W, O = new e(2e3);
@@ -3239,7 +3239,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             throw new a(N);
           }
           for (let N = 0; N < F.length; ++N)
-            O = x(W, N, F[N], I, !1);
+            O = x(W, N, F[N], A, !1);
           return new i(O.slice(0, W.end()), F, V);
         }(b, w, 0, k);
       }
@@ -3319,9 +3319,9 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         const N = i.utils.PointContainer.fromUint32Array(O, _.bitmap.width, _.bitmap.height);
         F.sample(N), q.push(N);
       });
-      const I = F.quantizeSync();
+      const A = F.quantizeSync();
       for (let _ = 0; _ < k.length; ++_) {
-        const R = k[_].bitmap.data, W = V.quantizeSync(q[_], I).toUint32Array();
+        const R = k[_].bitmap.data, W = V.quantizeSync(q[_], A).toUint32Array();
         for (let O = 0, N = 0; O < R.length; O += 4, ++N)
           R.writeUInt32LE(W[N], O);
       }
@@ -3399,7 +3399,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         throw new Error(`GIF '${g}' has an unexpected suffix`);
       return b.encodeGif(v, x).then((k) => function(G, F) {
         return new Promise((V, q) => {
-          f.writeFile(G, F, (I) => I ? q(I) : V());
+          f.writeFile(G, F, (A) => A ? q(A) : V());
         });
       }(g, k.buffer).then(() => k));
     };
@@ -3475,14 +3475,14 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
       var i = new Int32Array([0, 1, 8, 16, 9, 2, 3, 10, 17, 24, 32, 25, 18, 11, 4, 5, 12, 19, 26, 33, 40, 48, 41, 34, 27, 20, 13, 6, 7, 14, 21, 28, 35, 42, 49, 56, 57, 50, 43, 36, 29, 22, 15, 23, 30, 37, 44, 51, 58, 59, 52, 45, 38, 31, 39, 46, 53, 60, 61, 54, 47, 55, 62, 63]), a = 4017, t = 799, r = 3406, o = 2276, n = 1567, u = 3784, p = 5793, g = 2896;
       function v() {
       }
-      function x(q, I) {
+      function x(q, A) {
         for (var _, R, W = 0, O = [], N = 16; N > 0 && !q[N - 1]; )
           N--;
         O.push({ children: [], index: 0 });
         var U, C = O[0];
         for (_ = 0; _ < N; _++) {
           for (R = 0; R < q[_]; R++) {
-            for ((C = O.pop()).children[C.index] = I[W]; C.index > 0; ) {
+            for ((C = O.pop()).children[C.index] = A[W]; C.index > 0; ) {
               if (O.length === 0)
                 throw new Error("Could not recreate Huffman Table");
               C = O.pop();
@@ -3495,14 +3495,14 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         }
         return O[0].children;
       }
-      function b(q, I, _, R, W, O, N, U, C, ae) {
+      function b(q, A, _, R, W, O, N, U, C, ae) {
         _.precision, _.samplesPerLine, _.scanLines;
-        var J = _.mcusPerLine, te = _.progressive, $ = (_.maxH, _.maxV, I), L = 0, re = 0;
+        var J = _.mcusPerLine, te = _.progressive, $ = (_.maxH, _.maxV, A), L = 0, re = 0;
         function z() {
           if (re > 0)
             return re--, L >> re & 1;
-          if ((L = q[I++]) == 255) {
-            var Me = q[I++];
+          if ((L = q[A++]) == 255) {
+            var Me = q[A++];
             if (Me)
               throw new Error("unexpected marker: " + (L << 8 | Me).toString(16));
           }
@@ -3620,22 +3620,22 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             }
           if (ke === Y)
             do {
-              if (q[I] === 255 && q[I + 1] !== 0)
+              if (q[A] === 255 && q[A + 1] !== 0)
                 break;
-              I += 1;
-            } while (I < q.length - 2);
-          if (re = 0, (se = q[I] << 8 | q[I + 1]) < 65280)
+              A += 1;
+            } while (A < q.length - 2);
+          if (re = 0, (se = q[A] << 8 | q[A + 1]) < 65280)
             throw new Error("marker was not found");
           if (!(se >= 65488 && se <= 65495))
             break;
-          I += 2;
+          A += 2;
         }
-        return I - $;
+        return A - $;
       }
-      function w(q, I) {
-        var _, R, W = [], O = I.blocksPerLine, N = I.blocksPerColumn, U = O << 3, C = new Int32Array(64), ae = new Uint8Array(64);
+      function w(q, A) {
+        var _, R, W = [], O = A.blocksPerLine, N = A.blocksPerColumn, U = O << 3, C = new Int32Array(64), ae = new Uint8Array(64);
         function J(ne, le, he) {
-          var M, T, B, K, h, c, m, D, ee, E, Q = I.quantizationTable, se = he;
+          var M, T, B, K, h, c, m, D, ee, E, Q = A.quantizationTable, se = he;
           for (E = 0; E < 64; E++)
             se[E] = ne[E] * Q[E];
           for (E = 0; E < 8; ++E) {
@@ -3657,7 +3657,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           for (_ = 0; _ < 8; _++)
             W.push(new Uint8Array(U));
           for (var L = 0; L < O; L++) {
-            J(I.blocks[te][L], ae, C);
+            J(A.blocks[te][L], ae, C);
             var re = 0, z = L << 3;
             for (R = 0; R < 8; R++) {
               var j = W[$ + R];
@@ -3672,13 +3672,13 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         return q < 0 ? 0 : q > 255 ? 255 : q;
       }
       v.prototype = { load: function(q) {
-        var I = new XMLHttpRequest();
-        I.open("GET", q, !0), I.responseType = "arraybuffer", I.onload = (function() {
-          var _ = new Uint8Array(I.response || I.mozResponseArrayBuffer);
+        var A = new XMLHttpRequest();
+        A.open("GET", q, !0), A.responseType = "arraybuffer", A.onload = (function() {
+          var _ = new Uint8Array(A.response || A.mozResponseArrayBuffer);
           this.parse(_), this.onload && this.onload();
-        }).bind(this), I.send(null);
+        }).bind(this), A.send(null);
       }, parse: function(q) {
-        var I = 1e3 * this.opts.maxResolutionInMP * 1e3, _ = 0;
+        var A = 1e3 * this.opts.maxResolutionInMP * 1e3, _ = 0;
         function R() {
           var We = q[_] << 8 | q[_ + 1];
           return _ += 2, We;
@@ -3694,9 +3694,9 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
               var Ze = Math.ceil(Math.ceil(We.samplesPerLine / 8) * Qe.h / P), Re = Math.ceil(Math.ceil(We.scanLines / 8) * Qe.v / we), rt = X * Qe.h, De = de * Qe.v, Je = [];
               V(De * rt * 256);
               for (var je = 0; je < De; je++) {
-                for (var Ie = [], at = 0; at < rt; at++)
-                  Ie.push(new Int32Array(64));
-                Je.push(Ie);
+                for (var Ae = [], at = 0; at < rt; at++)
+                  Ae.push(new Int32Array(64));
+                Je.push(Ae);
               }
               Qe.blocksPerLine = Ze, Qe.blocksPerColumn = Re, Qe.blocks = Je;
             }
@@ -3755,8 +3755,8 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             case 65474:
               R(), (O = {}).extended = z === 65473, O.progressive = z === 65474, O.precision = q[_++], O.scanLines = R(), O.samplesPerLine = R(), O.components = {}, O.componentsOrder = [];
               var B = O.scanLines * O.samplesPerLine;
-              if (B > I) {
-                var K = Math.ceil((B - I) / 1e6);
+              if (B > A) {
+                var K = Math.ceil((B - A) / 1e6);
                 throw new Error(`maxResolutionInMP limit exceeded by ${K}MP`);
               }
               var h, c = q[_++];
@@ -3832,30 +3832,30 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           var Fe = O.components[O.componentsOrder[_e]];
           this.components.push({ lines: w(0, Fe), scaleX: Fe.h / O.maxH, scaleY: Fe.v / O.maxV });
         }
-      }, getData: function(q, I) {
-        var _, R, W, O, N, U, C, ae, J, te, $, L, re, z, j, ne, le, he, M, T, B, K = this.width / q, h = this.height / I, c = 0, m = q * I * this.components.length;
+      }, getData: function(q, A) {
+        var _, R, W, O, N, U, C, ae, J, te, $, L, re, z, j, ne, le, he, M, T, B, K = this.width / q, h = this.height / A, c = 0, m = q * A * this.components.length;
         V(m);
         var D = new Uint8Array(m);
         switch (this.components.length) {
           case 1:
-            for (_ = this.components[0], te = 0; te < I; te++)
+            for (_ = this.components[0], te = 0; te < A; te++)
               for (N = _.lines[0 | te * _.scaleY * h], J = 0; J < q; J++)
                 $ = N[0 | J * _.scaleX * K], D[c++] = $;
             break;
           case 2:
-            for (_ = this.components[0], R = this.components[1], te = 0; te < I; te++)
+            for (_ = this.components[0], R = this.components[1], te = 0; te < A; te++)
               for (N = _.lines[0 | te * _.scaleY * h], U = R.lines[0 | te * R.scaleY * h], J = 0; J < q; J++)
                 $ = N[0 | J * _.scaleX * K], D[c++] = $, $ = U[0 | J * R.scaleX * K], D[c++] = $;
             break;
           case 3:
-            for (B = !0, this.adobe && this.adobe.transformCode ? B = !0 : this.opts.colorTransform !== void 0 && (B = !!this.opts.colorTransform), _ = this.components[0], R = this.components[1], W = this.components[2], te = 0; te < I; te++)
+            for (B = !0, this.adobe && this.adobe.transformCode ? B = !0 : this.opts.colorTransform !== void 0 && (B = !!this.opts.colorTransform), _ = this.components[0], R = this.components[1], W = this.components[2], te = 0; te < A; te++)
               for (N = _.lines[0 | te * _.scaleY * h], U = R.lines[0 | te * R.scaleY * h], C = W.lines[0 | te * W.scaleY * h], J = 0; J < q; J++)
                 B ? ($ = N[0 | J * _.scaleX * K], L = U[0 | J * R.scaleX * K], he = k($ + 1.402 * ((re = C[0 | J * W.scaleX * K]) - 128)), M = k($ - 0.3441363 * (L - 128) - 0.71413636 * (re - 128)), T = k($ + 1.772 * (L - 128))) : (he = N[0 | J * _.scaleX * K], M = U[0 | J * R.scaleX * K], T = C[0 | J * W.scaleX * K]), D[c++] = he, D[c++] = M, D[c++] = T;
             break;
           case 4:
             if (!this.adobe)
               throw new Error("Unsupported color mode (4 components)");
-            for (B = !1, this.adobe && this.adobe.transformCode ? B = !0 : this.opts.colorTransform !== void 0 && (B = !!this.opts.colorTransform), _ = this.components[0], R = this.components[1], W = this.components[2], O = this.components[3], te = 0; te < I; te++)
+            for (B = !1, this.adobe && this.adobe.transformCode ? B = !0 : this.opts.colorTransform !== void 0 && (B = !!this.opts.colorTransform), _ = this.components[0], R = this.components[1], W = this.components[2], O = this.components[3], te = 0; te < A; te++)
               for (N = _.lines[0 | te * _.scaleY * h], U = R.lines[0 | te * R.scaleY * h], C = W.lines[0 | te * W.scaleY * h], ae = O.lines[0 | te * O.scaleY * h], J = 0; J < q; J++)
                 B ? ($ = N[0 | J * _.scaleX * K], L = U[0 | J * R.scaleX * K], re = C[0 | J * W.scaleX * K], z = ae[0 | J * O.scaleX * K], j = 255 - k($ + 1.402 * (re - 128)), ne = 255 - k($ - 0.3441363 * (L - 128) - 0.71413636 * (re - 128)), le = 255 - k($ + 1.772 * (L - 128))) : (j = N[0 | J * _.scaleX * K], ne = U[0 | J * R.scaleX * K], le = C[0 | J * W.scaleX * K], z = ae[0 | J * O.scaleX * K]), D[c++] = 255 - j, D[c++] = 255 - ne, D[c++] = 255 - le, D[c++] = 255 - z;
             break;
@@ -3863,23 +3863,23 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             throw new Error("Unsupported color mode");
         }
         return D;
-      }, copyToImageData: function(q, I) {
+      }, copyToImageData: function(q, A) {
         var _, R, W, O, N, U, C, ae, J, te = q.width, $ = q.height, L = q.data, re = this.getData(te, $), z = 0, j = 0;
         switch (this.components.length) {
           case 1:
             for (R = 0; R < $; R++)
               for (_ = 0; _ < te; _++)
-                W = re[z++], L[j++] = W, L[j++] = W, L[j++] = W, I && (L[j++] = 255);
+                W = re[z++], L[j++] = W, L[j++] = W, L[j++] = W, A && (L[j++] = 255);
             break;
           case 3:
             for (R = 0; R < $; R++)
               for (_ = 0; _ < te; _++)
-                C = re[z++], ae = re[z++], J = re[z++], L[j++] = C, L[j++] = ae, L[j++] = J, I && (L[j++] = 255);
+                C = re[z++], ae = re[z++], J = re[z++], L[j++] = C, L[j++] = ae, L[j++] = J, A && (L[j++] = 255);
             break;
           case 4:
             for (R = 0; R < $; R++)
               for (_ = 0; _ < te; _++)
-                N = re[z++], U = re[z++], W = re[z++], C = 255 - k(N * (1 - (O = re[z++]) / 255) + O), ae = 255 - k(U * (1 - O / 255) + O), J = 255 - k(W * (1 - O / 255) + O), L[j++] = C, L[j++] = ae, L[j++] = J, I && (L[j++] = 255);
+                N = re[z++], U = re[z++], W = re[z++], C = 255 - k(N * (1 - (O = re[z++]) / 255) + O), ae = 255 - k(U * (1 - O / 255) + O), J = 255 - k(W * (1 - O / 255) + O), L[j++] = C, L[j++] = ae, L[j++] = J, A && (L[j++] = 255);
             break;
           default:
             throw new Error("Unsupported color mode");
@@ -3887,12 +3887,12 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
       } };
       var G = 0, F = 0;
       function V(q = 0) {
-        var I = G + q;
-        if (I > F) {
-          var _ = Math.ceil((I - F) / 1024 / 1024);
+        var A = G + q;
+        if (A > F) {
+          var _ = Math.ceil((A - F) / 1024 / 1024);
           throw new Error(`maxMemoryUsageInMB limit exceeded by at least ${_}MB`);
         }
-        G = I;
+        G = A;
       }
       return v.resetMaxMemoryUsage = function(q) {
         G = 0, F = q;
@@ -3916,7 +3916,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
   }, 706: (d, l, s) => {
     var e = s(8834).lW;
     function f(i) {
-      var a, t, r, o, n, u = Math.floor, p = new Array(64), g = new Array(64), v = new Array(64), x = new Array(64), b = new Array(65535), w = new Array(65535), k = new Array(64), G = new Array(64), F = [], V = 0, q = 7, I = new Array(64), _ = new Array(64), R = new Array(64), W = new Array(256), O = new Array(2048), N = [0, 1, 5, 6, 14, 15, 27, 28, 2, 4, 7, 13, 16, 26, 29, 42, 3, 8, 12, 17, 25, 30, 41, 43, 9, 11, 18, 24, 31, 40, 44, 53, 10, 19, 23, 32, 39, 45, 52, 54, 20, 22, 33, 38, 46, 51, 55, 60, 21, 34, 37, 47, 50, 56, 59, 61, 35, 36, 48, 49, 57, 58, 62, 63], U = [0, 0, 1, 5, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0], C = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], ae = [0, 0, 2, 1, 3, 3, 2, 4, 3, 5, 5, 4, 4, 0, 0, 1, 125], J = [1, 2, 3, 0, 4, 17, 5, 18, 33, 49, 65, 6, 19, 81, 97, 7, 34, 113, 20, 50, 129, 145, 161, 8, 35, 66, 177, 193, 21, 82, 209, 240, 36, 51, 98, 114, 130, 9, 10, 22, 23, 24, 25, 26, 37, 38, 39, 40, 41, 42, 52, 53, 54, 55, 56, 57, 58, 67, 68, 69, 70, 71, 72, 73, 74, 83, 84, 85, 86, 87, 88, 89, 90, 99, 100, 101, 102, 103, 104, 105, 106, 115, 116, 117, 118, 119, 120, 121, 122, 131, 132, 133, 134, 135, 136, 137, 138, 146, 147, 148, 149, 150, 151, 152, 153, 154, 162, 163, 164, 165, 166, 167, 168, 169, 170, 178, 179, 180, 181, 182, 183, 184, 185, 186, 194, 195, 196, 197, 198, 199, 200, 201, 202, 210, 211, 212, 213, 214, 215, 216, 217, 218, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250], te = [0, 0, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0], $ = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], L = [0, 0, 2, 1, 2, 4, 4, 3, 4, 7, 5, 4, 4, 0, 1, 2, 119], re = [0, 1, 2, 3, 17, 4, 5, 33, 49, 6, 18, 65, 81, 7, 97, 113, 19, 34, 50, 129, 8, 20, 66, 145, 161, 177, 193, 9, 35, 51, 82, 240, 21, 98, 114, 209, 10, 22, 36, 52, 225, 37, 241, 23, 24, 25, 26, 38, 39, 40, 41, 42, 53, 54, 55, 56, 57, 58, 67, 68, 69, 70, 71, 72, 73, 74, 83, 84, 85, 86, 87, 88, 89, 90, 99, 100, 101, 102, 103, 104, 105, 106, 115, 116, 117, 118, 119, 120, 121, 122, 130, 131, 132, 133, 134, 135, 136, 137, 138, 146, 147, 148, 149, 150, 151, 152, 153, 154, 162, 163, 164, 165, 166, 167, 168, 169, 170, 178, 179, 180, 181, 182, 183, 184, 185, 186, 194, 195, 196, 197, 198, 199, 200, 201, 202, 210, 211, 212, 213, 214, 215, 216, 217, 218, 226, 227, 228, 229, 230, 231, 232, 233, 234, 242, 243, 244, 245, 246, 247, 248, 249, 250];
+      var a, t, r, o, n, u = Math.floor, p = new Array(64), g = new Array(64), v = new Array(64), x = new Array(64), b = new Array(65535), w = new Array(65535), k = new Array(64), G = new Array(64), F = [], V = 0, q = 7, A = new Array(64), _ = new Array(64), R = new Array(64), W = new Array(256), O = new Array(2048), N = [0, 1, 5, 6, 14, 15, 27, 28, 2, 4, 7, 13, 16, 26, 29, 42, 3, 8, 12, 17, 25, 30, 41, 43, 9, 11, 18, 24, 31, 40, 44, 53, 10, 19, 23, 32, 39, 45, 52, 54, 20, 22, 33, 38, 46, 51, 55, 60, 21, 34, 37, 47, 50, 56, 59, 61, 35, 36, 48, 49, 57, 58, 62, 63], U = [0, 0, 1, 5, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0], C = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], ae = [0, 0, 2, 1, 3, 3, 2, 4, 3, 5, 5, 4, 4, 0, 0, 1, 125], J = [1, 2, 3, 0, 4, 17, 5, 18, 33, 49, 65, 6, 19, 81, 97, 7, 34, 113, 20, 50, 129, 145, 161, 8, 35, 66, 177, 193, 21, 82, 209, 240, 36, 51, 98, 114, 130, 9, 10, 22, 23, 24, 25, 26, 37, 38, 39, 40, 41, 42, 52, 53, 54, 55, 56, 57, 58, 67, 68, 69, 70, 71, 72, 73, 74, 83, 84, 85, 86, 87, 88, 89, 90, 99, 100, 101, 102, 103, 104, 105, 106, 115, 116, 117, 118, 119, 120, 121, 122, 131, 132, 133, 134, 135, 136, 137, 138, 146, 147, 148, 149, 150, 151, 152, 153, 154, 162, 163, 164, 165, 166, 167, 168, 169, 170, 178, 179, 180, 181, 182, 183, 184, 185, 186, 194, 195, 196, 197, 198, 199, 200, 201, 202, 210, 211, 212, 213, 214, 215, 216, 217, 218, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250], te = [0, 0, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0], $ = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], L = [0, 0, 2, 1, 2, 4, 4, 3, 4, 7, 5, 4, 4, 0, 1, 2, 119], re = [0, 1, 2, 3, 17, 4, 5, 33, 49, 6, 18, 65, 81, 7, 97, 113, 19, 34, 50, 129, 8, 20, 66, 145, 161, 177, 193, 9, 35, 51, 82, 240, 21, 98, 114, 209, 10, 22, 36, 52, 225, 37, 241, 23, 24, 25, 26, 38, 39, 40, 41, 42, 53, 54, 55, 56, 57, 58, 67, 68, 69, 70, 71, 72, 73, 74, 83, 84, 85, 86, 87, 88, 89, 90, 99, 100, 101, 102, 103, 104, 105, 106, 115, 116, 117, 118, 119, 120, 121, 122, 130, 131, 132, 133, 134, 135, 136, 137, 138, 146, 147, 148, 149, 150, 151, 152, 153, 154, 162, 163, 164, 165, 166, 167, 168, 169, 170, 178, 179, 180, 181, 182, 183, 184, 185, 186, 194, 195, 196, 197, 198, 199, 200, 201, 202, 210, 211, 212, 213, 214, 215, 216, 217, 218, 226, 227, 228, 229, 230, 231, 232, 233, 234, 242, 243, 244, 245, 246, 247, 248, 249, 250];
       function z(T, B) {
         for (var K = 0, h = 0, c = new Array(), m = 1; m <= 16; m++) {
           for (var D = 1; D <= T[m]; D++)
@@ -3940,16 +3940,16 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           var Ce, _e, Be, Pe, Fe, We, Qe, lt, P, we, X = 0;
           for (P = 0; P < 8; ++P) {
             Ce = ce[X], _e = ce[X + 1], Be = ce[X + 2], Pe = ce[X + 3], Fe = ce[X + 4], We = ce[X + 5], Qe = ce[X + 6];
-            var de = Ce + (lt = ce[X + 7]), Ze = Ce - lt, Re = _e + Qe, rt = _e - Qe, De = Be + We, Je = Be - We, je = Pe + Fe, Ie = Pe - Fe, at = de + je, st = de - je, tt = Re + De, mt = Re - De;
+            var de = Ce + (lt = ce[X + 7]), Ze = Ce - lt, Re = _e + Qe, rt = _e - Qe, De = Be + We, Je = Be - We, je = Pe + Fe, Ae = Pe - Fe, at = de + je, st = de - je, tt = Re + De, mt = Re - De;
             ce[X] = at + tt, ce[X + 4] = at - tt;
-            var It = 0.707106781 * (mt + st);
-            ce[X + 2] = st + It, ce[X + 6] = st - It;
-            var wt = 0.382683433 * ((at = Ie + Je) - (mt = rt + Ze)), ot = 0.5411961 * at + wt, Mt = 1.306562965 * mt + wt, Ft = 0.707106781 * (tt = Je + rt), Rt = Ze + Ft, qt = Ze - Ft;
+            var At = 0.707106781 * (mt + st);
+            ce[X + 2] = st + At, ce[X + 6] = st - At;
+            var wt = 0.382683433 * ((at = Ae + Je) - (mt = rt + Ze)), ot = 0.5411961 * at + wt, Mt = 1.306562965 * mt + wt, Ft = 0.707106781 * (tt = Je + rt), Rt = Ze + Ft, qt = Ze - Ft;
             ce[X + 5] = qt + ot, ce[X + 3] = qt - ot, ce[X + 1] = Rt + Mt, ce[X + 7] = Rt - Mt, X += 8;
           }
           for (X = 0, P = 0; P < 8; ++P) {
             Ce = ce[X], _e = ce[X + 8], Be = ce[X + 16], Pe = ce[X + 24], Fe = ce[X + 32], We = ce[X + 40], Qe = ce[X + 48];
-            var Lt = Ce + (lt = ce[X + 56]), Se = Ce - lt, Ye = _e + Qe, Ke = _e - Qe, ut = Be + We, bt = Be - We, At = Pe + Fe, Ct = Pe - Fe, vt = Lt + At, Dt = Lt - At, jt = Ye + ut, Ut = Ye - ut;
+            var Lt = Ce + (lt = ce[X + 56]), Se = Ce - lt, Ye = _e + Qe, Ke = _e - Qe, ut = Be + We, bt = Be - We, It = Pe + Fe, Ct = Pe - Fe, vt = Lt + It, Dt = Lt - It, jt = Ye + ut, Ut = Ye - ut;
             ce[X] = vt + jt, ce[X + 32] = vt - jt;
             var Gt = 0.707106781 * (Ut + Dt);
             ce[X + 16] = Dt + Gt, ce[X + 48] = Dt - Gt;
@@ -4047,8 +4047,8 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         for (var D, ee, E, Q, se, Y, be, Ee, ke, Me = T.data, oe = T.width, ce = T.height, xe = 4 * oe, Ce = 0; Ce < ce; ) {
           for (D = 0; D < xe; ) {
             for (Y = se = xe * Ce + D, be = -1, Ee = 0, ke = 0; ke < 64; ke++)
-              Y = se + (Ee = ke >> 3) * xe + (be = 4 * (7 & ke)), Ce + Ee >= ce && (Y -= xe * (Ce + 1 + Ee - ce)), D + be >= xe && (Y -= D + be - xe + 4), ee = Me[Y++], E = Me[Y++], Q = Me[Y++], I[ke] = (O[ee] + O[E + 256 >> 0] + O[Q + 512 >> 0] >> 16) - 128, _[ke] = (O[ee + 768 >> 0] + O[E + 1024 >> 0] + O[Q + 1280 >> 0] >> 16) - 128, R[ke] = (O[ee + 1280 >> 0] + O[E + 1536 >> 0] + O[Q + 1792 >> 0] >> 16) - 128;
-            h = he(I, v, h, a, r), c = he(_, x, c, t, o), m = he(R, x, m, t, o), D += 32;
+              Y = se + (Ee = ke >> 3) * xe + (be = 4 * (7 & ke)), Ce + Ee >= ce && (Y -= xe * (Ce + 1 + Ee - ce)), D + be >= xe && (Y -= D + be - xe + 4), ee = Me[Y++], E = Me[Y++], Q = Me[Y++], A[ke] = (O[ee] + O[E + 256 >> 0] + O[Q + 512 >> 0] >> 16) - 128, _[ke] = (O[ee + 768 >> 0] + O[E + 1024 >> 0] + O[Q + 1280 >> 0] >> 16) - 128, R[ke] = (O[ee + 1280 >> 0] + O[E + 1536 >> 0] + O[Q + 1792 >> 0] >> 16) - 128;
+            h = he(A, v, h, a, r), c = he(_, x, c, t, o), m = he(R, x, m, t, o), D += 32;
           }
           Ce += 8;
         }
@@ -4127,14 +4127,14 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             break;
           for (var F = G < n ? G : k, V = 0, q = F; q > r; )
             q = w[q] >> 8, ++V;
-          var I = q;
+          var A = q;
           if (x + V + (F !== G ? 1 : 0) > a)
             return void console.log("Warning, gif stream longer than expected.");
-          i[x++] = I;
+          i[x++] = A;
           var _ = x += V;
-          for (F !== G && (i[x++] = I), q = F; V--; )
+          for (F !== G && (i[x++] = A), q = F; V--; )
             q = w[q], i[--_] = 255 & q, q >>= 8;
-          k !== null && n < 4096 && (w[n++] = k << 8 | I, n >= p + 1 && u < 12 && (++u, p = p << 1 | 1)), k = G;
+          k !== null && n < 4096 && (w[n++] = k << 8 | A, n >= p + 1 && u < 12 && (++u, p = p << 1 | 1)), k = G;
         } else
           n = o + 1, p = (1 << (u = t + 1)) - 1, k = null;
       }
@@ -4186,8 +4186,8 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
               }
               break;
             case 44:
-              var G = e[f++] | e[f++] << 8, F = e[f++] | e[f++] << 8, V = e[f++] | e[f++] << 8, q = e[f++] | e[f++] << 8, I = e[f++], _ = I >> 6 & 1, R = 1 << 1 + (7 & I), W = n, O = u, N = !1;
-              I >> 7 && (N = !0, W = f, O = R, f += 3 * R);
+              var G = e[f++] | e[f++] << 8, F = e[f++] | e[f++] << 8, V = e[f++] | e[f++] << 8, q = e[f++] | e[f++] << 8, A = e[f++], _ = A >> 6 & 1, R = 1 << 1 + (7 & A), W = n, O = u, N = !1;
+              A >> 7 && (N = !0, W = f, O = R, f += 3 * R);
               var U = f;
               for (f++; ; ) {
                 var C;
@@ -4319,14 +4319,14 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
       return x.result;
     }
     u.prototype.push = function(g, v) {
-      var x, b, w, k, G, F = this.strm, V = this.options.chunkSize, q = this.options.dictionary, I = !1;
+      var x, b, w, k, G, F = this.strm, V = this.options.chunkSize, q = this.options.dictionary, A = !1;
       if (this.ended)
         return !1;
       b = v === ~~v ? v : v === !0 ? a.Z_FINISH : a.Z_NO_FLUSH, typeof g == "string" ? F.input = i.binstring2buf(g) : n.call(g) === "[object ArrayBuffer]" ? F.input = new Uint8Array(g) : F.input = g, F.next_in = 0, F.avail_in = F.input.length;
       do {
-        if (F.avail_out === 0 && (F.output = new f.Buf8(V), F.next_out = 0, F.avail_out = V), (x = e.inflate(F, a.Z_NO_FLUSH)) === a.Z_NEED_DICT && q && (x = e.inflateSetDictionary(this.strm, q)), x === a.Z_BUF_ERROR && I === !0 && (x = a.Z_OK, I = !1), x !== a.Z_STREAM_END && x !== a.Z_OK)
+        if (F.avail_out === 0 && (F.output = new f.Buf8(V), F.next_out = 0, F.avail_out = V), (x = e.inflate(F, a.Z_NO_FLUSH)) === a.Z_NEED_DICT && q && (x = e.inflateSetDictionary(this.strm, q)), x === a.Z_BUF_ERROR && A === !0 && (x = a.Z_OK, A = !1), x !== a.Z_STREAM_END && x !== a.Z_OK)
           return this.onEnd(x), this.ended = !0, !1;
-        F.next_out && (F.avail_out !== 0 && x !== a.Z_STREAM_END && (F.avail_in !== 0 || b !== a.Z_FINISH && b !== a.Z_SYNC_FLUSH) || (this.options.to === "string" ? (w = i.utf8border(F.output, F.next_out), k = F.next_out - w, G = i.buf2string(F.output, w), F.next_out = k, F.avail_out = V - k, k && f.arraySet(F.output, F.output, w, k, 0), this.onData(G)) : this.onData(f.shrinkBuf(F.output, F.next_out)))), F.avail_in === 0 && F.avail_out === 0 && (I = !0);
+        F.next_out && (F.avail_out !== 0 && x !== a.Z_STREAM_END && (F.avail_in !== 0 || b !== a.Z_FINISH && b !== a.Z_SYNC_FLUSH) || (this.options.to === "string" ? (w = i.utf8border(F.output, F.next_out), k = F.next_out - w, G = i.buf2string(F.output, w), F.next_out = k, F.avail_out = V - k, k && f.arraySet(F.output, F.output, w, k, 0), this.onData(G)) : this.onData(f.shrinkBuf(F.output, F.next_out)))), F.avail_in === 0 && F.avail_out === 0 && (A = !0);
       } while ((F.avail_in > 0 || F.avail_out === 0) && x !== a.Z_STREAM_END);
       return x === a.Z_STREAM_END && (b = a.Z_FINISH), b === a.Z_FINISH ? (x = e.inflateEnd(this.strm), this.onEnd(x), this.ended = !0, x === a.Z_OK) : b !== a.Z_SYNC_FLUSH || (this.onEnd(a.Z_OK), F.avail_out = 0, !0);
     }, u.prototype.onData = function(g) {
@@ -4461,7 +4461,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
       return -1 ^ s;
     };
   }, 5789: (d, l, s) => {
-    var e, f = s(9761), i = s(9564), a = s(5562), t = s(4299), r = s(2950), o = 0, n = 4, u = 0, p = -2, g = -1, v = 1, x = 4, b = 2, w = 8, k = 9, G = 286, F = 30, V = 19, q = 2 * G + 1, I = 15, _ = 3, R = 258, W = R + _ + 1, O = 42, N = 103, U = 113, C = 666, ae = 1, J = 2, te = 3, $ = 4;
+    var e, f = s(9761), i = s(9564), a = s(5562), t = s(4299), r = s(2950), o = 0, n = 4, u = 0, p = -2, g = -1, v = 1, x = 4, b = 2, w = 8, k = 9, G = 286, F = 30, V = 19, q = 2 * G + 1, A = 15, _ = 3, R = 258, W = R + _ + 1, O = 42, N = 103, U = 113, C = 666, ae = 1, J = 2, te = 3, $ = 4;
     function L(E, Q) {
       return E.msg = r[Q], Q;
     }
@@ -4575,7 +4575,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
       this.good_length = E, this.max_lazy = Q, this.nice_length = se, this.max_chain = Y, this.func = be;
     }
     function c() {
-      this.strm = null, this.status = 0, this.pending_buf = null, this.pending_buf_size = 0, this.pending_out = 0, this.pending = 0, this.wrap = 0, this.gzhead = null, this.gzindex = 0, this.method = w, this.last_flush = -1, this.w_size = 0, this.w_bits = 0, this.w_mask = 0, this.window = null, this.window_size = 0, this.prev = null, this.head = null, this.ins_h = 0, this.hash_size = 0, this.hash_bits = 0, this.hash_mask = 0, this.hash_shift = 0, this.block_start = 0, this.match_length = 0, this.prev_match = 0, this.match_available = 0, this.strstart = 0, this.match_start = 0, this.lookahead = 0, this.prev_length = 0, this.max_chain_length = 0, this.max_lazy_match = 0, this.level = 0, this.strategy = 0, this.good_match = 0, this.nice_match = 0, this.dyn_ltree = new f.Buf16(2 * q), this.dyn_dtree = new f.Buf16(2 * (2 * F + 1)), this.bl_tree = new f.Buf16(2 * (2 * V + 1)), z(this.dyn_ltree), z(this.dyn_dtree), z(this.bl_tree), this.l_desc = null, this.d_desc = null, this.bl_desc = null, this.bl_count = new f.Buf16(I + 1), this.heap = new f.Buf16(2 * G + 1), z(this.heap), this.heap_len = 0, this.heap_max = 0, this.depth = new f.Buf16(2 * G + 1), z(this.depth), this.l_buf = 0, this.lit_bufsize = 0, this.last_lit = 0, this.d_buf = 0, this.opt_len = 0, this.static_len = 0, this.matches = 0, this.insert = 0, this.bi_buf = 0, this.bi_valid = 0;
+      this.strm = null, this.status = 0, this.pending_buf = null, this.pending_buf_size = 0, this.pending_out = 0, this.pending = 0, this.wrap = 0, this.gzhead = null, this.gzindex = 0, this.method = w, this.last_flush = -1, this.w_size = 0, this.w_bits = 0, this.w_mask = 0, this.window = null, this.window_size = 0, this.prev = null, this.head = null, this.ins_h = 0, this.hash_size = 0, this.hash_bits = 0, this.hash_mask = 0, this.hash_shift = 0, this.block_start = 0, this.match_length = 0, this.prev_match = 0, this.match_available = 0, this.strstart = 0, this.match_start = 0, this.lookahead = 0, this.prev_length = 0, this.max_chain_length = 0, this.max_lazy_match = 0, this.level = 0, this.strategy = 0, this.good_match = 0, this.nice_match = 0, this.dyn_ltree = new f.Buf16(2 * q), this.dyn_dtree = new f.Buf16(2 * (2 * F + 1)), this.bl_tree = new f.Buf16(2 * (2 * V + 1)), z(this.dyn_ltree), z(this.dyn_dtree), z(this.bl_tree), this.l_desc = null, this.d_desc = null, this.bl_desc = null, this.bl_count = new f.Buf16(A + 1), this.heap = new f.Buf16(2 * G + 1), z(this.heap), this.heap_len = 0, this.heap_max = 0, this.depth = new f.Buf16(2 * G + 1), z(this.depth), this.l_buf = 0, this.lit_bufsize = 0, this.last_lit = 0, this.d_buf = 0, this.opt_len = 0, this.static_len = 0, this.matches = 0, this.insert = 0, this.bi_buf = 0, this.bi_valid = 0;
     }
     function m(E) {
       var Q;
@@ -4727,7 +4727,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
     };
   }, 4980: (d) => {
     d.exports = function(l, s) {
-      var e, f, i, a, t, r, o, n, u, p, g, v, x, b, w, k, G, F, V, q, I, _, R, W, O;
+      var e, f, i, a, t, r, o, n, u, p, g, v, x, b, w, k, G, F, V, q, A, _, R, W, O;
       e = l.state, f = l.next_in, W = l.input, i = f + (l.avail_in - 5), a = l.next_out, O = l.output, t = a - (s - l.avail_out), r = a + (l.avail_out - 257), o = e.dmax, n = e.wsize, u = e.whave, p = e.wnext, g = e.window, v = e.hold, x = e.bits, b = e.lencode, w = e.distcode, k = (1 << e.lenbits) - 1, G = (1 << e.distbits) - 1;
       e:
         do {
@@ -4760,12 +4760,12 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                       l.msg = "invalid distance code", e.mode = 30;
                       break e;
                     }
-                    if (I = 65535 & F, x < (V &= 15) && (v += W[f++] << x, (x += 8) < V && (v += W[f++] << x, x += 8)), (I += v & (1 << V) - 1) > o) {
+                    if (A = 65535 & F, x < (V &= 15) && (v += W[f++] << x, (x += 8) < V && (v += W[f++] << x, x += 8)), (A += v & (1 << V) - 1) > o) {
                       l.msg = "invalid distance too far back", e.mode = 30;
                       break e;
                     }
-                    if (v >>>= V, x -= V, I > (V = a - t)) {
-                      if ((V = I - V) > u && e.sane) {
+                    if (v >>>= V, x -= V, A > (V = a - t)) {
+                      if ((V = A - V) > u && e.sane) {
                         l.msg = "invalid distance too far back", e.mode = 30;
                         break e;
                       }
@@ -4775,7 +4775,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                           do
                             O[a++] = g[_++];
                           while (--V);
-                          _ = a - I, R = O;
+                          _ = a - A, R = O;
                         }
                       } else if (p < V) {
                         if (_ += n + p - V, (V -= p) < q) {
@@ -4788,7 +4788,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                             do
                               O[a++] = g[_++];
                             while (--V);
-                            _ = a - I, R = O;
+                            _ = a - A, R = O;
                           }
                         }
                       } else if (_ += p - V, V < q) {
@@ -4796,13 +4796,13 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                         do
                           O[a++] = g[_++];
                         while (--V);
-                        _ = a - I, R = O;
+                        _ = a - A, R = O;
                       }
                       for (; q > 2; )
                         O[a++] = R[_++], O[a++] = R[_++], O[a++] = R[_++], q -= 3;
                       q && (O[a++] = R[_++], q > 1 && (O[a++] = R[_++]));
                     } else {
-                      _ = a - I;
+                      _ = a - A;
                       do
                         O[a++] = O[_++], O[a++] = O[_++], O[a++] = O[_++], q -= 3;
                       while (q > 2);
@@ -4840,11 +4840,11 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
       var C, ae;
       return N ? (ae = new k(), N.state = ae, ae.window = null, (C = V(N, U)) !== n && (N.state = null), C) : u;
     }
-    var I, _, R = !0;
+    var A, _, R = !0;
     function W(N) {
       if (R) {
         var U;
-        for (I = new e.Buf32(512), _ = new e.Buf32(32), U = 0; U < 144; )
+        for (A = new e.Buf32(512), _ = new e.Buf32(32), U = 0; U < 144; )
           N.lens[U++] = 8;
         for (; U < 256; )
           N.lens[U++] = 9;
@@ -4852,11 +4852,11 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           N.lens[U++] = 7;
         for (; U < 288; )
           N.lens[U++] = 8;
-        for (t(r, N.lens, 0, 288, I, 0, N.work, { bits: 9 }), U = 0; U < 32; )
+        for (t(r, N.lens, 0, 288, A, 0, N.work, { bits: 9 }), U = 0; U < 32; )
           N.lens[U++] = 5;
         t(o, N.lens, 0, 32, _, 0, N.work, { bits: 5 }), R = !1;
       }
-      N.lencode = I, N.lenbits = 9, N.distcode = _, N.distbits = 5;
+      N.lencode = A, N.lenbits = 9, N.distcode = _, N.distbits = 5;
     }
     function O(N, U, C, ae) {
       var J, te = N.state;
@@ -5292,7 +5292,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
   }, 881: (d, l, s) => {
     var e = s(9761), f = [3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 15, 17, 19, 23, 27, 31, 35, 43, 51, 59, 67, 83, 99, 115, 131, 163, 195, 227, 258, 0, 0], i = [16, 16, 16, 16, 16, 16, 16, 16, 17, 17, 17, 17, 18, 18, 18, 18, 19, 19, 19, 19, 20, 20, 20, 20, 21, 21, 21, 21, 16, 72, 78], a = [1, 2, 3, 4, 5, 7, 9, 13, 17, 25, 33, 49, 65, 97, 129, 193, 257, 385, 513, 769, 1025, 1537, 2049, 3073, 4097, 6145, 8193, 12289, 16385, 24577, 0, 0], t = [16, 16, 16, 16, 17, 17, 18, 18, 19, 19, 20, 20, 21, 21, 22, 22, 23, 23, 24, 24, 25, 25, 26, 26, 27, 27, 28, 28, 29, 29, 64, 64];
     d.exports = function(r, o, n, u, p, g, v, x) {
-      var b, w, k, G, F, V, q, I, _, R = x.bits, W = 0, O = 0, N = 0, U = 0, C = 0, ae = 0, J = 0, te = 0, $ = 0, L = 0, re = null, z = 0, j = new e.Buf16(16), ne = new e.Buf16(16), le = null, he = 0;
+      var b, w, k, G, F, V, q, A, _, R = x.bits, W = 0, O = 0, N = 0, U = 0, C = 0, ae = 0, J = 0, te = 0, $ = 0, L = 0, re = null, z = 0, j = new e.Buf16(16), ne = new e.Buf16(16), le = null, he = 0;
       for (W = 0; W <= 15; W++)
         j[W] = 0;
       for (O = 0; O < u; O++)
@@ -5315,9 +5315,9 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
       if (r === 0 ? (re = le = v, V = 19) : r === 1 ? (re = f, z -= 257, le = i, he -= 257, V = 256) : (re = a, le = t, V = -1), L = 0, O = 0, W = N, F = g, ae = C, J = 0, k = -1, G = ($ = 1 << C) - 1, r === 1 && $ > 852 || r === 2 && $ > 592)
         return 1;
       for (; ; ) {
-        q = W - J, v[O] < V ? (I = 0, _ = v[O]) : v[O] > V ? (I = le[he + v[O]], _ = re[z + v[O]]) : (I = 96, _ = 0), b = 1 << W - J, N = w = 1 << ae;
+        q = W - J, v[O] < V ? (A = 0, _ = v[O]) : v[O] > V ? (A = le[he + v[O]], _ = re[z + v[O]]) : (A = 96, _ = 0), b = 1 << W - J, N = w = 1 << ae;
         do
-          p[F + (L >> J) + (w -= b)] = q << 24 | I << 16 | _ | 0;
+          p[F + (L >> J) + (w -= b)] = q << 24 | A << 16 | _ | 0;
         while (w !== 0);
         for (b = 1 << W - 1; L & b; )
           b >>= 1;
@@ -5348,8 +5348,8 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
     f(V);
     var q = new Array(2 * r);
     f(q);
-    var I = new Array(512);
-    f(I);
+    var A = new Array(512);
+    f(A);
     var _ = new Array(256);
     f(_);
     var R = new Array(29);
@@ -5362,7 +5362,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
       this.dyn_tree = m, this.max_code = 0, this.stat_desc = D;
     }
     function J(m) {
-      return m < 256 ? I[m] : I[256 + (m >>> 7)];
+      return m < 256 ? A[m] : A[256 + (m >>> 7)];
     }
     function te(m, D) {
       m.pending_buf[m.pending++] = 255 & D, m.pending_buf[m.pending++] = D >>> 8 & 255;
@@ -5482,10 +5482,10 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             _[E++] = Q;
         for (_[E - 1] = Q, se = 0, Q = 0; Q < 16; Q++)
           for (U[Q] = se, D = 0; D < 1 << k[Q]; D++)
-            I[se++] = Q;
+            A[se++] = Q;
         for (se >>= 7; Q < r; Q++)
           for (U[Q] = se << 7, D = 0; D < 1 << k[Q] - 7; D++)
-            I[256 + se++] = Q;
+            A[256 + se++] = Q;
         for (ee = 0; ee <= u; ee++)
           Y[ee] = 0;
         for (D = 0; D <= 143; )
@@ -5966,11 +5966,11 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
     } });
   }, 1294: (d) => {
     function l(r, o, n, u, p, g) {
-      for (var v, x, b, w, k = Math.max(o - 1, 0), G = Math.max(n - 1, 0), F = Math.min(o + 1, u - 1), V = Math.min(n + 1, p - 1), q = 4 * (n * u + o), I = 0, _ = 0, R = 0, W = 0, O = 0, N = k; N <= F; N++)
+      for (var v, x, b, w, k = Math.max(o - 1, 0), G = Math.max(n - 1, 0), F = Math.min(o + 1, u - 1), V = Math.min(n + 1, p - 1), q = 4 * (n * u + o), A = 0, _ = 0, R = 0, W = 0, O = 0, N = k; N <= F; N++)
         for (var U = G; U <= V; U++)
           if (N !== o || U !== n) {
             var C = s(r, r, q, 4 * (U * u + N), !0);
-            if (C === 0 ? I++ : C < 0 ? R++ : C > 0 && _++, I > 2)
+            if (C === 0 ? A++ : C < 0 ? R++ : C > 0 && _++, A > 2)
               return !1;
             g && (C < W && (W = C, v = N, x = U), C > O && (O = C, b = N, w = U));
           }
@@ -5980,8 +5980,8 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
       var g = r[n + 3] / 255, v = o[u + 3] / 255, x = a(r[n + 0], g), b = a(r[n + 1], g), w = a(r[n + 2], g), k = a(o[u + 0], v), G = a(o[u + 1], v), F = a(o[u + 2], v), V = e(x, b, w) - e(k, G, F);
       if (p)
         return V;
-      var q = f(x, b, w) - f(k, G, F), I = i(x, b, w) - i(k, G, F);
-      return 0.5053 * V * V + 0.299 * q * q + 0.1957 * I * I;
+      var q = f(x, b, w) - f(k, G, F), A = i(x, b, w) - i(k, G, F);
+      return 0.5053 * V * V + 0.299 * q * q + 0.1957 * A * A;
     }
     function e(r, o, n) {
       return 0.29889531 * r + 0.58662247 * o + 0.11448223 * n;
@@ -6006,11 +6006,11 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           if (s(r, o, G, G) > x)
             g.includeAA || !l(r, k, w, u, p, o) && !l(o, k, w, u, p, r) ? (n && t(n, G, 255, 0, 0), b++) : n && t(n, G, 255, 255, 0);
           else if (n) {
-            var F = a((I = (V = r)[(q = G) + 3] / 255, e(a(V[q + 0], I), a(V[q + 1], I), a(V[q + 2], I))), 0.1);
+            var F = a((A = (V = r)[(q = G) + 3] / 255, e(a(V[q + 0], A), a(V[q + 1], A), a(V[q + 2], A))), 0.1);
             t(n, G, F, F, F);
           }
         }
-      var V, q, I;
+      var V, q, A;
       return b;
     };
   }, 9902: (d, l, s) => {
@@ -6071,8 +6071,8 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             let k = p.width, G = p.height, F = p.index;
             for (let V = 0; V < G; V++)
               for (let q = 0; q < k; q++) {
-                let I = v(q, V, F);
-                r[x](g, b, I, w), w += x;
+                let A = v(q, V, F);
+                r[x](g, b, A, w), w += x;
               }
             return w;
           }
@@ -6080,8 +6080,8 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             let k = p.width, G = p.height, F = p.index;
             for (let V = 0; V < G; V++) {
               for (let q = 0; q < k; q++) {
-                let I = b.get(x), _ = v(q, V, F);
-                o[x](g, I, _, w);
+                let A = b.get(x), _ = v(q, V, F);
+                o[x](g, A, _, w);
               }
               b.resetAfterLine();
             }
@@ -6122,7 +6122,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                   throw new Error("extra data found");
               } };
             }(p, k)), x = k <= 8 ? a.alloc(b * w * 4) : new Uint16Array(b * w * 4);
-            let V, q, I = Math.pow(2, k) - 1, _ = 0;
+            let V, q, A = Math.pow(2, k) - 1, _ = 0;
             if (F)
               V = t.getImagePasses(b, w), q = t.getInterlaceIterator(b, w);
             else {
@@ -6133,7 +6133,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
               }, V = [{ width: b, height: w }];
             }
             for (let R = 0; R < V.length; R++)
-              k === 8 ? _ = n(V[R], x, q, G, p, _) : u(V[R], x, q, G, v, I);
+              k === 8 ? _ = n(V[R], x, q, G, p, _) : u(V[R], x, q, G, v, A);
             if (k === 8) {
               if (_ !== p.length)
                 throw new Error("extra data found");
@@ -6151,8 +6151,8 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             let p = [t.COLORTYPE_COLOR_ALPHA, t.COLORTYPE_ALPHA].indexOf(u.colorType) !== -1;
             if (u.colorType === u.inputColorType) {
               let q = function() {
-                let I = new ArrayBuffer(2);
-                return new DataView(I).setInt16(0, 256, !0), new Int16Array(I)[0] !== 256;
+                let A = new ArrayBuffer(2);
+                return new DataView(A).setInt16(0, 256, !0), new Int16Array(A)[0] !== 256;
               }();
               if (u.bitDepth === 8 || u.bitDepth === 16 && q)
                 return r;
@@ -6163,28 +6163,28 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             u.bitDepth === 16 && (v = 65535, b *= 2);
             let w = a.alloc(o * n * b), k = 0, G = 0, F = u.bgColor || {};
             function V() {
-              let q, I, _, R = v;
+              let q, A, _, R = v;
               switch (u.inputColorType) {
                 case t.COLORTYPE_COLOR_ALPHA:
-                  R = g[k + 3], q = g[k], I = g[k + 1], _ = g[k + 2];
+                  R = g[k + 3], q = g[k], A = g[k + 1], _ = g[k + 2];
                   break;
                 case t.COLORTYPE_COLOR:
-                  q = g[k], I = g[k + 1], _ = g[k + 2];
+                  q = g[k], A = g[k + 1], _ = g[k + 2];
                   break;
                 case t.COLORTYPE_ALPHA:
-                  R = g[k + 1], q = g[k], I = q, _ = q;
+                  R = g[k + 1], q = g[k], A = q, _ = q;
                   break;
                 case t.COLORTYPE_GRAYSCALE:
-                  q = g[k], I = q, _ = q;
+                  q = g[k], A = q, _ = q;
                   break;
                 default:
                   throw new Error("input color type:" + u.inputColorType + " is not supported at present");
               }
-              return u.inputHasAlpha && (p || (R /= v, q = Math.min(Math.max(Math.round((1 - R) * F.red + R * q), 0), v), I = Math.min(Math.max(Math.round((1 - R) * F.green + R * I), 0), v), _ = Math.min(Math.max(Math.round((1 - R) * F.blue + R * _), 0), v))), { red: q, green: I, blue: _, alpha: R };
+              return u.inputHasAlpha && (p || (R /= v, q = Math.min(Math.max(Math.round((1 - R) * F.red + R * q), 0), v), A = Math.min(Math.max(Math.round((1 - R) * F.green + R * A), 0), v), _ = Math.min(Math.max(Math.round((1 - R) * F.blue + R * _), 0), v))), { red: q, green: A, blue: _, alpha: R };
             }
             F.red === void 0 && (F.red = v), F.green === void 0 && (F.green = v), F.blue === void 0 && (F.blue = v);
             for (let q = 0; q < n; q++)
-              for (let I = 0; I < o; I++) {
+              for (let A = 0; A < o; A++) {
                 let _ = V();
                 switch (u.colorType) {
                   case t.COLORTYPE_COLOR_ALPHA:
@@ -6358,9 +6358,9 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             for (let V = 0; V < p; V++) {
               if (x.length > 1) {
                 let q = 1 / 0;
-                for (let I = 0; I < x.length; I++) {
-                  let _ = o[x[I]](n, k, b, v);
-                  _ < q && (F = x[I], q = _);
+                for (let A = 0; A < x.length; A++) {
+                  let _ = o[x[A]](n, k, b, v);
+                  _ < q && (F = x[A], q = _);
                 }
               }
               G[w] = F, w++, r[F](n, k, b, G, w, v), w += b, k += b;
@@ -6473,7 +6473,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             let n = r.depth, u = r.width, p = r.height, g = r.colorType, v = r.transColor, x = r.palette, b = t;
             return g === 3 ? function(w, k, G, F, V) {
               let q = 0;
-              for (let I = 0; I < F; I++)
+              for (let A = 0; A < F; A++)
                 for (let _ = 0; _ < G; _++) {
                   let R = V[w[q]];
                   if (!R)
@@ -6484,7 +6484,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                 }
             }(t, b, u, p, x) : (v && function(w, k, G, F, V) {
               let q = 0;
-              for (let I = 0; I < F; I++)
+              for (let A = 0; A < F; A++)
                 for (let _ = 0; _ < G; _++) {
                   let R = !1;
                   if (V.length === 1 ? V[0] === w[q] && (R = !0) : V[0] === w[q] && V[1] === w[q + 1] && V[2] === w[q + 2] && (R = !0), R)
@@ -6493,12 +6493,12 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                   q += 4;
                 }
             }(t, b, u, p, v), n === 8 || o || (n === 16 && (b = a.alloc(u * p * 4)), function(w, k, G, F, V) {
-              let q = Math.pow(2, V) - 1, I = 0;
+              let q = Math.pow(2, V) - 1, A = 0;
               for (let _ = 0; _ < F; _++)
                 for (let R = 0; R < G; R++) {
                   for (let W = 0; W < 4; W++)
-                    k[I + W] = Math.floor(255 * w[I + W] / q + 0.5);
-                  I += 4;
+                    k[A + W] = Math.floor(255 * w[A + W] / q + 0.5);
+                  A += 4;
                 }
             }(t, b, u, p, n))), b;
           };
@@ -6673,17 +6673,17 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
               k.alpha = !0;
             } }).start(), V.process(), w)
               throw w;
-            let q, I = a.concat(F);
+            let q, A = a.concat(F);
             if (F.length = 0, k.interlace)
-              q = r.inflateSync(I);
+              q = r.inflateSync(A);
             else {
               let O = (1 + (k.width * k.bpp * k.depth + 7 >> 3)) * k.height;
-              q = o(I, { chunkSize: O, maxLength: O });
+              q = o(A, { chunkSize: O, maxLength: O });
             }
-            if (I = null, !q || !q.length)
+            if (A = null, !q || !q.length)
               throw new Error("bad png - invalid inflate data response");
             let _ = u.process(q, k);
-            I = null;
+            A = null;
             let R = g.dataToBitMap(_, k);
             _ = null;
             let W = v(R, k, b.skipRescale);
@@ -6870,14 +6870,14 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           p.prototype._processChunk = function(x, b, w) {
             if (typeof w == "function")
               return o.Inflate._processChunk.call(this, x, b, w);
-            let k, G, F = this, V = x && x.length, q = this._chunkSize - this._offset, I = this._maxLength, _ = 0, R = [], W = 0;
+            let k, G, F = this, V = x && x.length, q = this._chunkSize - this._offset, A = this._maxLength, _ = 0, R = [], W = 0;
             function O(U, C) {
               if (F._hadError)
                 return;
               let ae = q - C;
               if (r(ae >= 0, "have should not go down"), ae > 0) {
                 let J = F._buffer.slice(F._offset, F._offset + ae);
-                if (F._offset += ae, J.length > I && (J = J.slice(0, I)), R.push(J), W += J.length, I -= J.length, I === 0)
+                if (F._offset += ae, J.length > A && (J = J.slice(0, A)), R.push(J), W += J.length, A -= J.length, A === 0)
                   return !1;
               }
               return (C === 0 || F._offset >= F._chunkSize) && (q = F._chunkSize, F._offset = 0, F._buffer = t.allocUnsafe(F._chunkSize)), C === 0 && (_ += V - U, V = U, !0);
@@ -6991,7 +6991,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                   return J === te;
                 if ($ && Object.getPrototypeOf(J) !== Object.getPrototypeOf(te))
                   return !1;
-                var re = I(J), z = I(te);
+                var re = A(J), z = A(te);
                 if (re && !z || !re && z)
                   return !1;
                 if (re)
@@ -7010,7 +7010,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             }
             return U ? O === N : O == N;
           }
-          function I(O) {
+          function A(O) {
             return Object.prototype.toString.call(O) == "[object Arguments]";
           }
           function _(O, N) {
@@ -7198,7 +7198,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                 var ne = te.name ? ": " + te.name : "";
                 return J.stylize("[Function" + ne + "]", "special");
               }
-              if (I(te))
+              if (A(te))
                 return J.stylize(RegExp.prototype.toString.call(te), "regexp");
               if (R(te))
                 return J.stylize(Date.prototype.toString.call(te), "date");
@@ -7206,7 +7206,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                 return x(te);
             }
             var le, he = "", M = !1, T = ["{", "}"];
-            return w(te) && (M = !0, T = ["[", "]"]), O(te) && (he = " [Function" + (te.name ? ": " + te.name : "") + "]"), I(te) && (he = " " + RegExp.prototype.toString.call(te)), R(te) && (he = " " + Date.prototype.toUTCString.call(te)), W(te) && (he = " " + x(te)), z.length !== 0 || M && te.length != 0 ? $ < 0 ? I(te) ? J.stylize(RegExp.prototype.toString.call(te), "regexp") : J.stylize("[Object]", "special") : (J.seen.push(te), le = M ? function(B, K, h, c, m) {
+            return w(te) && (M = !0, T = ["[", "]"]), O(te) && (he = " [Function" + (te.name ? ": " + te.name : "") + "]"), A(te) && (he = " " + RegExp.prototype.toString.call(te)), R(te) && (he = " " + Date.prototype.toUTCString.call(te)), W(te) && (he = " " + x(te)), z.length !== 0 || M && te.length != 0 ? $ < 0 ? A(te) ? J.stylize(RegExp.prototype.toString.call(te), "regexp") : J.stylize("[Object]", "special") : (J.seen.push(te), le = M ? function(B, K, h, c, m) {
               for (var D = [], ee = 0, E = K.length; ee < E; ++ee)
                 ae(K, String(ee)) ? D.push(b(B, K, h, c, String(ee), !0)) : D.push("");
               return m.forEach(function(Q) {
@@ -7263,7 +7263,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           function q(J) {
             return J === void 0;
           }
-          function I(J) {
+          function A(J) {
             return _(J) && N(J) === "[object RegExp]";
           }
           function _(J) {
@@ -7300,7 +7300,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             return J == null;
           }, i.isNumber = F, i.isString = V, i.isSymbol = function(J) {
             return typeof J == "symbol";
-          }, i.isUndefined = q, i.isRegExp = I, i.isObject = _, i.isDate = R, i.isError = W, i.isFunction = O, i.isPrimitive = function(J) {
+          }, i.isUndefined = q, i.isRegExp = A, i.isObject = _, i.isDate = R, i.isError = W, i.isFunction = O, i.isPrimitive = function(J) {
             return J === null || typeof J == "boolean" || typeof J == "number" || typeof J == "string" || typeof J == "symbol" || J === void 0;
           }, i.isBuffer = e("./support/isBuffer");
           var C = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -7351,7 +7351,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         var x = p(v), b = x[0], w = x[1];
         return 3 * (b + w) / 4 - w;
       }, i.toByteArray = function(v) {
-        var x, b, w = p(v), k = w[0], G = w[1], F = new r(function(I, _, R) {
+        var x, b, w = p(v), k = w[0], G = w[1], F = new r(function(A, _, R) {
           return 3 * (_ + R) / 4 - R;
         }(0, k, G)), V = 0, q = G > 0 ? k - 4 : k;
         for (b = 0; b < q; b += 4)
@@ -7402,9 +7402,9 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
               throw new Error("Invalid flush value");
             if (w == null && (w = t.alloc(0), G = 0, k = 0), this.strm.avail_in = G, this.strm.input = w, this.strm.next_in = k, this.strm.avail_out = q, this.strm.output = F, this.strm.next_out = V, this.flush = b, !x)
               return this._process(), this._checkError() ? this._afterSync() : void 0;
-            var I = this;
+            var A = this;
             return a.nextTick(function() {
-              I._process(), I._after();
+              A._process(), A._after();
             }), this;
           }, v.prototype._afterSync = function() {
             var x = this.strm.avail_out, b = this.strm.avail_in;
@@ -7549,9 +7549,9 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             var re = $._finishFlushFlag;
             return $._processChunk(L, re);
           }
-          function I($) {
-            if (!(this instanceof I))
-              return new I($);
+          function A($) {
+            if (!(this instanceof A))
+              return new A($);
             ae.call(this, $, o.DEFLATE);
           }
           function _($) {
@@ -7625,8 +7625,8 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           function te($) {
             $.emit("close");
           }
-          Object.defineProperty(i, "codes", { enumerable: !0, value: Object.freeze(w), writable: !1 }), i.Deflate = I, i.Inflate = _, i.Gzip = R, i.Gunzip = W, i.DeflateRaw = O, i.InflateRaw = N, i.Unzip = U, i.createDeflate = function($) {
-            return new I($);
+          Object.defineProperty(i, "codes", { enumerable: !0, value: Object.freeze(w), writable: !1 }), i.Deflate = A, i.Inflate = _, i.Gzip = R, i.Gunzip = W, i.DeflateRaw = O, i.InflateRaw = N, i.Unzip = U, i.createDeflate = function($) {
+            return new A($);
           }, i.createInflate = function($) {
             return new _($);
           }, i.createDeflateRaw = function($) {
@@ -7640,9 +7640,9 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           }, i.createUnzip = function($) {
             return new U($);
           }, i.deflate = function($, L, re) {
-            return typeof L == "function" && (re = L, L = {}), V(new I(L), $, re);
+            return typeof L == "function" && (re = L, L = {}), V(new A(L), $, re);
           }, i.deflateSync = function($, L) {
-            return q(new I(L), $);
+            return q(new A(L), $);
           }, i.gzip = function($, L, re) {
             return typeof L == "function" && (re = L, L = {}), V(new R(L), $, re);
           }, i.gzipSync = function($, L) {
@@ -7731,7 +7731,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
               }
             }
             c.buffer = $, c.callback = m;
-          }, n.inherits(I, ae), n.inherits(_, ae), n.inherits(R, ae), n.inherits(W, ae), n.inherits(O, ae), n.inherits(N, ae), n.inherits(U, ae);
+          }, n.inherits(A, ae), n.inherits(_, ae), n.inherits(R, ae), n.inherits(W, ae), n.inherits(O, ae), n.inherits(N, ae), n.inherits(U, ae);
         }).call(this);
       }).call(this, e("_process"));
     }, { "./binding": 31, _process: 60, assert: 23, buffer: 33, stream: 61, util: 81 }], 33: [function(e, f, i) {
@@ -7943,7 +7943,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             }
             return Q;
           }
-          function I(h, c, m, D) {
+          function A(h, c, m, D) {
             return T(he(c, h.length - m), h, m, D);
           }
           function _(h, c, m, D) {
@@ -8146,7 +8146,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                   return q(this, h, c, m);
                 case "utf8":
                 case "utf-8":
-                  return I(this, h, c, m);
+                  return A(this, h, c, m);
                 case "ascii":
                   return _(this, h, c, m);
                 case "latin1":
@@ -8474,31 +8474,31 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             return o;
           }
         }
-      }() : o, u = e("has-symbols")(), p = Object.getPrototypeOf || function(I) {
-        return I.__proto__;
-      }, g = a, v = a, x = a, b = typeof Uint8Array > "u" ? a : p(Uint8Array), w = { "%Array%": Array, "%ArrayBuffer%": typeof ArrayBuffer > "u" ? a : ArrayBuffer, "%ArrayBufferPrototype%": typeof ArrayBuffer > "u" ? a : ArrayBuffer.prototype, "%ArrayIteratorPrototype%": u ? p([][Symbol.iterator]()) : a, "%ArrayPrototype%": Array.prototype, "%ArrayProto_entries%": Array.prototype.entries, "%ArrayProto_forEach%": Array.prototype.forEach, "%ArrayProto_keys%": Array.prototype.keys, "%ArrayProto_values%": Array.prototype.values, "%AsyncFromSyncIteratorPrototype%": a, "%AsyncFunction%": v, "%AsyncFunctionPrototype%": a, "%AsyncGenerator%": a, "%AsyncGeneratorFunction%": x, "%AsyncGeneratorPrototype%": a, "%AsyncIteratorPrototype%": a, "%Atomics%": typeof Atomics > "u" ? a : Atomics, "%Boolean%": Boolean, "%BooleanPrototype%": Boolean.prototype, "%DataView%": typeof DataView > "u" ? a : DataView, "%DataViewPrototype%": typeof DataView > "u" ? a : DataView.prototype, "%Date%": Date, "%DatePrototype%": Date.prototype, "%decodeURI%": decodeURI, "%decodeURIComponent%": decodeURIComponent, "%encodeURI%": encodeURI, "%encodeURIComponent%": encodeURIComponent, "%Error%": Error, "%ErrorPrototype%": Error.prototype, "%eval%": eval, "%EvalError%": EvalError, "%EvalErrorPrototype%": EvalError.prototype, "%Float32Array%": typeof Float32Array > "u" ? a : Float32Array, "%Float32ArrayPrototype%": typeof Float32Array > "u" ? a : Float32Array.prototype, "%Float64Array%": typeof Float64Array > "u" ? a : Float64Array, "%Float64ArrayPrototype%": typeof Float64Array > "u" ? a : Float64Array.prototype, "%Function%": Function, "%FunctionPrototype%": Function.prototype, "%Generator%": a, "%GeneratorFunction%": g, "%GeneratorPrototype%": a, "%Int8Array%": typeof Int8Array > "u" ? a : Int8Array, "%Int8ArrayPrototype%": typeof Int8Array > "u" ? a : Int8Array.prototype, "%Int16Array%": typeof Int16Array > "u" ? a : Int16Array, "%Int16ArrayPrototype%": typeof Int16Array > "u" ? a : Int8Array.prototype, "%Int32Array%": typeof Int32Array > "u" ? a : Int32Array, "%Int32ArrayPrototype%": typeof Int32Array > "u" ? a : Int32Array.prototype, "%isFinite%": isFinite, "%isNaN%": isNaN, "%IteratorPrototype%": u ? p(p([][Symbol.iterator]())) : a, "%JSON%": typeof JSON == "object" ? JSON : a, "%JSONParse%": typeof JSON == "object" ? JSON.parse : a, "%Map%": typeof Map > "u" ? a : Map, "%MapIteratorPrototype%": typeof Map < "u" && u ? p((/* @__PURE__ */ new Map())[Symbol.iterator]()) : a, "%MapPrototype%": typeof Map > "u" ? a : Map.prototype, "%Math%": Math, "%Number%": Number, "%NumberPrototype%": Number.prototype, "%Object%": Object, "%ObjectPrototype%": Object.prototype, "%ObjProto_toString%": Object.prototype.toString, "%ObjProto_valueOf%": Object.prototype.valueOf, "%parseFloat%": parseFloat, "%parseInt%": parseInt, "%Promise%": typeof Promise > "u" ? a : Promise, "%PromisePrototype%": typeof Promise > "u" ? a : Promise.prototype, "%PromiseProto_then%": typeof Promise > "u" ? a : Promise.prototype.then, "%Promise_all%": typeof Promise > "u" ? a : Promise.all, "%Promise_reject%": typeof Promise > "u" ? a : Promise.reject, "%Promise_resolve%": typeof Promise > "u" ? a : Promise.resolve, "%Proxy%": typeof Proxy > "u" ? a : Proxy, "%RangeError%": RangeError, "%RangeErrorPrototype%": RangeError.prototype, "%ReferenceError%": ReferenceError, "%ReferenceErrorPrototype%": ReferenceError.prototype, "%Reflect%": typeof Reflect > "u" ? a : Reflect, "%RegExp%": RegExp, "%RegExpPrototype%": RegExp.prototype, "%Set%": typeof Set > "u" ? a : Set, "%SetIteratorPrototype%": typeof Set < "u" && u ? p((/* @__PURE__ */ new Set())[Symbol.iterator]()) : a, "%SetPrototype%": typeof Set > "u" ? a : Set.prototype, "%SharedArrayBuffer%": typeof SharedArrayBuffer > "u" ? a : SharedArrayBuffer, "%SharedArrayBufferPrototype%": typeof SharedArrayBuffer > "u" ? a : SharedArrayBuffer.prototype, "%String%": String, "%StringIteratorPrototype%": u ? p(""[Symbol.iterator]()) : a, "%StringPrototype%": String.prototype, "%Symbol%": u ? Symbol : a, "%SymbolPrototype%": u ? Symbol.prototype : a, "%SyntaxError%": SyntaxError, "%SyntaxErrorPrototype%": SyntaxError.prototype, "%ThrowTypeError%": n, "%TypedArray%": b, "%TypedArrayPrototype%": b ? b.prototype : a, "%TypeError%": t, "%TypeErrorPrototype%": t.prototype, "%Uint8Array%": typeof Uint8Array > "u" ? a : Uint8Array, "%Uint8ArrayPrototype%": typeof Uint8Array > "u" ? a : Uint8Array.prototype, "%Uint8ClampedArray%": typeof Uint8ClampedArray > "u" ? a : Uint8ClampedArray, "%Uint8ClampedArrayPrototype%": typeof Uint8ClampedArray > "u" ? a : Uint8ClampedArray.prototype, "%Uint16Array%": typeof Uint16Array > "u" ? a : Uint16Array, "%Uint16ArrayPrototype%": typeof Uint16Array > "u" ? a : Uint16Array.prototype, "%Uint32Array%": typeof Uint32Array > "u" ? a : Uint32Array, "%Uint32ArrayPrototype%": typeof Uint32Array > "u" ? a : Uint32Array.prototype, "%URIError%": URIError, "%URIErrorPrototype%": URIError.prototype, "%WeakMap%": typeof WeakMap > "u" ? a : WeakMap, "%WeakMapPrototype%": typeof WeakMap > "u" ? a : WeakMap.prototype, "%WeakSet%": typeof WeakSet > "u" ? a : WeakSet, "%WeakSetPrototype%": typeof WeakSet > "u" ? a : WeakSet.prototype }, k = e("function-bind").call(Function.call, String.prototype.replace), G = /[^%.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|%$))/g, F = /\\(\\)?/g, V = function(I) {
+      }() : o, u = e("has-symbols")(), p = Object.getPrototypeOf || function(A) {
+        return A.__proto__;
+      }, g = a, v = a, x = a, b = typeof Uint8Array > "u" ? a : p(Uint8Array), w = { "%Array%": Array, "%ArrayBuffer%": typeof ArrayBuffer > "u" ? a : ArrayBuffer, "%ArrayBufferPrototype%": typeof ArrayBuffer > "u" ? a : ArrayBuffer.prototype, "%ArrayIteratorPrototype%": u ? p([][Symbol.iterator]()) : a, "%ArrayPrototype%": Array.prototype, "%ArrayProto_entries%": Array.prototype.entries, "%ArrayProto_forEach%": Array.prototype.forEach, "%ArrayProto_keys%": Array.prototype.keys, "%ArrayProto_values%": Array.prototype.values, "%AsyncFromSyncIteratorPrototype%": a, "%AsyncFunction%": v, "%AsyncFunctionPrototype%": a, "%AsyncGenerator%": a, "%AsyncGeneratorFunction%": x, "%AsyncGeneratorPrototype%": a, "%AsyncIteratorPrototype%": a, "%Atomics%": typeof Atomics > "u" ? a : Atomics, "%Boolean%": Boolean, "%BooleanPrototype%": Boolean.prototype, "%DataView%": typeof DataView > "u" ? a : DataView, "%DataViewPrototype%": typeof DataView > "u" ? a : DataView.prototype, "%Date%": Date, "%DatePrototype%": Date.prototype, "%decodeURI%": decodeURI, "%decodeURIComponent%": decodeURIComponent, "%encodeURI%": encodeURI, "%encodeURIComponent%": encodeURIComponent, "%Error%": Error, "%ErrorPrototype%": Error.prototype, "%eval%": eval, "%EvalError%": EvalError, "%EvalErrorPrototype%": EvalError.prototype, "%Float32Array%": typeof Float32Array > "u" ? a : Float32Array, "%Float32ArrayPrototype%": typeof Float32Array > "u" ? a : Float32Array.prototype, "%Float64Array%": typeof Float64Array > "u" ? a : Float64Array, "%Float64ArrayPrototype%": typeof Float64Array > "u" ? a : Float64Array.prototype, "%Function%": Function, "%FunctionPrototype%": Function.prototype, "%Generator%": a, "%GeneratorFunction%": g, "%GeneratorPrototype%": a, "%Int8Array%": typeof Int8Array > "u" ? a : Int8Array, "%Int8ArrayPrototype%": typeof Int8Array > "u" ? a : Int8Array.prototype, "%Int16Array%": typeof Int16Array > "u" ? a : Int16Array, "%Int16ArrayPrototype%": typeof Int16Array > "u" ? a : Int8Array.prototype, "%Int32Array%": typeof Int32Array > "u" ? a : Int32Array, "%Int32ArrayPrototype%": typeof Int32Array > "u" ? a : Int32Array.prototype, "%isFinite%": isFinite, "%isNaN%": isNaN, "%IteratorPrototype%": u ? p(p([][Symbol.iterator]())) : a, "%JSON%": typeof JSON == "object" ? JSON : a, "%JSONParse%": typeof JSON == "object" ? JSON.parse : a, "%Map%": typeof Map > "u" ? a : Map, "%MapIteratorPrototype%": typeof Map < "u" && u ? p((/* @__PURE__ */ new Map())[Symbol.iterator]()) : a, "%MapPrototype%": typeof Map > "u" ? a : Map.prototype, "%Math%": Math, "%Number%": Number, "%NumberPrototype%": Number.prototype, "%Object%": Object, "%ObjectPrototype%": Object.prototype, "%ObjProto_toString%": Object.prototype.toString, "%ObjProto_valueOf%": Object.prototype.valueOf, "%parseFloat%": parseFloat, "%parseInt%": parseInt, "%Promise%": typeof Promise > "u" ? a : Promise, "%PromisePrototype%": typeof Promise > "u" ? a : Promise.prototype, "%PromiseProto_then%": typeof Promise > "u" ? a : Promise.prototype.then, "%Promise_all%": typeof Promise > "u" ? a : Promise.all, "%Promise_reject%": typeof Promise > "u" ? a : Promise.reject, "%Promise_resolve%": typeof Promise > "u" ? a : Promise.resolve, "%Proxy%": typeof Proxy > "u" ? a : Proxy, "%RangeError%": RangeError, "%RangeErrorPrototype%": RangeError.prototype, "%ReferenceError%": ReferenceError, "%ReferenceErrorPrototype%": ReferenceError.prototype, "%Reflect%": typeof Reflect > "u" ? a : Reflect, "%RegExp%": RegExp, "%RegExpPrototype%": RegExp.prototype, "%Set%": typeof Set > "u" ? a : Set, "%SetIteratorPrototype%": typeof Set < "u" && u ? p((/* @__PURE__ */ new Set())[Symbol.iterator]()) : a, "%SetPrototype%": typeof Set > "u" ? a : Set.prototype, "%SharedArrayBuffer%": typeof SharedArrayBuffer > "u" ? a : SharedArrayBuffer, "%SharedArrayBufferPrototype%": typeof SharedArrayBuffer > "u" ? a : SharedArrayBuffer.prototype, "%String%": String, "%StringIteratorPrototype%": u ? p(""[Symbol.iterator]()) : a, "%StringPrototype%": String.prototype, "%Symbol%": u ? Symbol : a, "%SymbolPrototype%": u ? Symbol.prototype : a, "%SyntaxError%": SyntaxError, "%SyntaxErrorPrototype%": SyntaxError.prototype, "%ThrowTypeError%": n, "%TypedArray%": b, "%TypedArrayPrototype%": b ? b.prototype : a, "%TypeError%": t, "%TypeErrorPrototype%": t.prototype, "%Uint8Array%": typeof Uint8Array > "u" ? a : Uint8Array, "%Uint8ArrayPrototype%": typeof Uint8Array > "u" ? a : Uint8Array.prototype, "%Uint8ClampedArray%": typeof Uint8ClampedArray > "u" ? a : Uint8ClampedArray, "%Uint8ClampedArrayPrototype%": typeof Uint8ClampedArray > "u" ? a : Uint8ClampedArray.prototype, "%Uint16Array%": typeof Uint16Array > "u" ? a : Uint16Array, "%Uint16ArrayPrototype%": typeof Uint16Array > "u" ? a : Uint16Array.prototype, "%Uint32Array%": typeof Uint32Array > "u" ? a : Uint32Array, "%Uint32ArrayPrototype%": typeof Uint32Array > "u" ? a : Uint32Array.prototype, "%URIError%": URIError, "%URIErrorPrototype%": URIError.prototype, "%WeakMap%": typeof WeakMap > "u" ? a : WeakMap, "%WeakMapPrototype%": typeof WeakMap > "u" ? a : WeakMap.prototype, "%WeakSet%": typeof WeakSet > "u" ? a : WeakSet, "%WeakSetPrototype%": typeof WeakSet > "u" ? a : WeakSet.prototype }, k = e("function-bind").call(Function.call, String.prototype.replace), G = /[^%.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|%$))/g, F = /\\(\\)?/g, V = function(A) {
         var _ = [];
-        return k(I, G, function(R, W, O, N) {
+        return k(A, G, function(R, W, O, N) {
           _[_.length] = O ? k(N, F, "$1") : W || R;
         }), _;
-      }, q = function(I, _) {
-        if (!(I in w))
-          throw new SyntaxError("intrinsic " + I + " does not exist!");
-        if (w[I] === void 0 && !_)
-          throw new t("intrinsic " + I + " exists, but is not available. Please file an issue!");
-        return w[I];
+      }, q = function(A, _) {
+        if (!(A in w))
+          throw new SyntaxError("intrinsic " + A + " does not exist!");
+        if (w[A] === void 0 && !_)
+          throw new t("intrinsic " + A + " exists, but is not available. Please file an issue!");
+        return w[A];
       };
-      f.exports = function(I, _) {
-        if (typeof I != "string" || I.length === 0)
+      f.exports = function(A, _) {
+        if (typeof A != "string" || A.length === 0)
           throw new TypeError("intrinsic name must be a non-empty string");
         if (arguments.length > 1 && typeof _ != "boolean")
           throw new TypeError('"allowMissing" argument must be a boolean');
-        for (var R = V(I), W = q("%" + (R.length > 0 ? R[0] : "") + "%", _), O = 1; O < R.length; O += 1)
+        for (var R = V(A), W = q("%" + (R.length > 0 ? R[0] : "") + "%", _), O = 1; O < R.length; O += 1)
           if (W != null)
             if (r && O + 1 >= R.length) {
               var N = r(W, R[O]);
               if (!_ && !(R[O] in W))
-                throw new t("base intrinsic for " + I + " exists, but the property is not available.");
+                throw new t("base intrinsic for " + A + " exists, but the property is not available.");
               W = N ? N.get || N.value : W[R[O]];
             } else
               W = W[R[O]];
@@ -8542,13 +8542,13 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         n.init.call(this);
       }
       f.exports = n, f.exports.once = function(F, V) {
-        return new Promise(function(q, I) {
+        return new Promise(function(q, A) {
           function _() {
             R !== void 0 && F.removeListener("error", R), q([].slice.call(arguments));
           }
           var R;
           V !== "error" && (R = function(W) {
-            F.removeListener(V, _), I(W);
+            F.removeListener(V, _), A(W);
           }, F.once("error", R)), F.once(V, _);
         });
       }, n.EventEmitter = n, n.prototype._events = void 0, n.prototype._eventsCount = 0, n.prototype._maxListeners = void 0;
@@ -8560,11 +8560,11 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
       function g(F) {
         return F._maxListeners === void 0 ? n.defaultMaxListeners : F._maxListeners;
       }
-      function v(F, V, q, I) {
+      function v(F, V, q, A) {
         var _, R, W, O;
         if (p(q), (R = F._events) === void 0 ? (R = F._events = /* @__PURE__ */ Object.create(null), F._eventsCount = 0) : (R.newListener !== void 0 && (F.emit("newListener", V, q.listener ? q.listener : q), R = F._events), W = R[V]), W === void 0)
           W = R[V] = q, ++F._eventsCount;
-        else if (typeof W == "function" ? W = R[V] = I ? [q, W] : [W, q] : I ? W.unshift(q) : W.push(q), (_ = g(F)) > 0 && W.length > _ && !W.warned) {
+        else if (typeof W == "function" ? W = R[V] = A ? [q, W] : [W, q] : A ? W.unshift(q) : W.push(q), (_ = g(F)) > 0 && W.length > _ && !W.warned) {
           W.warned = !0;
           var N = new Error("Possible EventEmitter memory leak detected. " + W.length + " " + String(V) + " listeners added. Use emitter.setMaxListeners() to increase limit");
           N.name = "MaxListenersExceededWarning", N.emitter = F, N.type = V, N.count = W.length, O = N, console && console.warn && console.warn(O);
@@ -8576,14 +8576,14 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           return this.target.removeListener(this.type, this.wrapFn), this.fired = !0, arguments.length === 0 ? this.listener.call(this.target) : this.listener.apply(this.target, arguments);
       }
       function b(F, V, q) {
-        var I = { fired: !1, wrapFn: void 0, target: F, type: V, listener: q }, _ = x.bind(I);
-        return _.listener = q, I.wrapFn = _, _;
+        var A = { fired: !1, wrapFn: void 0, target: F, type: V, listener: q }, _ = x.bind(A);
+        return _.listener = q, A.wrapFn = _, _;
       }
       function w(F, V, q) {
-        var I = F._events;
-        if (I === void 0)
+        var A = F._events;
+        if (A === void 0)
           return [];
-        var _ = I[V];
+        var _ = A[V];
         return _ === void 0 ? [] : typeof _ == "function" ? q ? [_.listener || _] : [_] : q ? function(R) {
           for (var W = new Array(R.length), O = 0; O < W.length; ++O)
             W[O] = R[O].listener || R[O];
@@ -8602,8 +8602,8 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         return 0;
       }
       function G(F, V) {
-        for (var q = new Array(V), I = 0; I < V; ++I)
-          q[I] = F[I];
+        for (var q = new Array(V), A = 0; A < V; ++A)
+          q[A] = F[A];
         return q;
       }
       Object.defineProperty(n, "defaultMaxListeners", { enumerable: !0, get: function() {
@@ -8623,12 +8623,12 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
       }, n.prototype.emit = function(F) {
         for (var V = [], q = 1; q < arguments.length; q++)
           V.push(arguments[q]);
-        var I = F === "error", _ = this._events;
+        var A = F === "error", _ = this._events;
         if (_ !== void 0)
-          I = I && _.error === void 0;
-        else if (!I)
+          A = A && _.error === void 0;
+        else if (!A)
           return !1;
-        if (I) {
+        if (A) {
           var R;
           if (V.length > 0 && (R = V[0]), R instanceof Error)
             throw R;
@@ -8655,13 +8655,13 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
       }, n.prototype.prependOnceListener = function(F, V) {
         return p(V), this.prependListener(F, b(this, F, V)), this;
       }, n.prototype.removeListener = function(F, V) {
-        var q, I, _, R, W;
-        if (p(V), (I = this._events) === void 0)
+        var q, A, _, R, W;
+        if (p(V), (A = this._events) === void 0)
           return this;
-        if ((q = I[F]) === void 0)
+        if ((q = A[F]) === void 0)
           return this;
         if (q === V || q.listener === V)
-          --this._eventsCount == 0 ? this._events = /* @__PURE__ */ Object.create(null) : (delete I[F], I.removeListener && this.emit("removeListener", F, q.listener || V));
+          --this._eventsCount == 0 ? this._events = /* @__PURE__ */ Object.create(null) : (delete A[F], A.removeListener && this.emit("removeListener", F, q.listener || V));
         else if (typeof q != "function") {
           for (_ = -1, R = q.length - 1; R >= 0; R--)
             if (q[R] === V || q[R].listener === V) {
@@ -8674,26 +8674,26 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             for (; N + 1 < O.length; N++)
               O[N] = O[N + 1];
             O.pop();
-          }(q, _), q.length === 1 && (I[F] = q[0]), I.removeListener !== void 0 && this.emit("removeListener", F, W || V);
+          }(q, _), q.length === 1 && (A[F] = q[0]), A.removeListener !== void 0 && this.emit("removeListener", F, W || V);
         }
         return this;
       }, n.prototype.off = n.prototype.removeListener, n.prototype.removeAllListeners = function(F) {
-        var V, q, I;
+        var V, q, A;
         if ((q = this._events) === void 0)
           return this;
         if (q.removeListener === void 0)
           return arguments.length === 0 ? (this._events = /* @__PURE__ */ Object.create(null), this._eventsCount = 0) : q[F] !== void 0 && (--this._eventsCount == 0 ? this._events = /* @__PURE__ */ Object.create(null) : delete q[F]), this;
         if (arguments.length === 0) {
           var _, R = Object.keys(q);
-          for (I = 0; I < R.length; ++I)
-            (_ = R[I]) !== "removeListener" && this.removeAllListeners(_);
+          for (A = 0; A < R.length; ++A)
+            (_ = R[A]) !== "removeListener" && this.removeAllListeners(_);
           return this.removeAllListeners("removeListener"), this._events = /* @__PURE__ */ Object.create(null), this._eventsCount = 0, this;
         }
         if (typeof (V = q[F]) == "function")
           this.removeListener(F, V);
         else if (V !== void 0)
-          for (I = V.length - 1; I >= 0; I--)
-            this.removeListener(F, V[I]);
+          for (A = V.length - 1; A >= 0; A--)
+            this.removeListener(F, V[A]);
         return this;
       }, n.prototype.listeners = function(F) {
         return w(this, F, !0);
@@ -8856,10 +8856,10 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             }
             return !!b && function(F) {
               var V = !1;
-              return t(x, function(q, I) {
+              return t(x, function(q, A) {
                 if (!V)
                   try {
-                    V = q.call(F) === I;
+                    V = q.call(F) === A;
                   } catch {
                   }
               }), V;
@@ -8939,7 +8939,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         return -1 ^ t;
       };
     }, {}], 53: [function(e, f, i) {
-      var a, t = e("../utils/common"), r = e("./trees"), o = e("./adler32"), n = e("./crc32"), u = e("./messages"), p = 0, g = 1, v = 3, x = 4, b = 5, w = 0, k = 1, G = -2, F = -3, V = -5, q = -1, I = 1, _ = 2, R = 3, W = 4, O = 0, N = 2, U = 8, C = 9, ae = 15, J = 8, te = 286, $ = 30, L = 19, re = 2 * te + 1, z = 15, j = 3, ne = 258, le = ne + j + 1, he = 32, M = 42, T = 69, B = 73, K = 91, h = 103, c = 113, m = 666, D = 1, ee = 2, E = 3, Q = 4, se = 3;
+      var a, t = e("../utils/common"), r = e("./trees"), o = e("./adler32"), n = e("./crc32"), u = e("./messages"), p = 0, g = 1, v = 3, x = 4, b = 5, w = 0, k = 1, G = -2, F = -3, V = -5, q = -1, A = 1, _ = 2, R = 3, W = 4, O = 0, N = 2, U = 8, C = 9, ae = 15, J = 8, te = 286, $ = 30, L = 19, re = 2 * te + 1, z = 15, j = 3, ne = 258, le = ne + j + 1, he = 32, M = 42, T = 69, B = 73, K = 91, h = 103, c = 113, m = 666, D = 1, ee = 2, E = 3, Q = 4, se = 3;
       function Y(P, we) {
         return P.msg = u[we], we;
       }
@@ -8964,7 +8964,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         P.pending_buf[P.pending++] = we >>> 8 & 255, P.pending_buf[P.pending++] = 255 & we;
       }
       function xe(P, we) {
-        var X, de, Ze = P.max_chain_length, Re = P.strstart, rt = P.prev_length, De = P.nice_match, Je = P.strstart > P.w_size - le ? P.strstart - (P.w_size - le) : 0, je = P.window, Ie = P.w_mask, at = P.prev, st = P.strstart + ne, tt = je[Re + rt - 1], mt = je[Re + rt];
+        var X, de, Ze = P.max_chain_length, Re = P.strstart, rt = P.prev_length, De = P.nice_match, Je = P.strstart > P.w_size - le ? P.strstart - (P.w_size - le) : 0, je = P.window, Ae = P.w_mask, at = P.prev, st = P.strstart + ne, tt = je[Re + rt - 1], mt = je[Re + rt];
         P.prev_length >= P.good_match && (Ze >>= 2), De > P.lookahead && (De = P.lookahead);
         do
           if (je[(X = we) + rt] === mt && je[X + rt - 1] === tt && je[X] === je[Re] && je[++X] === je[Re + 1]) {
@@ -8978,11 +8978,11 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
               tt = je[Re + rt - 1], mt = je[Re + rt];
             }
           }
-        while ((we = at[we & Ie]) > Je && --Ze != 0);
+        while ((we = at[we & Ae]) > Je && --Ze != 0);
         return rt <= P.lookahead ? rt : P.lookahead;
       }
       function Ce(P) {
-        var we, X, de, Ze, Re, rt, De, Je, je, Ie, at = P.w_size;
+        var we, X, de, Ze, Re, rt, De, Je, je, Ae, at = P.w_size;
         do {
           if (Ze = P.window_size - P.lookahead - P.strstart, P.strstart >= at + (at - le)) {
             t.arraySet(P.window, P.window, at, at, 0), P.match_start -= at, P.strstart -= at, P.block_start -= at, we = X = P.hash_size;
@@ -8997,7 +8997,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           }
           if (P.strm.avail_in === 0)
             break;
-          if (rt = P.strm, De = P.window, Je = P.strstart + P.lookahead, je = Ze, Ie = void 0, (Ie = rt.avail_in) > je && (Ie = je), X = Ie === 0 ? 0 : (rt.avail_in -= Ie, t.arraySet(De, rt.input, rt.next_in, Ie, Je), rt.state.wrap === 1 ? rt.adler = o(rt.adler, De, Ie, Je) : rt.state.wrap === 2 && (rt.adler = n(rt.adler, De, Ie, Je)), rt.next_in += Ie, rt.total_in += Ie, Ie), P.lookahead += X, P.lookahead + P.insert >= j)
+          if (rt = P.strm, De = P.window, Je = P.strstart + P.lookahead, je = Ze, Ae = void 0, (Ae = rt.avail_in) > je && (Ae = je), X = Ae === 0 ? 0 : (rt.avail_in -= Ae, t.arraySet(De, rt.input, rt.next_in, Ae, Je), rt.state.wrap === 1 ? rt.adler = o(rt.adler, De, Ae, Je) : rt.state.wrap === 2 && (rt.adler = n(rt.adler, De, Ae, Je)), rt.next_in += Ae, rt.total_in += Ae, Ae), P.lookahead += X, P.lookahead + P.insert >= j)
             for (Re = P.strstart - P.insert, P.ins_h = P.window[Re], P.ins_h = (P.ins_h << P.hash_shift ^ P.window[Re + 1]) & P.hash_mask; P.insert && (P.ins_h = (P.ins_h << P.hash_shift ^ P.window[Re + j - 1]) & P.hash_mask, P.prev[Re & P.w_mask] = P.head[P.ins_h], P.head[P.ins_h] = Re, Re++, P.insert--, !(P.lookahead + P.insert < j)); )
               ;
         } while (P.lookahead < le && P.strm.avail_in !== 0);
@@ -9034,7 +9034,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             if (P.lookahead === 0)
               break;
           }
-          if (X = 0, P.lookahead >= j && (P.ins_h = (P.ins_h << P.hash_shift ^ P.window[P.strstart + j - 1]) & P.hash_mask, X = P.prev[P.strstart & P.w_mask] = P.head[P.ins_h], P.head[P.ins_h] = P.strstart), P.prev_length = P.match_length, P.prev_match = P.match_start, P.match_length = j - 1, X !== 0 && P.prev_length < P.max_lazy_match && P.strstart - X <= P.w_size - le && (P.match_length = xe(P, X), P.match_length <= 5 && (P.strategy === I || P.match_length === j && P.strstart - P.match_start > 4096) && (P.match_length = j - 1)), P.prev_length >= j && P.match_length <= P.prev_length) {
+          if (X = 0, P.lookahead >= j && (P.ins_h = (P.ins_h << P.hash_shift ^ P.window[P.strstart + j - 1]) & P.hash_mask, X = P.prev[P.strstart & P.w_mask] = P.head[P.ins_h], P.head[P.ins_h] = P.strstart), P.prev_length = P.match_length, P.prev_match = P.match_start, P.match_length = j - 1, X !== 0 && P.prev_length < P.max_lazy_match && P.strstart - X <= P.w_size - le && (P.match_length = xe(P, X), P.match_length <= 5 && (P.strategy === A || P.match_length === j && P.strstart - P.match_start > 4096) && (P.match_length = j - 1)), P.prev_length >= j && P.match_length <= P.prev_length) {
             Ze = P.strstart + P.lookahead - j, de = r._tr_tally(P, P.strstart - 1 - P.prev_match, P.prev_length - j), P.lookahead -= P.prev_length - 1, P.prev_length -= 2;
             do
               ++P.strstart <= Ze && (P.ins_h = (P.ins_h << P.hash_shift ^ P.window[P.strstart + j - 1]) & P.hash_mask, X = P.prev[P.strstart & P.w_mask] = P.head[P.ins_h], P.head[P.ins_h] = P.strstart);
@@ -9147,18 +9147,18 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           return Y(P, V);
         if (P.avail_in !== 0 || de.lookahead !== 0 || we !== p && de.status !== m) {
           var De = de.strategy === _ ? function(Je, je) {
-            for (var Ie; ; ) {
+            for (var Ae; ; ) {
               if (Je.lookahead === 0 && (Ce(Je), Je.lookahead === 0)) {
                 if (je === p)
                   return D;
                 break;
               }
-              if (Je.match_length = 0, Ie = r._tr_tally(Je, 0, Je.window[Je.strstart]), Je.lookahead--, Je.strstart++, Ie && (Me(Je, !1), Je.strm.avail_out === 0))
+              if (Je.match_length = 0, Ae = r._tr_tally(Je, 0, Je.window[Je.strstart]), Je.lookahead--, Je.strstart++, Ae && (Me(Je, !1), Je.strm.avail_out === 0))
                 return D;
             }
             return Je.insert = 0, je === x ? (Me(Je, !0), Je.strm.avail_out === 0 ? E : Q) : Je.last_lit && (Me(Je, !1), Je.strm.avail_out === 0) ? D : ee;
           }(de, we) : de.strategy === R ? function(Je, je) {
-            for (var Ie, at, st, tt, mt = Je.window; ; ) {
+            for (var Ae, at, st, tt, mt = Je.window; ; ) {
               if (Je.lookahead <= ne) {
                 if (Ce(Je), Je.lookahead <= ne && je === p)
                   return D;
@@ -9172,7 +9172,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                 while (at === mt[++st] && at === mt[++st] && at === mt[++st] && at === mt[++st] && at === mt[++st] && at === mt[++st] && at === mt[++st] && at === mt[++st] && st < tt);
                 Je.match_length = ne - (tt - st), Je.match_length > Je.lookahead && (Je.match_length = Je.lookahead);
               }
-              if (Je.match_length >= j ? (Ie = r._tr_tally(Je, 1, Je.match_length - j), Je.lookahead -= Je.match_length, Je.strstart += Je.match_length, Je.match_length = 0) : (Ie = r._tr_tally(Je, 0, Je.window[Je.strstart]), Je.lookahead--, Je.strstart++), Ie && (Me(Je, !1), Je.strm.avail_out === 0))
+              if (Je.match_length >= j ? (Ae = r._tr_tally(Je, 1, Je.match_length - j), Je.lookahead -= Je.match_length, Je.strstart += Je.match_length, Je.match_length = 0) : (Ae = r._tr_tally(Je, 0, Je.window[Je.strstart]), Je.lookahead--, Je.strstart++), Ae && (Me(Je, !1), Je.strm.avail_out === 0))
                 return D;
             }
             return Je.insert = 0, je === x ? (Me(Je, !0), Je.strm.avail_out === 0 ? E : Q) : Je.last_lit && (Me(Je, !1), Je.strm.avail_out === 0) ? D : ee;
@@ -9187,10 +9187,10 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         var we;
         return P && P.state ? (we = P.state.status) !== M && we !== T && we !== B && we !== K && we !== h && we !== c && we !== m ? Y(P, G) : (P.state = null, we === c ? Y(P, F) : w) : G;
       }, i.deflateSetDictionary = function(P, we) {
-        var X, de, Ze, Re, rt, De, Je, je, Ie = we.length;
+        var X, de, Ze, Re, rt, De, Je, je, Ae = we.length;
         if (!P || !P.state || (Re = (X = P.state).wrap) === 2 || Re === 1 && X.status !== M || X.lookahead)
           return G;
-        for (Re === 1 && (P.adler = o(P.adler, we, Ie, 0)), X.wrap = 0, Ie >= X.w_size && (Re === 0 && (Ee(X.head), X.strstart = 0, X.block_start = 0, X.insert = 0), je = new t.Buf8(X.w_size), t.arraySet(je, we, Ie - X.w_size, X.w_size, 0), we = je, Ie = X.w_size), rt = P.avail_in, De = P.next_in, Je = P.input, P.avail_in = Ie, P.next_in = 0, P.input = we, Ce(X); X.lookahead >= j; ) {
+        for (Re === 1 && (P.adler = o(P.adler, we, Ae, 0)), X.wrap = 0, Ae >= X.w_size && (Re === 0 && (Ee(X.head), X.strstart = 0, X.block_start = 0, X.insert = 0), je = new t.Buf8(X.w_size), t.arraySet(je, we, Ae - X.w_size, X.w_size, 0), we = je, Ae = X.w_size), rt = P.avail_in, De = P.next_in, Je = P.input, P.avail_in = Ae, P.next_in = 0, P.input = we, Ce(X); X.lookahead >= j; ) {
           de = X.strstart, Ze = X.lookahead - (j - 1);
           do
             X.ins_h = (X.ins_h << X.hash_shift ^ X.window[de + j - 1]) & X.hash_mask, X.prev[de & X.w_mask] = X.head[X.ins_h], X.head[X.ins_h] = de, de++;
@@ -9201,11 +9201,11 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
       }, i.deflateInfo = "pako deflate (from Nodeca project)";
     }, { "../utils/common": 49, "./adler32": 50, "./crc32": 52, "./messages": 57, "./trees": 58 }], 54: [function(e, f, i) {
       f.exports = function(a, t) {
-        var r, o, n, u, p, g, v, x, b, w, k, G, F, V, q, I, _, R, W, O, N, U, C, ae, J;
-        r = a.state, o = a.next_in, ae = a.input, n = o + (a.avail_in - 5), u = a.next_out, J = a.output, p = u - (t - a.avail_out), g = u + (a.avail_out - 257), v = r.dmax, x = r.wsize, b = r.whave, w = r.wnext, k = r.window, G = r.hold, F = r.bits, V = r.lencode, q = r.distcode, I = (1 << r.lenbits) - 1, _ = (1 << r.distbits) - 1;
+        var r, o, n, u, p, g, v, x, b, w, k, G, F, V, q, A, _, R, W, O, N, U, C, ae, J;
+        r = a.state, o = a.next_in, ae = a.input, n = o + (a.avail_in - 5), u = a.next_out, J = a.output, p = u - (t - a.avail_out), g = u + (a.avail_out - 257), v = r.dmax, x = r.wsize, b = r.whave, w = r.wnext, k = r.window, G = r.hold, F = r.bits, V = r.lencode, q = r.distcode, A = (1 << r.lenbits) - 1, _ = (1 << r.distbits) - 1;
         e:
           do {
-            F < 15 && (G += ae[o++] << F, F += 8, G += ae[o++] << F, F += 8), R = V[G & I];
+            F < 15 && (G += ae[o++] << F, F += 8, G += ae[o++] << F, F += 8), R = V[G & A];
             t:
               for (; ; ) {
                 if (G >>>= W = R >>> 24, F -= W, (W = R >>> 16 & 255) == 0)
@@ -9291,7 +9291,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         o -= O = F >> 3, G &= (1 << (F -= O << 3)) - 1, a.next_in = o, a.next_out = u, a.avail_in = o < n ? n - o + 5 : 5 - (o - n), a.avail_out = u < g ? g - u + 257 : 257 - (u - g), r.hold = G, r.bits = F;
       };
     }, {}], 55: [function(e, f, i) {
-      var a = e("../utils/common"), t = e("./adler32"), r = e("./crc32"), o = e("./inffast"), n = e("./inftrees"), u = 0, p = 1, g = 2, v = 4, x = 5, b = 6, w = 0, k = 1, G = 2, F = -2, V = -3, q = -4, I = -5, _ = 8, R = 1, W = 2, O = 3, N = 4, U = 5, C = 6, ae = 7, J = 8, te = 9, $ = 10, L = 11, re = 12, z = 13, j = 14, ne = 15, le = 16, he = 17, M = 18, T = 19, B = 20, K = 21, h = 22, c = 23, m = 24, D = 25, ee = 26, E = 27, Q = 28, se = 29, Y = 30, be = 31, Ee = 852, ke = 592, Me = 15;
+      var a = e("../utils/common"), t = e("./adler32"), r = e("./crc32"), o = e("./inffast"), n = e("./inftrees"), u = 0, p = 1, g = 2, v = 4, x = 5, b = 6, w = 0, k = 1, G = 2, F = -2, V = -3, q = -4, A = -5, _ = 8, R = 1, W = 2, O = 3, N = 4, U = 5, C = 6, ae = 7, J = 8, te = 9, $ = 10, L = 11, re = 12, z = 13, j = 14, ne = 15, le = 16, he = 17, M = 18, T = 19, B = 20, K = 21, h = 22, c = 23, m = 24, D = 25, ee = 26, E = 27, Q = 28, se = 29, Y = 30, be = 31, Ee = 852, ke = 592, Me = 15;
       function oe(P) {
         return (P >>> 24 & 255) + (P >>> 8 & 65280) + ((65280 & P) << 8) + ((255 & P) << 24);
       }
@@ -9339,10 +9339,10 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
       i.inflateReset = Ce, i.inflateReset2 = _e, i.inflateResetKeep = xe, i.inflateInit = function(P) {
         return Be(P, Me);
       }, i.inflateInit2 = Be, i.inflate = function(P, we) {
-        var X, de, Ze, Re, rt, De, Je, je, Ie, at, st, tt, mt, It, wt, ot, Mt, Ft, Rt, qt, Lt, Se, Ye, Ke, ut = 0, bt = new a.Buf8(4), At = [16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15];
+        var X, de, Ze, Re, rt, De, Je, je, Ae, at, st, tt, mt, At, wt, ot, Mt, Ft, Rt, qt, Lt, Se, Ye, Ke, ut = 0, bt = new a.Buf8(4), It = [16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15];
         if (!P || !P.state || !P.output || !P.input && P.avail_in !== 0)
           return F;
-        (X = P.state).mode === re && (X.mode = z), rt = P.next_out, Ze = P.output, Je = P.avail_out, Re = P.next_in, de = P.input, De = P.avail_in, je = X.hold, Ie = X.bits, at = De, st = Je, Se = w;
+        (X = P.state).mode === re && (X.mode = z), rt = P.next_out, Ze = P.output, Je = P.avail_out, Re = P.next_in, de = P.input, De = P.avail_in, je = X.hold, Ae = X.bits, at = De, st = Je, Se = w;
         e:
           for (; ; )
             switch (X.mode) {
@@ -9351,13 +9351,13 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                   X.mode = z;
                   break;
                 }
-                for (; Ie < 16; ) {
+                for (; Ae < 16; ) {
                   if (De === 0)
                     break e;
-                  De--, je += de[Re++] << Ie, Ie += 8;
+                  De--, je += de[Re++] << Ae, Ae += 8;
                 }
                 if (2 & X.wrap && je === 35615) {
-                  X.check = 0, bt[0] = 255 & je, bt[1] = je >>> 8 & 255, X.check = r(X.check, bt, 2, 0), je = 0, Ie = 0, X.mode = W;
+                  X.check = 0, bt[0] = 255 & je, bt[1] = je >>> 8 & 255, X.check = r(X.check, bt, 2, 0), je = 0, Ae = 0, X.mode = W;
                   break;
                 }
                 if (X.flags = 0, X.head && (X.head.done = !1), !(1 & X.wrap) || (((255 & je) << 8) + (je >> 8)) % 31) {
@@ -9368,19 +9368,19 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                   P.msg = "unknown compression method", X.mode = Y;
                   break;
                 }
-                if (Ie -= 4, Lt = 8 + (15 & (je >>>= 4)), X.wbits === 0)
+                if (Ae -= 4, Lt = 8 + (15 & (je >>>= 4)), X.wbits === 0)
                   X.wbits = Lt;
                 else if (Lt > X.wbits) {
                   P.msg = "invalid window size", X.mode = Y;
                   break;
                 }
-                X.dmax = 1 << Lt, P.adler = X.check = 1, X.mode = 512 & je ? $ : re, je = 0, Ie = 0;
+                X.dmax = 1 << Lt, P.adler = X.check = 1, X.mode = 512 & je ? $ : re, je = 0, Ae = 0;
                 break;
               case W:
-                for (; Ie < 16; ) {
+                for (; Ae < 16; ) {
                   if (De === 0)
                     break e;
-                  De--, je += de[Re++] << Ie, Ie += 8;
+                  De--, je += de[Re++] << Ae, Ae += 8;
                 }
                 if (X.flags = je, (255 & X.flags) !== _) {
                   P.msg = "unknown compression method", X.mode = Y;
@@ -9390,29 +9390,29 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                   P.msg = "unknown header flags set", X.mode = Y;
                   break;
                 }
-                X.head && (X.head.text = je >> 8 & 1), 512 & X.flags && (bt[0] = 255 & je, bt[1] = je >>> 8 & 255, X.check = r(X.check, bt, 2, 0)), je = 0, Ie = 0, X.mode = O;
+                X.head && (X.head.text = je >> 8 & 1), 512 & X.flags && (bt[0] = 255 & je, bt[1] = je >>> 8 & 255, X.check = r(X.check, bt, 2, 0)), je = 0, Ae = 0, X.mode = O;
               case O:
-                for (; Ie < 32; ) {
+                for (; Ae < 32; ) {
                   if (De === 0)
                     break e;
-                  De--, je += de[Re++] << Ie, Ie += 8;
+                  De--, je += de[Re++] << Ae, Ae += 8;
                 }
-                X.head && (X.head.time = je), 512 & X.flags && (bt[0] = 255 & je, bt[1] = je >>> 8 & 255, bt[2] = je >>> 16 & 255, bt[3] = je >>> 24 & 255, X.check = r(X.check, bt, 4, 0)), je = 0, Ie = 0, X.mode = N;
+                X.head && (X.head.time = je), 512 & X.flags && (bt[0] = 255 & je, bt[1] = je >>> 8 & 255, bt[2] = je >>> 16 & 255, bt[3] = je >>> 24 & 255, X.check = r(X.check, bt, 4, 0)), je = 0, Ae = 0, X.mode = N;
               case N:
-                for (; Ie < 16; ) {
+                for (; Ae < 16; ) {
                   if (De === 0)
                     break e;
-                  De--, je += de[Re++] << Ie, Ie += 8;
+                  De--, je += de[Re++] << Ae, Ae += 8;
                 }
-                X.head && (X.head.xflags = 255 & je, X.head.os = je >> 8), 512 & X.flags && (bt[0] = 255 & je, bt[1] = je >>> 8 & 255, X.check = r(X.check, bt, 2, 0)), je = 0, Ie = 0, X.mode = U;
+                X.head && (X.head.xflags = 255 & je, X.head.os = je >> 8), 512 & X.flags && (bt[0] = 255 & je, bt[1] = je >>> 8 & 255, X.check = r(X.check, bt, 2, 0)), je = 0, Ae = 0, X.mode = U;
               case U:
                 if (1024 & X.flags) {
-                  for (; Ie < 16; ) {
+                  for (; Ae < 16; ) {
                     if (De === 0)
                       break e;
-                    De--, je += de[Re++] << Ie, Ie += 8;
+                    De--, je += de[Re++] << Ae, Ae += 8;
                   }
-                  X.length = je, X.head && (X.head.extra_len = je), 512 & X.flags && (bt[0] = 255 & je, bt[1] = je >>> 8 & 255, X.check = r(X.check, bt, 2, 0)), je = 0, Ie = 0;
+                  X.length = je, X.head && (X.head.extra_len = je), 512 & X.flags && (bt[0] = 255 & je, bt[1] = je >>> 8 & 255, X.check = r(X.check, bt, 2, 0)), je = 0, Ae = 0;
                 } else
                   X.head && (X.head.extra = null);
                 X.mode = C;
@@ -9448,50 +9448,50 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                 X.mode = te;
               case te:
                 if (512 & X.flags) {
-                  for (; Ie < 16; ) {
+                  for (; Ae < 16; ) {
                     if (De === 0)
                       break e;
-                    De--, je += de[Re++] << Ie, Ie += 8;
+                    De--, je += de[Re++] << Ae, Ae += 8;
                   }
                   if (je !== (65535 & X.check)) {
                     P.msg = "header crc mismatch", X.mode = Y;
                     break;
                   }
-                  je = 0, Ie = 0;
+                  je = 0, Ae = 0;
                 }
                 X.head && (X.head.hcrc = X.flags >> 9 & 1, X.head.done = !0), P.adler = X.check = 0, X.mode = re;
                 break;
               case $:
-                for (; Ie < 32; ) {
+                for (; Ae < 32; ) {
                   if (De === 0)
                     break e;
-                  De--, je += de[Re++] << Ie, Ie += 8;
+                  De--, je += de[Re++] << Ae, Ae += 8;
                 }
-                P.adler = X.check = oe(je), je = 0, Ie = 0, X.mode = L;
+                P.adler = X.check = oe(je), je = 0, Ae = 0, X.mode = L;
               case L:
                 if (X.havedict === 0)
-                  return P.next_out = rt, P.avail_out = Je, P.next_in = Re, P.avail_in = De, X.hold = je, X.bits = Ie, G;
+                  return P.next_out = rt, P.avail_out = Je, P.next_in = Re, P.avail_in = De, X.hold = je, X.bits = Ae, G;
                 P.adler = X.check = 1, X.mode = re;
               case re:
                 if (we === x || we === b)
                   break e;
               case z:
                 if (X.last) {
-                  je >>>= 7 & Ie, Ie -= 7 & Ie, X.mode = E;
+                  je >>>= 7 & Ae, Ae -= 7 & Ae, X.mode = E;
                   break;
                 }
-                for (; Ie < 3; ) {
+                for (; Ae < 3; ) {
                   if (De === 0)
                     break e;
-                  De--, je += de[Re++] << Ie, Ie += 8;
+                  De--, je += de[Re++] << Ae, Ae += 8;
                 }
-                switch (X.last = 1 & je, Ie -= 1, 3 & (je >>>= 1)) {
+                switch (X.last = 1 & je, Ae -= 1, 3 & (je >>>= 1)) {
                   case 0:
                     X.mode = j;
                     break;
                   case 1:
                     if (Qe(X), X.mode = B, we === b) {
-                      je >>>= 2, Ie -= 2;
+                      je >>>= 2, Ae -= 2;
                       break e;
                     }
                     break;
@@ -9501,19 +9501,19 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                   case 3:
                     P.msg = "invalid block type", X.mode = Y;
                 }
-                je >>>= 2, Ie -= 2;
+                je >>>= 2, Ae -= 2;
                 break;
               case j:
-                for (je >>>= 7 & Ie, Ie -= 7 & Ie; Ie < 32; ) {
+                for (je >>>= 7 & Ae, Ae -= 7 & Ae; Ae < 32; ) {
                   if (De === 0)
                     break e;
-                  De--, je += de[Re++] << Ie, Ie += 8;
+                  De--, je += de[Re++] << Ae, Ae += 8;
                 }
                 if ((65535 & je) != (je >>> 16 ^ 65535)) {
                   P.msg = "invalid stored block lengths", X.mode = Y;
                   break;
                 }
-                if (X.length = 65535 & je, je = 0, Ie = 0, X.mode = ne, we === b)
+                if (X.length = 65535 & je, je = 0, Ae = 0, X.mode = ne, we === b)
                   break e;
               case ne:
                 X.mode = le;
@@ -9527,27 +9527,27 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                 X.mode = re;
                 break;
               case he:
-                for (; Ie < 14; ) {
+                for (; Ae < 14; ) {
                   if (De === 0)
                     break e;
-                  De--, je += de[Re++] << Ie, Ie += 8;
+                  De--, je += de[Re++] << Ae, Ae += 8;
                 }
-                if (X.nlen = 257 + (31 & je), je >>>= 5, Ie -= 5, X.ndist = 1 + (31 & je), je >>>= 5, Ie -= 5, X.ncode = 4 + (15 & je), je >>>= 4, Ie -= 4, X.nlen > 286 || X.ndist > 30) {
+                if (X.nlen = 257 + (31 & je), je >>>= 5, Ae -= 5, X.ndist = 1 + (31 & je), je >>>= 5, Ae -= 5, X.ncode = 4 + (15 & je), je >>>= 4, Ae -= 4, X.nlen > 286 || X.ndist > 30) {
                   P.msg = "too many length or distance symbols", X.mode = Y;
                   break;
                 }
                 X.have = 0, X.mode = M;
               case M:
                 for (; X.have < X.ncode; ) {
-                  for (; Ie < 3; ) {
+                  for (; Ae < 3; ) {
                     if (De === 0)
                       break e;
-                    De--, je += de[Re++] << Ie, Ie += 8;
+                    De--, je += de[Re++] << Ae, Ae += 8;
                   }
-                  X.lens[At[X.have++]] = 7 & je, je >>>= 3, Ie -= 3;
+                  X.lens[It[X.have++]] = 7 & je, je >>>= 3, Ae -= 3;
                 }
                 for (; X.have < 19; )
-                  X.lens[At[X.have++]] = 0;
+                  X.lens[It[X.have++]] = 0;
                 if (X.lencode = X.lendyn, X.lenbits = 7, Ye = { bits: X.lenbits }, Se = n(u, X.lens, 0, 19, X.lencode, 0, X.work, Ye), X.lenbits = Ye.bits, Se) {
                   P.msg = "invalid code lengths set", X.mode = Y;
                   break;
@@ -9555,39 +9555,39 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                 X.have = 0, X.mode = T;
               case T:
                 for (; X.have < X.nlen + X.ndist; ) {
-                  for (; ot = (ut = X.lencode[je & (1 << X.lenbits) - 1]) >>> 16 & 255, Mt = 65535 & ut, !((wt = ut >>> 24) <= Ie); ) {
+                  for (; ot = (ut = X.lencode[je & (1 << X.lenbits) - 1]) >>> 16 & 255, Mt = 65535 & ut, !((wt = ut >>> 24) <= Ae); ) {
                     if (De === 0)
                       break e;
-                    De--, je += de[Re++] << Ie, Ie += 8;
+                    De--, je += de[Re++] << Ae, Ae += 8;
                   }
                   if (Mt < 16)
-                    je >>>= wt, Ie -= wt, X.lens[X.have++] = Mt;
+                    je >>>= wt, Ae -= wt, X.lens[X.have++] = Mt;
                   else {
                     if (Mt === 16) {
-                      for (Ke = wt + 2; Ie < Ke; ) {
+                      for (Ke = wt + 2; Ae < Ke; ) {
                         if (De === 0)
                           break e;
-                        De--, je += de[Re++] << Ie, Ie += 8;
+                        De--, je += de[Re++] << Ae, Ae += 8;
                       }
-                      if (je >>>= wt, Ie -= wt, X.have === 0) {
+                      if (je >>>= wt, Ae -= wt, X.have === 0) {
                         P.msg = "invalid bit length repeat", X.mode = Y;
                         break;
                       }
-                      Lt = X.lens[X.have - 1], tt = 3 + (3 & je), je >>>= 2, Ie -= 2;
+                      Lt = X.lens[X.have - 1], tt = 3 + (3 & je), je >>>= 2, Ae -= 2;
                     } else if (Mt === 17) {
-                      for (Ke = wt + 3; Ie < Ke; ) {
+                      for (Ke = wt + 3; Ae < Ke; ) {
                         if (De === 0)
                           break e;
-                        De--, je += de[Re++] << Ie, Ie += 8;
+                        De--, je += de[Re++] << Ae, Ae += 8;
                       }
-                      Ie -= wt, Lt = 0, tt = 3 + (7 & (je >>>= wt)), je >>>= 3, Ie -= 3;
+                      Ae -= wt, Lt = 0, tt = 3 + (7 & (je >>>= wt)), je >>>= 3, Ae -= 3;
                     } else {
-                      for (Ke = wt + 7; Ie < Ke; ) {
+                      for (Ke = wt + 7; Ae < Ke; ) {
                         if (De === 0)
                           break e;
-                        De--, je += de[Re++] << Ie, Ie += 8;
+                        De--, je += de[Re++] << Ae, Ae += 8;
                       }
-                      Ie -= wt, Lt = 0, tt = 11 + (127 & (je >>>= wt)), je >>>= 7, Ie -= 7;
+                      Ae -= wt, Lt = 0, tt = 11 + (127 & (je >>>= wt)), je >>>= 7, Ae -= 7;
                     }
                     if (X.have + tt > X.nlen + X.ndist) {
                       P.msg = "invalid bit length repeat", X.mode = Y;
@@ -9617,23 +9617,23 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                 X.mode = K;
               case K:
                 if (De >= 6 && Je >= 258) {
-                  P.next_out = rt, P.avail_out = Je, P.next_in = Re, P.avail_in = De, X.hold = je, X.bits = Ie, o(P, st), rt = P.next_out, Ze = P.output, Je = P.avail_out, Re = P.next_in, de = P.input, De = P.avail_in, je = X.hold, Ie = X.bits, X.mode === re && (X.back = -1);
+                  P.next_out = rt, P.avail_out = Je, P.next_in = Re, P.avail_in = De, X.hold = je, X.bits = Ae, o(P, st), rt = P.next_out, Ze = P.output, Je = P.avail_out, Re = P.next_in, de = P.input, De = P.avail_in, je = X.hold, Ae = X.bits, X.mode === re && (X.back = -1);
                   break;
                 }
-                for (X.back = 0; ot = (ut = X.lencode[je & (1 << X.lenbits) - 1]) >>> 16 & 255, Mt = 65535 & ut, !((wt = ut >>> 24) <= Ie); ) {
+                for (X.back = 0; ot = (ut = X.lencode[je & (1 << X.lenbits) - 1]) >>> 16 & 255, Mt = 65535 & ut, !((wt = ut >>> 24) <= Ae); ) {
                   if (De === 0)
                     break e;
-                  De--, je += de[Re++] << Ie, Ie += 8;
+                  De--, je += de[Re++] << Ae, Ae += 8;
                 }
                 if (ot && !(240 & ot)) {
-                  for (Ft = wt, Rt = ot, qt = Mt; ot = (ut = X.lencode[qt + ((je & (1 << Ft + Rt) - 1) >> Ft)]) >>> 16 & 255, Mt = 65535 & ut, !(Ft + (wt = ut >>> 24) <= Ie); ) {
+                  for (Ft = wt, Rt = ot, qt = Mt; ot = (ut = X.lencode[qt + ((je & (1 << Ft + Rt) - 1) >> Ft)]) >>> 16 & 255, Mt = 65535 & ut, !(Ft + (wt = ut >>> 24) <= Ae); ) {
                     if (De === 0)
                       break e;
-                    De--, je += de[Re++] << Ie, Ie += 8;
+                    De--, je += de[Re++] << Ae, Ae += 8;
                   }
-                  je >>>= Ft, Ie -= Ft, X.back += Ft;
+                  je >>>= Ft, Ae -= Ft, X.back += Ft;
                 }
-                if (je >>>= wt, Ie -= wt, X.back += wt, X.length = Mt, ot === 0) {
+                if (je >>>= wt, Ae -= wt, X.back += wt, X.length = Mt, ot === 0) {
                   X.mode = ee;
                   break;
                 }
@@ -9648,41 +9648,41 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                 X.extra = 15 & ot, X.mode = h;
               case h:
                 if (X.extra) {
-                  for (Ke = X.extra; Ie < Ke; ) {
+                  for (Ke = X.extra; Ae < Ke; ) {
                     if (De === 0)
                       break e;
-                    De--, je += de[Re++] << Ie, Ie += 8;
+                    De--, je += de[Re++] << Ae, Ae += 8;
                   }
-                  X.length += je & (1 << X.extra) - 1, je >>>= X.extra, Ie -= X.extra, X.back += X.extra;
+                  X.length += je & (1 << X.extra) - 1, je >>>= X.extra, Ae -= X.extra, X.back += X.extra;
                 }
                 X.was = X.length, X.mode = c;
               case c:
-                for (; ot = (ut = X.distcode[je & (1 << X.distbits) - 1]) >>> 16 & 255, Mt = 65535 & ut, !((wt = ut >>> 24) <= Ie); ) {
+                for (; ot = (ut = X.distcode[je & (1 << X.distbits) - 1]) >>> 16 & 255, Mt = 65535 & ut, !((wt = ut >>> 24) <= Ae); ) {
                   if (De === 0)
                     break e;
-                  De--, je += de[Re++] << Ie, Ie += 8;
+                  De--, je += de[Re++] << Ae, Ae += 8;
                 }
                 if (!(240 & ot)) {
-                  for (Ft = wt, Rt = ot, qt = Mt; ot = (ut = X.distcode[qt + ((je & (1 << Ft + Rt) - 1) >> Ft)]) >>> 16 & 255, Mt = 65535 & ut, !(Ft + (wt = ut >>> 24) <= Ie); ) {
+                  for (Ft = wt, Rt = ot, qt = Mt; ot = (ut = X.distcode[qt + ((je & (1 << Ft + Rt) - 1) >> Ft)]) >>> 16 & 255, Mt = 65535 & ut, !(Ft + (wt = ut >>> 24) <= Ae); ) {
                     if (De === 0)
                       break e;
-                    De--, je += de[Re++] << Ie, Ie += 8;
+                    De--, je += de[Re++] << Ae, Ae += 8;
                   }
-                  je >>>= Ft, Ie -= Ft, X.back += Ft;
+                  je >>>= Ft, Ae -= Ft, X.back += Ft;
                 }
-                if (je >>>= wt, Ie -= wt, X.back += wt, 64 & ot) {
+                if (je >>>= wt, Ae -= wt, X.back += wt, 64 & ot) {
                   P.msg = "invalid distance code", X.mode = Y;
                   break;
                 }
                 X.offset = Mt, X.extra = 15 & ot, X.mode = m;
               case m:
                 if (X.extra) {
-                  for (Ke = X.extra; Ie < Ke; ) {
+                  for (Ke = X.extra; Ae < Ke; ) {
                     if (De === 0)
                       break e;
-                    De--, je += de[Re++] << Ie, Ie += 8;
+                    De--, je += de[Re++] << Ae, Ae += 8;
                   }
-                  X.offset += je & (1 << X.extra) - 1, je >>>= X.extra, Ie -= X.extra, X.back += X.extra;
+                  X.offset += je & (1 << X.extra) - 1, je >>>= X.extra, Ae -= X.extra, X.back += X.extra;
                 }
                 if (X.offset > X.dmax) {
                   P.msg = "invalid distance too far back", X.mode = Y;
@@ -9697,12 +9697,12 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                     P.msg = "invalid distance too far back", X.mode = Y;
                     break;
                   }
-                  tt > X.wnext ? (tt -= X.wnext, mt = X.wsize - tt) : mt = X.wnext - tt, tt > X.length && (tt = X.length), It = X.window;
+                  tt > X.wnext ? (tt -= X.wnext, mt = X.wsize - tt) : mt = X.wnext - tt, tt > X.length && (tt = X.length), At = X.window;
                 } else
-                  It = Ze, mt = rt - X.offset, tt = X.length;
+                  At = Ze, mt = rt - X.offset, tt = X.length;
                 tt > Je && (tt = Je), Je -= tt, X.length -= tt;
                 do
-                  Ze[rt++] = It[mt++];
+                  Ze[rt++] = At[mt++];
                 while (--tt);
                 X.length === 0 && (X.mode = K);
                 break;
@@ -9713,30 +9713,30 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                 break;
               case E:
                 if (X.wrap) {
-                  for (; Ie < 32; ) {
+                  for (; Ae < 32; ) {
                     if (De === 0)
                       break e;
-                    De--, je |= de[Re++] << Ie, Ie += 8;
+                    De--, je |= de[Re++] << Ae, Ae += 8;
                   }
                   if (st -= Je, P.total_out += st, X.total += st, st && (P.adler = X.check = X.flags ? r(X.check, Ze, st, rt - st) : t(X.check, Ze, st, rt - st)), st = Je, (X.flags ? je : oe(je)) !== X.check) {
                     P.msg = "incorrect data check", X.mode = Y;
                     break;
                   }
-                  je = 0, Ie = 0;
+                  je = 0, Ae = 0;
                 }
                 X.mode = Q;
               case Q:
                 if (X.wrap && X.flags) {
-                  for (; Ie < 32; ) {
+                  for (; Ae < 32; ) {
                     if (De === 0)
                       break e;
-                    De--, je += de[Re++] << Ie, Ie += 8;
+                    De--, je += de[Re++] << Ae, Ae += 8;
                   }
                   if (je !== (4294967295 & X.total)) {
                     P.msg = "incorrect length check", X.mode = Y;
                     break;
                   }
-                  je = 0, Ie = 0;
+                  je = 0, Ae = 0;
                 }
                 X.mode = se;
               case se:
@@ -9750,7 +9750,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
               default:
                 return F;
             }
-        return P.next_out = rt, P.avail_out = Je, P.next_in = Re, P.avail_in = De, X.hold = je, X.bits = Ie, (X.wsize || st !== P.avail_out && X.mode < Y && (X.mode < E || we !== v)) && lt(P, P.output, P.next_out, st - P.avail_out) ? (X.mode = be, q) : (at -= P.avail_in, st -= P.avail_out, P.total_in += at, P.total_out += st, X.total += st, X.wrap && st && (P.adler = X.check = X.flags ? r(X.check, Ze, st, P.next_out - st) : t(X.check, Ze, st, P.next_out - st)), P.data_type = X.bits + (X.last ? 64 : 0) + (X.mode === re ? 128 : 0) + (X.mode === B || X.mode === ne ? 256 : 0), (at === 0 && st === 0 || we === v) && Se === w && (Se = I), Se);
+        return P.next_out = rt, P.avail_out = Je, P.next_in = Re, P.avail_in = De, X.hold = je, X.bits = Ae, (X.wsize || st !== P.avail_out && X.mode < Y && (X.mode < E || we !== v)) && lt(P, P.output, P.next_out, st - P.avail_out) ? (X.mode = be, q) : (at -= P.avail_in, st -= P.avail_out, P.total_in += at, P.total_out += st, X.total += st, X.wrap && st && (P.adler = X.check = X.flags ? r(X.check, Ze, st, P.next_out - st) : t(X.check, Ze, st, P.next_out - st)), P.data_type = X.bits + (X.last ? 64 : 0) + (X.mode === re ? 128 : 0) + (X.mode === B || X.mode === ne ? 256 : 0), (at === 0 && st === 0 || we === v) && Se === w && (Se = A), Se);
       }, i.inflateEnd = function(P) {
         if (!P || !P.state)
           return F;
@@ -9766,7 +9766,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
     }, { "../utils/common": 49, "./adler32": 50, "./crc32": 52, "./inffast": 54, "./inftrees": 56 }], 56: [function(e, f, i) {
       var a = e("../utils/common"), t = 15, r = [3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 15, 17, 19, 23, 27, 31, 35, 43, 51, 59, 67, 83, 99, 115, 131, 163, 195, 227, 258, 0, 0], o = [16, 16, 16, 16, 16, 16, 16, 16, 17, 17, 17, 17, 18, 18, 18, 18, 19, 19, 19, 19, 20, 20, 20, 20, 21, 21, 21, 21, 16, 72, 78], n = [1, 2, 3, 4, 5, 7, 9, 13, 17, 25, 33, 49, 65, 97, 129, 193, 257, 385, 513, 769, 1025, 1537, 2049, 3073, 4097, 6145, 8193, 12289, 16385, 24577, 0, 0], u = [16, 16, 16, 16, 17, 17, 18, 18, 19, 19, 20, 20, 21, 21, 22, 22, 23, 23, 24, 24, 25, 25, 26, 26, 27, 27, 28, 28, 29, 29, 64, 64];
       f.exports = function(p, g, v, x, b, w, k, G) {
-        var F, V, q, I, _, R, W, O, N, U = G.bits, C = 0, ae = 0, J = 0, te = 0, $ = 0, L = 0, re = 0, z = 0, j = 0, ne = 0, le = null, he = 0, M = new a.Buf16(16), T = new a.Buf16(16), B = null, K = 0;
+        var F, V, q, A, _, R, W, O, N, U = G.bits, C = 0, ae = 0, J = 0, te = 0, $ = 0, L = 0, re = 0, z = 0, j = 0, ne = 0, le = null, he = 0, M = new a.Buf16(16), T = new a.Buf16(16), B = null, K = 0;
         for (C = 0; C <= t; C++)
           M[C] = 0;
         for (ae = 0; ae < x; ae++)
@@ -9786,7 +9786,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           T[C + 1] = T[C] + M[C];
         for (ae = 0; ae < x; ae++)
           g[v + ae] !== 0 && (k[T[g[v + ae]]++] = ae);
-        if (p === 0 ? (le = B = k, R = 19) : p === 1 ? (le = r, he -= 257, B = o, K -= 257, R = 256) : (le = n, B = u, R = -1), ne = 0, ae = 0, C = J, _ = w, L = $, re = 0, q = -1, I = (j = 1 << $) - 1, p === 1 && j > 852 || p === 2 && j > 592)
+        if (p === 0 ? (le = B = k, R = 19) : p === 1 ? (le = r, he -= 257, B = o, K -= 257, R = 256) : (le = n, B = u, R = -1), ne = 0, ae = 0, C = J, _ = w, L = $, re = 0, q = -1, A = (j = 1 << $) - 1, p === 1 && j > 852 || p === 2 && j > 592)
           return 1;
         for (; ; ) {
           W = C - re, k[ae] < R ? (O = 0, N = k[ae]) : k[ae] > R ? (O = B[K + k[ae]], N = le[he + k[ae]]) : (O = 96, N = 0), F = 1 << C - re, J = V = 1 << L;
@@ -9800,12 +9800,12 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
               break;
             C = g[v + k[ae]];
           }
-          if (C > $ && (ne & I) !== q) {
+          if (C > $ && (ne & A) !== q) {
             for (re === 0 && (re = $), _ += J, z = 1 << (L = C - re); L + re < te && !((z -= M[L + re]) <= 0); )
               L++, z <<= 1;
             if (j += 1 << L, p === 1 && j > 852 || p === 2 && j > 592)
               return 1;
-            b[q = ne & I] = $ << 24 | L << 16 | _ - w | 0;
+            b[q = ne & A] = $ << 24 | L << 16 | _ - w | 0;
           }
         }
         return ne !== 0 && (b[_ + ne] = C - re << 24 | 4194304 | 0), G.bits = $, 0;
@@ -9818,7 +9818,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         for (var ce = oe.length; --ce >= 0; )
           oe[ce] = 0;
       }
-      var p = 0, g = 1, v = 2, x = 29, b = 256, w = b + 1 + x, k = 30, G = 19, F = 2 * w + 1, V = 15, q = 16, I = 7, _ = 256, R = 16, W = 17, O = 18, N = [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 0], U = [0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13], C = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 3, 7], ae = [16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15], J = new Array(2 * (w + 2));
+      var p = 0, g = 1, v = 2, x = 29, b = 256, w = b + 1 + x, k = 30, G = 19, F = 2 * w + 1, V = 15, q = 16, A = 7, _ = 256, R = 16, W = 17, O = 18, N = [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 0], U = [0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13], C = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 3, 7], ae = [16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15], J = new Array(2 * (w + 2));
       u(J);
       var te = new Array(2 * k);
       u(te);
@@ -9906,11 +9906,11 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           xe = oe.heap[1], oe.heap[1] = oe.heap[oe.heap_len--], Q(oe, Be, 1), Ce = oe.heap[1], oe.heap[--oe.heap_max] = xe, oe.heap[--oe.heap_max] = Ce, Be[2 * _e] = Be[2 * xe] + Be[2 * Ce], oe.depth[_e] = (oe.depth[xe] >= oe.depth[Ce] ? oe.depth[xe] : oe.depth[Ce]) + 1, Be[2 * xe + 1] = Be[2 * Ce + 1] = _e, oe.heap[1] = _e++, Q(oe, Be, 1);
         while (oe.heap_len >= 2);
         oe.heap[--oe.heap_max] = oe.heap[1], function(lt, P) {
-          var we, X, de, Ze, Re, rt, De = P.dyn_tree, Je = P.max_code, je = P.stat_desc.static_tree, Ie = P.stat_desc.has_stree, at = P.stat_desc.extra_bits, st = P.stat_desc.extra_base, tt = P.stat_desc.max_length, mt = 0;
+          var we, X, de, Ze, Re, rt, De = P.dyn_tree, Je = P.max_code, je = P.stat_desc.static_tree, Ae = P.stat_desc.has_stree, at = P.stat_desc.extra_bits, st = P.stat_desc.extra_base, tt = P.stat_desc.max_length, mt = 0;
           for (Ze = 0; Ze <= V; Ze++)
             lt.bl_count[Ze] = 0;
           for (De[2 * lt.heap[lt.heap_max] + 1] = 0, we = lt.heap_max + 1; we < F; we++)
-            (Ze = De[2 * De[2 * (X = lt.heap[we]) + 1] + 1] + 1) > tt && (Ze = tt, mt++), De[2 * X + 1] = Ze, X > Je || (lt.bl_count[Ze]++, Re = 0, X >= st && (Re = at[X - st]), rt = De[2 * X], lt.opt_len += rt * (Ze + Re), Ie && (lt.static_len += rt * (je[2 * X + 1] + Re)));
+            (Ze = De[2 * De[2 * (X = lt.heap[we]) + 1] + 1] + 1) > tt && (Ze = tt, mt++), De[2 * X + 1] = Ze, X > Je || (lt.bl_count[Ze]++, Re = 0, X >= st && (Re = at[X - st]), rt = De[2 * X], lt.opt_len += rt * (Ze + Re), Ae && (lt.static_len += rt * (je[2 * X + 1] + Re)));
           if (mt !== 0) {
             do {
               for (Ze = tt - 1; lt.bl_count[Ze] === 0; )
@@ -9972,7 +9972,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             J[2 * ce + 1] = 8, ce++, Pe[8]++;
           for (m(J, w + 1, Pe), ce = 0; ce < k; ce++)
             te[2 * ce + 1] = 5, te[2 * ce] = c(ce, 5);
-          z = new he(J, N, b + 1, w, V), j = new he(te, U, 0, k, V), ne = new he(new Array(0), C, 0, G, I);
+          z = new he(J, N, b + 1, w, V), j = new he(te, U, 0, k, V), ne = new he(new Array(0), C, 0, G, A);
         }(), ke = !0), oe.l_desc = new M(oe.dyn_ltree, z), oe.d_desc = new M(oe.dyn_dtree, j), oe.bl_desc = new M(oe.bl_tree, ne), oe.bi_buf = 0, oe.bi_valid = 0, D(oe);
       }, i._tr_stored_block = Me, i._tr_flush_block = function(oe, ce, xe, Ce) {
         var _e, Be, Pe = 0;
@@ -10237,7 +10237,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           }, g, v = e("util");
           g = v && v.debuglog ? v.debuglog("stream") : function() {
           };
-          var x, b, w, k = e("./internal/streams/buffer_list"), G = e("./internal/streams/destroy"), F = e("./internal/streams/state").getHighWaterMark, V = e("../errors").codes, q = V.ERR_INVALID_ARG_TYPE, I = V.ERR_STREAM_PUSH_AFTER_EOF, _ = V.ERR_METHOD_NOT_IMPLEMENTED, R = V.ERR_STREAM_UNSHIFT_AFTER_END_EVENT;
+          var x, b, w, k = e("./internal/streams/buffer_list"), G = e("./internal/streams/destroy"), F = e("./internal/streams/state").getHighWaterMark, V = e("../errors").codes, q = V.ERR_INVALID_ARG_TYPE, A = V.ERR_STREAM_PUSH_AFTER_EOF, _ = V.ERR_METHOD_NOT_IMPLEMENTED, R = V.ERR_STREAM_UNSHIFT_AFTER_END_EVENT;
           e("inherits")(U, n);
           var W = G.errorOrDestroy, O = ["error", "close", "destroy", "pause", "resume"];
           function N(h, c, m) {
@@ -10274,7 +10274,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
               }(c)), D)
                 Q.endEmitted ? W(h, new R()) : ae(h, Q, c, !0);
               else if (Q.ended)
-                W(h, new I());
+                W(h, new A());
               else {
                 if (Q.destroyed)
                   return !1;
@@ -10569,7 +10569,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           var o;
           f.exports = U, U.WritableState = N;
           var n = { deprecate: e("util-deprecate") }, u = e("./internal/streams/stream"), p = e("buffer").Buffer, g = t.Uint8Array || function() {
-          }, v, x = e("./internal/streams/destroy"), b = e("./internal/streams/state").getHighWaterMark, w = e("../errors").codes, k = w.ERR_INVALID_ARG_TYPE, G = w.ERR_METHOD_NOT_IMPLEMENTED, F = w.ERR_MULTIPLE_CALLBACK, V = w.ERR_STREAM_CANNOT_PIPE, q = w.ERR_STREAM_DESTROYED, I = w.ERR_STREAM_NULL_VALUES, _ = w.ERR_STREAM_WRITE_AFTER_END, R = w.ERR_UNKNOWN_ENCODING, W = x.errorOrDestroy;
+          }, v, x = e("./internal/streams/destroy"), b = e("./internal/streams/state").getHighWaterMark, w = e("../errors").codes, k = w.ERR_INVALID_ARG_TYPE, G = w.ERR_METHOD_NOT_IMPLEMENTED, F = w.ERR_MULTIPLE_CALLBACK, V = w.ERR_STREAM_CANNOT_PIPE, q = w.ERR_STREAM_DESTROYED, A = w.ERR_STREAM_NULL_VALUES, _ = w.ERR_STREAM_WRITE_AFTER_END, R = w.ERR_UNKNOWN_ENCODING, W = x.errorOrDestroy;
           function O() {
           }
           function N(z, j, ne) {
@@ -10687,7 +10687,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
               W(B, h), a.nextTick(K, h);
             }(this, ne) : (T || function(B, K, h, c) {
               var m;
-              return h === null ? m = new I() : typeof h == "string" || K.objectMode || (m = new k("chunk", ["string", "Buffer"], h)), !m || (W(B, m), a.nextTick(c, m), !1);
+              return h === null ? m = new A() : typeof h == "string" || K.objectMode || (m = new k("chunk", ["string", "Buffer"], h)), !m || (W(B, m), a.nextTick(c, m), !1);
             }(this, he, z, ne)) && (he.pendingcb++, M = C(this, he, T, z, j, ne)), M;
           }, U.prototype.cork = function() {
             this._writableState.corked++;
@@ -10724,18 +10724,18 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
       (function(a) {
         (function() {
           var t;
-          function r(q, I, _) {
-            return I in q ? Object.defineProperty(q, I, { value: _, enumerable: !0, configurable: !0, writable: !0 }) : q[I] = _, q;
+          function r(q, A, _) {
+            return A in q ? Object.defineProperty(q, A, { value: _, enumerable: !0, configurable: !0, writable: !0 }) : q[A] = _, q;
           }
           var o = e("./end-of-stream"), n = Symbol("lastResolve"), u = Symbol("lastReject"), p = Symbol("error"), g = Symbol("ended"), v = Symbol("lastPromise"), x = Symbol("handlePromise"), b = Symbol("stream");
-          function w(q, I) {
-            return { value: q, done: I };
+          function w(q, A) {
+            return { value: q, done: A };
           }
           function k(q) {
-            var I = q[n];
-            if (I !== null) {
+            var A = q[n];
+            if (A !== null) {
               var _ = q[b].read();
-              _ !== null && (q[v] = null, q[n] = null, q[u] = null, I(w(_, !1)));
+              _ !== null && (q[v] = null, q[n] = null, q[u] = null, A(w(_, !1)));
             }
           }
           function G(q) {
@@ -10745,9 +10745,9 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           }), V = Object.setPrototypeOf((r(t = { get stream() {
             return this[b];
           }, next: function() {
-            var q = this, I = this[p];
-            if (I !== null)
-              return Promise.reject(I);
+            var q = this, A = this[p];
+            if (A !== null)
+              return Promise.reject(A);
             if (this[g])
               return Promise.resolve(w(void 0, !0));
             if (this[b].destroyed)
@@ -10776,17 +10776,17 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             return this;
           }), r(t, "return", function() {
             var q = this;
-            return new Promise(function(I, _) {
+            return new Promise(function(A, _) {
               q[b].destroy(null, function(R) {
-                R ? _(R) : I(w(void 0, !0));
+                R ? _(R) : A(w(void 0, !0));
               });
             });
           }), t), F);
           f.exports = function(q) {
-            var I, _ = Object.create(V, (r(I = {}, b, { value: q, writable: !0 }), r(I, n, { value: null, writable: !0 }), r(I, u, { value: null, writable: !0 }), r(I, p, { value: null, writable: !0 }), r(I, g, { value: q._readableState.endEmitted, writable: !0 }), r(I, x, { value: function(R, W) {
+            var A, _ = Object.create(V, (r(A = {}, b, { value: q, writable: !0 }), r(A, n, { value: null, writable: !0 }), r(A, u, { value: null, writable: !0 }), r(A, p, { value: null, writable: !0 }), r(A, g, { value: q._readableState.endEmitted, writable: !0 }), r(A, x, { value: function(R, W) {
               var O = _[b].read();
               O ? (_[v] = null, _[n] = null, _[u] = null, R(w(O, !1))) : (_[n] = R, _[u] = W);
-            }, writable: !0 }), I));
+            }, writable: !0 }), A));
             return _[v] = null, o(q, function(R) {
               if (R && R.code !== "ERR_STREAM_PREMATURE_CLOSE") {
                 var W = _[u];
@@ -10927,10 +10927,10 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         if (typeof n == "function")
           return r(o, null, n);
         n || (n = {}), u = function(q) {
-          var I = !1;
+          var A = !1;
           return function() {
-            if (!I) {
-              I = !0;
+            if (!A) {
+              A = !0;
               for (var _ = arguments.length, R = new Array(_), W = 0; W < _; W++)
                 R[W] = arguments[W];
               q.apply(this, R);
@@ -10983,7 +10983,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           throw new r("streams");
         var k = v.map(function(G, F) {
           var V = F < v.length - 1;
-          return function(q, I, _, R) {
+          return function(q, A, _, R) {
             R = function(N) {
               var U = !1;
               return function() {
@@ -10993,7 +10993,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             var W = !1;
             q.on("close", function() {
               W = !0;
-            }), a === void 0 && (a = e("./end-of-stream")), a(q, { readable: I, writable: _ }, function(N) {
+            }), a === void 0 && (a = e("./end-of-stream")), a(q, { readable: A, writable: _ }, function(N) {
               if (N)
                 return R(N);
               W = !0, R();
@@ -11157,12 +11157,12 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         var k = w && w.length ? this.write(w) : "";
         return this.lastNeed ? k + "�" : k;
       }, r.prototype.text = function(w, k) {
-        var G = function(V, q, I) {
+        var G = function(V, q, A) {
           var _ = q.length - 1;
-          if (_ < I)
+          if (_ < A)
             return 0;
           var R = o(q[_]);
-          return R >= 0 ? (R > 0 && (V.lastNeed = R - 1), R) : --_ < I || R === -2 ? 0 : (R = o(q[_])) >= 0 ? (R > 0 && (V.lastNeed = R - 2), R) : --_ < I || R === -2 ? 0 : (R = o(q[_])) >= 0 ? (R > 0 && (R === 2 ? R = 0 : V.lastNeed = R - 3), R) : 0;
+          return R >= 0 ? (R > 0 && (V.lastNeed = R - 1), R) : --_ < A || R === -2 ? 0 : (R = o(q[_])) >= 0 ? (R > 0 && (V.lastNeed = R - 2), R) : --_ < A || R === -2 ? 0 : (R = o(q[_])) >= 0 ? (R > 0 && (R === 2 ? R = 0 : V.lastNeed = R - 3), R) : 0;
         }(this, w, k);
         if (!this.lastNeed)
           return w.toString("utf8", k);
@@ -11259,7 +11259,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
       function q(L) {
         return g(L) === "[object WeakMap]";
       }
-      function I(L) {
+      function A(L) {
         return g(L) === "[object WeakSet]";
       }
       function _(L) {
@@ -11327,8 +11327,8 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         return typeof Set < "u" && (V.working ? V(L) : L instanceof Set);
       }, q.working = typeof WeakMap < "u" && q(/* @__PURE__ */ new WeakMap()), i.isWeakMap = function(L) {
         return typeof WeakMap < "u" && (q.working ? q(L) : L instanceof WeakMap);
-      }, I.working = typeof WeakSet < "u" && I(/* @__PURE__ */ new WeakSet()), i.isWeakSet = function(L) {
-        return I(L);
+      }, A.working = typeof WeakSet < "u" && A(/* @__PURE__ */ new WeakSet()), i.isWeakSet = function(L) {
+        return A(L);
       }, _.working = typeof ArrayBuffer < "u" && _(new ArrayBuffer()), i.isArrayBuffer = R, W.working = typeof ArrayBuffer < "u" && typeof DataView < "u" && W(new DataView(new ArrayBuffer(1), 0, 1)), i.isDataView = O, N.working = typeof SharedArrayBuffer < "u" && N(new SharedArrayBuffer()), i.isSharedArrayBuffer = U, i.isAsyncFunction = function(L) {
         return g(L) === "[object AsyncFunction]";
       }, i.isMapIterator = function(L) {
@@ -11409,7 +11409,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           }
           function p(L, re) {
             var z = { seen: [], stylize: v };
-            return arguments.length >= 3 && (z.depth = arguments[2]), arguments.length >= 4 && (z.colors = arguments[3]), G(re) ? z.showHidden = re : re && i._extend(z, re), I(z.showHidden) && (z.showHidden = !1), I(z.depth) && (z.depth = 2), I(z.colors) && (z.colors = !1), I(z.customInspect) && (z.customInspect = !0), z.colors && (z.stylize = g), x(z, L, z.depth);
+            return arguments.length >= 3 && (z.depth = arguments[2]), arguments.length >= 4 && (z.colors = arguments[3]), G(re) ? z.showHidden = re : re && i._extend(z, re), A(z.showHidden) && (z.showHidden = !1), A(z.depth) && (z.depth = 2), A(z.colors) && (z.colors = !1), A(z.customInspect) && (z.customInspect = !0), z.colors && (z.stylize = g), x(z, L, z.depth);
           }
           function g(L, re) {
             var z = p.styles[re];
@@ -11424,7 +11424,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
               return q(j) || (j = x(L, j, z)), j;
             }
             var ne = function(c, m) {
-              if (I(m))
+              if (A(m))
                 return c.stylize("undefined", "undefined");
               if (q(m)) {
                 var D = "'" + JSON.stringify(m).replace(/^"|"$/g, "").replace(/'/g, "\\'").replace(/\\"/g, '"') + "'";
@@ -11487,7 +11487,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
 `).map(function(B) {
               return "   " + B;
             }).join(`
-`)) : M = L.stylize("[Circular]", "special")), I(he)) {
+`)) : M = L.stylize("[Circular]", "special")), A(he)) {
               if (le && ne.match(/^\d+$/))
                 return M;
               (he = JSON.stringify("" + ne)).match(/^"([a-zA-Z_][a-zA-Z_0-9]*)"$/) ? (he = he.substr(1, he.length - 2), he = L.stylize(he, "name")) : (he = he.replace(/'/g, "\\'").replace(/\\"/g, '"').replace(/(^"|"$)/g, "'"), he = L.stylize(he, "string"));
@@ -11509,7 +11509,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           function q(L) {
             return typeof L == "string";
           }
-          function I(L) {
+          function A(L) {
             return L === void 0;
           }
           function _(L) {
@@ -11549,7 +11549,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             return L == null;
           }, i.isNumber = V, i.isString = q, i.isSymbol = function(L) {
             return typeof L == "symbol";
-          }, i.isUndefined = I, i.isRegExp = _, i.types.isRegExp = _, i.isObject = R, i.isDate = W, i.types.isDate = W, i.isError = O, i.types.isNativeError = O, i.isFunction = N, i.isPrimitive = function(L) {
+          }, i.isUndefined = A, i.isRegExp = _, i.types.isRegExp = _, i.isObject = R, i.isDate = W, i.types.isDate = W, i.isError = O, i.types.isNativeError = O, i.isFunction = N, i.isPrimitive = function(L) {
             return L === null || typeof L == "boolean" || typeof L == "number" || typeof L == "string" || typeof L == "symbol" || L === void 0;
           }, i.isBuffer = e("./support/isBuffer");
           var ae = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -11645,8 +11645,8 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
               return t(v, function(V, q) {
                 if (!F)
                   try {
-                    var I = V.call(G);
-                    I === q && (F = I);
+                    var A = V.call(G);
+                    A === q && (F = A);
                   } catch {
                   }
               }), F;
@@ -12094,7 +12094,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
       d.exports = f, function(a, t) {
         var r, o, n, u, p, g, v, x, b, w, k, G, F, V, q;
         (function() {
-          var I = function() {
+          var A = function() {
             function W(O) {
               this.message = "JPEG error: " + O;
             }
@@ -12131,13 +12131,13 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                 if (We > 0)
                   return We--, Fe >> We & 1;
                 if ((Fe = M[T++]) === 255) {
-                  var Ie = M[T++];
-                  if (Ie) {
-                    if (Ie === 220 && E) {
+                  var Ae = M[T++];
+                  if (Ae) {
+                    if (Ae === 220 && E) {
                       var at = R(M, T += 2);
                       if (T += 2, at > 0 && at !== B.s)
                         throw new DNLMarkerError("Found DNL marker (0xFFDC) while parsing scan data", at);
-                    } else if (Ie === 217) {
+                    } else if (Ae === 217) {
                       if (E) {
                         var st = 8 * P;
                         if (st > 0 && st < B.s / 10)
@@ -12145,59 +12145,59 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                       }
                       throw new EOIMarkerError("Found EOI marker (0xFFD9) while parsing scan data");
                     }
-                    throw new I("unexpected marker");
+                    throw new A("unexpected marker");
                   }
                 }
                 return We = 7, Fe >>> 7;
               }
-              function de(Ie) {
-                for (var at = Ie; ; ) {
+              function de(Ae) {
+                for (var at = Ae; ; ) {
                   switch (typeof (at = at[X()])) {
                     case "number":
                       return at;
                     case "object":
                       continue;
                   }
-                  throw new I("invalid huffman sequence");
+                  throw new A("invalid huffman sequence");
                 }
               }
-              function Ze(Ie) {
-                for (var at = 0; Ie > 0; )
-                  at = at << 1 | X(), Ie--;
+              function Ze(Ae) {
+                for (var at = 0; Ae > 0; )
+                  at = at << 1 | X(), Ae--;
                 return at;
               }
-              function Re(Ie) {
-                if (Ie === 1)
+              function Re(Ae) {
+                if (Ae === 1)
                   return X() === 1 ? 1 : -1;
-                var at = Ze(Ie);
-                return at >= 1 << Ie - 1 ? at : at + (-1 << Ie) + 1;
+                var at = Ze(Ae);
+                return at >= 1 << Ae - 1 ? at : at + (-1 << Ae) + 1;
               }
-              function rt(Ie, at, st, tt, mt) {
-                var It = st % _e;
-                P = (st / _e | 0) * Ie.A + tt;
-                var wt = It * Ie.h + mt;
-                at(Ie, z(Ie, P, wt));
+              function rt(Ae, at, st, tt, mt) {
+                var At = st % _e;
+                P = (st / _e | 0) * Ae.A + tt;
+                var wt = At * Ae.h + mt;
+                at(Ae, z(Ae, P, wt));
               }
-              function De(Ie, at, st) {
-                P = st / Ie.P | 0;
-                var tt = st % Ie.P;
-                at(Ie, z(Ie, P, tt));
+              function De(Ae, at, st) {
+                P = st / Ae.P | 0;
+                var tt = st % Ae.P;
+                at(Ae, z(Ae, P, tt));
               }
               var Je = K.length;
-              for (Me = Be ? c === 0 ? D === 0 ? function(Ie, at) {
-                var st = de(Ie.J), tt = st === 0 ? 0 : Re(st) << ee;
-                Ie.D[at] = Ie.Q += tt;
-              } : function(Ie, at) {
-                Ie.D[at] |= X() << ee;
-              } : D === 0 ? function(Ie, at) {
+              for (Me = Be ? c === 0 ? D === 0 ? function(Ae, at) {
+                var st = de(Ae.J), tt = st === 0 ? 0 : Re(st) << ee;
+                Ae.D[at] = Ae.Q += tt;
+              } : function(Ae, at) {
+                Ae.D[at] |= X() << ee;
+              } : D === 0 ? function(Ae, at) {
                 if (Qe > 0)
                   Qe--;
                 else
                   for (var st = c, tt = m; st <= tt; ) {
-                    var mt = de(Ie.i), It = 15 & mt, wt = mt >> 4;
-                    if (It !== 0) {
+                    var mt = de(Ae.i), At = 15 & mt, wt = mt >> 4;
+                    if (At !== 0) {
                       var ot = W[st += wt];
-                      Ie.D[at + ot] = Re(It) * (1 << ee), st++;
+                      Ae.D[at + ot] = Re(At) * (1 << ee), st++;
                     } else {
                       if (wt < 15) {
                         Qe = Ze(wt) + (1 << wt) - 1;
@@ -12206,39 +12206,39 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                       st += 16;
                     }
                   }
-              } : function(Ie, at) {
-                for (var st, tt, mt = c, It = m, wt = 0; mt <= It; ) {
-                  var ot = at + W[mt], Mt = Ie.D[ot] < 0 ? -1 : 1;
+              } : function(Ae, at) {
+                for (var st, tt, mt = c, At = m, wt = 0; mt <= At; ) {
+                  var ot = at + W[mt], Mt = Ae.D[ot] < 0 ? -1 : 1;
                   switch (lt) {
                     case 0:
-                      if (wt = (tt = de(Ie.i)) >> 4, (st = 15 & tt) == 0)
+                      if (wt = (tt = de(Ae.i)) >> 4, (st = 15 & tt) == 0)
                         wt < 15 ? (Qe = Ze(wt) + (1 << wt), lt = 4) : (wt = 16, lt = 1);
                       else {
                         if (st !== 1)
-                          throw new I("invalid ACn encoding");
+                          throw new A("invalid ACn encoding");
                         Q = Re(st), lt = wt ? 2 : 3;
                       }
                       continue;
                     case 1:
                     case 2:
-                      Ie.D[ot] ? Ie.D[ot] += Mt * (X() << ee) : --wt == 0 && (lt = lt === 2 ? 3 : 0);
+                      Ae.D[ot] ? Ae.D[ot] += Mt * (X() << ee) : --wt == 0 && (lt = lt === 2 ? 3 : 0);
                       break;
                     case 3:
-                      Ie.D[ot] ? Ie.D[ot] += Mt * (X() << ee) : (Ie.D[ot] = Q << ee, lt = 0);
+                      Ae.D[ot] ? Ae.D[ot] += Mt * (X() << ee) : (Ae.D[ot] = Q << ee, lt = 0);
                       break;
                     case 4:
-                      Ie.D[ot] && (Ie.D[ot] += Mt * (X() << ee));
+                      Ae.D[ot] && (Ae.D[ot] += Mt * (X() << ee));
                   }
                   mt++;
                 }
                 lt === 4 && --Qe == 0 && (lt = 0);
-              } : function(Ie, at) {
-                var st = de(Ie.J), tt = st === 0 ? 0 : Re(st), mt = 1;
-                for (Ie.D[at] = Ie.Q += tt; mt < 64; ) {
-                  var It = de(Ie.i), wt = 15 & It, ot = It >> 4;
+              } : function(Ae, at) {
+                var st = de(Ae.J), tt = st === 0 ? 0 : Re(st), mt = 1;
+                for (Ae.D[at] = Ae.Q += tt; mt < 64; ) {
+                  var At = de(Ae.i), wt = 15 & At, ot = At >> 4;
                   if (wt !== 0) {
                     var Mt = W[mt += ot];
-                    Ie.D[at + Mt] = Re(wt), mt++;
+                    Ae.D[at + Mt] = Re(wt), mt++;
                   } else {
                     if (ot < 15)
                       break;
@@ -12271,7 +12271,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             function ne(M, T, B) {
               var K, h, c, m, D, ee, E, Q, se, Y, be, Ee, ke, Me, oe, ce, xe, Ce = M.$, _e = M.D;
               if (!Ce)
-                throw new I("missing required Quantization Table.");
+                throw new A("missing required Quantization Table.");
               for (var Be = 0; Be < 64; Be += 8)
                 se = _e[T + Be], Y = _e[T + Be + 1], be = _e[T + Be + 2], Ee = _e[T + Be + 3], ke = _e[T + Be + 4], Me = _e[T + Be + 5], oe = _e[T + Be + 6], ce = _e[T + Be + 7], se *= Ce[Be], Y | be | Ee | ke | Me | oe | ce ? (Y *= Ce[Be + 1], be *= Ce[Be + 2], Ee *= Ce[Be + 3], ke *= Ce[Be + 4], Me *= Ce[Be + 5], oe *= Ce[Be + 6], ce *= Ce[Be + 7], h = (K = (K = te * se + 128 >> 8) + (h = te * ke + 128 >> 8) + 1 >> 1) - h, xe = (c = be) * J + (m = oe) * ae + 128 >> 8, c = c * ae - m * J + 128 >> 8, E = (D = (D = $ * (Y - ce) + 128 >> 8) + (E = Me << 4) + 1 >> 1) - E, ee = (Q = (Q = $ * (Y + ce) + 128 >> 8) + (ee = Ee << 4) + 1 >> 1) - ee, m = (K = K + (m = xe) + 1 >> 1) - m, c = (h = h + c + 1 >> 1) - c, xe = D * C + Q * U + 2048 >> 12, D = D * U - Q * C + 2048 >> 12, Q = xe, xe = ee * N + E * O + 2048 >> 12, ee = ee * O - E * N + 2048 >> 12, E = xe, B[Be] = K + Q, B[Be + 7] = K - Q, B[Be + 1] = h + E, B[Be + 6] = h - E, B[Be + 2] = c + ee, B[Be + 5] = c - ee, B[Be + 3] = m + D, B[Be + 4] = m - D) : (xe = te * se + 512 >> 10, B[Be] = xe, B[Be + 1] = xe, B[Be + 2] = xe, B[Be + 3] = xe, B[Be + 4] = xe, B[Be + 5] = xe, B[Be + 6] = xe, B[Be + 7] = xe);
               for (var Pe = 0; Pe < 8; ++Pe)
@@ -12317,7 +12317,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
               }
               var se = [], Y = [], be = [], Ee = R(M, c);
               if (c += 2, Ee !== 65496)
-                throw new I("SOI not found");
+                throw new A("SOI not found");
               Ee = R(M, c), c += 2;
               e:
                 for (; Ee !== 65497; ) {
@@ -12348,7 +12348,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                         var Ce = M[c++], _e = new Uint16Array(64);
                         if (Ce >> 4) {
                           if (Ce >> 4 != 1)
-                            throw new I("DQT - invalid table spec");
+                            throw new A("DQT - invalid table spec");
                           for (Me = 0; Me < 64; Me++)
                             _e[W[Me]] = R(M, c), c += 2;
                         } else
@@ -12361,7 +12361,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                     case 65473:
                     case 65474:
                       if (B)
-                        throw new I("Only single frame JPEGs supported");
+                        throw new A("Only single frame JPEGs supported");
                       c += 2, (B = {}).G = Ee === 65473, B.Z = Ee === 65474, B.precision = M[c++];
                       var Be, Pe = R(M, c), Fe = 0, We = 0;
                       c += 2, B.s = h || Pe, B.o = R(M, c), c += 2, B.W = [], B._ = {};
@@ -12393,16 +12393,16 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                     case 65498:
                       var De, Je = ++ee == 1 && !h;
                       c += 2;
-                      var je = M[c++], Ie = [];
+                      var je = M[c++], Ae = [];
                       for (ke = 0; ke < je; ke++) {
                         var at = M[c++], st = B._[at];
                         (De = B.W[st]).index = at;
                         var tt = M[c++];
-                        De.J = be[tt >> 4], De.i = Y[15 & tt], Ie.push(De);
+                        De.J = be[tt >> 4], De.i = Y[15 & tt], Ae.push(De);
                       }
-                      var mt = M[c++], It = M[c++], wt = M[c++];
+                      var mt = M[c++], At = M[c++], wt = M[c++];
                       try {
-                        var ot = j(M, c, B, Ie, K, mt, It, wt >> 4, 15 & wt, Je);
+                        var ot = j(M, c, B, Ae, K, mt, At, wt >> 4, 15 & wt, Je);
                         c += ot;
                       } catch (Rt) {
                         if (Rt instanceof DNLMarkerError)
@@ -12426,7 +12426,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                       }
                       if (c >= M.length - 1)
                         break e;
-                      throw new I("JpegImage.parse - unknown marker: " + Ee.toString(16));
+                      throw new A("JpegImage.parse - unknown marker: " + Ee.toString(16));
                   }
                   Ee = R(M, c), c += 2;
                 }
@@ -12475,7 +12475,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             }, getData: function(M) {
               var T = M.width, B = M.height, K = M.forceRGB, h = M.isSourcePDF;
               if (this.p > 4)
-                throw new I("Unsupported color mode");
+                throw new A("Unsupported color mode");
               var c = this.Y(T, B, h);
               if (this.p === 1 && K) {
                 for (var m = c.length, D = new Uint8ClampedArray(3 * m), ee = 0, E = 0; E < m; E++) {
@@ -12499,30 +12499,30 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             return W[O] << 8 | W[O + 1];
           }
           a.JpegDecoder = _;
-        })(), a.encodeImage = function(I, _, R, W) {
+        })(), a.encodeImage = function(A, _, R, W) {
           var O = { t256: [_], t257: [R], t258: [8, 8, 8, 8], t259: [1], t262: [2], t273: [1e3], t277: [4], t278: [R], t279: [_ * R * 4], t282: [[72, 1]], t283: [[72, 1]], t284: [1], t286: [[0, 1]], t287: [[0, 1]], t296: [1], t305: ["Photopea (UTIF.js)"], t338: [1] };
           if (W)
             for (var N in W)
               O[N] = W[N];
-          var U = new Uint8Array(a.encode([O])), C = new Uint8Array(I), ae = new Uint8Array(1e3 + _ * R * 4);
+          var U = new Uint8Array(a.encode([O])), C = new Uint8Array(A), ae = new Uint8Array(1e3 + _ * R * 4);
           for (N = 0; N < U.length; N++)
             ae[N] = U[N];
           for (N = 0; N < C.length; N++)
             ae[1e3 + N] = C[N];
           return ae.buffer;
-        }, a.encode = function(I) {
+        }, a.encode = function(A) {
           var _ = new Uint8Array(2e4), R = 4, W = a._binBE;
           _[0] = _[1] = 77, W.writeUshort(_, 2, 42);
           var O = 8;
           W.writeUint(_, R, O), R += 4;
-          for (var N = 0; N < I.length; N++) {
-            var U = a._writeIFD(W, a._types.basic, _, O, I[N]);
-            O = U[1], N < I.length - 1 && (3 & O && (O += 4 - (3 & O)), W.writeUint(_, U[0], O));
+          for (var N = 0; N < A.length; N++) {
+            var U = a._writeIFD(W, a._types.basic, _, O, A[N]);
+            O = U[1], N < A.length - 1 && (3 & O && (O += 4 - (3 & O)), W.writeUint(_, U[0], O));
           }
           return _.slice(0, O).buffer;
-        }, a.decode = function(I, _) {
+        }, a.decode = function(A, _) {
           _ == null && (_ = { parseMN: !0, debug: !1 });
-          var R = new Uint8Array(I), W = 0, O = a._binBE.readASCII(R, W, 2);
+          var R = new Uint8Array(A), W = 0, O = a._binBE.readASCII(R, W, 2);
           W += 2;
           var N = O == "II" ? a._binLE : a._binBE;
           N.readUshort(R, W), W += 2;
@@ -12538,9 +12538,9 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
               break;
           }
           return C;
-        }, a.decodeImage = function(I, _, R) {
+        }, a.decodeImage = function(A, _, R) {
           if (!_.data) {
-            var W = new Uint8Array(I), O = a._binBE.readASCII(W, 0, 2);
+            var W = new Uint8Array(A), O = a._binBE.readASCII(W, 0, 2);
             if (_.t256 != null) {
               _.isLE = O == "II", _.width = _.t256[0], _.height = _.t257[0];
               var N, U = _.t259 ? _.t259[0] : 1, C = _.t266 ? _.t266[0] : 1;
@@ -12568,35 +12568,35 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
               _.data = new Uint8Array($.buffer, 0, 0 | Math.ceil(L / 8));
             }
           }
-        }, a.decode._decompress = function(I, _, R, W, O, N, U, C, ae) {
+        }, a.decode._decompress = function(A, _, R, W, O, N, U, C, ae) {
           if (N == 1)
             for (var J = 0; J < O; J++)
               U[C + J] = R[W + J];
           else if (N == 2)
-            a.decode._decodeG2(R, W, O, U, C, I.width, ae);
+            a.decode._decodeG2(R, W, O, U, C, A.width, ae);
           else if (N == 3)
-            a.decode._decodeG3(R, W, O, U, C, I.width, ae, !!I.t292 && (1 & I.t292[0]) == 1);
+            a.decode._decodeG3(R, W, O, U, C, A.width, ae, !!A.t292 && (1 & A.t292[0]) == 1);
           else if (N == 4)
-            a.decode._decodeG4(R, W, O, U, C, I.width, ae);
+            a.decode._decodeG4(R, W, O, U, C, A.width, ae);
           else if (N == 5)
             a.decode._decodeLZW(R, W, O, U, C, 8);
           else if (N == 6)
-            a.decode._decodeOldJPEG(I, R, W, O, U, C);
+            a.decode._decodeOldJPEG(A, R, W, O, U, C);
           else if (N == 7 || N == 34892)
-            a.decode._decodeNewJPEG(I, R, W, O, U, C);
+            a.decode._decodeNewJPEG(A, R, W, O, U, C);
           else if (N == 8 || N == 32946)
             for (var te = new Uint8Array(R.buffer, W, O), $ = t.inflate(te), L = 0; L < $.length; L++)
               U[C + L] = $[L];
           else
-            N == 9 ? a.decode._decodeVC5(R, W, O, U, C) : N == 32767 ? a.decode._decodeARW(I, R, W, O, U, C) : N == 32773 ? a.decode._decodePackBits(R, W, O, U, C) : N == 32809 ? a.decode._decodeThunder(R, W, O, U, C) : N == 34713 ? a.decode._decodeNikon(I, _, R, W, O, U, C) : N == 34676 ? a.decode._decodeLogLuv32(I, R, W, O, U, C) : i("Unknown compression", N);
-          var re = I.t258 ? Math.min(32, I.t258[0]) : 1, z = I.t277 ? I.t277[0] : 1, j = re * z >>> 3, ne = I.t278 ? I.t278[0] : I.height, le = Math.ceil(re * z * I.width / 8);
-          if (re == 16 && !I.isLE && I.t33422 == null)
+            N == 9 ? a.decode._decodeVC5(R, W, O, U, C) : N == 32767 ? a.decode._decodeARW(A, R, W, O, U, C) : N == 32773 ? a.decode._decodePackBits(R, W, O, U, C) : N == 32809 ? a.decode._decodeThunder(R, W, O, U, C) : N == 34713 ? a.decode._decodeNikon(A, _, R, W, O, U, C) : N == 34676 ? a.decode._decodeLogLuv32(A, R, W, O, U, C) : i("Unknown compression", N);
+          var re = A.t258 ? Math.min(32, A.t258[0]) : 1, z = A.t277 ? A.t277[0] : 1, j = re * z >>> 3, ne = A.t278 ? A.t278[0] : A.height, le = Math.ceil(re * z * A.width / 8);
+          if (re == 16 && !A.isLE && A.t33422 == null)
             for (var he = 0; he < ne; he++)
               for (var M = C + he * le, T = 1; T < le; T += 2) {
                 var B = U[M + T];
                 U[M + T] = U[M + T - 1], U[M + T - 1] = B;
               }
-          if (I.t317 && I.t317[0] == 2)
+          if (A.t317 && A.t317[0] == 2)
             for (he = 0; he < ne; he++) {
               var K = C + he * le;
               if (re == 16)
@@ -12612,19 +12612,19 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                   U[K + J] = U[K + J] + U[K + J - j] & 255;
             }
         }, a.decode._decodeVC5 = a.decode._decodeVC5 = function() {
-          var I, _, R, W = [1, 0, 1, 0, 2, 2, 1, 1, 3, 7, 1, 2, 5, 25, 1, 3, 6, 48, 1, 4, 6, 54, 1, 5, 7, 111, 1, 8, 7, 99, 1, 6, 7, 105, 12, 0, 7, 107, 1, 7, 8, 209, 20, 0, 8, 212, 1, 9, 8, 220, 1, 10, 9, 393, 1, 11, 9, 394, 32, 0, 9, 416, 1, 12, 9, 427, 1, 13, 10, 887, 1, 18, 10, 784, 1, 14, 10, 790, 1, 15, 10, 835, 60, 0, 10, 852, 1, 16, 10, 885, 1, 17, 11, 1571, 1, 19, 11, 1668, 1, 20, 11, 1669, 100, 0, 11, 1707, 1, 21, 11, 1772, 1, 22, 12, 3547, 1, 29, 12, 3164, 1, 24, 12, 3166, 1, 25, 12, 3140, 1, 23, 12, 3413, 1, 26, 12, 3537, 1, 27, 12, 3539, 1, 28, 13, 7093, 1, 35, 13, 6283, 1, 30, 13, 6331, 1, 31, 13, 6335, 180, 0, 13, 6824, 1, 32, 13, 7072, 1, 33, 13, 7077, 320, 0, 13, 7076, 1, 34, 14, 12565, 1, 36, 14, 12661, 1, 37, 14, 12669, 1, 38, 14, 13651, 1, 39, 14, 14184, 1, 40, 15, 28295, 1, 46, 15, 28371, 1, 47, 15, 25320, 1, 42, 15, 25336, 1, 43, 15, 25128, 1, 41, 15, 27300, 1, 44, 15, 28293, 1, 45, 16, 50259, 1, 48, 16, 50643, 1, 49, 16, 50675, 1, 50, 16, 56740, 1, 53, 16, 56584, 1, 51, 16, 56588, 1, 52, 17, 113483, 1, 61, 17, 113482, 1, 60, 17, 101285, 1, 55, 17, 101349, 1, 56, 17, 109205, 1, 57, 17, 109207, 1, 58, 17, 100516, 1, 54, 17, 113171, 1, 59, 18, 202568, 1, 62, 18, 202696, 1, 63, 18, 218408, 1, 64, 18, 218412, 1, 65, 18, 226340, 1, 66, 18, 226356, 1, 67, 18, 226358, 1, 68, 19, 402068, 1, 69, 19, 405138, 1, 70, 19, 405394, 1, 71, 19, 436818, 1, 72, 19, 436826, 1, 73, 19, 452714, 1, 75, 19, 452718, 1, 76, 19, 452682, 1, 74, 20, 804138, 1, 77, 20, 810279, 1, 78, 20, 810790, 1, 79, 20, 873638, 1, 80, 20, 873654, 1, 81, 20, 905366, 1, 82, 20, 905430, 1, 83, 20, 905438, 1, 84, 21, 1608278, 1, 85, 21, 1620557, 1, 86, 21, 1621582, 1, 87, 21, 1621583, 1, 88, 21, 1747310, 1, 89, 21, 1810734, 1, 90, 21, 1810735, 1, 91, 21, 1810863, 1, 92, 21, 1810879, 1, 93, 22, 3621725, 1, 99, 22, 3621757, 1, 100, 22, 3241112, 1, 94, 22, 3494556, 1, 95, 22, 3494557, 1, 96, 22, 3494622, 1, 97, 22, 3494623, 1, 98, 23, 6482227, 1, 102, 23, 6433117, 1, 101, 23, 6989117, 1, 103, 23, 6989119, 1, 105, 23, 6989118, 1, 104, 23, 7243449, 1, 106, 23, 7243512, 1, 107, 24, 13978233, 1, 111, 24, 12964453, 1, 109, 24, 12866232, 1, 108, 24, 14486897, 1, 113, 24, 13978232, 1, 110, 24, 14486896, 1, 112, 24, 14487026, 1, 114, 24, 14487027, 1, 115, 25, 25732598, 1, 225, 25, 25732597, 1, 189, 25, 25732596, 1, 188, 25, 25732595, 1, 203, 25, 25732594, 1, 202, 25, 25732593, 1, 197, 25, 25732592, 1, 207, 25, 25732591, 1, 169, 25, 25732590, 1, 223, 25, 25732589, 1, 159, 25, 25732522, 1, 235, 25, 25732579, 1, 152, 25, 25732575, 1, 192, 25, 25732489, 1, 179, 25, 25732573, 1, 201, 25, 25732472, 1, 172, 25, 25732576, 1, 149, 25, 25732488, 1, 178, 25, 25732566, 1, 120, 25, 25732571, 1, 219, 25, 25732577, 1, 150, 25, 25732487, 1, 127, 25, 25732506, 1, 211, 25, 25732548, 1, 125, 25, 25732588, 1, 158, 25, 25732486, 1, 247, 25, 25732467, 1, 238, 25, 25732508, 1, 163, 25, 25732552, 1, 228, 25, 25732603, 1, 183, 25, 25732513, 1, 217, 25, 25732587, 1, 168, 25, 25732520, 1, 122, 25, 25732484, 1, 128, 25, 25732562, 1, 249, 25, 25732505, 1, 187, 25, 25732504, 1, 186, 25, 25732483, 1, 136, 25, 25928905, 1, 181, 25, 25732560, 1, 255, 25, 25732500, 1, 230, 25, 25732482, 1, 135, 25, 25732555, 1, 233, 25, 25732568, 1, 222, 25, 25732583, 1, 145, 25, 25732481, 1, 134, 25, 25732586, 1, 167, 25, 25732521, 1, 248, 25, 25732518, 1, 209, 25, 25732480, 1, 243, 25, 25732512, 1, 216, 25, 25732509, 1, 164, 25, 25732547, 1, 140, 25, 25732479, 1, 157, 25, 25732544, 1, 239, 25, 25732574, 1, 191, 25, 25732564, 1, 251, 25, 25732478, 1, 156, 25, 25732546, 1, 139, 25, 25732498, 1, 242, 25, 25732557, 1, 133, 25, 25732477, 1, 162, 25, 25732515, 1, 213, 25, 25732584, 1, 165, 25, 25732514, 1, 212, 25, 25732476, 1, 227, 25, 25732494, 1, 198, 25, 25732531, 1, 236, 25, 25732530, 1, 234, 25, 25732529, 1, 117, 25, 25732528, 1, 215, 25, 25732527, 1, 124, 25, 25732526, 1, 123, 25, 25732525, 1, 254, 25, 25732524, 1, 253, 25, 25732523, 1, 148, 25, 25732570, 1, 218, 25, 25732580, 1, 146, 25, 25732581, 1, 147, 25, 25732569, 1, 224, 25, 25732533, 1, 143, 25, 25732540, 1, 184, 25, 25732541, 1, 185, 25, 25732585, 1, 166, 25, 25732556, 1, 132, 25, 25732485, 1, 129, 25, 25732563, 1, 250, 25, 25732578, 1, 151, 25, 25732501, 1, 119, 25, 25732502, 1, 193, 25, 25732536, 1, 176, 25, 25732496, 1, 245, 25, 25732553, 1, 229, 25, 25732516, 1, 206, 25, 25732582, 1, 144, 25, 25732517, 1, 208, 25, 25732558, 1, 137, 25, 25732543, 1, 241, 25, 25732466, 1, 237, 25, 25732507, 1, 190, 25, 25732542, 1, 240, 25, 25732551, 1, 131, 25, 25732554, 1, 232, 25, 25732565, 1, 252, 25, 25732475, 1, 171, 25, 25732493, 1, 205, 25, 25732492, 1, 204, 25, 25732491, 1, 118, 25, 25732490, 1, 214, 25, 25928904, 1, 180, 25, 25732549, 1, 126, 25, 25732602, 1, 182, 25, 25732539, 1, 175, 25, 25732545, 1, 141, 25, 25732559, 1, 138, 25, 25732537, 1, 177, 25, 25732534, 1, 153, 25, 25732503, 1, 194, 25, 25732606, 1, 160, 25, 25732567, 1, 121, 25, 25732538, 1, 174, 25, 25732497, 1, 246, 25, 25732550, 1, 130, 25, 25732572, 1, 200, 25, 25732474, 1, 170, 25, 25732511, 1, 221, 25, 25732601, 1, 196, 25, 25732532, 1, 142, 25, 25732519, 1, 210, 25, 25732495, 1, 199, 25, 25732605, 1, 155, 25, 25732535, 1, 154, 25, 25732499, 1, 244, 25, 25732510, 1, 220, 25, 25732600, 1, 195, 25, 25732607, 1, 161, 25, 25732604, 1, 231, 25, 25732473, 1, 173, 25, 25732599, 1, 226, 26, 51465122, 1, 116, 26, 51465123, 0, 1], O = [3, 3, 3, 3, 2, 2, 2, 1, 1, 1];
+          var A, _, R, W = [1, 0, 1, 0, 2, 2, 1, 1, 3, 7, 1, 2, 5, 25, 1, 3, 6, 48, 1, 4, 6, 54, 1, 5, 7, 111, 1, 8, 7, 99, 1, 6, 7, 105, 12, 0, 7, 107, 1, 7, 8, 209, 20, 0, 8, 212, 1, 9, 8, 220, 1, 10, 9, 393, 1, 11, 9, 394, 32, 0, 9, 416, 1, 12, 9, 427, 1, 13, 10, 887, 1, 18, 10, 784, 1, 14, 10, 790, 1, 15, 10, 835, 60, 0, 10, 852, 1, 16, 10, 885, 1, 17, 11, 1571, 1, 19, 11, 1668, 1, 20, 11, 1669, 100, 0, 11, 1707, 1, 21, 11, 1772, 1, 22, 12, 3547, 1, 29, 12, 3164, 1, 24, 12, 3166, 1, 25, 12, 3140, 1, 23, 12, 3413, 1, 26, 12, 3537, 1, 27, 12, 3539, 1, 28, 13, 7093, 1, 35, 13, 6283, 1, 30, 13, 6331, 1, 31, 13, 6335, 180, 0, 13, 6824, 1, 32, 13, 7072, 1, 33, 13, 7077, 320, 0, 13, 7076, 1, 34, 14, 12565, 1, 36, 14, 12661, 1, 37, 14, 12669, 1, 38, 14, 13651, 1, 39, 14, 14184, 1, 40, 15, 28295, 1, 46, 15, 28371, 1, 47, 15, 25320, 1, 42, 15, 25336, 1, 43, 15, 25128, 1, 41, 15, 27300, 1, 44, 15, 28293, 1, 45, 16, 50259, 1, 48, 16, 50643, 1, 49, 16, 50675, 1, 50, 16, 56740, 1, 53, 16, 56584, 1, 51, 16, 56588, 1, 52, 17, 113483, 1, 61, 17, 113482, 1, 60, 17, 101285, 1, 55, 17, 101349, 1, 56, 17, 109205, 1, 57, 17, 109207, 1, 58, 17, 100516, 1, 54, 17, 113171, 1, 59, 18, 202568, 1, 62, 18, 202696, 1, 63, 18, 218408, 1, 64, 18, 218412, 1, 65, 18, 226340, 1, 66, 18, 226356, 1, 67, 18, 226358, 1, 68, 19, 402068, 1, 69, 19, 405138, 1, 70, 19, 405394, 1, 71, 19, 436818, 1, 72, 19, 436826, 1, 73, 19, 452714, 1, 75, 19, 452718, 1, 76, 19, 452682, 1, 74, 20, 804138, 1, 77, 20, 810279, 1, 78, 20, 810790, 1, 79, 20, 873638, 1, 80, 20, 873654, 1, 81, 20, 905366, 1, 82, 20, 905430, 1, 83, 20, 905438, 1, 84, 21, 1608278, 1, 85, 21, 1620557, 1, 86, 21, 1621582, 1, 87, 21, 1621583, 1, 88, 21, 1747310, 1, 89, 21, 1810734, 1, 90, 21, 1810735, 1, 91, 21, 1810863, 1, 92, 21, 1810879, 1, 93, 22, 3621725, 1, 99, 22, 3621757, 1, 100, 22, 3241112, 1, 94, 22, 3494556, 1, 95, 22, 3494557, 1, 96, 22, 3494622, 1, 97, 22, 3494623, 1, 98, 23, 6482227, 1, 102, 23, 6433117, 1, 101, 23, 6989117, 1, 103, 23, 6989119, 1, 105, 23, 6989118, 1, 104, 23, 7243449, 1, 106, 23, 7243512, 1, 107, 24, 13978233, 1, 111, 24, 12964453, 1, 109, 24, 12866232, 1, 108, 24, 14486897, 1, 113, 24, 13978232, 1, 110, 24, 14486896, 1, 112, 24, 14487026, 1, 114, 24, 14487027, 1, 115, 25, 25732598, 1, 225, 25, 25732597, 1, 189, 25, 25732596, 1, 188, 25, 25732595, 1, 203, 25, 25732594, 1, 202, 25, 25732593, 1, 197, 25, 25732592, 1, 207, 25, 25732591, 1, 169, 25, 25732590, 1, 223, 25, 25732589, 1, 159, 25, 25732522, 1, 235, 25, 25732579, 1, 152, 25, 25732575, 1, 192, 25, 25732489, 1, 179, 25, 25732573, 1, 201, 25, 25732472, 1, 172, 25, 25732576, 1, 149, 25, 25732488, 1, 178, 25, 25732566, 1, 120, 25, 25732571, 1, 219, 25, 25732577, 1, 150, 25, 25732487, 1, 127, 25, 25732506, 1, 211, 25, 25732548, 1, 125, 25, 25732588, 1, 158, 25, 25732486, 1, 247, 25, 25732467, 1, 238, 25, 25732508, 1, 163, 25, 25732552, 1, 228, 25, 25732603, 1, 183, 25, 25732513, 1, 217, 25, 25732587, 1, 168, 25, 25732520, 1, 122, 25, 25732484, 1, 128, 25, 25732562, 1, 249, 25, 25732505, 1, 187, 25, 25732504, 1, 186, 25, 25732483, 1, 136, 25, 25928905, 1, 181, 25, 25732560, 1, 255, 25, 25732500, 1, 230, 25, 25732482, 1, 135, 25, 25732555, 1, 233, 25, 25732568, 1, 222, 25, 25732583, 1, 145, 25, 25732481, 1, 134, 25, 25732586, 1, 167, 25, 25732521, 1, 248, 25, 25732518, 1, 209, 25, 25732480, 1, 243, 25, 25732512, 1, 216, 25, 25732509, 1, 164, 25, 25732547, 1, 140, 25, 25732479, 1, 157, 25, 25732544, 1, 239, 25, 25732574, 1, 191, 25, 25732564, 1, 251, 25, 25732478, 1, 156, 25, 25732546, 1, 139, 25, 25732498, 1, 242, 25, 25732557, 1, 133, 25, 25732477, 1, 162, 25, 25732515, 1, 213, 25, 25732584, 1, 165, 25, 25732514, 1, 212, 25, 25732476, 1, 227, 25, 25732494, 1, 198, 25, 25732531, 1, 236, 25, 25732530, 1, 234, 25, 25732529, 1, 117, 25, 25732528, 1, 215, 25, 25732527, 1, 124, 25, 25732526, 1, 123, 25, 25732525, 1, 254, 25, 25732524, 1, 253, 25, 25732523, 1, 148, 25, 25732570, 1, 218, 25, 25732580, 1, 146, 25, 25732581, 1, 147, 25, 25732569, 1, 224, 25, 25732533, 1, 143, 25, 25732540, 1, 184, 25, 25732541, 1, 185, 25, 25732585, 1, 166, 25, 25732556, 1, 132, 25, 25732485, 1, 129, 25, 25732563, 1, 250, 25, 25732578, 1, 151, 25, 25732501, 1, 119, 25, 25732502, 1, 193, 25, 25732536, 1, 176, 25, 25732496, 1, 245, 25, 25732553, 1, 229, 25, 25732516, 1, 206, 25, 25732582, 1, 144, 25, 25732517, 1, 208, 25, 25732558, 1, 137, 25, 25732543, 1, 241, 25, 25732466, 1, 237, 25, 25732507, 1, 190, 25, 25732542, 1, 240, 25, 25732551, 1, 131, 25, 25732554, 1, 232, 25, 25732565, 1, 252, 25, 25732475, 1, 171, 25, 25732493, 1, 205, 25, 25732492, 1, 204, 25, 25732491, 1, 118, 25, 25732490, 1, 214, 25, 25928904, 1, 180, 25, 25732549, 1, 126, 25, 25732602, 1, 182, 25, 25732539, 1, 175, 25, 25732545, 1, 141, 25, 25732559, 1, 138, 25, 25732537, 1, 177, 25, 25732534, 1, 153, 25, 25732503, 1, 194, 25, 25732606, 1, 160, 25, 25732567, 1, 121, 25, 25732538, 1, 174, 25, 25732497, 1, 246, 25, 25732550, 1, 130, 25, 25732572, 1, 200, 25, 25732474, 1, 170, 25, 25732511, 1, 221, 25, 25732601, 1, 196, 25, 25732532, 1, 142, 25, 25732519, 1, 210, 25, 25732495, 1, 199, 25, 25732605, 1, 155, 25, 25732535, 1, 154, 25, 25732499, 1, 244, 25, 25732510, 1, 220, 25, 25732600, 1, 195, 25, 25732607, 1, 161, 25, 25732604, 1, 231, 25, 25732473, 1, 173, 25, 25732599, 1, 226, 26, 51465122, 1, 116, 26, 51465123, 0, 1], O = [3, 3, 3, 3, 2, 2, 2, 1, 1, 1];
           function N(re) {
             var z = re[1], j = re[0][z >>> 3] >>> 7 - (7 & z) & 1;
             return re[1]++, j;
           }
           function U(re, z) {
-            if (I == null) {
-              I = {};
+            if (A == null) {
+              A = {};
               for (var j = 0; j < W.length; j += 4)
-                I[W[j + 1]] = W.slice(j, j + 4);
+                A[W[j + 1]] = W.slice(j, j + 4);
             }
-            for (var ne = N(re), le = I[ne]; le == null; )
-              ne = ne << 1 | N(re), le = I[ne];
+            for (var ne = N(re), le = A[ne]; le == null; )
+              ne = ne << 1 | N(re), le = A[ne];
             var he = le[3];
             he != 0 && (he = N(re) == 0 ? he : -he), z[0] = le[2], z[1] = he;
           }
@@ -12676,7 +12676,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                         if (Q != 108) {
                           if (Q != 102) {
                             if (Q == 104)
-                              Ie = se;
+                              Ae = se;
                             else if (Q != 105) {
                               var Y = Q < 0 ? -Q : Q, be = 65280 & Y, Ee = 0;
                               if (24576 & Y && (8192 & Y ? (Ee = 65535 & se, Ee += (255 & Y) << 16) : Ee = 65535 & se), (24576 & Y) == 24576) {
@@ -12712,18 +12712,18 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                                       _e[Je + We] = _[P[je + We] + 512] * B;
                                   }
                                   if (Re == 2) {
-                                    var Ie = he >>> 1, at = 2 * Be, st = 2 * Pe;
+                                    var Ae = he >>> 1, at = 2 * Be, st = 2 * Pe;
                                     for (Fe = 0; Fe < Pe; Fe++)
                                       for (We = 0; We < at; We++) {
-                                        ke = 2 * Fe * Ie + We;
-                                        var tt = Pe * Ie + (It = Fe * Ie + We);
-                                        Fe == 0 ? J(_e, m, ke, tt, It, Ie) : Fe == Pe - 1 ? $(_e, m, ke, tt, It, Ie) : te(_e, m, ke, tt, It, Ie);
+                                        ke = 2 * Fe * Ae + We;
+                                        var tt = Pe * Ae + (At = Fe * Ae + We);
+                                        Fe == 0 ? J(_e, m, ke, tt, At, Ae) : Fe == Pe - 1 ? $(_e, m, ke, tt, At, Ae) : te(_e, m, ke, tt, At, Ae);
                                       }
                                     var mt = _e;
                                     for (_e = m, m = mt, Fe = 0; Fe < st; Fe++)
                                       for (We = 0; We < Be; We++) {
-                                        var It;
-                                        ke = Fe * Ie + 2 * We, tt = Be + (It = Fe * Ie + We), We == 0 ? J(_e, m, ke, tt, It, 1) : We == Be - 1 ? $(_e, m, ke, tt, It, 1) : te(_e, m, ke, tt, It, 1);
+                                        var At;
+                                        ke = Fe * Ae + 2 * We, tt = Be + (At = Fe * Ae + We), We == 0 ? J(_e, m, ke, tt, At, 1) : We == Be - 1 ? $(_e, m, ke, tt, At, 1) : te(_e, m, ke, tt, At, 1);
                                       }
                                     mt = _e, _e = m, m = mt;
                                     for (var wt = [], ot = 2 - ~~((T - 1) / 3), Mt = 0; Mt < 3; Mt++)
@@ -12732,14 +12732,14 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                                     if (Ft != 0)
                                       for (Fe = 0; Fe < st; Fe++)
                                         for (We = 0; We < at; We++)
-                                          _e[ke = Fe * Ie + We] = _e[ke] << Ft;
+                                          _e[ke = Fe * Ae + We] = _e[ke] << Ft;
                                   }
                                 }
                                 if (T == 9 && K == 3) {
                                   var Rt = c[0], qt = c[1], Lt = c[2], Se = c[3];
                                   for (Fe = 0; Fe < M; Fe += 2)
                                     for (We = 0; We < he; We += 2) {
-                                      var Ye = Fe * he + We, Ke = Rt[Qe = (Fe >>> 1) * (he >>> 1) + (We >>> 1)], ut = qt[Qe] - 2048, bt = Lt[Qe] - 2048, At = Se[Qe] - 2048, Ct = (ut << 1) + Ke, vt = (bt << 1) + Ke, Dt = Ke + At, jt = Ke - At;
+                                      var Ye = Fe * he + We, Ke = Rt[Qe = (Fe >>> 1) * (he >>> 1) + (We >>> 1)], ut = qt[Qe] - 2048, bt = Lt[Qe] - 2048, It = Se[Qe] - 2048, Ct = (ut << 1) + Ke, vt = (bt << 1) + Ke, Dt = Ke + It, jt = Ke - It;
                                       ne[Ye] = L(Ct), ne[Ye + 1] = L(Dt), ne[Ye + he] = L(jt), ne[Ye + he + 1] = L(vt);
                                     }
                                 }
@@ -12759,8 +12759,8 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             }
             console.log(Date.now() - D);
           };
-        }(), a.decode._decodeLogLuv32 = function(I, _, R, W, O, N) {
-          for (var U = I.width, C = 4 * U, ae = 0, J = new Uint8Array(C); ae < W; ) {
+        }(), a.decode._decodeLogLuv32 = function(A, _, R, W, O, N) {
+          for (var U = A.width, C = 4 * U, ae = 0, J = new Uint8Array(C); ae < W; ) {
             for (var te = 0; te < C; ) {
               var $ = _[R + ae];
               if (ae++, $ < 128) {
@@ -12776,11 +12776,11 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             for (var re = 0; re < U; re++)
               O[N + 0] = J[re], O[N + 1] = J[re + U], O[N + 2] = J[re + 2 * U], O[N + 4] = J[re + 3 * U], N += 6;
           }
-        }, a.decode._ljpeg_diff = function(I, _, R) {
+        }, a.decode._ljpeg_diff = function(A, _, R) {
           var W, O, N = a.decode._getbithuff;
-          return W = N(I, _, R[0], R), !((O = N(I, _, W, 0)) & 1 << W - 1) && (O -= (1 << W) - 1), O;
-        }, a.decode._decodeARW = function(I, _, R, W, O, N) {
-          var U = I.t256[0], C = I.t257[0], ae = I.t258[0], J = I.isLE ? a._binLE : a._binBE;
+          return W = N(A, _, R[0], R), !((O = N(A, _, W, 0)) & 1 << W - 1) && (O -= (1 << W) - 1), O;
+        }, a.decode._decodeARW = function(A, _, R, W, O, N) {
+          var U = A.t256[0], C = A.t257[0], ae = A.t258[0], J = A.isLE ? a._binLE : a._binBE;
           if (U * C == W || U * C * 1.5 == W)
             if (U * C * 1.5 != W) {
               var te, $, L, re, z, j, ne, le, he = new Uint16Array(16), M = new Uint8Array(U + 1);
@@ -12815,10 +12815,10 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                   a.decode._putsF(O, (ee * U + D) * ae, Me << 16 - ae);
                 }
           }
-        }, a.decode._decodeNikon = function(I, _, R, W, O, N, U) {
-          var C = [[0, 0, 1, 5, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 5, 4, 3, 6, 2, 7, 1, 0, 8, 9, 11, 10, 12], [0, 0, 1, 5, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 57, 90, 56, 39, 22, 5, 4, 3, 2, 1, 0, 11, 12, 12], [0, 0, 1, 4, 2, 3, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 4, 6, 3, 7, 2, 8, 1, 9, 0, 10, 11, 12], [0, 0, 1, 4, 3, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 5, 6, 4, 7, 8, 3, 9, 2, 1, 0, 10, 11, 12, 13, 14], [0, 0, 1, 5, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 8, 92, 75, 58, 41, 7, 6, 5, 4, 3, 2, 1, 0, 13, 14], [0, 0, 1, 4, 2, 2, 3, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 7, 6, 8, 5, 9, 4, 10, 3, 11, 12, 2, 0, 1, 13, 14]], ae = I.t256[0], J = I.t257[0], te = I.t258[0], $ = 0, L = 0, re = a.decode._make_decoder, z = a.decode._getbithuff, j = _[0].exifIFD.makerNote, ne = j.t150 ? j.t150 : j.t140, le = 0, he = ne[le++], M = ne[le++];
+        }, a.decode._decodeNikon = function(A, _, R, W, O, N, U) {
+          var C = [[0, 0, 1, 5, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 5, 4, 3, 6, 2, 7, 1, 0, 8, 9, 11, 10, 12], [0, 0, 1, 5, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 57, 90, 56, 39, 22, 5, 4, 3, 2, 1, 0, 11, 12, 12], [0, 0, 1, 4, 2, 3, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 4, 6, 3, 7, 2, 8, 1, 9, 0, 10, 11, 12], [0, 0, 1, 4, 3, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 5, 6, 4, 7, 8, 3, 9, 2, 1, 0, 10, 11, 12, 13, 14], [0, 0, 1, 5, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 8, 92, 75, 58, 41, 7, 6, 5, 4, 3, 2, 1, 0, 13, 14], [0, 0, 1, 4, 2, 2, 3, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 7, 6, 8, 5, 9, 4, 10, 3, 11, 12, 2, 0, 1, 13, 14]], ae = A.t256[0], J = A.t257[0], te = A.t258[0], $ = 0, L = 0, re = a.decode._make_decoder, z = a.decode._getbithuff, j = _[0].exifIFD.makerNote, ne = j.t150 ? j.t150 : j.t140, le = 0, he = ne[le++], M = ne[le++];
           he != 73 && M != 88 || (le += 2110), he == 70 && ($ = 2), te == 14 && ($ += 3);
-          for (var T = [[0, 0], [0, 0]], B = I.isLE ? a._binLE : a._binBE, K = 0; K < 2; K++)
+          for (var T = [[0, 0], [0, 0]], B = A.isLE ? a._binLE : a._binBE, K = 0; K < 2; K++)
             for (var h = 0; h < 2; h++)
               T[K][h] = B.readShort(ne, le), le += 2;
           var c, m, D, ee, E, Q = 1 << te & 32767, se = 0, Y = B.readShort(ne, le);
@@ -12830,33 +12830,33 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
               var Me = Math.min(Math.max(be[1 & m], 0), (1 << te) - 1), oe = (c * ae + m) * te;
               a.decode._putsF(N, oe, Me << 16 - te);
             }
-        }, a.decode._putsF = function(I, _, R) {
+        }, a.decode._putsF = function(A, _, R) {
           R <<= 8 - (7 & _);
           var W = _ >>> 3;
-          I[W] |= R >>> 16, I[W + 1] |= R >>> 8, I[W + 2] |= R;
-        }, a.decode._getbithuff = function(I, _, R, W) {
+          A[W] |= R >>> 16, A[W + 1] |= R >>> 8, A[W + 2] |= R;
+        }, a.decode._getbithuff = function(A, _, R, W) {
           a.decode._get_byte;
           var O, N = _[0], U = _[1], C = _[2], ae = _[3];
           if (R == 0 || C < 0)
             return 0;
-          for (; !ae && C < R && (O = I[N++]) != -1 && !(ae = 0); )
+          for (; !ae && C < R && (O = A[N++]) != -1 && !(ae = 0); )
             U = (U << 8) + O, C += 8;
           if (O = U << 32 - C >>> 32 - R, W ? (C -= W[O + 1] >>> 8, O = 255 & W[O + 1]) : C -= R, C < 0)
             throw "e";
           return _[0] = N, _[1] = U, _[2] = C, _[3] = ae, O;
-        }, a.decode._make_decoder = function(I) {
+        }, a.decode._make_decoder = function(A) {
           var _, R, W, O, N, U = [];
-          for (_ = 16; _ != 0 && !I[_]; _--)
+          for (_ = 16; _ != 0 && !A[_]; _--)
             ;
           var C = 17;
           for (U[0] = _, W = R = 1; R <= _; R++)
-            for (O = 0; O < I[R]; O++, ++C)
+            for (O = 0; O < A[R]; O++, ++C)
               for (N = 0; N < 1 << _ - R; N++)
-                W <= 1 << _ && (U[W++] = R << 8 | I[C]);
+                W <= 1 << _ && (U[W++] = R << 8 | A[C]);
           return U;
-        }, a.decode._decodeNewJPEG = function(I, _, R, W, O, N) {
+        }, a.decode._decodeNewJPEG = function(A, _, R, W, O, N) {
           W = Math.min(W, _.length - R);
-          var U = I.t347, C = U ? U.length : 0, ae = new Uint8Array(C + W);
+          var U = A.t347, C = U ? U.length : 0, ae = new Uint8Array(C + W);
           if (U) {
             for (var J = 0, te = 0; te < C - 1 && (U[te] != 255 || U[te + 1] != 217); te++)
               ae[J++] = U[te];
@@ -12866,10 +12866,10 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           } else
             for (te = 0; te < W; te++)
               ae[te] = _[R + te];
-          if (I.t262[0] == 32803 || I.t259[0] == 7 && I.t262[0] == 34892) {
-            var re = I.t258[0], z = a.LosslessJpegDecode(ae), j = z.length;
+          if (A.t262[0] == 32803 || A.t259[0] == 7 && A.t262[0] == 34892) {
+            var re = A.t258[0], z = a.LosslessJpegDecode(ae), j = z.length;
             if (re == 16)
-              if (I.isLE)
+              if (A.isLE)
                 for (te = 0; te < j; te++)
                   O[N + (te << 1)] = 255 & z[te], O[N + (te << 1) + 1] = z[te] >>> 8;
               else
@@ -12892,9 +12892,9 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             for (te = 0; te < he.length; te++)
               O[N + te] = he[te];
           }
-          I.t262[0] == 6 && (I.t262[0] = 2);
-        }, a.decode._decodeOldJPEGInit = function(I, _, R, W) {
-          var O, N, U, C, ae, J = 216, te = 0, $ = 0, L = !1, re = I.t513, z = re ? re[0] : 0, j = I.t514, ne = j ? j[0] : 0, le = I.t324 || I.t273 || re, he = I.t530, M = 0, T = 0, B = I.t277 ? I.t277[0] : 1, K = I.t515;
+          A.t262[0] == 6 && (A.t262[0] = 2);
+        }, a.decode._decodeOldJPEGInit = function(A, _, R, W) {
+          var O, N, U, C, ae, J = 216, te = 0, $ = 0, L = !1, re = A.t513, z = re ? re[0] : 0, j = A.t514, ne = j ? j[0] : 0, le = A.t324 || A.t273 || re, he = A.t530, M = 0, T = 0, B = A.t277 ? A.t277[0] : 1, K = A.t515;
           if (le && ($ = le[0], L = le.length > 1), !L) {
             if (_[R] == 255 && _[R + 1] == J)
               return { jpegOffset: R };
@@ -12911,14 +12911,14 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           if (O == null) {
             var h = 0, c = [];
             c[h++] = 255, c[h++] = J;
-            var m = I.t519;
+            var m = A.t519;
             if (m == null)
               throw new Error("JPEGQTables tag is missing");
             for (U = 0; U < m.length; U++)
               for (c[h++] = 255, c[h++] = 219, c[h++] = 0, c[h++] = 67, c[h++] = U, C = 0; C < 64; C++)
                 c[h++] = _[R + m[U] + C];
             for (ae = 0; ae < 2; ae++) {
-              var D = I[ae == 0 ? "t520" : "t521"];
+              var D = A[ae == 0 ? "t520" : "t521"];
               if (D == null)
                 throw new Error((ae == 0 ? "JPEGDCTables" : "JPEGACTables") + " tag is missing");
               for (U = 0; U < D.length; U++) {
@@ -12932,7 +12932,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                   c[h++] = _[R + D[U] + 16 + C];
               }
             }
-            if (c[h++] = 255, c[h++] = 192, c[h++] = 0, c[h++] = 8 + 3 * B, c[h++] = 8, c[h++] = I.height >>> 8 & 255, c[h++] = 255 & I.height, c[h++] = I.width >>> 8 & 255, c[h++] = 255 & I.width, c[h++] = B, B == 1)
+            if (c[h++] = 255, c[h++] = 192, c[h++] = 0, c[h++] = 8 + 3 * B, c[h++] = 8, c[h++] = A.height >>> 8 & 255, c[h++] = 255 & A.height, c[h++] = A.width >>> 8 & 255, c[h++] = 255 & A.width, c[h++] = B, B == 1)
               c[h++] = 1, c[h++] = 17, c[h++] = 0;
             else
               for (U = 0; U < 3; U++)
@@ -12951,7 +12951,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             var Q = new Uint8Array(O.length + 10 + 3 * B);
             Q.set(O);
             var se = O.length;
-            if (E = O.length, (O = Q)[se++] = 255, O[se++] = 192, O[se++] = 0, O[se++] = 8 + 3 * B, O[se++] = 8, O[se++] = I.height >>> 8 & 255, O[se++] = 255 & I.height, O[se++] = I.width >>> 8 & 255, O[se++] = 255 & I.width, O[se++] = B, B == 1)
+            if (E = O.length, (O = Q)[se++] = 255, O[se++] = 192, O[se++] = 0, O[se++] = 8 + 3 * B, O[se++] = 8, O[se++] = A.height >>> 8 & 255, O[se++] = 255 & A.height, O[se++] = A.width >>> 8 & 255, O[se++] = 255 & A.width, O[se++] = B, B == 1)
               O[se++] = 1, O[se++] = 17, O[se++] = 0;
             else
               for (U = 0; U < 3; U++)
@@ -12971,13 +12971,13 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             N[be++] = 0, N[be++] = 63, N[be++] = 0;
           }
           return { jpegOffset: R, tables: O, sosMarker: N, sofPosition: E };
-        }, a.decode._decodeOldJPEG = function(I, _, R, W, O, N) {
-          var U, C, ae, J, te = a.decode._decodeOldJPEGInit(I, _, R, W);
+        }, a.decode._decodeOldJPEG = function(A, _, R, W, O, N) {
+          var U, C, ae, J, te = a.decode._decodeOldJPEGInit(A, _, R, W);
           if (te.jpegOffset != null)
             for (U = R + W - te.jpegOffset, ae = new Uint8Array(U), re = 0; re < U; re++)
               ae[re] = _[te.jpegOffset + re];
           else {
-            for (C = te.tables.length, (ae = new Uint8Array(C + te.sosMarker.length + W + 2)).set(te.tables), J = C, ae[te.sofPosition + 5] = I.height >>> 8 & 255, ae[te.sofPosition + 6] = 255 & I.height, ae[te.sofPosition + 7] = I.width >>> 8 & 255, ae[te.sofPosition + 8] = 255 & I.width, _[R] == 255 && _[R + 1] == SOS || (ae.set(te.sosMarker, J), J += sosMarker.length), re = 0; re < W; re++)
+            for (C = te.tables.length, (ae = new Uint8Array(C + te.sosMarker.length + W + 2)).set(te.tables), J = C, ae[te.sofPosition + 5] = A.height >>> 8 & 255, ae[te.sofPosition + 6] = 255 & A.height, ae[te.sofPosition + 7] = A.width >>> 8 & 255, ae[te.sofPosition + 8] = 255 & A.width, _[R] == 255 && _[R + 1] == SOS || (ae.set(te.sosMarker, J), J += sosMarker.length), re = 0; re < W; re++)
               ae[J++] = _[R + re];
             ae[J++] = 255, ae[J++] = EOI;
           }
@@ -12985,9 +12985,9 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           $.parse(ae);
           for (var L = $.getData({ width: $.width, height: $.height, forceRGB: !0, isSourcePDF: !1 }), re = 0; re < L.length; re++)
             O[N + re] = L[re];
-          I.t262 && I.t262[0] == 6 && (I.t262[0] = 2);
-        }, a.decode._decodePackBits = function(I, _, R, W, O) {
-          for (var N = new Int8Array(I.buffer), U = new Int8Array(W.buffer), C = _ + R; _ < C; ) {
+          A.t262 && A.t262[0] == 6 && (A.t262[0] = 2);
+        }, a.decode._decodePackBits = function(A, _, R, W, O) {
+          for (var N = new Int8Array(A.buffer), U = new Int8Array(W.buffer), C = _ + R; _ < C; ) {
             var ae = N[_];
             if (_++, ae >= 0 && ae < 128)
               for (var J = 0; J < ae + 1; J++)
@@ -12999,9 +12999,9 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             }
           }
           return O;
-        }, a.decode._decodeThunder = function(I, _, R, W, O) {
+        }, a.decode._decodeThunder = function(A, _, R, W, O) {
           for (var N = [0, 1, 0, -1], U = [0, 1, 2, 3, 0, -3, -2, -1], C = _ + R, ae = 2 * O, J = 0; _ < C; ) {
-            var te = I[_], $ = te >>> 6, L = 63 & te;
+            var te = A[_], $ = te >>> 6, L = 63 & te;
             if (_++, $ == 3 && (J = 15 & L, W[ae >>> 1] |= J << 4 * (1 - ae & 1), ae++), $ == 0)
               for (var re = 0; re < L; re++)
                 W[ae >>> 1] |= J << 4 * (1 - ae & 1), ae++;
@@ -13015,21 +13015,21 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
               }
           }
         }, a.decode._dmap = { 1: 0, "011": 1, "000011": 2, "0000011": 3, "010": -1, "000010": -2, "0000010": -3 }, a.decode._lens = function() {
-          var I = function(ae, J, te, $) {
+          var A = function(ae, J, te, $) {
             for (var L = 0; L < J.length; L++)
               ae[J[L]] = te + L * $;
           }, _ = "00110101,000111,0111,1000,1011,1100,1110,1111,10011,10100,00111,01000,001000,000011,110100,110101,101010,101011,0100111,0001100,0001000,0010111,0000011,0000100,0101000,0101011,0010011,0100100,0011000,00000010,00000011,00011010,00011011,00010010,00010011,00010100,00010101,00010110,00010111,00101000,00101001,00101010,00101011,00101100,00101101,00000100,00000101,00001010,00001011,01010010,01010011,01010100,01010101,00100100,00100101,01011000,01011001,01011010,01011011,01001010,01001011,00110010,00110011,00110100", R = "0000110111,010,11,10,011,0011,0010,00011,000101,000100,0000100,0000101,0000111,00000100,00000111,000011000,0000010111,0000011000,0000001000,00001100111,00001101000,00001101100,00000110111,00000101000,00000010111,00000011000,000011001010,000011001011,000011001100,000011001101,000001101000,000001101001,000001101010,000001101011,000011010010,000011010011,000011010100,000011010101,000011010110,000011010111,000001101100,000001101101,000011011010,000011011011,000001010100,000001010101,000001010110,000001010111,000001100100,000001100101,000001010010,000001010011,000000100100,000000110111,000000111000,000000100111,000000101000,000001011000,000001011001,000000101011,000000101100,000001011010,000001100110,000001100111", W = "11011,10010,010111,0110111,00110110,00110111,01100100,01100101,01101000,01100111,011001100,011001101,011010010,011010011,011010100,011010101,011010110,011010111,011011000,011011001,011011010,011011011,010011000,010011001,010011010,011000,010011011", O = "0000001111,000011001000,000011001001,000001011011,000000110011,000000110100,000000110101,0000001101100,0000001101101,0000001001010,0000001001011,0000001001100,0000001001101,0000001110010,0000001110011,0000001110100,0000001110101,0000001110110,0000001110111,0000001010010,0000001010011,0000001010100,0000001010101,0000001011010,0000001011011,0000001100100,0000001100101", N = "00000001000,00000001100,00000001101,000000010010,000000010011,000000010100,000000010101,000000010110,000000010111,000000011100,000000011101,000000011110,000000011111";
           _ = _.split(","), R = R.split(","), W = W.split(","), O = O.split(","), N = N.split(",");
           var U = {}, C = {};
-          return I(U, _, 0, 1), I(U, W, 64, 64), I(U, N, 1792, 64), I(C, R, 0, 1), I(C, O, 64, 64), I(C, N, 1792, 64), [U, C];
-        }(), a.decode._decodeG4 = function(I, _, R, W, O, N, U) {
+          return A(U, _, 0, 1), A(U, W, 64, 64), A(U, N, 1792, 64), A(C, R, 0, 1), A(C, O, 64, 64), A(C, N, 1792, 64), [U, C];
+        }(), a.decode._decodeG4 = function(A, _, R, W, O, N, U) {
           for (var C = a.decode, ae = _ << 3, J = 0, te = "", $ = [], L = [], re = 0; re < N; re++)
             L.push(0);
           L = C._makeDiff(L);
           for (var z = 0, j = 0, ne = 0, le = 0, he = 0, M = 0, T = "", B = 0, K = 8 * Math.ceil(N / 8); ae >>> 3 < _ + R; ) {
             ne = C._findDiff(L, z + (z == 0 ? 0 : 1), 1 - he), le = C._findDiff(L, ne, he);
             var h = 0;
-            if (U == 1 && (h = I[ae >>> 3] >>> 7 - (7 & ae) & 1), U == 2 && (h = I[ae >>> 3] >>> (7 & ae) & 1), ae++, te += h, T == "H") {
+            if (U == 1 && (h = A[ae >>> 3] >>> 7 - (7 & ae) & 1), U == 2 && (h = A[ae >>> 3] >>> (7 & ae) & 1), ae++, te += h, T == "H") {
               if (C._lens[he][te] != null) {
                 var c = C._lens[he][te];
                 te = "", J += c, c < 64 && (C._addNtimes($, J, he), z += J, he = 1 - he, J = 0, --B == 0 && (T = ""));
@@ -13038,57 +13038,57 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
               te == "0001" && (te = "", C._addNtimes($, le - z, he), z = le), te == "001" && (te = "", T = "H", B = 2), C._dmap[te] != null && (j = ne + C._dmap[te], C._addNtimes($, j - z, he), z = j, te = "", he = 1 - he);
             $.length == N && T == "" && (C._writeBits($, W, 8 * O + M * K), he = 0, M++, z = 0, L = C._makeDiff($), $ = []);
           }
-        }, a.decode._findDiff = function(I, _, R) {
-          for (var W = 0; W < I.length; W += 2)
-            if (I[W] >= _ && I[W + 1] == R)
-              return I[W];
-        }, a.decode._makeDiff = function(I) {
+        }, a.decode._findDiff = function(A, _, R) {
+          for (var W = 0; W < A.length; W += 2)
+            if (A[W] >= _ && A[W + 1] == R)
+              return A[W];
+        }, a.decode._makeDiff = function(A) {
           var _ = [];
-          I[0] == 1 && _.push(0, 1);
-          for (var R = 1; R < I.length; R++)
-            I[R - 1] != I[R] && _.push(R, I[R]);
-          return _.push(I.length, 0, I.length, 1), _;
-        }, a.decode._decodeG2 = function(I, _, R, W, O, N, U) {
+          A[0] == 1 && _.push(0, 1);
+          for (var R = 1; R < A.length; R++)
+            A[R - 1] != A[R] && _.push(R, A[R]);
+          return _.push(A.length, 0, A.length, 1), _;
+        }, a.decode._decodeG2 = function(A, _, R, W, O, N, U) {
           for (var C = a.decode, ae = _ << 3, J = 0, te = "", $ = [], L = 0, re = 0, z = 8 * Math.ceil(N / 8); ae >>> 3 < _ + R; ) {
             var j = 0;
-            U == 1 && (j = I[ae >>> 3] >>> 7 - (7 & ae) & 1), U == 2 && (j = I[ae >>> 3] >>> (7 & ae) & 1), ae++, te += j, (J = C._lens[L][te]) != null && (C._addNtimes($, J, L), te = "", J < 64 && (L = 1 - L), $.length == N && (C._writeBits($, W, 8 * O + re * z), $ = [], re++, L = 0, 7 & ae && (ae += 8 - (7 & ae)), J >= 64 && (ae += 8)));
+            U == 1 && (j = A[ae >>> 3] >>> 7 - (7 & ae) & 1), U == 2 && (j = A[ae >>> 3] >>> (7 & ae) & 1), ae++, te += j, (J = C._lens[L][te]) != null && (C._addNtimes($, J, L), te = "", J < 64 && (L = 1 - L), $.length == N && (C._writeBits($, W, 8 * O + re * z), $ = [], re++, L = 0, 7 & ae && (ae += 8 - (7 & ae)), J >= 64 && (ae += 8)));
           }
-        }, a.decode._decodeG3 = function(I, _, R, W, O, N, U, C) {
+        }, a.decode._decodeG3 = function(A, _, R, W, O, N, U, C) {
           for (var ae = a.decode, J = _ << 3, te = 0, $ = "", L = [], re = [], z = 0; z < N; z++)
             L.push(0);
           for (var j = 0, ne = 0, le = 0, he = 0, M = 0, T = -1, B = "", K = 0, h = !0, c = 8 * Math.ceil(N / 8); J >>> 3 < _ + R; ) {
             le = ae._findDiff(re, j + (j == 0 ? 0 : 1), 1 - M), he = ae._findDiff(re, le, M);
             var m = 0;
-            if (U == 1 && (m = I[J >>> 3] >>> 7 - (7 & J) & 1), U == 2 && (m = I[J >>> 3] >>> (7 & J) & 1), J++, $ += m, h) {
+            if (U == 1 && (m = A[J >>> 3] >>> 7 - (7 & J) & 1), U == 2 && (m = A[J >>> 3] >>> (7 & J) & 1), J++, $ += m, h) {
               if (ae._lens[M][$] != null) {
                 var D = ae._lens[M][$];
                 $ = "", te += D, D < 64 && (ae._addNtimes(L, te, M), M = 1 - M, te = 0);
               }
             } else
               B == "H" ? ae._lens[M][$] != null && (D = ae._lens[M][$], $ = "", te += D, D < 64 && (ae._addNtimes(L, te, M), j += te, M = 1 - M, te = 0, --K == 0 && (B = ""))) : ($ == "0001" && ($ = "", ae._addNtimes(L, he - j, M), j = he), $ == "001" && ($ = "", B = "H", K = 2), ae._dmap[$] != null && (ne = le + ae._dmap[$], ae._addNtimes(L, ne - j, M), j = ne, $ = "", M = 1 - M));
-            $.endsWith("000000000001") && (T >= 0 && ae._writeBits(L, W, 8 * O + T * c), C && (U == 1 && (h = (I[J >>> 3] >>> 7 - (7 & J) & 1) == 1), U == 2 && (h = (I[J >>> 3] >>> (7 & J) & 1) == 1), J++), $ = "", M = 0, T++, j = 0, re = ae._makeDiff(L), L = []);
+            $.endsWith("000000000001") && (T >= 0 && ae._writeBits(L, W, 8 * O + T * c), C && (U == 1 && (h = (A[J >>> 3] >>> 7 - (7 & J) & 1) == 1), U == 2 && (h = (A[J >>> 3] >>> (7 & J) & 1) == 1), J++), $ = "", M = 0, T++, j = 0, re = ae._makeDiff(L), L = []);
           }
           L.length == N && ae._writeBits(L, W, 8 * O + T * c);
-        }, a.decode._addNtimes = function(I, _, R) {
+        }, a.decode._addNtimes = function(A, _, R) {
           for (var W = 0; W < _; W++)
-            I.push(R);
-        }, a.decode._writeBits = function(I, _, R) {
-          for (var W = 0; W < I.length; W++)
-            _[R + W >>> 3] |= I[W] << 7 - (R + W & 7);
+            A.push(R);
+        }, a.decode._writeBits = function(A, _, R) {
+          for (var W = 0; W < A.length; W++)
+            _[R + W >>> 3] |= A[W] << 7 - (R + W & 7);
         }, a.decode._decodeLZW = a.decode._decodeLZW = (p = 0, g = 0, v = 0, x = 0, b = function() {
-          var I = r >>> 3, _ = (o[I] << 16 | o[I + 1] << 8 | o[I + 2]) >>> 24 - (7 & r) - g & (1 << g) - 1;
+          var A = r >>> 3, _ = (o[A] << 16 | o[A + 1] << 8 | o[A + 2]) >>> 24 - (7 & r) - g & (1 << g) - 1;
           return r += g, _;
-        }, w = new Uint32Array(16384), k = 0, G = function(I) {
-          g = I + 1, p = x + 1;
-        }, F = function(I) {
-          for (var _ = I << 2, R = w[_ + 2], W = u + R - 1; _ != 65535; )
+        }, w = new Uint32Array(16384), k = 0, G = function(A) {
+          g = A + 1, p = x + 1;
+        }, F = function(A) {
+          for (var _ = A << 2, R = w[_ + 2], W = u + R - 1; _ != 65535; )
             n[W--] = w[_], _ = w[_ + 1];
           u += R;
-        }, V = function(I, _) {
-          var R = p << 2, W = I << 2;
+        }, V = function(A, _) {
+          var R = p << 2, W = A << 2;
           w[R] = w[3 + (_ << 2)], w[R + 1] = W, w[R + 2] = w[W + 2] + 1, w[R + 3] = w[W + 3], 1 + ++p == 1 << g && g != 12 && g++;
-        }, function(I, _, R, W, O, N) {
-          r = _ << 3, o = I, n = W, u = O;
+        }, function(A, _, R, W, O, N) {
+          r = _ << 3, o = A, n = W, u = O;
           var U = _ + R << 3, C = 0, ae = 0;
           for (function(J) {
             if (J != k) {
@@ -13106,73 +13106,73 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             ae = C;
           }
           return u;
-        }), a.tags = {}, a._types = ((q = new Array(250)).fill(0), { basic: { main: q = q.concat([0, 0, 0, 0, 4, 3, 3, 3, 3, 3, 0, 0, 3, 0, 0, 0, 3, 0, 0, 2, 2, 2, 2, 4, 3, 0, 0, 3, 4, 4, 3, 3, 5, 5, 3, 2, 5, 5, 0, 0, 0, 0, 4, 4, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 3, 5, 5, 3, 0, 3, 3, 4, 4, 4, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]), rest: { 33432: 2, 33434: 5, 33437: 5, 34665: 4, 34850: 3, 34853: 4, 34855: 3, 34864: 3, 34866: 4, 36864: 7, 36867: 2, 36868: 2, 37121: 7, 37377: 10, 37378: 5, 37380: 10, 37381: 5, 37383: 3, 37384: 3, 37385: 3, 37386: 5, 37510: 7, 37520: 2, 37521: 2, 37522: 2, 40960: 7, 40961: 3, 40962: 4, 40963: 4, 40965: 4, 41486: 5, 41487: 5, 41488: 3, 41985: 3, 41986: 3, 41987: 3, 41988: 5, 41989: 3, 41990: 3, 41993: 3, 41994: 3, 41995: 7, 41996: 3, 42032: 2, 42033: 2, 42034: 5, 42036: 2, 42037: 2, 59932: 7 } }, gps: { main: [1, 2, 5, 2, 5, 1, 5, 5, 0, 9], rest: { 18: 2, 29: 2 } } }), a._readIFD = function(I, _, R, W, O, N) {
-          var U = I.readUshort(_, R);
+        }), a.tags = {}, a._types = ((q = new Array(250)).fill(0), { basic: { main: q = q.concat([0, 0, 0, 0, 4, 3, 3, 3, 3, 3, 0, 0, 3, 0, 0, 0, 3, 0, 0, 2, 2, 2, 2, 4, 3, 0, 0, 3, 4, 4, 3, 3, 5, 5, 3, 2, 5, 5, 0, 0, 0, 0, 4, 4, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 3, 5, 5, 3, 0, 3, 3, 4, 4, 4, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]), rest: { 33432: 2, 33434: 5, 33437: 5, 34665: 4, 34850: 3, 34853: 4, 34855: 3, 34864: 3, 34866: 4, 36864: 7, 36867: 2, 36868: 2, 37121: 7, 37377: 10, 37378: 5, 37380: 10, 37381: 5, 37383: 3, 37384: 3, 37385: 3, 37386: 5, 37510: 7, 37520: 2, 37521: 2, 37522: 2, 40960: 7, 40961: 3, 40962: 4, 40963: 4, 40965: 4, 41486: 5, 41487: 5, 41488: 3, 41985: 3, 41986: 3, 41987: 3, 41988: 5, 41989: 3, 41990: 3, 41993: 3, 41994: 3, 41995: 7, 41996: 3, 42032: 2, 42033: 2, 42034: 5, 42036: 2, 42037: 2, 59932: 7 } }, gps: { main: [1, 2, 5, 2, 5, 1, 5, 5, 0, 9], rest: { 18: 2, 29: 2 } } }), a._readIFD = function(A, _, R, W, O, N) {
+          var U = A.readUshort(_, R);
           R += 2;
           var C = {};
           N.debug && i("   ".repeat(O), W.length - 1, ">>>----------------");
           for (var ae = 0; ae < U; ae++) {
-            var J = I.readUshort(_, R);
+            var J = A.readUshort(_, R);
             R += 2;
-            var te = I.readUshort(_, R);
+            var te = A.readUshort(_, R);
             R += 2;
-            var $ = I.readUint(_, R);
+            var $ = A.readUint(_, R);
             R += 4;
-            var L = I.readUint(_, R);
+            var L = A.readUint(_, R);
             R += 4;
             var re = [];
             if (te != 1 && te != 7 || (re = new Uint8Array(_.buffer, $ < 5 ? R - 4 : L, $)), te == 2) {
               var z = $ < 5 ? R - 4 : L, j = _[z], ne = Math.max(0, Math.min($ - 1, _.length - z));
-              j < 128 || ne == 0 ? re.push(I.readASCII(_, z, ne)) : re = new Uint8Array(_.buffer, z, ne);
+              j < 128 || ne == 0 ? re.push(A.readASCII(_, z, ne)) : re = new Uint8Array(_.buffer, z, ne);
             }
             if (te == 3)
               for (var le = 0; le < $; le++)
-                re.push(I.readUshort(_, ($ < 3 ? R - 4 : L) + 2 * le));
+                re.push(A.readUshort(_, ($ < 3 ? R - 4 : L) + 2 * le));
             if (te == 4 || te == 13)
               for (le = 0; le < $; le++)
-                re.push(I.readUint(_, ($ < 2 ? R - 4 : L) + 4 * le));
+                re.push(A.readUint(_, ($ < 2 ? R - 4 : L) + 4 * le));
             if (te == 5 || te == 10) {
-              var he = te == 5 ? I.readUint : I.readInt;
+              var he = te == 5 ? A.readUint : A.readInt;
               for (le = 0; le < $; le++)
                 re.push([he(_, L + 8 * le), he(_, L + 8 * le + 4)]);
             }
             if (te == 8)
               for (le = 0; le < $; le++)
-                re.push(I.readShort(_, ($ < 3 ? R - 4 : L) + 2 * le));
+                re.push(A.readShort(_, ($ < 3 ? R - 4 : L) + 2 * le));
             if (te == 9)
               for (le = 0; le < $; le++)
-                re.push(I.readInt(_, ($ < 2 ? R - 4 : L) + 4 * le));
+                re.push(A.readInt(_, ($ < 2 ? R - 4 : L) + 4 * le));
             if (te == 11)
               for (le = 0; le < $; le++)
-                re.push(I.readFloat(_, L + 4 * le));
+                re.push(A.readFloat(_, L + 4 * le));
             if (te == 12)
               for (le = 0; le < $; le++)
-                re.push(I.readDouble(_, L + 8 * le));
+                re.push(A.readDouble(_, L + 8 * le));
             if ($ == 0 || re.length != 0) {
               if (N.debug && i("   ".repeat(O), J, te, a.tags[J], re), C["t" + J] = re, !(J == 330 && C.t272 && C.t272[0] == "DSLR-A100")) {
-                if (J == 330 || J == 34665 || J == 34853 || J == 50740 && I.readUshort(_, I.readUint(re, 0)) < 300 || J == 61440) {
-                  var M = J == 50740 ? [I.readUint(re, 0)] : re, T = [];
+                if (J == 330 || J == 34665 || J == 34853 || J == 50740 && A.readUshort(_, A.readUint(re, 0)) < 300 || J == 61440) {
+                  var M = J == 50740 ? [A.readUint(re, 0)] : re, T = [];
                   for (le = 0; le < M.length; le++)
-                    a._readIFD(I, _, M[le], T, O + 1, N);
+                    a._readIFD(A, _, M[le], T, O + 1, N);
                   J == 330 && (C.subIFD = T), J == 34665 && (C.exifIFD = T[0]), J == 34853 && (C.gpsiIFD = T[0]), J == 50740 && (C.dngPrvt = T[0]), J == 61440 && (C.fujiIFD = T[0]);
                 }
               }
               if (J == 37500 && N.parseMN) {
                 var B = re;
-                if (I.readASCII(B, 0, 5) == "Nikon")
+                if (A.readASCII(B, 0, 5) == "Nikon")
                   C.makerNote = a.decode(B.slice(10).buffer)[0];
-                else if (I.readUshort(_, L) < 300 && I.readUshort(_, L + 4) <= 12) {
+                else if (A.readUshort(_, L) < 300 && A.readUshort(_, L + 4) <= 12) {
                   var K = [];
-                  a._readIFD(I, _, L, K, O + 1, N), C.makerNote = K[0];
+                  a._readIFD(A, _, L, K, O + 1, N), C.makerNote = K[0];
                 }
               }
             } else if (i(J, "unknown TIFF tag type: ", te, "num:", $), ae == 0)
               return;
           }
           return W.push(C), N.debug && i("   ".repeat(O), "<<<---------------"), R;
-        }, a._writeIFD = function(I, _, R, W, O) {
+        }, a._writeIFD = function(A, _, R, W, O) {
           var N = Object.keys(O), U = N.length;
-          O.exifIFD && U--, O.gpsiIFD && U--, I.writeUshort(R, W, U);
+          O.exifIFD && U--, O.gpsiIFD && U--, A.writeUshort(R, W, U);
           for (var C = (W += 2) + 12 * U + 4, ae = 0; ae < N.length; ae++) {
             var J = N[ae];
             if (J != "t34665" && J != "t34853") {
@@ -13181,23 +13181,23 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
               if ($ == null && ($ = _.rest[te]), $ == null || $ == 0)
                 throw new Error("unknown type of tag: " + te);
               var L = O[J];
-              te == 34665 && (L = [C], C = a._writeIFD(I, _, R, C, O.exifIFD)[1]), te == 34853 && (L = [C], C = a._writeIFD(I, a._types.gps, R, C, O.gpsiIFD)[1]), $ == 2 && (L = L[0] + "\0");
+              te == 34665 && (L = [C], C = a._writeIFD(A, _, R, C, O.exifIFD)[1]), te == 34853 && (L = [C], C = a._writeIFD(A, a._types.gps, R, C, O.gpsiIFD)[1]), $ == 2 && (L = L[0] + "\0");
               var re = L.length;
-              I.writeUshort(R, W, te), W += 2, I.writeUshort(R, W, $), W += 2, I.writeUint(R, W, re);
+              A.writeUshort(R, W, te), W += 2, A.writeUshort(R, W, $), W += 2, A.writeUint(R, W, re);
               var z = [-1, 1, 1, 2, 4, 8, 0, 1, 0, 4, 8, 0, 8][$] * re, j = W += 4;
-              if (z > 4 && (I.writeUint(R, W, C), j = C), $ == 1 || $ == 7)
+              if (z > 4 && (A.writeUint(R, W, C), j = C), $ == 1 || $ == 7)
                 for (var ne = 0; ne < re; ne++)
                   R[j + ne] = L[ne];
               else if ($ == 2)
-                I.writeASCII(R, j, L);
+                A.writeASCII(R, j, L);
               else if ($ == 3)
                 for (ne = 0; ne < re; ne++)
-                  I.writeUshort(R, j + 2 * ne, L[ne]);
+                  A.writeUshort(R, j + 2 * ne, L[ne]);
               else if ($ == 4)
                 for (ne = 0; ne < re; ne++)
-                  I.writeUint(R, j + 4 * ne, L[ne]);
+                  A.writeUint(R, j + 4 * ne, L[ne]);
               else if ($ == 5 || $ == 10) {
-                var le = $ == 5 ? I.writeUint : I.writeInt;
+                var le = $ == 5 ? A.writeUint : A.writeInt;
                 for (ne = 0; ne < re; ne++) {
                   var he = L[ne], M = he[0], T = he[1];
                   if (M == null)
@@ -13206,20 +13206,20 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                 }
               } else if ($ == 9)
                 for (ne = 0; ne < re; ne++)
-                  I.writeInt(R, j + 4 * ne, L[ne]);
+                  A.writeInt(R, j + 4 * ne, L[ne]);
               else {
                 if ($ != 12)
                   throw $;
                 for (ne = 0; ne < re; ne++)
-                  I.writeDouble(R, j + 8 * ne, L[ne]);
+                  A.writeDouble(R, j + 8 * ne, L[ne]);
               }
               z > 4 && (C += z += 1 & z), W += 4;
             }
           }
           return [W, C];
-        }, a.toRGBA8 = function(I, _) {
-          var R = I.width, W = I.height, O = R * W, N = 4 * O, U = I.data, C = new Uint8Array(4 * O), ae = I.t262 ? I.t262[0] : 2, J = I.t258 ? Math.min(32, I.t258[0]) : 1;
-          if (I.t262 == null && J == 1 && (ae = 0), ae == 0)
+        }, a.toRGBA8 = function(A, _) {
+          var R = A.width, W = A.height, O = R * W, N = 4 * O, U = A.data, C = new Uint8Array(4 * O), ae = A.t262 ? A.t262[0] : 2, J = A.t258 ? Math.min(32, A.t258[0]) : 1;
+          if (A.t262 == null && J == 1 && (ae = 0), ae == 0)
             for (var te = Math.ceil(J * R / 8), $ = 0; $ < W; $++) {
               var L = $ * te, re = $ * R;
               if (J == 1)
@@ -13235,7 +13235,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                   j = re + z << 2, ne = U[L + z], C[j] = C[j + 1] = C[j + 2] = 255 - ne, C[j + 3] = 255;
             }
           else if (ae == 1) {
-            var le = I.t258 ? I.t258.length : 1;
+            var le = A.t258 ? A.t258.length : 1;
             for (te = Math.ceil(le * J * R / 8), _ == null && (_ = 390625e-8), $ = 0; $ < W; $++) {
               if (L = $ * te, re = $ * R, J == 1)
                 for (z = 0; z < R; z++)
@@ -13254,7 +13254,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                 }
             }
           } else if (ae == 2)
-            if (le = I.t258 ? I.t258.length : 3, J == 8) {
+            if (le = A.t258 ? A.t258.length : 3, J == 8) {
               if (le == 4)
                 for (z = 0; z < N; z++)
                   C[z] = U[z];
@@ -13285,7 +13285,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                 M = 3 * z, C[j = z << 2] = ~~(0.5 + 255 * B[M]), C[j + 1] = ~~(0.5 + 255 * B[M + 1]), C[j + 2] = ~~(0.5 + 255 * B[M + 2]), C[j + 3] = 255;
             }
           else if (ae == 3) {
-            var K = I.t320, h = (le = I.t258 ? I.t258.length : 1, te = Math.ceil(le * J * R / 8), 1 << J);
+            var K = A.t320, h = (le = A.t258 ? A.t258.length : 1, te = Math.ceil(le * J * R / 8), 1 << J);
             for ($ = 0; $ < W; $++)
               for (var c = 0; c < R; c++) {
                 j = (z = $ * R + c) << 2;
@@ -13304,7 +13304,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                 C[j] = K[m] >> 8, C[j + 1] = K[h + m] >> 8, C[j + 2] = K[h + h + m] >> 8, C[j + 3] = 255;
               }
           } else if (ae == 5) {
-            var ee = (le = I.t258 ? I.t258.length : 4) > 4 ? 1 : 0;
+            var ee = (le = A.t258 ? A.t258.length : 4) > 4 ? 1 : 0;
             for (z = 0; z < O; z++) {
               j = z << 2;
               var E = z * le;
@@ -13315,8 +13315,8 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                 Q = 255 - U[E], se = 255 - U[E + 1], Y = 255 - U[E + 2], be = (255 - U[E + 3]) * 0.00392156862745098, C[j] = ~~(Q * be + 0.5), C[j + 1] = ~~(se * be + 0.5), C[j + 2] = ~~(Y * be + 0.5);
               C[j + 3] = 255 * (1 - ee) + U[E + 4] * ee;
             }
-          } else if (ae == 6 && I.t278) {
-            var ke = I.t278[0];
+          } else if (ae == 6 && A.t278) {
+            var ke = A.t278[0];
             for ($ = 0; $ < W; $ += ke) {
               z = $ * R;
               for (var Me = ke * R, oe = 0; oe < Me; oe++) {
@@ -13338,10 +13338,10 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           } else
             i("Unknown Photometric interpretation: " + ae);
           return C;
-        }, a.replaceIMG = function(I) {
-          I == null && (I = document.getElementsByTagName("img"));
-          for (var _ = ["tif", "tiff", "dng", "cr2", "nef"], R = 0; R < I.length; R++) {
-            var W = I[R], O = W.getAttribute("src");
+        }, a.replaceIMG = function(A) {
+          A == null && (A = document.getElementsByTagName("img"));
+          for (var _ = ["tif", "tiff", "dng", "cr2", "nef"], R = 0; R < A.length; R++) {
+            var W = A[R], O = W.getAttribute("src");
             if (O != null) {
               var N = O.split(".").pop().toLowerCase();
               if (_.indexOf(N) != -1) {
@@ -13350,11 +13350,11 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
               }
             }
           }
-        }, a._xhrs = [], a._imgs = [], a._imgLoaded = function(I) {
-          var _ = a._xhrs.indexOf(I.target), R = a._imgs[_];
-          a._xhrs.splice(_, 1), a._imgs.splice(_, 1), R.setAttribute("src", a.bufferToURI(I.target.response));
-        }, a.bufferToURI = function(I) {
-          var _ = a.decode(I), R = _, W = 0, O = R[0];
+        }, a._xhrs = [], a._imgs = [], a._imgLoaded = function(A) {
+          var _ = a._xhrs.indexOf(A.target), R = a._imgs[_];
+          a._xhrs.splice(_, 1), a._imgs.splice(_, 1), R.setAttribute("src", a.bufferToURI(A.target.response));
+        }, a.bufferToURI = function(A) {
+          var _ = a.decode(A), R = _, W = 0, O = R[0];
           _[0].subIFD && (R = R.concat(_[0].subIFD));
           for (var N = 0; N < R.length; N++) {
             var U = R[N];
@@ -13363,89 +13363,89 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
               C > W && (W = C, O = U);
             }
           }
-          a.decodeImage(I, O, _);
+          a.decodeImage(A, O, _);
           var ae = a.toRGBA8(O), J = O.width, te = O.height, $ = document.createElement("canvas");
           $.width = J, $.height = te;
           var L = $.getContext("2d"), re = new ImageData(new Uint8ClampedArray(ae.buffer), J, te);
           return L.putImageData(re, 0, 0), $.toDataURL();
-        }, a._binBE = { nextZero: function(I, _) {
-          for (; I[_] != 0; )
+        }, a._binBE = { nextZero: function(A, _) {
+          for (; A[_] != 0; )
             _++;
           return _;
-        }, readUshort: function(I, _) {
-          return I[_] << 8 | I[_ + 1];
-        }, readShort: function(I, _) {
+        }, readUshort: function(A, _) {
+          return A[_] << 8 | A[_ + 1];
+        }, readShort: function(A, _) {
           var R = a._binBE.ui8;
-          return R[0] = I[_ + 1], R[1] = I[_ + 0], a._binBE.i16[0];
-        }, readInt: function(I, _) {
+          return R[0] = A[_ + 1], R[1] = A[_ + 0], a._binBE.i16[0];
+        }, readInt: function(A, _) {
           var R = a._binBE.ui8;
-          return R[0] = I[_ + 3], R[1] = I[_ + 2], R[2] = I[_ + 1], R[3] = I[_ + 0], a._binBE.i32[0];
-        }, readUint: function(I, _) {
+          return R[0] = A[_ + 3], R[1] = A[_ + 2], R[2] = A[_ + 1], R[3] = A[_ + 0], a._binBE.i32[0];
+        }, readUint: function(A, _) {
           var R = a._binBE.ui8;
-          return R[0] = I[_ + 3], R[1] = I[_ + 2], R[2] = I[_ + 1], R[3] = I[_ + 0], a._binBE.ui32[0];
-        }, readASCII: function(I, _, R) {
+          return R[0] = A[_ + 3], R[1] = A[_ + 2], R[2] = A[_ + 1], R[3] = A[_ + 0], a._binBE.ui32[0];
+        }, readASCII: function(A, _, R) {
           for (var W = "", O = 0; O < R; O++)
-            W += String.fromCharCode(I[_ + O]);
+            W += String.fromCharCode(A[_ + O]);
           return W;
-        }, readFloat: function(I, _) {
+        }, readFloat: function(A, _) {
           for (var R = a._binBE.ui8, W = 0; W < 4; W++)
-            R[W] = I[_ + 3 - W];
+            R[W] = A[_ + 3 - W];
           return a._binBE.fl32[0];
-        }, readDouble: function(I, _) {
+        }, readDouble: function(A, _) {
           for (var R = a._binBE.ui8, W = 0; W < 8; W++)
-            R[W] = I[_ + 7 - W];
+            R[W] = A[_ + 7 - W];
           return a._binBE.fl64[0];
-        }, writeUshort: function(I, _, R) {
-          I[_] = R >> 8 & 255, I[_ + 1] = 255 & R;
-        }, writeInt: function(I, _, R) {
+        }, writeUshort: function(A, _, R) {
+          A[_] = R >> 8 & 255, A[_ + 1] = 255 & R;
+        }, writeInt: function(A, _, R) {
           var W = a._binBE.ui8;
-          a._binBE.i32[0] = R, I[_ + 3] = W[0], I[_ + 2] = W[1], I[_ + 1] = W[2], I[_ + 0] = W[3];
-        }, writeUint: function(I, _, R) {
-          I[_] = R >> 24 & 255, I[_ + 1] = R >> 16 & 255, I[_ + 2] = R >> 8 & 255, I[_ + 3] = R >> 0 & 255;
-        }, writeASCII: function(I, _, R) {
+          a._binBE.i32[0] = R, A[_ + 3] = W[0], A[_ + 2] = W[1], A[_ + 1] = W[2], A[_ + 0] = W[3];
+        }, writeUint: function(A, _, R) {
+          A[_] = R >> 24 & 255, A[_ + 1] = R >> 16 & 255, A[_ + 2] = R >> 8 & 255, A[_ + 3] = R >> 0 & 255;
+        }, writeASCII: function(A, _, R) {
           for (var W = 0; W < R.length; W++)
-            I[_ + W] = R.charCodeAt(W);
-        }, writeDouble: function(I, _, R) {
+            A[_ + W] = R.charCodeAt(W);
+        }, writeDouble: function(A, _, R) {
           a._binBE.fl64[0] = R;
           for (var W = 0; W < 8; W++)
-            I[_ + W] = a._binBE.ui8[7 - W];
-        } }, a._binBE.ui8 = new Uint8Array(8), a._binBE.i16 = new Int16Array(a._binBE.ui8.buffer), a._binBE.i32 = new Int32Array(a._binBE.ui8.buffer), a._binBE.ui32 = new Uint32Array(a._binBE.ui8.buffer), a._binBE.fl32 = new Float32Array(a._binBE.ui8.buffer), a._binBE.fl64 = new Float64Array(a._binBE.ui8.buffer), a._binLE = { nextZero: a._binBE.nextZero, readUshort: function(I, _) {
-          return I[_ + 1] << 8 | I[_];
-        }, readShort: function(I, _) {
+            A[_ + W] = a._binBE.ui8[7 - W];
+        } }, a._binBE.ui8 = new Uint8Array(8), a._binBE.i16 = new Int16Array(a._binBE.ui8.buffer), a._binBE.i32 = new Int32Array(a._binBE.ui8.buffer), a._binBE.ui32 = new Uint32Array(a._binBE.ui8.buffer), a._binBE.fl32 = new Float32Array(a._binBE.ui8.buffer), a._binBE.fl64 = new Float64Array(a._binBE.ui8.buffer), a._binLE = { nextZero: a._binBE.nextZero, readUshort: function(A, _) {
+          return A[_ + 1] << 8 | A[_];
+        }, readShort: function(A, _) {
           var R = a._binBE.ui8;
-          return R[0] = I[_ + 0], R[1] = I[_ + 1], a._binBE.i16[0];
-        }, readInt: function(I, _) {
+          return R[0] = A[_ + 0], R[1] = A[_ + 1], a._binBE.i16[0];
+        }, readInt: function(A, _) {
           var R = a._binBE.ui8;
-          return R[0] = I[_ + 0], R[1] = I[_ + 1], R[2] = I[_ + 2], R[3] = I[_ + 3], a._binBE.i32[0];
-        }, readUint: function(I, _) {
+          return R[0] = A[_ + 0], R[1] = A[_ + 1], R[2] = A[_ + 2], R[3] = A[_ + 3], a._binBE.i32[0];
+        }, readUint: function(A, _) {
           var R = a._binBE.ui8;
-          return R[0] = I[_ + 0], R[1] = I[_ + 1], R[2] = I[_ + 2], R[3] = I[_ + 3], a._binBE.ui32[0];
-        }, readASCII: a._binBE.readASCII, readFloat: function(I, _) {
+          return R[0] = A[_ + 0], R[1] = A[_ + 1], R[2] = A[_ + 2], R[3] = A[_ + 3], a._binBE.ui32[0];
+        }, readASCII: a._binBE.readASCII, readFloat: function(A, _) {
           for (var R = a._binBE.ui8, W = 0; W < 4; W++)
-            R[W] = I[_ + W];
+            R[W] = A[_ + W];
           return a._binBE.fl32[0];
-        }, readDouble: function(I, _) {
+        }, readDouble: function(A, _) {
           for (var R = a._binBE.ui8, W = 0; W < 8; W++)
-            R[W] = I[_ + W];
+            R[W] = A[_ + W];
           return a._binBE.fl64[0];
-        }, writeUshort: function(I, _, R) {
-          I[_] = 255 & R, I[_ + 1] = R >> 8 & 255;
-        }, writeInt: function(I, _, R) {
+        }, writeUshort: function(A, _, R) {
+          A[_] = 255 & R, A[_ + 1] = R >> 8 & 255;
+        }, writeInt: function(A, _, R) {
           var W = a._binBE.ui8;
-          a._binBE.i32[0] = R, I[_ + 0] = W[0], I[_ + 1] = W[1], I[_ + 2] = W[2], I[_ + 3] = W[3];
-        }, writeUint: function(I, _, R) {
-          I[_] = R >>> 0 & 255, I[_ + 1] = R >>> 8 & 255, I[_ + 2] = R >>> 16 & 255, I[_ + 3] = R >>> 24 & 255;
-        }, writeASCII: a._binBE.writeASCII }, a._copyTile = function(I, _, R, W, O, N, U, C) {
+          a._binBE.i32[0] = R, A[_ + 0] = W[0], A[_ + 1] = W[1], A[_ + 2] = W[2], A[_ + 3] = W[3];
+        }, writeUint: function(A, _, R) {
+          A[_] = R >>> 0 & 255, A[_ + 1] = R >>> 8 & 255, A[_ + 2] = R >>> 16 & 255, A[_ + 3] = R >>> 24 & 255;
+        }, writeASCII: a._binBE.writeASCII }, a._copyTile = function(A, _, R, W, O, N, U, C) {
           for (var ae = Math.min(_, O - U), J = Math.min(R, N - C), te = 0; te < J; te++)
             for (var $ = (C + te) * O + U, L = te * _, re = 0; re < ae; re++)
-              W[$ + re] = I[L + re];
+              W[$ + re] = A[L + re];
         }, a.LosslessJpegDecode = function() {
-          var I, _;
+          var A, _;
           function R() {
-            return I[_++];
+            return A[_++];
           }
           function W() {
-            return I[_++] << 8 | I[_++];
+            return A[_++] << 8 | A[_++];
           }
           function O(z) {
             for (var j = R(), ne = [0, 0, 0, 255], le = [], he = 0; he < 16; he++)
@@ -13546,7 +13546,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             }
           }
           return function(z) {
-            if (I = z, _ = 0, W() != 65496)
+            if (A = z, _ = 0, W() != 65496)
               throw "e";
             for (var j = [], ne = 0, le = 0, he = [], M = [], T = [], B = 0, K = 0, h = 0; ; ) {
               var c = W();
@@ -13577,17 +13577,17 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
               } else
                 _--;
             }
-            var Y = new (le > 8 ? Uint16Array : Uint8Array)(K * h * B), be = { b: 0, a: 0, c: ne == 8, e: _, data: I, d: I.length };
+            var Y = new (le > 8 ? Uint16Array : Uint8Array)(K * h * B), be = { b: 0, a: 0, c: ne == 8, e: _, data: A, d: A.length };
             if (be.c)
               (function(de, Ze, Re, rt, De) {
-                for (var Je = I.length - _, je = 0; je < Je; je += 4) {
-                  var Ie = I[_ + je];
-                  I[_ + je] = I[_ + je + 3], I[_ + je + 3] = Ie, Ie = I[_ + je + 1], I[_ + je + 1] = I[_ + je + 2], I[_ + je + 2] = Ie;
+                for (var Je = A.length - _, je = 0; je < Je; je += 4) {
+                  var Ae = A[_ + je];
+                  A[_ + je] = A[_ + je + 3], A[_ + je + 3] = Ae, Ae = A[_ + je + 1], A[_ + je + 1] = A[_ + je + 2], A[_ + je + 2] = Ae;
                 }
                 for (var at = 0; at < De; at++)
                   for (var st = 32768, tt = 32768, mt = 0; mt < Ze; mt += 2) {
-                    var It = ae(rt, Re), wt = ae(rt, Re);
-                    It != 0 && (st += L(It, Re)), wt != 0 && (tt += L(wt, Re)), de[at * Ze + mt] = 65535 & st, de[at * Ze + mt + 1] = 65535 & tt;
+                    var At = ae(rt, Re), wt = ae(rt, Re);
+                    At != 0 && (st += L(At, Re)), wt != 0 && (tt += L(wt, Re)), de[at * Ze + mt] = 65535 & st, de[at * Ze + mt + 1] = 65535 & tt;
                   }
               })(Y, h * B, be, T[0], K);
             else {
@@ -13620,7 +13620,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             return Y;
           };
         }(), function() {
-          var I = 2, _ = 3, R = 4, W = 5, O = 6, N = 7, U = 8, C = 9, ae = 10, J = 11, te = 12, $ = 13, L = 14, re = 15, z = 16, j = 17;
+          var A = 2, _ = 3, R = 4, W = 5, O = 6, N = 7, U = 8, C = 9, ae = 10, J = 11, te = 12, $ = 13, L = 14, re = 15, z = 16, j = 17;
           function ne(c) {
             for (var m = [[], [], []], D = Math.max(2, c.w + 32 >>> 6), ee = 0; ee < 3; ee++)
               for (var E = 0; E < 41; E++)
@@ -13671,7 +13671,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
               c[E][0] = c[E - 1][1], c[E][ee - 1] = c[E - 1][ee - 2];
           }
           function T(c) {
-            M(c, N, te), M(c, I, R), M(c, re, j);
+            M(c, N, te), M(c, A, R), M(c, re, j);
           }
           function B(c, m, D, ee, E, Q, se, Y, be, Ee, ke, Me, oe) {
             for (var ce = 0, xe = 1, Ce = E < $ && E > R; xe < c.m; )
@@ -13679,7 +13679,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             T(ee);
           }
           function K(c, m, D, ee, E, Q) {
-            B(c, m, D, ee, I, N, E, Q, 0, 0, 1, 0, 8), B(c, m, D, ee, U, re, E, Q, 1, 0, 1, 0, 8), B(c, m, D, ee, _, C, E, Q, 2, 1, 0, 3, 0), B(c, m, D, ee, ae, z, E, Q, 0, 0, 0, 3, 2), B(c, m, D, ee, R, J, E, Q, 1, 0, 0, 3, 2), B(c, m, D, ee, te, j, E, Q, 2, 1, 0, 3, 0);
+            B(c, m, D, ee, A, N, E, Q, 0, 0, 1, 0, 8), B(c, m, D, ee, U, re, E, Q, 1, 0, 1, 0, 8), B(c, m, D, ee, _, C, E, Q, 2, 1, 0, 3, 0), B(c, m, D, ee, ae, z, E, Q, 0, 0, 0, 3, 2), B(c, m, D, ee, R, J, E, Q, 1, 0, 0, 3, 2), B(c, m, D, ee, te, j, E, Q, 2, 1, 0, 3, 0);
           }
           function h(c, m, D, ee, E, Q) {
             var se = Q.length, Y = c.l;
@@ -13687,7 +13687,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             for (var be = 6 * c.e * ee + E * c.l, Ee = 0; Ee < 6; Ee++) {
               for (var ke = 0; ke < Y; ke++) {
                 var Me, oe = Q[Ee % se][ke % se];
-                Me = oe == 0 ? I + (Ee >>> 1) : oe == 2 ? re + (Ee >>> 1) : N + Ee;
+                Me = oe == 0 ? A + (Ee >>> 1) : oe == 2 ? re + (Ee >>> 1) : N + Ee;
                 var ce = c.h ? (2 * ke / 3 & 2147483646 | ke % 3 & 1) + (ke % 3 >>> 1) : ke >>> 1;
                 m[be + ke] = D[Me][ce + 1];
               }
@@ -13734,7 +13734,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                 for (K(D, E, ee[Ee], Y, ke, Me), be = 0; be < 6; be++)
                   for (oe = 0; oe < D.A; oe++)
                     Y[se[be][0]][oe] = Y[se[be][1]][oe];
-                for (h(D, Q, Y, ce, Ee, m), be = I; be < 18; be++)
+                for (h(D, Q, Y, ce, Ee, m), be = A; be < 18; be++)
                   if ([W, O, $, L].indexOf(be) == -1)
                     for (oe = 0; oe < D.A; oe++)
                       Y[be][oe] = 0;
@@ -13756,67 +13756,67 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
       }
     }(), formData: "FormData" in e, arrayBuffer: "ArrayBuffer" in e };
     if (f.arrayBuffer)
-      var i = ["[object Int8Array]", "[object Uint8Array]", "[object Uint8ClampedArray]", "[object Int16Array]", "[object Uint16Array]", "[object Int32Array]", "[object Uint32Array]", "[object Float32Array]", "[object Float64Array]"], a = ArrayBuffer.isView || function(I) {
-        return I && i.indexOf(Object.prototype.toString.call(I)) > -1;
+      var i = ["[object Int8Array]", "[object Uint8Array]", "[object Uint8ClampedArray]", "[object Int16Array]", "[object Uint16Array]", "[object Int32Array]", "[object Uint32Array]", "[object Float32Array]", "[object Float64Array]"], a = ArrayBuffer.isView || function(A) {
+        return A && i.indexOf(Object.prototype.toString.call(A)) > -1;
       };
-    function t(I) {
-      if (typeof I != "string" && (I = String(I)), /[^a-z0-9\-#$%&'*+.^_`|~!]/i.test(I) || I === "")
-        throw new TypeError('Invalid character in header field name: "' + I + '"');
-      return I.toLowerCase();
+    function t(A) {
+      if (typeof A != "string" && (A = String(A)), /[^a-z0-9\-#$%&'*+.^_`|~!]/i.test(A) || A === "")
+        throw new TypeError('Invalid character in header field name: "' + A + '"');
+      return A.toLowerCase();
     }
-    function r(I) {
-      return typeof I != "string" && (I = String(I)), I;
+    function r(A) {
+      return typeof A != "string" && (A = String(A)), A;
     }
-    function o(I) {
+    function o(A) {
       var _ = { next: function() {
-        var R = I.shift();
+        var R = A.shift();
         return { done: R === void 0, value: R };
       } };
       return f.iterable && (_[Symbol.iterator] = function() {
         return _;
       }), _;
     }
-    function n(I) {
-      this.map = {}, I instanceof n ? I.forEach(function(_, R) {
+    function n(A) {
+      this.map = {}, A instanceof n ? A.forEach(function(_, R) {
         this.append(R, _);
-      }, this) : Array.isArray(I) ? I.forEach(function(_) {
+      }, this) : Array.isArray(A) ? A.forEach(function(_) {
         this.append(_[0], _[1]);
-      }, this) : I && Object.getOwnPropertyNames(I).forEach(function(_) {
-        this.append(_, I[_]);
+      }, this) : A && Object.getOwnPropertyNames(A).forEach(function(_) {
+        this.append(_, A[_]);
       }, this);
     }
-    function u(I) {
-      if (I.bodyUsed)
+    function u(A) {
+      if (A.bodyUsed)
         return Promise.reject(new TypeError("Already read"));
-      I.bodyUsed = !0;
+      A.bodyUsed = !0;
     }
-    function p(I) {
+    function p(A) {
       return new Promise(function(_, R) {
-        I.onload = function() {
-          _(I.result);
-        }, I.onerror = function() {
-          R(I.error);
+        A.onload = function() {
+          _(A.result);
+        }, A.onerror = function() {
+          R(A.error);
         };
       });
     }
-    function g(I) {
+    function g(A) {
       var _ = new FileReader(), R = p(_);
-      return _.readAsArrayBuffer(I), R;
+      return _.readAsArrayBuffer(A), R;
     }
-    function v(I) {
-      if (I.slice)
-        return I.slice(0);
-      var _ = new Uint8Array(I.byteLength);
-      return _.set(new Uint8Array(I)), _.buffer;
+    function v(A) {
+      if (A.slice)
+        return A.slice(0);
+      var _ = new Uint8Array(A.byteLength);
+      return _.set(new Uint8Array(A)), _.buffer;
     }
     function x() {
-      return this.bodyUsed = !1, this._initBody = function(I) {
+      return this.bodyUsed = !1, this._initBody = function(A) {
         var _;
-        this.bodyUsed = this.bodyUsed, this._bodyInit = I, I ? typeof I == "string" ? this._bodyText = I : f.blob && Blob.prototype.isPrototypeOf(I) ? this._bodyBlob = I : f.formData && FormData.prototype.isPrototypeOf(I) ? this._bodyFormData = I : f.searchParams && URLSearchParams.prototype.isPrototypeOf(I) ? this._bodyText = I.toString() : f.arrayBuffer && f.blob && (_ = I) && DataView.prototype.isPrototypeOf(_) ? (this._bodyArrayBuffer = v(I.buffer), this._bodyInit = new Blob([this._bodyArrayBuffer])) : f.arrayBuffer && (ArrayBuffer.prototype.isPrototypeOf(I) || a(I)) ? this._bodyArrayBuffer = v(I) : this._bodyText = I = Object.prototype.toString.call(I) : this._bodyText = "", this.headers.get("content-type") || (typeof I == "string" ? this.headers.set("content-type", "text/plain;charset=UTF-8") : this._bodyBlob && this._bodyBlob.type ? this.headers.set("content-type", this._bodyBlob.type) : f.searchParams && URLSearchParams.prototype.isPrototypeOf(I) && this.headers.set("content-type", "application/x-www-form-urlencoded;charset=UTF-8"));
+        this.bodyUsed = this.bodyUsed, this._bodyInit = A, A ? typeof A == "string" ? this._bodyText = A : f.blob && Blob.prototype.isPrototypeOf(A) ? this._bodyBlob = A : f.formData && FormData.prototype.isPrototypeOf(A) ? this._bodyFormData = A : f.searchParams && URLSearchParams.prototype.isPrototypeOf(A) ? this._bodyText = A.toString() : f.arrayBuffer && f.blob && (_ = A) && DataView.prototype.isPrototypeOf(_) ? (this._bodyArrayBuffer = v(A.buffer), this._bodyInit = new Blob([this._bodyArrayBuffer])) : f.arrayBuffer && (ArrayBuffer.prototype.isPrototypeOf(A) || a(A)) ? this._bodyArrayBuffer = v(A) : this._bodyText = A = Object.prototype.toString.call(A) : this._bodyText = "", this.headers.get("content-type") || (typeof A == "string" ? this.headers.set("content-type", "text/plain;charset=UTF-8") : this._bodyBlob && this._bodyBlob.type ? this.headers.set("content-type", this._bodyBlob.type) : f.searchParams && URLSearchParams.prototype.isPrototypeOf(A) && this.headers.set("content-type", "application/x-www-form-urlencoded;charset=UTF-8"));
       }, f.blob && (this.blob = function() {
-        var I = u(this);
-        if (I)
-          return I;
+        var A = u(this);
+        if (A)
+          return A;
         if (this._bodyBlob)
           return Promise.resolve(this._bodyBlob);
         if (this._bodyArrayBuffer)
@@ -13827,11 +13827,11 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
       }, this.arrayBuffer = function() {
         return this._bodyArrayBuffer ? u(this) || (ArrayBuffer.isView(this._bodyArrayBuffer) ? Promise.resolve(this._bodyArrayBuffer.buffer.slice(this._bodyArrayBuffer.byteOffset, this._bodyArrayBuffer.byteOffset + this._bodyArrayBuffer.byteLength)) : Promise.resolve(this._bodyArrayBuffer)) : this.blob().then(g);
       }), this.text = function() {
-        var I, _, R, W = u(this);
+        var A, _, R, W = u(this);
         if (W)
           return W;
         if (this._bodyBlob)
-          return I = this._bodyBlob, R = p(_ = new FileReader()), _.readAsText(I), R;
+          return A = this._bodyBlob, R = p(_ = new FileReader()), _.readAsText(A), R;
         if (this._bodyArrayBuffer)
           return Promise.resolve(function(O) {
             for (var N = new Uint8Array(O), U = new Array(N.length), C = 0; C < N.length; C++)
@@ -13847,48 +13847,48 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         return this.text().then(JSON.parse);
       }, this;
     }
-    n.prototype.append = function(I, _) {
-      I = t(I), _ = r(_);
-      var R = this.map[I];
-      this.map[I] = R ? R + ", " + _ : _;
-    }, n.prototype.delete = function(I) {
-      delete this.map[t(I)];
-    }, n.prototype.get = function(I) {
-      return I = t(I), this.has(I) ? this.map[I] : null;
-    }, n.prototype.has = function(I) {
-      return this.map.hasOwnProperty(t(I));
-    }, n.prototype.set = function(I, _) {
-      this.map[t(I)] = r(_);
-    }, n.prototype.forEach = function(I, _) {
+    n.prototype.append = function(A, _) {
+      A = t(A), _ = r(_);
+      var R = this.map[A];
+      this.map[A] = R ? R + ", " + _ : _;
+    }, n.prototype.delete = function(A) {
+      delete this.map[t(A)];
+    }, n.prototype.get = function(A) {
+      return A = t(A), this.has(A) ? this.map[A] : null;
+    }, n.prototype.has = function(A) {
+      return this.map.hasOwnProperty(t(A));
+    }, n.prototype.set = function(A, _) {
+      this.map[t(A)] = r(_);
+    }, n.prototype.forEach = function(A, _) {
       for (var R in this.map)
-        this.map.hasOwnProperty(R) && I.call(_, this.map[R], R, this);
+        this.map.hasOwnProperty(R) && A.call(_, this.map[R], R, this);
     }, n.prototype.keys = function() {
-      var I = [];
+      var A = [];
       return this.forEach(function(_, R) {
-        I.push(R);
-      }), o(I);
+        A.push(R);
+      }), o(A);
     }, n.prototype.values = function() {
-      var I = [];
+      var A = [];
       return this.forEach(function(_) {
-        I.push(_);
-      }), o(I);
+        A.push(_);
+      }), o(A);
     }, n.prototype.entries = function() {
-      var I = [];
+      var A = [];
       return this.forEach(function(_, R) {
-        I.push([R, _]);
-      }), o(I);
+        A.push([R, _]);
+      }), o(A);
     }, f.iterable && (n.prototype[Symbol.iterator] = n.prototype.entries);
     var b = ["DELETE", "GET", "HEAD", "OPTIONS", "POST", "PUT"];
-    function w(I, _) {
+    function w(A, _) {
       if (!(this instanceof w))
         throw new TypeError('Please use the "new" operator, this DOM object constructor cannot be called as a function.');
       var R, W, O = (_ = _ || {}).body;
-      if (I instanceof w) {
-        if (I.bodyUsed)
+      if (A instanceof w) {
+        if (A.bodyUsed)
           throw new TypeError("Already read");
-        this.url = I.url, this.credentials = I.credentials, _.headers || (this.headers = new n(I.headers)), this.method = I.method, this.mode = I.mode, this.signal = I.signal, O || I._bodyInit == null || (O = I._bodyInit, I.bodyUsed = !0);
+        this.url = A.url, this.credentials = A.credentials, _.headers || (this.headers = new n(A.headers)), this.method = A.method, this.mode = A.mode, this.signal = A.signal, O || A._bodyInit == null || (O = A._bodyInit, A.bodyUsed = !0);
       } else
-        this.url = String(I);
+        this.url = String(A);
       if (this.credentials = _.credentials || this.credentials || "same-origin", !_.headers && this.headers || (this.headers = new n(_.headers)), this.method = (W = (R = _.method || this.method || "GET").toUpperCase(), b.indexOf(W) > -1 ? W : R), this.mode = _.mode || this.mode || null, this.signal = _.signal || this.signal, this.referrer = null, (this.method === "GET" || this.method === "HEAD") && O)
         throw new TypeError("Body not allowed for GET or HEAD requests");
       if (this._initBody(O), !(this.method !== "GET" && this.method !== "HEAD" || _.cache !== "no-store" && _.cache !== "no-cache")) {
@@ -13896,33 +13896,33 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         N.test(this.url) ? this.url = this.url.replace(N, "$1_=" + (/* @__PURE__ */ new Date()).getTime()) : this.url += (/\?/.test(this.url) ? "&" : "?") + "_=" + (/* @__PURE__ */ new Date()).getTime();
       }
     }
-    function k(I) {
+    function k(A) {
       var _ = new FormData();
-      return I.trim().split("&").forEach(function(R) {
+      return A.trim().split("&").forEach(function(R) {
         if (R) {
           var W = R.split("="), O = W.shift().replace(/\+/g, " "), N = W.join("=").replace(/\+/g, " ");
           _.append(decodeURIComponent(O), decodeURIComponent(N));
         }
       }), _;
     }
-    function G(I, _) {
+    function G(A, _) {
       if (!(this instanceof G))
         throw new TypeError('Please use the "new" operator, this DOM object constructor cannot be called as a function.');
-      _ || (_ = {}), this.type = "default", this.status = _.status === void 0 ? 200 : _.status, this.ok = this.status >= 200 && this.status < 300, this.statusText = _.statusText === void 0 ? "" : "" + _.statusText, this.headers = new n(_.headers), this.url = _.url || "", this._initBody(I);
+      _ || (_ = {}), this.type = "default", this.status = _.status === void 0 ? 200 : _.status, this.ok = this.status >= 200 && this.status < 300, this.statusText = _.statusText === void 0 ? "" : "" + _.statusText, this.headers = new n(_.headers), this.url = _.url || "", this._initBody(A);
     }
     w.prototype.clone = function() {
       return new w(this, { body: this._bodyInit });
     }, x.call(w.prototype), x.call(G.prototype), G.prototype.clone = function() {
       return new G(this._bodyInit, { status: this.status, statusText: this.statusText, headers: new n(this.headers), url: this.url });
     }, G.error = function() {
-      var I = new G(null, { status: 0, statusText: "" });
-      return I.type = "error", I;
+      var A = new G(null, { status: 0, statusText: "" });
+      return A.type = "error", A;
     };
     var F = [301, 302, 303, 307, 308];
-    G.redirect = function(I, _) {
+    G.redirect = function(A, _) {
       if (F.indexOf(_) === -1)
         throw new RangeError("Invalid status code");
-      return new G(null, { status: _, headers: { location: I } });
+      return new G(null, { status: _, headers: { location: A } });
     };
     var V = e.DOMException;
     try {
@@ -13934,9 +13934,9 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         this.stack = W.stack;
       }).prototype = Object.create(Error.prototype), V.prototype.constructor = V;
     }
-    function q(I, _) {
+    function q(A, _) {
       return new Promise(function(R, W) {
-        var O = new w(I, _);
+        var O = new w(A, _);
         if (O.signal && O.signal.aborted)
           return W(new V("Aborted", "AbortError"));
         var N = new XMLHttpRequest();
@@ -14034,8 +14034,8 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
       }
       var b, w, k = n.xhr || null;
       k || (k = n.cors || n.useXDR ? new r.XDomainRequest() : new r.XMLHttpRequest());
-      var G, F = k.url = n.uri || n.url, V = k.method = n.method || "GET", q = n.body || n.data, I = k.headers = n.headers || {}, _ = !!n.sync, R = !1, W = { body: void 0, headers: {}, statusCode: 0, method: V, url: F, rawRequest: k };
-      if ("json" in n && n.json !== !1 && (R = !0, I.accept || I.Accept || (I.Accept = "application/json"), V !== "GET" && V !== "HEAD" && (I["content-type"] || I["Content-Type"] || (I["Content-Type"] = "application/json"), q = JSON.stringify(n.json === !0 ? q : n.json))), k.onreadystatechange = function() {
+      var G, F = k.url = n.uri || n.url, V = k.method = n.method || "GET", q = n.body || n.data, A = k.headers = n.headers || {}, _ = !!n.sync, R = !1, W = { body: void 0, headers: {}, statusCode: 0, method: V, url: F, rawRequest: k };
+      if ("json" in n && n.json !== !1 && (R = !0, A.accept || A.Accept || (A.Accept = "application/json"), V !== "GET" && V !== "HEAD" && (A["content-type"] || A["Content-Type"] || (A["Content-Type"] = "application/json"), q = JSON.stringify(n.json === !0 ? q : n.json))), k.onreadystatechange = function() {
         k.readyState === 4 && setTimeout(x, 0);
       }, k.onload = x, k.onerror = v, k.onprogress = function() {
       }, k.onabort = function() {
@@ -14047,8 +14047,8 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           O.code = "ETIMEDOUT", v(O);
         }
       }, n.timeout)), k.setRequestHeader)
-        for (b in I)
-          I.hasOwnProperty(b) && k.setRequestHeader(b, I[b]);
+        for (b in A)
+          A.hasOwnProperty(b) && k.setRequestHeader(b, A[b]);
       else if (n.headers && !function(O) {
         for (var N in O)
           if (O.hasOwnProperty(N))
@@ -14102,7 +14102,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
     })(f({}, "__esModule", { value: !0 }), ue), y && y.set(ue, pe), pe))(typeof WeakMap < "u" ? /* @__PURE__ */ new WeakMap() : 0), n = (y, ue, pe) => (((ve, Te, Ue) => {
       Te in ve ? f(ve, Te, { enumerable: !0, configurable: !0, writable: !0, value: Ue }) : ve[Te] = Ue;
     })(y, typeof ue != "symbol" ? ue + "" : ue, pe), pe), u = {};
-    r(u, { applyPalette: () => or, applyPaletteSync: () => Xt, buildPalette: () => er, buildPaletteSync: () => Jt, constants: () => p, conversion: () => w, distance: () => T, image: () => Ft, palette: () => ce, quality: () => At, utils: () => Fe });
+    r(u, { applyPalette: () => or, applyPaletteSync: () => Xt, buildPalette: () => er, buildPaletteSync: () => Jt, constants: () => p, conversion: () => w, distance: () => T, image: () => Ft, palette: () => ce, quality: () => It, utils: () => Fe });
     var p = {};
     r(p, { bt709: () => g });
     var g = {};
@@ -14123,7 +14123,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
       let ve = y;
       return ve < ue && (ve = ue), ve < pe && (ve = pe), ve;
     }
-    function I(y, ue, pe) {
+    function A(y, ue, pe) {
       let ve = y;
       return ve > ue && (ve = ue), ve > pe && (ve = pe), ve;
     }
@@ -14153,13 +14153,13 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
       return ve;
     }
     function N(y, ue, pe) {
-      const ve = I(y, ue, pe), Te = q(y, ue, pe), Ue = Te - ve, Le = (ve + Te) / 510;
+      const ve = A(y, ue, pe), Te = q(y, ue, pe), Ue = Te - ve, Le = (ve + Te) / 510;
       let qe = 0;
       Le > 0 && Le < 1 && (qe = Ue / (Le < 0.5 ? Te + ve : 510 - Te - ve));
       let Ne = 0;
       return Ue > 0 && (Ne = Te === y ? (ue - pe) / Ue : Te === ue ? 2 + (pe - y) / Ue : 4 + (y - ue) / Ue, Ne *= 60, Ne < 0 && (Ne += 360)), { h: Ne, s: qe, l: Le };
     }
-    r(F, { degrees2radians: () => V, inRange0to255: () => W, inRange0to255Rounded: () => R, intInRange: () => _, max3: () => q, min3: () => I, stableSort: () => O });
+    r(F, { degrees2radians: () => V, inRange0to255: () => W, inRange0to255Rounded: () => R, intInRange: () => _, max3: () => q, min3: () => A, stableSort: () => O });
     var U = 0.95047, C = 1, ae = 1.08883;
     function J(y) {
       return y > 8856e-6 ? y ** 0.3333333333333333 : 7.787 * y + 0.13793103448275862;
@@ -14305,7 +14305,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
       _setDefaults() {
       }
     }, ce = {};
-    r(ce, { AbstractPaletteQuantizer: () => xe, ColorHistogram: () => Je, NeuQuant: () => de, NeuQuantFloat: () => rt, RGBQuant: () => Ie, WuColorCube: () => wt, WuQuant: () => Mt });
+    r(ce, { AbstractPaletteQuantizer: () => xe, ColorHistogram: () => Je, NeuQuant: () => de, NeuQuantFloat: () => rt, RGBQuant: () => Ae, WuColorCube: () => wt, WuQuant: () => Mt });
     var xe = class {
       quantizeSync() {
         for (const y of this.quantize())
@@ -14761,7 +14761,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
       constructor(y, ue, pe) {
         n(this, "index"), n(this, "color"), n(this, "distance"), this.index = y, this.color = ue, this.distance = pe;
       }
-    }, Ie = class extends xe {
+    }, Ae = class extends xe {
       constructor(y, ue = 256, pe = 2) {
         super(), n(this, "_colors"), n(this, "_initialDistance"), n(this, "_distanceIncrement"), n(this, "_histogram"), n(this, "_distance"), this._distance = y, this._colors = ue, this._histogram = new Je(pe, ue), this._initialDistance = 0.01, this._distanceIncrement = 5e-3;
       }
@@ -14851,7 +14851,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         }
       }
     }
-    function It(y, ue, pe) {
+    function At(y, ue, pe) {
       for (let ve = 0; ve < ue; ve++)
         y[ve] = pe;
     }
@@ -14920,7 +14920,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         for (let _t = 1; _t <= this._alphaMaxSideIndex; ++_t) {
           mt(Le, this._sideSize, this._sideSize, this._sideSize, 0), mt(qe, this._sideSize, this._sideSize, this._sideSize, 0), mt(Ne, this._sideSize, this._sideSize, this._sideSize, 0), mt(et, this._sideSize, this._sideSize, this._sideSize, 0), mt(Ve, this._sideSize, this._sideSize, this._sideSize, 0), mt(Xe, this._sideSize, this._sideSize, this._sideSize, 0);
           for (let ct = 1; ct <= this._maxSideIndex; ++ct, ++ft) {
-            xt.shouldNotify(ft) && (yield { progress: xt.progress }), It(y, this._sideSize, 0), It(ue, this._sideSize, 0), It(pe, this._sideSize, 0), It(ve, this._sideSize, 0), It(Te, this._sideSize, 0), It(Ue, this._sideSize, 0);
+            xt.shouldNotify(ft) && (yield { progress: xt.progress }), At(y, this._sideSize, 0), At(ue, this._sideSize, 0), At(pe, this._sideSize, 0), At(ve, this._sideSize, 0), At(Te, this._sideSize, 0), At(Ue, this._sideSize, 0);
             for (let dt = 1; dt <= this._maxSideIndex; ++dt) {
               let Nt = 0, Bt = 0, Ht = 0, Wt = 0, Zt = 0, $t = 0;
               for (let gt = 1; gt <= this._maxSideIndex; ++gt)
@@ -15194,8 +15194,8 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           pe[Te] = (Ue + 0.5 | 0) / ue * y, Ue *= ve;
         return pe;
       }
-    }, At = {};
-    r(At, { ssim: () => Dt });
+    }, It = {};
+    r(It, { ssim: () => Dt });
     var Ct = 0.01, vt = 0.03;
     function Dt(y, ue) {
       if (y.getHeight() !== ue.getHeight() || y.getWidth() !== ue.getWidth())
@@ -15334,7 +15334,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         case "neuquant":
           return new de(y, pe);
         case "rgbquant":
-          return new Ie(y, pe);
+          return new Ae(y, pe);
         case "wuquant":
           return new Mt(y, pe);
         case "neuquant-float":
@@ -15373,7 +15373,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
     var d = {};
     __webpack_require__.r(d), __webpack_require__.d(d, { AUTO: () => be, BLEND_ADD: () => Pe, BLEND_DARKEN: () => Qe, BLEND_DESTINATION_OVER: () => _e, BLEND_DIFFERENCE: () => we, BLEND_EXCLUSION: () => X, BLEND_HARDLIGHT: () => P, BLEND_LIGHTEN: () => lt, BLEND_MULTIPLY: () => Be, BLEND_OVERLAY: () => We, BLEND_SCREEN: () => Fe, BLEND_SOURCE_OVER: () => Ce, EDGE_CROP: () => Re, EDGE_EXTEND: () => de, EDGE_WRAP: () => Ze, HORIZONTAL_ALIGN_CENTER: () => ke, HORIZONTAL_ALIGN_LEFT: () => Ee, HORIZONTAL_ALIGN_RIGHT: () => Me, VERTICAL_ALIGN_BOTTOM: () => xe, VERTICAL_ALIGN_MIDDLE: () => ce, VERTICAL_ALIGN_TOP: () => oe });
     var l = {};
-    __webpack_require__.r(l), __webpack_require__.d(l, { add: () => je, darken: () => st, difference: () => It, dstOver: () => De, exclusion: () => wt, hardLight: () => mt, lighten: () => tt, multiply: () => Je, overlay: () => at, screen: () => Ie, srcOver: () => rt });
+    __webpack_require__.r(l), __webpack_require__.d(l, { add: () => je, darken: () => st, difference: () => At, dstOver: () => De, exclusion: () => wt, hardLight: () => mt, lighten: () => tt, multiply: () => Je, overlay: () => at, screen: () => Ae, srcOver: () => rt });
     var s = __webpack_require__(5546), e = __webpack_require__.n(s), f = __webpack_require__(1023), i = __webpack_require__.n(f), a = __webpack_require__(2699), t = __webpack_require__.n(a);
     function r(S) {
       if (S === void 0)
@@ -15382,15 +15382,15 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         throw new TypeError("Callback must be a function");
       return !0;
     }
-    function o(S, A) {
-      if (typeof S == "string" && (S = new Error(S)), typeof A == "function")
-        return A.call(this, S);
+    function o(S, I) {
+      if (typeof S == "string" && (S = new Error(S)), typeof I == "function")
+        return I.call(this, S);
       throw S;
     }
-    function n(S, A, H, Z, ie, fe) {
-      A = Math.round(A), H = Math.round(H), Z = Math.round(Z), ie = Math.round(ie);
+    function n(S, I, H, Z, ie, fe) {
+      I = Math.round(I), H = Math.round(H), Z = Math.round(Z), ie = Math.round(ie);
       for (let ge = H; ge < H + ie; ge++)
-        for (let me = A; me < A + Z; me++) {
+        for (let me = I; me < I + Z; me++) {
           const ye = S.bitmap.width * ge + me << 2;
           fe.call(S, me, ge, ye);
         }
@@ -15398,20 +15398,20 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
     }
     var u = __webpack_require__(236), p = __webpack_require__.n(u), g = __webpack_require__(1294), v = __webpack_require__.n(g);
     function x(S) {
-      return x = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(A) {
-        return typeof A;
-      } : function(A) {
-        return A && typeof Symbol == "function" && A.constructor === Symbol && A !== Symbol.prototype ? "symbol" : typeof A;
+      return x = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(I) {
+        return typeof I;
+      } : function(I) {
+        return I && typeof Symbol == "function" && I.constructor === Symbol && I !== Symbol.prototype ? "symbol" : typeof I;
       }, x(S);
     }
     var b = /^\s+/, w = /\s+$/;
-    function k(S, A) {
-      if (A = A || {}, (S = S || "") instanceof k)
+    function k(S, I) {
+      if (I = I || {}, (S = S || "") instanceof k)
         return S;
       if (!(this instanceof k))
-        return new k(S, A);
+        return new k(S, I);
       var H = function(Z) {
-        var ie, fe, ge, me = { r: 0, g: 0, b: 0 }, ye = 1, Ae = null, Oe = null, ze = null, it = !1, $e = !1;
+        var ie, fe, ge, me = { r: 0, g: 0, b: 0 }, ye = 1, Ie = null, Oe = null, ze = null, it = !1, $e = !1;
         return typeof Z == "string" && (Z = function(Ge) {
           Ge = Ge.replace(b, "").replace(w, "").toLowerCase();
           var He, nt = !1;
@@ -15420,11 +15420,11 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           else if (Ge == "transparent")
             return { r: 0, g: 0, b: 0, a: 0, format: "name" };
           return (He = m.rgb.exec(Ge)) ? { r: He[1], g: He[2], b: He[3] } : (He = m.rgba.exec(Ge)) ? { r: He[1], g: He[2], b: He[3], a: He[4] } : (He = m.hsl.exec(Ge)) ? { h: He[1], s: He[2], l: He[3] } : (He = m.hsla.exec(Ge)) ? { h: He[1], s: He[2], l: He[3], a: He[4] } : (He = m.hsv.exec(Ge)) ? { h: He[1], s: He[2], v: He[3] } : (He = m.hsva.exec(Ge)) ? { h: He[1], s: He[2], v: He[3], a: He[4] } : (He = m.hex8.exec(Ge)) ? { r: le(He[1]), g: le(He[2]), b: le(He[3]), a: B(He[4]), format: nt ? "name" : "hex8" } : (He = m.hex6.exec(Ge)) ? { r: le(He[1]), g: le(He[2]), b: le(He[3]), format: nt ? "name" : "hex" } : (He = m.hex4.exec(Ge)) ? { r: le(He[1] + "" + He[1]), g: le(He[2] + "" + He[2]), b: le(He[3] + "" + He[3]), a: B(He[4] + "" + He[4]), format: nt ? "name" : "hex8" } : !!(He = m.hex3.exec(Ge)) && { r: le(He[1] + "" + He[1]), g: le(He[2] + "" + He[2]), b: le(He[3] + "" + He[3]), format: nt ? "name" : "hex" };
-        }(Z)), x(Z) == "object" && (D(Z.r) && D(Z.g) && D(Z.b) ? (ie = Z.r, fe = Z.g, ge = Z.b, me = { r: 255 * j(ie, 255), g: 255 * j(fe, 255), b: 255 * j(ge, 255) }, it = !0, $e = String(Z.r).substr(-1) === "%" ? "prgb" : "rgb") : D(Z.h) && D(Z.s) && D(Z.v) ? (Ae = M(Z.s), Oe = M(Z.v), me = function(Ge, He, nt) {
+        }(Z)), x(Z) == "object" && (D(Z.r) && D(Z.g) && D(Z.b) ? (ie = Z.r, fe = Z.g, ge = Z.b, me = { r: 255 * j(ie, 255), g: 255 * j(fe, 255), b: 255 * j(ge, 255) }, it = !0, $e = String(Z.r).substr(-1) === "%" ? "prgb" : "rgb") : D(Z.h) && D(Z.s) && D(Z.v) ? (Ie = M(Z.s), Oe = M(Z.v), me = function(Ge, He, nt) {
           Ge = 6 * j(Ge, 360), He = j(He, 100), nt = j(nt, 100);
           var ht = Math.floor(Ge), pt = Ge - ht, Et = nt * (1 - He), Pt = nt * (1 - pt * He), yt = nt * (1 - (1 - pt) * He), kt = ht % 6;
           return { r: 255 * [nt, Pt, Et, Et, yt, nt][kt], g: 255 * [yt, nt, nt, Pt, Et, Et][kt], b: 255 * [Et, Et, yt, nt, nt, Pt][kt] };
-        }(Z.h, Ae, Oe), it = !0, $e = "hsv") : D(Z.h) && D(Z.s) && D(Z.l) && (Ae = M(Z.s), ze = M(Z.l), me = function(Ge, He, nt) {
+        }(Z.h, Ie, Oe), it = !0, $e = "hsv") : D(Z.h) && D(Z.s) && D(Z.l) && (Ie = M(Z.s), ze = M(Z.l), me = function(Ge, He, nt) {
           var ht, pt, Et;
           function Pt(St, Ot, zt) {
             return zt < 0 && (zt += 1), zt > 1 && (zt -= 1), zt < 1 / 6 ? St + 6 * (Ot - St) * zt : zt < 0.5 ? Ot : zt < 2 / 3 ? St + (Ot - St) * (2 / 3 - zt) * 6 : St;
@@ -15436,115 +15436,115 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             ht = Pt(kt, yt, Ge + 1 / 3), pt = Pt(kt, yt, Ge), Et = Pt(kt, yt, Ge - 1 / 3);
           }
           return { r: 255 * ht, g: 255 * pt, b: 255 * Et };
-        }(Z.h, Ae, ze), it = !0, $e = "hsl"), Z.hasOwnProperty("a") && (ye = Z.a)), ye = z(ye), { ok: it, format: Z.format || $e, r: Math.min(255, Math.max(me.r, 0)), g: Math.min(255, Math.max(me.g, 0)), b: Math.min(255, Math.max(me.b, 0)), a: ye };
+        }(Z.h, Ie, ze), it = !0, $e = "hsl"), Z.hasOwnProperty("a") && (ye = Z.a)), ye = z(ye), { ok: it, format: Z.format || $e, r: Math.min(255, Math.max(me.r, 0)), g: Math.min(255, Math.max(me.g, 0)), b: Math.min(255, Math.max(me.b, 0)), a: ye };
       }(S);
-      this._originalInput = S, this._r = H.r, this._g = H.g, this._b = H.b, this._a = H.a, this._roundA = Math.round(100 * this._a) / 100, this._format = A.format || H.format, this._gradientType = A.gradientType, this._r < 1 && (this._r = Math.round(this._r)), this._g < 1 && (this._g = Math.round(this._g)), this._b < 1 && (this._b = Math.round(this._b)), this._ok = H.ok;
+      this._originalInput = S, this._r = H.r, this._g = H.g, this._b = H.b, this._a = H.a, this._roundA = Math.round(100 * this._a) / 100, this._format = I.format || H.format, this._gradientType = I.gradientType, this._r < 1 && (this._r = Math.round(this._r)), this._g < 1 && (this._g = Math.round(this._g)), this._b < 1 && (this._b = Math.round(this._b)), this._ok = H.ok;
     }
-    function G(S, A, H) {
-      S = j(S, 255), A = j(A, 255), H = j(H, 255);
-      var Z, ie, fe = Math.max(S, A, H), ge = Math.min(S, A, H), me = (fe + ge) / 2;
+    function G(S, I, H) {
+      S = j(S, 255), I = j(I, 255), H = j(H, 255);
+      var Z, ie, fe = Math.max(S, I, H), ge = Math.min(S, I, H), me = (fe + ge) / 2;
       if (fe == ge)
         Z = ie = 0;
       else {
         var ye = fe - ge;
         switch (ie = me > 0.5 ? ye / (2 - fe - ge) : ye / (fe + ge), fe) {
           case S:
-            Z = (A - H) / ye + (A < H ? 6 : 0);
+            Z = (I - H) / ye + (I < H ? 6 : 0);
             break;
-          case A:
+          case I:
             Z = (H - S) / ye + 2;
             break;
           case H:
-            Z = (S - A) / ye + 4;
+            Z = (S - I) / ye + 4;
         }
         Z /= 6;
       }
       return { h: Z, s: ie, l: me };
     }
-    function F(S, A, H) {
-      S = j(S, 255), A = j(A, 255), H = j(H, 255);
-      var Z, ie, fe = Math.max(S, A, H), ge = Math.min(S, A, H), me = fe, ye = fe - ge;
+    function F(S, I, H) {
+      S = j(S, 255), I = j(I, 255), H = j(H, 255);
+      var Z, ie, fe = Math.max(S, I, H), ge = Math.min(S, I, H), me = fe, ye = fe - ge;
       if (ie = fe === 0 ? 0 : ye / fe, fe == ge)
         Z = 0;
       else {
         switch (fe) {
           case S:
-            Z = (A - H) / ye + (A < H ? 6 : 0);
+            Z = (I - H) / ye + (I < H ? 6 : 0);
             break;
-          case A:
+          case I:
             Z = (H - S) / ye + 2;
             break;
           case H:
-            Z = (S - A) / ye + 4;
+            Z = (S - I) / ye + 4;
         }
         Z /= 6;
       }
       return { h: Z, s: ie, v: me };
     }
-    function V(S, A, H, Z) {
-      var ie = [he(Math.round(S).toString(16)), he(Math.round(A).toString(16)), he(Math.round(H).toString(16))];
+    function V(S, I, H, Z) {
+      var ie = [he(Math.round(S).toString(16)), he(Math.round(I).toString(16)), he(Math.round(H).toString(16))];
       return Z && ie[0].charAt(0) == ie[0].charAt(1) && ie[1].charAt(0) == ie[1].charAt(1) && ie[2].charAt(0) == ie[2].charAt(1) ? ie[0].charAt(0) + ie[1].charAt(0) + ie[2].charAt(0) : ie.join("");
     }
-    function q(S, A, H, Z) {
-      return [he(T(Z)), he(Math.round(S).toString(16)), he(Math.round(A).toString(16)), he(Math.round(H).toString(16))].join("");
+    function q(S, I, H, Z) {
+      return [he(T(Z)), he(Math.round(S).toString(16)), he(Math.round(I).toString(16)), he(Math.round(H).toString(16))].join("");
     }
-    function I(S, A) {
-      A = A === 0 ? 0 : A || 10;
+    function A(S, I) {
+      I = I === 0 ? 0 : I || 10;
       var H = k(S).toHsl();
-      return H.s -= A / 100, H.s = ne(H.s), k(H);
+      return H.s -= I / 100, H.s = ne(H.s), k(H);
     }
-    function _(S, A) {
-      A = A === 0 ? 0 : A || 10;
+    function _(S, I) {
+      I = I === 0 ? 0 : I || 10;
       var H = k(S).toHsl();
-      return H.s += A / 100, H.s = ne(H.s), k(H);
+      return H.s += I / 100, H.s = ne(H.s), k(H);
     }
     function R(S) {
       return k(S).desaturate(100);
     }
-    function W(S, A) {
-      A = A === 0 ? 0 : A || 10;
+    function W(S, I) {
+      I = I === 0 ? 0 : I || 10;
       var H = k(S).toHsl();
-      return H.l += A / 100, H.l = ne(H.l), k(H);
+      return H.l += I / 100, H.l = ne(H.l), k(H);
     }
-    function O(S, A) {
-      A = A === 0 ? 0 : A || 10;
+    function O(S, I) {
+      I = I === 0 ? 0 : I || 10;
       var H = k(S).toRgb();
-      return H.r = Math.max(0, Math.min(255, H.r - Math.round(-A / 100 * 255))), H.g = Math.max(0, Math.min(255, H.g - Math.round(-A / 100 * 255))), H.b = Math.max(0, Math.min(255, H.b - Math.round(-A / 100 * 255))), k(H);
+      return H.r = Math.max(0, Math.min(255, H.r - Math.round(-I / 100 * 255))), H.g = Math.max(0, Math.min(255, H.g - Math.round(-I / 100 * 255))), H.b = Math.max(0, Math.min(255, H.b - Math.round(-I / 100 * 255))), k(H);
     }
-    function N(S, A) {
-      A = A === 0 ? 0 : A || 10;
+    function N(S, I) {
+      I = I === 0 ? 0 : I || 10;
       var H = k(S).toHsl();
-      return H.l -= A / 100, H.l = ne(H.l), k(H);
+      return H.l -= I / 100, H.l = ne(H.l), k(H);
     }
-    function U(S, A) {
-      var H = k(S).toHsl(), Z = (H.h + A) % 360;
+    function U(S, I) {
+      var H = k(S).toHsl(), Z = (H.h + I) % 360;
       return H.h = Z < 0 ? 360 + Z : Z, k(H);
     }
     function C(S) {
-      var A = k(S).toHsl();
-      return A.h = (A.h + 180) % 360, k(A);
+      var I = k(S).toHsl();
+      return I.h = (I.h + 180) % 360, k(I);
     }
-    function ae(S, A) {
-      if (isNaN(A) || A <= 0)
+    function ae(S, I) {
+      if (isNaN(I) || I <= 0)
         throw new Error("Argument to polyad must be a positive number");
-      for (var H = k(S).toHsl(), Z = [k(S)], ie = 360 / A, fe = 1; fe < A; fe++)
+      for (var H = k(S).toHsl(), Z = [k(S)], ie = 360 / I, fe = 1; fe < I; fe++)
         Z.push(k({ h: (H.h + fe * ie) % 360, s: H.s, l: H.l }));
       return Z;
     }
     function J(S) {
-      var A = k(S).toHsl(), H = A.h;
-      return [k(S), k({ h: (H + 72) % 360, s: A.s, l: A.l }), k({ h: (H + 216) % 360, s: A.s, l: A.l })];
+      var I = k(S).toHsl(), H = I.h;
+      return [k(S), k({ h: (H + 72) % 360, s: I.s, l: I.l }), k({ h: (H + 216) % 360, s: I.s, l: I.l })];
     }
-    function te(S, A, H) {
-      A = A || 6, H = H || 30;
+    function te(S, I, H) {
+      I = I || 6, H = H || 30;
       var Z = k(S).toHsl(), ie = 360 / H, fe = [k(S)];
-      for (Z.h = (Z.h - (ie * A >> 1) + 720) % 360; --A; )
+      for (Z.h = (Z.h - (ie * I >> 1) + 720) % 360; --I; )
         Z.h = (Z.h + ie) % 360, fe.push(k(Z));
       return fe;
     }
-    function $(S, A) {
-      A = A || 6;
-      for (var H = k(S).toHsv(), Z = H.h, ie = H.s, fe = H.v, ge = [], me = 1 / A; A--; )
+    function $(S, I) {
+      I = I || 6;
+      for (var H = k(S).toHsv(), Z = H.h, ie = H.s, fe = H.v, ge = [], me = 1 / I; I--; )
         ge.push(k({ h: Z, s: ie, v: fe })), fe = (fe + me) % 1;
       return ge;
     }
@@ -15564,29 +15564,29 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
       var S = this.toRgb();
       return (299 * S.r + 587 * S.g + 114 * S.b) / 1e3;
     }, getLuminance: function() {
-      var S, A, H, Z = this.toRgb();
-      return S = Z.r / 255, A = Z.g / 255, H = Z.b / 255, 0.2126 * (S <= 0.03928 ? S / 12.92 : Math.pow((S + 0.055) / 1.055, 2.4)) + 0.7152 * (A <= 0.03928 ? A / 12.92 : Math.pow((A + 0.055) / 1.055, 2.4)) + 0.0722 * (H <= 0.03928 ? H / 12.92 : Math.pow((H + 0.055) / 1.055, 2.4));
+      var S, I, H, Z = this.toRgb();
+      return S = Z.r / 255, I = Z.g / 255, H = Z.b / 255, 0.2126 * (S <= 0.03928 ? S / 12.92 : Math.pow((S + 0.055) / 1.055, 2.4)) + 0.7152 * (I <= 0.03928 ? I / 12.92 : Math.pow((I + 0.055) / 1.055, 2.4)) + 0.0722 * (H <= 0.03928 ? H / 12.92 : Math.pow((H + 0.055) / 1.055, 2.4));
     }, setAlpha: function(S) {
       return this._a = z(S), this._roundA = Math.round(100 * this._a) / 100, this;
     }, toHsv: function() {
       var S = F(this._r, this._g, this._b);
       return { h: 360 * S.h, s: S.s, v: S.v, a: this._a };
     }, toHsvString: function() {
-      var S = F(this._r, this._g, this._b), A = Math.round(360 * S.h), H = Math.round(100 * S.s), Z = Math.round(100 * S.v);
-      return this._a == 1 ? "hsv(" + A + ", " + H + "%, " + Z + "%)" : "hsva(" + A + ", " + H + "%, " + Z + "%, " + this._roundA + ")";
+      var S = F(this._r, this._g, this._b), I = Math.round(360 * S.h), H = Math.round(100 * S.s), Z = Math.round(100 * S.v);
+      return this._a == 1 ? "hsv(" + I + ", " + H + "%, " + Z + "%)" : "hsva(" + I + ", " + H + "%, " + Z + "%, " + this._roundA + ")";
     }, toHsl: function() {
       var S = G(this._r, this._g, this._b);
       return { h: 360 * S.h, s: S.s, l: S.l, a: this._a };
     }, toHslString: function() {
-      var S = G(this._r, this._g, this._b), A = Math.round(360 * S.h), H = Math.round(100 * S.s), Z = Math.round(100 * S.l);
-      return this._a == 1 ? "hsl(" + A + ", " + H + "%, " + Z + "%)" : "hsla(" + A + ", " + H + "%, " + Z + "%, " + this._roundA + ")";
+      var S = G(this._r, this._g, this._b), I = Math.round(360 * S.h), H = Math.round(100 * S.s), Z = Math.round(100 * S.l);
+      return this._a == 1 ? "hsl(" + I + ", " + H + "%, " + Z + "%)" : "hsla(" + I + ", " + H + "%, " + Z + "%, " + this._roundA + ")";
     }, toHex: function(S) {
       return V(this._r, this._g, this._b, S);
     }, toHexString: function(S) {
       return "#" + this.toHex(S);
     }, toHex8: function(S) {
-      return function(A, H, Z, ie, fe) {
-        var ge = [he(Math.round(A).toString(16)), he(Math.round(H).toString(16)), he(Math.round(Z).toString(16)), he(T(ie))];
+      return function(I, H, Z, ie, fe) {
+        var ge = [he(Math.round(I).toString(16)), he(Math.round(H).toString(16)), he(Math.round(Z).toString(16)), he(T(ie))];
         return fe && ge[0].charAt(0) == ge[0].charAt(1) && ge[1].charAt(0) == ge[1].charAt(1) && ge[2].charAt(0) == ge[2].charAt(1) && ge[3].charAt(0) == ge[3].charAt(1) ? ge[0].charAt(0) + ge[1].charAt(0) + ge[2].charAt(0) + ge[3].charAt(0) : ge.join("");
       }(this._r, this._g, this._b, this._a, S);
     }, toHex8String: function(S) {
@@ -15602,21 +15602,21 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
     }, toName: function() {
       return this._a === 0 ? "transparent" : !(this._a < 1) && (re[V(this._r, this._g, this._b, !0)] || !1);
     }, toFilter: function(S) {
-      var A = "#" + q(this._r, this._g, this._b, this._a), H = A, Z = this._gradientType ? "GradientType = 1, " : "";
+      var I = "#" + q(this._r, this._g, this._b, this._a), H = I, Z = this._gradientType ? "GradientType = 1, " : "";
       if (S) {
         var ie = k(S);
         H = "#" + q(ie._r, ie._g, ie._b, ie._a);
       }
-      return "progid:DXImageTransform.Microsoft.gradient(" + Z + "startColorstr=" + A + ",endColorstr=" + H + ")";
+      return "progid:DXImageTransform.Microsoft.gradient(" + Z + "startColorstr=" + I + ",endColorstr=" + H + ")";
     }, toString: function(S) {
-      var A = !!S;
+      var I = !!S;
       S = S || this._format;
       var H = !1, Z = this._a < 1 && this._a >= 0;
-      return A || !Z || S !== "hex" && S !== "hex6" && S !== "hex3" && S !== "hex4" && S !== "hex8" && S !== "name" ? (S === "rgb" && (H = this.toRgbString()), S === "prgb" && (H = this.toPercentageRgbString()), S !== "hex" && S !== "hex6" || (H = this.toHexString()), S === "hex3" && (H = this.toHexString(!0)), S === "hex4" && (H = this.toHex8String(!0)), S === "hex8" && (H = this.toHex8String()), S === "name" && (H = this.toName()), S === "hsl" && (H = this.toHslString()), S === "hsv" && (H = this.toHsvString()), H || this.toHexString()) : S === "name" && this._a === 0 ? this.toName() : this.toRgbString();
+      return I || !Z || S !== "hex" && S !== "hex6" && S !== "hex3" && S !== "hex4" && S !== "hex8" && S !== "name" ? (S === "rgb" && (H = this.toRgbString()), S === "prgb" && (H = this.toPercentageRgbString()), S !== "hex" && S !== "hex6" || (H = this.toHexString()), S === "hex3" && (H = this.toHexString(!0)), S === "hex4" && (H = this.toHex8String(!0)), S === "hex8" && (H = this.toHex8String()), S === "name" && (H = this.toName()), S === "hsl" && (H = this.toHslString()), S === "hsv" && (H = this.toHsvString()), H || this.toHexString()) : S === "name" && this._a === 0 ? this.toName() : this.toRgbString();
     }, clone: function() {
       return k(this.toString());
-    }, _applyModification: function(S, A) {
-      var H = S.apply(null, [this].concat([].slice.call(A)));
+    }, _applyModification: function(S, I) {
+      var H = S.apply(null, [this].concat([].slice.call(I)));
       return this._r = H._r, this._g = H._g, this._b = H._b, this.setAlpha(H._a), this;
     }, lighten: function() {
       return this._applyModification(W, arguments);
@@ -15625,15 +15625,15 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
     }, darken: function() {
       return this._applyModification(N, arguments);
     }, desaturate: function() {
-      return this._applyModification(I, arguments);
+      return this._applyModification(A, arguments);
     }, saturate: function() {
       return this._applyModification(_, arguments);
     }, greyscale: function() {
       return this._applyModification(R, arguments);
     }, spin: function() {
       return this._applyModification(U, arguments);
-    }, _applyCombination: function(S, A) {
-      return S.apply(null, [this].concat([].slice.call(A)));
+    }, _applyCombination: function(S, I) {
+      return S.apply(null, [this].concat([].slice.call(I)));
     }, analogous: function() {
       return this._applyCombination(te, arguments);
     }, complement: function() {
@@ -15646,27 +15646,27 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
       return this._applyCombination(ae, [3]);
     }, tetrad: function() {
       return this._applyCombination(ae, [4]);
-    } }, k.fromRatio = function(S, A) {
+    } }, k.fromRatio = function(S, I) {
       if (x(S) == "object") {
         var H = {};
         for (var Z in S)
           S.hasOwnProperty(Z) && (H[Z] = Z === "a" ? S[Z] : M(S[Z]));
         S = H;
       }
-      return k(S, A);
-    }, k.equals = function(S, A) {
-      return !(!S || !A) && k(S).toRgbString() == k(A).toRgbString();
+      return k(S, I);
+    }, k.equals = function(S, I) {
+      return !(!S || !I) && k(S).toRgbString() == k(I).toRgbString();
     }, k.random = function() {
       return k.fromRatio({ r: Math.random(), g: Math.random(), b: Math.random() });
-    }, k.mix = function(S, A, H) {
+    }, k.mix = function(S, I, H) {
       H = H === 0 ? 0 : H || 50;
-      var Z = k(S).toRgb(), ie = k(A).toRgb(), fe = H / 100;
+      var Z = k(S).toRgb(), ie = k(I).toRgb(), fe = H / 100;
       return k({ r: (ie.r - Z.r) * fe + Z.r, g: (ie.g - Z.g) * fe + Z.g, b: (ie.b - Z.b) * fe + Z.b, a: (ie.a - Z.a) * fe + Z.a });
-    }, k.readability = function(S, A) {
-      var H = k(S), Z = k(A);
+    }, k.readability = function(S, I) {
+      var H = k(S), Z = k(I);
       return (Math.max(H.getLuminance(), Z.getLuminance()) + 0.05) / (Math.min(H.getLuminance(), Z.getLuminance()) + 0.05);
-    }, k.isReadable = function(S, A, H) {
-      var Z, ie, fe, ge, me, ye = k.readability(S, A);
+    }, k.isReadable = function(S, I, H) {
+      var Z, ie, fe, ge, me, ye = k.readability(S, I);
       switch (ie = !1, (fe = H, (ge = ((fe = fe || { level: "AA", size: "small" }).level || "AA").toUpperCase()) !== "AA" && ge !== "AAA" && (ge = "AA"), (me = (fe.size || "small").toLowerCase()) !== "small" && me !== "large" && (me = "small"), Z = { level: ge, size: me }).level + Z.size) {
         case "AAsmall":
         case "AAAlarge":
@@ -15679,30 +15679,30 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           ie = ye >= 7;
       }
       return ie;
-    }, k.mostReadable = function(S, A, H) {
+    }, k.mostReadable = function(S, I, H) {
       var Z, ie, fe, ge, me = null, ye = 0;
       ie = (H = H || {}).includeFallbackColors, fe = H.level, ge = H.size;
-      for (var Ae = 0; Ae < A.length; Ae++)
-        (Z = k.readability(S, A[Ae])) > ye && (ye = Z, me = k(A[Ae]));
+      for (var Ie = 0; Ie < I.length; Ie++)
+        (Z = k.readability(S, I[Ie])) > ye && (ye = Z, me = k(I[Ie]));
       return k.isReadable(S, me, { level: fe, size: ge }) || !ie ? me : (H.includeFallbackColors = !1, k.mostReadable(S, ["#fff", "#000"], H));
     };
     var L = k.names = { aliceblue: "f0f8ff", antiquewhite: "faebd7", aqua: "0ff", aquamarine: "7fffd4", azure: "f0ffff", beige: "f5f5dc", bisque: "ffe4c4", black: "000", blanchedalmond: "ffebcd", blue: "00f", blueviolet: "8a2be2", brown: "a52a2a", burlywood: "deb887", burntsienna: "ea7e5d", cadetblue: "5f9ea0", chartreuse: "7fff00", chocolate: "d2691e", coral: "ff7f50", cornflowerblue: "6495ed", cornsilk: "fff8dc", crimson: "dc143c", cyan: "0ff", darkblue: "00008b", darkcyan: "008b8b", darkgoldenrod: "b8860b", darkgray: "a9a9a9", darkgreen: "006400", darkgrey: "a9a9a9", darkkhaki: "bdb76b", darkmagenta: "8b008b", darkolivegreen: "556b2f", darkorange: "ff8c00", darkorchid: "9932cc", darkred: "8b0000", darksalmon: "e9967a", darkseagreen: "8fbc8f", darkslateblue: "483d8b", darkslategray: "2f4f4f", darkslategrey: "2f4f4f", darkturquoise: "00ced1", darkviolet: "9400d3", deeppink: "ff1493", deepskyblue: "00bfff", dimgray: "696969", dimgrey: "696969", dodgerblue: "1e90ff", firebrick: "b22222", floralwhite: "fffaf0", forestgreen: "228b22", fuchsia: "f0f", gainsboro: "dcdcdc", ghostwhite: "f8f8ff", gold: "ffd700", goldenrod: "daa520", gray: "808080", green: "008000", greenyellow: "adff2f", grey: "808080", honeydew: "f0fff0", hotpink: "ff69b4", indianred: "cd5c5c", indigo: "4b0082", ivory: "fffff0", khaki: "f0e68c", lavender: "e6e6fa", lavenderblush: "fff0f5", lawngreen: "7cfc00", lemonchiffon: "fffacd", lightblue: "add8e6", lightcoral: "f08080", lightcyan: "e0ffff", lightgoldenrodyellow: "fafad2", lightgray: "d3d3d3", lightgreen: "90ee90", lightgrey: "d3d3d3", lightpink: "ffb6c1", lightsalmon: "ffa07a", lightseagreen: "20b2aa", lightskyblue: "87cefa", lightslategray: "789", lightslategrey: "789", lightsteelblue: "b0c4de", lightyellow: "ffffe0", lime: "0f0", limegreen: "32cd32", linen: "faf0e6", magenta: "f0f", maroon: "800000", mediumaquamarine: "66cdaa", mediumblue: "0000cd", mediumorchid: "ba55d3", mediumpurple: "9370db", mediumseagreen: "3cb371", mediumslateblue: "7b68ee", mediumspringgreen: "00fa9a", mediumturquoise: "48d1cc", mediumvioletred: "c71585", midnightblue: "191970", mintcream: "f5fffa", mistyrose: "ffe4e1", moccasin: "ffe4b5", navajowhite: "ffdead", navy: "000080", oldlace: "fdf5e6", olive: "808000", olivedrab: "6b8e23", orange: "ffa500", orangered: "ff4500", orchid: "da70d6", palegoldenrod: "eee8aa", palegreen: "98fb98", paleturquoise: "afeeee", palevioletred: "db7093", papayawhip: "ffefd5", peachpuff: "ffdab9", peru: "cd853f", pink: "ffc0cb", plum: "dda0dd", powderblue: "b0e0e6", purple: "800080", rebeccapurple: "663399", red: "f00", rosybrown: "bc8f8f", royalblue: "4169e1", saddlebrown: "8b4513", salmon: "fa8072", sandybrown: "f4a460", seagreen: "2e8b57", seashell: "fff5ee", sienna: "a0522d", silver: "c0c0c0", skyblue: "87ceeb", slateblue: "6a5acd", slategray: "708090", slategrey: "708090", snow: "fffafa", springgreen: "00ff7f", steelblue: "4682b4", tan: "d2b48c", teal: "008080", thistle: "d8bfd8", tomato: "ff6347", turquoise: "40e0d0", violet: "ee82ee", wheat: "f5deb3", white: "fff", whitesmoke: "f5f5f5", yellow: "ff0", yellowgreen: "9acd32" }, re = k.hexNames = function(S) {
-      var A = {};
+      var I = {};
       for (var H in S)
-        S.hasOwnProperty(H) && (A[S[H]] = H);
-      return A;
+        S.hasOwnProperty(H) && (I[S[H]] = H);
+      return I;
     }(L);
     function z(S) {
       return S = parseFloat(S), (isNaN(S) || S < 0 || S > 1) && (S = 1), S;
     }
-    function j(S, A) {
+    function j(S, I) {
       (function(Z) {
         return typeof Z == "string" && Z.indexOf(".") != -1 && parseFloat(Z) === 1;
       })(S) && (S = "100%");
       var H = function(Z) {
         return typeof Z == "string" && Z.indexOf("%") != -1;
       }(S);
-      return S = Math.min(A, Math.max(0, parseFloat(S))), H && (S = parseInt(S * A, 10) / 100), Math.abs(S - A) < 1e-6 ? 1 : S % A / parseFloat(A);
+      return S = Math.min(I, Math.max(0, parseFloat(S))), H && (S = parseInt(S * I, 10) / 100), Math.abs(S - I) < 1e-6 ? 1 : S % I / parseFloat(I);
     }
     function ne(S) {
       return Math.min(1, Math.max(0, S));
@@ -15726,44 +15726,44 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
     function D(S) {
       return !!m.CSS_UNIT.exec(S);
     }
-    function ee(S, A) {
-      this.size = this.size || S, this.smallerSize = this.smallerSize || A, function(H) {
+    function ee(S, I) {
+      this.size = this.size || S, this.smallerSize = this.smallerSize || I, function(H) {
         for (let Z = 1; Z < H; Z++)
           Q[Z] = 1;
         Q[0] = 1 / Math.sqrt(2);
       }(this.size);
     }
     function E(S) {
-      const A = {};
-      return A.r = Math.floor(S / Math.pow(256, 3)), A.g = Math.floor((S - A.r * Math.pow(256, 3)) / Math.pow(256, 2)), A.b = Math.floor((S - A.r * Math.pow(256, 3) - A.g * Math.pow(256, 2)) / Math.pow(256, 1)), A.a = Math.floor((S - A.r * Math.pow(256, 3) - A.g * Math.pow(256, 2) - A.b * Math.pow(256, 1)) / Math.pow(256, 0)), A;
+      const I = {};
+      return I.r = Math.floor(S / Math.pow(256, 3)), I.g = Math.floor((S - I.r * Math.pow(256, 3)) / Math.pow(256, 2)), I.b = Math.floor((S - I.r * Math.pow(256, 3) - I.g * Math.pow(256, 2)) / Math.pow(256, 1)), I.a = Math.floor((S - I.r * Math.pow(256, 3) - I.g * Math.pow(256, 2) - I.b * Math.pow(256, 1)) / Math.pow(256, 0)), I;
     }
-    ee.prototype.size = 32, ee.prototype.smallerSize = 8, ee.prototype.distance = function(S, A) {
+    ee.prototype.size = 32, ee.prototype.smallerSize = 8, ee.prototype.distance = function(S, I) {
       let H = 0;
       for (let Z = 0; Z < S.length; Z++)
-        S[Z] !== A[Z] && H++;
+        S[Z] !== I[Z] && H++;
       return H / S.length;
     }, ee.prototype.getHash = function(S) {
       (S = S.clone().resize(this.size, this.size)).grayscale();
-      const A = [];
+      const I = [];
       for (let ge = 0; ge < S.bitmap.width; ge++) {
-        A[ge] = [];
+        I[ge] = [];
         for (let me = 0; me < S.bitmap.height; me++)
-          A[ge][me] = E(S.getPixelColor(ge, me)).b;
+          I[ge][me] = E(S.getPixelColor(ge, me)).b;
       }
       const H = function(ge, me) {
-        const ye = me, Ae = [];
+        const ye = me, Ie = [];
         for (let Oe = 0; Oe < ye; Oe++) {
-          Ae[Oe] = [];
+          Ie[Oe] = [];
           for (let ze = 0; ze < ye; ze++) {
             let it = 0;
             for (let $e = 0; $e < ye; $e++)
               for (let Ge = 0; Ge < ye; Ge++)
                 it += Math.cos((2 * $e + 1) / (2 * ye) * Oe * Math.PI) * Math.cos((2 * Ge + 1) / (2 * ye) * ze * Math.PI) * ge[$e][Ge];
-            it *= Q[Oe] * Q[ze] / 4, Ae[Oe][ze] = it;
+            it *= Q[Oe] * Q[ze] / 4, Ie[Oe][ze] = it;
           }
         }
-        return Ae;
-      }(A, this.size);
+        return Ie;
+      }(I, this.size);
       let Z = 0;
       for (let ge = 0; ge < this.smallerSize; ge++)
         for (let me = 0; me < this.smallerSize; me++)
@@ -15777,7 +15777,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
     };
     const Q = [], se = ee;
     __webpack_require__(9307);
-    const Y = (S, A) => {
+    const Y = (S, I) => {
       let { url: H, ...Z } = S;
       fetch(H, Z).then((ie) => {
         if (ie.ok)
@@ -15785,100 +15785,100 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             throw new Error(`Response is not a buffer for url ${H}. Error: ${fe.message}`);
           });
         throw new Error(`HTTP Status ${ie.status} for url ${H}`);
-      }).then((ie) => A(null, ie)).catch((ie) => A(ie));
+      }).then((ie) => I(null, ie)).catch((ie) => I(ie));
     }, be = -1, Ee = 1, ke = 2, Me = 4, oe = 8, ce = 16, xe = 32, Ce = "srcOver", _e = "dstOver", Be = "multiply", Pe = "add", Fe = "screen", We = "overlay", Qe = "darken", lt = "lighten", P = "hardLight", we = "difference", X = "exclusion", de = 1, Ze = 2, Re = 3;
-    function rt(S, A) {
+    function rt(S, I) {
       let H = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : 1;
       S.a *= H;
-      const Z = A.a + S.a - A.a * S.a;
-      return { r: (S.r * S.a + A.r * A.a * (1 - S.a)) / Z, g: (S.g * S.a + A.g * A.a * (1 - S.a)) / Z, b: (S.b * S.a + A.b * A.a * (1 - S.a)) / Z, a: Z };
+      const Z = I.a + S.a - I.a * S.a;
+      return { r: (S.r * S.a + I.r * I.a * (1 - S.a)) / Z, g: (S.g * S.a + I.g * I.a * (1 - S.a)) / Z, b: (S.b * S.a + I.b * I.a * (1 - S.a)) / Z, a: Z };
     }
-    function De(S, A) {
+    function De(S, I) {
       let H = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : 1;
       S.a *= H;
-      const Z = A.a + S.a - A.a * S.a;
-      return { r: (A.r * A.a + S.r * S.a * (1 - A.a)) / Z, g: (A.g * A.a + S.g * S.a * (1 - A.a)) / Z, b: (A.b * A.a + S.b * S.a * (1 - A.a)) / Z, a: Z };
+      const Z = I.a + S.a - I.a * S.a;
+      return { r: (I.r * I.a + S.r * S.a * (1 - I.a)) / Z, g: (I.g * I.a + S.g * S.a * (1 - I.a)) / Z, b: (I.b * I.a + S.b * S.a * (1 - I.a)) / Z, a: Z };
     }
-    function Je(S, A) {
+    function Je(S, I) {
       let H = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : 1;
       S.a *= H;
-      const Z = A.a + S.a - A.a * S.a, ie = S.r * S.a, fe = S.g * S.a, ge = S.b * S.a, me = A.r * A.a, ye = A.g * A.a, Ae = A.b * A.a;
-      return { r: (ie * me + ie * (1 - A.a) + me * (1 - S.a)) / Z, g: (fe * ye + fe * (1 - A.a) + ye * (1 - S.a)) / Z, b: (ge * Ae + ge * (1 - A.a) + Ae * (1 - S.a)) / Z, a: Z };
+      const Z = I.a + S.a - I.a * S.a, ie = S.r * S.a, fe = S.g * S.a, ge = S.b * S.a, me = I.r * I.a, ye = I.g * I.a, Ie = I.b * I.a;
+      return { r: (ie * me + ie * (1 - I.a) + me * (1 - S.a)) / Z, g: (fe * ye + fe * (1 - I.a) + ye * (1 - S.a)) / Z, b: (ge * Ie + ge * (1 - I.a) + Ie * (1 - S.a)) / Z, a: Z };
     }
-    function je(S, A) {
+    function je(S, I) {
       let H = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : 1;
       S.a *= H;
-      const Z = A.a + S.a - A.a * S.a, ie = S.r * S.a, fe = S.g * S.a, ge = S.b * S.a;
-      return { r: (ie + A.r * A.a) / Z, g: (fe + A.g * A.a) / Z, b: (ge + A.b * A.a) / Z, a: Z };
+      const Z = I.a + S.a - I.a * S.a, ie = S.r * S.a, fe = S.g * S.a, ge = S.b * S.a;
+      return { r: (ie + I.r * I.a) / Z, g: (fe + I.g * I.a) / Z, b: (ge + I.b * I.a) / Z, a: Z };
     }
-    function Ie(S, A) {
+    function Ae(S, I) {
       let H = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : 1;
       S.a *= H;
-      const Z = A.a + S.a - A.a * S.a, ie = S.r * S.a, fe = S.g * S.a, ge = S.b * S.a, me = A.r * A.a, ye = A.g * A.a, Ae = A.b * A.a;
-      return { r: (ie * A.a + me * S.a - ie * me + ie * (1 - A.a) + me * (1 - S.a)) / Z, g: (fe * A.a + ye * S.a - fe * ye + fe * (1 - A.a) + ye * (1 - S.a)) / Z, b: (ge * A.a + Ae * S.a - ge * Ae + ge * (1 - A.a) + Ae * (1 - S.a)) / Z, a: Z };
+      const Z = I.a + S.a - I.a * S.a, ie = S.r * S.a, fe = S.g * S.a, ge = S.b * S.a, me = I.r * I.a, ye = I.g * I.a, Ie = I.b * I.a;
+      return { r: (ie * I.a + me * S.a - ie * me + ie * (1 - I.a) + me * (1 - S.a)) / Z, g: (fe * I.a + ye * S.a - fe * ye + fe * (1 - I.a) + ye * (1 - S.a)) / Z, b: (ge * I.a + Ie * S.a - ge * Ie + ge * (1 - I.a) + Ie * (1 - S.a)) / Z, a: Z };
     }
-    function at(S, A) {
+    function at(S, I) {
       let H = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : 1;
       S.a *= H;
-      const Z = A.a + S.a - A.a * S.a, ie = S.r * S.a, fe = S.g * S.a, ge = S.b * S.a, me = A.r * A.a, ye = A.g * A.a, Ae = A.b * A.a;
-      return { r: (2 * me <= A.a ? 2 * ie * me + ie * (1 - A.a) + me * (1 - S.a) : ie * (1 + A.a) + me * (1 + S.a) - 2 * me * ie - A.a * S.a) / Z, g: (2 * ye <= A.a ? 2 * fe * ye + fe * (1 - A.a) + ye * (1 - S.a) : fe * (1 + A.a) + ye * (1 + S.a) - 2 * ye * fe - A.a * S.a) / Z, b: (2 * Ae <= A.a ? 2 * ge * Ae + ge * (1 - A.a) + Ae * (1 - S.a) : ge * (1 + A.a) + Ae * (1 + S.a) - 2 * Ae * ge - A.a * S.a) / Z, a: Z };
+      const Z = I.a + S.a - I.a * S.a, ie = S.r * S.a, fe = S.g * S.a, ge = S.b * S.a, me = I.r * I.a, ye = I.g * I.a, Ie = I.b * I.a;
+      return { r: (2 * me <= I.a ? 2 * ie * me + ie * (1 - I.a) + me * (1 - S.a) : ie * (1 + I.a) + me * (1 + S.a) - 2 * me * ie - I.a * S.a) / Z, g: (2 * ye <= I.a ? 2 * fe * ye + fe * (1 - I.a) + ye * (1 - S.a) : fe * (1 + I.a) + ye * (1 + S.a) - 2 * ye * fe - I.a * S.a) / Z, b: (2 * Ie <= I.a ? 2 * ge * Ie + ge * (1 - I.a) + Ie * (1 - S.a) : ge * (1 + I.a) + Ie * (1 + S.a) - 2 * Ie * ge - I.a * S.a) / Z, a: Z };
     }
-    function st(S, A) {
+    function st(S, I) {
       let H = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : 1;
       S.a *= H;
-      const Z = A.a + S.a - A.a * S.a, ie = S.r * S.a, fe = S.g * S.a, ge = S.b * S.a, me = A.r * A.a, ye = A.g * A.a, Ae = A.b * A.a;
-      return { r: (Math.min(ie * A.a, me * S.a) + ie * (1 - A.a) + me * (1 - S.a)) / Z, g: (Math.min(fe * A.a, ye * S.a) + fe * (1 - A.a) + ye * (1 - S.a)) / Z, b: (Math.min(ge * A.a, Ae * S.a) + ge * (1 - A.a) + Ae * (1 - S.a)) / Z, a: Z };
+      const Z = I.a + S.a - I.a * S.a, ie = S.r * S.a, fe = S.g * S.a, ge = S.b * S.a, me = I.r * I.a, ye = I.g * I.a, Ie = I.b * I.a;
+      return { r: (Math.min(ie * I.a, me * S.a) + ie * (1 - I.a) + me * (1 - S.a)) / Z, g: (Math.min(fe * I.a, ye * S.a) + fe * (1 - I.a) + ye * (1 - S.a)) / Z, b: (Math.min(ge * I.a, Ie * S.a) + ge * (1 - I.a) + Ie * (1 - S.a)) / Z, a: Z };
     }
-    function tt(S, A) {
+    function tt(S, I) {
       let H = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : 1;
       S.a *= H;
-      const Z = A.a + S.a - A.a * S.a, ie = S.r * S.a, fe = S.g * S.a, ge = S.b * S.a, me = A.r * A.a, ye = A.g * A.a, Ae = A.b * A.a;
-      return { r: (Math.max(ie * A.a, me * S.a) + ie * (1 - A.a) + me * (1 - S.a)) / Z, g: (Math.max(fe * A.a, ye * S.a) + fe * (1 - A.a) + ye * (1 - S.a)) / Z, b: (Math.max(ge * A.a, Ae * S.a) + ge * (1 - A.a) + Ae * (1 - S.a)) / Z, a: Z };
+      const Z = I.a + S.a - I.a * S.a, ie = S.r * S.a, fe = S.g * S.a, ge = S.b * S.a, me = I.r * I.a, ye = I.g * I.a, Ie = I.b * I.a;
+      return { r: (Math.max(ie * I.a, me * S.a) + ie * (1 - I.a) + me * (1 - S.a)) / Z, g: (Math.max(fe * I.a, ye * S.a) + fe * (1 - I.a) + ye * (1 - S.a)) / Z, b: (Math.max(ge * I.a, Ie * S.a) + ge * (1 - I.a) + Ie * (1 - S.a)) / Z, a: Z };
     }
-    function mt(S, A) {
+    function mt(S, I) {
       let H = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : 1;
       S.a *= H;
-      const Z = A.a + S.a - A.a * S.a, ie = S.r * S.a, fe = S.g * S.a, ge = S.b * S.a, me = A.r * A.a, ye = A.g * A.a, Ae = A.b * A.a;
-      return { r: (2 * ie <= S.a ? 2 * ie * me + ie * (1 - A.a) + me * (1 - S.a) : ie * (1 + A.a) + me * (1 + S.a) - 2 * me * ie - A.a * S.a) / Z, g: (2 * fe <= S.a ? 2 * fe * ye + fe * (1 - A.a) + ye * (1 - S.a) : fe * (1 + A.a) + ye * (1 + S.a) - 2 * ye * fe - A.a * S.a) / Z, b: (2 * ge <= S.a ? 2 * ge * Ae + ge * (1 - A.a) + Ae * (1 - S.a) : ge * (1 + A.a) + Ae * (1 + S.a) - 2 * Ae * ge - A.a * S.a) / Z, a: Z };
+      const Z = I.a + S.a - I.a * S.a, ie = S.r * S.a, fe = S.g * S.a, ge = S.b * S.a, me = I.r * I.a, ye = I.g * I.a, Ie = I.b * I.a;
+      return { r: (2 * ie <= S.a ? 2 * ie * me + ie * (1 - I.a) + me * (1 - S.a) : ie * (1 + I.a) + me * (1 + S.a) - 2 * me * ie - I.a * S.a) / Z, g: (2 * fe <= S.a ? 2 * fe * ye + fe * (1 - I.a) + ye * (1 - S.a) : fe * (1 + I.a) + ye * (1 + S.a) - 2 * ye * fe - I.a * S.a) / Z, b: (2 * ge <= S.a ? 2 * ge * Ie + ge * (1 - I.a) + Ie * (1 - S.a) : ge * (1 + I.a) + Ie * (1 + S.a) - 2 * Ie * ge - I.a * S.a) / Z, a: Z };
     }
-    function It(S, A) {
+    function At(S, I) {
       let H = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : 1;
       S.a *= H;
-      const Z = A.a + S.a - A.a * S.a, ie = S.r * S.a, fe = S.g * S.a, ge = S.b * S.a, me = A.r * A.a, ye = A.g * A.a, Ae = A.b * A.a;
-      return { r: (ie + me - 2 * Math.min(ie * A.a, me * S.a)) / Z, g: (fe + ye - 2 * Math.min(fe * A.a, ye * S.a)) / Z, b: (ge + Ae - 2 * Math.min(ge * A.a, Ae * S.a)) / Z, a: Z };
+      const Z = I.a + S.a - I.a * S.a, ie = S.r * S.a, fe = S.g * S.a, ge = S.b * S.a, me = I.r * I.a, ye = I.g * I.a, Ie = I.b * I.a;
+      return { r: (ie + me - 2 * Math.min(ie * I.a, me * S.a)) / Z, g: (fe + ye - 2 * Math.min(fe * I.a, ye * S.a)) / Z, b: (ge + Ie - 2 * Math.min(ge * I.a, Ie * S.a)) / Z, a: Z };
     }
-    function wt(S, A) {
+    function wt(S, I) {
       let H = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : 1;
       S.a *= H;
-      const Z = A.a + S.a - A.a * S.a, ie = S.r * S.a, fe = S.g * S.a, ge = S.b * S.a, me = A.r * A.a, ye = A.g * A.a, Ae = A.b * A.a;
-      return { r: (ie * A.a + me * S.a - 2 * ie * me + ie * (1 - A.a) + me * (1 - S.a)) / Z, g: (fe * A.a + ye * S.a - 2 * fe * ye + fe * (1 - A.a) + ye * (1 - S.a)) / Z, b: (ge * A.a + Ae * S.a - 2 * ge * Ae + ge * (1 - A.a) + Ae * (1 - S.a)) / Z, a: Z };
+      const Z = I.a + S.a - I.a * S.a, ie = S.r * S.a, fe = S.g * S.a, ge = S.b * S.a, me = I.r * I.a, ye = I.g * I.a, Ie = I.b * I.a;
+      return { r: (ie * I.a + me * S.a - 2 * ie * me + ie * (1 - I.a) + me * (1 - S.a)) / Z, g: (fe * I.a + ye * S.a - 2 * fe * ye + fe * (1 - I.a) + ye * (1 - S.a)) / Z, b: (ge * I.a + Ie * S.a - 2 * ge * Ie + ge * (1 - I.a) + Ie * (1 - S.a)) / Z, a: Z };
     }
-    const ot = function(S, A) {
+    const ot = function(S, I) {
       for (var H = arguments.length, Z = new Array(H > 2 ? H - 2 : 0), ie = 2; ie < H; ie++)
         Z[ie - 2] = arguments[ie];
       return new Promise((fe, ge) => {
         Z.push((me, ye) => {
           me && ge(me), fe(ye);
-        }), S.bind(A)(...Z);
+        }), S.bind(I)(...Z);
       });
-    }, Mt = {}, Ft = (S, A) => {
-      Mt[S] = A;
+    }, Mt = {}, Ft = (S, I) => {
+      Mt[S] = I;
     }, Rt = (S) => {
-      const A = S.split("/").slice(-1);
+      const I = S.split("/").slice(-1);
       var H;
-      return (H = A[A.length - 1].split(".").pop(), Object.entries(Mt).find((Z) => Z[1].includes(H)) || [])[0];
+      return (H = I[I.length - 1].split(".").pop(), Object.entries(Mt).find((Z) => Z[1].includes(H)) || [])[0];
     };
     var qt = __webpack_require__(5025), Lt = __webpack_require__.n(qt), Se = __webpack_require__(6551), Ye = __webpack_require__.n(Se), Ke = __webpack_require__(8834).lW;
     function ut(S) {
       return S._exif && S._exif.tags && S._exif.tags.Orientation || 1;
     }
-    async function bt(S, A, H) {
+    async function bt(S, I, H) {
       const Z = await async function(ie, fe) {
         const ge = await Lt().fromBuffer(ie);
         return ge ? ge.mime : fe ? Rt(fe) : null;
-      }(S, A);
+      }(S, I);
       if (typeof Z != "string")
-        return H(new Error("Could not find MIME for Buffer <" + A + ">"));
+        return H(new Error("Could not find MIME for Buffer <" + I + ">"));
       this._originalMime = Z.toLowerCase();
       try {
         const ie = this.getMIME();
@@ -15893,7 +15893,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           if (ut(ie) < 2)
             return;
           const fe = function(me) {
-            const ye = me.getWidth(), Ae = me.getHeight();
+            const ye = me.getWidth(), Ie = me.getHeight();
             switch (ut(me)) {
               case 1:
               default:
@@ -15904,11 +15904,11 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                 };
               case 3:
                 return function(Oe, ze) {
-                  return [ye - Oe - 1, Ae - ze - 1];
+                  return [ye - Oe - 1, Ie - ze - 1];
                 };
               case 4:
                 return function(Oe, ze) {
-                  return [Oe, Ae - ze - 1];
+                  return [Oe, Ie - ze - 1];
                 };
               case 5:
                 return function(Oe, ze) {
@@ -15916,11 +15916,11 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                 };
               case 6:
                 return function(Oe, ze) {
-                  return [ze, Ae - Oe - 1];
+                  return [ze, Ie - Oe - 1];
                 };
               case 7:
                 return function(Oe, ze) {
-                  return [ye - ze - 1, Ae - Oe - 1];
+                  return [ye - ze - 1, Ie - Oe - 1];
                 };
               case 8:
                 return function(Oe, ze) {
@@ -15928,43 +15928,43 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
                 };
             }
           }(ie), ge = ut(ie) > 4;
-          (function(me, ye, Ae, Oe) {
+          (function(me, ye, Ie, Oe) {
             const ze = me.bitmap.data, it = me.bitmap.width, $e = Ke.alloc(ze.length);
             for (let Ge = 0; Ge < ye; Ge++)
-              for (let He = 0; He < Ae; He++) {
+              for (let He = 0; He < Ie; He++) {
                 const [nt, ht] = Oe(Ge, He), pt = ye * He + Ge << 2, Et = it * ht + nt << 2, Pt = ze.readUInt32BE(Et);
                 $e.writeUInt32BE(Pt, pt);
               }
-            me.bitmap.data = $e, me.bitmap.width = ye, me.bitmap.height = Ae;
+            me.bitmap.data = $e, me.bitmap.width = ye, me.bitmap.height = Ie;
           })(ie, ge ? ie.bitmap.height : ie.bitmap.width, ge ? ie.bitmap.width : ie.bitmap.height, fe);
         }(this);
       } catch {
       }
       return H.call(this, null, this), this;
     }
-    function At(S, A) {
+    function It(S, I) {
       if (S === be && (S = this.getMIME()), typeof S != "string")
-        return o.call(this, "mime must be a string", A);
-      if (typeof A != "function")
-        return o.call(this, "cb must be a function", A);
+        return o.call(this, "mime must be a string", I);
+      if (typeof I != "function")
+        return o.call(this, "cb must be a function", I);
       if (S = S.toLowerCase(), this._rgba && this.constructor.hasAlpha[S] ? this.bitmap.data = Ke.from(this.bitmap.data) : this.bitmap.data = function(H, Z) {
         return new H(Z.bitmap.width, Z.bitmap.height, Z._background).composite(Z, 0, 0).bitmap;
       }(this.constructor, this).data, !this.constructor.encoders[S])
-        return o.call(this, "Unsupported MIME type: " + S, A);
+        return o.call(this, "Unsupported MIME type: " + S, I);
       {
         const H = this.constructor.encoders[S](this);
         H instanceof Promise ? H.then((Z) => {
-          A.call(this, null, Z);
-        }) : A.call(this, null, H);
+          I.call(this, null, Z);
+        }) : I.call(this, null, H);
       }
       return this;
     }
     function Ct(S) {
-      return ot(At, this, S);
+      return ot(It, this, S);
     }
     var vt = __webpack_require__(8834).lW;
-    function Dt(S, A, H) {
-      return (A = function(Z) {
+    function Dt(S, I, H) {
+      return (I = function(Z) {
         var ie = function(fe, ge) {
           if (typeof fe != "object" || fe === null)
             return fe;
@@ -15978,12 +15978,12 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           return String(fe);
         }(Z);
         return typeof ie == "symbol" ? ie : String(ie);
-      }(A)) in S ? Object.defineProperty(S, A, { value: H, enumerable: !0, configurable: !0, writable: !0 }) : S[A] = H, S;
+      }(I)) in S ? Object.defineProperty(S, I, { value: H, enumerable: !0, configurable: !0, writable: !0 }) : S[I] = H, S;
     }
     const jt = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_", Ut = [NaN, NaN];
     for (let S = 2; S < 65; S++) {
-      const A = p()(p().BIN, jt.slice(0, S))(new Array(65).join("1"));
-      Ut.push(A.length);
+      const I = p()(p().BIN, jt.slice(0, S))(new Array(65).join("1"));
+      Ut.push(I.length);
     }
     function Gt() {
     }
@@ -15991,45 +15991,45 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
       return Object.prototype.toString.call(S).toLowerCase().indexOf("arraybuffer") > -1;
     }
     function er(S) {
-      const A = vt.alloc(S.byteLength), H = new Uint8Array(S);
-      for (let Z = 0; Z < A.length; ++Z)
-        A[Z] = H[Z];
-      return A;
+      const I = vt.alloc(S.byteLength), H = new Uint8Array(S);
+      for (let Z = 0; Z < I.length; ++Z)
+        I[Z] = H[Z];
+      return I;
     }
-    function Xt(S, A) {
-      Y(S, (H, Z) => H ? A(H) : typeof Z == "object" && vt.isBuffer(Z) ? A(null, Z) : typeof Z == "object" && Jt(Z) ? A(null, er(Z)) : new Error(`Could not load Buffer from <${S.url}>`));
+    function Xt(S, I) {
+      Y(S, (H, Z) => H ? I(H) : typeof Z == "object" && vt.isBuffer(Z) ? I(null, Z) : typeof Z == "object" && Jt(Z) ? I(null, er(Z)) : new Error(`Could not load Buffer from <${S.url}>`));
     }
     const or = { data: null, width: null, height: null };
     class Tt extends t() {
       constructor() {
-        for (var A = arguments.length, H = new Array(A), Z = 0; Z < A; Z++)
+        for (var I = arguments.length, H = new Array(I), Z = 0; Z < I; Z++)
           H[Z] = arguments[Z];
-        super(), Dt(this, "bitmap", or), Dt(this, "_background", 0), Dt(this, "_originalMime", Tt.MIME_PNG), Dt(this, "_exif", null), Dt(this, "_rgba", !0), Dt(this, "writeAsync", (ye) => ot(this.write, this, ye)), Dt(this, "getBase64Async", (ye) => ot(this.getBase64, this, ye)), Dt(this, "getBuffer", At), Dt(this, "getBufferAsync", Ct), Dt(this, "getPixelColour", this.getPixelColor), Dt(this, "setPixelColour", this.setPixelColor);
+        super(), Dt(this, "bitmap", or), Dt(this, "_background", 0), Dt(this, "_originalMime", Tt.MIME_PNG), Dt(this, "_exif", null), Dt(this, "_rgba", !0), Dt(this, "writeAsync", (ye) => ot(this.write, this, ye)), Dt(this, "getBase64Async", (ye) => ot(this.getBase64, this, ye)), Dt(this, "getBuffer", It), Dt(this, "getBufferAsync", Ct), Dt(this, "getPixelColour", this.getPixelColor), Dt(this, "setPixelColour", this.setPixelColor);
         const ie = this;
         let fe = Gt;
         function ge() {
-          for (var ye = arguments.length, Ae = new Array(ye), Oe = 0; Oe < ye; Oe++)
-            Ae[Oe] = arguments[Oe];
-          const [ze] = Ae;
+          for (var ye = arguments.length, Ie = new Array(ye), Oe = 0; Oe < ye; Oe++)
+            Ie[Oe] = arguments[Oe];
+          const [ze] = Ie;
           (ze || {}).methodName = "constructor", setTimeout(() => {
-            ze && fe === Gt ? ie.emitError("constructor", ze) : ze || ie.emitMulti("constructor", "initialized"), fe.call(ie, ...Ae);
+            ze && fe === Gt ? ie.emitError("constructor", ze) : ze || ie.emitMulti("constructor", "initialized"), fe.call(ie, ...Ie);
           }, 1);
         }
         if (Jt(H[0]) && (H[0] = er(H[0])), typeof H[0] == "number" && typeof H[1] == "number" || parseInt(H[0], 10) && parseInt(H[1], 10)) {
-          const ye = parseInt(H[0], 10), Ae = parseInt(H[1], 10);
+          const ye = parseInt(H[0], 10), Ie = parseInt(H[1], 10);
           if (fe = H[2], typeof H[2] == "number" && (this._background = H[2], fe = H[3]), typeof H[2] == "string" && (this._background = Tt.cssColorToHex(H[2]), fe = H[3]), fe === void 0 && (fe = Gt), typeof fe != "function")
             return o.call(this, "cb must be a function", ge);
-          this.bitmap = { data: vt.alloc(ye * Ae * 4), width: ye, height: Ae };
+          this.bitmap = { data: vt.alloc(ye * Ie * 4), width: ye, height: Ie };
           for (let Oe = 0; Oe < this.bitmap.data.length; Oe += 4)
             this.bitmap.data.writeUInt32BE(this._background, Oe);
           ge(null, this);
         } else if (typeof H[0] == "object" && H[0].url) {
           if (fe = H[1] || Gt, typeof fe != "function")
             return o.call(this, "cb must be a function", ge);
-          Xt(H[0], (ye, Ae) => {
+          Xt(H[0], (ye, Ie) => {
             if (ye)
               return o.call(this, ye, ge);
-            this.parseBitmap(Ae, H[0].url, ge);
+            this.parseBitmap(Ie, H[0].url, ge);
           });
         } else if (H[0] instanceof Tt) {
           const [ye] = H;
@@ -16039,7 +16039,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         } else if ((me = H[0]) && typeof me == "object" && typeof me.width == "number" && typeof me.height == "number" && (vt.isBuffer(me.data) || me.data instanceof Uint8Array || typeof Uint8ClampedArray == "function" && me.data instanceof Uint8ClampedArray) && (me.data.length === me.width * me.height * 4 || me.data.length === me.width * me.height * 3)) {
           const [ye] = H;
           fe = H[1] || Gt;
-          const Ae = ye.width * ye.height * 4 === ye.data.length ? vt.from(ye.data) : function(Oe) {
+          const Ie = ye.width * ye.height * 4 === ye.data.length ? vt.from(ye.data) : function(Oe) {
             if (Oe.length % 3 != 0)
               throw new Error("Buffer length is incorrect");
             const ze = vt.allocUnsafe(Oe.length / 3 * 4);
@@ -16048,16 +16048,16 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
               ze[it] = Oe[$e], ($e + 1) % 3 == 0 && (ze[++it] = 255), it++;
             return ze;
           }(ye.data);
-          this.bitmap = { data: Ae, width: ye.width, height: ye.height }, ge(null, this);
+          this.bitmap = { data: Ie, width: ye.width, height: ye.height }, ge(null, this);
         } else if (typeof H[0] == "string") {
           const ye = H[0];
           if (fe = H[1], fe === void 0 && (fe = Gt), typeof fe != "function")
             return o.call(this, "cb must be a function", ge);
-          (function(Ae, Oe) {
-            e() && typeof e().readFile == "function" && !Ae.match(/^(http|ftp)s?:\/\/./) ? e().readFile(Ae, Oe) : Xt({ url: Ae }, Oe);
-          })(ye, (Ae, Oe) => {
-            if (Ae)
-              return o.call(this, Ae, ge);
+          (function(Ie, Oe) {
+            e() && typeof e().readFile == "function" && !Ie.match(/^(http|ftp)s?:\/\/./) ? e().readFile(Ie, Oe) : Xt({ url: Ie }, Oe);
+          })(ye, (Ie, Oe) => {
+            if (Ie)
+              return o.call(this, Ie, ge);
             this.parseBitmap(Oe, ye, ge);
           });
         } else if (typeof H[0] == "object" && vt.isBuffer(H[0])) {
@@ -16067,27 +16067,27 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           this.parseBitmap(ye, null, ge);
         } else {
           fe = H[H.length - 1], typeof fe != "function" && (fe = H[H.length - 2], typeof fe != "function" && (fe = Gt));
-          const ye = Tt.__extraConstructors.find((Ae) => Ae.test(...H));
+          const ye = Tt.__extraConstructors.find((Ie) => Ie.test(...H));
           if (!ye)
             return o.call(this, "No matching constructor overloading was found. Please see the docs for how to call the Jimp constructor.", ge);
-          new Promise((Ae, Oe) => {
-            ye.run.call(this, Ae, Oe, ...H);
+          new Promise((Ie, Oe) => {
+            ye.run.call(this, Ie, Oe, ...H);
           }).then(() => ge(null, this)).catch(ge);
         }
         var me;
       }
-      parseBitmap(A, H, Z) {
-        bt.call(this, A, null, Z);
+      parseBitmap(I, H, Z) {
+        bt.call(this, I, null, Z);
       }
-      rgba(A, H) {
-        return typeof A != "boolean" ? o.call(this, "bool must be a boolean, true for RGBA or false for RGB", H) : (this._rgba = A, r(H) && H.call(this, null, this), this);
+      rgba(I, H) {
+        return typeof I != "boolean" ? o.call(this, "bool must be a boolean, true for RGBA or false for RGB", H) : (this._rgba = I, r(H) && H.call(this, null, this), this);
       }
-      emitMulti(A, H) {
+      emitMulti(I, H) {
         let Z = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : {};
-        Z = Object.assign(Z, { methodName: A, eventName: H }), this.emit("any", Z), A && this.emit(A, Z), this.emit(H, Z);
+        Z = Object.assign(Z, { methodName: I, eventName: H }), this.emit("any", Z), I && this.emit(I, Z), this.emit(H, Z);
       }
-      emitError(A, H) {
-        this.emitMulti(A, "error", H);
+      emitError(I, H) {
+        this.emitMulti(I, "error", H);
       }
       getHeight() {
         return this.bitmap.height;
@@ -16105,21 +16105,21 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         return this._originalMime || Tt.MIME_PNG;
       }
       getExtension() {
-        const A = this.getMIME();
-        return (Mt[A.toLowerCase()] || [])[0];
+        const I = this.getMIME();
+        return (Mt[I.toLowerCase()] || [])[0];
       }
-      write(A, H) {
+      write(I, H) {
         if (!e() || !e().createWriteStream)
           throw new Error("Cant access the filesystem. You can use the getBase64 method.");
-        if (typeof A != "string")
+        if (typeof I != "string")
           return o.call(this, "path must be a string", H);
         if (H === void 0 && (H = Gt), typeof H != "function")
           return o.call(this, "cb must be a function", H);
-        const Z = Rt(A) || this.getMIME(), ie = i().parse(A);
+        const Z = Rt(I) || this.getMIME(), ie = i().parse(I);
         return ie.dir && e().mkdirSync(ie.dir, { recursive: !0 }), this.getBuffer(Z, (fe, ge) => {
           if (fe)
             return o.call(this, fe, H);
-          const me = e().createWriteStream(A);
+          const me = e().createWriteStream(I);
           me.on("open", () => {
             me.write(ge), me.end();
           }).on("error", (ye) => o.call(this, ye, H)), me.on("finish", () => {
@@ -16127,100 +16127,100 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           });
         }), this;
       }
-      getBase64(A, H) {
-        return A === Tt.AUTO && (A = this.getMIME()), typeof A != "string" ? o.call(this, "mime must be a string", H) : typeof H != "function" ? o.call(this, "cb must be a function", H) : (this.getBuffer(A, function(Z, ie) {
+      getBase64(I, H) {
+        return I === Tt.AUTO && (I = this.getMIME()), typeof I != "string" ? o.call(this, "mime must be a string", H) : typeof H != "function" ? o.call(this, "cb must be a function", H) : (this.getBuffer(I, function(Z, ie) {
           if (Z)
             return o.call(this, Z, H);
-          const fe = "data:" + A + ";base64," + ie.toString("base64");
+          const fe = "data:" + I + ";base64," + ie.toString("base64");
           H.call(this, null, fe);
         }), this);
       }
-      hash(A, H) {
-        if (typeof (A = A || 64) == "function" && (H = A, A = 64), typeof A != "number")
+      hash(I, H) {
+        if (typeof (I = I || 64) == "function" && (H = I, I = 64), typeof I != "number")
           return o.call(this, "base must be a number", H);
-        if (A < 2 || A > 64)
+        if (I < 2 || I > 64)
           return o.call(this, "base must be a number between 2 and 64", H);
         let Z = this.pHash();
-        for (Z = p()(p().BIN, jt.slice(0, A))(Z); Z.length < Ut[A]; )
+        for (Z = p()(p().BIN, jt.slice(0, I))(Z); Z.length < Ut[I]; )
           Z = "0" + Z;
         return r(H) && H.call(this, null, Z), Z;
       }
       pHash() {
         return new se().getHash(this);
       }
-      distanceFromHash(A) {
+      distanceFromHash(I) {
         const H = new se(), Z = H.getHash(this);
-        return H.distance(Z, A);
+        return H.distance(Z, I);
       }
-      getPixelIndex(A, H, Z, ie) {
+      getPixelIndex(I, H, Z, ie) {
         let fe, ge;
-        if (typeof Z == "function" && ie === void 0 && (ie = Z, Z = null), Z || (Z = Tt.EDGE_EXTEND), typeof A != "number" || typeof H != "number")
+        if (typeof Z == "function" && ie === void 0 && (ie = Z, Z = null), Z || (Z = Tt.EDGE_EXTEND), typeof I != "number" || typeof H != "number")
           return o.call(this, "x and y must be numbers", ie);
-        fe = A = Math.round(A), ge = H = Math.round(H), Z === Tt.EDGE_EXTEND && (A < 0 && (fe = 0), A >= this.bitmap.width && (fe = this.bitmap.width - 1), H < 0 && (ge = 0), H >= this.bitmap.height && (ge = this.bitmap.height - 1)), Z === Tt.EDGE_WRAP && (A < 0 && (fe = this.bitmap.width + A), A >= this.bitmap.width && (fe = A % this.bitmap.width), H < 0 && (ge = this.bitmap.height + H), H >= this.bitmap.height && (ge = H % this.bitmap.height));
+        fe = I = Math.round(I), ge = H = Math.round(H), Z === Tt.EDGE_EXTEND && (I < 0 && (fe = 0), I >= this.bitmap.width && (fe = this.bitmap.width - 1), H < 0 && (ge = 0), H >= this.bitmap.height && (ge = this.bitmap.height - 1)), Z === Tt.EDGE_WRAP && (I < 0 && (fe = this.bitmap.width + I), I >= this.bitmap.width && (fe = I % this.bitmap.width), H < 0 && (ge = this.bitmap.height + H), H >= this.bitmap.height && (ge = H % this.bitmap.height));
         let me = this.bitmap.width * ge + fe << 2;
         return (fe < 0 || fe >= this.bitmap.width) && (me = -1), (ge < 0 || ge >= this.bitmap.height) && (me = -1), r(ie) && ie.call(this, null, me), me;
       }
-      getPixelColor(A, H, Z) {
-        if (typeof A != "number" || typeof H != "number")
+      getPixelColor(I, H, Z) {
+        if (typeof I != "number" || typeof H != "number")
           return o.call(this, "x and y must be numbers", Z);
-        A = Math.round(A), H = Math.round(H);
-        const ie = this.getPixelIndex(A, H), fe = this.bitmap.data.readUInt32BE(ie);
+        I = Math.round(I), H = Math.round(H);
+        const ie = this.getPixelIndex(I, H), fe = this.bitmap.data.readUInt32BE(ie);
         return r(Z) && Z.call(this, null, fe), fe;
       }
-      setPixelColor(A, H, Z, ie) {
-        if (typeof A != "number" || typeof H != "number" || typeof Z != "number")
+      setPixelColor(I, H, Z, ie) {
+        if (typeof I != "number" || typeof H != "number" || typeof Z != "number")
           return o.call(this, "hex, x and y must be numbers", ie);
         H = Math.round(H), Z = Math.round(Z);
         const fe = this.getPixelIndex(H, Z);
-        return this.bitmap.data.writeUInt32BE(A, fe), r(ie) && ie.call(this, null, this), this;
+        return this.bitmap.data.writeUInt32BE(I, fe), r(ie) && ie.call(this, null, this), this;
       }
       hasAlpha() {
-        for (let A = 0; A < this.bitmap.height; A++)
+        for (let I = 0; I < this.bitmap.height; I++)
           for (let H = 0; H < this.bitmap.width; H++) {
-            const Z = this.bitmap.width * A + H << 2;
+            const Z = this.bitmap.width * I + H << 2;
             if (this.bitmap.data[Z + 3] !== 255)
               return !0;
           }
         return !1;
       }
-      scanIterator(A, H, Z, ie) {
-        return typeof A != "number" || typeof H != "number" ? o.call(this, "x and y must be numbers") : typeof Z != "number" || typeof ie != "number" ? o.call(this, "w and h must be numbers") : function* (fe, ge, me, ye, Ae) {
-          ge = Math.round(ge), me = Math.round(me), ye = Math.round(ye), Ae = Math.round(Ae);
-          for (let Oe = me; Oe < me + Ae; Oe++)
+      scanIterator(I, H, Z, ie) {
+        return typeof I != "number" || typeof H != "number" ? o.call(this, "x and y must be numbers") : typeof Z != "number" || typeof ie != "number" ? o.call(this, "w and h must be numbers") : function* (fe, ge, me, ye, Ie) {
+          ge = Math.round(ge), me = Math.round(me), ye = Math.round(ye), Ie = Math.round(Ie);
+          for (let Oe = me; Oe < me + Ie; Oe++)
             for (let ze = ge; ze < ge + ye; ze++) {
               const it = fe.bitmap.width * Oe + ze << 2;
               yield { x: ze, y: Oe, idx: it, image: fe };
             }
-        }(this, A, H, Z, ie);
+        }(this, I, H, Z, ie);
       }
     }
     function nr(S) {
-      let A = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : Tt;
+      let I = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : Tt;
       Object.entries(S).forEach((H) => {
         let [Z, ie] = H;
-        A[Z] = ie;
+        I[Z] = ie;
       });
     }
     function dr(S) {
-      let A = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : Tt;
+      let I = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : Tt;
       Object.entries(S).forEach((H) => {
         let [Z, ie] = H;
-        A.prototype[Z] = ie;
+        I.prototype[Z] = ie;
       });
     }
-    function y(S, A, H) {
-      const Z = "before-" + A, ie = A.replace(/e$/, "") + "ed";
+    function y(S, I, H) {
+      const Z = "before-" + I, ie = I.replace(/e$/, "") + "ed";
       Tt.prototype[S] = function() {
         let fe;
         for (var ge = arguments.length, me = new Array(ge), ye = 0; ye < ge; ye++)
           me[ye] = arguments[ye];
-        const Ae = me[H.length - 1], Oe = this;
+        const Ie = me[H.length - 1], Oe = this;
         let ze;
-        typeof Ae == "function" ? (fe = function() {
+        typeof Ie == "function" ? (fe = function() {
           for (var it = arguments.length, $e = new Array(it), Ge = 0; Ge < it; Ge++)
             $e[Ge] = arguments[Ge];
           const [He, nt] = $e;
-          He ? Oe.emitError(S, He) : Oe.emitMulti(S, ie, { [S]: nt }), Ae.apply(this, $e);
+          He ? Oe.emitError(S, He) : Oe.emitMulti(S, ie, { [S]: nt }), Ie.apply(this, $e);
         }, me[me.length - 1] = fe) : fe = !1, this.emitMulti(S, Z);
         try {
           ze = H.apply(this, me), fe || this.emitMulti(S, ie, { [S]: ze });
@@ -16230,88 +16230,88 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         return ze;
       }, Tt.prototype[S + "Quiet"] = H;
     }
-    function ue(S, A) {
-      y(S, "change", A);
+    function ue(S, I) {
+      y(S, "change", I);
     }
-    nr(d), dr({ composite: function(S, A, H) {
+    nr(d), dr({ composite: function(S, I, H) {
       let Z = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : {}, ie = arguments.length > 4 ? arguments[4] : void 0;
       if (typeof Z == "function" && (ie = Z, Z = {}), !(S instanceof this.constructor))
         return o.call(this, "The source must be a Jimp image", ie);
-      if (typeof A != "number" || typeof H != "number")
+      if (typeof I != "number" || typeof H != "number")
         return o.call(this, "x and y must be numbers", ie);
       let { mode: fe, opacitySource: ge, opacityDest: me } = Z;
       fe || (fe = Ce), (typeof ge != "number" || ge < 0 || ge > 1) && (ge = 1), (typeof me != "number" || me < 0 || me > 1) && (me = 1);
       const ye = l[fe];
-      A = Math.round(A), H = Math.round(H);
-      const Ae = this;
-      return me !== 1 && Ae.opacity(me), S.scanQuiet(0, 0, S.bitmap.width, S.bitmap.height, function(Oe, ze, it) {
-        const $e = Ae.getPixelIndex(A + Oe, H + ze, Re);
+      I = Math.round(I), H = Math.round(H);
+      const Ie = this;
+      return me !== 1 && Ie.opacity(me), S.scanQuiet(0, 0, S.bitmap.width, S.bitmap.height, function(Oe, ze, it) {
+        const $e = Ie.getPixelIndex(I + Oe, H + ze, Re);
         if ($e === -1)
           return;
-        const Ge = ye({ r: this.bitmap.data[it + 0] / 255, g: this.bitmap.data[it + 1] / 255, b: this.bitmap.data[it + 2] / 255, a: this.bitmap.data[it + 3] / 255 }, { r: Ae.bitmap.data[$e + 0] / 255, g: Ae.bitmap.data[$e + 1] / 255, b: Ae.bitmap.data[$e + 2] / 255, a: Ae.bitmap.data[$e + 3] / 255 }, ge);
-        Ae.bitmap.data[$e + 0] = this.constructor.limit255(255 * Ge.r), Ae.bitmap.data[$e + 1] = this.constructor.limit255(255 * Ge.g), Ae.bitmap.data[$e + 2] = this.constructor.limit255(255 * Ge.b), Ae.bitmap.data[$e + 3] = this.constructor.limit255(255 * Ge.a);
+        const Ge = ye({ r: this.bitmap.data[it + 0] / 255, g: this.bitmap.data[it + 1] / 255, b: this.bitmap.data[it + 2] / 255, a: this.bitmap.data[it + 3] / 255 }, { r: Ie.bitmap.data[$e + 0] / 255, g: Ie.bitmap.data[$e + 1] / 255, b: Ie.bitmap.data[$e + 2] / 255, a: Ie.bitmap.data[$e + 3] / 255 }, ge);
+        Ie.bitmap.data[$e + 0] = this.constructor.limit255(255 * Ge.r), Ie.bitmap.data[$e + 1] = this.constructor.limit255(255 * Ge.g), Ie.bitmap.data[$e + 2] = this.constructor.limit255(255 * Ge.b), Ie.bitmap.data[$e + 3] = this.constructor.limit255(255 * Ge.a);
       }), r(ie) && ie.call(this, null, this), this;
-    } }), Tt.__extraConstructors = [], Tt.appendConstructorOption = function(S, A, H) {
-      Tt.__extraConstructors.push({ name: S, test: A, run: H });
+    } }), Tt.__extraConstructors = [], Tt.appendConstructorOption = function(S, I, H) {
+      Tt.__extraConstructors.push({ name: S, test: I, run: H });
     }, Tt.read = function() {
-      for (var S = arguments.length, A = new Array(S), H = 0; H < S; H++)
-        A[H] = arguments[H];
+      for (var S = arguments.length, I = new Array(S), H = 0; H < S; H++)
+        I[H] = arguments[H];
       return new Promise((Z, ie) => {
-        new Tt(...A, (fe, ge) => {
+        new Tt(...I, (fe, ge) => {
           fe ? ie(fe) : Z(ge);
         });
       });
-    }, Tt.create = Tt.read, Tt.rgbaToInt = function(S, A, H, Z, ie) {
-      if (typeof S != "number" || typeof A != "number" || typeof H != "number" || typeof Z != "number")
+    }, Tt.create = Tt.read, Tt.rgbaToInt = function(S, I, H, Z, ie) {
+      if (typeof S != "number" || typeof I != "number" || typeof H != "number" || typeof Z != "number")
         return o.call(this, "r, g, b and a must be numbers", ie);
       if (S < 0 || S > 255)
         return o.call(this, "r must be between 0 and 255", ie);
-      if ((A < 0 || A > 255) && o.call(this, "g must be between 0 and 255", ie), H < 0 || H > 255)
+      if ((I < 0 || I > 255) && o.call(this, "g must be between 0 and 255", ie), H < 0 || H > 255)
         return o.call(this, "b must be between 0 and 255", ie);
       if (Z < 0 || Z > 255)
         return o.call(this, "a must be between 0 and 255", ie);
-      S = Math.round(S), H = Math.round(H), A = Math.round(A), Z = Math.round(Z);
-      const fe = S * Math.pow(256, 3) + A * Math.pow(256, 2) + H * Math.pow(256, 1) + Z * Math.pow(256, 0);
+      S = Math.round(S), H = Math.round(H), I = Math.round(I), Z = Math.round(Z);
+      const fe = S * Math.pow(256, 3) + I * Math.pow(256, 2) + H * Math.pow(256, 1) + Z * Math.pow(256, 0);
       return r(ie) && ie.call(this, null, fe), fe;
-    }, Tt.intToRGBA = function(S, A) {
+    }, Tt.intToRGBA = function(S, I) {
       if (typeof S != "number")
-        return o.call(this, "i must be a number", A);
+        return o.call(this, "i must be a number", I);
       const H = {};
-      return H.r = Math.floor(S / Math.pow(256, 3)), H.g = Math.floor((S - H.r * Math.pow(256, 3)) / Math.pow(256, 2)), H.b = Math.floor((S - H.r * Math.pow(256, 3) - H.g * Math.pow(256, 2)) / Math.pow(256, 1)), H.a = Math.floor((S - H.r * Math.pow(256, 3) - H.g * Math.pow(256, 2) - H.b * Math.pow(256, 1)) / Math.pow(256, 0)), r(A) && A.call(this, null, H), H;
+      return H.r = Math.floor(S / Math.pow(256, 3)), H.g = Math.floor((S - H.r * Math.pow(256, 3)) / Math.pow(256, 2)), H.b = Math.floor((S - H.r * Math.pow(256, 3) - H.g * Math.pow(256, 2)) / Math.pow(256, 1)), H.a = Math.floor((S - H.r * Math.pow(256, 3) - H.g * Math.pow(256, 2) - H.b * Math.pow(256, 1)) / Math.pow(256, 0)), r(I) && I.call(this, null, H), H;
     }, Tt.cssColorToHex = function(S) {
       return typeof (S = S || 0) == "number" ? Number(S) : parseInt(k(S).toHex8(), 16);
     }, Tt.limit255 = function(S) {
       return S = Math.max(S, 0), Math.min(S, 255);
-    }, Tt.diff = function(S, A) {
+    }, Tt.diff = function(S, I) {
       let H = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : 0.1;
-      if (!(S instanceof Tt && A instanceof Tt))
+      if (!(S instanceof Tt && I instanceof Tt))
         return o.call(this, "img1 and img2 must be an Jimp images");
-      const Z = S.bitmap, ie = A.bitmap;
-      if (Z.width === ie.width && Z.height === ie.height || (Z.width * Z.height > ie.width * ie.height ? S = S.cloneQuiet().resize(ie.width, ie.height) : A = A.cloneQuiet().resize(Z.width, Z.height)), typeof H != "number" || H < 0 || H > 1)
+      const Z = S.bitmap, ie = I.bitmap;
+      if (Z.width === ie.width && Z.height === ie.height || (Z.width * Z.height > ie.width * ie.height ? S = S.cloneQuiet().resize(ie.width, ie.height) : I = I.cloneQuiet().resize(Z.width, Z.height)), typeof H != "number" || H < 0 || H > 1)
         return o.call(this, "threshold must be a number between 0 and 1");
       const fe = new Tt(Z.width, Z.height, 4294967295);
       return { percent: v()(Z.data, ie.data, fe.bitmap.data, fe.bitmap.width, fe.bitmap.height, { threshold: H }) / (fe.bitmap.width * fe.bitmap.height), image: fe };
-    }, Tt.distance = function(S, A) {
-      const H = new se(), Z = H.getHash(S), ie = H.getHash(A);
+    }, Tt.distance = function(S, I) {
+      const H = new se(), Z = H.getHash(S), ie = H.getHash(I);
       return H.distance(Z, ie);
-    }, Tt.compareHashes = function(S, A) {
-      return new se().distance(S, A);
-    }, Tt.colorDiff = function(S, A) {
+    }, Tt.compareHashes = function(S, I) {
+      return new se().distance(S, I);
+    }, Tt.colorDiff = function(S, I) {
       const H = (ie) => Math.pow(ie, 2), { max: Z } = Math;
-      return S.a === 0 || S.a || (S.a = 255), A.a === 0 || A.a || (A.a = 255), (Z(H(S.r - A.r), H(S.r - A.r - S.a + A.a)) + Z(H(S.g - A.g), H(S.g - A.g - S.a + A.a)) + Z(H(S.b - A.b), H(S.b - A.b - S.a + A.a))) / 195075;
+      return S.a === 0 || S.a || (S.a = 255), I.a === 0 || I.a || (I.a = 255), (Z(H(S.r - I.r), H(S.r - I.r - S.a + I.a)) + Z(H(S.g - I.g), H(S.g - I.g - S.a + I.a)) + Z(H(S.b - I.b), H(S.b - I.b - S.a + I.a))) / 195075;
     }, y("clone", "clone", function(S) {
-      const A = new Tt(this);
-      return r(S) && S.call(A, null, A), A;
-    }), ue("background", function(S, A) {
-      return typeof S != "number" ? o.call(this, "hex must be a hexadecimal rgba value", A) : (this._background = S, r(A) && A.call(this, null, this), this);
-    }), ue("scan", function(S, A, H, Z, ie, fe) {
-      if (typeof S != "number" || typeof A != "number")
+      const I = new Tt(this);
+      return r(S) && S.call(I, null, I), I;
+    }), ue("background", function(S, I) {
+      return typeof S != "number" ? o.call(this, "hex must be a hexadecimal rgba value", I) : (this._background = S, r(I) && I.call(this, null, this), this);
+    }), ue("scan", function(S, I, H, Z, ie, fe) {
+      if (typeof S != "number" || typeof I != "number")
         return o.call(this, "x and y must be numbers", fe);
       if (typeof H != "number" || typeof Z != "number")
         return o.call(this, "w and h must be numbers", fe);
       if (typeof ie != "function")
         return o.call(this, "f must be a function", fe);
-      const ge = n(this, S, A, H, Z, ie);
+      const ge = n(this, S, I, H, Z, ie);
       return r(fe) && fe.call(this, null, ge), ge;
     });
     {
@@ -16320,31 +16320,31 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
     }
     const pe = Tt;
     var ve = __webpack_require__(643), Te = __webpack_require__(2691), Ue = __webpack_require__.n(Te);
-    const Le = "image/jpeg", qe = () => ({ mime: { [Le]: ["jpeg", "jpg", "jpe"] }, constants: { MIME_JPEG: Le }, decoders: { [Le]: Ue().decode }, encoders: { [Le]: (S) => Ue().encode(S.bitmap, S._quality).data }, class: { _quality: 100, quality(S, A) {
-      return typeof S != "number" ? o.call(this, "n must be a number", A) : S < 0 || S > 100 ? o.call(this, "n must be a number 0 - 100", A) : (this._quality = Math.round(S), r(A) && A.call(this, null, this), this);
+    const Le = "image/jpeg", qe = () => ({ mime: { [Le]: ["jpeg", "jpg", "jpe"] }, constants: { MIME_JPEG: Le }, decoders: { [Le]: Ue().decode }, encoders: { [Le]: (S) => Ue().encode(S.bitmap, S._quality).data }, class: { _quality: 100, quality(S, I) {
+      return typeof S != "number" ? o.call(this, "n must be a number", I) : S < 0 || S > 100 ? o.call(this, "n must be a number 0 - 100", I) : (this._quality = Math.round(S), r(I) && I.call(this, null, this), this);
     } } });
     var Ne = __webpack_require__(9902);
     const et = "image/png", Ve = () => ({ mime: { [et]: ["png"] }, constants: { MIME_PNG: et, PNG_FILTER_AUTO: -1, PNG_FILTER_NONE: 0, PNG_FILTER_SUB: 1, PNG_FILTER_UP: 2, PNG_FILTER_AVERAGE: 3, PNG_FILTER_PATH: 4 }, hasAlpha: { [et]: !0 }, decoders: { [et]: Ne.PNG.sync.read }, encoders: { [et](S) {
-      const A = new Ne.PNG({ width: S.bitmap.width, height: S.bitmap.height });
-      return A.data = S.bitmap.data, Ne.PNG.sync.write(A, { deflateLevel: S._deflateLevel, deflateStrategy: S._deflateStrategy, filterType: S._filterType, colorType: typeof S._colorType == "number" ? S._colorType : S._rgba ? 6 : 2, inputHasAlpha: S._rgba });
-    } }, class: { _deflateLevel: 9, _deflateStrategy: 3, _filterType: -1, _colorType: null, deflateLevel(S, A) {
-      return typeof S != "number" ? o.call(this, "l must be a number", A) : S < 0 || S > 9 ? o.call(this, "l must be a number 0 - 9", A) : (this._deflateLevel = Math.round(S), r(A) && A.call(this, null, this), this);
-    }, deflateStrategy(S, A) {
-      return typeof S != "number" ? o.call(this, "s must be a number", A) : S < 0 || S > 3 ? o.call(this, "s must be a number 0 - 3", A) : (this._deflateStrategy = Math.round(S), r(A) && A.call(this, null, this), this);
-    }, filterType(S, A) {
-      return typeof S != "number" ? o.call(this, "n must be a number", A) : S < -1 || S > 4 ? o.call(this, "n must be -1 (auto) or a number 0 - 4", A) : (this._filterType = Math.round(S), r(A) && A.call(this, null, this), this);
-    }, colorType(S, A) {
-      return typeof S != "number" ? o.call(this, "s must be a number", A) : S !== 0 && S !== 2 && S !== 4 && S !== 6 ? o.call(this, "s must be a number 0, 2, 4, 6.", A) : (this._colorType = Math.round(S), r(A) && A.call(this, null, this), this);
+      const I = new Ne.PNG({ width: S.bitmap.width, height: S.bitmap.height });
+      return I.data = S.bitmap.data, Ne.PNG.sync.write(I, { deflateLevel: S._deflateLevel, deflateStrategy: S._deflateStrategy, filterType: S._filterType, colorType: typeof S._colorType == "number" ? S._colorType : S._rgba ? 6 : 2, inputHasAlpha: S._rgba });
+    } }, class: { _deflateLevel: 9, _deflateStrategy: 3, _filterType: -1, _colorType: null, deflateLevel(S, I) {
+      return typeof S != "number" ? o.call(this, "l must be a number", I) : S < 0 || S > 9 ? o.call(this, "l must be a number 0 - 9", I) : (this._deflateLevel = Math.round(S), r(I) && I.call(this, null, this), this);
+    }, deflateStrategy(S, I) {
+      return typeof S != "number" ? o.call(this, "s must be a number", I) : S < 0 || S > 3 ? o.call(this, "s must be a number 0 - 3", I) : (this._deflateStrategy = Math.round(S), r(I) && I.call(this, null, this), this);
+    }, filterType(S, I) {
+      return typeof S != "number" ? o.call(this, "n must be a number", I) : S < -1 || S > 4 ? o.call(this, "n must be -1 (auto) or a number 0 - 4", I) : (this._filterType = Math.round(S), r(I) && I.call(this, null, this), this);
+    }, colorType(S, I) {
+      return typeof S != "number" ? o.call(this, "s must be a number", I) : S !== 0 && S !== 2 && S !== 4 && S !== 6 ? o.call(this, "s must be a number 0, 2, 4, 6.", I) : (this._colorType = Math.round(S), r(I) && I.call(this, null, this), this);
     } } });
     var Xe = __webpack_require__(486), ft = __webpack_require__.n(Xe);
     const xt = "image/bmp", _t = "image/x-ms-bmp", ct = (S) => {
-      return n({ bitmap: A = ft().decode(S) }, 0, 0, A.width, A.height, function(H, Z, ie) {
+      return n({ bitmap: I = ft().decode(S) }, 0, 0, I.width, I.height, function(H, Z, ie) {
         const fe = this.bitmap.data[ie + 0], ge = this.bitmap.data[ie + 1], me = this.bitmap.data[ie + 2], ye = this.bitmap.data[ie + 3];
-        this.bitmap.data[ie + 0] = ye, this.bitmap.data[ie + 1] = me, this.bitmap.data[ie + 2] = ge, this.bitmap.data[ie + 3] = A.is_with_alpha ? fe : 255;
+        this.bitmap.data[ie + 0] = ye, this.bitmap.data[ie + 1] = me, this.bitmap.data[ie + 2] = ge, this.bitmap.data[ie + 3] = I.is_with_alpha ? fe : 255;
       }).bitmap;
-      var A;
-    }, dt = (S) => ft().encode(function(A) {
-      return n(A, 0, 0, A.bitmap.width, A.bitmap.height, function(H, Z, ie) {
+      var I;
+    }, dt = (S) => ft().encode(function(I) {
+      return n(I, 0, 0, I.bitmap.width, I.bitmap.height, function(H, Z, ie) {
         const fe = this.bitmap.data[ie + 0], ge = this.bitmap.data[ie + 1], me = this.bitmap.data[ie + 2], ye = this.bitmap.data[ie + 3];
         this.bitmap.data[ie + 0] = ye, this.bitmap.data[ie + 1] = me, this.bitmap.data[ie + 2] = ge, this.bitmap.data[ie + 3] = fe;
       }).bitmap;
@@ -16354,27 +16354,27 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
     var Zt = __webpack_require__(63), $t = __webpack_require__(9455), gt = __webpack_require__(8834).lW;
     const Qt = "image/gif", fr = [1, 57, 41, 21, 203, 34, 97, 73, 227, 91, 149, 62, 105, 45, 39, 137, 241, 107, 3, 173, 39, 71, 65, 238, 219, 101, 187, 87, 81, 151, 141, 133, 249, 117, 221, 209, 197, 187, 177, 169, 5, 153, 73, 139, 133, 127, 243, 233, 223, 107, 103, 99, 191, 23, 177, 171, 165, 159, 77, 149, 9, 139, 135, 131, 253, 245, 119, 231, 224, 109, 211, 103, 25, 195, 189, 23, 45, 175, 171, 83, 81, 79, 155, 151, 147, 9, 141, 137, 67, 131, 129, 251, 123, 30, 235, 115, 113, 221, 217, 53, 13, 51, 50, 49, 193, 189, 185, 91, 179, 175, 43, 169, 83, 163, 5, 79, 155, 19, 75, 147, 145, 143, 35, 69, 17, 67, 33, 65, 255, 251, 247, 243, 239, 59, 29, 229, 113, 111, 219, 27, 213, 105, 207, 51, 201, 199, 49, 193, 191, 47, 93, 183, 181, 179, 11, 87, 43, 85, 167, 165, 163, 161, 159, 157, 155, 77, 19, 75, 37, 73, 145, 143, 141, 35, 138, 137, 135, 67, 33, 131, 129, 255, 63, 250, 247, 61, 121, 239, 237, 117, 29, 229, 227, 225, 111, 55, 109, 216, 213, 211, 209, 207, 205, 203, 201, 199, 197, 195, 193, 48, 190, 47, 93, 185, 183, 181, 179, 178, 176, 175, 173, 171, 85, 21, 167, 165, 41, 163, 161, 5, 79, 157, 78, 154, 153, 19, 75, 149, 74, 147, 73, 144, 143, 71, 141, 140, 139, 137, 17, 135, 134, 133, 66, 131, 65, 129, 1], mr = [0, 9, 10, 10, 14, 12, 14, 14, 16, 15, 16, 15, 16, 15, 15, 17, 18, 17, 12, 18, 16, 17, 17, 19, 19, 18, 19, 18, 18, 19, 19, 19, 20, 19, 20, 20, 20, 20, 20, 20, 15, 20, 19, 20, 20, 20, 21, 21, 21, 20, 20, 20, 21, 18, 21, 21, 21, 21, 20, 21, 17, 21, 21, 21, 22, 22, 21, 22, 22, 21, 22, 21, 19, 22, 22, 19, 20, 22, 22, 21, 21, 21, 22, 22, 22, 18, 22, 22, 21, 22, 22, 23, 22, 20, 23, 22, 22, 23, 23, 21, 19, 21, 21, 21, 23, 23, 23, 22, 23, 23, 21, 23, 22, 23, 18, 22, 23, 20, 22, 23, 23, 23, 21, 22, 20, 22, 21, 22, 24, 24, 24, 24, 24, 22, 21, 24, 23, 23, 24, 21, 24, 23, 24, 22, 24, 24, 22, 24, 24, 22, 23, 24, 24, 24, 20, 23, 22, 23, 24, 24, 24, 24, 24, 24, 24, 23, 21, 23, 22, 23, 24, 24, 24, 22, 24, 24, 24, 23, 22, 24, 24, 25, 23, 25, 25, 23, 24, 25, 25, 24, 22, 25, 25, 25, 24, 23, 24, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 23, 25, 23, 24, 25, 25, 25, 25, 25, 25, 25, 25, 25, 24, 22, 25, 25, 23, 25, 25, 20, 24, 25, 24, 25, 25, 22, 24, 25, 24, 25, 24, 25, 25, 24, 25, 25, 25, 25, 22, 25, 25, 25, 24, 25, 24, 25, 18];
     var lr = __webpack_require__(8834).lW;
-    function hr(S, A, H, Z) {
-      const ie = [0, 0, 0], fe = (A.length - 1) / 2;
-      for (let ge = 0; ge < A.length; ge += 1)
-        for (let me = 0; me < A[ge].length; me += 1) {
+    function hr(S, I, H, Z) {
+      const ie = [0, 0, 0], fe = (I.length - 1) / 2;
+      for (let ge = 0; ge < I.length; ge += 1)
+        for (let me = 0; me < I[ge].length; me += 1) {
           const ye = S.getPixelIndex(H + ge - fe, Z + me - fe);
-          ie[0] += S.bitmap.data[ye] * A[ge][me], ie[1] += S.bitmap.data[ye + 1] * A[ge][me], ie[2] += S.bitmap.data[ye + 2] * A[ge][me];
+          ie[0] += S.bitmap.data[ye] * I[ge][me], ie[1] += S.bitmap.data[ye + 1] * I[ge][me], ie[2] += S.bitmap.data[ye + 2] * I[ge][me];
         }
       return ie;
     }
     const Yt = (S) => S != null;
     function ur(S) {
-      return this.scanQuiet(0, 0, this.bitmap.width, this.bitmap.height, function(A, H, Z) {
+      return this.scanQuiet(0, 0, this.bitmap.width, this.bitmap.height, function(I, H, Z) {
         const ie = parseInt(0.2126 * this.bitmap.data[Z] + 0.7152 * this.bitmap.data[Z + 1] + 0.0722 * this.bitmap.data[Z + 2], 10);
         this.bitmap.data[Z] = ie, this.bitmap.data[Z + 1] = ie, this.bitmap.data[Z + 2] = ie;
       }), r(S) && S.call(this, null, this), this;
     }
-    function ar(S, A) {
+    function ar(S, I) {
       let H = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : 50;
-      return { r: (A.r - S.r) * (H / 100) + S.r, g: (A.g - S.g) * (H / 100) + S.g, b: (A.b - S.b) * (H / 100) + S.b };
+      return { r: (I.r - S.r) * (H / 100) + S.r, g: (I.g - S.g) * (H / 100) + S.g, b: (I.b - S.b) * (H / 100) + S.b };
     }
-    function yr(S, A) {
+    function yr(S, I) {
       return S && Array.isArray(S) ? (S = S.map((H) => (H.apply !== "xor" && H.apply !== "mix" || (H.params[0] = k(H.params[0]).toRgb()), H)), this.scanQuiet(0, 0, this.bitmap.width, this.bitmap.height, (H, Z, ie) => {
         let fe = { r: this.bitmap.data[ie], g: this.bitmap.data[ie + 1], b: this.bitmap.data[ie + 2] };
         const ge = (me, ye) => this.constructor.limit255(fe[me] + ye);
@@ -16395,81 +16395,81 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             fe.b = ge("b", me.params[0]);
           else {
             if (me.apply === "hue" && (me.apply = "spin"), fe = k(fe), !fe[me.apply])
-              return o.call(this, "action " + me.apply + " not supported", A);
+              return o.call(this, "action " + me.apply + " not supported", I);
             fe = fe[me.apply](...me.params).toRgb();
           }
         }), this.bitmap.data[ie] = fe.r, this.bitmap.data[ie + 1] = fe.g, this.bitmap.data[ie + 2] = fe.b;
-      }), r(A) && A.call(this, null, this), this) : o.call(this, "actions must be an array", A);
+      }), r(I) && I.call(this, null, this), this) : o.call(this, "actions must be an array", I);
     }
-    var Ir = __webpack_require__(8834).lW;
+    var Ar = __webpack_require__(8834).lW;
     function wr(S) {
-      const A = [1, 9, 3, 11, 13, 5, 15, 7, 4, 12, 2, 10, 16, 8, 14, 6];
+      const I = [1, 9, 3, 11, 13, 5, 15, 7, 4, 12, 2, 10, 16, 8, 14, 6];
       return this.scanQuiet(0, 0, this.bitmap.width, this.bitmap.height, function(H, Z, ie) {
-        const fe = A[((3 & Z) << 2) + H % 4];
+        const fe = I[((3 & Z) << 2) + H % 4];
         this.bitmap.data[ie] = Math.min(this.bitmap.data[ie] + fe, 255), this.bitmap.data[ie + 1] = Math.min(this.bitmap.data[ie + 1] + fe, 255), this.bitmap.data[ie + 2] = Math.min(this.bitmap.data[ie + 2] + fe, 255);
       }), r(S) && S.call(this, null, this), this;
     }
     var vr = __webpack_require__(8834).lW;
-    function xr(S, A, H) {
-      if (typeof S != "boolean" || typeof A != "boolean")
+    function xr(S, I, H) {
+      if (typeof S != "boolean" || typeof I != "boolean")
         return o.call(this, "horizontal and vertical must be Booleans", H);
       const Z = vr.alloc(this.bitmap.data.length);
       return this.scanQuiet(0, 0, this.bitmap.width, this.bitmap.height, function(ie, fe, ge) {
-        const me = S ? this.bitmap.width - 1 - ie : ie, ye = A ? this.bitmap.height - 1 - fe : fe, Ae = this.bitmap.width * ye + me << 2, Oe = this.bitmap.data.readUInt32BE(ge);
-        Z.writeUInt32BE(Oe, Ae);
+        const me = S ? this.bitmap.width - 1 - ie : ie, ye = I ? this.bitmap.height - 1 - fe : fe, Ie = this.bitmap.width * ye + me << 2, Oe = this.bitmap.data.readUInt32BE(ge);
+        Z.writeUInt32BE(Oe, Ie);
       }), this.bitmap.data = vr.from(Z), r(H) && H.call(this, null, this), this;
     }
-    function Ar() {
+    function Ir() {
       const S = { r: new Array(256).fill(0), g: new Array(256).fill(0), b: new Array(256).fill(0) };
-      return this.scanQuiet(0, 0, this.bitmap.width, this.bitmap.height, function(A, H, Z) {
+      return this.scanQuiet(0, 0, this.bitmap.width, this.bitmap.height, function(I, H, Z) {
         S.r[this.bitmap.data[Z + 0]]++, S.g[this.bitmap.data[Z + 1]]++, S.b[this.bitmap.data[Z + 2]]++;
       }), S;
     }
-    const gr = function(S, A, H) {
-      return 255 * (S - A) / (H - A);
+    const gr = function(S, I, H) {
+      return 255 * (S - I) / (H - I);
     }, br = function(S) {
-      return [S.findIndex((A) => A > 0), 255 - S.slice().reverse().findIndex((A) => A > 0)];
+      return [S.findIndex((I) => I > 0), 255 - S.slice().reverse().findIndex((I) => I > 0)];
     };
     var Cr = __webpack_require__(8058), Pr = __webpack_require__.n(Cr);
-    function pr(S, A) {
+    function pr(S, I) {
       let H = 0;
-      for (let Z = 0; Z < A.length; Z++)
-        if (S.chars[A[Z]]) {
-          const ie = S.kernings[A[Z]] && S.kernings[A[Z]][A[Z + 1]] ? S.kernings[A[Z]][A[Z + 1]] : 0;
-          H += (S.chars[A[Z]].xadvance || 0) + ie;
+      for (let Z = 0; Z < I.length; Z++)
+        if (S.chars[I[Z]]) {
+          const ie = S.kernings[I[Z]] && S.kernings[I[Z]][I[Z + 1]] ? S.kernings[I[Z]][I[Z + 1]] : 0;
+          H += (S.chars[I[Z]].xadvance || 0) + ie;
         }
       return H;
     }
-    function Er(S, A, H) {
-      const Z = A.split(" "), ie = [];
+    function Er(S, I, H) {
+      const Z = I.split(" "), ie = [];
       let fe = [], ge = 0;
       return Z.forEach((me) => {
-        const ye = [...fe, me].join(" "), Ae = pr(S, ye);
-        Ae <= H ? (Ae > ge && (ge = Ae), fe.push(me)) : (ie.push(fe), fe = [me]);
+        const ye = [...fe, me].join(" "), Ie = pr(S, ye);
+        Ie <= H ? (Ie > ge && (ge = Ie), fe.push(me)) : (ie.push(fe), fe = [me]);
       }), ie.push(fe), { lines: ie, longestLine: ge };
     }
-    function _r(S, A, H) {
-      const { lines: Z } = Er(S, A, H);
+    function _r(S, I, H) {
+      const { lines: Z } = Er(S, I, H);
       return Z.length * S.common.lineHeight;
     }
-    function Rr(S, A, H, Z, ie) {
+    function Rr(S, I, H, Z, ie) {
       if (ie.width > 0 && ie.height > 0) {
-        const fe = A.pages[ie.page];
+        const fe = I.pages[ie.page];
         S.blit(fe, H + ie.xoffset, Z + ie.yoffset, ie.x, ie.y, ie.width, ie.height);
       }
       return S;
     }
-    function Lr(S, A, H, Z, ie) {
+    function Lr(S, I, H, Z, ie) {
       for (let fe = 0; fe < Z.length; fe++) {
         let ge;
         ge = S.chars[Z[fe]] ? Z[fe] : /\s/.test(Z[fe]) ? "" : "?";
         const me = S.chars[ge] || {}, ye = S.kernings[ge];
-        Rr(this, S, A, H, me || {}), A += (ye && ye[Z[fe + 1]] ? ye[Z[fe + 1]] : 0) + (me.xadvance || ie);
+        Rr(this, S, I, H, me || {}), I += (ye && ye[Z[fe + 1]] ? ye[Z[fe + 1]] : 0) + (me.xadvance || ie);
       }
     }
     const Kt = "//../";
-    function Vt(S, A, H, Z, ie, fe, ge) {
-      this.widthOriginal = Math.abs(Math.floor(S) || 0), this.heightOriginal = Math.abs(Math.floor(A) || 0), this.targetWidth = Math.abs(Math.floor(H) || 0), this.targetHeight = Math.abs(Math.floor(Z) || 0), this.colorChannels = ie ? 4 : 3, this.interpolationPass = !!fe, this.resizeCallback = typeof ge == "function" ? ge : function() {
+    function Vt(S, I, H, Z, ie, fe, ge) {
+      this.widthOriginal = Math.abs(Math.floor(S) || 0), this.heightOriginal = Math.abs(Math.floor(I) || 0), this.targetWidth = Math.abs(Math.floor(H) || 0), this.targetHeight = Math.abs(Math.floor(Z) || 0), this.colorChannels = ie ? 4 : 3, this.interpolationPass = !!fe, this.resizeCallback = typeof ge == "function" ? ge : function() {
       }, this.targetWidthMultipliedByChannels = this.targetWidth * this.colorChannels, this.originalWidthMultipliedByChannels = this.widthOriginal * this.colorChannels, this.originalHeightMultipliedByChannels = this.heightOriginal * this.colorChannels, this.widthPassResultSize = this.targetWidthMultipliedByChannels * this.heightOriginal, this.finalResultSize = this.targetWidthMultipliedByChannels * this.targetHeight, this.initialize();
     }
     Vt.prototype.initialize = function() {
@@ -16478,29 +16478,29 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
       this.configurePasses();
     }, Vt.prototype.configurePasses = function() {
       this.widthOriginal === this.targetWidth ? this.resizeWidth = this.bypassResizer : (this.ratioWeightWidthPass = this.widthOriginal / this.targetWidth, this.ratioWeightWidthPass < 1 && this.interpolationPass ? (this.initializeFirstPassBuffers(!0), this.resizeWidth = this.colorChannels === 4 ? this.resizeWidthInterpolatedRGBA : this.resizeWidthInterpolatedRGB) : (this.initializeFirstPassBuffers(!1), this.resizeWidth = this.colorChannels === 4 ? this.resizeWidthRGBA : this.resizeWidthRGB)), this.heightOriginal === this.targetHeight ? this.resizeHeight = this.bypassResizer : (this.ratioWeightHeightPass = this.heightOriginal / this.targetHeight, this.ratioWeightHeightPass < 1 && this.interpolationPass ? (this.initializeSecondPassBuffers(!0), this.resizeHeight = this.resizeHeightInterpolated) : (this.initializeSecondPassBuffers(!1), this.resizeHeight = this.colorChannels === 4 ? this.resizeHeightRGBA : this.resizeHeightRGB));
-    }, Vt.prototype._resizeWidthInterpolatedRGBChannels = function(S, A) {
-      const H = A ? 4 : 3, Z = this.ratioWeightWidthPass, ie = this.widthBuffer;
-      let fe, ge, me = 0, ye = 0, Ae = 0, Oe = 0, ze = 0;
+    }, Vt.prototype._resizeWidthInterpolatedRGBChannels = function(S, I) {
+      const H = I ? 4 : 3, Z = this.ratioWeightWidthPass, ie = this.widthBuffer;
+      let fe, ge, me = 0, ye = 0, Ie = 0, Oe = 0, ze = 0;
       for (fe = 0; me < 1 / 3; fe += H, me += Z)
-        for (ye = fe, Ae = 0; ye < this.widthPassResultSize; Ae += this.originalWidthMultipliedByChannels, ye += this.targetWidthMultipliedByChannels)
-          ie[ye] = S[Ae], ie[ye + 1] = S[Ae + 1], ie[ye + 2] = S[Ae + 2], A && (ie[ye + 3] = S[Ae + 3]);
+        for (ye = fe, Ie = 0; ye < this.widthPassResultSize; Ie += this.originalWidthMultipliedByChannels, ye += this.targetWidthMultipliedByChannels)
+          ie[ye] = S[Ie], ie[ye + 1] = S[Ie + 1], ie[ye + 2] = S[Ie + 2], I && (ie[ye + 3] = S[Ie + 3]);
       for (me -= 1 / 3, ge = this.widthOriginal - 1; me < ge; fe += H, me += Z)
-        for (ze = me % 1, Oe = 1 - ze, ye = fe, Ae = Math.floor(me) * H; ye < this.widthPassResultSize; Ae += this.originalWidthMultipliedByChannels, ye += this.targetWidthMultipliedByChannels)
-          ie[ye + 0] = S[Ae + 0] * Oe + S[Ae + H + 0] * ze, ie[ye + 1] = S[Ae + 1] * Oe + S[Ae + H + 1] * ze, ie[ye + 2] = S[Ae + 2] * Oe + S[Ae + H + 2] * ze, A && (ie[ye + 3] = S[Ae + 3] * Oe + S[Ae + H + 3] * ze);
+        for (ze = me % 1, Oe = 1 - ze, ye = fe, Ie = Math.floor(me) * H; ye < this.widthPassResultSize; Ie += this.originalWidthMultipliedByChannels, ye += this.targetWidthMultipliedByChannels)
+          ie[ye + 0] = S[Ie + 0] * Oe + S[Ie + H + 0] * ze, ie[ye + 1] = S[Ie + 1] * Oe + S[Ie + H + 1] * ze, ie[ye + 2] = S[Ie + 2] * Oe + S[Ie + H + 2] * ze, I && (ie[ye + 3] = S[Ie + 3] * Oe + S[Ie + H + 3] * ze);
       for (ge = this.originalWidthMultipliedByChannels - H; fe < this.targetWidthMultipliedByChannels; fe += H)
-        for (ye = fe, Ae = ge; ye < this.widthPassResultSize; Ae += this.originalWidthMultipliedByChannels, ye += this.targetWidthMultipliedByChannels)
-          ie[ye] = S[Ae], ie[ye + 1] = S[Ae + 1], ie[ye + 2] = S[Ae + 2], A && (ie[ye + 3] = S[Ae + 3]);
+        for (ye = fe, Ie = ge; ye < this.widthPassResultSize; Ie += this.originalWidthMultipliedByChannels, ye += this.targetWidthMultipliedByChannels)
+          ie[ye] = S[Ie], ie[ye + 1] = S[Ie + 1], ie[ye + 2] = S[Ie + 2], I && (ie[ye + 3] = S[Ie + 3]);
       return ie;
-    }, Vt.prototype._resizeWidthRGBChannels = function(S, A) {
-      const H = A ? 4 : 3, Z = this.ratioWeightWidthPass, ie = 1 / Z, fe = this.originalWidthMultipliedByChannels - H + 1, ge = this.targetWidthMultipliedByChannels - H + 1, me = this.outputWidthWorkBench, ye = this.widthBuffer, Ae = this.outputWidthWorkBenchOpaquePixelsCount;
+    }, Vt.prototype._resizeWidthRGBChannels = function(S, I) {
+      const H = I ? 4 : 3, Z = this.ratioWeightWidthPass, ie = 1 / Z, fe = this.originalWidthMultipliedByChannels - H + 1, ge = this.targetWidthMultipliedByChannels - H + 1, me = this.outputWidthWorkBench, ye = this.widthBuffer, Ie = this.outputWidthWorkBenchOpaquePixelsCount;
       let Oe = 0, ze = 0, it = 0, $e = 0, Ge = 0, He = 0, nt = 0, ht = 1, pt = 0, Et = 0, Pt = 0, yt = 0;
       do {
         for (Ge = 0; Ge < this.originalHeightMultipliedByChannels; )
-          me[Ge++] = 0, me[Ge++] = 0, me[Ge++] = 0, A && (me[Ge++] = 0, Ae[Ge / H - 1] = 0);
+          me[Ge++] = 0, me[Ge++] = 0, me[Ge++] = 0, I && (me[Ge++] = 0, Ie[Ge / H - 1] = 0);
         Oe = Z;
         do {
           for (ze = 1 + it - $e, ht = Math.min(Oe, ze), Ge = 0, He = it; Ge < this.originalHeightMultipliedByChannels; He += fe)
-            pt = S[He], Et = S[++He], Pt = S[++He], yt = A ? S[++He] : 255, me[Ge++] += (yt ? pt : 0) * ht, me[Ge++] += (yt ? Et : 0) * ht, me[Ge++] += (yt ? Pt : 0) * ht, A && (me[Ge++] += yt * ht, Ae[Ge / H - 1] += yt ? ht : 0);
+            pt = S[He], Et = S[++He], Pt = S[++He], yt = I ? S[++He] : 255, me[Ge++] += (yt ? pt : 0) * ht, me[Ge++] += (yt ? Et : 0) * ht, me[Ge++] += (yt ? Pt : 0) * ht, I && (me[Ge++] += yt * ht, Ie[Ge / H - 1] += yt ? ht : 0);
           if (!(Oe >= ze)) {
             $e += Oe;
             break;
@@ -16508,28 +16508,28 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           it += H, $e = it, Oe -= ze;
         } while (Oe > 0 && it < this.originalWidthMultipliedByChannels);
         for (Ge = 0, He = nt; Ge < this.originalHeightMultipliedByChannels; He += ge)
-          Oe = A ? Ae[Ge / H] : 1, ht = A ? Oe ? 1 / Oe : 0 : ie, ye[He] = me[Ge++] * ht, ye[++He] = me[Ge++] * ht, ye[++He] = me[Ge++] * ht, A && (ye[++He] = me[Ge++] * ie);
+          Oe = I ? Ie[Ge / H] : 1, ht = I ? Oe ? 1 / Oe : 0 : ie, ye[He] = me[Ge++] * ht, ye[++He] = me[Ge++] * ht, ye[++He] = me[Ge++] * ht, I && (ye[++He] = me[Ge++] * ie);
         nt += H;
       } while (nt < this.targetWidthMultipliedByChannels);
       return ye;
-    }, Vt.prototype._resizeHeightRGBChannels = function(S, A) {
+    }, Vt.prototype._resizeHeightRGBChannels = function(S, I) {
       const H = this.ratioWeightHeightPass, Z = 1 / H, ie = this.outputHeightWorkBench, fe = this.heightBuffer, ge = this.outputHeightWorkBenchOpaquePixelsCount;
-      let me = 0, ye = 0, Ae = 0, Oe = 0, ze = 0, it = 0, $e = 0, Ge = 1, He = 0, nt = 0, ht = 0, pt = 0;
+      let me = 0, ye = 0, Ie = 0, Oe = 0, ze = 0, it = 0, $e = 0, Ge = 1, He = 0, nt = 0, ht = 0, pt = 0;
       do {
         for (ze = 0; ze < this.targetWidthMultipliedByChannels; )
-          ie[ze++] = 0, ie[ze++] = 0, ie[ze++] = 0, A && (ie[ze++] = 0, ge[ze / 4 - 1] = 0);
+          ie[ze++] = 0, ie[ze++] = 0, ie[ze++] = 0, I && (ie[ze++] = 0, ge[ze / 4 - 1] = 0);
         me = H;
         do {
-          for (ye = 1 + Ae - Oe, Ge = Math.min(me, ye), $e = Ae, ze = 0; ze < this.targetWidthMultipliedByChannels; )
-            He = S[$e++], nt = S[$e++], ht = S[$e++], pt = A ? S[$e++] : 255, ie[ze++] += (pt ? He : 0) * Ge, ie[ze++] += (pt ? nt : 0) * Ge, ie[ze++] += (pt ? ht : 0) * Ge, A && (ie[ze++] += pt * Ge, ge[ze / 4 - 1] += pt ? Ge : 0);
+          for (ye = 1 + Ie - Oe, Ge = Math.min(me, ye), $e = Ie, ze = 0; ze < this.targetWidthMultipliedByChannels; )
+            He = S[$e++], nt = S[$e++], ht = S[$e++], pt = I ? S[$e++] : 255, ie[ze++] += (pt ? He : 0) * Ge, ie[ze++] += (pt ? nt : 0) * Ge, ie[ze++] += (pt ? ht : 0) * Ge, I && (ie[ze++] += pt * Ge, ge[ze / 4 - 1] += pt ? Ge : 0);
           if (!(me >= ye)) {
             Oe += me;
             break;
           }
-          Ae = $e, Oe = Ae, me -= ye;
-        } while (me > 0 && Ae < this.widthPassResultSize);
+          Ie = $e, Oe = Ie, me -= ye;
+        } while (me > 0 && Ie < this.widthPassResultSize);
         for (ze = 0; ze < this.targetWidthMultipliedByChannels; )
-          me = A ? ge[ze / 4] : 1, Ge = A ? me ? 1 / me : 0 : Z, fe[it++] = Math.round(ie[ze++] * Ge), fe[it++] = Math.round(ie[ze++] * Ge), fe[it++] = Math.round(ie[ze++] * Ge), A && (fe[it++] = Math.round(ie[ze++] * Z));
+          me = I ? ge[ze / 4] : 1, Ge = I ? me ? 1 / me : 0 : Z, fe[it++] = Math.round(ie[ze++] * Ge), fe[it++] = Math.round(ie[ze++] * Ge), fe[it++] = Math.round(ie[ze++] * Ge), I && (fe[it++] = Math.round(ie[ze++] * Z));
       } while (it < this.finalResultSize);
       return fe;
     }, Vt.prototype.resizeWidthInterpolatedRGB = function(S) {
@@ -16541,14 +16541,14 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
     }, Vt.prototype.resizeWidthRGBA = function(S) {
       return this._resizeWidthRGBChannels(S, !0);
     }, Vt.prototype.resizeHeightInterpolated = function(S) {
-      const A = this.ratioWeightHeightPass, H = this.heightBuffer;
-      let Z, ie = 0, fe = 0, ge = 0, me = 0, ye = 0, Ae = 0, Oe = 0;
-      for (; ie < 1 / 3; ie += A)
+      const I = this.ratioWeightHeightPass, H = this.heightBuffer;
+      let Z, ie = 0, fe = 0, ge = 0, me = 0, ye = 0, Ie = 0, Oe = 0;
+      for (; ie < 1 / 3; ie += I)
         for (ge = 0; ge < this.targetWidthMultipliedByChannels; )
           H[fe++] = Math.round(S[ge++]);
-      for (ie -= 1 / 3, Z = this.heightOriginal - 1; ie < Z; ie += A)
-        for (Oe = ie % 1, Ae = 1 - Oe, me = Math.floor(ie) * this.targetWidthMultipliedByChannels, ye = me + this.targetWidthMultipliedByChannels, ge = 0; ge < this.targetWidthMultipliedByChannels; ++ge)
-          H[fe++] = Math.round(S[me++] * Ae + S[ye++] * Oe);
+      for (ie -= 1 / 3, Z = this.heightOriginal - 1; ie < Z; ie += I)
+        for (Oe = ie % 1, Ie = 1 - Oe, me = Math.floor(ie) * this.targetWidthMultipliedByChannels, ye = me + this.targetWidthMultipliedByChannels, ge = 0; ge < this.targetWidthMultipliedByChannels; ++ge)
+          H[fe++] = Math.round(S[me++] * Ie + S[ye++] * Oe);
       for (; fe < this.finalResultSize; )
         for (ge = 0, me = Z * this.targetWidthMultipliedByChannels; ge < this.targetWidthMultipliedByChannels; ++ge)
           H[fe++] = Math.round(S[me++]);
@@ -16586,17 +16586,17 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
     };
     const Br = Vt;
     var Sr = __webpack_require__(8834).lW;
-    const Or = { nearestNeighbor(S, A) {
-      const H = S.width, Z = S.height, ie = A.width, fe = A.height, ge = S.data, me = A.data;
+    const Or = { nearestNeighbor(S, I) {
+      const H = S.width, Z = S.height, ie = I.width, fe = I.height, ge = S.data, me = I.data;
       for (let ye = 0; ye < fe; ye++)
-        for (let Ae = 0; Ae < ie; Ae++) {
-          let Oe = 4 * (ye * ie + Ae), ze = 4 * (Math.floor(ye * Z / fe) * H + Math.floor(Ae * H / ie));
+        for (let Ie = 0; Ie < ie; Ie++) {
+          let Oe = 4 * (ye * ie + Ie), ze = 4 * (Math.floor(ye * Z / fe) * H + Math.floor(Ie * H / ie));
           me[Oe++] = ge[ze++], me[Oe++] = ge[ze++], me[Oe++] = ge[ze++], me[Oe++] = ge[ze++];
         }
-    }, bilinearInterpolation(S, A) {
-      const H = S.width, Z = S.height, ie = A.width, fe = A.height, ge = S.data, me = A.data, ye = function(Oe, ze, it, $e, Ge) {
+    }, bilinearInterpolation(S, I) {
+      const H = S.width, Z = S.height, ie = I.width, fe = I.height, ge = S.data, me = I.data, ye = function(Oe, ze, it, $e, Ge) {
         return ze === $e ? it : Math.round((Oe - ze) * Ge + ($e - Oe) * it);
-      }, Ae = function(Oe, ze, it, $e, Ge, He, nt, ht) {
+      }, Ie = function(Oe, ze, it, $e, Ge, He, nt, ht) {
         let pt = 4 * (nt * H + $e) + ze, Et = 4 * (nt * H + Ge) + ze;
         const Pt = ye(it, $e, ge[pt], Ge, ge[Et]);
         if (ht === nt)
@@ -16610,10 +16610,10 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
       for (let Oe = 0; Oe < fe; Oe++)
         for (let ze = 0; ze < ie; ze++) {
           const it = 4 * (Oe * ie + ze), $e = ze * H / ie, Ge = Math.floor($e), He = Math.min(Math.ceil($e), H - 1), nt = Oe * Z / fe, ht = Math.floor(nt), pt = Math.min(Math.ceil(nt), Z - 1);
-          Ae(it, 0, $e, Ge, He, nt, ht, pt), Ae(it, 1, $e, Ge, He, nt, ht, pt), Ae(it, 2, $e, Ge, He, nt, ht, pt), Ae(it, 3, $e, Ge, He, nt, ht, pt);
+          Ie(it, 0, $e, Ge, He, nt, ht, pt), Ie(it, 1, $e, Ge, He, nt, ht, pt), Ie(it, 2, $e, Ge, He, nt, ht, pt), Ie(it, 3, $e, Ge, He, nt, ht, pt);
         }
-    }, _interpolate2D(S, A, H, Z) {
-      const ie = S.data, fe = A.data, ge = S.width, me = S.height, ye = A.width, Ae = A.height, Oe = Math.max(1, Math.floor(ge / ye)), ze = ye * Oe, it = Math.max(1, Math.floor(me / Ae)), $e = Ae * it, Ge = Sr.alloc(ze * me * 4);
+    }, _interpolate2D(S, I, H, Z) {
+      const ie = S.data, fe = I.data, ge = S.width, me = S.height, ye = I.width, Ie = I.height, Oe = Math.max(1, Math.floor(ge / ye)), ze = ye * Oe, it = Math.max(1, Math.floor(me / Ie)), $e = Ie * it, Ge = Sr.alloc(ze * me * 4);
       for (let ht = 0; ht < me; ht++)
         for (let pt = 0; pt < ze; pt++) {
           const Et = pt * (ge - 1) / ze, Pt = Math.floor(Et), yt = Et - Pt, kt = 4 * (ht * ge + Pt), St = 4 * (ht * ze + pt);
@@ -16633,7 +16633,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         }
       const nt = Oe * it;
       if (nt > 1)
-        for (let ht = 0; ht < Ae; ht++)
+        for (let ht = 0; ht < Ie; ht++)
           for (let pt = 0; pt < ye; pt++) {
             let Et = 0, Pt = 0, yt = 0, kt = 0, St = 0;
             for (let zt = 0; zt < it; zt++) {
@@ -16647,21 +16647,21 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
             fe[Ot] = St ? Math.round(Et / St) : 0, fe[Ot + 1] = St ? Math.round(Pt / St) : 0, fe[Ot + 2] = St ? Math.round(yt / St) : 0, fe[Ot + 3] = Math.round(kt / nt);
           }
       else
-        A.data = He;
-    }, bicubicInterpolation(S, A, H) {
-      return this._interpolate2D(S, A, H, function(Z, ie, fe, ge, me) {
-        const ye = ge - fe - Z + ie, Ae = Z - ie - ye, Oe = fe - Z, ze = ie;
-        return Math.max(0, Math.min(255, ye * (me * me * me) + Ae * (me * me) + Oe * me + ze));
+        I.data = He;
+    }, bicubicInterpolation(S, I, H) {
+      return this._interpolate2D(S, I, H, function(Z, ie, fe, ge, me) {
+        const ye = ge - fe - Z + ie, Ie = Z - ie - ye, Oe = fe - Z, ze = ie;
+        return Math.max(0, Math.min(255, ye * (me * me * me) + Ie * (me * me) + Oe * me + ze));
       });
-    }, hermiteInterpolation(S, A, H) {
-      return this._interpolate2D(S, A, H, function(Z, ie, fe, ge, me) {
-        const ye = ie, Ae = 0.5 * (fe - Z), Oe = Z - 2.5 * ie + 2 * fe - 0.5 * ge, ze = 0.5 * (ge - Z) + 1.5 * (ie - fe);
-        return Math.max(0, Math.min(255, Math.round(((ze * me + Oe) * me + Ae) * me + ye)));
+    }, hermiteInterpolation(S, I, H) {
+      return this._interpolate2D(S, I, H, function(Z, ie, fe, ge, me) {
+        const ye = ie, Ie = 0.5 * (fe - Z), Oe = Z - 2.5 * ie + 2 * fe - 0.5 * ge, ze = 0.5 * (ge - Z) + 1.5 * (ie - fe);
+        return Math.max(0, Math.min(255, Math.round(((ze * me + Oe) * me + Ie) * me + ye)));
       });
-    }, bezierInterpolation(S, A, H) {
-      return this._interpolate2D(S, A, H, function(Z, ie, fe, ge, me) {
-        const ye = 1 - me, Ae = ie * ye * ye * ye, Oe = 3 * (ie + (fe - Z) / 4) * ye * ye * me, ze = 3 * (fe - (ge - ie) / 4) * ye * me * me, it = fe * me * me * me;
-        return Math.max(0, Math.min(255, Math.round(Ae + Oe + ze + it)));
+    }, bezierInterpolation(S, I, H) {
+      return this._interpolate2D(S, I, H, function(Z, ie, fe, ge, me) {
+        const ye = 1 - me, Ie = ie * ye * ye * ye, Oe = 3 * (ie + (fe - Z) / 4) * ye * ye * me, ze = 3 * (fe - (ge - ie) / 4) * ye * me * me, it = fe * me * me * me;
+        return Math.max(0, Math.min(255, Math.round(Ie + Oe + ze + it)));
       });
     } }, Mr = Or;
     var kr = __webpack_require__(8834).lW, Tr = __webpack_require__(8834).lW;
@@ -16670,7 +16670,7 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         throw new Error("Unsupported matrix rotation degree");
       if (S %= 360, Math.abs(S) === 0)
         return;
-      const A = this.bitmap.width, H = this.bitmap.height;
+      const I = this.bitmap.width, H = this.bitmap.height;
       let Z;
       switch (S) {
         case 90:
@@ -16688,26 +16688,26 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         default:
           throw new Error("Unsupported matrix rotation degree");
       }
-      const ie = Z === 180 ? A : H, fe = Z === 180 ? H : A, ge = Tr.alloc(this.bitmap.data.length);
+      const ie = Z === 180 ? I : H, fe = Z === 180 ? H : I, ge = Tr.alloc(this.bitmap.data.length);
       function me(Oe, ze) {
         return function(it, $e) {
           return $e * Oe + it << 2;
         };
       }
-      const ye = me(A), Ae = me(ie);
-      for (let Oe = 0; Oe < A; Oe++)
+      const ye = me(I), Ie = me(ie);
+      for (let Oe = 0; Oe < I; Oe++)
         for (let ze = 0; ze < H; ze++) {
           const it = ye(Oe, ze), $e = this.bitmap.data.readUInt32BE(it);
           let Ge;
           switch (Z) {
             case 90:
-              Ge = Ae(ze, A - Oe - 1);
+              Ge = Ie(ze, I - Oe - 1);
               break;
             case -90:
-              Ge = Ae(H - ze - 1, Oe);
+              Ge = Ie(H - ze - 1, Oe);
               break;
             case 180:
-              Ge = Ae(A - Oe - 1, H - ze - 1);
+              Ge = Ie(I - Oe - 1, H - ze - 1);
               break;
             default:
               throw new Error("Unsupported matrix rotation angle");
@@ -16716,19 +16716,19 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         }
       this.bitmap.data = ge, this.bitmap.width = ie, this.bitmap.height = fe;
     }
-    function Dr(S, A) {
+    function Dr(S, I) {
       const H = (S %= 360) * Math.PI / 180, Z = Math.cos(H), ie = Math.sin(H);
       let fe = this.bitmap.width, ge = this.bitmap.height;
-      if (A === !0 || typeof A == "string") {
+      if (I === !0 || typeof I == "string") {
         fe = Math.ceil(Math.abs(this.bitmap.width * Z) + Math.abs(this.bitmap.height * ie)) + 1, ge = Math.ceil(Math.abs(this.bitmap.width * ie) + Math.abs(this.bitmap.height * Z)) + 1, fe % 2 != 0 && fe++, ge % 2 != 0 && ge++;
         const $e = this.cloneQuiet();
         this.scanQuiet(0, 0, this.bitmap.width, this.bitmap.height, function(He, nt, ht) {
           this.bitmap.data.writeUInt32BE(this._background, ht);
         });
         const Ge = Math.max(fe, ge, this.bitmap.width, this.bitmap.height);
-        this.resize(Ge, Ge, A), this.blit($e, this.bitmap.width / 2 - $e.bitmap.width / 2, this.bitmap.height / 2 - $e.bitmap.height / 2);
+        this.resize(Ge, Ge, I), this.blit($e, this.bitmap.width / 2 - $e.bitmap.width / 2, this.bitmap.height / 2 - $e.bitmap.height / 2);
       }
-      const me = this.bitmap.width, ye = this.bitmap.height, Ae = Tr.alloc(this.bitmap.data.length);
+      const me = this.bitmap.width, ye = this.bitmap.height, Ie = Tr.alloc(this.bitmap.data.length);
       function Oe($e, Ge) {
         return function(He, nt) {
           return { x: He + $e, y: nt + Ge };
@@ -16740,19 +16740,19 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           const He = ze(Ge, $e), nt = it(Z * He.x - ie * He.y, Z * He.y + ie * He.x), ht = me * ($e - 1) + Ge - 1 << 2;
           if (nt.x >= 0 && nt.x < me && nt.y >= 0 && nt.y < ye) {
             const pt = (me * (0 | nt.y) + nt.x | 0) << 2, Et = this.bitmap.data.readUInt32BE(pt);
-            Ae.writeUInt32BE(Et, ht);
+            Ie.writeUInt32BE(Et, ht);
           } else
-            Ae.writeUInt32BE(this._background, ht);
+            Ie.writeUInt32BE(this._background, ht);
         }
-      if (this.bitmap.data = Ae, A === !0 || typeof A == "string") {
+      if (this.bitmap.data = Ie, I === !0 || typeof I == "string") {
         const $e = me / 2 - fe / 2, Ge = ye / 2 - ge / 2;
         this.crop($e, Ge, fe, ge);
       }
     }
-    const jr = [() => ({ blit(S, A, H, Z, ie, fe, ge, me) {
+    const jr = [() => ({ blit(S, I, H, Z, ie, fe, ge, me) {
       if (!(S instanceof this.constructor))
         return o.call(this, "The source must be a Jimp image", me);
-      if (typeof A != "number" || typeof H != "number")
+      if (typeof I != "number" || typeof H != "number")
         return o.call(this, "x and y must be numbers", me);
       if (typeof Z == "function")
         me = Z, Z = 0, ie = 0, fe = S.bitmap.width, ge = S.bitmap.height;
@@ -16761,101 +16761,101 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           return o.call(this, "srcx, srcy, srcw, srch must be numbers", me);
         Z = Z || 0, ie = ie || 0, fe = fe || S.bitmap.width, ge = ge || S.bitmap.height;
       }
-      A = Math.round(A), H = Math.round(H), Z = Math.round(Z), ie = Math.round(ie), fe = Math.round(fe), ge = Math.round(ge);
-      const ye = this.bitmap.width, Ae = this.bitmap.height, Oe = this;
+      I = Math.round(I), H = Math.round(H), Z = Math.round(Z), ie = Math.round(ie), fe = Math.round(fe), ge = Math.round(ge);
+      const ye = this.bitmap.width, Ie = this.bitmap.height, Oe = this;
       return S.scanQuiet(Z, ie, fe, ge, function(ze, it, $e) {
-        const Ge = A + ze - Z, He = H + it - ie;
-        if (Ge >= 0 && He >= 0 && ye - Ge > 0 && Ae - He > 0) {
+        const Ge = I + ze - Z, He = H + it - ie;
+        if (Ge >= 0 && He >= 0 && ye - Ge > 0 && Ie - He > 0) {
           const nt = Oe.getPixelIndex(Ge, He), ht = { r: this.bitmap.data[$e], g: this.bitmap.data[$e + 1], b: this.bitmap.data[$e + 2], a: this.bitmap.data[$e + 3] }, pt = { r: Oe.bitmap.data[nt], g: Oe.bitmap.data[nt + 1], b: Oe.bitmap.data[nt + 2], a: Oe.bitmap.data[nt + 3] };
           Oe.bitmap.data[nt] = (ht.a * (ht.r - pt.r) - pt.r + 255 >> 8) + pt.r, Oe.bitmap.data[nt + 1] = (ht.a * (ht.g - pt.g) - pt.g + 255 >> 8) + pt.g, Oe.bitmap.data[nt + 2] = (ht.a * (ht.b - pt.b) - pt.b + 255 >> 8) + pt.b, Oe.bitmap.data[nt + 3] = this.constructor.limit255(pt.a + ht.a);
         }
       }), r(me) && me.call(this, null, this), this;
-    } }), () => ({ blur(S, A) {
+    } }), () => ({ blur(S, I) {
       if (typeof S != "number")
-        return o.call(this, "r must be a number", A);
+        return o.call(this, "r must be a number", I);
       if (S < 1)
-        return o.call(this, "r must be greater than 0", A);
-      let H, Z, ie, fe, ge, me, ye, Ae, Oe, ze, it, $e, Ge, He;
+        return o.call(this, "r must be greater than 0", I);
+      let H, Z, ie, fe, ge, me, ye, Ie, Oe, ze, it, $e, Ge, He;
       const nt = this.bitmap.width - 1, ht = this.bitmap.height - 1, pt = S + 1, Et = fr[S], Pt = mr[S], yt = [], kt = [], St = [], Ot = [], zt = [], tr = [];
       let rr = 2;
       for (; rr-- > 0; ) {
         for ($e = 0, Ge = 0, me = 0; me < this.bitmap.height; me++) {
           for (H = this.bitmap.data[Ge] * pt, Z = this.bitmap.data[Ge + 1] * pt, ie = this.bitmap.data[Ge + 2] * pt, fe = this.bitmap.data[Ge + 3] * pt, ye = 1; ye <= S; ye++)
-            Ae = Ge + ((ye > nt ? nt : ye) << 2), H += this.bitmap.data[Ae++], Z += this.bitmap.data[Ae++], ie += this.bitmap.data[Ae++], fe += this.bitmap.data[Ae];
+            Ie = Ge + ((ye > nt ? nt : ye) << 2), H += this.bitmap.data[Ie++], Z += this.bitmap.data[Ie++], ie += this.bitmap.data[Ie++], fe += this.bitmap.data[Ie];
           for (ge = 0; ge < this.bitmap.width; ge++)
-            yt[$e] = H, kt[$e] = Z, St[$e] = ie, Ot[$e] = fe, me === 0 && (zt[ge] = ((Ae = ge + pt) < nt ? Ae : nt) << 2, tr[ge] = (Ae = ge - S) > 0 ? Ae << 2 : 0), Oe = Ge + zt[ge], ze = Ge + tr[ge], H += this.bitmap.data[Oe++] - this.bitmap.data[ze++], Z += this.bitmap.data[Oe++] - this.bitmap.data[ze++], ie += this.bitmap.data[Oe++] - this.bitmap.data[ze++], fe += this.bitmap.data[Oe] - this.bitmap.data[ze], $e++;
+            yt[$e] = H, kt[$e] = Z, St[$e] = ie, Ot[$e] = fe, me === 0 && (zt[ge] = ((Ie = ge + pt) < nt ? Ie : nt) << 2, tr[ge] = (Ie = ge - S) > 0 ? Ie << 2 : 0), Oe = Ge + zt[ge], ze = Ge + tr[ge], H += this.bitmap.data[Oe++] - this.bitmap.data[ze++], Z += this.bitmap.data[Oe++] - this.bitmap.data[ze++], ie += this.bitmap.data[Oe++] - this.bitmap.data[ze++], fe += this.bitmap.data[Oe] - this.bitmap.data[ze], $e++;
           Ge += this.bitmap.width << 2;
         }
         for (ge = 0; ge < this.bitmap.width; ge++) {
           for (it = ge, H = yt[it] * pt, Z = kt[it] * pt, ie = St[it] * pt, fe = Ot[it] * pt, ye = 1; ye <= S; ye++)
             it += ye > ht ? 0 : this.bitmap.width, H += yt[it], Z += kt[it], ie += St[it], fe += Ot[it];
           for ($e = ge << 2, me = 0; me < this.bitmap.height; me++)
-            He = fe * Et >>> Pt, this.bitmap.data[$e + 3] = He, He > 255 && (this.bitmap.data[$e + 3] = 255), He > 0 ? (He = 255 / He, this.bitmap.data[$e] = (H * Et >>> Pt) * He, this.bitmap.data[$e + 1] = (Z * Et >>> Pt) * He, this.bitmap.data[$e + 2] = (ie * Et >>> Pt) * He) : (this.bitmap.data[$e + 2] = 0, this.bitmap.data[$e + 1] = 0, this.bitmap.data[$e] = 0), ge === 0 && (zt[me] = ((Ae = me + pt) < ht ? Ae : ht) * this.bitmap.width, tr[me] = (Ae = me - S) > 0 ? Ae * this.bitmap.width : 0), Oe = ge + zt[me], ze = ge + tr[me], H += yt[Oe] - yt[ze], Z += kt[Oe] - kt[ze], ie += St[Oe] - St[ze], fe += Ot[Oe] - Ot[ze], $e += this.bitmap.width << 2;
+            He = fe * Et >>> Pt, this.bitmap.data[$e + 3] = He, He > 255 && (this.bitmap.data[$e + 3] = 255), He > 0 ? (He = 255 / He, this.bitmap.data[$e] = (H * Et >>> Pt) * He, this.bitmap.data[$e + 1] = (Z * Et >>> Pt) * He, this.bitmap.data[$e + 2] = (ie * Et >>> Pt) * He) : (this.bitmap.data[$e + 2] = 0, this.bitmap.data[$e + 1] = 0, this.bitmap.data[$e] = 0), ge === 0 && (zt[me] = ((Ie = me + pt) < ht ? Ie : ht) * this.bitmap.width, tr[me] = (Ie = me - S) > 0 ? Ie * this.bitmap.width : 0), Oe = ge + zt[me], ze = ge + tr[me], H += yt[Oe] - yt[ze], Z += kt[Oe] - kt[ze], ie += St[Oe] - St[ze], fe += Ot[Oe] - Ot[ze], $e += this.bitmap.width << 2;
         }
       }
-      return r(A) && A.call(this, null, this), this;
+      return r(I) && I.call(this, null, this), this;
     } }), () => ({ circle() {
-      let S = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, A = arguments.length > 1 ? arguments[1] : void 0;
-      typeof S == "function" && (A = S, S = {});
+      let S = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, I = arguments.length > 1 ? arguments[1] : void 0;
+      typeof S == "function" && (I = S, S = {});
       const H = S.radius || (this.bitmap.width > this.bitmap.height ? this.bitmap.height : this.bitmap.width) / 2, Z = typeof S.x == "number" ? S.x : this.bitmap.width / 2, ie = typeof S.y == "number" ? S.y : this.bitmap.height / 2;
       return this.scanQuiet(0, 0, this.bitmap.width, this.bitmap.height, function(fe, ge, me) {
         const ye = Math.sqrt(Math.pow(fe - Z, 2) + Math.pow(ge - ie, 2));
         H - ye <= 0 ? this.bitmap.data[me + 3] = 0 : H - ye < 1 && (this.bitmap.data[me + 3] = 255 * (H - ye));
-      }), r(A) && A.call(this, null, this), this;
-    } }), () => ({ brightness(S, A) {
-      return typeof S != "number" ? o.call(this, "val must be numbers", A) : S < -1 || S > 1 ? o.call(this, "val must be a number between -1 and +1", A) : (this.scanQuiet(0, 0, this.bitmap.width, this.bitmap.height, function(H, Z, ie) {
+      }), r(I) && I.call(this, null, this), this;
+    } }), () => ({ brightness(S, I) {
+      return typeof S != "number" ? o.call(this, "val must be numbers", I) : S < -1 || S > 1 ? o.call(this, "val must be a number between -1 and +1", I) : (this.scanQuiet(0, 0, this.bitmap.width, this.bitmap.height, function(H, Z, ie) {
         S < 0 ? (this.bitmap.data[ie] *= 1 + S, this.bitmap.data[ie + 1] *= 1 + S, this.bitmap.data[ie + 2] *= 1 + S) : (this.bitmap.data[ie] += (255 - this.bitmap.data[ie]) * S, this.bitmap.data[ie + 1] += (255 - this.bitmap.data[ie + 1]) * S, this.bitmap.data[ie + 2] += (255 - this.bitmap.data[ie + 2]) * S);
-      }), r(A) && A.call(this, null, this), this);
-    }, contrast(S, A) {
+      }), r(I) && I.call(this, null, this), this);
+    }, contrast(S, I) {
       if (typeof S != "number")
-        return o.call(this, "val must be numbers", A);
+        return o.call(this, "val must be numbers", I);
       if (S < -1 || S > 1)
-        return o.call(this, "val must be a number between -1 and +1", A);
+        return o.call(this, "val must be a number between -1 and +1", I);
       const H = (S + 1) / (1 - S);
       function Z(ie) {
         return (ie = Math.floor(H * (ie - 127) + 127)) < 0 ? 0 : ie > 255 ? 255 : ie;
       }
       return this.scanQuiet(0, 0, this.bitmap.width, this.bitmap.height, function(ie, fe, ge) {
         this.bitmap.data[ge] = Z(this.bitmap.data[ge]), this.bitmap.data[ge + 1] = Z(this.bitmap.data[ge + 1]), this.bitmap.data[ge + 2] = Z(this.bitmap.data[ge + 2]);
-      }), r(A) && A.call(this, null, this), this;
-    }, posterize(S, A) {
-      return typeof S != "number" ? o.call(this, "n must be numbers", A) : (S < 2 && (S = 2), this.scanQuiet(0, 0, this.bitmap.width, this.bitmap.height, function(H, Z, ie) {
+      }), r(I) && I.call(this, null, this), this;
+    }, posterize(S, I) {
+      return typeof S != "number" ? o.call(this, "n must be numbers", I) : (S < 2 && (S = 2), this.scanQuiet(0, 0, this.bitmap.width, this.bitmap.height, function(H, Z, ie) {
         this.bitmap.data[ie] = Math.floor(this.bitmap.data[ie] / 255 * (S - 1)) / (S - 1) * 255, this.bitmap.data[ie + 1] = Math.floor(this.bitmap.data[ie + 1] / 255 * (S - 1)) / (S - 1) * 255, this.bitmap.data[ie + 2] = Math.floor(this.bitmap.data[ie + 2] / 255 * (S - 1)) / (S - 1) * 255;
-      }), r(A) && A.call(this, null, this), this);
-    }, greyscale: ur, grayscale: ur, opacity(S, A) {
-      return typeof S != "number" ? o.call(this, "f must be a number", A) : S < 0 || S > 1 ? o.call(this, "f must be a number from 0 to 1", A) : (this.scanQuiet(0, 0, this.bitmap.width, this.bitmap.height, function(H, Z, ie) {
+      }), r(I) && I.call(this, null, this), this);
+    }, greyscale: ur, grayscale: ur, opacity(S, I) {
+      return typeof S != "number" ? o.call(this, "f must be a number", I) : S < 0 || S > 1 ? o.call(this, "f must be a number from 0 to 1", I) : (this.scanQuiet(0, 0, this.bitmap.width, this.bitmap.height, function(H, Z, ie) {
         const fe = this.bitmap.data[ie + 3] * S;
         this.bitmap.data[ie + 3] = fe;
-      }), r(A) && A.call(this, null, this), this);
+      }), r(I) && I.call(this, null, this), this);
     }, sepia(S) {
-      return this.scanQuiet(0, 0, this.bitmap.width, this.bitmap.height, function(A, H, Z) {
+      return this.scanQuiet(0, 0, this.bitmap.width, this.bitmap.height, function(I, H, Z) {
         let ie = this.bitmap.data[Z], fe = this.bitmap.data[Z + 1], ge = this.bitmap.data[Z + 2];
         ie = 0.393 * ie + 0.769 * fe + 0.189 * ge, fe = 0.349 * ie + 0.686 * fe + 0.168 * ge, ge = 0.272 * ie + 0.534 * fe + 0.131 * ge, this.bitmap.data[Z] = ie < 255 ? ie : 255, this.bitmap.data[Z + 1] = fe < 255 ? fe : 255, this.bitmap.data[Z + 2] = ge < 255 ? ge : 255;
       }), r(S) && S.call(this, null, this), this;
-    }, fade(S, A) {
-      return typeof S != "number" ? o.call(this, "f must be a number", A) : S < 0 || S > 1 ? o.call(this, "f must be a number from 0 to 1", A) : (this.opacity(1 - S), r(A) && A.call(this, null, this), this);
-    }, convolution(S, A, H) {
-      typeof A == "function" && H === void 0 && (H = A, A = null), A || (A = this.constructor.EDGE_EXTEND);
-      const Z = lr.from(this.bitmap.data), ie = S.length, fe = S[0].length, ge = Math.floor(ie / 2), me = Math.floor(fe / 2), ye = -ge, Ae = -me;
+    }, fade(S, I) {
+      return typeof S != "number" ? o.call(this, "f must be a number", I) : S < 0 || S > 1 ? o.call(this, "f must be a number from 0 to 1", I) : (this.opacity(1 - S), r(I) && I.call(this, null, this), this);
+    }, convolution(S, I, H) {
+      typeof I == "function" && H === void 0 && (H = I, I = null), I || (I = this.constructor.EDGE_EXTEND);
+      const Z = lr.from(this.bitmap.data), ie = S.length, fe = S[0].length, ge = Math.floor(ie / 2), me = Math.floor(fe / 2), ye = -ge, Ie = -me;
       let Oe, ze, it, $e, Ge, He, nt, ht, pt, Et;
       return this.scanQuiet(0, 0, this.bitmap.width, this.bitmap.height, function(Pt, yt, kt) {
         $e = 0, it = 0, ze = 0;
         for (let St = ye; St <= ge; St++)
-          for (let Ot = Ae; Ot <= me; Ot++)
-            ht = Pt + Ot, pt = yt + St, Oe = S[St + ge][Ot + me], Et = this.getPixelIndex(ht, pt, A), Et === -1 ? (nt = 0, He = 0, Ge = 0) : (Ge = this.bitmap.data[Et + 0], He = this.bitmap.data[Et + 1], nt = this.bitmap.data[Et + 2]), ze += Oe * Ge, it += Oe * He, $e += Oe * nt;
+          for (let Ot = Ie; Ot <= me; Ot++)
+            ht = Pt + Ot, pt = yt + St, Oe = S[St + ge][Ot + me], Et = this.getPixelIndex(ht, pt, I), Et === -1 ? (nt = 0, He = 0, Ge = 0) : (Ge = this.bitmap.data[Et + 0], He = this.bitmap.data[Et + 1], nt = this.bitmap.data[Et + 2]), ze += Oe * Ge, it += Oe * He, $e += Oe * nt;
         ze < 0 && (ze = 0), it < 0 && (it = 0), $e < 0 && ($e = 0), ze > 255 && (ze = 255), it > 255 && (it = 255), $e > 255 && ($e = 255), Z[kt + 0] = ze, Z[kt + 1] = it, Z[kt + 2] = $e;
       }), this.bitmap.data = Z, r(H) && H.call(this, null, this), this;
     }, opaque(S) {
-      return this.scanQuiet(0, 0, this.bitmap.width, this.bitmap.height, function(A, H, Z) {
+      return this.scanQuiet(0, 0, this.bitmap.width, this.bitmap.height, function(I, H, Z) {
         this.bitmap.data[Z + 3] = 255;
       }), r(S) && S.call(this, null, this), this;
-    }, pixelate(S, A, H, Z, ie, fe) {
-      if (typeof A == "function")
-        fe = A, ie = null, Z = null, H = null, A = null;
+    }, pixelate(S, I, H, Z, ie, fe) {
+      if (typeof I == "function")
+        fe = I, ie = null, Z = null, H = null, I = null;
       else {
         if (typeof S != "number")
           return o.call(this, "size must be a number", fe);
-        if (Yt(A) && typeof A != "number")
+        if (Yt(I) && typeof I != "number")
           return o.call(this, "x must be a number", fe);
         if (Yt(H) && typeof H != "number")
           return o.call(this, "y must be a number", fe);
@@ -16865,20 +16865,20 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           return o.call(this, "h must be a number", fe);
       }
       const ge = [[1 / 16, 2 / 16, 1 / 16], [2 / 16, 0.25, 2 / 16], [1 / 16, 2 / 16, 1 / 16]];
-      A = A || 0, H = H || 0, Z = Yt(Z) ? Z : this.bitmap.width - A, ie = Yt(ie) ? ie : this.bitmap.height - H;
+      I = I || 0, H = H || 0, Z = Yt(Z) ? Z : this.bitmap.width - I, ie = Yt(ie) ? ie : this.bitmap.height - H;
       const me = this.cloneQuiet();
-      return this.scanQuiet(A, H, Z, ie, function(ye, Ae, Oe) {
-        ye = S * Math.floor(ye / S), Ae = S * Math.floor(Ae / S);
-        const ze = hr(me, ge, ye, Ae);
+      return this.scanQuiet(I, H, Z, ie, function(ye, Ie, Oe) {
+        ye = S * Math.floor(ye / S), Ie = S * Math.floor(Ie / S);
+        const ze = hr(me, ge, ye, Ie);
         this.bitmap.data[Oe] = ze[0], this.bitmap.data[Oe + 1] = ze[1], this.bitmap.data[Oe + 2] = ze[2];
       }), r(fe) && fe.call(this, null, this), this;
-    }, convolute(S, A, H, Z, ie, fe) {
+    }, convolute(S, I, H, Z, ie, fe) {
       if (!Array.isArray(S))
         return o.call(this, "the kernel must be an array", fe);
-      if (typeof A == "function")
-        fe = A, A = null, H = null, Z = null, ie = null;
+      if (typeof I == "function")
+        fe = I, I = null, H = null, Z = null, ie = null;
       else {
-        if (Yt(A) && typeof A != "number")
+        if (Yt(I) && typeof I != "number")
           return o.call(this, "x must be a number", fe);
         if (Yt(H) && typeof H != "number")
           return o.call(this, "y must be a number", fe);
@@ -16887,54 +16887,54 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         if (Yt(ie) && typeof ie != "number")
           return o.call(this, "h must be a number", fe);
       }
-      A = Yt(A) ? A : 0, H = Yt(H) ? H : 0, Z = Yt(Z) ? Z : this.bitmap.width - A, ie = Yt(ie) ? ie : this.bitmap.height - H;
+      I = Yt(I) ? I : 0, H = Yt(H) ? H : 0, Z = Yt(Z) ? Z : this.bitmap.width - I, ie = Yt(ie) ? ie : this.bitmap.height - H;
       const ge = this.cloneQuiet();
-      return this.scanQuiet(A, H, Z, ie, function(me, ye, Ae) {
+      return this.scanQuiet(I, H, Z, ie, function(me, ye, Ie) {
         const Oe = hr(ge, S, me, ye);
-        this.bitmap.data[Ae] = this.constructor.limit255(Oe[0]), this.bitmap.data[Ae + 1] = this.constructor.limit255(Oe[1]), this.bitmap.data[Ae + 2] = this.constructor.limit255(Oe[2]);
+        this.bitmap.data[Ie] = this.constructor.limit255(Oe[0]), this.bitmap.data[Ie + 1] = this.constructor.limit255(Oe[1]), this.bitmap.data[Ie + 2] = this.constructor.limit255(Oe[2]);
       }), r(fe) && fe.call(this, null, this), this;
-    }, color: yr, colour: yr }), () => ({ contain(S, A, H, Z, ie) {
-      if (typeof S != "number" || typeof A != "number")
+    }, color: yr, colour: yr }), () => ({ contain(S, I, H, Z, ie) {
+      if (typeof S != "number" || typeof I != "number")
         return o.call(this, "w and h must be numbers", ie);
       typeof H == "string" && (typeof Z == "function" && ie === void 0 && (ie = Z), Z = H, H = null), typeof H == "function" && (ie === void 0 && (ie = H), Z = null, H = null), typeof Z == "function" && ie === void 0 && (ie = Z, Z = null);
       const fe = 7 & (H = H || this.constructor.HORIZONTAL_ALIGN_CENTER | this.constructor.VERTICAL_ALIGN_MIDDLE), ge = H >> 3;
       if ((fe === 0 || fe & fe - 1) && (ge === 0 || ge & ge - 1))
         return o.call(this, "only use one flag per alignment direction", ie);
-      const me = fe >> 1, ye = ge >> 1, Ae = S / A > this.bitmap.width / this.bitmap.height ? A / this.bitmap.height : S / this.bitmap.width, Oe = this.cloneQuiet().scale(Ae, Z);
-      return this.resize(S, A, Z), this.scanQuiet(0, 0, this.bitmap.width, this.bitmap.height, function(ze, it, $e) {
+      const me = fe >> 1, ye = ge >> 1, Ie = S / I > this.bitmap.width / this.bitmap.height ? I / this.bitmap.height : S / this.bitmap.width, Oe = this.cloneQuiet().scale(Ie, Z);
+      return this.resize(S, I, Z), this.scanQuiet(0, 0, this.bitmap.width, this.bitmap.height, function(ze, it, $e) {
         this.bitmap.data.writeUInt32BE(this._background, $e);
       }), this.blit(Oe, (this.bitmap.width - Oe.bitmap.width) / 2 * me, (this.bitmap.height - Oe.bitmap.height) / 2 * ye), r(ie) && ie.call(this, null, this), this;
-    } }), () => ({ cover(S, A, H, Z, ie) {
-      if (typeof S != "number" || typeof A != "number")
+    } }), () => ({ cover(S, I, H, Z, ie) {
+      if (typeof S != "number" || typeof I != "number")
         return o.call(this, "w and h must be numbers", ie);
       H && typeof H == "function" && ie === void 0 ? (ie = H, H = null, Z = null) : typeof Z == "function" && ie === void 0 && (ie = Z, Z = null);
       const fe = 7 & (H = H || this.constructor.HORIZONTAL_ALIGN_CENTER | this.constructor.VERTICAL_ALIGN_MIDDLE), ge = H >> 3;
       if ((fe === 0 || fe & fe - 1) && (ge === 0 || ge & ge - 1))
         return o.call(this, "only use one flag per alignment direction", ie);
-      const me = fe >> 1, ye = ge >> 1, Ae = S / A > this.bitmap.width / this.bitmap.height ? S / this.bitmap.width : A / this.bitmap.height;
-      return this.scale(Ae, Z), this.crop((this.bitmap.width - S) / 2 * me, (this.bitmap.height - A) / 2 * ye, S, A), r(ie) && ie.call(this, null, this), this;
+      const me = fe >> 1, ye = ge >> 1, Ie = S / I > this.bitmap.width / this.bitmap.height ? S / this.bitmap.width : I / this.bitmap.height;
+      return this.scale(Ie, Z), this.crop((this.bitmap.width - S) / 2 * me, (this.bitmap.height - I) / 2 * ye, S, I), r(ie) && ie.call(this, null, this), this;
     } }), function(S) {
-      return S("crop", function(A, H, Z, ie, fe) {
-        if (typeof A != "number" || typeof H != "number")
+      return S("crop", function(I, H, Z, ie, fe) {
+        if (typeof I != "number" || typeof H != "number")
           return o.call(this, "x and y must be numbers", fe);
         if (typeof Z != "number" || typeof ie != "number")
           return o.call(this, "w and h must be numbers", fe);
-        if (A = Math.round(A), H = Math.round(H), Z = Math.round(Z), ie = Math.round(ie), A === 0 && Z === this.bitmap.width) {
-          const ge = Z * H + A << 2, me = ge + (ie * Z << 2);
+        if (I = Math.round(I), H = Math.round(H), Z = Math.round(Z), ie = Math.round(ie), I === 0 && Z === this.bitmap.width) {
+          const ge = Z * H + I << 2, me = ge + (ie * Z << 2);
           this.bitmap.data = this.bitmap.data.slice(ge, me);
         } else {
-          const ge = Ir.allocUnsafe(Z * ie * 4);
+          const ge = Ar.allocUnsafe(Z * ie * 4);
           let me = 0;
-          this.scanQuiet(A, H, Z, ie, function(ye, Ae, Oe) {
+          this.scanQuiet(I, H, Z, ie, function(ye, Ie, Oe) {
             const ze = this.bitmap.data.readUInt32BE(Oe, !0);
             ge.writeUInt32BE(ze, me, !0), me += 4;
           }), this.bitmap.data = ge;
         }
         return this.bitmap.width = Z, this.bitmap.height = ie, r(fe) && fe.call(this, null, this), this;
       }), { class: { autocrop() {
-        const A = this.bitmap.width, H = this.bitmap.height;
+        const I = this.bitmap.width, H = this.bitmap.height;
         let Z, ie = 0, fe = 2e-4, ge = !0, me = !1, ye = { north: !1, south: !1, east: !1, west: !1 };
-        for (var Ae = arguments.length, Oe = new Array(Ae), ze = 0; ze < Ae; ze++)
+        for (var Ie = arguments.length, Oe = new Array(Ie), ze = 0; ze < Ie; ze++)
           Oe[ze] = arguments[ze];
         for (let yt = 0, kt = Oe.length; yt < kt; yt++)
           if (typeof Oe[yt] == "number" && (fe = Oe[yt]), typeof Oe[yt] == "boolean" && (ge = Oe[yt]), typeof Oe[yt] == "function" && (Z = Oe[yt]), typeof Oe[yt] == "object") {
@@ -16947,16 +16947,16 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         if (it = this.getPixelColor(0, 0), !ye.north)
           e:
             for (let yt = 0; yt < H - 1; yt++) {
-              for (let kt = 0; kt < A; kt++) {
+              for (let kt = 0; kt < I; kt++) {
                 const St = this.getPixelColor(kt, yt), Ot = this.constructor.intToRGBA(St);
                 if (this.constructor.colorDiff($e, Ot) > fe)
                   break e;
               }
               Ge++;
             }
-        if (it = this.getPixelColor(A, 0), !ye.west)
+        if (it = this.getPixelColor(I, 0), !ye.west)
           e:
-            for (let yt = 0; yt < A - 1; yt++) {
+            for (let yt = 0; yt < I - 1; yt++) {
               for (let kt = 0 + Ge; kt < H; kt++) {
                 const St = this.getPixelColor(yt, kt), Ot = this.constructor.intToRGBA(St);
                 if (this.constructor.colorDiff($e, Ot) > fe)
@@ -16967,16 +16967,16 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         if (it = this.getPixelColor(0, H), !ye.south)
           e:
             for (let yt = H - 1; yt >= Ge + 1; yt--) {
-              for (let kt = A - He - 1; kt >= 0; kt--) {
+              for (let kt = I - He - 1; kt >= 0; kt--) {
                 const St = this.getPixelColor(kt, yt), Ot = this.constructor.intToRGBA(St);
                 if (this.constructor.colorDiff($e, Ot) > fe)
                   break e;
               }
               nt++;
             }
-        if (it = this.getPixelColor(A, H), !ye.east)
+        if (it = this.getPixelColor(I, H), !ye.east)
           e:
-            for (let yt = A - 1; yt >= 0 + ht + 1; yt--) {
+            for (let yt = I - 1; yt >= 0 + ht + 1; yt--) {
               for (let kt = H - 1; kt >= 0 + Ge; kt--) {
                 const St = this.getPixelColor(yt, kt), Ot = this.constructor.intToRGBA(St);
                 if (this.constructor.colorDiff($e, Ot) > fe)
@@ -16990,106 +16990,106 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
           ht = yt, He = yt, Ge = kt, nt = kt;
         }
         ht = ht >= 0 ? ht : 0, He = He >= 0 ? He : 0, Ge = Ge >= 0 ? Ge : 0, nt = nt >= 0 ? nt : 0;
-        const Et = A - (ht + He), Pt = H - (nt + Ge);
+        const Et = I - (ht + He), Pt = H - (nt + Ge);
         return pt = ge ? He !== 0 && Ge !== 0 && ht !== 0 && nt !== 0 : He !== 0 || Ge !== 0 || ht !== 0 || nt !== 0, pt && this.crop(ht, Ge, Et, Pt), r(Z) && Z.call(this, null, this), this;
       } } };
-    }, () => ({ displace(S, A, H) {
+    }, () => ({ displace(S, I, H) {
       if (typeof S != "object" || S.constructor !== this.constructor)
         return o.call(this, "The source must be a Jimp image", H);
-      if (typeof A != "number")
+      if (typeof I != "number")
         return o.call(this, "factor must be a number", H);
       const Z = this.cloneQuiet();
       return this.scanQuiet(0, 0, this.bitmap.width, this.bitmap.height, function(ie, fe, ge) {
-        let me = S.bitmap.data[ge] / 256 * A;
+        let me = S.bitmap.data[ge] / 256 * I;
         me = Math.round(me);
         const ye = this.getPixelIndex(ie + me, fe);
         this.bitmap.data[ye] = Z.bitmap.data[ge], this.bitmap.data[ye + 1] = Z.bitmap.data[ge + 1], this.bitmap.data[ye + 2] = Z.bitmap.data[ge + 2];
       }), r(H) && H.call(this, null, this), this;
     } }), () => ({ dither565: wr, dither16: wr }), () => ({ fisheye() {
-      let S = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : { r: 2.5 }, A = arguments.length > 1 ? arguments[1] : void 0;
-      typeof S == "function" && (A = S, S = { r: 2.5 });
+      let S = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : { r: 2.5 }, I = arguments.length > 1 ? arguments[1] : void 0;
+      typeof S == "function" && (I = S, S = { r: 2.5 });
       const H = this.cloneQuiet(), { width: Z, height: ie } = H.bitmap;
       return H.scanQuiet(0, 0, Z, ie, (fe, ge) => {
-        const me = fe / Z, ye = ge / ie, Ae = Math.sqrt(Math.pow(me - 0.5, 2) + Math.pow(ye - 0.5, 2)), Oe = 2 * Math.pow(Ae, S.r), ze = (me - 0.5) / Ae, it = (ye - 0.5) / Ae, $e = Math.round((Oe * ze + 0.5) * Z), Ge = Math.round((Oe * it + 0.5) * ie), He = H.getPixelColor($e, Ge);
+        const me = fe / Z, ye = ge / ie, Ie = Math.sqrt(Math.pow(me - 0.5, 2) + Math.pow(ye - 0.5, 2)), Oe = 2 * Math.pow(Ie, S.r), ze = (me - 0.5) / Ie, it = (ye - 0.5) / Ie, $e = Math.round((Oe * ze + 0.5) * Z), Ge = Math.round((Oe * it + 0.5) * ie), He = H.getPixelColor($e, Ge);
         this.setPixelColor(He, fe, ge);
-      }), this.setPixelColor(H.getPixelColor(Z / 2, ie / 2), Z / 2, ie / 2), r(A) && A.call(this, null, this), this;
-    } }), () => ({ flip: xr, mirror: xr }), () => ({ gaussian(S, A) {
+      }), this.setPixelColor(H.getPixelColor(Z / 2, ie / 2), Z / 2, ie / 2), r(I) && I.call(this, null, this), this;
+    } }), () => ({ flip: xr, mirror: xr }), () => ({ gaussian(S, I) {
       if (typeof S != "number")
-        return o.call(this, "r must be a number", A);
+        return o.call(this, "r must be a number", I);
       if (S < 1)
-        return o.call(this, "r must be greater than 0", A);
+        return o.call(this, "r must be greater than 0", I);
       const H = Math.ceil(2.57 * S), Z = 2 * H + 1, ie = S * S * 2, fe = ie * Math.PI, ge = [];
       for (let me = 0; me < Z; me++) {
         ge[me] = [];
         for (let ye = 0; ye < Z; ye++) {
-          const Ae = (ye - H) ** 2 + (me - H) ** 2;
-          ge[me][ye] = Math.exp(-Ae / ie) / fe;
+          const Ie = (ye - H) ** 2 + (me - H) ** 2;
+          ge[me][ye] = Math.exp(-Ie / ie) / fe;
         }
       }
       for (let me = 0; me < this.bitmap.height; me++)
         for (let ye = 0; ye < this.bitmap.width; ye++) {
-          let Ae = 0, Oe = 0, ze = 0, it = 0, $e = 0;
+          let Ie = 0, Oe = 0, ze = 0, it = 0, $e = 0;
           for (let Ge = 0; Ge < Z; Ge++) {
             for (let nt = 0; nt < Z; nt++) {
               const ht = Math.min(this.bitmap.width - 1, Math.max(0, nt + ye - H)), pt = Math.min(this.bitmap.height - 1, Math.max(0, Ge + me - H)), Et = ge[Ge][nt], Pt = pt * this.bitmap.width + ht << 2;
-              Ae += this.bitmap.data[Pt] * Et, Oe += this.bitmap.data[Pt + 1] * Et, ze += this.bitmap.data[Pt + 2] * Et, it += this.bitmap.data[Pt + 3] * Et, $e += Et;
+              Ie += this.bitmap.data[Pt] * Et, Oe += this.bitmap.data[Pt + 1] * Et, ze += this.bitmap.data[Pt + 2] * Et, it += this.bitmap.data[Pt + 3] * Et, $e += Et;
             }
             const He = me * this.bitmap.width + ye << 2;
-            this.bitmap.data[He] = Math.round(Ae / $e), this.bitmap.data[He + 1] = Math.round(Oe / $e), this.bitmap.data[He + 2] = Math.round(ze / $e), this.bitmap.data[He + 3] = Math.round(it / $e);
+            this.bitmap.data[He] = Math.round(Ie / $e), this.bitmap.data[He + 1] = Math.round(Oe / $e), this.bitmap.data[He + 2] = Math.round(ze / $e), this.bitmap.data[He + 3] = Math.round(it / $e);
           }
         }
-      return r(A) && A.call(this, null, this), this;
+      return r(I) && I.call(this, null, this), this;
     } }), () => ({ invert(S) {
-      return this.scanQuiet(0, 0, this.bitmap.width, this.bitmap.height, function(A, H, Z) {
+      return this.scanQuiet(0, 0, this.bitmap.width, this.bitmap.height, function(I, H, Z) {
         this.bitmap.data[Z] = 255 - this.bitmap.data[Z], this.bitmap.data[Z + 1] = 255 - this.bitmap.data[Z + 1], this.bitmap.data[Z + 2] = 255 - this.bitmap.data[Z + 2];
       }), r(S) && S.call(this, null, this), this;
     } }), () => ({ mask(S) {
-      let A = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : 0, H = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : 0, Z = arguments.length > 3 ? arguments[3] : void 0;
+      let I = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : 0, H = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : 0, Z = arguments.length > 3 ? arguments[3] : void 0;
       if (!(S instanceof this.constructor))
         return o.call(this, "The source must be a Jimp image", Z);
-      if (typeof A != "number" || typeof H != "number")
+      if (typeof I != "number" || typeof H != "number")
         return o.call(this, "x and y must be numbers", Z);
-      A = Math.round(A), H = Math.round(H);
+      I = Math.round(I), H = Math.round(H);
       const ie = this.bitmap.width, fe = this.bitmap.height, ge = this;
-      return S.scanQuiet(0, 0, S.bitmap.width, S.bitmap.height, function(me, ye, Ae) {
-        const Oe = A + me, ze = H + ye;
+      return S.scanQuiet(0, 0, S.bitmap.width, S.bitmap.height, function(me, ye, Ie) {
+        const Oe = I + me, ze = H + ye;
         if (Oe >= 0 && ze >= 0 && Oe < ie && ze < fe) {
-          const it = ge.getPixelIndex(Oe, ze), { data: $e } = this.bitmap, Ge = ($e[Ae + 0] + $e[Ae + 1] + $e[Ae + 2]) / 3;
+          const it = ge.getPixelIndex(Oe, ze), { data: $e } = this.bitmap, Ge = ($e[Ie + 0] + $e[Ie + 1] + $e[Ie + 2]) / 3;
           ge.bitmap.data[it + 3] *= Ge / 255;
         }
       }), r(Z) && Z.call(this, null, this), this;
     } }), () => ({ normalize(S) {
-      const A = Ar.call(this), H = { r: br(A.r), g: br(A.g), b: br(A.b) };
+      const I = Ir.call(this), H = { r: br(I.r), g: br(I.g), b: br(I.b) };
       return this.scanQuiet(0, 0, this.bitmap.width, this.bitmap.height, function(Z, ie, fe) {
         const ge = this.bitmap.data[fe + 0], me = this.bitmap.data[fe + 1], ye = this.bitmap.data[fe + 2];
         this.bitmap.data[fe + 0] = gr(ge, H.r[0], H.r[1]), this.bitmap.data[fe + 1] = gr(me, H.g[0], H.g[1]), this.bitmap.data[fe + 2] = gr(ye, H.b[0], H.b[1]);
       }), r(S) && S.call(this, null, this), this;
-    } }), () => ({ constants: { measureText: pr, measureTextHeight: _r, FONT_SANS_8_BLACK: i().join(Kt, "fonts/open-sans/open-sans-8-black/open-sans-8-black.fnt"), FONT_SANS_10_BLACK: i().join(Kt, "fonts/open-sans/open-sans-10-black/open-sans-10-black.fnt"), FONT_SANS_12_BLACK: i().join(Kt, "fonts/open-sans/open-sans-12-black/open-sans-12-black.fnt"), FONT_SANS_14_BLACK: i().join(Kt, "fonts/open-sans/open-sans-14-black/open-sans-14-black.fnt"), FONT_SANS_16_BLACK: i().join(Kt, "fonts/open-sans/open-sans-16-black/open-sans-16-black.fnt"), FONT_SANS_32_BLACK: i().join(Kt, "fonts/open-sans/open-sans-32-black/open-sans-32-black.fnt"), FONT_SANS_64_BLACK: i().join(Kt, "fonts/open-sans/open-sans-64-black/open-sans-64-black.fnt"), FONT_SANS_128_BLACK: i().join(Kt, "fonts/open-sans/open-sans-128-black/open-sans-128-black.fnt"), FONT_SANS_8_WHITE: i().join(Kt, "fonts/open-sans/open-sans-8-white/open-sans-8-white.fnt"), FONT_SANS_16_WHITE: i().join(Kt, "fonts/open-sans/open-sans-16-white/open-sans-16-white.fnt"), FONT_SANS_32_WHITE: i().join(Kt, "fonts/open-sans/open-sans-32-white/open-sans-32-white.fnt"), FONT_SANS_64_WHITE: i().join(Kt, "fonts/open-sans/open-sans-64-white/open-sans-64-white.fnt"), FONT_SANS_128_WHITE: i().join(Kt, "fonts/open-sans/open-sans-128-white/open-sans-128-white.fnt"), loadFont(S, A) {
-      return typeof S != "string" ? o.call(this, "file must be a string", A) : new Promise((H, Z) => {
-        A = A || function(ie, fe) {
+    } }), () => ({ constants: { measureText: pr, measureTextHeight: _r, FONT_SANS_8_BLACK: i().join(Kt, "fonts/open-sans/open-sans-8-black/open-sans-8-black.fnt"), FONT_SANS_10_BLACK: i().join(Kt, "fonts/open-sans/open-sans-10-black/open-sans-10-black.fnt"), FONT_SANS_12_BLACK: i().join(Kt, "fonts/open-sans/open-sans-12-black/open-sans-12-black.fnt"), FONT_SANS_14_BLACK: i().join(Kt, "fonts/open-sans/open-sans-14-black/open-sans-14-black.fnt"), FONT_SANS_16_BLACK: i().join(Kt, "fonts/open-sans/open-sans-16-black/open-sans-16-black.fnt"), FONT_SANS_32_BLACK: i().join(Kt, "fonts/open-sans/open-sans-32-black/open-sans-32-black.fnt"), FONT_SANS_64_BLACK: i().join(Kt, "fonts/open-sans/open-sans-64-black/open-sans-64-black.fnt"), FONT_SANS_128_BLACK: i().join(Kt, "fonts/open-sans/open-sans-128-black/open-sans-128-black.fnt"), FONT_SANS_8_WHITE: i().join(Kt, "fonts/open-sans/open-sans-8-white/open-sans-8-white.fnt"), FONT_SANS_16_WHITE: i().join(Kt, "fonts/open-sans/open-sans-16-white/open-sans-16-white.fnt"), FONT_SANS_32_WHITE: i().join(Kt, "fonts/open-sans/open-sans-32-white/open-sans-32-white.fnt"), FONT_SANS_64_WHITE: i().join(Kt, "fonts/open-sans/open-sans-64-white/open-sans-64-white.fnt"), FONT_SANS_128_WHITE: i().join(Kt, "fonts/open-sans/open-sans-128-white/open-sans-128-white.fnt"), loadFont(S, I) {
+      return typeof S != "string" ? o.call(this, "file must be a string", I) : new Promise((H, Z) => {
+        I = I || function(ie, fe) {
           ie ? Z(ie) : H(fe);
         }, Pr()(S, (ie, fe) => {
           const ge = {}, me = {};
           if (ie)
-            return o.call(this, ie, A);
+            return o.call(this, ie, I);
           for (let ye = 0; ye < fe.chars.length; ye++)
             ge[String.fromCharCode(fe.chars[ye].id)] = fe.chars[ye];
           for (let ye = 0; ye < fe.kernings.length; ye++) {
-            const Ae = String.fromCharCode(fe.kernings[ye].first);
-            me[Ae] = me[Ae] || {}, me[Ae][String.fromCharCode(fe.kernings[ye].second)] = fe.kernings[ye].amount;
+            const Ie = String.fromCharCode(fe.kernings[ye].first);
+            me[Ie] = me[Ie] || {}, me[Ie][String.fromCharCode(fe.kernings[ye].second)] = fe.kernings[ye].amount;
           }
-          (function(ye, Ae, Oe) {
-            const ze = Oe.map((it) => ye.read(Ae + "/" + it));
+          (function(ye, Ie, Oe) {
+            const ze = Oe.map((it) => ye.read(Ie + "/" + it));
             return Promise.all(ze);
           })(this, i().dirname(S), fe.pages).then((ye) => {
-            A(null, { chars: ge, kernings: me, pages: ye, common: fe.common, info: fe.info });
+            I(null, { chars: ge, kernings: me, pages: ye, common: fe.common, info: fe.info });
           });
         });
       });
-    } }, class: { print(S, A, H, Z, ie, fe, ge) {
+    } }, class: { print(S, I, H, Z, ie, fe, ge) {
       if (typeof ie == "function" && ge === void 0 && (ge = ie, ie = 1 / 0), ie === void 0 && (ie = 1 / 0), typeof fe == "function" && ge === void 0 && (ge = fe, fe = 1 / 0), fe === void 0 && (fe = 1 / 0), typeof S != "object")
         return o.call(this, "font must be a Jimp loadFont", ge);
-      if (typeof A != "number" || typeof H != "number" || typeof ie != "number")
+      if (typeof I != "number" || typeof H != "number" || typeof ie != "number")
         return o.call(this, "x, y and maxWidth must be numbers", ge);
       if (typeof ie != "number")
         return o.call(this, "maxWidth must be a number", ge);
@@ -17097,62 +17097,62 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
         return o.call(this, "maxHeight must be a number", ge);
       let me, ye;
       typeof Z == "object" && Z.text !== null && Z.text !== void 0 ? (me = Z.alignmentX || this.constructor.HORIZONTAL_ALIGN_LEFT, ye = Z.alignmentY || this.constructor.VERTICAL_ALIGN_TOP, { text: Z } = Z) : (me = this.constructor.HORIZONTAL_ALIGN_LEFT, ye = this.constructor.VERTICAL_ALIGN_TOP, Z = Z.toString()), fe !== 1 / 0 && ye === this.constructor.VERTICAL_ALIGN_BOTTOM ? H += fe - _r(S, Z, ie) : fe !== 1 / 0 && ye === this.constructor.VERTICAL_ALIGN_MIDDLE && (H += fe / 2 - _r(S, Z, ie) / 2);
-      const Ae = Object.entries(S.chars)[0][1].xadvance, { lines: Oe, longestLine: ze } = Er(S, Z, ie);
+      const Ie = Object.entries(S.chars)[0][1].xadvance, { lines: Oe, longestLine: ze } = Er(S, Z, ie);
       return Oe.forEach((it) => {
         const $e = it.join(" "), Ge = function(He, nt, ht, pt, Et) {
           return Et === He.HORIZONTAL_ALIGN_LEFT ? 0 : Et === He.HORIZONTAL_ALIGN_CENTER ? (pt - pr(nt, ht)) / 2 : pt - pr(nt, ht);
         }(this.constructor, S, $e, ie, me);
-        Lr.call(this, S, A + Ge, H, $e, Ae), H += S.common.lineHeight;
-      }), r(ge) && ge.call(this, null, this, { x: A + ze, y: H }), this;
-    } } }), () => ({ constants: { RESIZE_NEAREST_NEIGHBOR: "nearestNeighbor", RESIZE_BILINEAR: "bilinearInterpolation", RESIZE_BICUBIC: "bicubicInterpolation", RESIZE_HERMITE: "hermiteInterpolation", RESIZE_BEZIER: "bezierInterpolation" }, class: { resize(S, A, H, Z) {
-      if (typeof S != "number" || typeof A != "number")
+        Lr.call(this, S, I + Ge, H, $e, Ie), H += S.common.lineHeight;
+      }), r(ge) && ge.call(this, null, this, { x: I + ze, y: H }), this;
+    } } }), () => ({ constants: { RESIZE_NEAREST_NEIGHBOR: "nearestNeighbor", RESIZE_BILINEAR: "bilinearInterpolation", RESIZE_BICUBIC: "bicubicInterpolation", RESIZE_HERMITE: "hermiteInterpolation", RESIZE_BEZIER: "bezierInterpolation" }, class: { resize(S, I, H, Z) {
+      if (typeof S != "number" || typeof I != "number")
         return o.call(this, "w and h must be numbers", Z);
-      if (typeof H == "function" && Z === void 0 && (Z = H, H = null), S === this.constructor.AUTO && A === this.constructor.AUTO)
+      if (typeof H == "function" && Z === void 0 && (Z = H, H = null), S === this.constructor.AUTO && I === this.constructor.AUTO)
         return o.call(this, "w and h cannot both be set to auto", Z);
-      if (S === this.constructor.AUTO && (S = this.bitmap.width * (A / this.bitmap.height)), A === this.constructor.AUTO && (A = this.bitmap.height * (S / this.bitmap.width)), S < 0 || A < 0)
+      if (S === this.constructor.AUTO && (S = this.bitmap.width * (I / this.bitmap.height)), I === this.constructor.AUTO && (I = this.bitmap.height * (S / this.bitmap.width)), S < 0 || I < 0)
         return o.call(this, "w and h must be positive numbers", Z);
-      if (S = Math.round(S) || 1, A = Math.round(A) || 1, typeof Mr[H] == "function") {
-        const ie = { data: kr.alloc(S * A * 4), width: S, height: A };
+      if (S = Math.round(S) || 1, I = Math.round(I) || 1, typeof Mr[H] == "function") {
+        const ie = { data: kr.alloc(S * I * 4), width: S, height: I };
         Mr[H](this.bitmap, ie), this.bitmap = ie;
       } else {
         const ie = this;
-        new Br(this.bitmap.width, this.bitmap.height, S, A, !0, !0, (fe) => {
-          ie.bitmap.data = kr.from(fe), ie.bitmap.width = S, ie.bitmap.height = A;
+        new Br(this.bitmap.width, this.bitmap.height, S, I, !0, !0, (fe) => {
+          ie.bitmap.data = kr.from(fe), ie.bitmap.width = S, ie.bitmap.height = I;
         }).resize(this.bitmap.data);
       }
       return r(Z) && Z.call(this, null, this), this;
-    } } }), () => ({ rotate(S, A, H) {
-      return A == null && (A = !0), typeof A == "function" && H === void 0 && (H = A, A = !0), typeof S != "number" ? o.call(this, "deg must be a number", H) : typeof A != "boolean" && typeof A != "string" ? o.call(this, "mode must be a boolean or a string", H) : (S % 90 != 0 || !A && this.bitmap.width !== this.bitmap.height && S % 180 != 0 ? Dr.call(this, S, A, H) : zr.call(this, S), r(H) && H.call(this, null, this), this);
-    } }), () => ({ scale(S, A, H) {
+    } } }), () => ({ rotate(S, I, H) {
+      return I == null && (I = !0), typeof I == "function" && H === void 0 && (H = I, I = !0), typeof S != "number" ? o.call(this, "deg must be a number", H) : typeof I != "boolean" && typeof I != "string" ? o.call(this, "mode must be a boolean or a string", H) : (S % 90 != 0 || !I && this.bitmap.width !== this.bitmap.height && S % 180 != 0 ? Dr.call(this, S, I, H) : zr.call(this, S), r(H) && H.call(this, null, this), this);
+    } }), () => ({ scale(S, I, H) {
       if (typeof S != "number")
         return o.call(this, "f must be a number", H);
       if (S < 0)
         return o.call(this, "f must be a positive number", H);
-      typeof A == "function" && H === void 0 && (H = A, A = null);
+      typeof I == "function" && H === void 0 && (H = I, I = null);
       const Z = this.bitmap.width * S, ie = this.bitmap.height * S;
-      return this.resize(Z, ie, A), r(H) && H.call(this, null, this), this;
-    }, scaleToFit(S, A, H, Z) {
-      if (typeof S != "number" || typeof A != "number")
+      return this.resize(Z, ie, I), r(H) && H.call(this, null, this), this;
+    }, scaleToFit(S, I, H, Z) {
+      if (typeof S != "number" || typeof I != "number")
         return o.call(this, "w and h must be numbers", Z);
       typeof H == "function" && Z === void 0 && (Z = H, H = null);
-      const ie = S / A > this.bitmap.width / this.bitmap.height ? A / this.bitmap.height : S / this.bitmap.width;
+      const ie = S / I > this.bitmap.width / this.bitmap.height ? I / this.bitmap.height : S / this.bitmap.width;
       return this.scale(ie, H), r(Z) && Z.call(this, null, this), this;
     } }), () => ({ shadow() {
-      let S = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, A = arguments.length > 1 ? arguments[1] : void 0;
-      typeof S == "function" && (A = S, S = {});
+      let S = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, I = arguments.length > 1 ? arguments[1] : void 0;
+      typeof S == "function" && (I = S, S = {});
       const { opacity: H = 0.7, size: Z = 1.1, x: ie = -25, y: fe = 25, blur: ge = 5 } = S, me = this.clone(), ye = this.clone();
-      return ye.scan(0, 0, ye.bitmap.width, ye.bitmap.height, (Ae, Oe, ze) => {
+      return ye.scan(0, 0, ye.bitmap.width, ye.bitmap.height, (Ie, Oe, ze) => {
         ye.bitmap.data[ze] = 0, ye.bitmap.data[ze + 1] = 0, ye.bitmap.data[ze + 2] = 0, ye.bitmap.data[ze + 3] = ye.constructor.limit255(ye.bitmap.data[ze + 3] * H), this.bitmap.data[ze] = 0, this.bitmap.data[ze + 1] = 0, this.bitmap.data[ze + 2] = 0, this.bitmap.data[ze + 3] = 0;
-      }), ye.resize(ye.bitmap.width * Z, ye.bitmap.height * Z).blur(ge), this.composite(ye, ie, fe), this.composite(me, 0, 0), r(A) && A.call(this, null, this), this;
-    } }), () => ({ threshold(S, A) {
+      }), ye.resize(ye.bitmap.width * Z, ye.bitmap.height * Z).blur(ge), this.composite(ye, ie, fe), this.composite(me, 0, 0), r(I) && I.call(this, null, this), this;
+    } }), () => ({ threshold(S, I) {
       let { max: H, replace: Z = 255, autoGreyscale: ie = !0 } = S;
-      return typeof H != "number" ? o.call(this, "max must be a number", A) : typeof Z != "number" ? o.call(this, "replace must be a number", A) : typeof ie != "boolean" ? o.call(this, "autoGreyscale must be a boolean", A) : (H = this.constructor.limit255(H), Z = this.constructor.limit255(Z), ie && this.greyscale(), this.scanQuiet(0, 0, this.bitmap.width, this.bitmap.height, (fe, ge, me) => {
+      return typeof H != "number" ? o.call(this, "max must be a number", I) : typeof Z != "number" ? o.call(this, "replace must be a number", I) : typeof ie != "boolean" ? o.call(this, "autoGreyscale must be a boolean", I) : (H = this.constructor.limit255(H), Z = this.constructor.limit255(Z), ie && this.greyscale(), this.scanQuiet(0, 0, this.bitmap.width, this.bitmap.height, (fe, ge, me) => {
         const ye = this.bitmap.data[me] < H ? this.bitmap.data[me] : Z;
         this.bitmap.data[me] = ye, this.bitmap.data[me + 1] = ye, this.bitmap.data[me + 2] = ye;
-      }), r(A) && A.call(this, null, this), this);
+      }), r(I) && I.call(this, null, this), this);
     } })];
     (function(S) {
-      let A = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : pe;
+      let I = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : pe;
       const H = { hasAlpha: {}, encoders: {}, decoders: {}, class: {}, constants: {} };
       function Z(ie) {
         Object.entries(ie).forEach((fe) => {
@@ -17163,34 +17163,34 @@ const avatarImgAll = "MakerWindow-module__avatarImgAll___9j7FD", bottomButton = 
       S.types && (S.types.forEach(function(ie) {
         const fe = ie();
         Array.isArray(fe.mime) ? Ft(...fe.mime) : Object.entries(fe.mime).forEach((ge) => Ft(...ge)), delete fe.mime, Z(fe);
-      }), A.decoders = { ...A.decoders, ...H.decoders }, A.encoders = { ...A.encoders, ...H.encoders }, A.hasAlpha = { ...A.hasAlpha, ...H.hasAlpha }), S.plugins && S.plugins.forEach(function(ie) {
+      }), I.decoders = { ...I.decoders, ...H.decoders }, I.encoders = { ...I.encoders, ...H.encoders }, I.hasAlpha = { ...I.hasAlpha, ...H.hasAlpha }), S.plugins && S.plugins.forEach(function(ie) {
         const fe = ie(ue) || {};
         fe.class || fe.constants ? Z(fe) : Z({ class: fe });
-      }), dr(H.class, A), nr(H.constants, A);
+      }), dr(H.class, I), nr(H.constants, I);
     })({ types: [() => (0, ve.Ee)(qe(), Ve(), { mime: { [xt]: ["bmp"] }, constants: { MIME_BMP: xt, MIME_X_MS_BMP: _t }, decoders: { [xt]: ct, [_t]: ct }, encoders: { [xt]: dt, [_t]: dt } }, { mime: { [Wt]: ["tiff", "tif"] }, constants: { MIME_TIFF: Wt }, decoders: { [Wt]: (S) => {
-      const A = Bt().decode(S), H = A[0];
-      A.forEach((ie) => {
+      const I = Bt().decode(S), H = I[0];
+      I.forEach((ie) => {
         Bt().decodeImage(S, ie);
       });
       const Z = Bt().toRGBA8(H);
       return { data: Ht.from(Z), width: H.t256[0], height: H.t257[0] };
     } }, encoders: { [Wt]: (S) => {
-      const A = Bt().encodeImage(S.bitmap.data, S.bitmap.width, S.bitmap.height);
-      return Ht.from(A);
+      const I = Bt().encodeImage(S.bitmap.data, S.bitmap.width, S.bitmap.height);
+      return Ht.from(I);
     } } }, { mime: { [Qt]: ["gif"] }, constants: { MIME_GIF: Qt }, decoders: { [Qt]: (S) => {
-      const A = new Zt.N(S), H = gt.alloc(A.width * A.height * 4);
-      return A.decodeAndBlitFrameRGBA(0, H), { data: H, width: A.width, height: A.height };
+      const I = new Zt.N(S), H = gt.alloc(I.width * I.height * 4);
+      return I.decodeAndBlitFrameRGBA(0, H), { data: H, width: I.width, height: I.height };
     } }, encoders: { [Qt]: (S) => {
-      const A = new $t.BitmapImage(S.bitmap);
-      $t.GifUtil.quantizeDekker(A, 256);
-      const H = new $t.GifFrame(A);
+      const I = new $t.BitmapImage(S.bitmap);
+      $t.GifUtil.quantizeDekker(I, 256);
+      const H = new $t.GifFrame(I);
       return new $t.GifCodec().encodeGif([H], {}).then((Z) => Z.buffer);
     } } })], plugins: [(S) => {
-      const A = jr.map((H) => {
+      const I = jr.map((H) => {
         let Z = H(S) || {};
         return Z.class || Z.constants || (Z = { class: Z }), Z;
       });
-      return (0, ve.Ee)(...A);
+      return (0, ve.Ee)(...I);
     }] });
   })();
 })();
@@ -17805,14 +17805,14 @@ function updateSlides() {
   typeof G == "string" && G.indexOf("%") >= 0 ? G = parseFloat(G.replace("%", "")) / 100 * i : typeof G == "string" && (G = parseFloat(G)), d.virtualSize = -G, n.forEach((W) => {
     a ? W.style.marginLeft = "" : W.style.marginRight = "", W.style.marginBottom = "", W.style.marginTop = "";
   }), s.centeredSlides && s.cssMode && (setCSSProperty(e, "--swiper-centered-offset-before", ""), setCSSProperty(e, "--swiper-centered-offset-after", ""));
-  const I = s.grid && s.grid.rows > 1 && d.grid;
-  I ? d.grid.initSlides(n) : d.grid && d.grid.unsetSlides();
+  const A = s.grid && s.grid.rows > 1 && d.grid;
+  A ? d.grid.initSlides(n) : d.grid && d.grid.unsetSlides();
   let _;
   const R = s.slidesPerView === "auto" && s.breakpoints && Object.keys(s.breakpoints).filter((W) => typeof s.breakpoints[W].slidesPerView < "u").length > 0;
   for (let W = 0; W < u; W += 1) {
     _ = 0;
     let O;
-    if (n[W] && (O = n[W]), I && d.grid.updateSlide(W, O, n), !(n[W] && elementStyle(O, "display") === "none")) {
+    if (n[W] && (O = n[W]), A && d.grid.updateSlide(W, O, n), !(n[W] && elementStyle(O, "display") === "none")) {
       if (s.slidesPerView === "auto") {
         R && (n[W].style[d.getDirectionLabel("width")] = "");
         const N = getComputedStyle(O), U = O.style.transform, C = O.style.webkitTransform;
@@ -17836,7 +17836,7 @@ function updateSlides() {
       n[W] && (n[W].swiperSlideSize = _), v.push(_), s.centeredSlides ? (F = F + _ / 2 + V / 2 + G, V === 0 && W !== 0 && (F = F - i / 2 - G), W === 0 && (F = F - i / 2 - G), Math.abs(F) < 1 / 1e3 && (F = 0), s.roundLengths && (F = Math.floor(F)), q % s.slidesPerGroup === 0 && p.push(F), g.push(F)) : (s.roundLengths && (F = Math.floor(F)), (q - Math.min(d.params.slidesPerGroupSkip, q)) % d.params.slidesPerGroup === 0 && p.push(F), g.push(F), F = F + _ + G), d.virtualSize += _ + G, V = _, q += 1;
     }
   }
-  if (d.virtualSize = Math.max(d.virtualSize, i) + b, a && t && (s.effect === "slide" || s.effect === "coverflow") && (e.style.width = `${d.virtualSize + G}px`), s.setWrapperSize && (e.style[d.getDirectionLabel("width")] = `${d.virtualSize + G}px`), I && d.grid.updateWrapperSize(_, p), !s.centeredSlides) {
+  if (d.virtualSize = Math.max(d.virtualSize, i) + b, a && t && (s.effect === "slide" || s.effect === "coverflow") && (e.style.width = `${d.virtualSize + G}px`), s.setWrapperSize && (e.style[d.getDirectionLabel("width")] = `${d.virtualSize + G}px`), A && d.grid.updateWrapperSize(_, p), !s.centeredSlides) {
     const W = [];
     for (let O = 0; O < p.length; O += 1) {
       let N = p[O];
@@ -18551,7 +18551,7 @@ function loopFix(d) {
   const G = [], F = [];
   let V = r.activeIndex;
   typeof i > "u" ? i = r.getSlideIndex(o.filter((U) => U.classList.contains(g.slideActiveClass))[0]) : V = i;
-  const q = e === "next" || !e, I = e === "prev" || !e;
+  const q = e === "next" || !e, A = e === "prev" || !e;
   let _ = 0, R = 0;
   const W = k ? Math.ceil(o.length / g.grid.rows) : o.length, N = (k ? o[i].column : i) + (v && typeof f > "u" ? -x / 2 + 0.5 : 0);
   if (N < w) {
@@ -18576,14 +18576,14 @@ function loopFix(d) {
   }
   if (r.__preventObserver__ = !0, requestAnimationFrame(() => {
     r.__preventObserver__ = !1;
-  }), I && G.forEach((U) => {
+  }), A && G.forEach((U) => {
     o[U].swiperLoopMoveDOM = !0, p.prepend(o[U]), o[U].swiperLoopMoveDOM = !1;
   }), q && F.forEach((U) => {
     o[U].swiperLoopMoveDOM = !0, p.append(o[U]), o[U].swiperLoopMoveDOM = !1;
-  }), r.recalcSlides(), g.slidesPerView === "auto" ? r.updateSlides() : k && (G.length > 0 && I || F.length > 0 && q) && r.slides.forEach((U, C) => {
+  }), r.recalcSlides(), g.slidesPerView === "auto" ? r.updateSlides() : k && (G.length > 0 && A || F.length > 0 && q) && r.slides.forEach((U, C) => {
     r.grid.updateSlide(C, U, r.slides);
   }), g.watchSlidesProgress && r.updateSlidesOffset(), s) {
-    if (G.length > 0 && I) {
+    if (G.length > 0 && A) {
       if (typeof l > "u") {
         const U = r.slidesGrid[V], ae = r.slidesGrid[V + _] - U;
         t ? r.setTranslate(r.translate - ae) : (r.slideTo(V + _, 0, !1, !0), f && (r.touchEventsData.startTranslate = r.touchEventsData.startTranslate - ae, r.touchEventsData.currentTranslate = r.touchEventsData.currentTranslate - ae));
@@ -19770,19 +19770,19 @@ function updateSwiper(d) {
     virtual: v,
     thumbs: x
   } = l;
-  let b, w, k, G, F, V, q, I;
+  let b, w, k, G, F, V, q, A;
   f.includes("thumbs") && e.thumbs && e.thumbs.swiper && n.thumbs && !n.thumbs.swiper && (b = !0), f.includes("controller") && e.controller && e.controller.control && n.controller && !n.controller.control && (w = !0), f.includes("pagination") && e.pagination && (e.pagination.el || r) && (n.pagination || n.pagination === !1) && u && !u.el && (k = !0), f.includes("scrollbar") && e.scrollbar && (e.scrollbar.el || t) && (n.scrollbar || n.scrollbar === !1) && g && !g.el && (G = !0), f.includes("navigation") && e.navigation && (e.navigation.prevEl || a) && (e.navigation.nextEl || i) && (n.navigation || n.navigation === !1) && p && !p.prevEl && !p.nextEl && (F = !0);
   const _ = (R) => {
     l[R] && (l[R].destroy(), R === "navigation" ? (l.isElement && (l[R].prevEl.remove(), l[R].nextEl.remove()), n[R].prevEl = void 0, n[R].nextEl = void 0, l[R].prevEl = void 0, l[R].nextEl = void 0) : (l.isElement && l[R].el.remove(), n[R].el = void 0, l[R].el = void 0));
   };
-  f.includes("loop") && l.isElement && (n.loop && !e.loop ? V = !0 : !n.loop && e.loop ? q = !0 : I = !0), o.forEach((R) => {
+  f.includes("loop") && l.isElement && (n.loop && !e.loop ? V = !0 : !n.loop && e.loop ? q = !0 : A = !0), o.forEach((R) => {
     if (isObject(n[R]) && isObject(e[R]))
       Object.assign(n[R], e[R]), (R === "navigation" || R === "pagination" || R === "scrollbar") && "enabled" in e[R] && !e[R].enabled && _(R);
     else {
       const W = e[R];
       (W === !0 || W === !1) && (R === "navigation" || R === "pagination" || R === "scrollbar") ? W === !1 && _(R) : n[R] = e[R];
     }
-  }), o.includes("controller") && !w && l.controller && l.controller.control && n.controller && n.controller.control && (l.controller.control = n.controller.control), f.includes("children") && s && v && n.virtual.enabled ? (v.slides = s, v.update(!0)) : f.includes("virtual") && v && n.virtual.enabled && (s && (v.slides = s), v.update(!0)), f.includes("children") && s && n.loop && (I = !0), b && x.init() && x.update(!0), w && (l.controller.control = n.controller.control), k && (l.isElement && (!r || typeof r == "string") && (r = document.createElement("div"), r.classList.add("swiper-pagination"), r.part.add("pagination"), l.el.appendChild(r)), r && (n.pagination.el = r), u.init(), u.render(), u.update()), G && (l.isElement && (!t || typeof t == "string") && (t = document.createElement("div"), t.classList.add("swiper-scrollbar"), t.part.add("scrollbar"), l.el.appendChild(t)), t && (n.scrollbar.el = t), g.init(), g.updateSize(), g.setTranslate()), F && (l.isElement && ((!i || typeof i == "string") && (i = document.createElement("div"), i.classList.add("swiper-button-next"), i.innerHTML = l.hostEl.constructor.nextButtonSvg, i.part.add("button-next"), l.el.appendChild(i)), (!a || typeof a == "string") && (a = document.createElement("div"), a.classList.add("swiper-button-prev"), a.innerHTML = l.hostEl.constructor.prevButtonSvg, a.part.add("button-prev"), l.el.appendChild(a))), i && (n.navigation.nextEl = i), a && (n.navigation.prevEl = a), p.init(), p.update()), f.includes("allowSlideNext") && (l.allowSlideNext = e.allowSlideNext), f.includes("allowSlidePrev") && (l.allowSlidePrev = e.allowSlidePrev), f.includes("direction") && l.changeDirection(e.direction, !1), (V || I) && l.loopDestroy(), (q || I) && l.loopCreate(), l.update();
+  }), o.includes("controller") && !w && l.controller && l.controller.control && n.controller && n.controller.control && (l.controller.control = n.controller.control), f.includes("children") && s && v && n.virtual.enabled ? (v.slides = s, v.update(!0)) : f.includes("virtual") && v && n.virtual.enabled && (s && (v.slides = s), v.update(!0)), f.includes("children") && s && n.loop && (A = !0), b && x.init() && x.update(!0), w && (l.controller.control = n.controller.control), k && (l.isElement && (!r || typeof r == "string") && (r = document.createElement("div"), r.classList.add("swiper-pagination"), r.part.add("pagination"), l.el.appendChild(r)), r && (n.pagination.el = r), u.init(), u.render(), u.update()), G && (l.isElement && (!t || typeof t == "string") && (t = document.createElement("div"), t.classList.add("swiper-scrollbar"), t.part.add("scrollbar"), l.el.appendChild(t)), t && (n.scrollbar.el = t), g.init(), g.updateSize(), g.setTranslate()), F && (l.isElement && ((!i || typeof i == "string") && (i = document.createElement("div"), i.classList.add("swiper-button-next"), i.innerHTML = l.hostEl.constructor.nextButtonSvg, i.part.add("button-next"), l.el.appendChild(i)), (!a || typeof a == "string") && (a = document.createElement("div"), a.classList.add("swiper-button-prev"), a.innerHTML = l.hostEl.constructor.prevButtonSvg, a.part.add("button-prev"), l.el.appendChild(a))), i && (n.navigation.nextEl = i), a && (n.navigation.prevEl = a), p.init(), p.update()), f.includes("allowSlideNext") && (l.allowSlideNext = e.allowSlideNext), f.includes("allowSlidePrev") && (l.allowSlidePrev = e.allowSlidePrev), f.includes("direction") && l.changeDirection(e.direction, !1), (V || A) && l.loopDestroy(), (q || A) && l.loopCreate(), l.update();
 }
 function getParams(d, l) {
   d === void 0 && (d = {}), l === void 0 && (l = !0);
@@ -19915,7 +19915,7 @@ const SwiperSlideContext = /* @__PURE__ */ createContext(null), SwiperContext = 
     onSwiper: a,
     ...t
   } = d === void 0 ? {} : d, r = !1;
-  const [o, n] = useState("swiper"), [u, p] = useState(null), [g, v] = useState(!1), x = useRef(!1), b = useRef(null), w = useRef(null), k = useRef(null), G = useRef(null), F = useRef(null), V = useRef(null), q = useRef(null), I = useRef(null), {
+  const [o, n] = useState("swiper"), [u, p] = useState(null), [g, v] = useState(!1), x = useRef(!1), b = useRef(null), w = useRef(null), k = useRef(null), G = useRef(null), F = useRef(null), V = useRef(null), q = useRef(null), A = useRef(null), {
     params: _,
     passedParams: R,
     rest: W,
@@ -19968,7 +19968,7 @@ const SwiperSlideContext = /* @__PURE__ */ createContext(null), SwiperContext = 
         nextEl: F.current,
         prevEl: V.current,
         paginationEl: q.current,
-        scrollbarEl: I.current,
+        scrollbarEl: A.current,
         swiper: w.current
       }, _), a && a(w.current), () => {
         w.current && !w.current.destroyed && w.current.destroy(!0, !1);
@@ -19983,7 +19983,7 @@ const SwiperSlideContext = /* @__PURE__ */ createContext(null), SwiperContext = 
       changedParams: L,
       nextEl: F.current,
       prevEl: V.current,
-      scrollbarEl: I.current,
+      scrollbarEl: A.current,
       paginationEl: q.current
     }), () => {
       te();
@@ -20011,7 +20011,7 @@ const SwiperSlideContext = /* @__PURE__ */ createContext(null), SwiperContext = 
     ref: F,
     className: "swiper-button-next"
   })), needsScrollbar(_) && /* @__PURE__ */ React__default.createElement("div", {
-    ref: I,
+    ref: A,
     className: "swiper-scrollbar"
   }), needsPagination(_) && /* @__PURE__ */ React__default.createElement("div", {
     ref: q,
@@ -20567,7 +20567,7 @@ const MAX_PROMISE$1 = 20, MakerChangingColor = async (d, l, s, e, f, i, a, t, r,
       t.face
     )) })
   ] }) }) });
-}, MakerFaceMenu$1 = React__default.memo(MakerFaceMenu), MakerColorsPalleteMenu = ({}) => {
+}, MakerFaceMenu$1 = React__default.memo(MakerFaceMenu), palleteIcon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAAXNSR0IArs4c6QAAAGNQTFRFAAAAAAAAIiA0RSg8Zjkxj1Y733Em2aBm7sOa+/I2meVQar4wN5RuS2kvUkskMjw5Pz90MGCCW27hY5v/X83ky9v8////m623hH6HaWpqWVZSs1vVrDIy2Vdj13u6j5dKim8wpwxlZAAAACF0Uk5TAP//////////////////////////////////////////RvROpAAAAdNJREFUWIXtl8uOwzAIRcvKkbzLwpuq//+bkxqDAYPtzEizqEpUqVHN4fKwkz4eX/t0A7Lf+h5kNynCN9UPXpsQGVhZZa0ZcDix1TVFRNE1MyaAu368IoLyV11I9W5FABH3gPMy9oF8mSAkj6DjnycS8C5nJHBODsD4l3KyBsilZKNhJESAd8YMSDFB979lwApy7goSfsDz58oLQC+BVmAIuPB1GVQNVMS2VvujBvD93wTWADx7Q3yj4F0reJXyIg2498RqvEsJZyolIwGqAAYM8yxmGp6XgemDzIAUBFf1vwhagQX4sdG/lGfTYACJiziJLwBKAo28qYCzn1sGWAULsJUf418rGOApmMamfnZ/o2ASmWYPu0/+UoJzEro90BOmALFmpYF1rBQseERTCnZrsKNgmc+woxcK3Pz1fvSepRs0AbiXe6xA9R8mk21PNW8d8C+hDnsiqBqAwzbV1Gdaj9zOxK5uXYKmAJ8pjeb3WGnQ5zKtgfZ9rcA+WUTuigDRNA0Pt147qCupDVsCGuHovTtw55spD3rQCP0dDhzFKwF+RcLdtH5djGPv+A+zPZnBCSEMv/XeDVH+26/t4E3Avf8OYgrozeKGNzP+8rfla/9kP9/0RhFnWa3LAAAAAElFTkSuQmCC", MakerColorsPalleteMenu = ({}) => {
   const [d, l] = useState(!1), [s, e] = useState(0), { selectedParts: f, setSelectedParts: i } = useContext(SelectedPartsContext), a = useContext(PartsPathContext), t = useContext(PartsObjectContext), { partsObjectJimp: r, setPartsObjectJimp: o } = useContext(
     PartObjectJimpContext
   ), n = useContext(ColorsObjectContext), { selectedCategory: u, setSelectedCategory: p } = useContext(
@@ -20576,7 +20576,7 @@ const MAX_PROMISE$1 = 20, MakerChangingColor = async (d, l, s, e, f, i, a, t, r,
     null
   ), [k, G] = useState(
     null
-  ), [F, V] = useState(!0), [q, I] = useState(), [_, R] = useState(), [W, O] = useState(), [N, U] = useState(), [C, ae] = useState(), [J, te] = useState(), [$, L] = useState(), [re, z] = useState(), [j, ne] = useState(), [le, he] = useState(), [M, T] = useState(), [B, K] = useState(), h = useContext(NullImageContext), [c, m] = useState(!1), [D, ee] = useState(!1), [E, Q] = useState(!1), [se, Y] = useState(), be = (P) => {
+  ), [F, V] = useState(!0), [q, A] = useState(), [_, R] = useState(), [W, O] = useState(), [N, U] = useState(), [C, ae] = useState(), [J, te] = useState(), [$, L] = useState(), [re, z] = useState(), [j, ne] = useState(), [le, he] = useState(), [M, T] = useState(), [B, K] = useState(), h = useContext(NullImageContext), [c, m] = useState(!1), [D, ee] = useState(!1), [E, Q] = useState(!1), [se, Y] = useState(), be = (P) => {
     const { colorGroup: we, partSplit: X } = P;
     G(X), w(we);
   }, [Ee, ke] = useState(!0);
@@ -20584,7 +20584,7 @@ const MAX_PROMISE$1 = 20, MakerChangingColor = async (d, l, s, e, f, i, a, t, r,
     if (u && b && k) {
       Q(!0), ke(!0);
       const P = f.selectedColor[b], we = f.selectedColor;
-      I(
+      A(
         P ? P[k] ? P[k].color : P.default.color : we.none[k] ? we.none[k].color : we.none.default.color
       ), R(
         P ? P[k] ? P[k].hueReverse : P.default.hueReverse : we.none[k] ? we.none[k].hueReverse : we.none.default.hueReverse
@@ -20755,14 +20755,14 @@ const MAX_PROMISE$1 = 20, MakerChangingColor = async (d, l, s, e, f, i, a, t, r,
           "img",
           {
             className: void 0,
-            src: "/pallete.png",
+            src: palleteIcon,
             alt: "Hide Face"
           }
         ) : /* @__PURE__ */ jsxRuntimeExports.jsx(
           "img",
           {
             className: void 0,
-            src: "/pallete.png",
+            src: palleteIcon,
             alt: "Show Face"
           }
         )
@@ -20883,7 +20883,7 @@ const MAX_PROMISE$1 = 20, MakerChangingColor = async (d, l, s, e, f, i, a, t, r,
           name: "enableChain",
           id: "enableChain",
           onClick: () => {
-            I(se.color), R(se.hueReverse), O(se.saturationReverse), L(se.hueGraph.globalSlope), he(se.hueGraph.individualSlope), z(
+            A(se.color), R(se.hueReverse), O(se.saturationReverse), L(se.hueGraph.globalSlope), he(se.hueGraph.individualSlope), z(
               se.saturationGraph.globalSlope
             ), T(
               se.saturationGraph.individualSlope
@@ -20977,7 +20977,7 @@ const MAX_PROMISE$1 = 20, MakerChangingColor = async (d, l, s, e, f, i, a, t, r,
                 colorName: P,
                 isLoading: c,
                 onClick: () => {
-                  ke(!1), I(P);
+                  ke(!1), A(P);
                 }
               },
               P
@@ -21008,7 +21008,7 @@ const MAX_PROMISE$1 = 20, MakerChangingColor = async (d, l, s, e, f, i, a, t, r,
                       colorName: we,
                       isLoading: c,
                       onClick: () => {
-                        ke(!1), I(we);
+                        ke(!1), A(we);
                       }
                     }
                   )
@@ -21280,7 +21280,7 @@ const MAX_PROMISE$1 = 20, MakerChangingColor = async (d, l, s, e, f, i, a, t, r,
   if (window !== void 0) {
     const [r, o] = useState(), [n, u] = useState(), [p, g] = useState(), [v, x] = useState(), [b, w] = useState(), [k, G] = useState(
       i || MakerSelectedPartsGen(s, f)
-    ), [F, V] = useState(window.innerWidth), [q, I] = useState(
+    ), [F, V] = useState(window.innerWidth), [q, A] = useState(
       F < 480 ? 1 : 2
     ), [_, R] = useState(), [W, O] = useState(!0), [N, U] = useState(!0), [
       C,
@@ -21326,7 +21326,7 @@ const MAX_PROMISE$1 = 20, MakerChangingColor = async (d, l, s, e, f, i, a, t, r,
       })();
     }, [N, k, n]), useEffect(() => {
       const ne = () => {
-        V(window.innerWidth), I(F < 480 ? 1 : 2);
+        V(window.innerWidth), A(F < 480 ? 1 : 2);
       };
       return window.addEventListener("resize", ne), () => {
         window.removeEventListener("resize", ne);
