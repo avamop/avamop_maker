@@ -66,12 +66,18 @@ const MakerPartsMenu: React.FC = ({}) => {
                       : menuPartIcons[category].partList[
                           selectedParts.category[category].partName
                         ].faces["clear"].imagePath
-                    : menuPartIcons[category].partList[
+                    : (menuPartIcons[category].partList[
                         Object.keys(menuPartIcons[category].partList)[0]
-                      ].bodyType.includes(selectedParts.bodyType) ||
-                      menuPartIcons[category].partList[
+                      ].bodyType &&
+                        menuPartIcons[category].partList[
+                          Object.keys(menuPartIcons[category].partList)[0]
+                        ].bodyType.includes(selectedParts.bodyType)) ||
+                      (menuPartIcons[category].partList[
                         Object.keys(menuPartIcons[category].partList)[0]
-                      ].bodyType.length === 0
+                      ].bodyType &&
+                        menuPartIcons[category].partList[
+                          Object.keys(menuPartIcons[category].partList)[0]
+                        ].bodyType.length === 0)
                     ? menuPartIcons[category].partList[
                         Object.keys(menuPartIcons[category].partList)[0]
                       ].faces[selectedParts.selectedFace[category]]
@@ -84,6 +90,7 @@ const MakerPartsMenu: React.FC = ({}) => {
                     : menuPartIcons[category].partList[
                         Object.keys(menuPartIcons[category].partList).find(
                           (x) =>
+                            menuPartIcons[category].partList[x].bodyType &&
                             menuPartIcons[category].partList[
                               x
                             ].bodyType.includes(selectedParts.bodyType)
@@ -92,6 +99,7 @@ const MakerPartsMenu: React.FC = ({}) => {
                     ? menuPartIcons[category].partList[
                         Object.keys(menuPartIcons[category].partList).find(
                           (x) =>
+                            menuPartIcons[category].partList[x].bodyType &&
                             menuPartIcons[category].partList[
                               x
                             ].bodyType.includes(selectedParts.bodyType)
@@ -100,6 +108,7 @@ const MakerPartsMenu: React.FC = ({}) => {
                       ? menuPartIcons[category].partList[
                           Object.keys(menuPartIcons[category].partList).find(
                             (x) =>
+                              menuPartIcons[category].partList[x].bodyType &&
                               menuPartIcons[category].partList[
                                 x
                               ].bodyType.includes(selectedParts.bodyType)
@@ -108,6 +117,7 @@ const MakerPartsMenu: React.FC = ({}) => {
                       : menuPartIcons[category].partList[
                           Object.keys(menuPartIcons[category].partList).find(
                             (x) =>
+                              menuPartIcons[category].partList[x].bodyType &&
                               menuPartIcons[category].partList[
                                 x
                               ].bodyType.includes(selectedParts.bodyType)
@@ -132,29 +142,31 @@ const MakerPartsMenu: React.FC = ({}) => {
       {Object.keys(selectedParts.category).map((category) =>
         selectedCategory === category
           ? Object.keys(menuPartIcons[category].partList).map((item) =>
-              category === "body" ||
-              menuPartIcons[category].partList[item].bodyType.length === 0 ||
-              menuPartIcons[category].partList[item].bodyType.includes(
-                selectedParts.bodyType
-              ) ? (
-                <MakerPartsButton
-                  key={item}
-                  item={item}
-                  buttonImage={
-                    menuPartIcons[category].partList[item].faces["clear"]
-                      .imagePath
-                  }
-                  onClick={() =>
-                    MakerChangingPart(
-                      category,
-                      menuPartIcons[category].partList[item].bodyType,
-                      item,
-                      selectedParts,
-                      setSelectedParts,
-                      partsObject
-                    )
-                  }
-                />
+              menuPartIcons[category].partList[item].bodyType ? (
+                category === "body" ||
+                menuPartIcons[category].partList[item].bodyType.length === 0 ||
+                menuPartIcons[category].partList[item].bodyType.includes(
+                  selectedParts.bodyType
+                ) ? (
+                  <MakerPartsButton
+                    key={item}
+                    item={item}
+                    buttonImage={
+                      menuPartIcons[category].partList[item].faces["clear"]
+                        .imagePath
+                    }
+                    onClick={() =>
+                      MakerChangingPart(
+                        category,
+                        menuPartIcons[category].partList[item].bodyType,
+                        item,
+                        selectedParts,
+                        setSelectedParts,
+                        partsObject
+                      )
+                    }
+                  />
+                ) : null
               ) : null
             )
           : null

@@ -6,7 +6,7 @@ export const MakerSelectedPartsGen = (
   defaultColors: DefaultColors
 ): SelectedParts => {
   const selectedParts: SelectedParts = {
-    bodyType: null,
+    bodyType: "",
     face: "clear",
     category: {},
     selectedColor: {},

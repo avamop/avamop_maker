@@ -20146,14 +20146,14 @@ const swiperScrollbar$1 = "MakerPartsMenu-module__swiperScrollbar___moLPu", swip
             category: n,
             isSelected: s === n,
             onClick: () => a(n),
-            imageSrc: d.category[n].partName ? i[n].partList[d.category[n].partName].faces[d.selectedFace[n]] ? i[n].partList[d.category[n].partName].faces[d.selectedFace[n]].imagePath : i[n].partList[d.category[n].partName].faces.clear.imagePath : i[n].partList[Object.keys(i[n].partList)[0]].bodyType.includes(d.bodyType) || i[n].partList[Object.keys(i[n].partList)[0]].bodyType.length === 0 ? i[n].partList[Object.keys(i[n].partList)[0]].faces[d.selectedFace[n]] ? i[n].partList[Object.keys(i[n].partList)[0]].faces[d.selectedFace[n]].imagePath : i[n].partList[Object.keys(i[n].partList)[0]].faces.clear.imagePath : i[n].partList[Object.keys(i[n].partList).find(
-              (u) => i[n].partList[u].bodyType.includes(d.bodyType)
+            imageSrc: d.category[n].partName ? i[n].partList[d.category[n].partName].faces[d.selectedFace[n]] ? i[n].partList[d.category[n].partName].faces[d.selectedFace[n]].imagePath : i[n].partList[d.category[n].partName].faces.clear.imagePath : i[n].partList[Object.keys(i[n].partList)[0]].bodyType && i[n].partList[Object.keys(i[n].partList)[0]].bodyType.includes(d.bodyType) || i[n].partList[Object.keys(i[n].partList)[0]].bodyType && i[n].partList[Object.keys(i[n].partList)[0]].bodyType.length === 0 ? i[n].partList[Object.keys(i[n].partList)[0]].faces[d.selectedFace[n]] ? i[n].partList[Object.keys(i[n].partList)[0]].faces[d.selectedFace[n]].imagePath : i[n].partList[Object.keys(i[n].partList)[0]].faces.clear.imagePath : i[n].partList[Object.keys(i[n].partList).find(
+              (u) => i[n].partList[u].bodyType && i[n].partList[u].bodyType.includes(d.bodyType)
             )] ? i[n].partList[Object.keys(i[n].partList).find(
-              (u) => i[n].partList[u].bodyType.includes(d.bodyType)
+              (u) => i[n].partList[u].bodyType && i[n].partList[u].bodyType.includes(d.bodyType)
             )].faces[d.selectedFace[n]] ? i[n].partList[Object.keys(i[n].partList).find(
-              (u) => i[n].partList[u].bodyType.includes(d.bodyType)
+              (u) => i[n].partList[u].bodyType && i[n].partList[u].bodyType.includes(d.bodyType)
             )].faces[d.selectedFace[n]].imagePath : i[n].partList[Object.keys(i[n].partList).find(
-              (u) => i[n].partList[u].bodyType.includes(d.bodyType)
+              (u) => i[n].partList[u].bodyType && i[n].partList[u].bodyType.includes(d.bodyType)
             )].faces.clear.imagePath : i[n].partList[Object.keys(i[n].partList)[0]].faces[d.selectedFace[n]] ? i[n].partList[Object.keys(i[n].partList)[0]].faces[d.selectedFace[n]].imagePath : i[n].partList[Object.keys(i[n].partList)[0]].faces.clear.imagePath
           }
         ) }, n)) })
@@ -20161,9 +20161,9 @@ const swiperScrollbar$1 = "MakerPartsMenu-module__swiperScrollbar___moLPu", swip
     ),
     Object.keys(d.category).map(
       (n) => s === n ? Object.keys(i[n].partList).map(
-        (u) => n === "body" || i[n].partList[u].bodyType.length === 0 || i[n].partList[u].bodyType.includes(
+        (u) => i[n].partList[u].bodyType && (n === "body" || i[n].partList[u].bodyType.length === 0 || i[n].partList[u].bodyType.includes(
           d.bodyType
-        ) ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+        )) ? /* @__PURE__ */ jsxRuntimeExports.jsx(
           MakerPartsButton$1,
           {
             item: u,
@@ -21123,7 +21123,7 @@ const MAX_PROMISE$1 = 20, MakerChangingColor = async (d, l, s, e, f, i, a, t, r,
   children: []
 }), WindowWidthContext = createContext(0), MakerSelectedPartsGen = (d, l) => {
   const s = {
-    bodyType: null,
+    bodyType: "",
     face: "clear",
     category: {},
     selectedColor: {},
