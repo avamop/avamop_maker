@@ -11,7 +11,6 @@ import SelectedPartsContext from "../store/SelectedPartsContext";
 declare const Jimp: JimpObject;
 
 const MakerWindow: React.FC = () => {
-  const { selectedParts } = useContext(SelectedPartsContext);
   const { canvasImage } = useContext(CanvasImageContext);
   const [imageNumber, setImageNumber] = useState(0);
 

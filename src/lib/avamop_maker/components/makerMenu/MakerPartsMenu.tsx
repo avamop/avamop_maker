@@ -144,7 +144,6 @@ const MakerPartsMenu: React.FC = ({}) => {
           ? Object.keys(menuPartIcons[category].partList).map((item) =>
               menuPartIcons[category].partList[item].bodyType ? (
                 category === "body" ||
-                menuPartIcons[category].partList[item].bodyType.length === 0 ||
                 menuPartIcons[category].partList[item].bodyType.includes(
                   selectedParts.bodyType
                 ) ? (

@@ -47,9 +47,10 @@ export const MakerChangingPart = (
       if (tmpCategory !== "body") {
         updateAvaters.category[tmpCategory].partName !== ""
           ? (updateAvaters.category[tmpCategory].partName =
-              !partsObject[tmpCategory].partList[
+              partsObject[tmpCategory].partList[
                 Object.keys(partsObject[tmpCategory].partList)[0]
-              ].items[selectedParts.category[tmpCategory].partName].bodyType ||
+              ].items[selectedParts.category[tmpCategory].partName].bodyType
+                .length === 0 ||
               partsObject[tmpCategory].partList[
                 Object.keys(partsObject[tmpCategory].partList)[0]
               ].items[
