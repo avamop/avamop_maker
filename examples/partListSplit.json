@@ -1488,6 +1488,39 @@
                 "imagePath": "tops/maleSimpleTShirt/clear.png"
               }
             }
+          },
+          "femaleBlouseRuffled": {
+            "bodyType": [
+              "female"
+            ],
+            "enableColor": true,
+            "faces": {
+              "clear": {
+                "imagePath": "tops/femaleBlouseRuffled/clear.png"
+              }
+            }
+          },
+          "femaleHoodie": {
+            "bodyType": [
+              "female"
+            ],
+            "enableColor": true,
+            "faces": {
+              "clear": {
+                "imagePath": "tops/femaleHoodie/clear.png"
+              }
+            }
+          },
+          "maleHoodie": {
+            "bodyType": [
+              "male"
+            ],
+            "enableColor": true,
+            "faces": {
+              "clear": {
+                "imagePath": "tops/maleHoodie/clear.png"
+              }
+            }
           }
         }
       }
