@@ -2,7 +2,10 @@
   "allinone": {
     "partCount": 1,
     "partChain": "allinone",
-    "ignoreTrigger": ["tops", "bottoms"],
+    "ignoreTrigger": [
+      "tops",
+      "bottoms"
+    ],
     "partFlip": false,
     "partList": {
       "allinone": {
@@ -10,7 +13,9 @@
         "partOrder": 39,
         "items": {
           "femaleSimpleDress": {
-            "bodyType": ["female"],
+            "bodyType": [
+              "female"
+            ],
             "enableColor": true,
             "faces": {
               "clear": {
@@ -85,6 +90,42 @@
                 "imagePath": "backHair/skinHead/clear.png"
               }
             }
+          },
+          "ponytail": {
+            "bodyType": [],
+            "enableColor": true,
+            "faces": {
+              "clear": {
+                "imagePath": "backHair/ponytail/clear.png"
+              }
+            }
+          },
+          "semiShort": {
+            "bodyType": [],
+            "enableColor": true,
+            "faces": {
+              "clear": {
+                "imagePath": "backHair/semiShort/clear.png"
+              }
+            }
+          },
+          "short": {
+            "bodyType": [],
+            "enableColor": true,
+            "faces": {
+              "clear": {
+                "imagePath": "backHair/short/clear.png"
+              }
+            }
+          },
+          "twintail": {
+            "bodyType": [],
+            "enableColor": true,
+            "faces": {
+              "clear": {
+                "imagePath": "backHair/twintail/clear.png"
+              }
+            }
           }
         }
       }
@@ -101,7 +142,9 @@
         "partOrder": 22,
         "items": {
           "female": {
-            "bodyType": ["female"],
+            "bodyType": [
+              "female"
+            ],
             "enableColor": true,
             "faces": {
               "clear": {
@@ -110,7 +153,9 @@
             }
           },
           "male": {
-            "bodyType": ["male"],
+            "bodyType": [
+              "male"
+            ],
             "enableColor": true,
             "faces": {
               "clear": {
@@ -125,7 +170,9 @@
         "partOrder": 36,
         "items": {
           "female": {
-            "bodyType": ["female"],
+            "bodyType": [
+              "female"
+            ],
             "enableColor": true,
             "faces": {
               "clear": {
@@ -134,7 +181,9 @@
             }
           },
           "male": {
-            "bodyType": ["male"],
+            "bodyType": [
+              "male"
+            ],
             "enableColor": true,
             "faces": {
               "clear": {
@@ -149,7 +198,9 @@
         "partOrder": 45,
         "items": {
           "female": {
-            "bodyType": ["female"],
+            "bodyType": [
+              "female"
+            ],
             "enableColor": true,
             "faces": {
               "clear": {
@@ -158,7 +209,9 @@
             }
           },
           "male": {
-            "bodyType": ["male"],
+            "bodyType": [
+              "male"
+            ],
             "enableColor": true,
             "faces": {
               "clear": {
@@ -173,7 +226,9 @@
         "partOrder": 24,
         "items": {
           "female": {
-            "bodyType": ["female"],
+            "bodyType": [
+              "female"
+            ],
             "enableColor": false,
             "faces": {
               "clear": {
@@ -182,7 +237,9 @@
             }
           },
           "male": {
-            "bodyType": ["male"],
+            "bodyType": [
+              "male"
+            ],
             "enableColor": false,
             "faces": {
               "clear": {
@@ -197,7 +254,9 @@
   "bottoms": {
     "partCount": 1,
     "partChain": "bottoms",
-    "ignoreTrigger": ["allinone"],
+    "ignoreTrigger": [
+      "allinone"
+    ],
     "partFlip": false,
     "partList": {
       "bottoms": {
@@ -205,7 +264,9 @@
         "partOrder": 33,
         "items": {
           "femaleSkirtPleatedLong": {
-            "bodyType": ["female"],
+            "bodyType": [
+              "female"
+            ],
             "enableColor": true,
             "faces": {
               "clear": {
@@ -214,7 +275,9 @@
             }
           },
           "femaleSkirtPleatedShort": {
-            "bodyType": ["female"],
+            "bodyType": [
+              "female"
+            ],
             "enableColor": true,
             "faces": {
               "clear": {
@@ -223,7 +286,9 @@
             }
           },
           "malePantsSkinny": {
-            "bodyType": ["male"],
+            "bodyType": [
+              "male"
+            ],
             "enableColor": true,
             "faces": {
               "clear": {
@@ -913,6 +978,42 @@
                 "imagePath": "frontHair/skinHead/clear.png"
               }
             }
+          },
+          "bangsSideShort": {
+            "bodyType": [],
+            "enableColor": true,
+            "faces": {
+              "clear": {
+                "imagePath": "frontHair/bangsSideShort/clear.png"
+              }
+            }
+          },
+          "mens73Divisions": {
+            "bodyType": [],
+            "enableColor": true,
+            "faces": {
+              "clear": {
+                "imagePath": "frontHair/mens73Divisions/clear.png"
+              }
+            }
+          },
+          "mensCenterPart": {
+            "bodyType": [],
+            "enableColor": true,
+            "faces": {
+              "clear": {
+                "imagePath": "frontHair/mensCenterPart/clear.png"
+              }
+            }
+          },
+          "mensShortSharp": {
+            "bodyType": [],
+            "enableColor": true,
+            "faces": {
+              "clear": {
+                "imagePath": "frontHair/mensShortSharp/clear.png"
+              }
+            }
           }
         }
       }
@@ -1271,7 +1372,9 @@
         "partOrder": 30,
         "items": {
           "femaleSneakers": {
-            "bodyType": ["female"],
+            "bodyType": [
+              "female"
+            ],
             "enableColor": true,
             "faces": {
               "clear": {
@@ -1280,7 +1383,9 @@
             }
           },
           "maleSneakers": {
-            "bodyType": ["male"],
+            "bodyType": [
+              "male"
+            ],
             "enableColor": true,
             "faces": {
               "clear": {
@@ -1303,7 +1408,9 @@
         "partOrder": 27,
         "items": {
           "femaleSocksLong": {
-            "bodyType": ["female"],
+            "bodyType": [
+              "female"
+            ],
             "enableColor": true,
             "faces": {
               "clear": {
@@ -1312,7 +1419,9 @@
             }
           },
           "femaleSocksShort": {
-            "bodyType": ["female"],
+            "bodyType": [
+              "female"
+            ],
             "enableColor": true,
             "faces": {
               "clear": {
@@ -1321,7 +1430,9 @@
             }
           },
           "maleSocksLong": {
-            "bodyType": ["male"],
+            "bodyType": [
+              "male"
+            ],
             "enableColor": true,
             "faces": {
               "clear": {
@@ -1330,7 +1441,9 @@
             }
           },
           "maleSocksShort": {
-            "bodyType": ["male"],
+            "bodyType": [
+              "male"
+            ],
             "enableColor": true,
             "faces": {
               "clear": {
@@ -1345,7 +1458,9 @@
   "tops": {
     "partCount": 1,
     "partChain": "tops",
-    "ignoreTrigger": ["allinone"],
+    "ignoreTrigger": [
+      "allinone"
+    ],
     "partFlip": false,
     "partList": {
       "tops": {
@@ -1353,7 +1468,9 @@
         "partOrder": 42,
         "items": {
           "femaleSimpleTShirt": {
-            "bodyType": ["female"],
+            "bodyType": [
+              "female"
+            ],
             "enableColor": true,
             "faces": {
               "clear": {
@@ -1362,7 +1479,9 @@
             }
           },
           "maleSimpleTShirt": {
-            "bodyType": ["male"],
+            "bodyType": [
+              "male"
+            ],
             "enableColor": true,
             "faces": {
               "clear": {
